@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "55b70616_5f548512",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0266071_48800559",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20a06ac5_4daa517d",
         "filename": "runtime/well_known_classes.h",
         "patchSetId": 9
@@ -91,6 +115,30 @@
       "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ebf65a_419c4a44",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a06ac5_4daa517d",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "63c0a64c_97d13cf5",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3ae3cff_47b6c5a4",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2295762_e2f803de",
         "filename": "runtime/well_known_classes.h",
         "patchSetId": 9
@@ -137,6 +209,30 @@
       "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87fe8f7b_304d1377",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "c2295762_e2f803de",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 4
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "0e492d4e_0db6ea38",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbe11960_5f87efe9",
+      "range": {
+        "startLine": 66,
+        "startChar": 46,
+        "endLine": 66,
+        "endChar": 55
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd42ef18_d071b30f",
         "filename": "test/1972-jni-id-swap-indices/jni_id.cc",
         "patchSetId": 9
@@ -183,6 +303,30 @@
       "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a888a92a_fa5cabf8",
+        "filename": "test/1972-jni-id-swap-indices/jni_id.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T00:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd42ef18_d071b30f",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "79318c468033969d7b31b6ca8a84f7912e5a15c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
