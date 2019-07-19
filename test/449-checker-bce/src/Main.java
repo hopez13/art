@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-public class Main {
+import java.util.Random;
 
+public class Main {
   /// CHECK-START: int Main.sieve(int) BCE (before)
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
@@ -1185,6 +1186,59 @@ public class Main {
     }
   }
 
+  /// CHECK-START: void Main.transpose() BCE (after)
+  /// CHECK-NOT: BoundsCheck
+
+  static void transpose() {
+   int rows = 128;
+   int cols = 128;
+   int[][] C = new int[rows][cols];
+   int[][] A = new int[rows][cols];
+
+    Random rand = new Random(435437646);
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+         A[i][j] = rand.nextInt();
+      }
+    }
+
+   for (int i = 0; i < rows; i++) {
+     for (int j = 0; j < cols; j++) {
+       C[i][j] = A[j][i];
+     }
+   }
+
+  }
+
+
+  /// CHECK-START: void Main.multiply() BCE (after)
+  /// CHECK-NOT: BoundsCheck
+
+  static void multiply() {
+    int rows = 128;
+    int cols = 128;
+    int[][] A = new int[rows][cols];
+    int[][] B = new int[rows][cols];
+    int[][] C = new int[rows][cols];
+
+    Random rand = new Random(435437646);
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+         A[i][j] = rand.nextInt();
+         B[i][j] = rand.nextInt();
+      }
+    }
+    for (int i = 0; i < 128; i++) {
+      for (int j = 0; j < 128; j++) {
+        for (int k = 0; k < 128; k++) {
+           C[i][j] += A[i][k] * B[k][j];
+        }
+      }
+    }
+  }
+
   static int foo() {
     try {
       assertIsManaged();
@@ -1886,7 +1940,8 @@ public class Main {
         }
       }
     }
-
+    transpose();
+    multiply();
     array = new int[7];
     pyramid1(array);
     if (!isPyramid(array)) {

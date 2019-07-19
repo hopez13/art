@@ -819,6 +819,61 @@ class BCEVisitor : public HGraphVisitor {
       }
     }
   }
+  static bool IsArrayLengthKnown(HInstruction* instruction, int32_t* length) {
+    // Hunt for NewArrayDeclaration for this array_length
+    if (instruction->IsIntConstant()) {
+     *length = instruction->AsIntConstant()->GetValue();
+     return true;
+    }
+
+    // Indicates indirection level of the array access
+    int32_t index = 0;
+    while (instruction->IsArrayLength() ||
+           instruction->IsNullCheck() ||
+           instruction->IsArrayGet()) {
+      instruction = instruction->InputAt(0);
+      if (instruction->IsArrayGet()) {
+        index++;
+      }
+    }
+    while (instruction->IsBoundType() ||
+           instruction->IsInvokeStaticOrDirect() ||
+           instruction->IsNewArray()) {
+      if (instruction->IsNewArray()) {
+        HInstruction* dimensions = instruction->AsNewArray()->GetLength();
+        if (dimensions->IsIntConstant()) {
+          // Skim through the uses of the array declaration to
+          // find length at appropriate index
+          for (const HUseListNode<HInstruction*>& use : instruction->GetUses()) {
+            HInstruction* user = use.GetUser();
+            if (user->IsArraySet()) {
+              HInstruction * array_index = user->AsArraySet()->InputAt(1);
+              if (array_index->IsIntConstant()) {
+                int32_t cur_index = array_index->AsIntConstant()->GetValue();
+                if (index == cur_index) {
+                  HInstruction* value = user->AsArraySet()->InputAt(2);
+                  if (value->IsIntConstant()) {
+                    *length = value->AsIntConstant()->GetValue();
+                    return true;
+                  }
+                }
+              }
+            }
+          }
+        }
+        // We don't know the length of the array.
+        break;
+      } else if (instruction->IsBoundType()) {
+        instruction = instruction->InputAt(0);
+      } else {
+        if (instruction->GetInputs().size() > 1)
+          instruction = instruction->InputAt(1);
+        else
+        break;
+      }
+    }
+    return false;
+  }
 
   void VisitBoundsCheck(HBoundsCheck* bounds_check) override {
     HBasicBlock* block = bounds_check->GetBlock();
@@ -919,6 +974,26 @@ class BCEVisitor : public HGraphVisitor {
         TransformLoopForDynamicBCE(loop, bounds_check);
         return;
       }
+
+      if (array_length->HasOnlyOneNonEnvironmentUse()) {
+        HInstruction* use = array_length->GetUses().front().GetUser();
+        if (use->IsBoundsCheck()) {
+          int32_t size = -1;
+          if (IsArrayLengthKnown(array_length, &size)) {
+            // Replace this bounds check with index
+            ValueBound lower = ValueBound(nullptr, 0);        // constant 0
+            ValueBound upper = ValueBound(nullptr, size -1);  // array_length - 1
+            ValueRange array_range(&allocator_, lower, upper);
+            if (InductionRangeFitsIn(&array_range, bounds_check, &try_dynamic_bce)) {
+              ReplaceInstruction(bounds_check, index);
+              DCHECK(!array_length->HasUses());
+              array_length->GetBlock()->RemoveInstruction(array_length);
+              return;
+            }
+          }
+        }
+      }
+
       // Otherwise, prepare dominator-based dynamic elimination.
       if (first_index_bounds_check_map_.find(array_length->GetId()) ==
           first_index_bounds_check_map_.end()) {
