@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff8cb4bb_72979349",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-19T14:09:02Z",
+      "side": 1,
+      "message": "I suppose you\u0027re looking specifically for java.lang.reflect.Array.newInstance but you\u0027re not checking that anywhere. And the while loop is wrong as you could pass through the Array.newInstance more than once:\n\n  int[] dim \u003d { 2 }\n  int[] dim2 \u003d Array.newInstance(int.class, dim);\n  int[][] a \u003d Array.newInstance(int.class, dim2);  // int[0][0]\n\nAnd for `index !\u003d 0` you would need to do load-store analysis to check that the contents of the arrays were not modified between the Array.newInstance call and the BoundsCheck you\u0027re trying to eliminate.",
+      "range": {
+        "startLine": 840,
+        "startChar": 11,
+        "endLine": 840,
+        "endChar": 48
+      },
+      "revId": "4a8f16221fc34c7de1e13445990d11c9d2abe798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a9ee4b_82ee3bd9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-19T14:09:02Z",
+      "side": 1,
+      "message": "You\u0027d need load-store analysis to determine that this is the ArraySet that set the value passed to Array.newInstance(). For example\n\n  int[] dim \u003d new int[2];\n  int[][] array \u003d Array.newInstance(int.class, dim);\n  dim[0] \u003d 100;  //\u003c Too late.",
+      "range": {
+        "startLine": 849,
+        "startChar": 16,
+        "endLine": 849,
+        "endChar": 34
+      },
+      "revId": "4a8f16221fc34c7de1e13445990d11c9d2abe798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
