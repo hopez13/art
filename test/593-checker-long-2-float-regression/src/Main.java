@@ -37,10 +37,13 @@ public class Main {
   static float $noinline$longToFloat() {
     if (doThrow) { throw new Error(); }
     longValue = $inline$returnConst();
+    preventRedundantFieldLoadEliminationInD8();
     return (float) longValue;
   }
 
   static long $inline$returnConst() {
     return 1L;
   }
+
+  static void preventRedundantFieldLoadEliminationInD8() {}
 }
