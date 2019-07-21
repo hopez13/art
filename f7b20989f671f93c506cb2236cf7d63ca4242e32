@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09f696a_1dedaa78",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-07-21T20:31:24Z",
+      "side": 1,
+      "message": "Is this still intended to be related to the \"normal store\" part? It doesn\u0027t really seem to be.\n\nIIUC, the important difference between this and the status of a normal class is that all fields for the array class are properly initialized when the class is created. It\u0027s not necessary to check the status before reading them, as it is for static fields. Thus there is no need for the status field to ensure visibility of other accesses.\n\nI think in both cases, we ensure visibility of fields initialized at construction time (like the status field itself) with a combination of constructor fence, dependency-based ordering in the reader, and some amount of optimism that llvm acting on run-time code can\u0027t break the obvious address dependence.\n\nThus the fact that we\u0027re using a normal store here is a consequence of the fact that it doesn\u0027t enforce visibility for other fields; it doesn\u0027t really have to do with the constructor fence.\n\nDoes this sound right? If so, you may want to tweak the comment a little.",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 73
+      },
+      "revId": "f7b20989f671f93c506cb2236cf7d63ca4242e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
