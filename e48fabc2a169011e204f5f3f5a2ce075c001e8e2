@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd2f835b_512ef7d7",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-22T21:36:27Z",
+      "side": 1,
+      "message": "Why is this not ASSERT_SHARED(!) ASSERT(!)? Is Clang\u0027s analysis implicitly not separating this and it\u0027s unexpressible? This should be noted in the commit message, then.",
+      "range": {
+        "startLine": 339,
+        "startChar": 55,
+        "endLine": 339,
+        "endChar": 79
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec532b7b_820f7d4e",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
