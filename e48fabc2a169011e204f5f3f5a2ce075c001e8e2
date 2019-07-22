@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "eed92cda_4a728162",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1508323
+      },
+      "writtenOn": "2019-07-22T23:13:58Z",
+      "side": 1,
+      "message": "Sorry, I mean ASSERT_CAPABILITY will overwrites ASSERT_SHARED_CAPABILITY.",
+      "parentUuid": "3bda41ac_78ba82ce",
+      "range": {
+        "startLine": 339,
+        "startChar": 55,
+        "endLine": 339,
+        "endChar": 79
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec532b7b_820f7d4e",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I don\u0027t know. Hmm. I see that IsSharedHeld() and IsExclusiveHeld() have very different logic. I think it is better to do both checks.",
       "parentUuid": "ec532b7b_820f7d4e",
+      "range": {
+        "startLine": 341,
+        "startChar": 13,
+        "endLine": 341,
+        "endChar": 28
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e9f2e3_eca85266",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1508323
+      },
+      "writtenOn": "2019-07-22T23:13:58Z",
+      "side": 1,
+      "message": "Add CHECK(!IsSharedHeld(self)) in the new patch set.",
+      "parentUuid": "3d93e42e_c719c6ad",
       "range": {
         "startLine": 341,
         "startChar": 13,
