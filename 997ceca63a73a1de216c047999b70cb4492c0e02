@@ -51,6 +51,24 @@
       "revId": "997ceca63a73a1de216c047999b70cb4492c0e02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e3381d_20ca0b5e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3571,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-22T21:36:26Z",
+      "side": 1,
+      "message": "If this failed the runtime would still retry but it\u0027s not an expected state.\n\nThis is mostly just a sanity check.",
+      "parentUuid": "afc16b08_2697aeee",
+      "revId": "997ceca63a73a1de216c047999b70cb4492c0e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
