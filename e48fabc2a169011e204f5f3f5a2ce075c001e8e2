@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7515bd7e_e416a78d",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1508323
+      },
+      "writtenOn": "2019-07-22T22:54:42Z",
+      "side": 1,
+      "message": "I believe ASSERT and ASSERT_SHARED are the previous names for ASSERT_SHARED_CAPABILITY and ASSERT_CAPABILITY. Source: https://clang.llvm.org/docs/ThreadSafetyAnalysis.html.",
+      "parentUuid": "fd2f835b_512ef7d7",
+      "range": {
+        "startLine": 339,
+        "startChar": 55,
+        "endLine": 339,
+        "endChar": 79
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec532b7b_820f7d4e",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-22T21:33:39Z",
       "side": 1,
       "message": "Does this also fail if the lock is shared held?",
+      "range": {
+        "startLine": 341,
+        "startChar": 13,
+        "endLine": 341,
+        "endChar": 28
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d93e42e_c719c6ad",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1508323
+      },
+      "writtenOn": "2019-07-22T22:54:42Z",
+      "side": 1,
+      "message": "I don\u0027t know. Hmm. I see that IsSharedHeld() and IsExclusiveHeld() have very different logic. I think it is better to do both checks.",
+      "parentUuid": "ec532b7b_820f7d4e",
       "range": {
         "startLine": 341,
         "startChar": 13,
