@@ -694,6 +694,14 @@ class Runtime {
 
   void SetSignalHookDebuggable(bool value);
 
+  void SetGenerateHeapdumpDebuggable(bool value) {
+    is_generate_heapdump_debuggable_ = value;
+  }
+
+  bool GetGenerateHeapdumpDebuggable() const {
+    return is_generate_heapdump_debuggable_;
+  }
+
   bool AreNonStandardExitsEnabled() const {
     return non_standard_exits_enabled_;
   }
@@ -1250,6 +1258,9 @@ class Runtime {
   friend std::string GetFaultMessageForAbortLogging();
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
+
+  // Generate heapdump in case of OOM
+  bool is_generate_heapdump_debuggable_ = false;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };

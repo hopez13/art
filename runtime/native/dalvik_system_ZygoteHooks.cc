@@ -151,6 +151,7 @@ enum {
   PROFILE_SYSTEM_SERVER              = 1 << 14,
   USE_APP_IMAGE_STARTUP_CACHE        = 1 << 16,
   DEBUG_IGNORE_APP_SIGNAL_HANDLER    = 1 << 17,
+  DEBUG_GENERATE_HEAPDUMP            = 1 << 18,
 
   // bits to shift (flags & HIDDEN_API_ENFORCEMENT_POLICY_MASK) by to get a value
   // corresponding to hiddenapi::EnforcementPolicy
@@ -239,6 +240,11 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   if ((runtime_flags & DEBUG_IGNORE_APP_SIGNAL_HANDLER) != 0) {
     runtime->SetSignalHookDebuggable(true);
     runtime_flags &= ~DEBUG_IGNORE_APP_SIGNAL_HANDLER;
+  }
+
+  if ((runtime_flags & DEBUG_GENERATE_HEAPDUMP) != 0) {
+    runtime->SetGenerateHeapdumpDebuggable(true);
+    runtime_flags &= ~DEBUG_GENERATE_HEAPDUMP;
   }
 
   return runtime_flags;
