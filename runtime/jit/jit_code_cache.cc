@@ -929,7 +929,7 @@ void JitCodeCache::ClearEntryPointsInZygoteExecSpace() {
 }
 
 size_t JitCodeCache::CodeCacheSizeLocked() {
-  return private_region_.GetUsedMemoryForCode();
+  return GetCurrentRegion()->GetUsedMemoryForCode();
 }
 
 size_t JitCodeCache::DataCacheSize() {
@@ -938,7 +938,7 @@ size_t JitCodeCache::DataCacheSize() {
 }
 
 size_t JitCodeCache::DataCacheSizeLocked() {
-  return private_region_.GetUsedMemoryForData();
+  return GetCurrentRegion()->GetUsedMemoryForData();
 }
 
 void JitCodeCache::ClearData(Thread* self,
@@ -1719,7 +1719,13 @@ void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
 
 void JitCodeCache::Dump(std::ostream& os) {
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-  os << "Current JIT code cache size: " << PrettySize(private_region_.GetUsedMemoryForCode())
+  os << "Zygote JIT code cache size (at fork): "
+        << PrettySize(shared_region_.GetUsedMemoryForCode())
+        << "\n"
+     << "Zygote JIT data cache size (at fork): "
+        << PrettySize(shared_region_.GetUsedMemoryForData())
+        << "\n"
+     << "Current JIT code cache size: " << PrettySize(private_region_.GetUsedMemoryForCode())
                                         << "\n"
      << "Current JIT data cache size: " << PrettySize(private_region_.GetUsedMemoryForData())
                                         << "\n"
@@ -1764,6 +1770,9 @@ void JitCodeCache::PostForkChildAction(bool is_system_server, bool is_zygote) {
   number_of_compilations_ = 0;
   number_of_osr_compilations_ = 0;
   number_of_collections_ = 0;
+  histogram_stack_map_memory_use_.Reset();
+  histogram_code_memory_use_.Reset();
+  histogram_profiling_info_memory_use_.Reset();
 
   size_t initial_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheInitialCapacity();
   size_t max_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheMaxCapacity();
