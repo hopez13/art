@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3bda41ac_78ba82ce",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1508323
+      },
+      "writtenOn": "2019-07-22T23:00:30Z",
+      "side": 1,
+      "message": "The reason is that internally, ASSERT_CAPABILITY overwrites ASSERT_CAPABILITY. Yes, you are right, with the current thread safety analysis it is unexpressible.",
+      "parentUuid": "b0dc11f4_f4ad8278",
+      "range": {
+        "startLine": 339,
+        "startChar": 55,
+        "endLine": 339,
+        "endChar": 79
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec532b7b_820f7d4e",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
