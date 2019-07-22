@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b0dc11f4_f4ad8278",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-22T22:56:25Z",
+      "side": 1,
+      "message": "Sorry. You should read it as that, I wanted to save typing. I am asking why is this not \"ASSERT_SHARED_CAPABILITY(!this) ASSERT_CAPABILITY(!this)\u003e\"",
+      "parentUuid": "7515bd7e_e416a78d",
+      "range": {
+        "startLine": 339,
+        "startChar": 55,
+        "endLine": 339,
+        "endChar": 79
+      },
+      "revId": "e48fabc2a169011e204f5f3f5a2ce075c001e8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec532b7b_820f7d4e",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
