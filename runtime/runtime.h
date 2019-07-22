@@ -694,6 +694,14 @@ class Runtime {
 
   void SetSignalHookDebuggable(bool value);
 
+  void SetHeapDumpOnSigusr2(bool value) {
+    generate_heapdump_on_oome_ = value;
+  }
+
+  bool GetHeapDumpOnSigusr2() const {
+    return generate_heapdump_on_oome_;
+  }
+
   bool AreNonStandardExitsEnabled() const {
     return non_standard_exits_enabled_;
   }
@@ -1250,6 +1258,9 @@ class Runtime {
   friend std::string GetFaultMessageForAbortLogging();
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
+
+  // Generate heapdump in case of OOM
+  bool generate_heapdump_on_oome_ = false;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };

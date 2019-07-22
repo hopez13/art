@@ -44,6 +44,7 @@
 #include "signal_set.h"
 #include "thread.h"
 #include "thread_list.h"
+#include "hprof/hprof.h"
 
 namespace art {
 
@@ -148,6 +149,19 @@ void SignalCatcher::HandleSigUsr1() {
   ProfileSaver::ForceProcessProfiles();
 }
 
+void SignalCatcher::HandleSigUsr2() {
+  std::string cmdline;
+  if (ReadFileToString("/proc/self/cmdline", &cmdline)) {
+    cmdline.resize(cmdline.find_last_not_of('\0') + 1);
+    std::replace(cmdline.begin(), cmdline.end(), '\0', ' ');
+  } else {
+    cmdline = "";
+  }
+  std::string heapdump_name = "/heapdump/hprof-" + std::to_string(getuid()) + "_" + cmdline;
+  LOG(INFO) << "SIGUSR2 dump heap : " << heapdump_name;
+  hprof::DumpHeap(heapdump_name.c_str(), -1, false);
+}
+
 int SignalCatcher::WaitForSignal(Thread* self, SignalSet& signals) {
   ScopedThreadStateChange tsc(self, kWaitingInMainSignalCatcherLoop);
 
@@ -188,6 +202,10 @@ void* SignalCatcher::Run(void* arg) {
   SignalSet signals;
   signals.Add(SIGQUIT);
   signals.Add(SIGUSR1);
+  // In case of ro.debuggable 1 or debug.heapdump 1, we will customize signal, SIGUSR2.
+  if (runtime->GetHeapDumpOnSigusr2()) {
+    signals.Add(SIGUSR2);
+  }
 
   while (true) {
     int signal_number = signal_catcher->WaitForSignal(self, signals);
@@ -202,6 +220,9 @@ void* SignalCatcher::Run(void* arg) {
       break;
     case SIGUSR1:
       signal_catcher->HandleSigUsr1();
+      break;
+    case SIGUSR2:
+      signal_catcher->HandleSigUsr2();
       break;
     default:
       LOG(ERROR) << "Unexpected signal %d" << signal_number;
