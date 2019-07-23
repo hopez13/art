@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "6defc6bf_8b083e16",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-23T16:40:24Z",
+      "side": 1,
+      "message": "I\u0027ve simplified reasoning around array classes in https://android-review.googlesource.com/1055869 . PS4 is updated accordingly.",
+      "parentUuid": "93e871b3_b0293d93",
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4df0583f_a09d345c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
