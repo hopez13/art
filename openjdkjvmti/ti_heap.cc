@@ -30,6 +30,7 @@
 #include "class_root.h"
 #include "deopt_manager.h"
 #include "dex/primitive.h"
+#include "events-inl.h"
 #include "gc/collector_type.h"
 #include "gc/gc_cause.h"
 #include "gc/heap-visit-objects-inl.h"
@@ -66,6 +67,8 @@
 #include "well_known_classes.h"
 
 namespace openjdkjvmti {
+
+EventHandler* HeapExtensions::gEventHandler = nullptr;
 
 namespace {
 
@@ -1734,10 +1737,42 @@ static void ReplaceStrongRoots(art::Thread* self, ArrayPtr old_arr_ptr, ArrayPtr
   }
 }
 
-static void ReplaceWeakRoots(ArrayPtr old_arr_ptr, ArrayPtr new_arr_ptr)
+static void ReplaceWeakRoots(art::Thread* self,
+                             EventHandler* event_handler,
+                             ArrayPtr old_arr_ptr,
+                             ArrayPtr new_arr_ptr)
     REQUIRES(art::Locks::mutator_lock_,
              art::Locks::user_code_suspension_lock_,
              art::Roles::uninterruptible_) {
+  // Handle tags. We want to do this seprately from other weak-refs (handled below) because we need
+  // to send additional events and handle cases where the agent might have tagged the new
+  // replacement object during the VMObjectAlloc.
+  std::unordered_map<ArtJvmTiEnv*, jlong> obsolete_tags;
+  std::unordered_map<ArtJvmTiEnv*, jlong> non_obsolete_tags;
+  event_handler->ForEachEnv(self, [&](ArtJvmTiEnv* env) NO_THREAD_SAFETY_ANALYSIS {
+    // TODO
+    env->object_tag_table->Lock();
+    // Get the tags and clear them (so we don't need to special-case the normal weak-ref visitor)
+    jlong new_tag = 0;
+    jlong obsolete_tag = 0;
+    bool had_new_tag = env->object_tag_table->RemoveLocked(new_arr_ptr, &new_tag);
+    bool had_obsolete_tag = env->object_tag_table->RemoveLocked(old_arr_ptr, &obsolete_tag);
+    // Dispatch event.
+    if (had_obsolete_tag || had_new_tag) {
+      event_handler->DispatchEventOnEnv<ArtJvmtiEvent::kObsoleteObjectCreated>(env,
+                                                                               self,
+                                                                               &obsolete_tag,
+                                                                               &new_tag);
+      obsolete_tags[env] = obsolete_tag;
+      non_obsolete_tags[env] = new_tag;
+    }
+    // After weak-ref update go back and re-add obsoletes. We wait to avoid having to deal with
+    // the visit-weaks overwriting stuff and generally making things difficult. Since we have the
+    // mutator_lock_ and gc-paused throughout this whole process no threads should be able to see
+    // the interval where the objects are not tagged.
+    env->object_tag_table->Unlock();
+  });
+  // Handle weak-refs.
   struct ReplaceWeaksVisitor : public art::IsMarkedVisitor {
    public:
     ReplaceWeaksVisitor(ArrayPtr old_arr, ArrayPtr new_arr)
@@ -1758,9 +1793,21 @@ static void ReplaceWeakRoots(ArrayPtr old_arr_ptr, ArrayPtr new_arr_ptr)
   };
   ReplaceWeaksVisitor rwv(old_arr_ptr, new_arr_ptr);
   art::Runtime::Current()->SweepSystemWeaks(&rwv);
+  // Re-add the object tags
+  event_handler->ForEachEnv(self, [&](ArtJvmTiEnv* env) NO_THREAD_SAFETY_ANALYSIS {
+    env->object_tag_table->Lock();
+    if (obsolete_tags.find(env) != obsolete_tags.end()) {
+      env->object_tag_table->SetLocked(old_arr_ptr, obsolete_tags[env]);
+    }
+    if (non_obsolete_tags.find(env) != non_obsolete_tags.end()) {
+      env->object_tag_table->SetLocked(new_arr_ptr, non_obsolete_tags[env]);
+    }
+    env->object_tag_table->Unlock();
+  });
 }
 
 static void PerformArrayReferenceReplacement(art::Thread* self,
+                                             EventHandler* event_handler,
                                              ArrayPtr old_arr_ptr,
                                              ArrayPtr new_arr_ptr)
     REQUIRES(art::Locks::mutator_lock_,
@@ -1768,7 +1815,7 @@ static void PerformArrayReferenceReplacement(art::Thread* self,
              art::Roles::uninterruptible_) {
   ReplaceObjectReferences(old_arr_ptr, new_arr_ptr);
   ReplaceStrongRoots(self, old_arr_ptr, new_arr_ptr);
-  ReplaceWeakRoots(old_arr_ptr, new_arr_ptr);
+  ReplaceWeakRoots(self, event_handler, old_arr_ptr, new_arr_ptr);
 }
 
 }  // namespace
@@ -1861,8 +1908,12 @@ jvmtiError HeapExtensions::ChangeArraySize(jvmtiEnv* env, jobject arr, jsize new
       UNREACHABLE();
   }
   // Actually replace all the pointers.
-  PerformArrayReferenceReplacement(self, old_arr.Get(), new_arr.Get());
+  PerformArrayReferenceReplacement(self, gEventHandler, old_arr.Get(), new_arr.Get());
   return OK;
+}
+
+void HeapExtensions::Register(EventHandler* eh) {
+  gEventHandler = eh;
 }
 
 }  // namespace openjdkjvmti
