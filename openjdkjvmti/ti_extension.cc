@@ -31,6 +31,7 @@
 
 #include <vector>
 
+#include "jvmti.h"
 #include "ti_extension.h"
 
 #include "art_jvmti.h"
@@ -492,6 +493,40 @@ jvmtiError ExtensionUtil::GetExtensionEvents(jvmtiEnv* env,
         { "type", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
         { "data_size", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
         { "data",  JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, false },
+      });
+  if (error != OK) {
+    return error;
+  }
+  error = add_extension(
+      ArtJvmtiEvent::kObsoleteObjectCreated,
+      "com.android.art.heap.obsolete_object_created",
+      "Called when an obsolete object is created.\n"
+      "An obsolete object is created when, due to some jvmti function call all references to some"
+      " object is replaced with a reference to a different object. After this call finishes there"
+      " will be no strong references to the obsolete object anywere. If the object is retrieved"
+      " using GetObjectsWithTags or some other mechanism its type (class) may have changed and any"
+      " data it contains may have been deleted. This is primarily designed to support memory"
+      " tracking agents which make use of the ObjectFree and VMObjectAlloc events for tracking. To"
+      " support this use-case if this event is not being handled it will by default act as though"
+      " the following code was registered as a handler:\n"
+      "\n"
+      "  void HandleObsoleteObjectCreated(jvmtiEnv* env, jlong* obsolete_tag, jlong* new_tag) {\n"
+      "    jlong temp = *obsolete_tag;\n"
+      "    *obsolete_tag = *new_tag;\n"
+      "    *new_tag = temp;\n"
+      "  }\n"
+      "\n"
+      "Note that this event does not support filtering based on thread. This event has the same"
+      " restrictions on JNI and JVMTI function calls as the ObjectFree event.\n"
+      "\n"
+      "Arguments:\n"
+      "  obsolete_tag: Pointer to the tag the old object (now obsolete) has. Setting the pointer"
+      " will update the tag value.\n"
+      "  new_tag: Pointer to the tag the new object (replacing the obsolete one) has. Setting the"
+      " pointer will update the tag value.",
+      {
+        { "obsolete_tag", JVMTI_KIND_IN_PTR, JVMTI_TYPE_JLONG, false },
+        { "new_tag", JVMTI_KIND_IN_PTR, JVMTI_TYPE_JLONG, false },
       });
   if (error != OK) {
     return error;
