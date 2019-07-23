@@ -22,6 +22,30 @@
       "revId": "f8f5a16ed7bad1e18179e38453e59c96a944de10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151a55a9_5ff2a479",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 51
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-23T07:39:20Z",
+      "side": 1,
+      "message": "\u003e What do you think? Should we temporary disable loop optimizations for debuggable graphs until \u003e the fixes are done?\n\nYes that will be my preference, and bonus points if you can write a test case that exhibits the issue :)\n\nAre we safe with regards to synchronous deopt?",
+      "parentUuid": "bad0f70c_d91653fc",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 55
+      },
+      "revId": "f8f5a16ed7bad1e18179e38453e59c96a944de10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
