@@ -16,6 +16,24 @@
       "revId": "dd20d0006ff51a3aaaee8e8cb33cbbbd859b41f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d584e116_44d831e4",
+        "filename": "runtime/jit/jit-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-24T08:47:09Z",
+      "side": 0,
+      "message": "Depending on how hot the method becomes, it could. If the method becomes hot, then we will update the entrypoint anyway.\n\nBut I agree it would be better to find a way to avoid updating the method counter.",
+      "parentUuid": "17c07ff6_223f3c8e",
+      "revId": "dd20d0006ff51a3aaaee8e8cb33cbbbd859b41f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
