@@ -34,6 +34,24 @@
       "revId": "dd20d0006ff51a3aaaee8e8cb33cbbbd859b41f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e89e9dda_615682f9",
+        "filename": "runtime/jit/jit-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-07-24T09:27:53Z",
+      "side": 0,
+      "message": "Isn\u0027t it exactly the same amount of dirty memory?\n\nAssuming the app is started when zygote pre-compilations have finished,\npreviously it would have updated the entrypoint (making the page dirty),\nwhereas now, it will update the counter first, but that is the same page.\n\nRegardless, I agree the dirty counters are not ideal in general.\nIt would be nice to fix it.  The trouble might be performance.",
+      "parentUuid": "d584e116_44d831e4",
+      "revId": "dd20d0006ff51a3aaaee8e8cb33cbbbd859b41f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
