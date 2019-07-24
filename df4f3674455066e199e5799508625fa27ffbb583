@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47d0c7d3_5b45e926",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-24T09:15:02Z",
+      "side": 1,
+      "message": "Removed from here and ClassLinker::VisiblyInitializedCallbackDone(), keeping in ClassLinker::MakeInitializedClassesVisiblyInitialized() and ClassLinker::MarkClassInitialized().",
+      "parentUuid": "8358f612_d9cf4ad2",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 86
+      },
+      "revId": "df4f3674455066e199e5799508625fa27ffbb583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e79bbd1f_e95e33ea",
         "filename": "runtime/runtime.cc",
         "patchSetId": 6
@@ -39,6 +63,24 @@
       "revId": "df4f3674455066e199e5799508625fa27ffbb583",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c404e7f_77b3d5ff",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-24T09:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e79bbd1f_e95e33ea",
+      "revId": "df4f3674455066e199e5799508625fa27ffbb583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
