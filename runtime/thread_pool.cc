@@ -110,9 +110,13 @@ void* ThreadPoolWorker::Callback(void* arg) {
   return nullptr;
 }
 
-void ThreadPool::AddTask(Thread* self, Task* task) {
+void ThreadPool::AddTask(Thread* self, Task* task, bool front) {
   MutexLock mu(self, task_queue_lock_);
-  tasks_.push_back(task);
+  if (front) {
+    tasks_.push_front(task);
+  } else {
+    tasks_.push_back(task);
+  }
   // If we have any waiters, signal one.
   if (started_ && waiting_count_ != 0) {
     task_queue_condition_.Signal(self);

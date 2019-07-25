@@ -591,12 +591,17 @@ class JitCompileTask final : public Task {
   void Run(Thread* self) override {
     {
       ScopedObjectAccess soa(self);
+      Jit* jit = Runtime::Current()->GetJit();
       switch (kind_) {
         case TaskKind::kPreCompile:
+          if (jit->GetCodeCache()->ContainsPc(method_->GetEntryPointFromQuickCompiledCode())) {
+            return;  // The method was already compiled because it became hot.
+          }
+          FALLTHROUGH_INTENDED;
         case TaskKind::kCompile:
         case TaskKind::kCompileBaseline:
         case TaskKind::kCompileOsr: {
-          Runtime::Current()->GetJit()->CompileMethod(
+          jit->CompileMethod(
               method_,
               self,
               /* baseline= */ (kind_ == TaskKind::kCompileBaseline),
@@ -711,14 +716,14 @@ class JitProfileTask final : public Task {
         dex_files_,
         boot_profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
 
     Runtime::Current()->GetJit()->CompileMethodsFromProfile(
         self,
         dex_files_,
         profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
   }
 
   void Finalize() override {
@@ -918,7 +923,7 @@ uint32_t Jit::CompileMethodsFromProfile(
 }
 
 static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (method->IsClassInitializer() || !method->IsCompilable() || method->IsPreCompiled()) {
+  if (method->IsClassInitializer() || !method->IsCompilable()) {
     // We do not want to compile such methods.
     return true;
   }
@@ -952,6 +957,8 @@ bool Jit::MaybeCompileMethod(Thread* self,
       Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(method, code_ptr);
       return true;
     }
+    // Fallthrough - still count hotness of pre-compiled methods,
+    // and add new task for them so that they get compiled sooner.
   }
   if (IgnoreSamplesForMethod(method)) {
     return false;
@@ -1001,7 +1008,10 @@ bool Jit::MaybeCompileMethod(Thread* self,
     if (old_count < HotMethodThreshold() && new_count >= HotMethodThreshold()) {
       if (!code_cache_->ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
         DCHECK(thread_pool_ != nullptr);
-        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::TaskKind::kCompile));
+        Task* task = new JitCompileTask(method, JitCompileTask::TaskKind::kCompile);
+        // The pool might be full of (lower priority) pre-compiled methods,
+        // so add it at the start of queue so hot methods have priority.
+        thread_pool_->AddTask(self, task, /*front=*/ true);
       }
     }
     if (old_count < OSRMethodThreshold() && new_count >= OSRMethodThreshold()) {

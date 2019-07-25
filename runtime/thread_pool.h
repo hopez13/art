@@ -122,7 +122,8 @@ class ThreadPool {
 
   // Add a new task, the first available started worker will process it. Does not delete the task
   // after running it, it is the caller's responsibility.
-  void AddTask(Thread* self, Task* task) REQUIRES(!task_queue_lock_);
+  // If 'front' is set, the task will added to the start of the task queue.
+  void AddTask(Thread* self, Task* task, bool front = false) REQUIRES(!task_queue_lock_);
 
   // Remove all tasks in the queue.
   void RemoveAllTasks(Thread* self) REQUIRES(!task_queue_lock_);
