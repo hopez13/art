@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93024dfa_aa78c69b",
+        "filename": "runtime/jni/jni_env_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-25T15:43:27Z",
+      "side": 1,
+      "message": "Could consider re-enforcing when table_override \u003d\u003d nullptr, but probably not worth it.",
+      "revId": "e3f8327fb478e9ad2e090974c0cdb61c60e44a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
