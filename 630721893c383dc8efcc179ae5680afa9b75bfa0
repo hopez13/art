@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab69617d_48b6bb41",
+        "filename": "runtime/gc/space/large_object_space_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T13:32:39Z",
+      "side": 1,
+      "message": "Nit: Use\n\n  /*set_mark_bit\u003d*/\n\nto enable clang-tidy\u0027s misc-argument-comment check (https://releases.llvm.org/5.0.1/tools/clang/tools/extra/docs/clang-tidy/checks/misc-argument-comment.html).",
+      "range": {
+        "startLine": 88,
+        "startChar": 53,
+        "endLine": 88,
+        "endChar": 69
+      },
+      "revId": "630721893c383dc8efcc179ae5680afa9b75bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
