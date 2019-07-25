@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f76c7df_8ae92842",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2019-07-25T01:14:17Z",
+      "side": 1,
+      "message": "__thread would be faster than thread_local here -- should we use it?\n\ne.g. In a trivial benchmark using IE/LE accesses, __thread is about twice as fast as thread_local. Outside of thread.cc, the compiler inserts something like \"if (self_tls_dyn_init) self_tls_dyn_init()\" in front of each access because the unseen initializer could run arbitrary code, which is run on the first access. A __thread variable, on the other hand, can only have static initialization (constants, addresses), and the variable is initialized during thread creation.\n\nhttps://gist.github.com/rprichard/c21ab08f3e137a2078a69c2808f10794",
+      "range": {
+        "startLine": 1793,
+        "startChar": 9,
+        "endLine": 1793,
+        "endChar": 21
+      },
+      "revId": "a37999517aafc6a1209bb57a682188d7adccf650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
