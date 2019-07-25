@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "19666480_978540fc",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T13:15:10Z",
+      "side": 1,
+      "message": "Thanks for the tip; done in PS2.",
+      "parentUuid": "3aad4183_6136e727",
+      "revId": "9f74cb82126b47db944a62b3644b1afcf0c7427a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d4abec_9a036f4e",
         "filename": "test/README.chroot.md",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "79cdbdde_781b8d4d",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T13:15:10Z",
+      "side": 1,
+      "message": "Thanks! This looks much better; done in PS2.\n\nThanks also for pointing me to go/g3mark-service, this is much better than Emacs\u0027 Markdown support. :-)",
+      "parentUuid": "30d4abec_9a036f4e",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "9f74cb82126b47db944a62b3644b1afcf0c7427a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74b6d7e5_295fc863",
         "filename": "test/README.chroot.md",
         "patchSetId": 1
@@ -62,6 +104,30 @@
       "revId": "9f74cb82126b47db944a62b3644b1afcf0c7427a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677381a3_4612f03f",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T13:15:10Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I think I prefer the current layout, as I think it is more likely that someone wants to run both 64- and 32-bit ART run-tests than, say, 64-bit ART run-tests and 64-bit Libcore tests.",
+      "parentUuid": "74b6d7e5_295fc863",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "9f74cb82126b47db944a62b3644b1afcf0c7427a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
