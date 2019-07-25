@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a2c9c530_b68cfa89",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T16:24:07Z",
+      "side": 1,
+      "message": "This is a legitimate suggestion. :) However some of the code uses the existence/absence of ART_TEST_CHROOT as a condition, so that tests can be executed both with and without chroot on target – I think the latter needs a couple of fixes to work again, but I think it\u0027s worth fixing.\n\nI was thinking about extending art/test.py to do what you suggest (and hide most of the complexity of the whole procedure).",
+      "parentUuid": "1ad534bd_87bab9f8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "2c43da946092b50f428ca075a78c66e7a6c0c77f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01089e12_58ac2477",
         "filename": "test/README.chroot.md",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2c43da946092b50f428ca075a78c66e7a6c0c77f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256c7faa_37ef7dc1",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T16:24:07Z",
+      "side": 1,
+      "message": "Right; that\u0027s one of the major differences with ART_TEST_ANDROID_ROOT, which used to work (mostly) as non-root. Added in PS3.",
+      "parentUuid": "01089e12_58ac2477",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 77
+      },
+      "revId": "2c43da946092b50f428ca075a78c66e7a6c0c77f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
