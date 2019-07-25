@@ -22,6 +22,30 @@
       "revId": "8b242d02c61fc483ed69c807807525db8b250d5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b776ab80_c9503204",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-25T17:06:06Z",
+      "side": 1,
+      "message": "Yes – I started with the tree output because it was straightforward (I just mimicked tree(1)\u0027s  `-s` option).\n\nI was not sure how to integrate that information in the list output, so punted that for now. I\u0027ll upload a follow-up proposal CL.",
+      "parentUuid": "8649606f_4e79e424",
+      "range": {
+        "startLine": 726,
+        "startChar": 2,
+        "endLine": 728,
+        "endChar": 12
+      },
+      "revId": "8b242d02c61fc483ed69c807807525db8b250d5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
