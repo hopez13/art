@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7e8179b_99313c7b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-25T14:51:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f230402f_70f2daa9",
+      "range": {
+        "startLine": 320,
+        "startChar": 1,
+        "endLine": 321,
+        "endChar": 40
+      },
+      "revId": "453aa2db3700d3834d24b32be7e0175e07a17071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04d591b7_6a4a8d49",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "453aa2db3700d3834d24b32be7e0175e07a17071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1d688a_52cdbe92",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-25T14:51:46Z",
+      "side": 1,
+      "message": "This is tied to the allocation entrypoints which currently require only \"initialized\". If we restrict the optimization to \"visibly initialized\", we can drop some code there and we have a TODO for this:\n\n    https://android-review.googlesource.com/c/platform/art/+/398869/7/runtime/arch/arm/quick_entrypoints_arm.S#1216\n\nBut that should be done in a separate CL, this one starts with the codegen improvements.\n\nAdded a TODO here as well.",
+      "parentUuid": "04d591b7_6a4a8d49",
+      "range": {
+        "startLine": 204,
+        "startChar": 33,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "453aa2db3700d3834d24b32be7e0175e07a17071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
