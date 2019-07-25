@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c39bb34_a442c7ae",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-07-25T18:45:42Z",
+      "side": 1,
+      "message": "Add a helper for getting this. It will avoid duplicating the comment.",
+      "range": {
+        "startLine": 706,
+        "startChar": 4,
+        "endLine": 706,
+        "endChar": 70
+      },
+      "revId": "ef16400e624f6634a16bae5e1f267a432a6b8d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
