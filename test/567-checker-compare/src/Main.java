@@ -32,7 +32,7 @@ public class Main {
   /// CHECK-DAG:                     GreaterThanOrEqual [<<ArgX>>,<<Zero>>]
 
   public static void $opt$noinline$testReplaceInputWithItself(int x) {
-    if (doThrow) { throw new Error(); }
+    // if (doThrow) { throw new Error(); }
 
     // The instruction simplifier first replaces Integer.compare(x, 0) with Compare HIR
     // and then merges the Compare into the GreaterThanOrEqual. This is a regression

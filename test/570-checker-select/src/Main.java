@@ -280,7 +280,7 @@ public class Main {
       throw new Error();
     }
     int result = (a > b ? x : y);
-    return result + (a > b ? 0 : 1);
+    return result + (a > b ? 2 : 3);
   }
 
   /// CHECK-START: long Main.IntNonmatCond_LongVarVar(int, int, long, long) register (after)
@@ -692,8 +692,8 @@ public class Main {
 
     assertEqual(5, IntNonmatCond_IntVarVar(3, 2, 5, 7));
     assertEqual(7, IntNonmatCond_IntVarVar(2, 3, 5, 7));
-    assertEqual(5, IntMatCond_IntVarVar(3, 2, 5, 7));
-    assertEqual(8, IntMatCond_IntVarVar(2, 3, 5, 7));
+    assertEqual(7, IntMatCond_IntVarVar(3, 2, 5, 7));
+    assertEqual(10, IntMatCond_IntVarVar(2, 3, 5, 7));
 
     assertEqual(0xAAAAAAAA55555555L,
                 LongNonmatCond_LongVarVar(3L, 2L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
