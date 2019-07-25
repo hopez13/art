@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ad534bd_87bab9f8",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-25T16:02:36Z",
+      "side": 1,
+      "message": "Should we maybe support a default here so that folks do not have to do this manually (but can override)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "2c43da946092b50f428ca075a78c66e7a6c0c77f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01089e12_58ac2477",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-25T16:02:36Z",
+      "side": 1,
+      "message": "Should probably mention this requires root on device? (Talked w/ security, user namespaces to work around that are not a thing on Android and will probably never be.)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 77
+      },
+      "revId": "2c43da946092b50f428ca075a78c66e7a6c0c77f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
