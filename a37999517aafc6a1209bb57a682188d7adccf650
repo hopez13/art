@@ -22,6 +22,30 @@
       "revId": "a37999517aafc6a1209bb57a682188d7adccf650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163bffb6_17a1543f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-25T15:45:34Z",
+      "side": 1,
+      "message": "See the next patch in the stack. I still don\u0027t trust __thread too much. :-)",
+      "parentUuid": "5f76c7df_8ae92842",
+      "range": {
+        "startLine": 1793,
+        "startChar": 9,
+        "endLine": 1793,
+        "endChar": 21
+      },
+      "revId": "a37999517aafc6a1209bb57a682188d7adccf650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
