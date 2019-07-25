@@ -93,6 +93,30 @@
       "revId": "453aa2db3700d3834d24b32be7e0175e07a17071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a08431c1_372f3cb2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-25T17:02:53Z",
+      "side": 1,
+      "message": "This will require the `self-\u003eIncrementMakeVisiblyInitializedCounter()` in the allocation entrypoint slow paths.",
+      "parentUuid": "ff1d688a_52cdbe92",
+      "range": {
+        "startLine": 204,
+        "startChar": 33,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "453aa2db3700d3834d24b32be7e0175e07a17071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
