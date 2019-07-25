@@ -253,9 +253,11 @@ public class Main {
   }
 
   /// CHECK-START: int Main.IntMatCond_IntVarVar(int, int, int, int) register (after)
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
   /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
-  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},{{z\d+}}]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK:            <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [<<Get>>,{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -538,9 +540,11 @@ public class Main {
   }
 
   /// CHECK-START: int Main.FloatLtMatCond_IntVarVar(float, float, int, int) register (after)
-  /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{f\d+}},{{f\d+}}]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:       <<Cond:z\d+>> LessThanOrEqual [{{f\d+}},{{f\d+}}]
   /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [<<Get>>,{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.FloatLtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -559,9 +563,11 @@ public class Main {
   }
 
   /// CHECK-START: int Main.FloatGtMatCond_IntVarVar(float, float, int, int) register (after)
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
   /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual [{{f\d+}},{{f\d+}}]
   /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [<<Get>>,{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.FloatGtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               GreaterThanOrEqual
@@ -580,9 +586,12 @@ public class Main {
   }
 
   /// CHECK-START: float Main.FloatGtMatCond_FloatVarVar(float, float, float, float) register (after)
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
   /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual
   /// CHECK-NEXT:       <<Sel:f\d+>>  Select [{{f\d+}},{{f\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     TypeConversion [<<Cond>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [<<Get>>,{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:       <<Conv:f\d+>> TypeConversion [<<Sel2>>]
+  /// CHECK-NEXT:                     Add [<<Conv>>,<<Sel>>]
 
   /// CHECK-START-ARM64: float Main.FloatGtMatCond_FloatVarVar(float, float, float, float) disassembly (after)
   /// CHECK:               GreaterThanOrEqual
@@ -602,7 +611,8 @@ public class Main {
 
   /// CHECK-START: int Main.BoolCond_0_m1(boolean) register (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [{{i\d+}},<<Get>>,<<Cond>>]
 
   /// CHECK-START-ARM64: int Main.BoolCond_0_m1(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
@@ -612,12 +622,14 @@ public class Main {
 
   /// CHECK-START-X86_64: int Main.BoolCond_0_m1(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [{{i\d+}},<<Get>>,<<Cond>>]
   /// CHECK:                          cmovnz/ne
 
   /// CHECK-START-X86: int Main.BoolCond_0_m1(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [{{i\d+}},<<Get>>,<<Cond>>]
   /// CHECK:                          cmovnz/ne
 
   public static int BoolCond_0_m1(boolean cond) {
@@ -630,7 +642,8 @@ public class Main {
 
   /// CHECK-START: int Main.BoolCond_m1_0(boolean) register (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [<<Get>>,{{i\d+}},<<Cond>>]
 
   /// CHECK-START-ARM64: int Main.BoolCond_m1_0(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
@@ -640,12 +653,14 @@ public class Main {
 
   /// CHECK-START-X86_64: int Main.BoolCond_m1_0(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [<<Get>>,{{i\d+}},<<Cond>>]
   /// CHECK:                          cmovnz/ne
 
   /// CHECK-START-X86: int Main.BoolCond_m1_0(boolean) disassembly (after)
   /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK:            <<Get:z\d+>>  StaticFieldGet [{{l\d+}}]
+  /// CHECK:                          Select [<<Get>>,{{i\d+}},<<Cond>>]
   /// CHECK:                          cmovnz/ne
 
   public static int BoolCond_m1_0(boolean cond) {
