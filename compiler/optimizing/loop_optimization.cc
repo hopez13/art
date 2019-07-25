@@ -763,6 +763,7 @@ bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
   }
   // Vectorize loop, if possible and valid.
   if (kEnableVectorization &&
+      !graph_->IsDebuggable() &&
       TrySetSimpleLoopHeader(header, &main_phi) &&
       ShouldVectorize(node, body, trip_count) &&
       TryAssignLastValue(node->loop_info, main_phi, preheader, /*collect_loop_uses*/ true)) {
