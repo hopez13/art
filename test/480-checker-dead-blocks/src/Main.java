@@ -95,7 +95,7 @@ public class Main {
 
   public static int testDeadLoop(int x) {
     while (inlineFalse()) {
-      x++;
+      x+=2;
     }
     return x;
   }

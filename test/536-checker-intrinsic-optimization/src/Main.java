@@ -285,8 +285,7 @@ public class Main {
   /// CHECK-START: int Main.$opt$noinline$stringSum4LeadingChars(java.lang.String) BCE (after)
   /// CHECK-NOT:                    BoundsCheck is_string_char_at:true
 
-  static public int $opt$noinline$stringSum4LeadingChars(String s) {
-    if (doThrow) { throw new Error(); }
+  static public int $opt$noinline$stringSum4LeadingChars(String s) { 
     int sum = s.charAt(0) + s.charAt(1) + s.charAt(2) + s.charAt(3);
     return sum;
   }
