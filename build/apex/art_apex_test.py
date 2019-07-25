@@ -641,8 +641,9 @@ class NoSuperfluousLibrariesChecker:
 
 
 class List:
-  def __init__(self, provider):
+  def __init__(self, provider, print_size):
     self._provider = provider
+    self._print_size = print_size
 
   def print_list(self):
 
@@ -657,7 +658,8 @@ class List:
         del apex_map['..']
       for (_, val) in sorted(apex_map.items()):
         val_path = os.path.join(path, val.name)
-        print(val_path)
+        val_size = "[%11d]  " % val.size if self._print_size else ""
+        print('%s%s' % (val_size, val_path))
         if val.is_dir:
           print_list_rec(val_path)
 
@@ -723,8 +725,8 @@ def art_apex_test_main(test_args):
   if test_args.list and test_args.tree:
     logging.error("Both of --list and --tree set")
     return 1
-  if test_args.size and not test_args.tree:
-    logging.error("--size set but --tree not set")
+  if test_args.size and not (test_args.list or test_args.tree):
+    logging.error("--size set but neither --list nor --tree set")
     return 1
   if not test_args.tmpdir:
     logging.error("Need a tmpdir.")
@@ -751,7 +753,7 @@ def art_apex_test_main(test_args):
     Tree(apex_provider, test_args.apex, test_args.size).print_tree()
     return 0
   if test_args.list:
-    List(apex_provider).print_list()
+    List(apex_provider, test_args.size).print_list()
     return 0
 
   checkers = []
@@ -870,7 +872,7 @@ if __name__ == "__main__":
 
   parser.add_argument('--list', help='List all files', action='store_true')
   parser.add_argument('--tree', help='Print directory tree', action='store_true')
-  parser.add_argument('--size', help='Print file sizes in tree output', action='store_true')
+  parser.add_argument('--size', help='Print file sizes', action='store_true')
 
   parser.add_argument('--tmpdir', help='Directory for temp files')
   parser.add_argument('--debugfs', help='Path to debugfs')
