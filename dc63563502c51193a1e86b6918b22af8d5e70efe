@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0db6315c_99f50f0c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-25T13:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89580f7a_fe8fef40",
+      "range": {
+        "startLine": 650,
+        "startChar": 31,
+        "endLine": 650,
+        "endChar": 75
+      },
+      "revId": "dc63563502c51193a1e86b6918b22af8d5e70efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71000883_2c1411f1",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-25T02:26:00Z",
       "side": 1,
       "message": "is this TODO done now? Or does it refer to something else?",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 36
+      },
+      "revId": "dc63563502c51193a1e86b6918b22af8d5e70efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4784d64f_35480f6a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-25T13:57:57Z",
+      "side": 1,
+      "message": "No - Once I populate the profile, I\u0027ll check if I can remove the TODO.",
+      "parentUuid": "71000883_2c1411f1",
       "range": {
         "startLine": 777,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "634b85a3_5403528e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-25T13:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a12be1fb_74e50e69",
+      "range": {
+        "startLine": 800,
+        "startChar": 4,
+        "endLine": 800,
+        "endChar": 7
+      },
+      "revId": "dc63563502c51193a1e86b6918b22af8d5e70efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65bf83b6_86c038f7",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-07-25T02:26:00Z",
       "side": 1,
       "message": "It\u0027s a bit odd from an API to return the value of one of your arguments :)",
+      "range": {
+        "startLine": 353,
+        "startChar": 55,
+        "endLine": 354,
+        "endChar": 39
+      },
+      "revId": "dc63563502c51193a1e86b6918b22af8d5e70efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "681a4adb_084795c1",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-25T13:57:57Z",
+      "side": 1,
+      "message": "Indeed :) Re-worded.",
+      "parentUuid": "65bf83b6_86c038f7",
       "range": {
         "startLine": 353,
         "startChar": 55,
