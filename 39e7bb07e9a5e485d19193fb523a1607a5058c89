@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d42b932c_bbe1168f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-07-26T16:47:39Z",
+      "side": 1,
+      "message": "Why did you make a temporary lambda here?",
+      "range": {
+        "startLine": 1218,
+        "startChar": 44,
+        "endLine": 1227,
+        "endChar": 12
+      },
+      "revId": "39e7bb07e9a5e485d19193fb523a1607a5058c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
