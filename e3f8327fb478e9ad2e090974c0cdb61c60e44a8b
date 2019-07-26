@@ -16,6 +16,24 @@
       "revId": "e3f8327fb478e9ad2e090974c0cdb61c60e44a8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4def3311_ad740a9e",
+        "filename": "runtime/jni/jni_env_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-07-26T08:41:22Z",
+      "side": 1,
+      "message": "Agree. It just needs caching of the old policy value to restore or a separate global override that gets toggled. I started down the global override path when first looking at this. The main pain point is the logic is already quite fine f(kTargetBuild, policy, depth).",
+      "parentUuid": "93024dfa_aa78c69b",
+      "revId": "e3f8327fb478e9ad2e090974c0cdb61c60e44a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
