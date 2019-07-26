@@ -2381,12 +2381,6 @@ bool Runtime::IsActiveTransaction() const {
   return !preinitialization_transactions_.empty() && !GetTransaction()->IsRollingBack();
 }
 
-void Runtime::EnterTransactionMode() {
-  DCHECK(IsAotCompiler());
-  DCHECK(!IsActiveTransaction());
-  preinitialization_transactions_.push_back(std::make_unique<Transaction>());
-}
-
 void Runtime::EnterTransactionMode(bool strict, mirror::Class* root) {
   DCHECK(IsAotCompiler());
   preinitialization_transactions_.push_back(std::make_unique<Transaction>(strict, root));
