@@ -46,6 +46,30 @@
       "revId": "acff77804a075f8253b1b722dddbf2794c831255",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9202555c_ebaebd27",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2019-07-26T18:24:09Z",
+      "side": 1,
+      "message": "I did this by adding a CPPLINT.cfg in each of the libnative* directories.\n\npaulduffin@paulduffin:~/android/aosp/master/art$ cat libnativeloader/CPPLINT.cfg \n#\n# Copyright (C) 2019 The Android Open Source Project\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n\nfilter\u003d-build/header_guard\nfilter\u003d-readability/check\nfilter\u003d-build/namespaces\npaulduffin@paulduffin:~/android/aosp/master/art$ cat libnativebridge/CPPLINT.cfg \n#\n# Copyright (C) 2019 The Android Open Source Project\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n\nfilter\u003d-build/header_guard\nfilter\u003d-whitespace/comments\nfilter\u003d-whitespace/parens",
+      "parentUuid": "0fb22254_e4a1ed53",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "acff77804a075f8253b1b722dddbf2794c831255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
