@@ -254,7 +254,10 @@ static Parser CreateArgumentParser() {
           .IntoKey(M::RuntimeOptions)
       .Define("--compilation-reason=_")
           .WithType<std::string>()
-          .IntoKey(M::CompilationReason);
+          .IntoKey(M::CompilationReason)
+      .Define("--public-api-classpath=_")
+          .WithType<std::string>()
+          .IntoKey(M::PublicApiClasspath);;
 
   AddCompilerOptionsArgumentParserOptions<Dex2oatArgumentMap>(*parser_builder);
 

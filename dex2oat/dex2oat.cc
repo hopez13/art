@@ -500,6 +500,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("");
   UsageError("  --max-image-block-size=<size>: Maximum solid block size for compressed images.");
   UsageError("");
+  UsageError("  --public-api-classpath=classpath: A list of jar/dex/apk files, separated by semicolons.");
+  UsageError("      If present, the compiler will only resolve classes/methods/fields which are");
+  UsageError("      part of this stubs.");
+  UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
@@ -1158,6 +1162,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::DirtyImageObjects, &dirty_image_objects_filename_);
     AssignIfExists(args, M::ImageFormat, &image_storage_mode_);
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
+    AssignIfExists(args, M::PublicApiClasspath, &public_api_classpath_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
     parser_options->requested_specific_compiler = args.Exists(M::Backend);
@@ -1854,6 +1859,23 @@ class Dex2Oat final {
       class_loader =
           class_loader_context_->CreateClassLoader(compiler_options_->dex_files_for_oat_file_);
       callbacks_->SetDexFiles(&dex_files);
+
+      // We need to set this after we create the class loader so that the runtime can access
+      // the hidden fields of the well known class loaders.
+      if (!public_api_classpath_.empty()) {
+        std::string error_msg;
+        std::unique_ptr<ApiChecker> api_checker(
+            ApiChecker::Create(public_api_classpath_, &error_msg));
+        if (api_checker == nullptr) {
+          PLOG(ERROR) << "Failed to create ApiChecker with classpath "
+              << public_api_classpath_
+              << " Error: "
+              << error_msg;
+          // return dex2oat::ReturnCode::kOther;
+        } else {
+          Runtime::Current()->GetClassLinker()->SetApiChecker(std::move(api_checker));
+        }
+      }
     }
 
     // Register dex caches and key them to the class loader so that they only unload when the
@@ -2829,6 +2851,9 @@ class Dex2Oat final {
 
   // The reason for invoking the compiler.
   std::string compilation_reason_;
+
+  // The classpath that determines if a given symbol should be resolved at compile time or not.
+  std::string public_api_classpath_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };

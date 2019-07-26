@@ -449,6 +449,10 @@ inline ObjPtr<mirror::ObjectArray<mirror::Class>> ClassLinker::GetClassRoots() {
   return class_roots;
 }
 
+inline bool ClassLinker::UseExplicitPublicApiClasspath() const {
+  return (api_checker_ != nullptr) && Runtime::Current()->IsAotCompiler();
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_CLASS_LINKER_INL_H_

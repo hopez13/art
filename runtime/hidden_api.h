@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include "api_checker.h"
 #include "art_field.h"
 #include "art_method.h"
 #include "base/hiddenapi_domain.h"
@@ -384,6 +385,21 @@ inline bool ShouldDenyAccessToMember(T* member,
                                      AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
+
+  // First check if we were pass with an explicit public api classpath that should be used to
+  // verify access. If so, make the decision based on it.
+  // This is used during AOT compilation which may want to generate verification metadata
+  // only for a specific list of public APIs, or for the cases that are not covered by the
+  // hidden API implementation (e.g. classes).
+
+  // TODO(calin): re-evaluate this design. It's convenient, because the hidden api calls are
+  // hooked in all the right places but it's pretty ugly to have this reverse dependency
+  // on the linker - especially since the defineClass check is done in the linker.
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  if (UNLIKELY(class_linker->UseExplicitPublicApiClasspath())
+        && member->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    return class_linker->GetApiChecker()->ShouldDenyAccess(member);
+  }
 
   // Get the runtime flags encoded in member's access flags.
   // Note: this works for proxy methods because they inherit access flags from their

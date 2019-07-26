@@ -20,6 +20,7 @@
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "api_checker.h"
 #include "base/dumpable.h"
 #include "base/file_utils.h"
 #include "class_root.h"

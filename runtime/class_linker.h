@@ -25,6 +25,7 @@
 #include <utility>
 #include <vector>
 
+#include "api_checker.h"
 #include "base/enums.h"
 #include "base/locks.h"
 #include "base/macros.h"
@@ -719,6 +720,10 @@ class ClassLinker {
     return cha_.get();
   }
 
+  void SetApiChecker(std::unique_ptr<ApiChecker>&& api_checker_);
+  const ApiChecker* GetApiChecker() const;
+  bool UseExplicitPublicApiClasspath() const;
+
   struct DexCacheData {
     // Construct an invalid data object.
     DexCacheData()
@@ -1382,6 +1387,8 @@ class ClassLinker {
   PointerSize image_pointer_size_;
 
   std::unique_ptr<ClassHierarchyAnalysis> cha_;
+
+  std::unique_ptr<ApiChecker> api_checker_;
 
   class FindVirtualMethodHolderVisitor;
 
