@@ -27,6 +27,7 @@
 #include <utility>
 #include <vector>
 
+#include "api_checker.h"
 #include "base/enums.h"
 #include "base/mutex.h"
 #include "base/intrusive_forward_list.h"
@@ -794,6 +795,10 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!critical_native_code_with_clinit_check_lock_);
 
+  void SetApiChecker(std::unique_ptr<ApiChecker>&& api_checker_);
+  const ApiChecker* GetApiChecker() const;
+  bool UseExplicitPublicApiClasspath() const;
+
   struct DexCacheData {
     // Construct an invalid data object.
     DexCacheData()
@@ -1466,6 +1471,8 @@ class ClassLinker {
       GUARDED_BY(critical_native_code_with_clinit_check_lock_);
 
   std::unique_ptr<ClassHierarchyAnalysis> cha_;
+
+  std::unique_ptr<ApiChecker> api_checker_;
 
   class FindVirtualMethodHolderVisitor;
 
