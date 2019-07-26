@@ -175,6 +175,7 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitCodeCache* code_cache, JitOptions* options)
     : code_cache_(code_cache),
       options_(options),
+      precompile_tasks_lock_("JIT precompile tasks lock"),
       cumulative_timings_("JIT timings"),
       memory_use_("Memory used for compilation", 16),
       lock_("JIT memory use lock") {}
@@ -591,12 +592,18 @@ class JitCompileTask final : public Task {
   void Run(Thread* self) override {
     {
       ScopedObjectAccess soa(self);
+      Jit* jit = Runtime::Current()->GetJit();
       switch (kind_) {
         case TaskKind::kPreCompile:
+          // The method might have been already compiled if it became hot during start up.
+          if (jit->GetCodeCache()->ContainsPc(method_->GetEntryPointFromQuickCompiledCode())) {
+            return;
+          }
+          FALLTHROUGH_INTENDED;
         case TaskKind::kCompile:
         case TaskKind::kCompileBaseline:
         case TaskKind::kCompileOsr: {
-          Runtime::Current()->GetJit()->CompileMethod(
+          jit->CompileMethod(
               method_,
               self,
               /* baseline= */ (kind_ == TaskKind::kCompileBaseline),
@@ -678,6 +685,35 @@ class ZygoteTask final : public Task {
   DISALLOW_COPY_AND_ASSIGN(ZygoteTask);
 };
 
+// Task which pre-compiles one method and then reschedules itself as the last task.
+// This allows other tasks to execute as well (e.g. compile hot start-up methods).
+class JitPrecompileTask final : public Task {
+ public:
+  JitPrecompileTask() {}
+
+  void Run(Thread* self) override {
+    Jit* jit = Runtime::Current()->GetJit();
+    Task* task = nullptr;
+    {
+      MutexLock mu(self, jit->precompile_tasks_lock_);
+      if (!jit->precompile_tasks_.empty()) {
+        task = jit->precompile_tasks_.front();
+        jit->precompile_tasks_.pop_front();
+      }
+    }
+    if (task != nullptr) {
+      task->Run(self);
+      task->Finalize();
+      jit->thread_pool_->AddTask(self, this);
+    }
+  }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(JitPrecompileTask);
+};
+
+static JitPrecompileTask s_jit_precompile_task;
+
 class JitProfileTask final : public Task {
  public:
   JitProfileTask(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
@@ -711,14 +747,14 @@ class JitProfileTask final : public Task {
         dex_files_,
         boot_profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
 
     Runtime::Current()->GetJit()->CompileMethodsFromProfile(
         self,
         dex_files_,
         profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
   }
 
   void Finalize() override {
@@ -794,8 +830,17 @@ bool Jit::CompileMethodFromProfile(Thread* self,
             "Lcom/android/internal/os/ZygoteServer;")) {
       CompileMethod(method, self, /* baseline= */ false, /* osr= */ false, /* prejit= */ true);
     } else {
-      thread_pool_->AddTask(self,
-          new JitCompileTask(method, JitCompileTask::TaskKind::kPreCompile));
+      bool first;
+      {
+        MutexLock mu(self, precompile_tasks_lock_);
+        first = (precompile_tasks_.size() == 0);
+        precompile_tasks_.emplace_back(
+            new JitCompileTask(method, JitCompileTask::TaskKind::kPreCompile));
+      }
+      // If this is the first added method, start the pre-compilation task.
+      if (first) {
+        thread_pool_->AddTask(self, &s_jit_precompile_task);
+      }
       return true;
     }
   }
@@ -918,7 +963,7 @@ uint32_t Jit::CompileMethodsFromProfile(
 }
 
 static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (method->IsClassInitializer() || !method->IsCompilable() || method->IsPreCompiled()) {
+  if (method->IsClassInitializer() || !method->IsCompilable()) {
     // We do not want to compile such methods.
     return true;
   }
@@ -1128,6 +1173,12 @@ void Jit::PostForkChildAction(bool is_system_server, bool is_zygote) {
   code_cache_->SetGarbageCollectCode(!jit_generate_debug_info_(jit_compiler_handle_) &&
       !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled());
 
+  {
+    // Do not inherit the pre-compilation list from zygote.
+    MutexLock mu(Thread::Current(), precompile_tasks_lock_);
+    precompile_tasks_.clear();
+  }
+
   if (thread_pool_ != nullptr) {
     if (is_system_server &&
         Runtime::Current()->IsUsingApexBootImageLocation() &&
@@ -1135,6 +1186,7 @@ void Jit::PostForkChildAction(bool is_system_server, bool is_zygote) {
       // Disable garbage collection: we don't want it to delete methods we're compiling
       // through boot and system server profiles.
       // TODO(ngeoffray): Fix this so we still collect deoptimized and unused code.
+      // TODO(dsrbecky): Collect code that has since been compiled in zygote process.
       code_cache_->SetGarbageCollectCode(false);
     }
 
@@ -1155,6 +1207,7 @@ void Jit::PostZygoteFork() {
     return;
   }
   thread_pool_->CreateThreads();
+  thread_pool_->AddTask(Thread::Current(), &s_jit_precompile_task);
 }
 
 bool Jit::CanEncodeMethod(ArtMethod* method, bool is_for_shared_region) const {

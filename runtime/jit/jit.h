@@ -394,10 +394,15 @@ class Jit {
   std::unique_ptr<ThreadPool> thread_pool_;
   std::vector<std::unique_ptr<OatDexFile>> type_lookup_tables_;
 
+  std::deque<Task*> precompile_tasks_ GUARDED_BY(precompile_tasks_lock_);
+  Mutex precompile_tasks_lock_;
+
   // Performance monitoring.
   CumulativeLogger cumulative_timings_;
   Histogram<uint64_t> memory_use_ GUARDED_BY(lock_);
   Mutex lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
+
+  friend class JitPrecompileTask;
 
   DISALLOW_COPY_AND_ASSIGN(Jit);
 };
