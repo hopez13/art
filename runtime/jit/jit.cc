@@ -178,6 +178,7 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitCodeCache* code_cache, JitOptions* options)
     : code_cache_(code_cache),
       options_(options),
+      methods_to_precompile_lock_("JIT methods to precompile lock"),
       cumulative_timings_("JIT timings"),
       memory_use_("Memory used for compilation", 16),
       lock_("JIT memory use lock") {}
@@ -681,6 +682,33 @@ class ZygoteTask final : public Task {
   DISALLOW_COPY_AND_ASSIGN(ZygoteTask);
 };
 
+// Task which pre-compiles one method and then reschedules itself as the last task.
+// This allows other tasks to execute as well (e.g. compile hot start-up methods).
+class JitPrecompileTask final : public Task {
+ public:
+  JitPrecompileTask() {}
+
+  void Run(Thread* self) override {
+    Jit* jit = Runtime::Current()->GetJit();
+    MutexLock mu(self, jit->methods_to_precompile_lock_);
+    if (!jit->methods_to_precompile_.empty()) {
+      ScopedObjectAccess soa(self);
+      ArtMethod* method = jit->methods_to_precompile_.front();
+      jit->methods_to_precompile_.pop_front();
+      // NB: The method might have been already compiled if it became hot during start up.
+      if (!jit->GetCodeCache()->ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
+        jit->CompileMethod(method, self, /*baseline=*/false, /*osr=*/false, /*prejit=*/true);
+      }
+      jit->thread_pool_->AddTask(self, this);
+    }
+  }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(JitPrecompileTask);
+};
+
+static JitPrecompileTask s_jit_precompile_task;
+
 class JitProfileTask final : public Task {
  public:
   JitProfileTask(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
@@ -721,7 +749,7 @@ class JitProfileTask final : public Task {
         dex_files_,
         profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
   }
 
   void Finalize() override {
@@ -797,8 +825,12 @@ bool Jit::CompileMethodFromProfile(Thread* self,
             "Lcom/android/internal/os/ZygoteServer;")) {
       CompileMethod(method, self, /* baseline= */ false, /* osr= */ false, /* prejit= */ true);
     } else {
-      thread_pool_->AddTask(self,
-          new JitCompileTask(method, JitCompileTask::TaskKind::kPreCompile));
+      MutexLock mu(self, methods_to_precompile_lock_);
+      methods_to_precompile_.emplace_back(method);
+      // If this is the first added method, start the pre-compilation task.
+      if (methods_to_precompile_.size() == 1) {
+        thread_pool_->AddTask(self, &s_jit_precompile_task);
+      }
       return true;
     }
   }
@@ -921,7 +953,7 @@ uint32_t Jit::CompileMethodsFromProfile(
 }
 
 static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (method->IsClassInitializer() || !method->IsCompilable() || method->IsPreCompiled()) {
+  if (method->IsClassInitializer() || !method->IsCompilable()) {
     // We do not want to compile such methods.
     return true;
   }
@@ -1131,6 +1163,9 @@ void Jit::PostForkChildAction(bool is_system_server, bool is_zygote) {
   code_cache_->SetGarbageCollectCode(!jit_generate_debug_info_(jit_compiler_handle_) &&
       !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled());
 
+  MutexLock mu(Thread::Current(), methods_to_precompile_lock_);
+  methods_to_precompile_.clear();
+
   if (thread_pool_ != nullptr) {
     if (is_system_server &&
         Runtime::Current()->IsUsingApexBootImageLocation() &&
@@ -1138,6 +1173,7 @@ void Jit::PostForkChildAction(bool is_system_server, bool is_zygote) {
       // Disable garbage collection: we don't want it to delete methods we're compiling
       // through boot and system server profiles.
       // TODO(ngeoffray): Fix this so we still collect deoptimized and unused code.
+      // TODO(dsrbecky): Collect code that has since been compiled in zygote process.
       code_cache_->SetGarbageCollectCode(false);
     }
 
@@ -1158,6 +1194,7 @@ void Jit::PostZygoteFork() {
     return;
   }
   thread_pool_->CreateThreads();
+  thread_pool_->AddTask(Thread::Current(), &s_jit_precompile_task);
 }
 
 bool Jit::CanEncodeMethod(ArtMethod* method, bool is_for_shared_region) const {
