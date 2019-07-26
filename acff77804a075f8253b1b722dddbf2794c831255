@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2385dda8_925911ec",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-26T16:12:01Z",
+      "side": 1,
+      "message": "Maybe a basic regexp is expected here:\n\n  libnative\\(bridge\\|loader\\)/.*\n\n?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "acff77804a075f8253b1b722dddbf2794c831255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
