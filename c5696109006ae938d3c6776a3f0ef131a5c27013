@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a9bbd26a_290845c1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-07-26T17:31:45Z",
+      "side": 1,
+      "message": "I think we should move the error message computation to be inside WriteConstraint in a follow up.",
+      "range": {
+        "startLine": 336,
+        "startChar": 35,
+        "endLine": 336,
+        "endChar": 50
+      },
+      "revId": "c5696109006ae938d3c6776a3f0ef131a5c27013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd31d0f5_3ed98215",
         "filename": "runtime/transaction_test.cc",
         "patchSetId": 2
