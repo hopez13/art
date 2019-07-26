@@ -20,9 +20,10 @@
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"
-#include "compat_framework.h"
+#include "api_checker.h"
 #include "base/dumpable.h"
 #include "base/file_utils.h"
+#include "compat_framework.h"
 #include "dex/class_accessor-inl.h"
 #include "dex/dex_file_loader.h"
 #include "mirror/class_ext.h"

@@ -3319,6 +3319,19 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     return sdc.Finish(nullptr);
   }
 
+  // For AOT-compilation of an app, we may use only public APIs to resolve symbols. If the api
+  // checks are configured and the descriptor is not in the provided public class path then we
+  // prevent the definition of the class.
+  if (UNLIKELY(UseExplicitPublicApiClasspath())) {
+    if (class_loader == nullptr &&
+        api_checker_->ShouldDenyAccess(descriptor)) {
+      ObjPtr<mirror::Throwable> pre_allocated =
+          Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
+      self->SetException(pre_allocated);
+      return sdc.Finish(nullptr);
+    }
+  }
+
   // This is to prevent the calls to ClassLoad and ClassPrepare which can cause java/user-supplied
   // code to be executed. We put it up here so we can avoid all the allocations associated with
   // creating the class. This can happen with (eg) jit threads.
@@ -8874,7 +8887,8 @@ ArtMethod* ClassLinker::FindIncompatibleMethod(ObjPtr<mirror::Class> klass,
     if (kIsDebugBuild) {
       ArtMethod* method =
           klass->FindInterfaceMethod(dex_cache, method_idx, image_pointer_size_);
-      DCHECK(CheckNoSuchMethod(method, dex_cache, class_loader));
+      DCHECK(CheckNoSuchMethod(method, dex_cache, class_loader))
+          << (method == nullptr ? "null" : method->PrettyMethod());
     }
     return nullptr;
   }
@@ -9978,6 +9992,14 @@ bool ClassLinker::IsUpdatableBootClassPathDescriptor(const char* descriptor ATTR
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
   LOG(FATAL) << "UNREACHABLE";
   UNREACHABLE();
+}
+
+void ClassLinker::SetApiChecker(std::unique_ptr<ApiChecker>&& api_checker) {
+  api_checker_ = std::move(api_checker);
+}
+
+const ApiChecker* ClassLinker::GetApiChecker() const {
+  return api_checker_.get();
 }
 
 // Instantiate ClassLinker::ResolveMethod.

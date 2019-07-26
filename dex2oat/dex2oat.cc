@@ -1064,6 +1064,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
     AssignTrueIfExists(args, M::CheckLinkageConditions, &check_linkage_conditions_);
     AssignTrueIfExists(args, M::CrashOnLinkageViolation, &crash_on_linkage_violation_);
+    AssignIfExists(args, M::PublicApiClasspath, &public_api_classpath_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
     parser_options->requested_specific_compiler = args.Exists(M::Backend);
@@ -1312,6 +1313,7 @@ class Dex2Oat final {
     }
 
     if (dm_file_ != nullptr) {
+      LOG(INFO) << "CALIN processing dm";
       DCHECK(input_vdex_file_ == nullptr);
       std::string error_msg;
       static const char* kDexMetadata = "DexMetadata";
@@ -1325,11 +1327,13 @@ class Dex2Oat final {
             kDexMetadata,
             &error_msg,
             alignof(VdexFile));
+        LOG(INFO) << "CALIN MAP dm";
         if (!input_file.IsValid()) {
           LOG(WARNING) << "Could not open vdex file in DexMetadata archive: " << error_msg;
         } else {
           input_vdex_file_ = std::make_unique<VdexFile>(std::move(input_file));
           VLOG(verifier) << "Doing fast verification with vdex from DexMetadata archive";
+          LOG(INFO) << "CALIN fast verif";
         }
       }
     }
@@ -1710,6 +1714,18 @@ class Dex2Oat final {
                                            output_vdex_fd_);
     }
 
+    if (!public_api_classpath_.empty()) {
+      std::string error_msg;
+      api_checker_.reset(ApiChecker::Create(public_api_classpath_, &error_msg));
+      if (api_checker_ == nullptr) {
+        PLOG(ERROR) << "Failed to create ApiChecker with classpath "
+            << public_api_classpath_
+            << " Error: "
+            << error_msg;
+        return dex2oat::ReturnCode::kOther;
+      }
+    }
+
     return dex2oat::ReturnCode::kNoFailure;
   }
 
@@ -1883,6 +1899,12 @@ class Dex2Oat final {
     }
     if (!IsBootImage()) {
       callbacks_->SetDexFiles(&dex_files);
+
+      // We need to set this after we create the class loader so that the runtime can access
+      // the hidden fields of the well known class loaders.
+      if (api_checker_ != nullptr) {
+        Runtime::Current()->GetClassLinker()->SetApiChecker(std::move(api_checker_));
+      }
     }
 
     // Register dex caches and key them to the class loader so that they only unload when the
@@ -2837,6 +2859,11 @@ class Dex2Oat final {
 
   // Whether to force individual compilation.
   bool compile_individually_;
+
+  // The classpath that determines if a given symbol should be resolved at compile time or not.
+  std::string public_api_classpath_;
+
+  std::unique_ptr<ApiChecker> api_checker_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
