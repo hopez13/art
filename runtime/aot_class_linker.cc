@@ -242,5 +242,19 @@ bool AotClassLinker::IsUpdatableBootClassPathDescriptor(const char* descriptor) 
   }
   return false;
 }
+void AotClassLinker::SetSdkChecker(std::unique_ptr<SdkChecker>&& sdk_checker) {
+  sdk_checker_ = std::move(sdk_checker);
+}
+
+const SdkChecker* AotClassLinker::GetSdkChecker() const {
+  return sdk_checker_.get();
+}
+
+bool AotClassLinker::DenyAccessBasedOnPublicSdk(const char* descriptor) const {
+  if (UNLIKELY(UseExplicitPublicSdk())) {
+    return sdk_checker_->ShouldDenyAccess(descriptor);
+  }
+  return false;
+}
 
 }  // namespace art

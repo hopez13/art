@@ -3319,6 +3319,21 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     return sdc.Finish(nullptr);
   }
 
+  // For AOT-compilation of an app, we may use only a public SDK to resolve symbols. If the SDK
+  // checks are configured and the descriptor is not in the provided public class path then we
+  // prevent the definition of the class.
+  //
+  // NOTE that we only do the checks for the boot classpath APIs. Anything else, like the app
+  // classpath is not checked.
+  if (class_loader == nullptr &&
+      Runtime::Current()->IsAotCompiler() &&
+      DenyAccessBasedOnPublicSdk(descriptor)) {
+    ObjPtr<mirror::Throwable> pre_allocated =
+        Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
+    self->SetException(pre_allocated);
+    return sdc.Finish(nullptr);
+  }
+
   // This is to prevent the calls to ClassLoad and ClassPrepare which can cause java/user-supplied
   // code to be executed. We put it up here so we can avoid all the allocations associated with
   // creating the class. This can happen with (eg) jit threads.
@@ -10004,4 +10019,9 @@ template ObjPtr<mirror::Class> ClassLinker::AllocClass</* kMovable= */ false>(
     ObjPtr<mirror::Class> java_lang_Class,
     uint32_t class_size);
 
+bool ClassLinker::DenyAccessBasedOnPublicSdk(const char* descriptor ATTRIBUTE_UNUSED) const {
+  // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
+  LOG(FATAL) << "UNREACHABLE";
+  UNREACHABLE();
+}
 }  // namespace art

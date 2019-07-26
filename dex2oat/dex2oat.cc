@@ -1064,6 +1064,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
     AssignTrueIfExists(args, M::CheckLinkageConditions, &check_linkage_conditions_);
     AssignTrueIfExists(args, M::CrashOnLinkageViolation, &crash_on_linkage_violation_);
+    AssignIfExists(args, M::PublicSdk, &public_sdk_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
     parser_options->requested_specific_compiler = args.Exists(M::Backend);
@@ -1710,6 +1711,18 @@ class Dex2Oat final {
                                            output_vdex_fd_);
     }
 
+    if (!public_sdk_.empty()) {
+      std::string error_msg;
+      sdk_checker_.reset(SdkChecker::Create(public_sdk_, &error_msg));
+      if (sdk_checker_ == nullptr) {
+        PLOG(ERROR) << "Failed to create SdkChecker with dex files "
+            << public_sdk_
+            << " Error: "
+            << error_msg;
+        return dex2oat::ReturnCode::kOther;
+      }
+    }
+
     return dex2oat::ReturnCode::kNoFailure;
   }
 
@@ -1883,6 +1896,13 @@ class Dex2Oat final {
     }
     if (!IsBootImage()) {
       callbacks_->SetDexFiles(&dex_files);
+
+      // We need to set this after we create the class loader so that the runtime can access
+      // the hidden fields of the well known class loaders.
+      if (sdk_checker_ != nullptr) {
+        AotClassLinker* aot_class_linker = down_cast<AotClassLinker*>(class_linker);
+        aot_class_linker->SetSdkChecker(std::move(sdk_checker_));
+      }
     }
 
     // Register dex caches and key them to the class loader so that they only unload when the
@@ -2837,6 +2857,13 @@ class Dex2Oat final {
 
   // Whether to force individual compilation.
   bool compile_individually_;
+
+  // The classpath that determines if a given symbol should be resolved at compile time or not.
+  std::string public_sdk_;
+
+  // When an explicit public SDK is passed to dex2oat, the sdk_checker_ will ensure that
+  // only symbols defined there are resolved during the verification process.
+  std::unique_ptr<SdkChecker> sdk_checker_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };

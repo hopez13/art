@@ -845,6 +845,8 @@ class ClassLinker {
 
   virtual bool IsUpdatableBootClassPathDescriptor(const char* descriptor);
 
+  virtual bool DenyAccessBasedOnPublicSdk(const char* descriptor) const;
+
  private:
   class LinkInterfaceMethodsHelper;
   class VisiblyInitializedCallback;

@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include "aot_class_linker.h"
+#include "sdk_checker.h"
 #include "art_field.h"
 #include "art_method.h"
 #include "base/hiddenapi_domain.h"
@@ -397,6 +399,29 @@ inline bool ShouldDenyAccessToMember(T* member,
                                      AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
+
+  // First check if we have an explicit public api classpath that should be used to
+  // verify access. If so, make the decision based on it.
+  //
+  // This is used during off-device AOT compilation which may want to generate verification
+  // metadata only for a specific list of public APIs. Note that the check here is made
+  // based on descriptor equality and it's aim to further restrict a symbol that would
+  // otherwise be resolved.
+  //
+  // The check only applies to boot classpaths dex files.
+
+  if (UNLIKELY(Runtime::Current()->IsAotCompiler())) {
+    AotClassLinker* aot_class_linker =
+        down_cast<AotClassLinker*>(Runtime::Current()->GetClassLinker());
+    if (UNLIKELY(aot_class_linker->UseExplicitPublicSdk())) {
+      // Only do the checks for the boot classpath.
+      if (member->GetDeclaringClass()->GetClassLoader() == nullptr) {
+        if (aot_class_linker->GetSdkChecker()->ShouldDenyAccess(member)) {
+          return true;
+        }
+      }
+    }
+  }
 
   // Get the runtime flags encoded in member's access flags.
   // Note: this works for proxy methods because they inherit access flags from their
