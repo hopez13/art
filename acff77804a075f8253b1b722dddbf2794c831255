@@ -22,6 +22,30 @@
       "revId": "acff77804a075f8253b1b722dddbf2794c831255",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fb22254_e4a1ed53",
+        "filename": "CPPLINT.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-26T16:45:47Z",
+      "side": 1,
+      "message": "SGTM. Maybe add a TODO (with the bug number), as this is temporary?",
+      "parentUuid": "2385dda8_925911ec",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "acff77804a075f8253b1b722dddbf2794c831255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
