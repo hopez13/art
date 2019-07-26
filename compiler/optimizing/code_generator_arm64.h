@@ -441,6 +441,10 @@ class CodeGeneratorARM64 : public CodeGenerator {
         : 1 * kArm64WordSize;  //  8 bytes == 1 arm64 words for each spill
   }
 
+  size_t GetCalleePreservedFPWidth() const override {
+    return kArm64WordSize;
+  }
+
   uintptr_t GetAddressOf(HBasicBlock* block) override {
     vixl::aarch64::Label* block_entry_label = GetLabelOf(block);
     DCHECK(block_entry_label->IsBound());
