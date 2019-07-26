@@ -22,6 +22,30 @@
       "revId": "39e7bb07e9a5e485d19193fb523a1607a5058c89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b53ef442_b636f71f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-26T17:01:57Z",
+      "side": 1,
+      "message": "Because I needed the NO_THREAD_SAFETY_ANALYSIS as we do not hold the mutator lock here. That\u0027s also why I prefer to go through the `image_header.GetImageRoots()-\u003eGet(ImageHeader::kClassRoots) ` rather than `Runtime::Current()-\u003eGetClassLinker()-\u003eGetClassRoots()`, i.e. prefer going through the app image objects until we reach a known-size array in the boot image from which we retrieve a non-movable class reference.",
+      "parentUuid": "d42b932c_bbe1168f",
+      "range": {
+        "startLine": 1218,
+        "startChar": 44,
+        "endLine": 1227,
+        "endChar": 12
+      },
+      "revId": "39e7bb07e9a5e485d19193fb523a1607a5058c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
