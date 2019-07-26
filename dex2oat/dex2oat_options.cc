@@ -409,7 +409,10 @@ Parser CreateDex2oatArgumentParser() {
       .Define("--compile-individually")
           .WithHelp("Compiles dex files individually, unloading classes in between compiling each"
                     " file.")
-          .IntoKey(M::CompileIndividually);
+          .IntoKey(M::CompileIndividually)
+      .Define("--public-api-classpath=_")
+          .WithType<std::string>()
+          .IntoKey(M::PublicApiClasspath);;
 
   AddCompilerOptionsArgumentParserOptions<Dex2oatArgumentMap>(*parser_builder);
 
