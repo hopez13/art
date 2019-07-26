@@ -3319,6 +3319,22 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     return sdc.Finish(nullptr);
   }
 
+  // For AOT-compilation of an app, we may use only a public SDK to resolve symbols. If the SDK
+  // checks are configured (a non null SdkChecker) and the descriptor is not in the provided
+  // public class path then we prevent the definition of the class.
+  //
+  // NOTE that we only do the checks for the boot classpath APIs. Anything else, like the app
+  // classpath is not checked.
+  if (class_loader == nullptr &&
+      Runtime::Current()->IsAotCompiler() &&
+      GetSdkChecker() != nullptr &&
+      GetSdkChecker()->ShouldDenyAccess(descriptor)) {
+    ObjPtr<mirror::Throwable> pre_allocated =
+        Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
+    self->SetException(pre_allocated);
+    return sdc.Finish(nullptr);
+  }
+
   // This is to prevent the calls to ClassLoad and ClassPrepare which can cause java/user-supplied
   // code to be executed. We put it up here so we can avoid all the allocations associated with
   // creating the class. This can happen with (eg) jit threads.
@@ -9980,6 +9996,12 @@ bool ClassLinker::IsUpdatableBootClassPathDescriptor(const char* descriptor ATTR
   UNREACHABLE();
 }
 
+const SdkChecker* ClassLinker::GetSdkChecker() const {
+  // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
+  LOG(FATAL) << "UNREACHABLE";
+  UNREACHABLE();
+}
+
 // Instantiate ClassLinker::ResolveMethod.
 template ArtMethod* ClassLinker::ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
     uint32_t method_idx,
@@ -10003,5 +10025,4 @@ template ObjPtr<mirror::Class> ClassLinker::AllocClass</* kMovable= */ false>(
     Thread* self,
     ObjPtr<mirror::Class> java_lang_Class,
     uint32_t class_size);
-
 }  // namespace art

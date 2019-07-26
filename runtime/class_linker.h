@@ -58,6 +58,7 @@ class OatFile;
 template<class T> class ObjectLock;
 class Runtime;
 class ScopedObjectAccessAlreadyRunnable;
+class SdkChecker;
 template<size_t kNumReferences> class PACKED(4) StackHandleScope;
 class Thread;
 
@@ -824,6 +825,9 @@ class ClassLinker {
   void ForceClassInitialized(Thread* self, Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+  // Return the installed SdkChecker if any, otherwise null.
+  virtual const SdkChecker* GetSdkChecker() const;
 
  protected:
   virtual bool InitializeClass(Thread* self,

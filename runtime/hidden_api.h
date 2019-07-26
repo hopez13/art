@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include "sdk_checker.h"
 #include "art_field.h"
 #include "art_method.h"
 #include "base/hiddenapi_domain.h"
@@ -398,6 +399,25 @@ inline bool ShouldDenyAccessToMember(T* member,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
 
+  // First check if we have an explicit sdk checker installed that should be used to
+  // verify access. If so, make the decision based on it.
+  //
+  // This is used during off-device AOT compilation which may want to generate verification
+  // metadata only for a specific list of public SDKs. Note that the check here is made
+  // based on descriptor equality and it's aim to further restrict a symbol that would
+  // otherwise be resolved.
+  //
+  // The check only applies to boot classpaths dex files.
+  Runtime* runtime = Runtime::Current();
+  if (UNLIKELY(runtime->IsAotCompiler())) {
+    ClassLinker* class_linker = runtime->GetClassLinker();
+    if (class_linker->GetSdkChecker() != nullptr &&
+        member->GetDeclaringClass()->GetClassLoader() == nullptr &&
+        class_linker->GetSdkChecker()->ShouldDenyAccess(member)) {
+      return true;
+    }
+  }
+
   // Get the runtime flags encoded in member's access flags.
   // Note: this works for proxy methods because they inherit access flags from their
   // respective interface methods.
@@ -430,7 +450,7 @@ inline bool ShouldDenyAccessToMember(T* member,
       DCHECK(!callee_context.IsApplicationDomain());
 
       // Exit early if access checks are completely disabled.
-      EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
+      EnforcementPolicy policy = runtime->GetHiddenApiEnforcementPolicy();
       if (policy == EnforcementPolicy::kDisabled) {
         return false;
       }
