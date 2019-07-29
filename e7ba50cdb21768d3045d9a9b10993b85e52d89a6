@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c089ec_f5599904",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-29T17:30:27Z",
+      "side": 1,
+      "message": "against",
+      "range": {
+        "startLine": 1162,
+        "startChar": 58,
+        "endLine": 1162,
+        "endChar": 65
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811d372d_5a3598cd",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-29T17:30:27Z",
+      "side": 1,
+      "message": "Does the presence of FIXME here mean that this CL cannot be submitted as-is? Or should this be a TODO?",
+      "range": {
+        "startLine": 3150,
+        "startChar": 4,
+        "endLine": 3150,
+        "endChar": 46
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b72930_e0f6e9c2",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-29T17:30:27Z",
+      "side": 1,
+      "message": "Add\n\n  /*out*/\n\nbefore this argument?",
+      "range": {
+        "startLine": 573,
+        "startChar": 31,
+        "endLine": 573,
+        "endChar": 47
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
