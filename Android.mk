@@ -23,7 +23,6 @@ art_path := $(LOCAL_PATH)
 #
 
 include $(art_path)/build/Android.common_path.mk
-include $(art_path)/build/Android.oat.mk
 
 .PHONY: clean-oat
 clean-oat: clean-oat-host clean-oat-target
