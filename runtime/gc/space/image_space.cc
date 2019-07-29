@@ -1209,10 +1209,13 @@ class ImageSpace::Loader {
     if (fixup_image) {
       // Two pass approach, fix up all classes first, then fix up non class-objects.
       // The visited bitmap is used to ensure that pointer arrays are not forwarded twice.
-      std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> visited_bitmap(
+      std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> temp_bitmap(
           gc::accounting::ContinuousSpaceBitmap::Create("Relocate bitmap",
                                                         target_base,
                                                         image_header.GetImageSize()));
+    CHECK(temp_bitmap != nullptr);
+    // Avoid pointer indirection by copy on the stack.
+    gc::accounting::ContinuousSpaceBitmap visited_bitmap(std::move(*temp_bitmap));
       {
         TimingLogger::ScopedTiming timing("Fixup classes", &logger);
         ObjPtr<mirror::Class> class_class = [&]() NO_THREAD_SAFETY_ANALYSIS {
@@ -1240,7 +1243,7 @@ class ImageSpace::Loader {
             if (!app_image_objects.InDest(klass.Ptr())) {
               continue;
             }
-            const bool already_marked = visited_bitmap->Set(klass.Ptr());
+            const bool already_marked = visited_bitmap.Set(klass.Ptr());
             CHECK(!already_marked) << "App image class already visited";
             patch_object_visitor.VisitClass(klass, class_class);
             // Then patch the non-embedded vtable and iftable.
@@ -1248,7 +1251,7 @@ class ImageSpace::Loader {
                 klass->GetVTable<kVerifyNone, kWithoutReadBarrier>();
             if (vtable != nullptr &&
                 app_image_objects.InDest(vtable.Ptr()) &&
-                !visited_bitmap->Set(vtable.Ptr())) {
+                !visited_bitmap.Set(vtable.Ptr())) {
               patch_object_visitor.VisitPointerArray(vtable);
             }
             ObjPtr<mirror::IfTable> iftable = klass->GetIfTable<kVerifyNone, kWithoutReadBarrier>();
@@ -1263,7 +1266,7 @@ class ImageSpace::Loader {
                   // The iftable has not been patched, so we need to explicitly adjust the pointer.
                   ObjPtr<mirror::PointerArray> ifarray = forward_object(unpatched_ifarray.Ptr());
                   if (app_image_objects.InDest(ifarray.Ptr()) &&
-                      !visited_bitmap->Set(ifarray.Ptr())) {
+                      !visited_bitmap.Set(ifarray.Ptr())) {
                     patch_object_visitor.VisitPointerArray(ifarray);
                   }
                 }
@@ -1280,7 +1283,7 @@ class ImageSpace::Loader {
       // Need to update the image to be at the target base.
       uintptr_t objects_begin = reinterpret_cast<uintptr_t>(target_base + objects_section.Offset());
       uintptr_t objects_end = reinterpret_cast<uintptr_t>(target_base + objects_section.End());
-      FixupObjectVisitor<ForwardObject> fixup_object_visitor(visited_bitmap.get(), forward_object);
+      FixupObjectVisitor<ForwardObject> fixup_object_visitor(&visited_bitmap, forward_object);
       bitmap->VisitMarkedRange(objects_begin, objects_end, fixup_object_visitor);
       // Fixup image roots.
       CHECK(app_image_objects.InSource(reinterpret_cast<uintptr_t>(
@@ -1636,18 +1639,21 @@ class ImageSpace::BootImageLoader {
   static void DoRelocateSpaces(ArrayRef<const std::unique_ptr<ImageSpace>>& spaces,
                                int64_t base_diff64) REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(!spaces.empty());
-    std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> patched_objects(
+    std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> temp_bitmap(
         gc::accounting::ContinuousSpaceBitmap::Create(
             "Marked objects",
             spaces.front()->Begin(),
             spaces.back()->End() - spaces.front()->Begin()));
+    CHECK(temp_bitmap != nullptr);
+    // Avoid pointer indirection by copy on the stack.
+    gc::accounting::ContinuousSpaceBitmap patched_objects(std::move(*temp_bitmap));
     const ImageHeader& base_header = spaces[0]->GetImageHeader();
     size_t base_component_count = base_header.GetComponentCount();
     DCHECK_LE(base_component_count, spaces.size());
     DoRelocateSpaces<kPointerSize, /*kExtension=*/ false>(
         spaces.SubArray(/*pos=*/ 0u, base_component_count),
         base_diff64,
-        patched_objects.get());
+        &patched_objects);
 
     for (size_t i = base_component_count, size = spaces.size(); i != size; ) {
       const ImageHeader& ext_header = spaces[i]->GetImageHeader();
@@ -1656,7 +1662,7 @@ class ImageSpace::BootImageLoader {
       DoRelocateSpaces<kPointerSize, /*kExtension=*/ true>(
           spaces.SubArray(/*pos=*/ i, ext_component_count),
           base_diff64,
-          patched_objects.get());
+          &patched_objects);
       i += ext_component_count;
     }
   }

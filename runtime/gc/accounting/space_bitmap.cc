@@ -104,8 +104,6 @@ void SpaceBitmap<kAlignment>::SetHeapLimit(uintptr_t new_end) {
     bitmap_size_ = new_size;
   }
   heap_limit_ = new_end;
-  // Not sure if doing this trim is necessary, since nothing past the end of the heap capacity
-  // should be marked.
 }
 
 template<size_t kAlignment>
@@ -213,6 +211,15 @@ void SpaceBitmap<kAlignment>::SweepWalk(const SpaceBitmap<kAlignment>& live_bitm
     (*callback)(cur_pointer - &pointer_buf[0], &pointer_buf[0], arg);
   }
 }
+
+template<size_t kAlignment>
+SpaceBitmap<kAlignment>::SpaceBitmap(SpaceBitmap&& other)
+    : mem_map_(std::move(other.mem_map_)),
+      bitmap_begin_(std::move(other.bitmap_begin_)),
+      bitmap_size_(std::move(other.bitmap_size_)),
+      heap_begin_(std::move(other.heap_begin_)),
+      heap_limit_(std::move(other.heap_limit_)),
+      name_(std::move(other.name_)) {}
 
 template class SpaceBitmap<kObjectAlignment>;
 template class SpaceBitmap<kPageSize>;

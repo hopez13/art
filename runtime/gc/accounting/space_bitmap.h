@@ -219,6 +219,8 @@ class SpaceBitmap {
   static size_t ComputeBitmapSize(uint64_t capacity);
   static size_t ComputeHeapSize(uint64_t bitmap_bytes);
 
+  SpaceBitmap(SpaceBitmap&& other);
+
  private:
   // TODO: heap_end_ is initialized so that the heap bitmap is empty, this doesn't require the -1,
   // however, we document that this is expected on heap_end_
@@ -245,7 +247,7 @@ class SpaceBitmap {
 
   // The start address of the memory covered by the bitmap, which corresponds to the word
   // containing the first bit in the bitmap.
-  const uintptr_t heap_begin_;
+  uintptr_t heap_begin_;
 
   // The end address of the memory covered by the bitmap. This may not be on a word boundary.
   uintptr_t heap_limit_;
