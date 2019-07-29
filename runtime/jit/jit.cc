@@ -69,11 +69,6 @@ void (*Jit::jit_types_loaded_)(void*, mirror::Class**, size_t count) = nullptr;
 bool (*Jit::jit_generate_debug_info_)(void*) = nullptr;
 void (*Jit::jit_update_options_)(void*) = nullptr;
 
-struct StressModeHelper {
-  DECLARE_RUNTIME_DEBUG_FLAG(kSlowMode);
-};
-DEFINE_RUNTIME_DEBUG_FLAG(StressModeHelper, kSlowMode);
-
 uint32_t JitOptions::RoundUpThreshold(uint32_t threshold) {
   if (threshold > kJitSamplesBatchSize) {
     threshold = RoundUp(threshold, kJitSamplesBatchSize);
