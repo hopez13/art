@@ -13,6 +13,7 @@ bootstrap_go_package {
     srcs: [
         "art.go",
         "codegen.go",
+        "image.go",
         "makevars.go",
     ],
     pluginFor: ["soong_build"],
@@ -221,4 +222,27 @@ art_debug_defaults {
             cflags: ["-Wno-frame-larger-than="],
         },
     },
+}
+
+art_image {
+    name: "core-image-optimizing",
+    image: "optimizing",
+    flags: ["--compiler-backend=Optimizing"],
+}
+
+art_image {
+    name: "core-image-interpreter",
+    image: "interpreter",
+    suffix: "-interpreter",
+    flags: ["--compiler-filter=quicken"],
+}
+
+art_image {
+    name: "core-image-interp-ac",
+    image: "interp-ac",
+    suffix: "-interp-ac",
+    flags: [
+        "--compiler-filter=extract",
+        "--runtime-arg -Xverify:softfail",
+    ],
 }
