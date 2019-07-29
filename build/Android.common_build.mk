@@ -46,14 +46,6 @@ ifeq ($(ART_BUILD_HOST_DEBUG),false)
 $(info Disabling ART_BUILD_HOST_DEBUG)
 endif
 
-# Enable the read barrier by default.
-ART_USE_READ_BARRIER ?= true
-
-# Default compact dex level to none.
-ifeq ($(ART_DEFAULT_COMPACT_DEX_LEVEL),)
-ART_DEFAULT_COMPACT_DEX_LEVEL := none
-endif
-
 ART_CPP_EXTENSION := .cc
 
 ifndef LIBART_IMG_HOST_BASE_ADDRESS
