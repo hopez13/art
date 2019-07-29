@@ -22,6 +22,30 @@
       "revId": "f3c0aece77efb861425a03056c4fc8d6830cf50b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e749ba_bd8d8a98",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-29T19:18:45Z",
+      "side": 1,
+      "message": "Correct. If we ever get around to hanging all statics off of runtime in some way, this can be removed.",
+      "parentUuid": "b515b692_add9995a",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 34
+      },
+      "revId": "f3c0aece77efb861425a03056c4fc8d6830cf50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
