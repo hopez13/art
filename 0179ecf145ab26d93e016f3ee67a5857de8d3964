@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "49868e9a_6d6bbc72",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2019-07-30T17:45:18Z",
+      "side": 1,
+      "message": "Sorry, I was looking at the wrong line.  For some reason Gerrit highlighted the preceding 4 lines.",
+      "parentUuid": "70b0aa7c_57a66c5d",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1216,
+        "endChar": 4
+      },
+      "revId": "0179ecf145ab26d93e016f3ee67a5857de8d3964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dba9c86f_95a630d0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
