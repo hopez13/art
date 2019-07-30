@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc29c70e_74199b5f",
+        "filename": "test/597-deopt-busy-loop/src/FloatLoop.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-30T10:59:33Z",
+      "side": 1,
+      "message": "Turn this into a condition of the enclosing for-loop?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 13
+      },
+      "revId": "dc23dc33dc08540be16df6d88f78b6ef249e7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
