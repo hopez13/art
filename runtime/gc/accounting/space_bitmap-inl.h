@@ -210,6 +210,18 @@ inline bool SpaceBitmap<kAlignment>::Modify(const mirror::Object* obj) {
   return (old_word & mask) != 0;
 }
 
+/*
+inline bool SpaceBitmap& SpaceBitmap<kAlignment>::operator=(SpaceBitmap&& other) {
+  std::swap(mem_map_, other.mem_map_);
+  std::swap(bitmap_begin_, other.bitmap_begin_);
+  std::swap(bitmap_size_, other.bitmap_size_);
+  std::swap(heap_begin_, other.heap_begin_);
+  std::swap(heap_limit_, other.heap_limit_);
+  std::swap(name_, other.name_);
+  return *this;
+}
+*/
+
 template<size_t kAlignment>
 inline std::ostream& operator << (std::ostream& stream, const SpaceBitmap<kAlignment>& bitmap) {
   return stream

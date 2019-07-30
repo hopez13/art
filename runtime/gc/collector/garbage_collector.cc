@@ -197,21 +197,14 @@ void GarbageCollector::SwapBitmaps() {
          space->GetGcRetentionPolicy() == space::kGcRetentionPolicyFullCollect)) {
       accounting::ContinuousSpaceBitmap* live_bitmap = space->GetLiveBitmap();
       accounting::ContinuousSpaceBitmap* mark_bitmap = space->GetMarkBitmap();
-      if (live_bitmap != nullptr && live_bitmap != mark_bitmap) {
-        heap_->GetLiveBitmap()->ReplaceBitmap(live_bitmap, mark_bitmap);
-        heap_->GetMarkBitmap()->ReplaceBitmap(mark_bitmap, live_bitmap);
+      if (live_bitmap != nullptr && live_bitmap->HeapBegin() != mark_bitmap->HeapBegin()) {
         CHECK(space->IsContinuousMemMapAllocSpace());
         space->AsContinuousMemMapAllocSpace()->SwapBitmaps();
       }
     }
   }
   for (const auto& disc_space : GetHeap()->GetDiscontinuousSpaces()) {
-    space::LargeObjectSpace* space = disc_space->AsLargeObjectSpace();
-    accounting::LargeObjectBitmap* live_set = space->GetLiveBitmap();
-    accounting::LargeObjectBitmap* mark_set = space->GetMarkBitmap();
-    heap_->GetLiveBitmap()->ReplaceLargeObjectBitmap(live_set, mark_set);
-    heap_->GetMarkBitmap()->ReplaceLargeObjectBitmap(mark_set, live_set);
-    space->SwapBitmaps();
+    disc_space->AsLargeObjectSpace()->SwapBitmaps();
   }
 }
 
