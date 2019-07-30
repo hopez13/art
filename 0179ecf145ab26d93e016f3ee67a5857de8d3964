@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27cbae1e_420c5cb3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T01:38:33Z",
+      "side": 1,
+      "message": "Wrong indent?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1216,
+        "endChar": 4
+      },
+      "revId": "0179ecf145ab26d93e016f3ee67a5857de8d3964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dba9c86f_95a630d0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T01:38:33Z",
+      "side": 1,
+      "message": "If this is really worth it (at least perf stat numbers would be nice), you should rather add another Create function to SpaceBitmap that returns by value or something and has the CHECK internally.",
+      "range": {
+        "startLine": 1212,
+        "startChar": 6,
+        "endLine": 1218,
+        "endChar": 82
+      },
+      "revId": "0179ecf145ab26d93e016f3ee67a5857de8d3964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
