@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ef794fb_d9c692ab",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "This wording does not really make sense. An object may become obsolete - it isn\u0027t created, it was already there.",
+      "range": {
+        "startLine": 504,
+        "startChar": 29,
+        "endLine": 504,
+        "endChar": 36
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7ed20a8_19d5b5aa",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 505,
+        "startChar": 15,
+        "endLine": 505,
+        "endChar": 17
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a4bdc53_280f8942",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "This mixing of things (notification vs weakref replacement) is unfortunate and needs better documentation. (E.g., why not remove the \"obsolete\" versions around the whole replacement, send the events, and re-add.)",
+      "range": {
+        "startLine": 1747,
+        "startChar": 2,
+        "endLine": 1749,
+        "endChar": 49
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783c255f_5a7dad37",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1752,
+        "startChar": 56,
+        "endLine": 1752,
+        "endChar": 81
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d930ba24_838abc43",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 1753,
+        "startChar": 4,
+        "endLine": 1753,
+        "endChar": 11
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e2ba7f7_9c58c1d0",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "Please be more precise for documentation reasons.",
+      "range": {
+        "startLine": 1770,
+        "startChar": 23,
+        "endLine": 1770,
+        "endChar": 78
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac82b44_ca15ddd2",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T21:14:07Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1797,
+        "startChar": 56,
+        "endLine": 1797,
+        "endChar": 81
+      },
+      "revId": "9d89f7d63be2928684dcfb5d7984af40379b937a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
