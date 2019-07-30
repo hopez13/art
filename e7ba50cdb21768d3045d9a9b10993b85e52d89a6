@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b3decef0_0b7118f2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-30T08:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c089ec_f5599904",
+      "range": {
+        "startLine": 1162,
+        "startChar": 58,
+        "endLine": 1162,
+        "endChar": 65
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "811d372d_5a3598cd",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d12982f9_dd37442e",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-30T08:32:24Z",
+      "side": 1,
+      "message": "kBitstringSubtypeCheckEnabled is false, this needs to be fixed if we want to enable the feature. However, that feature has some other undiagnosed issues and is not planned for submission anytime soon. As such, I think this should be FIXME but it\u0027s flagged out, so we can submit this as is.",
+      "parentUuid": "811d372d_5a3598cd",
+      "range": {
+        "startLine": 3150,
+        "startChar": 4,
+        "endLine": 3150,
+        "endChar": 46
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5b72930_e0f6e9c2",
         "filename": "dex2oat/linker/image_writer.h",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cc20cab_7c7b0ff0",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-30T08:32:24Z",
+      "side": 1,
+      "message": "I\u0027m not eager to annotate this. There\u0027s so much related code that would also need annotations (starting with `visited` below) and I\u0027m not even sure whether `/*out*/` or `/*inout*/` would be more appropriate here.",
+      "parentUuid": "f5b72930_e0f6e9c2",
+      "range": {
+        "startLine": 573,
+        "startChar": 31,
+        "endLine": 573,
+        "endChar": 47
+      },
+      "revId": "e7ba50cdb21768d3045d9a9b10993b85e52d89a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
