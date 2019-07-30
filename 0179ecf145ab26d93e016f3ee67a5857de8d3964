@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "70b0aa7c_57a66c5d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T17:41:50Z",
+      "side": 1,
+      "message": "It needs to be aligned with the std::unique_ptr above.",
+      "parentUuid": "8340100c_6c0aa410",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1216,
+        "endChar": 4
+      },
+      "revId": "0179ecf145ab26d93e016f3ee67a5857de8d3964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dba9c86f_95a630d0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
