@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7587686_b1f0e71e",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1327199
+      },
+      "writtenOn": "2019-07-30T08:30:06Z",
+      "side": 1,
+      "message": "Trailing space.",
+      "range": {
+        "startLine": 288,
+        "startChar": 68,
+        "endLine": 288,
+        "endChar": 69
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "894a4a2f_9b9b733b",
+        "filename": "test/567-checker-compare/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1327199
+      },
+      "writtenOn": "2019-07-30T08:30:06Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eab5801_289f9149",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1327199
+      },
+      "writtenOn": "2019-07-30T08:30:06Z",
+      "side": 1,
+      "message": "Alternatively, we could remove the if-statement from the test. There are more instances below.",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 63
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
