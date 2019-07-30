@@ -22,6 +22,30 @@
       "revId": "dc23dc33dc08540be16df6d88f78b6ef249e7c23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62efcebd_97a79495",
+        "filename": "test/597-deopt-busy-loop/src/FloatLoop.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-30T12:36:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc29c70e_74199b5f",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 13
+      },
+      "revId": "dc23dc33dc08540be16df6d88f78b6ef249e7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
