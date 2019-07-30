@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "718e200c_22a3fe0c",
+        "filename": "tools/jvmti-agents/list-extensions/list-extensions.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T17:58:37Z",
+      "side": 1,
+      "message": "You\u0027re in an anonymous namespace. No static required?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "148bd65fadfbc9b8c788b26322d34f5f59b94a02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6288844_96889084",
+        "filename": "tools/jvmti-agents/list-extensions/list-extensions.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T17:58:37Z",
+      "side": 1,
+      "message": "Having trouble finding a user of this.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "148bd65fadfbc9b8c788b26322d34f5f59b94a02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6aa747b_545ac5ac",
+        "filename": "tools/jvmti-agents/list-extensions/list-extensions.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-30T17:58:37Z",
+      "side": 1,
+      "message": "Why isn\u0027t this in the anonymous namespace?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 1
+      },
+      "revId": "148bd65fadfbc9b8c788b26322d34f5f59b94a02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
