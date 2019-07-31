@@ -57,8 +57,11 @@ art_cc_binary {
 
     // These libraries are loaded by libart at runtime, but can't be
     // expressed as a runtime_libs dependency from libart because
-    // they link against libart.
+    // they link against libart.  When adding a library to this list
+    // that also has a debug version it must also be added to the
+    // debugSharedLibraries list in art/build/art.go
     runtime_libs: [
+        "libart",
         "libjavacore",
         "libopenjdk",
         "libopenjdkjvm",

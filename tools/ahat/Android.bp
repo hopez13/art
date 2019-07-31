@@ -53,9 +53,61 @@ java_test_helper_library {
 }
 
 // --- ahat-ri-test-dump.jar -------
-java_test_helper_library {
-    host_supported: true,
-    device_supported: false,
+java_binary_host {
     name: "ahat-ri-test-dump",
+    main_class: "Main",
     srcs: ["src/ri-test-dump/**/*.java"],
+}
+
+// Generate the proguard map in the desired location by copying it from
+// wherever the build system generates it by default.
+java_genrule {
+    name: "ahat-test-dump-map",
+    out: ["test-dump.map"],
+    srcs: [":ahat-test-dump{.proguard_map}"],
+    cmd: "cp $(in) $(out)",
+}
+
+// Run ahat-test-dump.jar to generate test-dump.hprof and test-dump-base.hprof
+ahat_hprof {
+    name: "ahat-test-dump-hprof",
+    out: "test-dump.hprof",
+    test_dump: "ahat-test-dump",
+}
+
+ahat_hprof {
+    name: "ahat-test-dump-base-hprof",
+    out: "test-dump-base.hprof",
+    test_dump: "ahat-test-dump",
+    flags: ["--base"],
+}
+
+// Run ahat-ri-test-dump.jar to generate ri-test-dump.hprof
+java_genrule {
+    name: "ahat-ri-test-dump-hprof",
+    tools: ["ahat-ri-test-dump"],
+    out: ["ri-test-dump.hprof"],
+    cmd: "$(location ahat-ri-test-dump) $(out)",
+}
+
+// --- ahat-tests.jar --------------
+// To run these tests, use: atest ahat-tests --host
+java_test_host {
+    name: "ahat-tests",
+    manifest: "etc/ahat-tests.mf",
+    java_resources: [
+        ":ahat-test-dump-hprof",
+        ":ahat-test-dump-base-hprof",
+        ":ahat-test-dump-map",
+        ":ahat-ri-test-dump-hprof",
+        "etc/L.hprof",
+        "etc/O.hprof",
+        "etc/RI.hprof",
+    ],
+    static_libs: [
+        "ahat",
+        "junit",
+    ],
+    test_config: "ahat-tests.xml",
+    test_suites: ["general-tests"],
 }

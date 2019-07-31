@@ -329,7 +329,6 @@ func (is *imageSingleton) MakeVars(ctx android.MakeVarsContext) {
 
 	ctx.Strict("HOST_CORE_IMG_OUTS", strings.Join(host.Strings(), " "))
 	ctx.Strict("TARGET_CORE_IMG_OUTS", strings.Join(device.Strings(), " "))
-	ctx.Strict("CORE_IMG_SUFFIX", ".art")
 
 	ctx.Strict("CORE_IMG_JARS", strings.Join(coreImageJars, " "))
 

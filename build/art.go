@@ -28,6 +28,15 @@ import (
 
 var supportedArches = []string{"arm", "arm64", "mips", "mips64", "x86", "x86_64"}
 
+// These libraries are loaded at runtime by dalvikvm when run with debugging enabled.  The dalvikvm binary depends on
+// the non-debug versions directly.
+var debugSharedLibraries = []string{
+	"libartd",
+	"libopenjdkd",
+	"libopenjdkjvmd",
+	"libopenjdkjvmtid",
+}
+
 func globalFlags(ctx android.BaseModuleContext) ([]string, []string) {
 	var cflags []string
 	var asflags []string
