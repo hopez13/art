@@ -37,14 +37,6 @@
 
     .prologue
 
-    # if (doThrow) { throw new Error(); }
-    sget-boolean v1, LMain;->doThrow:Z
-    if-eqz v1, :doThrow_false
-    new-instance v1, Ljava/lang/Error;
-    invoke-direct {v1}, Ljava/lang/Error;-><init>()V
-    throw v1
-
-  :doThrow_false
   :try_start
     # tmp = s.charAt(pos)
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
