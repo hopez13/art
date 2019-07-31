@@ -63,12 +63,7 @@ include $(art_path)/tools/veridex/Android.mk
 
 ART_HOST_DEPENDENCIES := \
   $(ART_HOST_EXECUTABLES) \
-  $(ART_HOST_DEX_DEPENDENCIES) \
-  $(ART_HOST_SHARED_LIBRARY_DEPENDENCIES)
-
-ifeq ($(ART_BUILD_HOST_DEBUG),true)
-ART_HOST_DEPENDENCIES += $(ART_HOST_SHARED_LIBRARY_DEBUG_DEPENDENCIES)
-endif
+  $(ART_HOST_DEX_DEPENDENCIES)
 
 ART_TARGET_DEPENDENCIES := \
   $(ART_TARGET_DEX_DEPENDENCIES)
@@ -629,7 +624,6 @@ build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(TARGET_OUT_EXECUTABLES)/art \
                         $(TARGET_OUT)/etc/public.libraries.txt \
                         $(ART_TARGET_DEX_DEPENDENCIES) \
-                        $(ART_TARGET_SHARED_LIBRARY_DEPENDENCIES) \
                         $(ART_TARGET_SHARED_LIBRARY_BENCHMARK) \
                         $(TARGET_CORE_IMG_OUT_BASE).art \
                         $(TARGET_CORE_IMG_OUT_BASE)-interpreter.art \
