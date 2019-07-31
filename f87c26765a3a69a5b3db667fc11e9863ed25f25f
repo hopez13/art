@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bd0ae6c7_e6939991",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-31T13:25:43Z",
+      "side": 1,
+      "message": "Could add something more descriptive to this CL message?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b123294_19836713",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-31T13:25:43Z",
+      "side": 1,
+      "message": "If you don\u0027t intend to add a bug number here, please remove.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ade81da4_33510d44",
         "filename": "test/480-checker-dead-blocks/src/Main.java",
         "patchSetId": 2
@@ -37,6 +83,30 @@
       "side": 1,
       "message": "Please see the comment on the CL from Jul 30 10:30 AM.",
       "parentUuid": "ade81da4_33510d44",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd206dd6_2386835e",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-31T13:25:43Z",
+      "side": 1,
+      "message": "Could you provide us with a link to this CL?",
+      "parentUuid": "678a0776_cb5a458c",
       "range": {
         "startLine": 98,
         "startChar": 6,
