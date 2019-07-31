@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "006dba74_2e5f1dc5",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1327199
+      },
+      "writtenOn": "2019-07-31T13:33:06Z",
+      "side": 1,
+      "message": "It is originally from Jan 18, https://r8-review.googlesource.com/c/r8/+/29902, but was disabled on Jan 24 due to a bug in ART on Q (b/123284765). Now, reenabled in R8 1.6.17-dev, https://r8-review.googlesource.com/c/r8/+/40900.",
+      "parentUuid": "dd206dd6_2386835e",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7587686_b1f0e71e",
         "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
         "patchSetId": 2
