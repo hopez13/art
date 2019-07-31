@@ -16,6 +16,24 @@
       "revId": "5443493f2b421127e60903aa2605ef61a75f262f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb15d939_8635ad10",
+        "filename": "test/597-deopt-busy-loop/src/SimdLoop.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T12:52:16Z",
+      "side": 1,
+      "message": "I haven\u0027t checked if we\u0027re still getting the deopt, but I\u0027m aware that this is timing-dependent, so it was always a smoke test, not necessarily detecting the bug 100% of the time.\n\nThis CL is just to make gcstress pass. Feel free to follow-up by replacing the `Thread.sleep(1L)` with another `Thread.yield()` as it\u0027s likely to be enough to expose the bug if you revert the loop_optimization.cc fix.",
+      "parentUuid": "df01810c_56e8eea3",
+      "revId": "5443493f2b421127e60903aa2605ef61a75f262f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
