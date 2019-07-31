@@ -13,6 +13,7 @@ bootstrap_go_package {
     srcs: [
         "art.go",
         "codegen.go",
+        "hprof.go",
         "image.go",
         "makevars.go",
     ],
