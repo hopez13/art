@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba8d5372_6774664d",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-07-31T16:50:05Z",
+      "side": 1,
+      "message": "Maybe we could change SingleRootVisitor to support updating roots and use that in the future.",
+      "range": {
+        "startLine": 1673,
+        "startChar": 65,
+        "endLine": 1673,
+        "endChar": 82
+      },
+      "revId": "784a7b1bb8e5d31ddddc3af48efb2e499c5bc09b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "749b013a_616228fa",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-07-31T16:50:05Z",
+      "side": 1,
+      "message": "Why is the instrumentation required?",
+      "range": {
+        "startLine": 1720,
+        "startChar": 0,
+        "endLine": 1720,
+        "endChar": 52
+      },
+      "revId": "784a7b1bb8e5d31ddddc3af48efb2e499c5bc09b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
