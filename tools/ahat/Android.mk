@@ -56,8 +56,6 @@ endif
 # The scripts below are run with --no-compile to avoid dependency on dex2oat.
 AHAT_TEST_DUMP_DEPENDENCIES := \
   $(AHAT_TEST_DALVIKVM_DEP) \
-  $(ART_HOST_SHARED_LIBRARY_DEPENDENCIES) \
-  $(ART_HOST_SHARED_LIBRARY_DEBUG_DEPENDENCIES) \
   $(HOST_OUT_EXECUTABLES)/art \
   $(HOST_CORE_IMG_OUT_BASE)$(CORE_IMG_SUFFIX)
 
