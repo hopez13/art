@@ -202,7 +202,7 @@ function run_dex2oat() {
           ANDROID_RUNTIME_ROOT=$ANDROID_RUNTIME_ROOT          \
           ANDROID_TZDATA_ROOT=$ANDROID_TZDATA_ROOT            \
           LD_LIBRARY_PATH=$LD_LIBRARY_PATH                    \
-          PATH=$ANDROID_ROOT/bin:$PATH                        \
+          PATH=$PROG_DIR:$PATH                                \
           LD_USE_LOAD_BIAS=1                                  \
           ANDROID_LOG_TAGS=$ANDROID_LOG_TAGS                  \
           $DEX2OAT_BINARY_PATH                                \
@@ -278,7 +278,7 @@ function run_art() {
               ANDROID_RUNTIME_ROOT="$ANDROID_RUNTIME_ROOT"  \
               ANDROID_TZDATA_ROOT="$ANDROID_TZDATA_ROOT"    \
               LD_LIBRARY_PATH="$LD_LIBRARY_PATH"            \
-              PATH="$ANDROID_ROOT/bin:$PATH"                \
+              PATH="$PROG_DIR:$PATH"                        \
               LD_USE_LOAD_BIAS=1                            \
               ANDROID_LOG_TAGS="$ANDROID_LOG_TAGS"          \
               $LAUNCH_WRAPPER $ART_BINARY_PATH $lib         \
@@ -402,6 +402,9 @@ done
 
 PROG_DIR="$(cd "${PROG_NAME%/*}" ; pwd -P)"
 ANDROID_ROOT="$(cd $PROG_DIR/..; pwd -P)"
+# This script may be run from out/soong/host/linux-x86/bin, but the core
+# images are in out/host/linux-x86/bin.
+ANDROID_ROOT=${ANDROID_ROOT/\/soong\//\/}
 
 # If ANDROID_RUNTIME_ROOT is not set, try to detect whether we are running on
 # target or host and set that environment variable to the usual default value.
@@ -445,7 +448,7 @@ if [ -z "$ANDROID_TZDATA_ROOT" ]; then
   fi
 fi
 
-ART_BINARY_PATH=$ANDROID_ROOT/bin/$ART_BINARY
+ART_BINARY_PATH=$PROG_DIR/$ART_BINARY
 
 if [ ! -x "$ART_BINARY_PATH" ]; then
   cat 1>&2 <<EOF
@@ -455,7 +458,7 @@ EOF
   exit 1
 fi
 
-DEX2OAT_BINARY_PATH=$ANDROID_ROOT/bin/$DEX2OAT_BINARY
+DEX2OAT_BINARY_PATH=$PROG_DIR/$DEX2OAT_BINARY
 
 if [ ! -x "$DEX2OAT_BINARY_PATH" ]; then
   echo "Warning: Android Compiler not found: $DEX2OAT_BINARY_PATH"
