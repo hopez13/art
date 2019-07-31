@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "69f618fc_ce0e59f3",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T15:03:16Z",
+      "side": 1,
+      "message": "You\u0027re insisting on that trivial example with null references but the case here is about mixing `boolean` and `int`. You cannot even write that code in Java:\n\n  boolean tmp;\n  while (tmp \u003d inlineFalse()) {\n    x +\u003d tmp;  // Does not compile.\n  }\n\nBut my objection is that you\u0027re hiding constants from the compiler, potentially preventing optimizations. Just think about this code:\n\n  if (foo() \u003d\u003d 1) {\n    for (int i \u003d 0; i \u003c arr.length; ++i) {\n      do something with arr[i];\n    }\n  }\n\nIf you use the result of `foo()` to replace the constant 1 in `++i`, ART will not recognize the loop as having \"stride 1\" and therefore will not eliminate the bound check on `a[i]` (what if `foo()` is negative?) and also will not be able to vectorize the loop.\n\nAre we now supposed to implement a pass that replaces all uses of a value with a constant in blocks dominated by a block with single predecessor entered when the value equals the constant? It shall never be implemented for older versions of ART, so you\u0027re deliberately impairing performance for a large group of devices. And if you somehow create a little more complicated pattern, are we supposed to go hunting for constants even deeper to undo all your obfuscations?",
+      "parentUuid": "57387d34_8419bb1d",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7587686_b1f0e71e",
         "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
         "patchSetId": 2
