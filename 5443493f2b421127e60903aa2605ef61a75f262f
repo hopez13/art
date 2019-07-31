@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df01810c_56e8eea3",
+        "filename": "test/597-deopt-busy-loop/src/SimdLoop.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-31T12:41:09Z",
+      "side": 1,
+      "message": "If the loop is not big enough we might finish it before we get deoptimization; as this might happen even without reducing the array size \"if (sExitFlag)\" was inserted to prevent spurious test failure.\n\nProbably you have done this but I justed wanted to note that after reducing the array size it would be great to check that deoptimization still happens while we are still executing the loop.",
+      "revId": "5443493f2b421127e60903aa2605ef61a75f262f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
