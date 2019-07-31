@@ -54,4 +54,17 @@ art_cc_binary {
 
     // Create symlink for the primary version target.
     symlink_preferred_arch: true,
+
+    // These libraries are loaded by libart at runtime, but can't be
+    // expressed as a runtime_libs dependency from libart because
+    // they link against libart.
+    runtime_libs: [
+        "libjavacore",
+        "libopenjdk",
+        "libopenjdkjvm",
+
+        // This technically isn't always needed, but in practice it is
+        // always installed so just depend on it here.
+        "libopenjdkjvmti",
+    ],
 }
