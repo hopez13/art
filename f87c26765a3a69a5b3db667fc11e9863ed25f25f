@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ade81da4_33510d44",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T13:20:30Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7587686_b1f0e71e",
         "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
         "patchSetId": 2
@@ -48,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "82ac49a3_8ffc8cb6",
+        "filename": "test/567-checker-compare/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T13:20:30Z",
+      "side": 1,
+      "message": "Drop all the `doThrow` changes, please. I\u0027ve prepared a separate CL to remove these from the 3 tests: https://android-review.googlesource.com/1093959 .",
+      "parentUuid": "894a4a2f_9b9b733b",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3eab5801_289f9149",
         "filename": "test/570-checker-select/src/Main.java",
         "patchSetId": 2
@@ -64,6 +111,29 @@
         "startChar": 2,
         "endLine": 256,
         "endChar": 63
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba2d3cdf_cc3043c9",
+        "filename": "test/591-checker-regression-dead-loop/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T13:20:30Z",
+      "side": 1,
+      "message": "Why? What code does the new D8/R8 emit for the original code to necessitate this change?",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 15
       },
       "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
