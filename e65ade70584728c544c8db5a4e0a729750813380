@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4d5bc31_a6bd21eb",
+        "filename": "test/597-deopt-busy-loop/src/SimdLoop.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T12:17:20Z",
+      "side": 1,
+      "message": "GC-stress is running with reduced maximum heap size:\n+Exception in thread \"Thread-5\" java.lang.OutOfMemoryError: Failed to allocate a 40000016 byte allocation with 1572864 free bytes and 15MB until OOM, target footprint 1671056, growth limit 16777216",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "e65ade70584728c544c8db5a4e0a729750813380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
