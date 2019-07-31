@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "8804f03d_f7b50a3f",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-31T13:37:53Z",
+      "side": 1,
+      "message": "Please include some of the comment in the commit message.\n\nAre you trying to optimize for code size, hoping to use add-int/2addr rather than add-int/lit8? Do you realize that this can be a bit slower while interpreting as we need to read the vreg from memory (probably L1 cache here but still a few more instructions) rather than decode it from the instruction stream? Do you realize that this puts additional burden on the compiler to recognize that it\u0027s a constant in this context, otherwise it may generate suboptimal code?\n\n(I\u0027m obviously not in favor of this \"constant obfuscation\" that you have implemented in r8.)",
+      "parentUuid": "006dba74_2e5f1dc5",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "f87c26765a3a69a5b3db667fc11e9863ed25f25f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7587686_b1f0e71e",
         "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
         "patchSetId": 2
