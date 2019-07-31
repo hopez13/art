@@ -127,18 +127,26 @@ void JitCompiler::TypesLoaded(mirror::Class** types, size_t count)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const CompilerOptions& compiler_options = GetCompilerOptions();
   if (compiler_options.GetGenerateDebugInfo()) {
+    InstructionSet isa = compiler_options.GetInstructionSet();
+    const InstructionSetFeatures* features = compiler_options.GetInstructionSetFeatures();
     const ArrayRef<mirror::Class*> types_array(types, count);
-    std::vector<uint8_t> elf_file = debug::WriteDebugElfFileForClasses(
-        kRuntimeISA, compiler_options.GetInstructionSetFeatures(), types_array);
-    // We never free debug info for types, so we don't need to provide a handle
-    // (which would have been otherwise used as identifier to remove it later).
-    AddNativeDebugInfoForJit(Thread::Current(),
-                             /*code_ptr=*/ nullptr,
+    std::vector<uint8_t> elf_file =
+        debug::WriteDebugElfFileForClasses(isa, features, types_array);
+
+    // NB: Don't allow packing since it would remove non-backtrace data.
+    AddNativeDebugInfoForJit(/*code_ptr=*/ nullptr,
                              elf_file,
-                             /*pack*/ nullptr,
-                             compiler_options.GetInstructionSet(),
-                             compiler_options.GetInstructionSetFeatures());
+                             /*allow_packing=*/ false,
+                             GetPackElfFileForJITFunction());
   }
+}
+
+PackElfFileForJITFunction JitCompiler::GetPackElfFileForJITFunction() {
+  using namespace std::placeholders;  // NOLINT: Imports _1, _2, _3, _4.
+  const CompilerOptions& compiler_options = GetCompilerOptions();
+  InstructionSet isa = compiler_options.GetInstructionSet();
+  const InstructionSetFeatures* features = compiler_options.GetInstructionSetFeatures();
+  return std::bind(&debug::PackElfFileForJIT, isa, features, _1, _2, _3, _4);
 }
 
 bool JitCompiler::GenerateDebugInfo() {

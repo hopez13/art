@@ -34,6 +34,7 @@
 #include "elf/elf_debug_reader.h"
 #include "elf/elf_utils.h"
 #include "elf/xz_utils.h"
+#include "jit/debugger_interface.h"
 #include "oat.h"
 #include "stream/vector_output_stream.h"
 
@@ -229,8 +230,8 @@ std::vector<uint8_t> MakeElfFileForJIT(
 std::vector<uint8_t> PackElfFileForJIT(
     InstructionSet isa,
     const InstructionSetFeatures* features ATTRIBUTE_UNUSED,
-    std::vector<ArrayRef<const uint8_t>>& added_elf_files,
-    std::vector<const void*>& removed_symbols,
+    ArrayRef<JITCodeEntry*> jit_entries,
+    ArrayRef<const void*> removed_symbols,
     bool compress,
     /*out*/ size_t* num_symbols) {
   using ElfTypes = ElfRuntimeTypes;
@@ -260,8 +261,8 @@ std::vector<uint8_t> PackElfFileForJIT(
 
     using Reader = ElfDebugReader<ElfTypes>;
     std::deque<Reader> readers;
-    for (ArrayRef<const uint8_t> added_elf_file : added_elf_files) {
-      readers.emplace_back(added_elf_file);
+    for (JITCodeEntry* it : jit_entries) {
+      readers.emplace_back(GetJITCodeEntrySymFile(it));
     }
 
     // Write symbols names. All other data is buffered.

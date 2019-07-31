@@ -53,6 +53,8 @@ class JitCompiler : public JitCompilerInterface {
 
   void TypesLoaded(mirror::Class**, size_t count) REQUIRES_SHARED(Locks::mutator_lock_) override;
 
+  PackElfFileForJITFunction GetPackElfFileForJITFunction() override;
+
  private:
   std::unique_ptr<CompilerOptions> compiler_options_;
   std::unique_ptr<Compiler> compiler_;

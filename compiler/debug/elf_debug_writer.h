@@ -29,6 +29,7 @@
 
 namespace art {
 class OatHeader;
+struct JITCodeEntry;
 namespace mirror {
 class Class;
 }  // namespace mirror
@@ -58,8 +59,8 @@ std::vector<uint8_t> MakeElfFileForJIT(
 std::vector<uint8_t> PackElfFileForJIT(
     InstructionSet isa,
     const InstructionSetFeatures* features,
-    std::vector<ArrayRef<const uint8_t>>& added_elf_files,
-    std::vector<const void*>& removed_symbols,
+    ArrayRef<JITCodeEntry*> jit_entries,
+    ArrayRef<const void*> removed_symbols,
     bool compress,
     /*out*/ size_t* num_symbols);
 
