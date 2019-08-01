@@ -22,6 +22,30 @@
       "revId": "3c5a1b55e4c367939af753d61c247217ec6291f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d97e90cb_f9f6a72c",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-08-01T16:52:17Z",
+      "side": 1,
+      "message": "Nope. However, the spec requires it and we already expect this in every single place (e.g., look at CodeItem).\n\nI\u0027d be really surprised if someone found an encoding that merged the tries or following item to have this meaningfully working. In that case I\u0027d still just say \"tough luck.\"",
+      "parentUuid": "e2c34ecd_96de8d16",
+      "range": {
+        "startLine": 1613,
+        "startChar": 6,
+        "endLine": 1613,
+        "endChar": 16
+      },
+      "revId": "3c5a1b55e4c367939af753d61c247217ec6291f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
