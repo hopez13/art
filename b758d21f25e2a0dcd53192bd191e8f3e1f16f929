@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b365e51_6803f621",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-08-01T21:07:49Z",
+      "side": 1,
+      "message": "What does \u0027i\u0027 represent in this case? Should we add a constant to make it clear?",
+      "range": {
+        "startLine": 860,
+        "startChar": 79,
+        "endLine": 860,
+        "endChar": 80
+      },
+      "revId": "b758d21f25e2a0dcd53192bd191e8f3e1f16f929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
