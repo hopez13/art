@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6c650f20_43ef47cb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664a6660_65f71e55",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 3
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3df7e457_fc5f0ded",
         "filename": "compiler/optimizing/code_generator_mips.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-01T13:58:45Z",
       "side": 1,
       "message": "1 * kMipsDoublewordSize",
+      "range": {
+        "startLine": 395,
+        "startChar": 11,
+        "endLine": 395,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "564079fa_a74b11f6",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Cool, this will be an optimization as before it used the same 2 double word as for slow path. Same for other targets.",
+      "parentUuid": "3df7e457_fc5f0ded",
       "range": {
         "startLine": 395,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9049ea80_310d86c4",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce6ce121_72afde2a",
+      "range": {
+        "startLine": 373,
+        "startChar": 11,
+        "endLine": 373,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b83c981e_0318d04c",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f3f593f_bd5a8702",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b83c981e_0318d04c",
+      "range": {
+        "startLine": 367,
+        "startChar": 11,
+        "endLine": 367,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "19595579_30337d61",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cc29319_f66a42f2",
+      "range": {
+        "startLine": 1380,
+        "startChar": 31,
+        "endLine": 1380,
+        "endChar": 51
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15f813d1_079a87fe",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a882d95a_96ff424d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15f813d1_079a87fe",
+      "range": {
+        "startLine": 1408,
+        "startChar": 33,
+        "endLine": 1408,
+        "endChar": 53
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "96423afa_5c33b297",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d11f660_00ae1640",
+      "range": {
+        "startLine": 348,
+        "startChar": 11,
+        "endLine": 348,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c7ddda9_765b3911",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 4
@@ -177,6 +345,24 @@
       "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b9e93bc_1a5d4317",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T16:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c7ddda9_765b3911",
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
