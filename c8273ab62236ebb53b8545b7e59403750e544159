@@ -1,0 +1,435 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "722ef302_49280350",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": ":) although I\u0027m not sure if this is intentional.\n\nYou should make sure to actually test it though.\n\nTry modifying a run-test to loop forever and start it with\n\n./test/run-test --host --runtime-arg -Xplugin:$ANDROID_HOST_OUT/lib/libperfetto_hprof.so --dev \u003cnumber\u003e\n\nthen sending the signal.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f12a7dd_816465d7",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "add bug number for tracking. Create one if you don\u0027t have one yet.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 74
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acf63e5d_573801f5",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "This is not actually needed.",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f366aa68_c6894995",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "copy/paste error remove.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 15
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3876c70_0909f157",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is used for anything.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c9b64f9_d4d4a4a4",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "The whole file/plugin should have its own namespace that everything goes into.",
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b303cc78_5b84fa5f",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "art::Mutex please\n\nIt has better logging and lock-order analysis.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e38c8b_8d06a3d4",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "art::ConditionVariable please",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c2a5683_3808ec51",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "Please don\u0027t use namespaces just to avoid having to write out perfetto::SetupArgs etc.\n\nIf really necessary for that PERFETTO_DEFINE_DATA_SOURCE_STATIC_MEMBERS then use \u0027using perfetto\u0027 instead.",
+      "range": {
+        "startLine": 101,
+        "startChar": 10,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b41bf72_855cfafc",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "Include bug if there is one.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 74
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9bda5b4_f3d02d7f",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "namespace art is only for things in the core runtime. Do not use it here.\n\nAlso same as above. just use art::mirror::Object etc.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 15
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b473f09_073796ea",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "This needs better comments.\n\nYou have host_supported: true but the clone function is different in bionic and glibc. Specifically in glibc/host passing fn (the first argument) as null is spec\u0027d to return EINVAL.\n\nWhy not just use fork(2)?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 50
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c29ee50f_92ad0cc1",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "comment that this is to prevent on_exit handlers from triggering.",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 11
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2473fdd8_e485a659",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "These can be in namespaces.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 38
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7f08486_3841ab40",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "use eventfd(2) with EFD_SEMAPHORE | EFD_CLOEXEC",
+      "range": {
+        "startLine": 312,
+        "startChar": 6,
+        "endLine": 312,
+        "endChar": 10
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01e5d99f_62ada0cc",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "nit: I don\u0027t really like the name. It\u0027s not very descriptive.",
+      "range": {
+        "startLine": 152,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 20
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01e1b095_da76a22e",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "Do the loading in Runtime::InitNonZygoteOrPostFork\n\nJust mark it as enabled by the flag here and check all three conditions there.",
+      "range": {
+        "startLine": 245,
+        "startChar": 1,
+        "endLine": 253,
+        "endChar": 39
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea0df2d0_6ded4fd5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "Just make a common EnsurePluginLoaded function with the common parts of this and the ENsureJvmtiPlugin function.",
+      "range": {
+        "startLine": 1768,
+        "startChar": 14,
+        "endLine": 1768,
+        "endChar": 34
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a915cb1b_82c1316f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-01T17:04:25Z",
+      "side": 1,
+      "message": "Line length.",
+      "range": {
+        "startLine": 1769,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 103
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
