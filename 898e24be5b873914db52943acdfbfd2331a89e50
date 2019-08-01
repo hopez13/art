@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3767ef_31c7e4ed",
+        "filename": "test/638-checker-inline-cache-intrinsic/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-01T13:50:43Z",
+      "side": 1,
+      "message": "Could you also add a comment here saying that when running in \"optimizing\" (AOT) mode, the Checker stanzas in test/638-checker-inline-cache-intrinsic/src/Main.java will be honored, but for the *JIT-compiled* code? I think this is worth mentioning, as this is unusual (Checker tests were designed for AOT code originally).\n\nAlternatively, you could remove the `--jit` option here and disable all the non-JIT configurations of this test in test/knownfailures.json (but maybe this would betray the spirit of this test…).",
+      "range": {
+        "startLine": 19,
+        "startChar": 12,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "898e24be5b873914db52943acdfbfd2331a89e50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
