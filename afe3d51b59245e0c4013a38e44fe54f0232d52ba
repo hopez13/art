@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "664a6660_65f71e55",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "Override only `GetCalleePreservedFPWidth()` with `return vixl::aarch32::kSRegSizeInBytes;` and the default implementation of `GetSlowPathFPWidth()` will call that.",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 3
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df7e457_fc5f0ded",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "1 * kMipsDoublewordSize",
+      "range": {
+        "startLine": 395,
+        "startChar": 11,
+        "endLine": 395,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce6ce121_72afde2a",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "1 * kMips64DoublewordSize",
+      "range": {
+        "startLine": 373,
+        "startChar": 11,
+        "endLine": 373,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83c981e_0318d04c",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "2 * kX86WordSize",
+      "range": {
+        "startLine": 367,
+        "startChar": 11,
+        "endLine": 367,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc29319_f66a42f2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "GetCalleePreservedFPWidth()",
+      "range": {
+        "startLine": 1380,
+        "startChar": 31,
+        "endLine": 1380,
+        "endChar": 51
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15f813d1_079a87fe",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "GetCalleePreservedFPWidth()",
+      "range": {
+        "startLine": 1408,
+        "startChar": 33,
+        "endLine": 1408,
+        "endChar": 53
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d11f660_00ae1640",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "1 * kX86_64WordSize",
+      "range": {
+        "startLine": 348,
+        "startChar": 11,
+        "endLine": 348,
+        "endChar": 31
+      },
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c7ddda9_765b3911",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-08-01T13:58:45Z",
+      "side": 1,
+      "message": "I guess we should also assert somewhere that arm64::callee_saved_fp_registers contains 8 registers.",
+      "revId": "afe3d51b59245e0c4013a38e44fe54f0232d52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
