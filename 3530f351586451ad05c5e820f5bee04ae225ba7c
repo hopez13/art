@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85b6592e_380dab93",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T13:42:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a86414e_7624e6c0",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 43
+      },
+      "revId": "3530f351586451ad05c5e820f5bee04ae225ba7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2436e0f9_82049c89",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0fe2950f_e4f47d2a",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T13:42:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2436e0f9_82049c89",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 867,
+        "endChar": 48
+      },
+      "revId": "3530f351586451ad05c5e820f5bee04ae225ba7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e0be2fe_b1110982",
         "filename": "test/661-checker-simd-reduc/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2019-07-31T14:31:53Z",
       "side": 1,
       "message": "Are we checking CHECK statements for debuggable?",
+      "revId": "3530f351586451ad05c5e820f5bee04ae225ba7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "209be0d9_0385f4a5",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-08-01T13:42:32Z",
+      "side": 1,
+      "message": "No, we don\u0027t.",
+      "parentUuid": "2e0be2fe_b1110982",
       "revId": "3530f351586451ad05c5e820f5bee04ae225ba7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
