@@ -42,6 +42,7 @@ const PreciseConstType* RegTypeCache::small_precise_constants_[kMaxSmallConstant
 namespace {
 
 ClassLinker* gInitClassLinker = nullptr;
+std::vector<const RegType*> gSmallTypesCache;
 
 }  // namespace
 
@@ -58,29 +59,6 @@ ALWAYS_INLINE static inline bool MatchingPrecisionForClass(const RegType* entry,
     }
     return false;
   }
-}
-
-void RegTypeCache::FillPrimitiveAndSmallConstantTypes() {
-  // Note: this must have the same order as CreatePrimitiveAndSmallConstantTypes.
-  entries_.push_back(UndefinedType::GetInstance());
-  entries_.push_back(ConflictType::GetInstance());
-  entries_.push_back(NullType::GetInstance());
-  entries_.push_back(BooleanType::GetInstance());
-  entries_.push_back(ByteType::GetInstance());
-  entries_.push_back(ShortType::GetInstance());
-  entries_.push_back(CharType::GetInstance());
-  entries_.push_back(IntegerType::GetInstance());
-  entries_.push_back(LongLoType::GetInstance());
-  entries_.push_back(LongHiType::GetInstance());
-  entries_.push_back(FloatType::GetInstance());
-  entries_.push_back(DoubleLoType::GetInstance());
-  entries_.push_back(DoubleHiType::GetInstance());
-  for (int32_t value = kMinSmallConstant; value <= kMaxSmallConstant; ++value) {
-    int32_t i = value - kMinSmallConstant;
-    DCHECK_EQ(entries_.size(), small_precise_constants_[i]->GetId());
-    entries_.push_back(small_precise_constants_[i]);
-  }
-  DCHECK_EQ(entries_.size(), primitive_count_);
 }
 
 const RegType& RegTypeCache::FromDescriptor(ObjPtr<mirror::ClassLoader> loader,
@@ -302,7 +280,8 @@ RegTypeCache::RegTypeCache(ClassLinker* class_linker,
   // We want to have room for additional entries after inserting primitives and small
   // constants.
   entries_.reserve(kNumReserveEntries + kNumPrimitivesAndSmallConstants);
-  FillPrimitiveAndSmallConstantTypes();
+  entries_.insert(entries_.begin(), gSmallTypesCache.begin(), gSmallTypesCache.end());
+  DCHECK_EQ(entries_.size(), primitive_count_);
 }
 
 RegTypeCache::~RegTypeCache() {
@@ -350,7 +329,7 @@ struct TypeHelper {
 void RegTypeCache::CreatePrimitiveAndSmallConstantTypes(ClassLinker* class_linker) {
   gInitClassLinker = class_linker;
 
-  // Note: this must have the same order as FillPrimitiveAndSmallConstantTypes.
+  gSmallTypesCache.reserve(kNumPrimitivesAndSmallConstants);
 
   // It is acceptable to pass on the const char* in type to CreateInstance, as all calls below are
   // with compile-time constants that will have global lifetime. Use of the lambda ensures this
@@ -368,6 +347,7 @@ void RegTypeCache::CreatePrimitiveAndSmallConstantTypes(ClassLinker* class_linke
                                              type.descriptor,
                                              RegTypeCache::primitive_count_);
     RegTypeCache::primitive_count_++;
+    gSmallTypesCache.push_back(entry);
     return entry;
   };
   create_primitive_type_instance(TypeHelper<UndefinedType>(""));
@@ -388,7 +368,10 @@ void RegTypeCache::CreatePrimitiveAndSmallConstantTypes(ClassLinker* class_linke
     PreciseConstType* type = new PreciseConstType(value, primitive_count_);
     small_precise_constants_[value - kMinSmallConstant] = type;
     primitive_count_++;
+    gSmallTypesCache.push_back(type);
   }
+
+  CHECK_EQ(kNumPrimitivesAndSmallConstants, primitive_count_);
 }
 
 const RegType& RegTypeCache::FromUnresolvedMerge(const RegType& left,

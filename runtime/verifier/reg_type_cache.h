@@ -171,7 +171,6 @@ class RegTypeCache {
   }
 
  private:
-  void FillPrimitiveAndSmallConstantTypes() REQUIRES_SHARED(Locks::mutator_lock_);
   ObjPtr<mirror::Class> ResolveClass(const char* descriptor, ObjPtr<mirror::ClassLoader> loader)
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool MatchDescriptor(size_t idx, const std::string_view& descriptor, bool precise)
