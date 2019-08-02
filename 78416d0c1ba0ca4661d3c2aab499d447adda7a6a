@@ -46,6 +46,30 @@
       "revId": "78416d0c1ba0ca4661d3c2aab499d447adda7a6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6caf43a_c8d13f97",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-02T12:04:56Z",
+      "side": 1,
+      "message": "I was trying to apply Neil\u0027s logic regarding CleanSpec location (see https://android-review.googlesource.com/c/platform/art/+/1008035/5#message-d265d192d8c8e25a63ed18e8980378fa948e9b12), but it is fine with me to keep the CleanSpec lines here.",
+      "parentUuid": "1b3d1743_01af1662",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 60
+      },
+      "revId": "78416d0c1ba0ca4661d3c2aab499d447adda7a6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
