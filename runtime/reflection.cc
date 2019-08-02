@@ -699,7 +699,7 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
   ArtMethod* m = executable->GetArtMethod();
 
   ObjPtr<mirror::Class> declaring_class = m->GetDeclaringClass();
-  if (UNLIKELY(!declaring_class->IsInitialized())) {
+  if (UNLIKELY(!declaring_class->IsVisiblyInitialized())) {
     StackHandleScope<1> hs(soa.Self());
     HandleWrapperObjPtr<mirror::Class> h_class(hs.NewHandleWrapper(&declaring_class));
     if (!Runtime::Current()->GetClassLinker()->EnsureInitialized(soa.Self(), h_class, true, true)) {

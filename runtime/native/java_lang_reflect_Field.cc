@@ -129,7 +129,7 @@ ALWAYS_INLINE inline static bool CheckReceiver(const ScopedFastNativeObjectAcces
   soa.Self()->AssertThreadSuspensionIsAllowable();
   ObjPtr<mirror::Class> declaring_class = (*f)->GetDeclaringClass();
   if ((*f)->IsStatic()) {
-    if (UNLIKELY(!declaring_class->IsInitialized())) {
+    if (UNLIKELY(!declaring_class->IsVisiblyInitialized())) {
       StackHandleScope<2> hs(soa.Self());
       HandleWrapperObjPtr<mirror::Field> h_f(hs.NewHandleWrapper(f));
       HandleWrapperObjPtr<mirror::Class> h_klass(hs.NewHandleWrapper(&declaring_class));
