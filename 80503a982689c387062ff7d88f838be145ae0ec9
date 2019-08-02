@@ -22,6 +22,29 @@
       "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "960c21ed_2d89bb8d",
+        "filename": "build/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-02T12:45:14Z",
+      "side": 1,
+      "message": "I think we currently use dex2oatd by default for Dex pre-opting (https://android.googlesource.com/platform/build/+/refs/heads/master/core/dex_preopt_config.mk#46).",
+      "range": {
+        "startLine": 178,
+        "startChar": 23,
+        "endLine": 178,
+        "endChar": 32
+      },
+      "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
