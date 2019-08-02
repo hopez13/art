@@ -332,7 +332,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     DCHECK(!called_method->IsIntrinsic());
     DCHECK(!(called_method->GetDeclaringClass()->IsStringClass() &&
         called_method->IsConstructor()));
-    DCHECK(type != kStatic || called_method->GetDeclaringClass()->IsInitialized());
+    DCHECK(type != kStatic || called_method->GetDeclaringClass()->IsVisiblyInitialized());
 
     const uint16_t number_of_inputs =
         (is_range) ? inst->VRegA_3rc(inst_data) : inst->VRegA_35c(inst_data);
@@ -498,7 +498,7 @@ static inline ObjPtr<mirror::String> ResolveString(Thread* self,
                                                    dex::StringIndex string_idx)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::Class> java_lang_string_class = GetClassRoot<mirror::String>();
-  if (UNLIKELY(!java_lang_string_class->IsInitialized())) {
+  if (UNLIKELY(!java_lang_string_class->IsVisiblyInitialized())) {
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     StackHandleScope<1> hs(self);
     Handle<mirror::Class> h_class(hs.NewHandle(java_lang_string_class));

@@ -793,7 +793,7 @@ ALWAYS_INLINE bool MterpFieldAccessFast(Instruction* inst,
     uint32_t field_idx = kIsStatic ? inst->VRegB_21c() : inst->VRegC_22c();
     ArtField* field = dex_cache->GetResolvedField(field_idx, kRuntimePointerSize);
     if (LIKELY(field != nullptr)) {
-      bool initialized = !kIsStatic || field->GetDeclaringClass()->IsInitialized();
+      bool initialized = !kIsStatic || field->GetDeclaringClass()->IsVisiblyInitialized();
       if (LIKELY(initialized)) {
         DCHECK_EQ(field, (FindFieldFromCode<kAccessType, /* access_checks= */ false>(
             field_idx, referrer, self, sizeof(PrimType))));
