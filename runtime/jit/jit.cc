@@ -16,6 +16,10 @@
 
 #include "jit.h"
 
+#ifdef ART_TARGET_ANDROID
+#include <android-base/properties.h>
+#endif
+
 #include <dlfcn.h>
 
 #include "art_method-inl.h"
@@ -693,6 +697,13 @@ class JitPrecompileTask final : public Task {
 
   void Run(Thread* self) override {
     Jit* jit = Runtime::Current()->GetJit();
+#ifdef ART_TARGET_ANDROID
+    if (!android::base::GetBoolProperty("sys.boot_completed", false)) {
+      usleep(1000);
+      jit->thread_pool_->AddTask(self, this);
+      return;
+    }
+#endif
     Task* task = nullptr;
     {
       MutexLock mu(self, jit->precompile_tasks_lock_);
