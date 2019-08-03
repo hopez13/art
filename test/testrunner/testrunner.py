@@ -559,6 +559,11 @@ def run_test(command, test, test_variant, test_name):
   except subprocess.TimeoutExpired as e:
     failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
     test_end_time = datetime.datetime.now()
+
+    # The python documentation states that it is necessary to actually kill the process.
+    proc.kill()
+    outs, errs = proc.communicate()
+
     return (test_name,
             'TIMEOUT',
             'Timed out in %d seconds\n%s' % (timeout, command),
