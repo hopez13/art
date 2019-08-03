@@ -558,10 +558,11 @@ def run_test(command, test, test_variant, test_name):
       return (test_name, 'PASS', None, test_time)
   except subprocess.TimeoutExpired as e:
     failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
+    test_end_time = datetime.datetime.now()
     return (test_name,
             'TIMEOUT',
             'Timed out in %d seconds\n%s' % (timeout, command),
-            datetime.timedelta(seconds=timeout))
+            test_end_time - test_start_time)
   except Exception as e:
     failed_tests.append((test_name, str(e)))
     return (test_name, 'FAIL', ('%s\n%s\n\n') % (command, str(e)), datetime.timedelta())
