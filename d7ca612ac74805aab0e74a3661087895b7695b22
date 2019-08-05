@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96772f92_e5597c70",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-05T13:37:54Z",
+      "side": 1,
+      "message": "Since you\u0027re fixing this, could you also update the documentation here to mention the fourth element (test time) of the returned 4-uple?",
+      "range": {
+        "startLine": 529,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 66
+      },
+      "revId": "d7ca612ac74805aab0e74a3661087895b7695b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9b03356_f0212a0f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-05T13:37:54Z",
+      "side": 1,
+      "message": "Nit: Place this right at the beginning of the exception handler (between lines 559 and 560), so as to improve the accuracy of `test_end_time`?",
+      "range": {
+        "startLine": 561,
+        "startChar": 4,
+        "endLine": 561,
+        "endChar": 43
+      },
+      "revId": "d7ca612ac74805aab0e74a3661087895b7695b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
