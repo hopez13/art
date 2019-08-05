@@ -34,6 +34,24 @@
       "revId": "5725e7c4aab576384649de60557dc1f52eb21b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41dd6885_de2a3a6c",
+        "filename": "disassembler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-05T17:22:28Z",
+      "side": 1,
+      "message": "Proposed fix here:\n\n* https://android-review.googlesource.com/c/platform/art/+/1095743\n* https://android-review.googlesource.com/c/platform/art/+/1095744",
+      "parentUuid": "4a397c84_7abc1c0f",
+      "revId": "5725e7c4aab576384649de60557dc1f52eb21b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
