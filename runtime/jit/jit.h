@@ -316,6 +316,9 @@ class Jit {
   // Adjust state after forking.
   void PostZygoteFork();
 
+  // Called when system finishes booting.
+  void BootCompleted();
+
   // Compile methods from the given profile (.prof extension). If `add_to_queue`
   // is true, methods in the profile are added to the JIT queue. Otherwise they are compiled
   // directly.
@@ -362,7 +365,8 @@ class Jit {
                                 uint32_t method_idx,
                                 Handle<mirror::DexCache> dex_cache,
                                 Handle<mirror::ClassLoader> class_loader,
-                                bool add_to_queue)
+                                bool add_to_queue,
+                                bool compile_after_boot)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Compile the method if the number of samples passes a threshold.
@@ -393,6 +397,11 @@ class Jit {
 
   std::unique_ptr<ThreadPool> thread_pool_;
   std::vector<std::unique_ptr<OatDexFile>> type_lookup_tables_;
+
+  Mutex tasks_after_boot_lock_;
+  std::deque<Task*> tasks_after_boot_ GUARDED_BY(tasks_after_boot_lock_);
+
+  bool boot_completed_ = false;
 
   // Performance monitoring.
   CumulativeLogger cumulative_timings_;

@@ -175,6 +175,7 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitCodeCache* code_cache, JitOptions* options)
     : code_cache_(code_cache),
       options_(options),
+      tasks_after_boot_lock_("Jit::tasks_after_boot_lock_"),
       cumulative_timings_("JIT timings"),
       memory_use_("Memory used for compilation", 16),
       lock_("JIT memory use lock") {}
@@ -711,14 +712,14 @@ class JitProfileTask final : public Task {
         dex_files_,
         boot_profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
 
     Runtime::Current()->GetJit()->CompileMethodsFromProfile(
         self,
         dex_files_,
         profile,
         loader,
-        /* add_to_queue= */ false);
+        /* add_to_queue= */ true);
   }
 
   void Finalize() override {
@@ -772,7 +773,8 @@ bool Jit::CompileMethodFromProfile(Thread* self,
                                    uint32_t method_idx,
                                    Handle<mirror::DexCache> dex_cache,
                                    Handle<mirror::ClassLoader> class_loader,
-                                   bool add_to_queue) {
+                                   bool add_to_queue,
+                                   bool compile_after_boot) {
   ArtMethod* method = class_linker->ResolveMethodWithoutInvokeType(
       method_idx, dex_cache, class_loader);
   if (method == nullptr) {
@@ -794,8 +796,13 @@ bool Jit::CompileMethodFromProfile(Thread* self,
             "Lcom/android/internal/os/ZygoteServer;")) {
       CompileMethod(method, self, /* baseline= */ false, /* osr= */ false, /* prejit= */ true);
     } else {
-      thread_pool_->AddTask(self,
-          new JitCompileTask(method, JitCompileTask::TaskKind::kPreCompile));
+      Task* task = new JitCompileTask(method, JitCompileTask::TaskKind::kPreCompile);
+      if (compile_after_boot && !boot_completed_) {
+        MutexLock mu(Thread::Current(), tasks_after_boot_lock_);
+        tasks_after_boot_.push_back(task);
+      } else {
+        thread_pool_->AddTask(self, task);
+      }
       return true;
     }
   }
@@ -836,7 +843,8 @@ uint32_t Jit::CompileMethodsFromBootProfile(
                                  pair.second,
                                  dex_caches[pair.first],
                                  class_loader,
-                                 add_to_queue)) {
+                                 add_to_queue,
+                                 /*compile_after_boot=*/false)) {
       ++added_to_queue;
     }
   }
@@ -909,7 +917,8 @@ uint32_t Jit::CompileMethodsFromProfile(
                                    method_idx,
                                    dex_cache,
                                    class_loader,
-                                   add_to_queue)) {
+                                   add_to_queue,
+                                   /*compile_after_boot=*/true)) {
         ++added_to_queue;
       }
     }
@@ -1155,6 +1164,19 @@ void Jit::PostZygoteFork() {
     return;
   }
   thread_pool_->CreateThreads();
+}
+
+void Jit::BootCompleted() {
+  Thread* self = Thread::Current();
+  std::deque<Task*> tasks;
+  {
+    MutexLock mu(self, tasks_after_boot_lock_);
+    tasks = std::move(tasks_after_boot_);
+  }
+  for (Task* task : tasks) {
+    thread_pool_->AddTask(self, task);
+  }
+  boot_completed_ = true;
 }
 
 bool Jit::CanEncodeMethod(ArtMethod* method, bool is_for_shared_region) const {
