@@ -45,6 +45,29 @@
       "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "052a1b63_33358e3d",
+        "filename": "build/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-05T15:43:03Z",
+      "side": 1,
+      "message": "What needs those vars? Our gtests?",
+      "range": {
+        "startLine": 244,
+        "startChar": 26,
+        "endLine": 244,
+        "endChar": 34
+      },
+      "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
