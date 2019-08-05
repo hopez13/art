@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "37bc2b8c_5d3b3a67",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f12a7dd_816465d7",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 74
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acf63e5d_573801f5",
         "filename": "perfetto_hprof/Android.bp",
         "patchSetId": 7
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9a9566e2_b1146b5d",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acf63e5d_573801f5",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f366aa68_c6894995",
         "filename": "perfetto_hprof/Android.bp",
         "patchSetId": 7
@@ -91,6 +139,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e355e553_0d24e853",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f366aa68_c6894995",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 15
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -152,6 +224,30 @@
       "writtenOn": "2019-08-05T15:35:03Z",
       "side": 1,
       "message": "Unless I\u0027m missing something, this won\u0027t work as is with the runtime module - you\u0027re relying on both internal things of ART, and perfetto. Unless those headers are just utility methods with no protocols, nor API calls to another .so.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0091cb12_7c6c561a",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "If you look at the Android.bp, you can see we are statically linking the perfetto client API. This speaks a backwards-compatible protocol to the perfetto tracing service. We need to make sure of its backwards compatibility as many different data-sources will use that API (e.g. ARM, Qualcomm userspace drivers, etc are looking at using it) so we need to maintain the protocol for them.",
+      "parentUuid": "5f6bb8be_f39bc915",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -250,6 +346,30 @@
     },
     {
       "key": {
+        "uuid": "579741ef_8505b12f",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c2a5683_3808ec51",
+      "range": {
+        "startLine": 101,
+        "startChar": 10,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b41bf72_855cfafc",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -293,6 +413,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e58bd9_ca894657",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9bda5b4_f3d02d7f",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 15
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -342,6 +486,30 @@
     },
     {
       "key": {
+        "uuid": "05f023e0_a36124f2",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c29ee50f_92ad0cc1",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 11
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2473fdd8_e485a659",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -362,6 +530,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d21016a_9f85fb78",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2473fdd8_e485a659",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 38
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -408,6 +600,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f3e35a3_8b0b6e89",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-08-05T15:43:06Z",
+      "side": 1,
+      "message": "This name is used elsewhere (e.g. in the framework in the code that sets this bit) as well, I think for consistency we should keep it.",
+      "parentUuid": "01e5d99f_62ada0cc",
+      "range": {
+        "startLine": 152,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 20
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
