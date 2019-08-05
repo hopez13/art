@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "926e258b_7d4d9b7e",
+        "filename": "build/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-05T16:04:41Z",
+      "side": 1,
+      "message": "I\u0027ve copied all the relevant comments from the Make version :)\n\nThis line is actually wrong, fixed in the next version.",
+      "parentUuid": "8a404940_bda6a8f2",
+      "range": {
+        "startLine": 94,
+        "startChar": 45,
+        "endLine": 94,
+        "endChar": 61
+      },
+      "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "960c21ed_2d89bb8d",
         "filename": "build/image.go",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "66e772d6_7a038ef4",
+        "filename": "build/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-05T16:04:41Z",
+      "side": 1,
+      "message": "This is the name of the rule, the binary is selected on line 148 which already includes the logic for dex2oatd from http://cs/android/build/make/core/dex_preopt_config.mk?l\u003d48\u0026rcl\u003df9b1d54d7603feefb5455f0cf3eac798cf07bf95 propagated through http://cs/android/build/make/core/dex_preopt_config.mk?l\u003d148\u0026rcl\u003df9b1d54d7603feefb5455f0cf3eac798cf07bf95",
+      "parentUuid": "960c21ed_2d89bb8d",
+      "range": {
+        "startLine": 178,
+        "startChar": 23,
+        "endLine": 178,
+        "endChar": 32
+      },
+      "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "052a1b63_33358e3d",
         "filename": "build/image.go",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-08-05T15:43:03Z",
       "side": 1,
       "message": "What needs those vars? Our gtests?",
+      "range": {
+        "startLine": 244,
+        "startChar": 26,
+        "endLine": 244,
+        "endChar": 34
+      },
+      "revId": "80503a982689c387062ff7d88f838be145ae0ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a10569a5_80480d8f",
+        "filename": "build/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-05T16:04:41Z",
+      "side": 1,
+      "message": "Various makefiles under art/ use them, I haven\u0027t decoded which ones, just whether or not they are still used.  Some will be removed by the next set of patches that convert the ahat tests.",
+      "parentUuid": "052a1b63_33358e3d",
       "range": {
         "startLine": 244,
         "startChar": 26,
