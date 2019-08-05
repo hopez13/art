@@ -41,7 +41,7 @@ func codegen(ctx android.LoadHookContext, c *codegenProperties, library bool) {
 		deviceArches = strings.Split(e, " ")
 	}
 
-	addCodegenArchProperties := func(host bool, archName string) {
+	addCodegenArchProperties := func(host bool, archName string, seenSrcs map[string]string) {
 		type props struct {
 			Target struct {
 				Android *CodegenCommonArchProperties
@@ -78,10 +78,10 @@ func codegen(ctx android.LoadHookContext, c *codegenProperties, library bool) {
 		p := &props{}
 		l := &libraryProps{}
 		if host {
-			p.Target.Host = &arch.CodegenCommonArchProperties
+			p.Target.Host = filterSrcs(&arch.CodegenCommonArchProperties, seenSrcs)
 			l.Target.Host = &arch.CodegenLibraryArchProperties
 		} else {
-			p.Target.Android = &arch.CodegenCommonArchProperties
+			p.Target.Android = filterSrcs(&arch.CodegenCommonArchProperties, seenSrcs)
 			l.Target.Android = &arch.CodegenLibraryArchProperties
 		}
 
@@ -91,19 +91,34 @@ func codegen(ctx android.LoadHookContext, c *codegenProperties, library bool) {
 		}
 	}
 
+	seenTargetSrcs := make(map[string]string)
 	for _, arch := range deviceArches {
-		addCodegenArchProperties(false, arch)
+		addCodegenArchProperties(false /* host */, arch, seenTargetSrcs)
 		if ctx.Failed() {
 			return
 		}
 	}
 
+	seenHostSrcs := make(map[string]string)
 	for _, arch := range hostArches {
-		addCodegenArchProperties(true, arch)
+		addCodegenArchProperties(true /* host */, arch, seenHostSrcs)
 		if ctx.Failed() {
 			return
 		}
 	}
+}
+
+// Filter file names in property `Srcs` from `p` using `seenSrcs` and return the filtered result.
+// Update `seenSrcs` with newly seen `Srcs` file names.
+func filterSrcs(p *CodegenCommonArchProperties, seenSrcs map[string]string) *CodegenCommonArchProperties {
+	var srcs []string
+	for _, src := range p.Srcs {
+		if _, found := seenSrcs[src]; !found {
+			srcs = append(srcs, src)
+			seenSrcs[src] = src
+		}
+	}
+	return &CodegenCommonArchProperties{srcs, p.Cflags, p.Cppflags}
 }
 
 type CodegenCommonArchProperties struct {
