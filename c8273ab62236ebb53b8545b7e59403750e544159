@@ -141,6 +141,29 @@
     },
     {
       "key": {
+        "uuid": "5f6bb8be_f39bc915",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-05T15:35:03Z",
+      "side": 1,
+      "message": "Unless I\u0027m missing something, this won\u0027t work as is with the runtime module - you\u0027re relying on both internal things of ART, and perfetto. Unless those headers are just utility methods with no protocols, nor API calls to another .so.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c9b64f9_d4d4a4a4",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
