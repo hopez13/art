@@ -22,6 +22,30 @@
       "revId": "09493948dd1946c3874e7e194b413fa724f169ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8db42805_a62970a3",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-06T17:51:55Z",
+      "side": 1,
+      "message": "Works fine on mksh, but is there any testing procedure for the device you would recommend for this and the rest of this series?",
+      "parentUuid": "8fa224c1_00c0fc9e",
+      "range": {
+        "startLine": 407,
+        "startChar": 13,
+        "endLine": 407,
+        "endChar": 41
+      },
+      "revId": "09493948dd1946c3874e7e194b413fa724f169ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
