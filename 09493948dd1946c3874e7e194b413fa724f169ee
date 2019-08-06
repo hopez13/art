@@ -46,6 +46,30 @@
       "revId": "09493948dd1946c3874e7e194b413fa724f169ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3427cc52_e87773ca",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-06T18:05:28Z",
+      "side": 1,
+      "message": "Ack.\n\nTo check on device, I\u0027d recommend following the instructions for chroot-based device testing in `art/test/README.chroot.md` (https://android.googlesource.com/platform/art/+/refs/heads/master/test/README.chroot.md). The `art` script is exercised by the Libcore and JDWP tests.",
+      "parentUuid": "8db42805_a62970a3",
+      "range": {
+        "startLine": 407,
+        "startChar": 13,
+        "endLine": 407,
+        "endChar": 41
+      },
+      "revId": "09493948dd1946c3874e7e194b413fa724f169ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
