@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2336b43_1abd7c5f",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-06T18:12:54Z",
+      "side": 1,
+      "message": "Actually, we also have a Testing Runtime APEX (`com.android.runtime.testing`) now. Maybe you could replace this with:\n\n  $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex/com.android.runtime*/etc/icu/*)\n\nor even with:\n\n  $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex)\n\nas rebuilding all the APEXes shouldn\u0027t take long if their content has already been built.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 95
+      },
+      "revId": "be56969204cb90e76be6838f4bd0ef706b8a724f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
