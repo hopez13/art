@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e17bd2f1_3e852b50",
+        "filename": "build/codegen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-06T17:27:24Z",
+      "side": 1,
+      "message": "This can be p.Srcs \u003d append(p.Srcs, arch.CodegenSourceArchProperties.Srcs...)",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 3
+      },
+      "revId": "5b645c88b0527889496b20b64973115d5a278e0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3efd1213_5dbba4da",
+        "filename": "build/codegen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-06T17:27:24Z",
+      "side": 1,
+      "message": "Checking ctx.Failed() is generally unnecessary unless it will leave a nil pointer that would cause a crash.  You can just finish adding properties, and then any errors will be handled after this returns.",
+      "range": {
+        "startLine": 136,
+        "startChar": 1,
+        "endLine": 138,
+        "endChar": 2
+      },
+      "revId": "5b645c88b0527889496b20b64973115d5a278e0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
