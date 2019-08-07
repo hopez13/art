@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e78367bc_02fbcc6c",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "need name and mutex-level\n\nstate_mutex(\"perfetto_hprof state mutex\", art::LockLevel::kGenericBottomLock);",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850f5529_b80ba484",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "We generally don\u0027t have these as just statics to avoid static-constructors. Normally we will have these in a heap allocated \u0027state\u0027 struct holding all global data.\n\nSince this is loaded late it isn\u0027t a big deal though.",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae3bc7e6_9b3a2556",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "Need name and associated mutex\n\nstate_cv(\"perfetto_hprof cond-var\", state_mutex);",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 29
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eab3e5b5_4084cea6",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "(art::Thread::Current(), state_mutex)",
+      "range": {
+        "startLine": 106,
+        "startChar": 24,
+        "endLine": 106,
+        "endChar": 35
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d28804d_0dc5fc50",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 47
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9949a59f_1818f7e8",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "while (state !\u003d State::kStart) {\n  state_cv.Wait(art::Thread::Current());\n}",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 59
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e060da8e_ceb22382",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 47
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025ac2ee_e03e966b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-07T18:13:11Z",
+      "side": 1,
+      "message": "state_cv.Broadcast(art::Thread::Current())",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 36
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
