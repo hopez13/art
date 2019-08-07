@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d65517d5_8bf396d5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-07T10:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5878d340_58c3a8dc",
+      "range": {
+        "startLine": 715,
+        "startChar": 28,
+        "endLine": 715,
+        "endChar": 32
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc5373e1_55262264",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3486854e_6974d172",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-07T10:33:24Z",
+      "side": 1,
+      "message": "I added to protect the tasks_after_boot_...",
+      "parentUuid": "cc5373e1_55262264",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 31
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f607cf2_b0d8481f",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85335148_a6f1b1e9",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-07T10:33:24Z",
+      "side": 1,
+      "message": "...but it would seem reasonable to also cover this.",
+      "parentUuid": "8f607cf2_b0d8481f",
+      "range": {
+        "startLine": 404,
+        "startChar": 7,
+        "endLine": 404,
+        "endChar": 22
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
