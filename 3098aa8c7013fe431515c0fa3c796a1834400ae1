@@ -16,6 +16,24 @@
       "revId": "3098aa8c7013fe431515c0fa3c796a1834400ae1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b893435_b9bba4ac",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-07T16:42:16Z",
+      "side": 1,
+      "message": "Thanks, I\u0027m somewhat surprised that it worked without the \"false\" init.\n\n\u003e the `p` suffix stands for \"predicate\"\n\nYes. I figured this was more of a plain boolean rather than a predicate, but no problem.",
+      "parentUuid": "2c3d7578_a75c2523",
+      "revId": "3098aa8c7013fe431515c0fa3c796a1834400ae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
