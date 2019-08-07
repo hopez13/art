@@ -117,6 +117,30 @@
       "revId": "2d398d2dec4276b170ea77f28f267d1b597d6037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd350721_88c4eac7",
+        "filename": "test/720-thread-priority/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-08-07T20:36:02Z",
+      "side": 1,
+      "message": "It doesn\u0027t look to me like they\u0027re concurrently accessed, so I don\u0027t think the volatile is necessary.  The CountDownLatches effectively act as a lock.",
+      "parentUuid": "6d0a90ee_7d59306e",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "2d398d2dec4276b170ea77f28f267d1b597d6037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

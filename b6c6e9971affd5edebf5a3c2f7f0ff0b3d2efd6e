@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "139fd7d7_e1cd3255",
+        "filename": "test/720-thread-priority/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-08-07T20:36:02Z",
+      "side": 1,
+      "message": "Perhaps fail if initialPlatformPriority \u003d\u003d maxPlatformPriority, since that would make the test vacuous.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "b6c6e9971affd5edebf5a3c2f7f0ff0b3d2efd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cccbea16_29018c87",
+        "filename": "test/720-thread-priority/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-08-07T20:36:02Z",
+      "side": 1,
+      "message": "initial",
+      "range": {
+        "startLine": 31,
+        "startChar": 50,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "b6c6e9971affd5edebf5a3c2f7f0ff0b3d2efd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
