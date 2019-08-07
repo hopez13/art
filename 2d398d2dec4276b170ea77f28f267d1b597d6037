@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a7d8594_2fe5df9f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-07T11:08:54Z",
+      "side": 1,
+      "message": "I think it\u0027s OK to fail here (and I\u0027m not changing that behavior in this CL).",
+      "parentUuid": "66bdf75d_c9dad25a",
+      "range": {
+        "startLine": 1846,
+        "startChar": 44,
+        "endLine": 1846,
+        "endChar": 80
+      },
+      "revId": "2d398d2dec4276b170ea77f28f267d1b597d6037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d802a6fc_51c90e42",
         "filename": "test/720-thread-priority/src/Main.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "2d398d2dec4276b170ea77f28f267d1b597d6037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d0a90ee_7d59306e",
+        "filename": "test/720-thread-priority/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-07T11:08:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d802a6fc_51c90e42",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "2d398d2dec4276b170ea77f28f267d1b597d6037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
