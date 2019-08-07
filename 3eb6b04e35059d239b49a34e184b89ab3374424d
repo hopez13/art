@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5878d340_58c3a8dc",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-07T07:50:45Z",
+      "side": 1,
+      "message": "keep this as false?",
+      "range": {
+        "startLine": 715,
+        "startChar": 28,
+        "endLine": 715,
+        "endChar": 32
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc5373e1_55262264",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-07T07:50:45Z",
+      "side": 1,
+      "message": "No need for a mutex?",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 31
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f607cf2_b0d8481f",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-07T07:50:45Z",
+      "side": 1,
+      "message": "make this atomic, which would also solve the race between jit thread and tasks after boot data structure (which I assume is the reason you added a mutex in the first place?)",
+      "range": {
+        "startLine": 404,
+        "startChar": 7,
+        "endLine": 404,
+        "endChar": 22
+      },
+      "revId": "3eb6b04e35059d239b49a34e184b89ab3374424d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
