@@ -497,7 +497,7 @@ class ReleaseChecker:
     self._checker.check_native_library('liblzma')
     self._checker.check_native_library('libnpt')
     self._checker.check_native_library('libunwindstack')
-    self._checker.check_native_library('libziparchive')
+    self._checker.check_optional_native_library('libziparchive')
     self._checker.check_optional_native_library('libvixl')  # Only on ARM/ARM64
 
     # Allow extra dependencies that appear in ASAN builds.
@@ -1056,10 +1056,10 @@ def art_apex_test_main(test_args):
   if test_args.host and test_args.testing:
     logging.error("Both of --host and --testing set")
     return 1
-  if not test_args.tmpdir:
+  if not test_args.flattened and not test_args.tmpdir:
     logging.error("Need a tmpdir.")
     return 1
-  if not test_args.host and not test_args.debugfs:
+  if not test_args.flattened and not test_args.host and not test_args.debugfs:
     logging.error("Need debugfs.")
     return 1
   if test_args.bitness not in ['32', '64', 'multilib', 'auto']:
