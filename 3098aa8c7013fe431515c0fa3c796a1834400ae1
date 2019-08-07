@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c3d7578_a75c2523",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-07T16:32:14Z",
+      "side": 1,
+      "message": "Define default value for `has_debugfs` here:\n\n  has_debugfs\u003dfalse\n\nI\u0027d also rename if as `has_debugfs_p` for the sake of uniformity (the `p` suffix stands for \"predicate\").",
+      "revId": "3098aa8c7013fe431515c0fa3c796a1834400ae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
