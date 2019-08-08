@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c5cdd1e8_693333fa",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-08T13:54:16Z",
+      "side": 1,
+      "message": "Out of curiosity, where\u0027s that protocol defined? Can you please add a comment somewhere (I suggest in the bp file) explaining this and pointing to that definition, so it\u0027s easier for us to understand the module surface?",
+      "parentUuid": "0091cb12_7c6c561a",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c9b64f9_d4d4a4a4",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
