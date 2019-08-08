@@ -85,7 +85,11 @@
 .macro SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
     // art::Runtime* xIP0 = art::Runtime::instance_;
     // Our registers aren't intermixed - just spill in order.
+#if __has_feature(hwaddress_sanitizer) && __clang_major__ >= 10
+    adrp xIP0, :pg_hi21_nc:_ZN3art7Runtime9instance_E
+#else
     adrp xIP0, _ZN3art7Runtime9instance_E
+#endif
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 
     // ArtMethod* xIP0 = Runtime::instance_->callee_save_methods_[kSaveAllCalleeSaves];
@@ -127,7 +131,11 @@
 .macro SETUP_SAVE_REFS_ONLY_FRAME
     // art::Runtime* xIP0 = art::Runtime::instance_;
     // Our registers aren't intermixed - just spill in order.
+#if __has_feature(hwaddress_sanitizer) && __clang_major__ >= 10
+    adrp xIP0, :pg_hi21_nc:_ZN3art7Runtime9instance_E
+#else
     adrp xIP0, _ZN3art7Runtime9instance_E
+#endif
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 
     // ArtMethod* xIP0 = Runtime::instance_->callee_save_methods_[kSaveRefOnly];
@@ -225,7 +233,11 @@
 .macro SETUP_SAVE_REFS_AND_ARGS_FRAME
     // art::Runtime* xIP0 = art::Runtime::instance_;
     // Our registers aren't intermixed - just spill in order.
+#if __has_feature(hwaddress_sanitizer) && __clang_major__ >= 10
+    adrp xIP0, :pg_hi21_nc:_ZN3art7Runtime9instance_E
+#else
     adrp xIP0, _ZN3art7Runtime9instance_E
+#endif
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 
     // ArtMethod* xIP0 = Runtime::instance_->callee_save_methods_[kSaveRefAndArgs];
@@ -323,7 +335,11 @@
     SAVE_TWO_REGS x27, x28, 480
 
     // art::Runtime* xIP0 = art::Runtime::instance_;
+#if __has_feature(hwaddress_sanitizer) && __clang_major__ >= 10
+    adrp xIP0, :pg_hi21_nc:_ZN3art7Runtime9instance_E
+#else
     adrp xIP0, _ZN3art7Runtime9instance_E
+#endif
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 
     // ArtMethod* xIP0 = Runtime::instance_->callee_save_methods_[kSaveEverything];
