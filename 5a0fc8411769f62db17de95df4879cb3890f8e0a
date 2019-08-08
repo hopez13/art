@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "6bd6c555_38821cf0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "This looks more related to ART than Bionic; I\u0027d create a new group here:\n\n  art_runtime_base_native_device_only_shared_libs \u003d [\n      \"libperfetto_hprof\",\n  ]",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "003196d2_04276da5",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Ditto:\n\n  art_runtime_base_native_device_only_debug_shared_libs \u003d [\n      \"libperfetto_hprofd\",\n  ]",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 1
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a6a76c5_124322ea",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Please keep this list sorted.",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 53
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df24ac7d_e68dd2cd",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 572,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 53
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d179aa_3260c8e0",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "This is odd, given \"host_supported: true\" line 20. Am I missing something?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49c68c56_9c642701",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Style: This does not follow the C++ style guide:\n\n\u003e In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test the stuff in dir2/foo2.h, order your includes as follows:\n\u003e\n\u003e 1. dir2/foo2.h.\n\u003e 2. A blank line\n\u003e 3. C system headers (more precisely: headers in angle brackets with the .h extension), e.g. \u003cunistd.h\u003e, \u003cstdlib.h\u003e.\n\u003e 4. A blank line\n\u003e 5. C++ standard library headers (without file extension), e.g. \u003calgorithm\u003e, \u003ccstddef\u003e.\n\u003e 6. A blank line\n\u003e 7. Other libraries\u0027 .h files.\n\u003e 8. Your project\u0027s .h files.\n\u003e\n\u003e Separate each non-empty group with one blank line.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e78367bc_02fbcc6c",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 8
@@ -88,6 +226,29 @@
         "startChar": 12,
         "endLine": 60,
         "endChar": 29
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c45157bf_5e8ee10a",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Nit: PLOG error messages should not end with a period (here and in other occurrences below).",
+      "range": {
+        "startLine": 86,
+        "startChar": 51,
+        "endLine": 86,
+        "endChar": 52
       },
       "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -212,6 +373,144 @@
     },
     {
       "key": {
+        "uuid": "d9c04dbd_7bd2996e",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Style: Add braces around body of `if` statement.",
+      "range": {
+        "startLine": 154,
+        "startChar": 23,
+        "endLine": 154,
+        "endChar": 48
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a7c858b_8c8be771",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "You should use `art::ObjPtr\u003cart::mirror::Object\u003e` (which implements object poisoning to detect moving GC bugs early) instead of a bare `art::mirror::Object*`.",
+      "range": {
+        "startLine": 198,
+        "startChar": 37,
+        "endLine": 198,
+        "endChar": 57
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd2f1ee1_455ba608",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Style: Indentation is off.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 34
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f975c4_26d3cf05",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*long_suspend\u003d*/ true",
+      "range": {
+        "startLine": 212,
+        "startChar": 42,
+        "endLine": 212,
+        "endChar": 46
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e294e97d_521c13e4",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "`art::ObjPtr\u003cart::mirror::Object\u003e` (see above).",
+      "range": {
+        "startLine": 243,
+        "startChar": 53,
+        "endLine": 243,
+        "endChar": 73
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c9c2235_8339a3e9",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to use:\n\n  const auto\u0026\n\nhere.",
+      "range": {
+        "startLine": 247,
+        "startChar": 23,
+        "endLine": 247,
+        "endChar": 74
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e060da8e_ceb22382",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 8
@@ -258,6 +557,75 @@
     },
     {
       "key": {
+        "uuid": "6ef4b3bf_baf13c06",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 309,
+        "startChar": 49,
+        "endLine": 309,
+        "endChar": 50
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "617bc66e_d99122db",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Nit: \n\n  /*as_daemon\u003d*/ true",
+      "range": {
+        "startLine": 324,
+        "startChar": 56,
+        "endLine": 324,
+        "endChar": 60
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b02dcbdf_664136b0",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*create_peer\u003d*/ false",
+      "range": {
+        "startLine": 325,
+        "startChar": 71,
+        "endLine": 325,
+        "endChar": 76
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbe2134d_c8efb2ae",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 8
@@ -274,6 +642,52 @@
         "startChar": 3,
         "endLine": 135,
         "endChar": 55
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210c987b_9417f9f9",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Also print `err` here?",
+      "range": {
+        "startLine": 250,
+        "startChar": 6,
+        "endLine": 250,
+        "endChar": 54
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e9f4b51_4fe87f5e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-08T16:43:59Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 1769,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 103
       },
       "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
