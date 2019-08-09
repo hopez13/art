@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7f376ff_43fd6ec5",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-08-09T22:02:33Z",
+      "side": 1,
+      "message": "Nit: std::swap?",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 20
+      },
+      "revId": "c3a0659625944c0446a4b7f97a2bbf3c09ebcaf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2c7651c_e873d983",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-08-09T22:02:33Z",
+      "side": 1,
+      "message": "What scenarios can you end up with null envs?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 25
+      },
+      "revId": "c3a0659625944c0446a4b7f97a2bbf3c09ebcaf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
