@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b694705b_e94f05e8",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-09T17:32:09Z",
+      "side": 1,
+      "message": "As discussed, I\u0027d prefer  class abstraction for such things.",
+      "range": {
+        "startLine": 179,
+        "startChar": 36,
+        "endLine": 179,
+        "endChar": 64
+      },
+      "revId": "c017595913ad7e75562ad748de1710aa3c12d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2905daf9_f23dde99",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-09T17:32:09Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 72
+      },
+      "revId": "c017595913ad7e75562ad748de1710aa3c12d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
