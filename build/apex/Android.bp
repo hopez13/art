@@ -399,6 +399,18 @@ genrule_defaults {
     ],
 }
 
+// The non-flattened APEXes are only checked when flattening is enabled.
+genrule_defaults {
+    name: "art-check-flattened-apex-gen-defaults",
+    defaults: ["art-check-apex-gen-defaults"],
+    enabled: false,
+    product_variables: {
+        flatten_apex: {
+            enabled: true,
+        },
+    },
+}
+
 cc_defaults {
     name: "art-check-apex-gen-fakebin-defaults",
     host_supported: true,
@@ -427,6 +439,23 @@ cc_prebuilt_binary {
 }
 
 genrule {
+    name: "art-check-release-flattened-apex-gen",
+    defaults: ["art-check-flattened-apex-gen-defaults"],
+    srcs: [":com.android.runtime.release{.flattened}"],
+    cmd: art_check_apex_gen_stem +
+        " --flattened" +
+        " $(in)" +
+        " && touch $(out)",
+    out: ["art-check-release-apex-gen.dummy"],
+}
+
+cc_prebuilt_binary {
+    name: "art-check-release-flattened-apex-gen-fakebin",
+    defaults: ["art-check-apex-gen-fakebin-defaults"],
+    srcs: [":art-check-release-flattened-apex-gen"],
+}
+
+genrule {
     name: "art-check-debug-apex-gen",
     defaults: ["art-check-apex-gen-defaults"],
     srcs: [":com.android.runtime.debug"],
@@ -444,6 +473,24 @@ cc_prebuilt_binary {
 }
 
 genrule {
+    name: "art-check-debug-flattened-apex-gen",
+    defaults: ["art-check-flattened-apex-gen-defaults"],
+    srcs: [":com.android.runtime.debug{.flattened}"],
+    cmd: art_check_apex_gen_stem +
+        " --flattened" +
+        " --debug" +
+        " $(in)" +
+        " && touch $(out)",
+    out: ["art-check-debug-apex-gen.dummy"],
+}
+
+cc_prebuilt_binary {
+    name: "art-check-debug-flattened-apex-gen-fakebin",
+    defaults: ["art-check-apex-gen-fakebin-defaults"],
+    srcs: [":art-check-debug-flattened-apex-gen"],
+}
+
+genrule {
     name: "art-check-testing-apex-gen",
     defaults: ["art-check-apex-gen-defaults"],
     srcs: [":com.android.runtime.testing"],
@@ -458,6 +505,24 @@ cc_prebuilt_binary {
     name: "art-check-testing-apex-gen-fakebin",
     defaults: ["art-check-apex-gen-fakebin-defaults"],
     srcs: [":art-check-testing-apex-gen"],
+}
+
+genrule {
+    name: "art-check-testing-flattened-apex-gen",
+    defaults: ["art-check-flattened-apex-gen-defaults"],
+    srcs: [":com.android.runtime.testing{.flattened}"],
+    cmd: art_check_apex_gen_stem +
+        " --flattened" +
+        " --testing" +
+        " $(in)" +
+        " && touch $(out)",
+    out: ["art-check-testing-apex-gen.dummy"],
+}
+
+cc_prebuilt_binary {
+    name: "art-check-testing-flattened-apex-gen-fakebin",
+    defaults: ["art-check-apex-gen-fakebin-defaults"],
+    srcs: [":art-check-testing-flattened-apex-gen"],
 }
 
 // Pre-install scripts.
