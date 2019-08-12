@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5be547e2_069539db",
+        "filename": "openjdkjvmti/events-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-12T22:09:44Z",
+      "side": 1,
+      "message": "honestly I feel that std::swap(*obsolete_tag, *new_tag) would be more confusing than this.\n\nIf you want I can change this. I\u0027ll submit this tomorrow otherwise.",
+      "parentUuid": "e7f376ff_43fd6ec5",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 20
+      },
+      "revId": "c3a0659625944c0446a4b7f97a2bbf3c09ebcaf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2c7651c_e873d983",
         "filename": "openjdkjvmti/events.h",
         "patchSetId": 15
@@ -45,6 +69,30 @@
       "revId": "c3a0659625944c0446a4b7f97a2bbf3c09ebcaf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc32314b_08d10e74",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-12T22:09:44Z",
+      "side": 1,
+      "message": "To prevent races + issues with iterators we don\u0027t actually ever fully remove items from this list, just set them to null.",
+      "parentUuid": "e2c7651c_e873d983",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 25
+      },
+      "revId": "c3a0659625944c0446a4b7f97a2bbf3c09ebcaf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
