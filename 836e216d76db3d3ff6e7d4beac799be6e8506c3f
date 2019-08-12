@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fbfa71d0_88389710",
+        "filename": "test/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-12T17:49:30Z",
+      "side": 1,
+      "message": "This is on purpose, as a makeshift \"definition list\" implementation (https://meta.stackexchange.com/a/298872).",
+      "parentUuid": "10db49db_3932801e",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 13
+      },
+      "revId": "836e216d76db3d3ff6e7d4beac799be6e8506c3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "195152d0_0d55bde2",
         "filename": "test/README.md",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "836e216d76db3d3ff6e7d4beac799be6e8506c3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e7a6b5f_d3084386",
+        "filename": "test/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-12T17:49:30Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "195152d0_0d55bde2",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "836e216d76db3d3ff6e7d4beac799be6e8506c3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
