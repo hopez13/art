@@ -45,6 +45,30 @@
       "revId": "c017595913ad7e75562ad748de1710aa3c12d03c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f37f684_46c91220",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-12T14:08:33Z",
+      "side": 1,
+      "message": "Because it was already done above (in bulk).",
+      "parentUuid": "2905daf9_f23dde99",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 72
+      },
+      "revId": "c017595913ad7e75562ad748de1710aa3c12d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
