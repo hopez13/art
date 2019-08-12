@@ -46,6 +46,30 @@
       "revId": "e47933ab3091a002806a3718cc626d2f8d84b620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ff22cdc_6b5026a8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-12T16:23:07Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "8d4c0815_8c96a9af",
+      "range": {
+        "startLine": 1137,
+        "startChar": 0,
+        "endLine": 1138,
+        "endChar": 34
+      },
+      "revId": "e47933ab3091a002806a3718cc626d2f8d84b620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
