@@ -173,8 +173,15 @@ class Runtime {
     return is_system_server_;
   }
 
-  void SetSystemServer(bool value) {
-    is_system_server_ = value;
+  void SetAsSystemServer() {
+    is_system_server_ = true;
+    is_zygote_ = false;
+    is_primary_zygote_ = false;
+  }
+
+  void SetAsZygoteChild() {
+    is_zygote_ = false;
+    is_primary_zygote_ = false;
   }
 
   bool IsExplicitGcDisabled() const {
