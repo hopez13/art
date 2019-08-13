@@ -79,7 +79,7 @@ inline ObjPtr<mirror::Field> Field::CreateFromArtField(Thread* self,
     // them in the dex cache.
   } else {
     if (resolved_field != nullptr) {
-      DCHECK_EQ(resolved_field, field);
+      DCHECK_EQ(resolved_field, field) << "rf: " << resolved_field->PrettyField() << " (cls: " << resolved_field->GetDeclaringClass() <<  " " << resolved_field->GetDeclaringClass()->PrettyClass() << ") f: " << field->PrettyField() << "(cls: " << field->GetDeclaringClass() << " " << field->GetDeclaringClass()->PrettyClass() << ")";
     } else {
       // We rely on the field being resolved so that we can back to the ArtField
       // (i.e. FromReflectedMethod).
@@ -102,6 +102,17 @@ inline void Field::SetDeclaringClass(ObjPtr<mirror::Class> c) {
 template<bool kTransactionActive>
 inline void Field::SetType(ObjPtr<mirror::Class> type) {
   SetFieldObject<kTransactionActive>(OFFSET_OF_OBJECT_MEMBER(Field, type_), type);
+}
+
+template<typename Visitor>
+inline void Field::VisitTarget(Visitor&& v) {
+  ArtField* orig = GetArtField(/*update_dex_cache*/false);
+  ArtField* new_value = v(orig);
+  if (orig != new_value) {
+    SetDexFieldIndex<false>(new_value->GetDexFieldIndex());
+    SetOffset<false>(new_value->GetOffset().Int32Value());
+    SetDeclaringClass<false>(new_value->GetDeclaringClass());
+  }
 }
 
 }  // namespace mirror

@@ -662,6 +662,14 @@ class MANAGED LOCKABLE Object {
   std::string PrettyTypeOf()
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // A utility function that copies an object in a read barrier and write barrier-aware way. This is
+  // internally used by Clone(), Class::CopyOf() and some other functions. If the object is
+  // finalizable, it is the callers job to call Heap::AddFinalizerReference.
+  static ObjPtr<Object> CopyObject(ObjPtr<mirror::Object> dest,
+                                   ObjPtr<mirror::Object> src,
+                                   size_t num_bytes)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  protected:
   // Accessors for non-Java type fields
   template<class T, VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags, bool kIsVolatile = false>
@@ -755,14 +763,6 @@ class MANAGED LOCKABLE Object {
   template<bool kTransactionActive, bool kCheckTransaction>
   ALWAYS_INLINE void VerifyTransaction();
 
-  // A utility function that copies an object in a read barrier and write barrier-aware way.
-  // This is internally used by Clone() and Class::CopyOf(). If the object is finalizable,
-  // it is the callers job to call Heap::AddFinalizerReference.
-  static ObjPtr<Object> CopyObject(ObjPtr<mirror::Object> dest,
-                                   ObjPtr<mirror::Object> src,
-                                   size_t num_bytes)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   template<VerifyObjectFlags kVerifyFlags, Primitive::Type kType>
   bool IsSpecificPrimitiveArray() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -783,8 +783,6 @@ class MANAGED LOCKABLE Object {
 
   friend class art::Monitor;
   friend struct art::ObjectOffsets;  // for verifying offset information
-  friend class CopyObjectVisitor;  // for CopyObject().
-  friend class CopyClassVisitor;   // for CopyObject().
   DISALLOW_ALLOCATION();
   DISALLOW_IMPLICIT_CONSTRUCTORS(Object);
 };

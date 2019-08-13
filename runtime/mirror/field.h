@@ -69,13 +69,19 @@ class MANAGED Field : public AccessibleObject {
   }
 
   // Slow, try to use only for PrettyField and such.
-  ArtField* GetArtField() REQUIRES_SHARED(Locks::mutator_lock_);
+  ArtField* GetArtField(bool update_dex_cache = true) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <PointerSize kPointerSize, bool kTransactionActive = false>
   static ObjPtr<mirror::Field> CreateFromArtField(Thread* self,
                                                   ArtField* field,
                                                   bool force_resolve)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
+
+  // Used to modify the target of this Field object, if required for structural redefinition or some
+  // other purpose.
+  template<typename Visitor>
+  inline void VisitTarget(Visitor&& v) REQUIRES(Locks::mutator_lock_);
 
  private:
   // Padding required for matching alignment with the Java peer.

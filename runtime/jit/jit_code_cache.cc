@@ -798,9 +798,6 @@ size_t JitCodeCache::CodeCacheSize() {
 }
 
 bool JitCodeCache::RemoveMethod(ArtMethod* method, bool release_memory) {
-  // This function is used only for testing and only with non-native methods.
-  CHECK(!method->IsNative());
-
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
 
   bool osr = osr_code_map_.find(method) != osr_code_map_.end();
@@ -811,8 +808,7 @@ bool JitCodeCache::RemoveMethod(ArtMethod* method, bool release_memory) {
   }
 
   method->SetCounter(0);
-  Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
-      method, GetQuickToInterpreterBridge());
+  Runtime::Current()->GetClassLinker()->SetEntryPointsToInterpreter(method);
   VLOG(jit)
       << "JIT removed (osr=" << std::boolalpha << osr << std::noboolalpha << ") "
       << ArtMethod::PrettyMethod(method) << "@" << method
@@ -1678,6 +1674,30 @@ void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
       info->SetIsMethodBeingCompiled(false, osr);
     }
   }
+}
+
+void JitCodeCache::InvalidateAllCompiledCode() {
+  art::MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  const bool has_vlog = true;  // VLOG_IS_ON(jit);
+  size_t cnt = has_vlog ? profiling_infos_.size() : 0;
+  size_t osr_size = has_vlog ? osr_code_map_.size() : 0;
+  for (ProfilingInfo* pi : profiling_infos_) {
+    // NB Due to OSR we might run this on some methods multiple times but this should be fine.
+    ArtMethod* meth = pi->GetMethod();
+    pi->SetSavedEntryPoint(nullptr);
+    // We had a ProfilingInfo so we must be warm.
+    ClearMethodCounter(meth, /*was_warm=*/true);
+    ClassLinker* linker = Runtime::Current()->GetClassLinker();
+    if (meth->IsObsolete()) {
+      linker->SetEntryPointsForObsoleteMethod(meth);
+    } else {
+      linker->SetEntryPointsToInterpreter(meth);
+    }
+  }
+  osr_code_map_.clear();
+  // TODO VLOG(jit)
+  LOG(DEBUG) << "Invalidated the compiled code of " << (cnt - osr_size) << " methods and "
+            << osr_size << " OSRs.";
 }
 
 void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
