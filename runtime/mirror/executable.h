@@ -52,6 +52,21 @@ class MANAGED Executable : public AccessibleObject {
     return MemberOffset(OFFSETOF_MEMBER(Executable, art_method_));
   }
 
+  template<bool kTransactionActive = false>
+  void SetDeclaringClass(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_) {
+    SetFieldObject<kTransactionActive>(DeclaringClassOffset(), klass);
+  }
+
+  template<bool kTransactionActive = false>
+  void SetAccessFlags(uint32_t flags) REQUIRES_SHARED(Locks::mutator_lock_) {
+    SetField32<kTransactionActive>(AccessFlagsOffset(), flags);
+  }
+
+  template<bool kTransactionActive = false>
+  void SetDexMethodIndex(uint32_t idx) REQUIRES_SHARED(Locks::mutator_lock_) {
+    SetField32<kTransactionActive>(DexMethodIndexOffset(), idx);
+  }
+
  private:
   uint16_t has_real_parameter_data_;
   HeapReference<mirror::Class> declaring_class_;
