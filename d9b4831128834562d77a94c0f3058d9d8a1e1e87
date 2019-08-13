@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8784349b_ea82a293",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-08-13T15:43:51Z",
+      "side": 1,
+      "message": "update this doc",
+      "range": {
+        "startLine": 807,
+        "startChar": 20,
+        "endLine": 807,
+        "endChar": 34
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad8f6a8_18c61333",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-08-13T15:43:51Z",
+      "side": 1,
+      "message": "add an extra comment that this is done to cover arrays :).\n\nI would probably do an extra check, out of being too cautious, and only include arrays, but it\u0027s not a must.",
+      "range": {
+        "startLine": 842,
+        "startChar": 3,
+        "endLine": 842,
+        "endChar": 78
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8d8dfc_645989cc",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-08-13T15:43:51Z",
+      "side": 1,
+      "message": "Add a doc comment on this method, or somewhere visible saying that this method will include type-reference even if the class is not defined in the given list of dex files (cause it contrasts with the regular app profiles where we check for the definitions)",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 51
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
