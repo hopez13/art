@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad6f1e69_fca05968",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-13T15:49:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8784349b_ea82a293",
+      "range": {
+        "startLine": 807,
+        "startChar": 20,
+        "endLine": 807,
+        "endChar": 34
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad8f6a8_18c61333",
         "filename": "profman/profman.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0f4d4733_f620a0de",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-13T15:49:16Z",
+      "side": 1,
+      "message": "Added a comment. I thought about limiting to arrays, but it felt odd to me to special case, so didn\u0027t do it. I guess we shall see if that breaks :)",
+      "parentUuid": "8ad8f6a8_18c61333",
+      "range": {
+        "startLine": 842,
+        "startChar": 3,
+        "endLine": 842,
+        "endChar": 78
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd8d8dfc_645989cc",
         "filename": "profman/profman.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2019-08-13T15:43:51Z",
       "side": 1,
       "message": "Add a doc comment on this method, or somewhere visible saying that this method will include type-reference even if the class is not defined in the given list of dex files (cause it contrasts with the regular app profiles where we check for the definitions)",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 51
+      },
+      "revId": "d9b4831128834562d77a94c0f3058d9d8a1e1e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c37d56e_5d080710",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-13T15:49:16Z",
+      "side": 1,
+      "message": "Added the comment on FindClass.",
+      "parentUuid": "bd8d8dfc_645989cc",
       "range": {
         "startLine": 985,
         "startChar": 4,
