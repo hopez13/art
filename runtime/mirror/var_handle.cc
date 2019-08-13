@@ -1681,6 +1681,10 @@ bool VarHandle::GetAccessModeByMethodName(const char* method_name, AccessMode* a
   return true;
 }
 
+void FieldVarHandle::SetField(ArtField* f) {
+  return SetField64</*kTransactionActive*/false>(ArtFieldOffset(), reinterpret_cast<uintptr_t>(f));
+}
+
 ArtField* FieldVarHandle::GetField() {
   return reinterpret_cast64<ArtField*>(GetField64(ArtFieldOffset()));
 }

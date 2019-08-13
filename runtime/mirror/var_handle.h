@@ -197,6 +197,9 @@ class MANAGED FieldVarHandle : public VarHandle {
 
   ArtField* GetField() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Used for updating var-handles to obsolete fields.
+  void SetField(ArtField* f) REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   static MemberOffset ArtFieldOffset() {
     return MemberOffset(OFFSETOF_MEMBER(FieldVarHandle, art_field_));
