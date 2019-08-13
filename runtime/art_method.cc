@@ -124,7 +124,11 @@ ObjPtr<mirror::DexCache> ArtMethod::GetObsoleteDexCache() {
       return ext->GetObsoleteDexCaches()->Get(i);
     }
   }
-  LOG(FATAL) << "This method does not appear in the obsolete map of its class!";
+  // Only other case is the entire class became obsolete.
+  if (GetDeclaringClass()->IsObsoleteObject()) {
+    return GetDeclaringClass()->GetDexCache();
+  }
+  LOG(FATAL) << "This method does not appear in the obsolete map of its class: " << GetDeclaringClass()->PrettyClass();
   UNREACHABLE();
 }
 

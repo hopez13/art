@@ -313,6 +313,17 @@ class MANAGED Class final : public Object {
     }
   }
 
+  bool IsObsoleteObject() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return (GetAccessFlags() & kAccObsoleteObject) != 0;
+  }
+
+  void SetObsoleteObject() REQUIRES_SHARED(Locks::mutator_lock_) {
+    uint32_t flags = GetField32(OFFSET_OF_OBJECT_MEMBER(Class, access_flags_));
+    if ((flags & kAccObsoleteObject) == 0) {
+      SetAccessFlags(flags | kAccObsoleteObject);
+    }
+  }
+
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsTypeOfReferenceClass() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetClassFlags<kVerifyFlags>() & kClassFlagReference) != 0;
@@ -818,8 +829,16 @@ class MANAGED Class final : public Object {
                                               PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PopulateEmbeddedVTable(PointerSize pointer_size)
+  void PopulateEmbeddedVTable(const std::function<ObjPtr<PointerArray>()>& get_vtable,
+                              PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void PopulateEmbeddedVTable(PointerSize pointer_size) REQUIRES_SHARED(Locks::mutator_lock_) {
+    auto get_vtable = [&]() REQUIRES(art::Locks::mutator_lock_) {
+      return this->GetVTableDuringLinking();
+    };
+    PopulateEmbeddedVTable(get_vtable, pointer_size);
+  }
 
   // Given a method implemented by this class but potentially from a super class, return the
   // specific implementation method for this class.
