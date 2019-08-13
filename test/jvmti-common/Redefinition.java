@@ -88,4 +88,6 @@ public class Redefinition {
   public static native void addCommonTransformationResult(String target_name,
                                                           byte[] class_bytes,
                                                           byte[] dex_bytes);
+
+  public static native void doCommonStructuralClassRedefinition(Class<?> target, byte[] dex_file);
 }

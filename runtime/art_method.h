@@ -260,6 +260,9 @@ class ArtMethod final {
     return (GetAccessFlags() & kAccDefault) != 0;
   }
 
+  // Returns true if the method was made obsolete due to the declaring class being made obsolete.
+  bool IsStructurallyObsolete() REQUIRES_SHARED(art::Locks::mutator_lock_);
+
   bool IsObsolete() {
     return (GetAccessFlags() & kAccObsoleteMethod) != 0;
   }
