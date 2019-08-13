@@ -75,6 +75,30 @@
       "revId": "88aac8508dc244fac1ec6b6c0500ae8bf16f010a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33d00702_055522a1",
+        "filename": "test/914-hello-obsolescence/src/art/Test914.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-13T17:36:37Z",
+      "side": 1,
+      "message": "\u003e Although I do not expect the implementation of art::ComputeModifiedUtf8Hash to change, this seems brittle. Should assert somewhere (in native code) that\n\u003e \n\u003e   art::ComputeModifiedUtf8Hash(\"foo\") \u003d\u003d art::ComputeModifiedUtf8Hash(\"foo\")\n\u003e \n\u003e ?\n\nI meant\n\n  art::ComputeModifiedUtf8Hash(\"foo\") \u003d\u003d art::ComputeModifiedUtf8Hash(\"fpP\")\n\n…",
+      "parentUuid": "a64f4a38_f4917158",
+      "range": {
+        "startLine": 104,
+        "startChar": 15,
+        "endLine": 104,
+        "endChar": 73
+      },
+      "revId": "88aac8508dc244fac1ec6b6c0500ae8bf16f010a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
