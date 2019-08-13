@@ -1299,7 +1299,7 @@ static void DumpB74410240DebugData(ArtMethod** sp) REQUIRES_SHARED(Locks::mutato
 }
 
 // Lazily resolve a method for quick. Called by stub code.
-extern "C" const void* artQuickResolutionTrampoline(
+__attribute__((optnone)) extern "C" const void* artQuickResolutionTrampoline(
     ArtMethod* called, mirror::Object* receiver, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // The resolution trampoline stashes the resolved method into the callee-save frame to transport
