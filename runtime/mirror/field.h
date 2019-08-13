@@ -69,7 +69,7 @@ class MANAGED Field : public AccessibleObject {
   }
 
   // Slow, try to use only for PrettyField and such.
-  ArtField* GetArtField() REQUIRES_SHARED(Locks::mutator_lock_);
+  ArtField* GetArtField(bool update_dex_cache = true) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <PointerSize kPointerSize, bool kTransactionActive = false>
   static ObjPtr<mirror::Field> CreateFromArtField(Thread* self,
@@ -77,21 +77,8 @@ class MANAGED Field : public AccessibleObject {
                                                   bool force_resolve)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
- private:
-  // Padding required for matching alignment with the Java peer.
-  uint8_t padding_[2];
-
-  HeapReference<mirror::Class> declaring_class_;
-  HeapReference<mirror::Class> type_;
-  int32_t access_flags_;
-  int32_t dex_field_index_;
-  int32_t offset_;
-
   template<bool kTransactionActive>
   void SetDeclaringClass(ObjPtr<mirror::Class> c) REQUIRES_SHARED(Locks::mutator_lock_);
-
-  template<bool kTransactionActive>
-  void SetType(ObjPtr<mirror::Class> type) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<bool kTransactionActive>
   void SetAccessFlags(uint32_t flags) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -107,6 +94,19 @@ class MANAGED Field : public AccessibleObject {
   void SetOffset(uint32_t offset) REQUIRES_SHARED(Locks::mutator_lock_) {
     SetField32<kTransactionActive>(OFFSET_OF_OBJECT_MEMBER(Field, offset_), offset);
   }
+
+ private:
+  // Padding required for matching alignment with the Java peer.
+  uint8_t padding_[2];
+
+  HeapReference<mirror::Class> declaring_class_;
+  HeapReference<mirror::Class> type_;
+  int32_t access_flags_;
+  int32_t dex_field_index_;
+  int32_t offset_;
+
+  template<bool kTransactionActive>
+  void SetType(ObjPtr<mirror::Class> type) REQUIRES_SHARED(Locks::mutator_lock_);
 
   friend struct art::FieldOffsets;  // for verifying offset information
   DISALLOW_IMPLICIT_CONSTRUCTORS(Field);
