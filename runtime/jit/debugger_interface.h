@@ -55,11 +55,13 @@ void RemoveNativeDebugInfoForDex(Thread* self, const DexFile* dexfile);
 void AddNativeDebugInfoForJit(const void* code_ptr,
                               const std::vector<uint8_t>& symfile,
                               bool allow_packing,
-                              const PackElfFileForJITFunction& pack);
+                              const PackElfFileForJITFunction& pack)
+    REQUIRES_SHARED(Locks::jit_lock_);  // Might need JIT code cache to allocate memory.
 
 // Notify native tools (e.g. libunwind) that JIT code has been garbage collected.
 void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs,
-                                 const PackElfFileForJITFunction& pack);
+                                 const PackElfFileForJITFunction& pack)
+    REQUIRES_SHARED(Locks::jit_lock_);  // Might need JIT code cache to allocate memory.
 
 // Returns approximate memory used by debug info for JIT code.
 size_t GetJitMiniDebugInfoMemUsage();

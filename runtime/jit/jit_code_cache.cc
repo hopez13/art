@@ -1745,8 +1745,7 @@ void JitCodeCache::Dump(std::ostream& os) {
        << PrettySize(shared_region_.GetUsedMemoryForData())
        << "\n";
   }
-  os << "Current JIT mini-debug-info size: " << PrettySize(GetJitMiniDebugInfoMemUsage()) << "\n"
-     << "Current JIT capacity: " << PrettySize(GetCurrentRegion()->GetCurrentCapacity()) << "\n"
+  os << "Current JIT capacity: " << PrettySize(GetCurrentRegion()->GetCurrentCapacity()) << "\n"
      << "Current number of JIT JNI stub entries: " << jni_stubs_map_.size() << "\n"
      << "Current number of JIT code cache entries: " << method_code_map_.size() << "\n"
      << "Total number of JIT compilations: " << number_of_compilations_ << "\n"

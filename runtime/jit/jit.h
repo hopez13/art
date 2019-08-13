@@ -176,7 +176,8 @@ class JitCompilerInterface {
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
   virtual bool GenerateDebugInfo() = 0;
   virtual void ParseCompilerOptions() = 0;
-  virtual void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs) = 0;
+  virtual void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs)
+      REQUIRES_SHARED(Locks::jit_lock_) = 0;
 };
 
 class Jit {

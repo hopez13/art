@@ -53,7 +53,8 @@ class JitCompiler : public JitCompilerInterface {
 
   void TypesLoaded(mirror::Class**, size_t count) REQUIRES_SHARED(Locks::mutator_lock_) override;
 
-  void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs) override;
+  void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs) override
+      REQUIRES_SHARED(Locks::jit_lock_);
 
  private:
   std::unique_ptr<CompilerOptions> compiler_options_;
