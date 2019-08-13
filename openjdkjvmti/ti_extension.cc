@@ -34,6 +34,8 @@
 
 #include "art_jvmti.h"
 #include "events.h"
+#include "jni_id_type.h"
+#include "runtime-inl.h"
 #include "ti_allocator.h"
 #include "ti_class.h"
 #include "ti_ddms.h"
@@ -41,6 +43,7 @@
 #include "ti_heap.h"
 #include "ti_logging.h"
 #include "ti_monitor.h"
+#include "ti_redefine.h"
 #include "ti_search.h"
 
 #include "thread-inl.h"
@@ -389,6 +392,63 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       });
   if (error != ERR(NONE)) {
     return error;
+  }
+
+  // These require index-ids and debuggable to function
+  art::Runtime* runtime = art::Runtime::Current();
+  if (runtime->GetJniIdType() == art::JniIdType::kIndices &&
+      (runtime->GetInstrumentation()->IsForcedInterpretOnly() || runtime->IsJavaDebuggable())) {
+    // IsStructurallyModifiableClass
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(Redefiner::IsStructurallyModifiableClass),
+        "com.android.art.class.is_structurally_modifiable_class",
+        "Returns whether a class can potentially be 'structurally' redefined using the various"
+        " structural redefinition extensions provided.",
+        {
+          { "klass", JVMTI_KIND_IN, JVMTI_TYPE_JCLASS, false },
+          { "result", JVMTI_KIND_OUT, JVMTI_TYPE_JBOOLEAN, false },
+        },
+        {
+          ERR(NULL_POINTER),
+        });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
+    // StructurallyRedefineClass
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(Redefiner::StructurallyRedefineClassDirect),
+        "com.android.art.UNSAFE.class.structurally_redefine_class_direct",
+        "Temporary prototype entrypoint for redefining a single class structurally. Currently this"
+        " only supports adding new static fields to a class without any instances. ClassFileLoadHook"
+        " events will NOT be triggered. This does not currently support creating obsolete methods."
+        " This function only has rudimentary error checking. This should not be used except for"
+        " testing.",
+        {
+          { "klass", JVMTI_KIND_IN, JVMTI_TYPE_JCLASS, false },
+          { "new_def", JVMTI_KIND_IN_BUF, JVMTI_TYPE_CCHAR, false },
+          { "new_def_len", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+        },
+        {
+          ERR(NULL_POINTER),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(ILLEGAL_ARGUMENT),
+          ERR(OUT_OF_MEMORY),
+          ERR(UNSUPPORTED_REDEFINITION_HIERARCHY_CHANGED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED),
+          ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+          ERR(CLASS_LOADER_UNSUPPORTED),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(FAILS_VERIFICATION),
+          ERR(UNMODIFIABLE_CLASS),
+        });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+  } else {
+    JVMTI_LOG(INFO, env) << "debuggable & jni-type indicies are required to implement structural "
+                         << "class redefinition extensions.";
   }
 
   // Copy into output buffer.
