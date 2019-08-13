@@ -42,6 +42,11 @@ void MethodHandle::Initialize(uintptr_t art_field_or_method,
   SetField64<false>(ArtFieldOrMethodOffset(), art_field_or_method);
 }
 
+void MethodHandle::SetTarget(uintptr_t new_target) {
+  CHECK(!Runtime::Current()->IsActiveTransaction());
+  SetField64<false>(ArtFieldOrMethodOffset(), new_target);
+}
+
 ObjPtr<mirror::MethodHandleImpl> MethodHandleImpl::Create(Thread* const self,
                                                           uintptr_t art_field_or_method,
                                                           MethodHandle::Kind kind,
