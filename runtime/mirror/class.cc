@@ -1167,8 +1167,9 @@ const dex::TypeList* Class::GetInterfaceTypeList() {
   return GetDexFile().GetInterfacesList(*class_def);
 }
 
-void Class::PopulateEmbeddedVTable(PointerSize pointer_size) {
-  ObjPtr<PointerArray> table = GetVTableDuringLinking();
+void Class::PopulateEmbeddedVTable(const std::function<ObjPtr<PointerArray>()>& get_vtable,
+                                   PointerSize pointer_size) {
+  ObjPtr<PointerArray> table = get_vtable();
   CHECK(table != nullptr) << PrettyClass();
   const size_t table_length = table->GetLength();
   SetEmbeddedVTableLength(table_length);

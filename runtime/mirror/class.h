@@ -818,8 +818,16 @@ class MANAGED Class final : public Object {
                                               PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PopulateEmbeddedVTable(PointerSize pointer_size)
+  void PopulateEmbeddedVTable(const std::function<ObjPtr<PointerArray>()>& get_vtable,
+                              PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void PopulateEmbeddedVTable(PointerSize pointer_size) REQUIRES_SHARED(Locks::mutator_lock_) {
+    auto get_vtable = [&]() REQUIRES(art::Locks::mutator_lock_) {
+      return this->GetVTableDuringLinking();
+    };
+    PopulateEmbeddedVTable(get_vtable, pointer_size);
+  }
 
   // Given a method implemented by this class but potentially from a super class, return the
   // specific implementation method for this class.
