@@ -111,20 +111,28 @@ ObjPtr<mirror::DexCache> ArtMethod::GetObsoleteDexCache() {
   ObjPtr<mirror::ClassExt> ext(GetDeclaringClass()->GetExtData());
   CHECK(!ext.IsNull());
   ObjPtr<mirror::PointerArray> obsolete_methods(ext->GetObsoleteMethods());
-  CHECK(!obsolete_methods.IsNull());
-  DCHECK(ext->GetObsoleteDexCaches() != nullptr);
-  int32_t len = obsolete_methods->GetLength();
-  DCHECK_EQ(len, ext->GetObsoleteDexCaches()->GetLength());
-  // Using kRuntimePointerSize (instead of using the image's pointer size) is fine since images
-  // should never have obsolete methods in them so they should always be the same.
-  PointerSize pointer_size = kRuntimePointerSize;
-  DCHECK_EQ(kRuntimePointerSize, Runtime::Current()->GetClassLinker()->GetImagePointerSize());
-  for (int32_t i = 0; i < len; i++) {
-    if (this == obsolete_methods->GetElementPtrSize<ArtMethod*>(i, pointer_size)) {
-      return ext->GetObsoleteDexCaches()->Get(i);
+  if (LIKELY(!obsolete_methods.IsNull())) {
+    DCHECK(ext->GetObsoleteDexCaches() != nullptr);
+    int32_t len = obsolete_methods->GetLength();
+    DCHECK_EQ(len, ext->GetObsoleteDexCaches()->GetLength());
+    // Using kRuntimePointerSize (instead of using the image's pointer size) is fine since images
+    // should never have obsolete methods in them so they should always be the same.
+    PointerSize pointer_size = kRuntimePointerSize;
+    DCHECK_EQ(kRuntimePointerSize, Runtime::Current()->GetClassLinker()->GetImagePointerSize());
+    for (int32_t i = 0; i < len; i++) {
+      if (this == obsolete_methods->GetElementPtrSize<ArtMethod*>(i, pointer_size)) {
+        return ext->GetObsoleteDexCaches()->Get(i);
+      }
     }
+  } else {
+    CHECK(Runtime::Current()->IsJavaDebuggable()) << "Structural redefinition is only available on"
+                                                  << "real debuggable";
   }
-  LOG(FATAL) << "This method does not appear in the obsolete map of its class!";
+  // Only other case is the entire class became obsolete.
+  if (GetDeclaringClass()->IsObsoleteObject()) {
+    return GetDeclaringClass()->GetDexCache();
+  }
+  LOG(FATAL) << "This method does not appear in the obsolete map of its class: " << GetDeclaringClass()->PrettyClass();
   UNREACHABLE();
 }
 
@@ -508,7 +516,7 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
   DCHECK_EQ(oat_method_index,
             GetOatMethodIndexFromMethodIndex(declaring_class->GetDexFile(),
                                              method->GetDeclaringClass()->GetDexClassDefIndex(),
-                                             method->GetDexMethodIndex()));
+                                             method->GetDexMethodIndex())) << method->PrettyMethod() << " from " << method->GetDeclaringClass()->PrettyClass();
   OatFile::OatClass oat_class = OatFile::FindOatClass(declaring_class->GetDexFile(),
                                                       declaring_class->GetDexClassDefIndex(),
                                                       found);

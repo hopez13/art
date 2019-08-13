@@ -249,10 +249,12 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
   InterpreterCache* tls_cache = self->GetInterpreterCache();
   size_t tls_value;
   ArtMethod* resolved_method;
+  bool is_tls = false;
   if (is_quick) {
     resolved_method = nullptr;  // We don't know/care what the original method was.
   } else if (LIKELY(tls_cache->Get(inst, &tls_value))) {
     resolved_method = reinterpret_cast<ArtMethod*>(tls_value);
+    is_tls = true;
   } else {
     ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
     constexpr ClassLinker::ResolveMode resolve_mode =
@@ -289,6 +291,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     result->SetJ(0);
     return false;
   }
+  DCHECK(!called_method->IsObsolete()) << called_method->PrettyMethod() << " quick " << is_quick << " resolv " << resolved_method->PrettyMethod() << " tls " << is_tls;
   if (UNLIKELY(!called_method->IsInvokable())) {
     called_method->ThrowInvocationTimeError();
     result->SetJ(0);
