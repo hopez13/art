@@ -63,7 +63,11 @@ File* OS::OpenFileWithFlags(const char* name, int flags, bool auto_flush) {
   bool read_only = ((flags & O_ACCMODE) == O_RDONLY);
   bool check_usage = !read_only && auto_flush;
   std::unique_ptr<File> file(
+<<<<<<< HEAD   (72d7e9 Add obsolete object event)
       new File(name, flags,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH, check_usage));
+=======
+      new File(name, flags, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH, check_usage));
+>>>>>>> BRANCH (f276df Snap for 5674421 from 2402bec9f1b7f4a6e4b3e4de1a6d7cf68efbc2)
   if (!file->IsOpened()) {
     return nullptr;
   }
