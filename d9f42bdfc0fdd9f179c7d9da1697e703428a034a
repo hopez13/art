@@ -22,6 +22,30 @@
       "revId": "d9f42bdfc0fdd9f179c7d9da1697e703428a034a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5043f4f9_93fbf9f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-13T17:57:30Z",
+      "side": 1,
+      "message": "That can still be *in theory* called if we max out the whole capacity.\n\nI believe that in practice we never take that path since data is smaller than code.\n\nSo, I would inclined to remove the GC there, and make a failure.",
+      "parentUuid": "e9604856_ed412c5c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "d9f42bdfc0fdd9f179c7d9da1697e703428a034a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
