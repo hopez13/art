@@ -124,7 +124,11 @@ ObjPtr<mirror::DexCache> ArtMethod::GetObsoleteDexCache() {
       return ext->GetObsoleteDexCaches()->Get(i);
     }
   }
-  LOG(FATAL) << "This method does not appear in the obsolete map of its class!";
+  // Only other case is the entire class became obsolete.
+  if (GetDeclaringClass()->IsObsoleteObject()) {
+    return GetDeclaringClass()->GetDexCache();
+  }
+  LOG(FATAL) << "This method does not appear in the obsolete map of its class: " << GetDeclaringClass()->PrettyClass();
   UNREACHABLE();
 }
 
@@ -508,7 +512,7 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
   DCHECK_EQ(oat_method_index,
             GetOatMethodIndexFromMethodIndex(declaring_class->GetDexFile(),
                                              method->GetDeclaringClass()->GetDexClassDefIndex(),
-                                             method->GetDexMethodIndex()));
+                                             method->GetDexMethodIndex())) << method->PrettyMethod() << " from " << method->GetDeclaringClass()->PrettyClass();
   OatFile::OatClass oat_class = OatFile::FindOatClass(declaring_class->GetDexFile(),
                                                       declaring_class->GetDexClassDefIndex(),
                                                       found);

@@ -207,7 +207,8 @@ ObjPtr<mirror::String> InternTable::Insert(ObjPtr<mirror::String> s,
   MutexLock mu(self, *Locks::intern_table_lock_);
   if (kDebugLocking && !holding_locks) {
     Locks::mutator_lock_->AssertSharedHeld(self);
-    CHECK_EQ(2u, self->NumberOfHeldMutexes()) << "may only safely hold the mutator lock";
+    // TODO Should be mutator or higher locks.
+    // CHECK_EQ(2u, self->NumberOfHeldMutexes()) << "may only safely hold the mutator lock";
   }
   while (true) {
     if (holding_locks) {

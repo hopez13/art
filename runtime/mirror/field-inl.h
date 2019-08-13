@@ -79,7 +79,7 @@ inline ObjPtr<mirror::Field> Field::CreateFromArtField(Thread* self,
     // them in the dex cache.
   } else {
     if (resolved_field != nullptr) {
-      DCHECK_EQ(resolved_field, field);
+      DCHECK_EQ(resolved_field, field) << "rf: " << resolved_field->PrettyField() << " (cls: " << resolved_field->GetDeclaringClass() <<  " " << resolved_field->GetDeclaringClass()->PrettyClass() << ") f: " << field->PrettyField() << "(cls: " << field->GetDeclaringClass() << " " << field->GetDeclaringClass()->PrettyClass() << ")";
     } else {
       // We rely on the field being resolved so that we can back to the ArtField
       // (i.e. FromReflectedMethod).
