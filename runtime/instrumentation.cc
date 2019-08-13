@@ -1563,6 +1563,10 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
   bool deoptimize = (visitor.caller != nullptr) &&
                     (interpreter_stubs_installed_ || IsDeoptimized(visitor.caller) ||
                     self->IsForceInterpreter() ||
+                    // NB Since structurally obsolete compiled methods might have the offsets of
+                    // methods/fields compiled in we need to go back to interpreter whenever we hit
+                    // them.
+                    visitor.caller->GetDeclaringClass()->IsObsoleteObject() ||
                     Dbg::IsForcedInterpreterNeededForUpcall(self, visitor.caller));
   if (is_ref) {
     // Restore the return value if it's a reference since it might have moved.
