@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "437306c7_634f19e6",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-14T17:28:07Z",
+      "side": 1,
+      "message": "Why use the standard error (usually Unix binaries print their usage/help to the standard output)?",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f3d05ff_36a847db",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-14T17:28:07Z",
+      "side": 1,
+      "message": "\"starting with /apex\"? (When I read this the first time, I had the impression that one had to remove the \"/apex\" prefix of the path.)",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4267668e_023d01c8",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-14T17:28:07Z",
+      "side": 1,
+      "message": "Implement",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
