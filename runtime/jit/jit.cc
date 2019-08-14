@@ -1146,6 +1146,9 @@ void Jit::PreZygoteFork() {
     return;
   }
   thread_pool_->DeleteThreads();
+
+  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  NativeDebugInfoPreFork();
 }
 
 void Jit::PostZygoteFork() {
@@ -1153,6 +1156,9 @@ void Jit::PostZygoteFork() {
     return;
   }
   thread_pool_->CreateThreads();
+
+  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  NativeDebugInfoPostFork();
 }
 
 void Jit::BootCompleted() {
