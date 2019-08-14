@@ -22,6 +22,30 @@
       "revId": "51c454551cee50c7fd1f47f67afa27186de0dcf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a56c139_c29975ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-14T12:59:11Z",
+      "side": 1,
+      "message": "The non-flattened flavor of an APEX is always built; however, the flattened flavor of an APEX is only built when `TARGET_FLATTEN_APEX` is `true`. \n\nThis change makes it possible to only enable these build rules (which are purely used as a build-time check – they don\u0027t produce any actual build artifact) when flattening is enabled.",
+      "parentUuid": "b40bf4f4_fea7f55b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "51c454551cee50c7fd1f47f67afa27186de0dcf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
