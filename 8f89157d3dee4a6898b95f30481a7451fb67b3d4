@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bbbcf33d_8d9ca290",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-14T17:37:06Z",
+      "side": 1,
+      "message": "I\u0027ve got the habit of doing it this way because it\u0027s specifically aimed at the human user, rather than data output that tools might want to capture. Very small practical difference though; happy to adhere to convention.",
+      "parentUuid": "437306c7_634f19e6",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f3d05ff_36a847db",
         "filename": "tools/run-gtests.sh",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6fd66c1c_a4bb3dc2",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-14T17:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f3d05ff_36a847db",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4267668e_023d01c8",
         "filename": "tools/run-gtests.sh",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f2c5ed_a851fccb",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-14T17:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4267668e_023d01c8",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "8f89157d3dee4a6898b95f30481a7451fb67b3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
