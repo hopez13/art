@@ -1146,6 +1146,8 @@ void Jit::PreZygoteFork() {
     return;
   }
   thread_pool_->DeleteThreads();
+
+  NativeDebugInfoPreFork();
 }
 
 void Jit::PostZygoteFork() {
@@ -1153,6 +1155,8 @@ void Jit::PostZygoteFork() {
     return;
   }
   thread_pool_->CreateThreads();
+
+  NativeDebugInfoPostFork();
 }
 
 void Jit::BootCompleted() {
