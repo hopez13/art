@@ -32,6 +32,9 @@ class Mutex;
 class Thread;
 struct JITCodeEntry;
 
+void NativeDebugInfoPreFork() REQUIRES_SHARED(Locks::jit_lock_);
+void NativeDebugInfoPostFork() REQUIRES_SHARED(Locks::jit_lock_);
+
 ArrayRef<const uint8_t> GetJITCodeEntrySymFile(const JITCodeEntry*);
 
 // Notify native tools (e.g. libunwind) that DEX file has been opened.
@@ -54,7 +57,7 @@ void RemoveNativeDebugInfoForJit(ArrayRef<const void*> removed_code_ptrs)
     REQUIRES_SHARED(Locks::jit_lock_);  // Might need JIT code cache to allocate memory.
 
 // Returns approximate memory used by debug info for JIT code.
-size_t GetJitMiniDebugInfoMemUsage();
+size_t GetJitMiniDebugInfoMemUsage() REQUIRES_SHARED(Locks::jit_lock_);
 
 // Get the lock which protects the native debug info.
 // Used only in tests to unwind while the JIT thread is running.
