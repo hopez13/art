@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb059215_4f1d7275",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T13:17:00Z",
+      "side": 1,
+      "message": "It is address of the function descried by the ELF (the executable code).\n\nAs opposed to symfile_addr_ which is the ELF file data.",
+      "parentUuid": "3ee7e166_1e55e4b1",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 78
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fa0f799_2b63edbe",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "383da1cc_fc79a226",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T13:17:00Z",
+      "side": 1,
+      "message": "Because the packing only deals with symbols,\n\nso thinks like DWARF line numbers would be dropped if present.\n\n(as per comments in callers)",
+      "parentUuid": "8fa0f799_2b63edbe",
+      "range": {
+        "startLine": 110,
+        "startChar": 34,
+        "endLine": 110,
+        "endChar": 78
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c80fe8d_6909732a",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -68,6 +116,30 @@
       "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba60a744_b37ba622",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T13:17:00Z",
+      "side": 1,
+      "message": "Just an optimization to reduce time we spend compressing.",
+      "parentUuid": "9c80fe8d_6909732a",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 32
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -114,6 +186,30 @@
       "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8dc3fe6_390983d8",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T13:17:00Z",
+      "side": 1,
+      "message": "Could be.... I need to draw the line somewhere.\nIt is either this function or other.",
+      "parentUuid": "eafaf0bd_c8ce128b",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
