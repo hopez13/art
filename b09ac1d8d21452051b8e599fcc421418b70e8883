@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ee7e166_1e55e4b1",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-15T12:11:30Z",
+      "side": 1,
+      "message": "Why is that not symfile_addr? (expand the comment)",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 78
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa0f799_2b63edbe",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-15T12:11:30Z",
+      "side": 1,
+      "message": "Why isn\u0027t that always true?",
+      "range": {
+        "startLine": 110,
+        "startChar": 34,
+        "endLine": 110,
+        "endChar": 78
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c80fe8d_6909732a",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-15T12:11:30Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 32
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d97ca2_dacf3f00",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-15T12:11:30Z",
+      "side": 1,
+      "message": "single",
+      "range": {
+        "startLine": 298,
+        "startChar": 65,
+        "endLine": 298,
+        "endChar": 70
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eafaf0bd_c8ce128b",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-15T12:11:30Z",
+      "side": 1,
+      "message": "Why is it not part of the Jitcompiler interface?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
