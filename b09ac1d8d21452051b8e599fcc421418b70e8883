@@ -166,6 +166,54 @@
     },
     {
       "key": {
+        "uuid": "7345cc17_dffd432c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T15:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88d97ca2_dacf3f00",
+      "range": {
+        "startLine": 298,
+        "startChar": 65,
+        "endLine": 298,
+        "endChar": 70
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c68788e_403ae960",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T15:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88d97ca2_dacf3f00",
+      "range": {
+        "startLine": 298,
+        "startChar": 65,
+        "endLine": 298,
+        "endChar": 70
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eafaf0bd_c8ce128b",
         "filename": "runtime/jit/debugger_interface.h",
         "patchSetId": 5
@@ -201,6 +249,30 @@
       "side": 1,
       "message": "Could be.... I need to draw the line somewhere.\nIt is either this function or other.",
       "parentUuid": "eafaf0bd_c8ce128b",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "b09ac1d8d21452051b8e599fcc421418b70e8883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42fbc7a7_61fcb046",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T15:24:47Z",
+      "side": 1,
+      "message": "Done. Does it look better this way?",
+      "parentUuid": "f8dc3fe6_390983d8",
       "range": {
         "startLine": 35,
         "startChar": 0,
