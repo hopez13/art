@@ -45,6 +45,30 @@
       "revId": "3840587f6a70c64da6411c734d35a3f4d9904804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7127ec02_ce903dfd",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-15T15:39:45Z",
+      "side": 1,
+      "message": "Why?  Seems a bit odd.",
+      "parentUuid": "75193cfe_560c2975",
+      "range": {
+        "startLine": 311,
+        "startChar": 12,
+        "endLine": 311,
+        "endChar": 15
+      },
+      "revId": "3840587f6a70c64da6411c734d35a3f4d9904804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
