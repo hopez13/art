@@ -1,0 +1,19 @@
+Print "Hello World."
+
+This test uses ASM Java bytecode generator to generate a simple class with
+tho methods: 'main' and some unpronounceable method which name contains all
+space characters in Unicode 'Zs' category.
+
+Steps to reproduce (assuming that ASM is installed in /usr/share; run
+something like `apt-get install libasm-java`):
+
+$ cd src
+$ javac -cp "/usr/share/java/*:." Asm.java
+$ java -cp "/usr/share/java/*:." Asm
+$ dx --dex --output=Main.dex Main.class
+$ cp Main.dex ../classes.dex
+$ rm Asm.class Main.class Main.dex
+
+This generates Main.class with ASM, then dexes it to Main.dex with dx, then
+copies it to classes.dex and deletes temporary files.
+
