@@ -22,6 +22,23 @@
       "revId": "7c1f4f0c0249d46dcdb3440505ec866e6c9a4633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ded45ed_f680b571",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-08-16T22:16:55Z",
+      "side": 1,
+      "message": "I think enabled: false is better than a noop command if this is going to vary between flattened and non-flattened.",
+      "revId": "7c1f4f0c0249d46dcdb3440505ec866e6c9a4633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
