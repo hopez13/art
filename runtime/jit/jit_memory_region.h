@@ -177,6 +177,13 @@ class JitMemoryRegion {
     return data_end_;
   }
 
+  template <typename T> T* GetWritableDataAddress(T* src_ptr) {
+    if (!HasDualDataMapping()) {
+      return src_ptr;
+    }
+    return TranslateAddress(src_ptr, data_pages_, writable_data_pages_);
+  }
+
  private:
   template <typename T>
   T* TranslateAddress(T* src_ptr, const MemMap& src, const MemMap& dst) {
@@ -208,13 +215,6 @@ class JitMemoryRegion {
       return src_ptr;
     }
     return TranslateAddress(src_ptr, writable_data_pages_, data_pages_);
-  }
-
-  template <typename T> T* GetWritableDataAddress(T* src_ptr) {
-    if (!HasDualDataMapping()) {
-      return src_ptr;
-    }
-    return TranslateAddress(src_ptr, data_pages_, writable_data_pages_);
   }
 
   template <typename T> T* GetExecutableAddress(T* src_ptr) {
