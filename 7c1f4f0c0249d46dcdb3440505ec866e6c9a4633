@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "ef0ab02a_63194ce7",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-19T17:05:37Z",
+      "side": 1,
+      "message": "This syntax is news to me, and I can\u0027t say I get a good idea of what it means. Is it possible to put the srcs parameter inside flatten_apex{} instead?",
+      "range": {
+        "startLine": 432,
+        "startChar": 40,
+        "endLine": 432,
+        "endChar": 52
+      },
+      "revId": "7c1f4f0c0249d46dcdb3440505ec866e6c9a4633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ded45ed_f680b571",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
