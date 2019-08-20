@@ -173,16 +173,14 @@ struct JitNativeInfo {
   static constexpr bool kCopySymfileData = true;  // Copy debug info to JIT memory.
   static JITDescriptor& Descriptor() { return __jit_debug_descriptor; }
   static void NotifyNativeDebugger() { __jit_debug_register_code_ptr(); }
-  static const void* Alloc(size_t size) { return JitMemory()->AllocateData(size); }
-  static void Free(const void* ptr) {
-    JitMemory()->FreeData(const_cast<uint8_t*>(reinterpret_cast<const uint8_t*>(ptr)));
-  }
+  static const void* Alloc(size_t size) { return Memory()->AllocateData(size); }
+  static void Free(const void* ptr) { Memory()->FreeData(reinterpret_cast<const uint8_t*>(ptr)); }
   static void Free(void* ptr) = delete;
   template<class T> static T* Writable(const T* v) {
-    return const_cast<T*>(JitMemory()->GetWritableDataAddress(v));
+    return const_cast<T*>(Memory()->GetWritableDataAddress(v));
   }
 
-  static jit::JitMemoryRegion* JitMemory() ASSERT_CAPABILITY(Locks::jit_lock_) {
+  static jit::JitMemoryRegion* Memory() ASSERT_CAPABILITY(Locks::jit_lock_) {
     Locks::jit_lock_->AssertHeld(Thread::Current());
     jit::JitCodeCache* jit_code_cache = Runtime::Current()->GetJitCodeCache();
     CHECK(jit_code_cache != nullptr);
