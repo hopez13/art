@@ -46,6 +46,30 @@
       "revId": "109ec5796f9476a4b6619fe51eb71b1cfe4e733a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32e066ea_ade4d5b0",
+        "filename": "runtime/jit/jit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T09:28:35Z",
+      "side": 1,
+      "message": "You can friend the test as well? I wanted to keep those methods private to limit its users.",
+      "parentUuid": "407dc1d6_6715a4b8",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "109ec5796f9476a4b6619fe51eb71b1cfe4e733a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
