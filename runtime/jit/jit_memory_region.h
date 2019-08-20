@@ -87,11 +87,11 @@ class JitMemoryRegion {
                               bool has_should_deoptimize_flag)
       REQUIRES(Locks::jit_lock_);
   void FreeCode(const uint8_t* code) REQUIRES(Locks::jit_lock_);
-  uint8_t* AllocateData(size_t data_size) REQUIRES(Locks::jit_lock_);
-  void FreeData(uint8_t* data) REQUIRES(Locks::jit_lock_);
+  const uint8_t* AllocateData(size_t data_size) REQUIRES(Locks::jit_lock_);
+  void FreeData(uint8_t* writable_data) REQUIRES(Locks::jit_lock_);
 
   // Emit roots and stack map into the memory pointed by `roots_data`.
-  bool CommitData(uint8_t* roots_data,
+  bool CommitData(const uint8_t* roots_data,
                   const std::vector<Handle<mirror::Object>>& roots,
                   const uint8_t* stack_map,
                   size_t stack_map_size)
@@ -177,6 +177,13 @@ class JitMemoryRegion {
     return data_end_;
   }
 
+  template <typename T> T* GetWritableDataAddress(const T* src_ptr) {
+    if (!HasDualDataMapping()) {
+      return const_cast<T*>(src_ptr);
+    }
+    return const_cast<T*>(TranslateAddress(src_ptr, data_pages_, writable_data_pages_));
+  }
+
  private:
   template <typename T>
   T* TranslateAddress(T* src_ptr, const MemMap& src, const MemMap& dst) {
@@ -208,13 +215,6 @@ class JitMemoryRegion {
       return src_ptr;
     }
     return TranslateAddress(src_ptr, writable_data_pages_, data_pages_);
-  }
-
-  template <typename T> T* GetWritableDataAddress(T* src_ptr) {
-    if (!HasDualDataMapping()) {
-      return src_ptr;
-    }
-    return TranslateAddress(src_ptr, data_pages_, writable_data_pages_);
   }
 
   template <typename T> T* GetExecutableAddress(T* src_ptr) {
