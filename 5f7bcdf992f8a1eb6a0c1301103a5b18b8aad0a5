@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93277866_3d8b83cb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T09:47:19Z",
+      "side": 1,
+      "message": "Could we call FillData instead?",
+      "range": {
+        "startLine": 1458,
+        "startChar": 0,
+        "endLine": 1459,
+        "endChar": 60
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527b0b19_53995d3d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T09:47:19Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1808,
+        "startChar": 0,
+        "endLine": 1808,
+        "endChar": 102
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba04c17_6f8b97d2",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T09:47:19Z",
+      "side": 1,
+      "message": "WDYM? Shoudn\u0027t this take const uint8_t* instead?",
+      "range": {
+        "startLine": 484,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 53
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ed87aa1_f7f07bca",
+        "filename": "runtime/jit/jit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T09:47:19Z",
+      "side": 1,
+      "message": "I\u0027d really like to keep this private. It was annoying to have to track all places where we wrote to the memory before moving to the dual view, and I fear this will continue to make it harder.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
