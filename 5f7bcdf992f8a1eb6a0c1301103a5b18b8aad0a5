@@ -163,6 +163,30 @@
       "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bd4a1ae_68763cb0",
+        "filename": "runtime/jit/jit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T12:11:09Z",
+      "side": 1,
+      "message": "\u003e Making it private does not really help since we use friend to bypass it.\n\nYes, but that at least explicitly lists dependencies :) I agree with you that adding JitcodeCache as friend would indeed defeat the purpose. That\u0027s why I\u0027m looking for alternatives to write to the data in JitcodeCache.",
+      "parentUuid": "28d8f69f_0b506159",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
