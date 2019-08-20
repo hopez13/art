@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d3858da4_269db1ed",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-20T12:04:32Z",
+      "side": 1,
+      "message": "1) It is variable-sized object.\n\n2) We need to return the writable version from the function.\n(presumably we don\u0027t want to do the readonly-writable translation every time we try to access ProfilingInfo)",
+      "parentUuid": "93277866_3d8b83cb",
+      "range": {
+        "startLine": 1458,
+        "startChar": 0,
+        "endLine": 1459,
+        "endChar": 60
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "527b0b19_53995d3d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b6717f00_2f1cdfd9",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-20T12:04:32Z",
+      "side": 1,
+      "message": "We have existing bugs where we pass both wrtiable and readonly versions in this method.\n\nThis change enforced consistency.\n\nMaybe I can try adding overloads to catch bugs.",
+      "parentUuid": "2ba04c17_6f8b97d2",
+      "range": {
+        "startLine": 484,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 53
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ed87aa1_f7f07bca",
         "filename": "runtime/jit/jit_memory_region.h",
         "patchSetId": 1
@@ -91,6 +139,30 @@
       "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d8f69f_0b506159",
+        "filename": "runtime/jit/jit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-20T12:04:32Z",
+      "side": 1,
+      "message": "Making it private does not really help since we use friend to bypass it.\nUsing the const on the return type seems to do better job.\nHaving said that, I will try again.",
+      "parentUuid": "1ed87aa1_f7f07bca",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
