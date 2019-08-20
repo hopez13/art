@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "3bd69d0b_f70e39f6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-20T12:27:33Z",
+      "side": 1,
+      "message": "Any suggestion on how to deal with this other than making the GetWritableDataAdderess public?\n(we currently return the read-only version, which is a bug)",
+      "revId": "5f7bcdf992f8a1eb6a0c1301103a5b18b8aad0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "527b0b19_53995d3d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
