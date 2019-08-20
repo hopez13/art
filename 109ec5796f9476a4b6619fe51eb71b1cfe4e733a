@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b967b943_38739dd9",
+        "filename": "runtime/jit/jit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T08:12:49Z",
+      "side": 1,
+      "message": "Can we keep this private and friend the debug mini info class?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "109ec5796f9476a4b6619fe51eb71b1cfe4e733a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

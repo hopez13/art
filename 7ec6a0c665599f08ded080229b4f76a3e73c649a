@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91096020_ff4f0127",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-20T08:12:49Z",
+      "side": 0,
+      "message": "Wasn\u0027t that read-only memory? How did it work before?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 57
+      },
+      "revId": "7ec6a0c665599f08ded080229b4f76a3e73c649a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
