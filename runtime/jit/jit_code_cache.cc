@@ -330,7 +330,7 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   size_t code_size,
                                   const uint8_t* stack_map,
                                   size_t stack_map_size,
-                                  uint8_t* roots_data,
+                                  const uint8_t* roots_data,
                                   const std::vector<Handle<mirror::Object>>& roots,
                                   bool osr,
                                   bool has_should_deoptimize_flag,
@@ -407,7 +407,7 @@ static void DCheckRootsAreValid(const std::vector<Handle<mirror::Object>>& roots
   }
 }
 
-static uint8_t* GetRootTable(const void* code_ptr, uint32_t* number_of_roots = nullptr) {
+static const uint8_t* GetRootTable(const void* code_ptr, uint32_t* number_of_roots = nullptr) {
   OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
   uint8_t* data = method_header->GetOptimizedCodeInfoPtr();
   uint32_t roots = GetNumberOfRoots(data);
@@ -454,7 +454,10 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
   for (const auto& entry : method_code_map_) {
     uint32_t number_of_roots = 0;
-    uint8_t* roots_data = GetRootTable(entry.first, &number_of_roots);
+    const uint8_t* root_table = GetRootTable(entry.first, &number_of_roots);
+    uint8_t* roots_data = private_region_.IsInDataSpace(root_table)
+        ? private_region_.GetWritableDataAddress(root_table)
+        : shared_region_.GetWritableDataAddress(root_table);
     GcRoot<mirror::Object>* roots = reinterpret_cast<GcRoot<mirror::Object>*>(roots_data);
     for (uint32_t i = 0; i < number_of_roots; ++i) {
       // This does not need a read barrier because this is called by GC.
@@ -480,7 +483,8 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
     }
   }
   // Walk over inline caches to clear entries containing unloaded classes.
-  for (ProfilingInfo* info : profiling_infos_) {
+  for (const ProfilingInfo* profiling_info : profiling_infos_) {
+    ProfilingInfo* info = private_region_.GetWritableDataAddress(profiling_info);
     for (size_t i = 0; i < info->number_of_inline_caches_; ++i) {
       InlineCache* cache = &info->cache_[i];
       for (size_t j = 0; j < InlineCache::kIndividualCacheSize; ++j) {
@@ -578,10 +582,10 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
       }
     }
     for (auto it = profiling_infos_.begin(); it != profiling_infos_.end();) {
-      ProfilingInfo* info = *it;
+      const ProfilingInfo* info = *it;
       if (alloc.ContainsUnsafe(info->GetMethod())) {
         info->GetMethod()->SetProfilingInfo(nullptr);
-        private_region_.FreeData(reinterpret_cast<uint8_t*>(info));
+        private_region_.FreeData(reinterpret_cast<const uint8_t*>(info));
         it = profiling_infos_.erase(it);
       } else {
         ++it;
@@ -672,7 +676,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           size_t code_size,
                                           const uint8_t* stack_map,
                                           size_t stack_map_size,
-                                          uint8_t* roots_data,
+                                          const uint8_t* roots_data,
                                           const std::vector<Handle<mirror::Object>>& roots,
                                           bool osr,
                                           bool has_should_deoptimize_flag,
@@ -687,7 +691,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   }
 
   size_t root_table_size = ComputeRootTableSize(roots.size());
-  uint8_t* stack_map_data = roots_data + root_table_size;
+  const uint8_t* stack_map_data = roots_data + root_table_size;
 
   MutexLock mu(self, *Locks::jit_lock_);
   // We need to make sure that there will be no jit-gcs going on and wait for any ongoing one to
@@ -834,11 +838,16 @@ bool JitCodeCache::RemoveMethod(ArtMethod* method, bool release_memory) {
 
 bool JitCodeCache::RemoveMethodLocked(ArtMethod* method, bool release_memory) {
   if (LIKELY(!method->IsNative())) {
-    ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
-    if (info != nullptr) {
-      RemoveElement(profiling_infos_, info);
-    }
     method->SetProfilingInfo(nullptr);
+    auto profiling_kept_end = std::remove_if(profiling_infos_.begin(), profiling_infos_.end(),
+      [this, method] (const ProfilingInfo* info) NO_THREAD_SAFETY_ANALYSIS {
+        if (info->GetMethod() == method) {
+          private_region_.FreeData(reinterpret_cast<const uint8_t*>(info));
+          return true;
+        }
+        return false;
+      });
+    profiling_infos_.erase(profiling_kept_end, profiling_infos_.end());
   }
 
   bool in_cache = false;
@@ -954,19 +963,19 @@ size_t JitCodeCache::DataCacheSizeLocked() {
 
 void JitCodeCache::ClearData(Thread* self,
                              JitMemoryRegion* region,
-                             uint8_t* roots_data) {
+                             const uint8_t* roots_data) {
   MutexLock mu(self, *Locks::jit_lock_);
-  region->FreeData(reinterpret_cast<uint8_t*>(roots_data));
+  region->FreeData(roots_data);
 }
 
-uint8_t* JitCodeCache::ReserveData(Thread* self,
-                                   JitMemoryRegion* region,
-                                   size_t stack_map_size,
-                                   size_t number_of_roots,
-                                   ArtMethod* method) {
+const uint8_t* JitCodeCache::ReserveData(Thread* self,
+                                         JitMemoryRegion* region,
+                                         size_t stack_map_size,
+                                         size_t number_of_roots,
+                                         ArtMethod* method) {
   size_t table_size = ComputeRootTableSize(number_of_roots);
   size_t size = RoundUp(stack_map_size + table_size, sizeof(void*));
-  uint8_t* result = nullptr;
+  const uint8_t* result = nullptr;
 
   {
     ScopedThreadSuspension sts(self, kSuspended);
@@ -1136,7 +1145,8 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
         // Save the entry point of methods we have compiled, and update the entry
         // point of those methods to the interpreter. If the method is invoked, the
         // interpreter will update its entry point to the compiled code and call it.
-        for (ProfilingInfo* info : profiling_infos_) {
+        for (const ProfilingInfo* it : profiling_infos_) {
+          ProfilingInfo* info = private_region_.GetWritableDataAddress(it);
           const void* entry_point = info->GetMethod()->GetEntryPointFromQuickCompiledCode();
           if (!IsInZygoteDataSpace(info) && ContainsPc(entry_point)) {
             info->SetSavedEntryPoint(entry_point);
@@ -1220,8 +1230,8 @@ void JitCodeCache::SetGarbageCollectCode(bool value) {
       // to make sure that a potential current collection is finished, and also
       // clear the saved entry point in profiling infos to avoid dangling pointers.
       WaitForPotentialCollectionToComplete(self);
-      for (ProfilingInfo* info : profiling_infos_) {
-        info->SetSavedEntryPoint(nullptr);
+      for (const ProfilingInfo* it : profiling_infos_) {
+        private_region_.GetWritableDataAddress(it)->SetSavedEntryPoint(nullptr);
       }
     }
     // Update the flag while holding the lock to ensure no thread will try to GC.
@@ -1236,7 +1246,8 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
     if (collect_profiling_info) {
       // Clear the profiling info of methods that do not have compiled code as entrypoint.
       // Also remove the saved entry point from the ProfilingInfo objects.
-      for (ProfilingInfo* info : profiling_infos_) {
+      for (const ProfilingInfo* it : profiling_infos_) {
+        ProfilingInfo* info = private_region_.GetWritableDataAddress(it);
         const void* ptr = info->GetMethod()->GetEntryPointFromQuickCompiledCode();
         if (!ContainsPc(ptr) && !info->IsInUseByCompiler() && !IsInZygoteDataSpace(info)) {
           info->GetMethod()->SetProfilingInfo(nullptr);
@@ -1251,7 +1262,7 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
       }
     } else if (kIsDebugBuild) {
       // Sanity check that the profiling infos do not have a dangling entry point.
-      for (ProfilingInfo* info : profiling_infos_) {
+      for (const ProfilingInfo* info : profiling_infos_) {
         DCHECK(!Runtime::Current()->IsZygote());
         const void* entry_point = info->GetSavedEntryPoint();
         DCHECK(entry_point == nullptr || IsInZygoteExecSpace(entry_point));
@@ -1305,7 +1316,7 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
     MutexLock mu(self, *Locks::jit_lock_);
     // Free all profiling infos of methods not compiled nor being compiled.
     auto profiling_kept_end = std::remove_if(profiling_infos_.begin(), profiling_infos_.end(),
-      [this] (ProfilingInfo* info) NO_THREAD_SAFETY_ANALYSIS {
+      [this] (const ProfilingInfo* info) NO_THREAD_SAFETY_ANALYSIS {
         const void* ptr = info->GetMethod()->GetEntryPointFromQuickCompiledCode();
         // We have previously cleared the ProfilingInfo pointer in the ArtMethod in the hope
         // that the compiled code would not get revived. As mutator threads run concurrently,
@@ -1315,10 +1326,10 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
         // code cache collection.
         if (ContainsPc(ptr) &&
             info->GetMethod()->GetProfilingInfo(kRuntimePointerSize) == nullptr) {
-          info->GetMethod()->SetProfilingInfo(info);
+          info->GetMethod()->SetProfilingInfo(private_region_.GetWritableDataAddress(info));
         } else if (info->GetMethod()->GetProfilingInfo(kRuntimePointerSize) != info) {
           // No need for this ProfilingInfo object anymore.
-          private_region_.FreeData(reinterpret_cast<uint8_t*>(info));
+          private_region_.FreeData(reinterpret_cast<const uint8_t*>(info));
           return true;
         }
         return false;
@@ -1448,11 +1459,12 @@ ProfilingInfo* JitCodeCache::AddProfilingInfoInternal(Thread* self ATTRIBUTE_UNU
     return info;
   }
 
-  uint8_t* data = private_region_.AllocateData(profile_info_size);
+  const uint8_t* data = private_region_.AllocateData(profile_info_size);
   if (data == nullptr) {
     return nullptr;
   }
-  info = new (data) ProfilingInfo(method, entries);
+  uint8_t* writable_data = private_region_.GetWritableDataAddress(data);
+  info = new (writable_data) ProfilingInfo(method, entries);
 
   // Make sure other threads see the data in the profiling info object before the
   // store in the ArtMethod's ProfilingInfo pointer.
@@ -1801,10 +1813,10 @@ void ZygoteMap::Initialize(uint32_t number_of_methods) {
   // Allocate for 40-80% capacity. This will offer OK lookup times, and termination
   // cases.
   size_t capacity = RoundUpToPowerOfTwo(number_of_methods * 100 / 80);
-  Entry* data = reinterpret_cast<Entry*>(region_->AllocateData(capacity * sizeof(Entry)));
+  const Entry* data = reinterpret_cast<const Entry*>(region_->AllocateData(capacity * sizeof(Entry)));
   if (data != nullptr) {
     region_->FillData(data, capacity, Entry { nullptr, nullptr });
-    map_ = ArrayRef(data, capacity);
+    map_ = ArrayRef(region_->GetWritableDataAddress(data), capacity);
   }
 }
 
