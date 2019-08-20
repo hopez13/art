@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d0e166f6_25b9b437",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-20T15:53:59Z",
+      "side": 1,
+      "message": "Is this the error?\n\nFAILED: out/soong/.intermediates/art/build/apex/art-check-debug-apex-gen/gen/art-check-debug-apex-gen.dummy\nout/soong/host/linux-x86/bin/sbox --sandbox-path out/soong/.temp --output-root out/soong/.intermediates/art/build/apex/art-check-debug-apex-gen/gen -c \u0027out/soong/host/linux-x86/bin/art-apex-tester --debugfs out/soong/host/linux-x86/bin/debugfs --tmpdir __SBOX_OUT_DIR__ --debug out/soong/.intermediates/art/build/apex/com.android.runtime.debug/android_common_com.android.runtime.debug/com.android.runtime.debug.apex \u0026\u0026 touch __SBOX_OUT_FILES__\u0027  __SBOX_OUT_DIR__/art-check-debug-apex-gen.dummy\nCould not find platform independent libraries \u003cprefix\u003e\nCould not find platform dependent libraries \u003cexec_prefix\u003e\nConsider setting $PYTHONHOME to \u003cprefix\u003e[:\u003cexec_prefix\u003e]\nFatal Python error: init_fs_encoding: failed to get the Python codec of the filesystem encoding\nModuleNotFoundError: No module named \u0027encodings\u0027\n\nIt\u0027s not immediately clear to me what the problem is here. Is python3 incorrectly installed?",
+      "revId": "4670f737eec78a4518b9e880ffc0767016473506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26e1e4b0_122d2e2b",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
