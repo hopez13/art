@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "04f19d7d_0d878eb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-21T09:49:50Z",
+      "side": 1,
+      "message": "\u003e Is this the error?\n\u003e \n\u003e FAILED: out/soong/.intermediates/art/build/apex/art-check-debug-apex-gen/gen/art-check-debug-apex-gen.dummy\n\u003e out/soong/host/linux-x86/bin/sbox --sandbox-path out/soong/.temp --output-root out/soong/.intermediates/art/build/apex/art-check-debug-apex-gen/gen -c \u0027out/soong/host/linux-x86/bin/art-apex-tester --debugfs out/soong/host/linux-x86/bin/debugfs --tmpdir __SBOX_OUT_DIR__ --debug out/soong/.intermediates/art/build/apex/com.android.runtime.debug/android_common_com.android.runtime.debug/com.android.runtime.debug.apex \u0026\u0026 touch __SBOX_OUT_FILES__\u0027  __SBOX_OUT_DIR__/art-check-debug-apex-gen.dummy\n\u003e Could not find platform independent libraries \u003cprefix\u003e\n\u003e Could not find platform dependent libraries \u003cexec_prefix\u003e\n\u003e Consider setting $PYTHONHOME to \u003cprefix\u003e[:\u003cexec_prefix\u003e]\n\u003e Fatal Python error: init_fs_encoding: failed to get the Python codec of the filesystem encoding\n\u003e ModuleNotFoundError: No module named \u0027encodings\u0027\n\nYes.\n\n\u003e It\u0027s not immediately clear to me what the problem is here. Is python3 incorrectly installed?\n\nThere is more context in bug 139655167 (and bug 139471465). Apparently, the issue comes from an incompatibility between the Python 3 version installed on LUCI machines and the sandboxing operated by the Android build system. Python 2 does not seem affected by this issue.",
+      "parentUuid": "d0e166f6_25b9b437",
+      "revId": "4670f737eec78a4518b9e880ffc0767016473506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26e1e4b0_122d2e2b",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
