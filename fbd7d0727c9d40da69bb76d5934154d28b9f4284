@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8781d2f4_86508811",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-21T08:33:39Z",
+      "side": 1,
+      "message": "More context here might be appreciated.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d60aa86_4382c931",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-21T08:33:39Z",
+      "side": 1,
+      "message": "Does a more traditional pattern with non-const Alloc/Free make this harder to write?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 80
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
