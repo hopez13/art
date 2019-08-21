@@ -22,6 +22,30 @@
       "revId": "29757135277cc5a8214789dbf95c79cd10844068",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0231ce02_fca860ad",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-21T11:12:10Z",
+      "side": 1,
+      "message": "Yes: Having this here means that:\n1. the contents of the flattened APEX will be built and installed; and\n2. the input (`$(in)` line 459) passed to the check script will be the path to the (installed) flattened APEX, instead of the path to the (uninstalled) non-flattened APEX package.",
+      "parentUuid": "3518e2ce_26d99587",
+      "range": {
+        "startLine": 456,
+        "startChar": 40,
+        "endLine": 456,
+        "endChar": 52
+      },
+      "revId": "29757135277cc5a8214789dbf95c79cd10844068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
