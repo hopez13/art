@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "110e5e80_d9619b7e",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-22T17:56:22Z",
+      "side": 1,
+      "message": "Nit: Extra empty line.",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 0
+      },
+      "revId": "29757135277cc5a8214789dbf95c79cd10844068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3518e2ce_26d99587",
         "filename": "build/apex/Android.bp",
         "patchSetId": 5
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "Yes: Having this here means that:\n1. the contents of the flattened APEX will be built and installed; and\n2. the input (`$(in)` line 459) passed to the check script will be the path to the (installed) flattened APEX, instead of the path to the (uninstalled) non-flattened APEX package.",
       "parentUuid": "3518e2ce_26d99587",
+      "range": {
+        "startLine": 456,
+        "startChar": 40,
+        "endLine": 456,
+        "endChar": 52
+      },
+      "revId": "29757135277cc5a8214789dbf95c79cd10844068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62e73a4f_34c5de3c",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-22T17:56:22Z",
+      "side": 1,
+      "message": "Ok, thanks. It might have been a bit more consistent and easier to follow if the nonflattened and flattened builds were implemented as two variants, but I suppose that\u0027s a different cup of tea.",
+      "parentUuid": "0231ce02_fca860ad",
       "range": {
         "startLine": 456,
         "startChar": 40,
