@@ -2563,6 +2563,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   Dbg::GcDidFinish();
 
   old_native_bytes_allocated_.store(GetNativeBytes());
+  ATraceIntegerValue("old_native_bytes", static_cast<int64_t>(old_native_bytes_allocated_.load(std::memory_order_relaxed)));
 
   // Unload native libraries for class unloading. We do this after calling FinishGC to prevent
   // deadlocks in case the JNI_OnUnload function does allocations.
@@ -3775,6 +3776,7 @@ inline float Heap::NativeMemoryOverTarget(size_t current_native_bytes, bool is_g
   if (old_native_bytes > current_native_bytes) {
     // Net decrease; skip the check, but update old value.
     // It's OK to lose an update if two stores race.
+    ATraceIntegerValue("old_native_bytes", static_cast<int64_t>(current_native_bytes));
     old_native_bytes_allocated_.store(current_native_bytes, std::memory_order_relaxed);
     return 0.0;
   } else {
@@ -3788,7 +3790,10 @@ inline float Heap::NativeMemoryOverTarget(size_t current_native_bytes, bool is_g
         : target_footprint_.load(std::memory_order_relaxed);
     size_t adj_start_bytes = UnsignedSum(java_gc_start_bytes,
                                          add_bytes_allowed / kNewNativeDiscountFactor);
-    return static_cast<float>(GetBytesAllocated() + weighted_native_bytes)
+    ATraceIntegerValue("adj_start_bytes", static_cast<int64_t>(adj_start_bytes));
+    auto bytes_allocated = GetBytesAllocated();
+    ATraceIntegerValue("bytes_allocated", bytes_allocated);
+    return static_cast<float>(bytes_allocated + weighted_native_bytes)
          / static_cast<float>(adj_start_bytes);
   }
 }
@@ -3796,7 +3801,9 @@ inline float Heap::NativeMemoryOverTarget(size_t current_native_bytes, bool is_g
 inline void Heap::CheckGCForNative(Thread* self) {
   bool is_gc_concurrent = IsGcConcurrent();
   size_t current_native_bytes = GetNativeBytes();
+  ATraceIntegerValue("current_native_bytes", static_cast<int64_t>(current_native_bytes));
   float gc_urgency = NativeMemoryOverTarget(current_native_bytes, is_gc_concurrent);
+  ATraceIntegerValue("gc_urgency_micro", static_cast<int64_t>(gc_urgency * 1000000));
   if (UNLIKELY(gc_urgency >= 1.0)) {
     if (is_gc_concurrent) {
       RequestConcurrentGC(self, kGcCauseForNativeAlloc, /*force_full=*/true);
