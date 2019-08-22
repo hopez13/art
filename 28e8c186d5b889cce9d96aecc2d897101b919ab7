@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98a10dd9_2b642ad6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "for DEX format 040",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7b655d_1cb2bdd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "Does this close the ticket? If so, consider removing as there\u0027s probably more work.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4dcac1d_d3db1fa0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "You can include instructions that others can repro here, e.g.\n\nart/test.py --host -r -t 2029-spaces-in-SimpleName\n\nWe are not terribly consistent in this, but it\u0027s good for external observers.",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86f55ebc_1288c04a",
+        "filename": "libdexfile/dex/descriptors_names.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "Clarify which are introduced in DEX 040.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 54
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b519501f_1973c21f",
+        "filename": "libdexfile/dex/descriptors_names.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "In the interests of consistency, please just extend the existing comment here.",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 80
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda3eff8_2aa5f781",
+        "filename": "test/2029-spaces-in-SimpleName/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "Whitespace support in DEX format 040?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d24666d_94498847",
+        "filename": "test/2029-spaces-in-SimpleName/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 3
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6468a8de_3056fffd",
+        "filename": "test/2029-spaces-in-SimpleName/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "See 952-invoke-custom for an example build script for tests that uses the asm jars as part of the build. There\u0027s probably never any maintenance required in this test, but future maintenance simpler if built from source.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "090b31e8_cf72b1af",
+        "filename": "test/2029-spaces-in-SimpleName/src/Asm.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16adaf3a_d3a35bee",
+        "filename": "test/2029-spaces-in-SimpleName/src/Asm.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "SimpleName",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c713a5dc_bc1cb8b3",
+        "filename": "test/2029-spaces-in-SimpleName/src/Asm.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-22T15:52:03Z",
+      "side": 1,
+      "message": "Can this also call the method_with_spaces...?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 37
+      },
+      "revId": "28e8c186d5b889cce9d96aecc2d897101b919ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
