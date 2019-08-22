@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c09b0a98_2f3d1caa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-22T11:17:30Z",
+      "side": 1,
+      "message": "Done.\n\nThe testing was done using the follow up CLs.",
+      "parentUuid": "8781d2f4_86508811",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d60aa86_4382c931",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e7c3528_7f89e9cd",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-22T11:17:30Z",
+      "side": 1,
+      "message": "The difference is alloc/free in JIT potentially returns read-only memory.\n\nThe \"const\" is technically redundant.  It just adds compile-time checks.",
+      "parentUuid": "0d60aa86_4382c931",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 80
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
