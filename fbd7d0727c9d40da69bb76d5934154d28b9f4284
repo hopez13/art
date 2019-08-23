@@ -93,6 +93,30 @@
       "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56831c8e_2061f325",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-23T14:48:28Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not following.\n\nThe alloc/free in JIT applies to a heap in the current process? If so, it\u0027d seem less surprising to return the writable data in the first place from the Alloc\u0027s(), then flip to the read-only variant where it makes sense. No unusual const in the Alloc / Free paths here?",
+      "parentUuid": "0e7c3528_7f89e9cd",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 80
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
