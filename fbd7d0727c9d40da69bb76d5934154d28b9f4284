@@ -117,6 +117,30 @@
       "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb7f190f_3628c744",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-08-25T08:33:59Z",
+      "side": 1,
+      "message": "Is it clear why the other Alloc/Free below needs the const?\n\nThis particular pair uses heap malloc/free so returns writable memory,\nbut the signature of the methods still needs to be the same.",
+      "parentUuid": "56831c8e_2061f325",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 80
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
