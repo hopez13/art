@@ -23,3 +23,9 @@
 #   https://chromium.googlesource.com/infra/infra/+/master/doc/users/vpython.md
 
 python_version: "2.7"
+
+# Testrunner uses concurrent.futures.
+wheel: <
+  name: "infra/python/wheels/futures-py2_py3"
+  version: "version:3.1.1"
+>
