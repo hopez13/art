@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d84482d_7ea95b6a",
+        "filename": "test/914-hello-obsolescence/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-27T22:58:22Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 80
+      },
+      "revId": "ccf691953b89e64ac31ceab384ad9afd63ea1a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a39d03_d9f23650",
+        "filename": "test/914-hello-obsolescence/src/art/Test914.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-08-27T22:58:22Z",
+      "side": 1,
+      "message": "This test is part of CTS and so cannot reach into the runtime using libarttest.\n\nYou\u0027ll need to make this a whole new run-test (just copying the files to a new number would be fine).",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 48
+      },
+      "revId": "ccf691953b89e64ac31ceab384ad9afd63ea1a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
