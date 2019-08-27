@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e90f09b_5ba339d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-27T16:42:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a877cb48_e6029979",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "bd40bc00f039fc5e0f26c30a5e7130333e080250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b68b37a_51740e62",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "478f4bf2_f6195233",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-27T16:42:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b68b37a_51740e62",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 0
+      },
+      "revId": "bd40bc00f039fc5e0f26c30a5e7130333e080250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36457ef8_145eef22",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "bd40bc00f039fc5e0f26c30a5e7130333e080250",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb642419_e5bb2111",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-08-27T16:42:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36457ef8_145eef22",
+      "revId": "bd40bc00f039fc5e0f26c30a5e7130333e080250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
