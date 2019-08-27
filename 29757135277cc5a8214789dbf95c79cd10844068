@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b2ebba71_5a12cba2",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-08-27T13:16:30Z",
+      "side": 1,
+      "message": "I eventually removed it in PS9, as bpfmt was complaining about it.",
+      "parentUuid": "877c1789_d4e2eb6d",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 0
+      },
+      "revId": "29757135277cc5a8214789dbf95c79cd10844068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3518e2ce_26d99587",
         "filename": "build/apex/Android.bp",
         "patchSetId": 5
