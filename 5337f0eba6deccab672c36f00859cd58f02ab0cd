@@ -22,6 +22,30 @@
       "revId": "5337f0eba6deccab672c36f00859cd58f02ab0cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6d33529_a1a0f9dd",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-08-28T22:55:36Z",
+      "side": 1,
+      "message": "I would hope nobody is running the verifier when libart is being unloaded. Wrt/ exit() calls, an exit is an exit. ;-) (Kill is really the more common case in Android, anyways.)\n\n(As usual, all of our globals should really be hanging off of Runtime eventually)",
+      "parentUuid": "a96b55dd_8e3a6b2e",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 44
+      },
+      "revId": "5337f0eba6deccab672c36f00859cd58f02ab0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
