@@ -141,6 +141,30 @@
       "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de8211ca_f2908b90",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-28T09:20:01Z",
+      "side": 1,
+      "message": "Discussed in person. This is consistent with code allocations and avoids needs to have 2 conversion methods Writable()/ReadOnly().",
+      "parentUuid": "eb7f190f_3628c744",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 80
+      },
+      "revId": "fbd7d0727c9d40da69bb76d5934154d28b9f4284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
