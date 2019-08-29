@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab2e0441_5749c7b6",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "three",
+      "range": {
+        "startLine": 43,
+        "startChar": 13,
+        "endLine": 43,
+        "endChar": 17
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2ae015_b3d02c9c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "to an",
+      "range": {
+        "startLine": 96,
+        "startChar": 25,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06fd065e_80b5362a",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "A comment about synchronization here would be useful.\n\nIt looks like this must be called holding either the g_dex_debug_lock or the g_jit_debug_lock based on the type NativeInfo represents. Use of memory ordering is for cross process?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 32
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "158c3c60_7c310a92",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "Would it be simpler to try take an entry from the free list and allocate if that fails?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 52
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2a71a5b_53ccfcfb",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "Isn\u0027t the default load() using seq_cst? Does this serve any role in correctness here (and also below). The stores are release, perhaps this should be acquire?",
+      "range": {
+        "startLine": 302,
+        "startChar": 27,
+        "endLine": 302,
+        "endChar": 33
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14197df5_d324737d",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "(application_tail, zygote_head).",
+      "range": {
+        "startLine": 396,
+        "startChar": 60,
+        "endLine": 396,
+        "endChar": 68
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f5a5edb_15c35602",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-08-29T12:48:50Z",
+      "side": 1,
+      "message": "These are",
+      "range": {
+        "startLine": 397,
+        "startChar": 3,
+        "endLine": 397,
+        "endChar": 10
+      },
+      "revId": "0e6d79666c8b639138fcc21849cd6416b6029365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
