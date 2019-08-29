@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8311f8a3_a201f929",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-08-29T20:55:35Z",
+      "side": 1,
+      "message": "llvm-mca (through godbolt) indicates that this is \u003e 3x slower than the longer code that operates on a temp register, FYI.",
+      "range": {
+        "startLine": 1352,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 23
+      },
+      "revId": "79e6eb8b79be6249358b7801bc511290dacf10d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
