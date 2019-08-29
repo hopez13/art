@@ -22,6 +22,30 @@
       "revId": "79e6eb8b79be6249358b7801bc511290dacf10d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c308ab4_3ac41e90",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-08-29T21:46:32Z",
+      "side": 1,
+      "message": "I don\u0027t think there are any available temps at this point? Not sure.",
+      "parentUuid": "8311f8a3_a201f929",
+      "range": {
+        "startLine": 1352,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 23
+      },
+      "revId": "79e6eb8b79be6249358b7801bc511290dacf10d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
