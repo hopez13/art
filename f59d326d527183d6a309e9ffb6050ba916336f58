@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2344dcdb_7be68284",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "static constexpr ?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 0
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7d4326_d132febb",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "nit: add a comment",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 5
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e45f42d_fe2cdf77",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "could we have a better check? I guess this is really \"Is NativeInfo for JITted code\" ?",
+      "range": {
+        "startLine": 271,
+        "startChar": 7,
+        "endLine": 271,
+        "endChar": 23
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f5dfc85_f6a75813",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "nor changed?",
+      "range": {
+        "startLine": 397,
+        "startChar": 60,
+        "endLine": 397,
+        "endChar": 67
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4bcb04d_48adb2ae",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "an app",
+      "range": {
+        "startLine": 459,
+        "startChar": 67,
+        "endLine": 459,
+        "endChar": 69
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6187f20f_26fe5d4f",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "nit: add comments",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 65
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "482ee417_76803baf",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-08-30T12:26:35Z",
+      "side": 1,
+      "message": "Given those are the only callers, move the lock acquisition to the callees? (Also, given this is all pre/post fork, I think there\u0027s understanding that we wouldn\u0027t need to lock).",
+      "range": {
+        "startLine": 1149,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 28
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
