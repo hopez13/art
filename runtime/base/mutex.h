@@ -57,7 +57,7 @@ class LOCKABLE Mutex;
 constexpr bool kDebugLocking = kIsDebugBuild;
 
 // Record Log contention information, dumpable via SIGQUIT.
-#ifdef ART_USE_FUTEXES
+#if ART_USE_FUTEXES
 // To enable lock contention logging, set this to true.
 constexpr bool kLogLockContentions = false;
 // FUTEX_WAKE first argument:
@@ -166,6 +166,10 @@ class LOCKABLE Mutex : public BaseMutex {
 
   bool IsMutex() const override { return true; }
 
+  // Acquire the mutex n times, possibly on behalf of another thread. Acquisition must be
+  // uncontended. Only works if ART_USE_FUTEXES holds. n must be >= 1.
+  void ExclusiveLockUncontendedFor(Thread* new_owner, unsigned int n, Thread *self);
+
   // Block until mutex is free then acquire exclusive access.
   void ExclusiveLock(Thread* self) ACQUIRE();
   void Lock(Thread* self) ACQUIRE() {  ExclusiveLock(self); }
@@ -200,7 +204,9 @@ class LOCKABLE Mutex : public BaseMutex {
   // whether we hold the lock; any other information may be invalidated before we return.
   pid_t GetExclusiveOwnerTid() const;
 
-  // Returns how many times this Mutex has been locked, it is better to use AssertHeld/NotHeld.
+  // Returns how many times this Mutex has been locked, it is typically better to use
+  // AssertHeld/NotHeld. For a simply held mutex this is one. Should only be called while holding
+  // the mutex or threads are suspended.
   unsigned int GetDepth() const {
     return recursion_count_;
   }
