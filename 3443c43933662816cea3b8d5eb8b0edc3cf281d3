@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7834da7d_51d16574",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-02T09:47:43Z",
+      "side": 1,
+      "message": "Should these be defined in some given file, so that the API is not lost in implementation details?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 69
+      },
+      "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979bd5ec_eed6cedc",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-02T09:47:43Z",
+      "side": 1,
+      "message": "What is a static entry? You mean C++ static?",
+      "range": {
+        "startLine": 217,
+        "startChar": 33,
+        "endLine": 217,
+        "endChar": 41
+      },
+      "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f06b1a8_dcb19c2a",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-02T09:47:43Z",
+      "side": 1,
+      "message": "nit: mention that we do this at first fork below, abd subsequent forks don\u0027t need to do it.",
+      "range": {
+        "startLine": 410,
+        "startChar": 3,
+        "endLine": 410,
+        "endChar": 29
+      },
+      "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
