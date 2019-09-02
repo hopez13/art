@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ab85da1_bcd26be7",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "That is intentionally exported so libunwind can read it.",
+      "parentUuid": "2344dcdb_7be68284",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 0
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd7d4326_d132febb",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e43e21e_0ea2c518",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd7d4326_d132febb",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 5
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "117cb771_4c054064",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "Renamed to free_entries_.\n\nThis a list of JITCodeEntries which have been deleted and can be reused.\n(it would be fine to free the memory, but technically we should recycle for the seqlock synchronization to be sound).",
+      "parentUuid": "7e45f42d_fe2cdf77",
+      "range": {
+        "startLine": 271,
+        "startChar": 7,
+        "endLine": 271,
+        "endChar": 23
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f5dfc85_f6a75813",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af59886a_ab83427e",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "app_tail-\u003eprev and zygote_head-\u003enext are changed.",
+      "parentUuid": "7f5dfc85_f6a75813",
+      "range": {
+        "startLine": 397,
+        "startChar": 60,
+        "endLine": 397,
+        "endChar": 67
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3684f0af_96a5cdf8",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4bcb04d_48adb2ae",
+      "range": {
+        "startLine": 459,
+        "startChar": 67,
+        "endLine": 459,
+        "endChar": 69
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6187f20f_26fe5d4f",
         "filename": "runtime/jit/debugger_interface.h",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "2ab8113b_b0784bec",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6187f20f_26fe5d4f",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 65
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "482ee417_76803baf",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -160,6 +304,30 @@
       "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7811e143_42f77ff9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "482ee417_76803baf",
+      "range": {
+        "startLine": 1149,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 28
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
