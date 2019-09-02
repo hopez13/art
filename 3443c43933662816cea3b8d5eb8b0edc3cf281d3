@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a2848824_a6e6a5fd",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:56:10Z",
+      "side": 1,
+      "message": "This whole exten \"C\" block at the start of the this file is the interface.",
+      "parentUuid": "7834da7d_51d16574",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 69
+      },
+      "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "979bd5ec_eed6cedc",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "649585bf_dd932ade",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-02T09:56:10Z",
+      "side": 1,
+      "message": "Yes, C++ static memory.",
+      "parentUuid": "979bd5ec_eed6cedc",
+      "range": {
+        "startLine": 217,
+        "startChar": 33,
+        "endLine": 217,
+        "endChar": 41
+      },
+      "revId": "3443c43933662816cea3b8d5eb8b0edc3cf281d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
