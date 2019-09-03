@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f00f79d6_eb10f5b6",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "We do not currently support building the Perfetto Client API for host. Is it fine if I follow up with another CL once we do?",
+      "parentUuid": "722ef302_49280350",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f12a7dd_816465d7",
         "filename": "perfetto_hprof/Android.bp",
         "patchSetId": 7
@@ -284,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "2db0f8de_565a9ed9",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5cdd1e8_693333fa",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c9b64f9_d4d4a4a4",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -298,6 +346,24 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a297760_7e687f00",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c9b64f9_d4d4a4a4",
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -324,6 +390,30 @@
     },
     {
       "key": {
+        "uuid": "1141dbca_d9eadbe3",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b303cc78_5b84fa5f",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7e38c8b_8d06a3d4",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -344,6 +434,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2efb8a08_6bdeb8cc",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7e38c8b_8d06a3d4",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -417,6 +531,30 @@
     },
     {
       "key": {
+        "uuid": "3e8507b2_075360ee",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b41bf72_855cfafc",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 74
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9bda5b4_f3d02d7f",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -484,6 +622,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0fd7f1_13f403ac",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Oh, I\u0027ve just gotten used to using clone(2), as we\u0027ve run into all sorts of funny problems with atfork handlers. Changing to fork(2).",
+      "parentUuid": "2b473f09_073796ea",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 50
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -604,6 +766,30 @@
     },
     {
       "key": {
+        "uuid": "795082f4_9c2cac10",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "The pipe makes the teardown logic simpler, because we can close(2) one end and get that signal on the other end. With an eventfd we\u0027d need an extra channel for this. Would you still prefer the eventfd?\n\naside: Bionic does not expose EFD_SEMAPHORE, I\u0027ve sent an email to cferris about this.",
+      "parentUuid": "b7f08486_3841ab40",
+      "range": {
+        "startLine": 312,
+        "startChar": 6,
+        "endLine": 312,
+        "endChar": 10
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e5d99f_62ada0cc",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 7
@@ -668,6 +854,24 @@
     },
     {
       "key": {
+        "uuid": "2a61e07f_1e409fe0",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Yes, this is intentional. This does not give more data than attaching a debugger.",
+      "parentUuid": "3bdef978_056031f2",
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01e1b095_da76a22e",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 7
@@ -688,6 +892,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5715aee8_512a3af0",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01e1b095_da76a22e",
+      "range": {
+        "startLine": 245,
+        "startChar": 1,
+        "endLine": 253,
+        "endChar": 39
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -714,6 +942,30 @@
     },
     {
       "key": {
+        "uuid": "d18ad00b_20a1df8c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea0df2d0_6ded4fd5",
+      "range": {
+        "startLine": 1768,
+        "startChar": 14,
+        "endLine": 1768,
+        "endChar": 34
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a915cb1b_82c1316f",
         "filename": "runtime/runtime.cc",
         "patchSetId": 7
@@ -734,6 +986,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f7ed66e_f52dd33a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-03T16:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a915cb1b_82c1316f",
+      "range": {
+        "startLine": 1769,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 103
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
