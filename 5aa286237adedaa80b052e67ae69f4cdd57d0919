@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52d7b81e_d5de040c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "We need more than this. What does this do? how? why?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3efb5be_174f2d84",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "sort includes please.\n\n#include \u003c\u003e\nthen alphabetical.",
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "519ec5ab_d35fefe3",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "This will break on \u0027j.l.Class\u0027 objects. Instead use\n\nif (is_static) {\n  field \u003d ArtField::FindStaticFieldWithOffset(obj-\u003eAsClass(), offset);\n} else {\n  field \u003d ArtField::FindInstanceFieldWithOffset(obj-\u003eGetClass(), offset);\n}",
+      "range": {
+        "startLine": 211,
+        "startChar": 27,
+        "endLine": 211,
+        "endChar": 49
+      },
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9df4a11f_4b0aad3b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "why do these need to be initialized with contents?",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 69
+      },
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8945852_43fb1dfa",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "NB This means you\u0027ll miss visiting any \u0027java.lang.ref.Reference\u0027s (eg WeakReference, keys in WeakHashMap, etc).",
+      "range": {
+        "startLine": 275,
+        "startChar": 45,
+        "endLine": 275,
+        "endChar": 63
+      },
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2182a7b3_bf2d501b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "Nit I think these should all fit on one line",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 29
+      },
+      "revId": "5aa286237adedaa80b052e67ae69f4cdd57d0919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

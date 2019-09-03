@@ -779,6 +779,30 @@
     },
     {
       "key": {
+        "uuid": "7ffa3158_29549817",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "put that in a comment explaining why ObjPtr is not needed.",
+      "parentUuid": "8763a07a_2b751f89",
+      "range": {
+        "startLine": 198,
+        "startChar": 37,
+        "endLine": 198,
+        "endChar": 57
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd2f1ee1_455ba608",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 8

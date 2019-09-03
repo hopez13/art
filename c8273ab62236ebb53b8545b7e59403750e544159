@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ae57dd79_4b90153f",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "if it\u0027s something you plan/want to do sure. Otherwise don\u0027t worry about it.",
+      "parentUuid": "f00f79d6_eb10f5b6",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f12a7dd_816465d7",
         "filename": "perfetto_hprof/Android.bp",
         "patchSetId": 7
@@ -787,6 +811,30 @@
       "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e946b1b_9e5964cc",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-03T17:08:47Z",
+      "side": 1,
+      "message": "Using pipes is fine.",
+      "parentUuid": "795082f4_9c2cac10",
+      "range": {
+        "startLine": 312,
+        "startChar": 6,
+        "endLine": 312,
+        "endChar": 10
+      },
+      "revId": "c8273ab62236ebb53b8545b7e59403750e544159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
