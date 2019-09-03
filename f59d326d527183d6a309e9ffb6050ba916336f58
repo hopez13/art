@@ -143,6 +143,75 @@
     },
     {
       "key": {
+        "uuid": "79bf52f0_ab2d4219",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-03T18:05:42Z",
+      "side": 1,
+      "message": "Since you optimize ordering elsewhere, I\u0027d make this memory_order_relaxed.",
+      "range": {
+        "startLine": 303,
+        "startChar": 31,
+        "endLine": 303,
+        "endChar": 33
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aeaf371_540359b2",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-03T18:05:42Z",
+      "side": 1,
+      "message": "Looks redundant to me.",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 54
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29df1fc2_197ad002",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-03T18:05:42Z",
+      "side": 1,
+      "message": "memory_order_relaxed should be fine. The only required ordering is enforced by the fence below.",
+      "range": {
+        "startLine": 360,
+        "startChar": 36,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f5dfc85_f6a75813",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
