@@ -73,6 +73,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 
 import env
 from target_config import target_config
@@ -557,6 +558,7 @@ def run_test(command, test, test_variant, test_name):
     else:
       test_skipped = False
       test_start_time = datetime.datetime.now()
+      test_start_monotonic = time.monotonic()
       if gdb:
         proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT, universal_newlines=True)
       else:
@@ -580,7 +582,10 @@ def run_test(command, test, test_variant, test_name):
       return (test_name, 'PASS', None, test_time)
   except subprocess.TimeoutExpired as e:
     test_end_time = datetime.datetime.now()
-    failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
+    # Calculate monotonic time elapsed in case timeout is triggered by time adjustment
+    # (b/138868214).
+    monotonic_elapsed = time.monotonic() - test_start_monotonic
+    failed_tests.append((test_name, 'Timed out in %d (%d) seconds' % (timeout, monotonic_elapsed)))
 
     # The python documentation states that it is necessary to actually kill the process.
     # Note: This is not the correct solution, really, as it will not kill descendants. We would need
@@ -590,7 +595,7 @@ def run_test(command, test, test_variant, test_name):
 
     return (test_name,
             'TIMEOUT',
-            'Timed out in %d seconds\n%s' % (timeout, command),
+            'Timed out in %d (%d) seconds\n%s' % (timeout, monotonic_elapsed, command),
             test_end_time - test_start_time)
   except Exception as e:
     failed_tests.append((test_name, str(e)))
