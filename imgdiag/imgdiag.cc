@@ -1442,7 +1442,8 @@ class ImgDiagDumper {
         -> std::optional<backtrace_map_t> {
       // Find the memory map for the current boot image component.
       for (const backtrace_map_t* map : maps) {
-        if (EndsWith(map->name, image_location_base_name)) {
+        if (EndsWith(map->name, image_location_base_name) ||
+            EndsWith(map->name, image_location_base_name + "]")) {
           if ((map->flags & PROT_WRITE) != 0) {
             return *map;
           }
