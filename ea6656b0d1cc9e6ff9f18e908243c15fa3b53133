@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bce4ae77_5032c233",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "Is there a bug?\n\nAlso what are the expectations here wrt to module updates?",
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85d0e845_974462fc",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "Looks like this should be in art_runtime_debug_native_shared_libs?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "511a1439_799a34dc",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "This too.",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 23
+      },
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e88cf4a_be0fdbc4",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "Bionic is a different mainline module.",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 52
+      },
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdd06635_8bd6dcc1",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "g_state",
+      "range": {
+        "startLine": 70,
+        "startChar": 13,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a710a3_91146ae6",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-03T15:27:48Z",
+      "side": 1,
+      "message": "Is this value being recycled? Might be better to treat it as reserved if so.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 47
+      },
+      "revId": "ea6656b0d1cc9e6ff9f18e908243c15fa3b53133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
