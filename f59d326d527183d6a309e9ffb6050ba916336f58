@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a41568ed_3fb87de8",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "I don\u0027t optimize it.  As a rule of thumb, I mention it elsewhere only if I matters.\nIn contrast to here, it does not really matter, and the default will do.",
+      "parentUuid": "79bf52f0_ab2d4219",
+      "range": {
+        "startLine": 303,
+        "startChar": 31,
+        "endLine": 303,
+        "endChar": 33
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0aeaf371_540359b2",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -189,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "bad7ef14_39904da3",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "I think it matters, as otherwise the fetch_add below can be reordered higher up in this method,\npossibly breaking the \"next_\" points to even seqlock invariant.",
+      "parentUuid": "0aeaf371_540359b2",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 54
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29df1fc2_197ad002",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -200,6 +248,30 @@
       "writtenOn": "2019-09-03T18:05:42Z",
       "side": 1,
       "message": "memory_order_relaxed should be fine. The only required ordering is enforced by the fence below.",
+      "range": {
+        "startLine": 360,
+        "startChar": 36,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeeeddf5_376cdfb8",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "Yeah, relaxed is fine as long as it is sandwiched between two fences.\n\nI am still preferring the default and relaxed might make it seem like it matters that it is relaxed.\n\nIn general, I don\u0027t think the performance between the variants matters here.",
+      "parentUuid": "29df1fc2_197ad002",
       "range": {
         "startLine": 360,
         "startChar": 36,

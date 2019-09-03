@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85235fa1_99206092",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "You are not happy with just static_assert(sizeof(std::atomic\u003cvoid*\u003e) \u003d\u003d sizeof(void*), \"Weird size\"); ? :-)",
+      "parentUuid": "acaa8d8a_5387e459",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 36
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5d7237a_acd49521",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d6156d80_8152a93a",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "The placement new is on the line above.\n\nNot that we can not assign the placement-new result to free_entries_ since that is the writable address.  We need to assign the readonly address.",
+      "parentUuid": "5f2c7658_13ff682b",
+      "range": {
+        "startLine": 279,
+        "startChar": 31,
+        "endLine": 279,
+        "endChar": 77
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78f63d1c_982f226a",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -82,6 +130,30 @@
       "writtenOn": "2019-09-03T18:05:42Z",
       "side": 1,
       "message": "Presumably this cannot change concurrently here? Please do a memory_order_relaxed load into a temporary variable, and then use that in the assignment below.\n\nYou\u0027re also doing a seq_cst load of head above. Intended?\n\nPresumably the value of head cannot change during any of this, but there may be concurrent readers? If so, the release store needs to stay, but everything else should be memory_order_relaxed.",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 18
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "380bc3ad_c446233b",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-03T18:43:56Z",
+      "side": 1,
+      "message": "All of this is under global lock.  Hence defaults and short code.",
+      "parentUuid": "78f63d1c_982f226a",
       "range": {
         "startLine": 319,
         "startChar": 6,
