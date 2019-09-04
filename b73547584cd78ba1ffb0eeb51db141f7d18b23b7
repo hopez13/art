@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "4bfa8560_e1325cc2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-04T17:07:41Z",
+      "side": 1,
+      "message": "Then please move it down to ReleaseTargetChecker instead.",
+      "parentUuid": "9f879bc0_057a7b04",
+      "range": {
+        "startLine": 467,
+        "startChar": 24,
+        "endLine": 467,
+        "endChar": 32
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c75efdb_4d1bd49e",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 19
