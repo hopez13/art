@@ -101,10 +101,11 @@ class ApiList {
   // These are used for domain-specific API.
   enum class DomainApi : uint32_t {
     kCorePlatformApi = kValueBitSize,
+    kTestApi = kValueBitSize + 1,
 
     // Special values
     kMin =             kCorePlatformApi,
-    kMax =             kCorePlatformApi,
+    kMax =             kTestApi,
   };
 
   // Bit mask of all domain API flags.
@@ -134,6 +135,7 @@ class ApiList {
   // Names corresponding to DomainApis.
   static constexpr const char* kDomainApiNames[] {
     "core-platform-api",
+    "test-api",
   };
 
   // Maximum SDK versions allowed to access ApiList of given Value.
@@ -185,6 +187,7 @@ class ApiList {
   static ApiList GreylistMaxO() { return ApiList(Value::kGreylistMaxO); }
   static ApiList GreylistMaxP() { return ApiList(Value::kGreylistMaxP); }
   static ApiList CorePlatformApi() { return ApiList(DomainApi::kCorePlatformApi); }
+  static ApiList TestApi() { return ApiList(DomainApi::kTestApi); }
 
   uint32_t GetDexFlags() const { return dex_flags_; }
   uint32_t GetIntValue() const { return helper::ToUint(GetValue()) - helper::ToUint(Value::kMin); }
