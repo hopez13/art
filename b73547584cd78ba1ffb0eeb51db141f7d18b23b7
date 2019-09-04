@@ -178,6 +178,29 @@
     },
     {
       "key": {
+        "uuid": "6c75efdb_4d1bd49e",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T16:56:49Z",
+      "side": 1,
+      "message": "Aren\u0027t these Meyer singletons ensuring initialization is once and thread-safe?\n\nThe main thing that makes me hesitant as a reviewer here is the threading. Can you add a comment describing what threads there are and their purpose? hprof_listener thread, perfetto producer thread, ...",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 94
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa76800d_9b1830c3",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 19
