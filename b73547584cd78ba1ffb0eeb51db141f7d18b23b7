@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "acbcfe6e_2b0cf72b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-04T16:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "967cd159_572b44bd",
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbfc64f2_73b324fb",
         "filename": "build/apex/Android.bp",
         "patchSetId": 19
@@ -39,6 +57,30 @@
       "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2ffd927_33a46956",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-04T16:41:45Z",
+      "side": 1,
+      "message": "Oh yes, this should be in com.android.art-defaults. Good catch.",
+      "parentUuid": "fbfc64f2_73b324fb",
+      "range": {
+        "startLine": 219,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 55
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b24d6664_361056a4",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-04T16:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50280eb5_5bc02349",
+      "range": {
+        "startLine": 293,
+        "startChar": 24,
+        "endLine": 295,
+        "endChar": 62
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d1158d0_a23b5a35",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 19
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "9f879bc0_057a7b04",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-04T16:41:45Z",
+      "side": 1,
+      "message": "Because it\u0027s only on target as mentioned in comment, otherwise this check fails.",
+      "parentUuid": "9d1158d0_a23b5a35",
+      "range": {
+        "startLine": 467,
+        "startChar": 24,
+        "endLine": 467,
+        "endChar": 32
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa76800d_9b1830c3",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 19
@@ -108,6 +198,30 @@
       "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "777195ac_32253637",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-04T16:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa76800d_9b1830c3",
+      "range": {
+        "startLine": 272,
+        "startChar": 18,
+        "endLine": 272,
+        "endChar": 22
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
