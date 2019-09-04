@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9c995502_5bfc895f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "It\u0027s not really the same thing. Lock-based atomics are usually implemented with a sharded lock table, so the size wouldn\u0027t change.",
+      "parentUuid": "85235fa1_99206092",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 36
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5d7237a_acd49521",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "7e58b508_37ce7777",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "I\u0027d missed that. Thanks.\nIIUC, this still seems that this is really a const conversion that\u0027s masquerading as a reinterpret_cast, which is a bit unfortunate?",
+      "parentUuid": "d6156d80_8152a93a",
+      "range": {
+        "startLine": 279,
+        "startChar": 31,
+        "endLine": 279,
+        "endChar": 77
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78f63d1c_982f226a",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -154,6 +202,30 @@
       "side": 1,
       "message": "All of this is under global lock.  Hence defaults and short code.",
       "parentUuid": "78f63d1c_982f226a",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 18
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "050eb878_94a20a6f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "The down side, as discussed elsewhere, is that you\u0027re generating slower, potentially bigger, code. And, perhaps more importantly, to me it\u0027s harder to read, since it says \"I\u0027m using a big hammer, because there are concurrent writes\" when there are not.",
+      "parentUuid": "380bc3ad_c446233b",
       "range": {
         "startLine": 319,
         "startChar": 6,

@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a28e194a_a4ba10aa",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "The combination with the release operations below still strikes me as a bit odd, but I don\u0027t feel strongly about it.",
+      "parentUuid": "a41568ed_3fb87de8",
+      "range": {
+        "startLine": 303,
+        "startChar": 31,
+        "endLine": 303,
+        "endChar": 33
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aeaf371_540359b2",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "a7106b35_40d9f13d",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "Currently the fetch_add() immediately below is sequentially consistent, which includes release semantics.\n\nAssume it were relaxed. I still don\u0027t understand how moving it up would break anything. All you\u0027re doing is marking the data invalid a bit longer. In general, I would really like to see explicit fences accompanied by a comment explaining why they exist. For the one below, something like \"seqlock writer ordering\" seems fine. For this one, I don\u0027t know.\n\nIn general, I find the synchronization logic here rather hard to follow. Maybe that\u0027s unavoidable.",
+      "parentUuid": "bad7ef14_39904da3",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 54
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29df1fc2_197ad002",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 3
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "Yeah, relaxed is fine as long as it is sandwiched between two fences.\n\nI am still preferring the default and relaxed might make it seem like it matters that it is relaxed.\n\nIn general, I don\u0027t think the performance between the variants matters here.",
       "parentUuid": "29df1fc2_197ad002",
+      "range": {
+        "startLine": 360,
+        "startChar": 36,
+        "endLine": 360,
+        "endChar": 39
+      },
+      "revId": "f59d326d527183d6a309e9ffb6050ba916336f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89895432_1c5565d4",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-04T18:26:04Z",
+      "side": 1,
+      "message": "For loads, there is a large difference between the variants, maybe on the order of a factor of 10-50. This may not be performance critical enough to matter. But the mixture of fine tuned fences and \"just give me sequentially consistent ordering, I don\u0027t care\" looks odd to me.",
+      "parentUuid": "aeeeddf5_376cdfb8",
       "range": {
         "startLine": 360,
         "startChar": 36,
