@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "cab21657_d06fe695",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-04T16:21:06Z",
+      "side": 1,
+      "message": "Do you still need this when host_supported is set to false?",
+      "parentUuid": "bdc960fd_bdc4e71c",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "49c68c56_9c642701",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 8
@@ -1318,6 +1342,30 @@
       "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4eb8e03_1ba971be",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-04T16:21:06Z",
+      "side": 1,
+      "message": "Where is that? I cannot find PROFILE_FROM_SHELL or any other 1 \u003c\u003c 15 constant in http://cs/aosp-master/frameworks/base/core/java/com/android/internal/os/Zygote.java.",
+      "parentUuid": "3f2085e8_b3a1b4be",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "5a0fc8411769f62db17de95df4879cb3890f8e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
