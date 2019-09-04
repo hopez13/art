@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "967cd159_572b44bd",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T15:27:05Z",
+      "side": 1,
+      "message": "nit: move up below art_runtime_base_native_shared_libs.",
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbfc64f2_73b324fb",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T15:27:05Z",
+      "side": 1,
+      "message": "Stale? This should be deleted as it\u0027s putting the perfetto_hprof library into the runtime (bionic).",
+      "range": {
+        "startLine": 219,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 55
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50280eb5_5bc02349",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T15:27:05Z",
+      "side": 1,
+      "message": "nit: alphasort",
+      "range": {
+        "startLine": 293,
+        "startChar": 24,
+        "endLine": 295,
+        "endChar": 62
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa76800d_9b1830c3",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T15:27:05Z",
+      "side": 1,
+      "message": "nit: underlying type of object_proto is opaque here. ART is quite conservative in use of auto. \nhttp://doc/1kbDXlGaxI7DJI76N7ouD_DtJBKRfwLo91JgBPVkQsQo",
+      "range": {
+        "startLine": 272,
+        "startChar": 18,
+        "endLine": 272,
+        "endChar": 22
+      },
+      "revId": "b73547584cd78ba1ffb0eeb51db141f7d18b23b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
