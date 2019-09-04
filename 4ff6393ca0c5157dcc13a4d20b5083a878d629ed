@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3b2cfd9_5af7ecb6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-04T11:55:39Z",
+      "side": 1,
+      "message": "Can this use CpuRegister(TMP)?",
+      "range": {
+        "startLine": 1352,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 23
+      },
+      "revId": "4ff6393ca0c5157dcc13a4d20b5083a878d629ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
