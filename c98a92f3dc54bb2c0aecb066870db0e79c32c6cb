@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e6d369c_0580809d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-05T11:23:26Z",
+      "side": 1,
+      "message": "based on go/android-api-rules-engagement there are other test suites that may require access.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "c98a92f3dc54bb2c0aecb066870db0e79c32c6cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8daad8d8_45505dfa",
+        "filename": "tools/hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-05T11:23:26Z",
+      "side": 1,
+      "message": "what does hiddenflags equal to in this case?",
+      "revId": "c98a92f3dc54bb2c0aecb066870db0e79c32c6cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
