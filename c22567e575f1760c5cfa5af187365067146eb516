@@ -22,6 +22,30 @@
       "revId": "c22567e575f1760c5cfa5af187365067146eb516",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35bee4d6_b511986f",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-05T13:22:40Z",
+      "side": 1,
+      "message": "We mostly did this to be consistent - I have changed it.",
+      "parentUuid": "a5cab462_074065d8",
+      "range": {
+        "startLine": 484,
+        "startChar": 23,
+        "endLine": 484,
+        "endChar": 32
+      },
+      "revId": "c22567e575f1760c5cfa5af187365067146eb516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
