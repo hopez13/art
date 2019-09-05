@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5cab462_074065d8",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-05T13:03:40Z",
+      "side": 1,
+      "message": "Note: The noinline are usually there when we want to check the IR output of the compiler.",
+      "range": {
+        "startLine": 484,
+        "startChar": 23,
+        "endLine": 484,
+        "endChar": 32
+      },
+      "revId": "c22567e575f1760c5cfa5af187365067146eb516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
