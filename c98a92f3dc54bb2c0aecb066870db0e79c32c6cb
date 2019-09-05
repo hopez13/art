@@ -39,6 +39,24 @@
       "revId": "c98a92f3dc54bb2c0aecb066870db0e79c32c6cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81fddb21_e7c93467",
+        "filename": "tools/hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1524890
+      },
+      "writtenOn": "2019-09-05T11:49:56Z",
+      "side": 1,
+      "message": "Nothing, because we\u0027ve got dex_file \u003d\u003d nullptr (there is no valiud information that we can encode in it).",
+      "parentUuid": "8daad8d8_45505dfa",
+      "revId": "c98a92f3dc54bb2c0aecb066870db0e79c32c6cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
