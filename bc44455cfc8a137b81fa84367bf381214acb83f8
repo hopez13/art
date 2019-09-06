@@ -70,6 +70,30 @@
       "revId": "bc44455cfc8a137b81fa84367bf381214acb83f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "deff6154_d1e6d10e",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-09-06T09:56:24Z",
+      "side": 1,
+      "message": "It lives in external/perfetto. It is not specific to ART. It is the same library Chrome, ARM, GPU Profiling use to stream data into Perfetto. It gets statically linked into libperfetto_hprof.so, which does live in the ART repo.",
+      "parentUuid": "4c289744_04859589",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "bc44455cfc8a137b81fa84367bf381214acb83f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
