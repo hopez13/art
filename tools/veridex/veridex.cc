@@ -192,37 +192,6 @@ class Veridex {
     std::vector<std::unique_ptr<VeridexResolver>> boot_resolvers;
     Resolve(boot_dex_files, resolver_map, type_map, &boot_resolvers);
 
-    // Now that boot classpath has been resolved, fill classes and reflection
-    // methods.
-    VeriClass::object_ = type_map["Ljava/lang/Object;"];
-    VeriClass::class_ = type_map["Ljava/lang/Class;"];
-    VeriClass::class_loader_ = type_map["Ljava/lang/ClassLoader;"];
-    VeriClass::string_ = type_map["Ljava/lang/String;"];
-    VeriClass::throwable_ = type_map["Ljava/lang/Throwable;"];
-    VeriClass::forName_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_, "forName", "(Ljava/lang/String;)Ljava/lang/Class;");
-    VeriClass::getField_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_, "getField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;");
-    VeriClass::getDeclaredField_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_, "getDeclaredField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;");
-    VeriClass::getMethod_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_,
-        "getMethod",
-        "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;");
-    VeriClass::getDeclaredMethod_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_,
-        "getDeclaredMethod",
-        "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;");
-    VeriClass::getClass_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::object_, "getClass", "()Ljava/lang/Class;");
-    VeriClass::loadClass_ = boot_resolvers[0]->LookupDeclaredMethodIn(
-        *VeriClass::class_loader_, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
-
-    VeriClass* version = type_map["Landroid/os/Build$VERSION;"];
-    if (version != nullptr) {
-      VeriClass::sdkInt_ = boot_resolvers[0]->LookupFieldIn(*version, "SDK_INT", "I");
-    }
-
     std::vector<std::unique_ptr<VeridexResolver>> app_resolvers;
     Resolve(app_dex_files, resolver_map, type_map, &app_resolvers);
 
@@ -237,6 +206,42 @@ class Veridex {
     api_finder.Dump(std::cout, &stats, !options.precise);
 
     if (options.precise) {
+      // For precise mode we expect core-stubs to contain java.lang classes.
+
+      VeriClass::object_ = type_map["Ljava/lang/Object;"];
+      if (VeriClass::object_ == nullptr) {
+        LOG(ERROR) << "java.lang.* classes must be present in core-stubs for precise mode to work.";
+        return 1;
+      }
+      // Given java.lang.Object is present, assume all the following is resolvable.
+      VeriClass::class_ = type_map["Ljava/lang/Class;"];
+      VeriClass::class_loader_ = type_map["Ljava/lang/ClassLoader;"];
+      VeriClass::string_ = type_map["Ljava/lang/String;"];
+      VeriClass::throwable_ = type_map["Ljava/lang/Throwable;"];
+      VeriClass::forName_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_, "forName", "(Ljava/lang/String;)Ljava/lang/Class;");
+      VeriClass::getField_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_, "getField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;");
+      VeriClass::getDeclaredField_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_, "getDeclaredField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;");
+      VeriClass::getMethod_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_,
+          "getMethod",
+          "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;");
+      VeriClass::getDeclaredMethod_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_,
+          "getDeclaredMethod",
+          "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;");
+      VeriClass::getClass_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::object_, "getClass", "()Ljava/lang/Class;");
+      VeriClass::loadClass_ = boot_resolvers[0]->LookupDeclaredMethodIn(
+          *VeriClass::class_loader_, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
+
+      VeriClass* version = type_map["Landroid/os/Build$VERSION;"];
+      if (version != nullptr) {
+        VeriClass::sdkInt_ = boot_resolvers[0]->LookupFieldIn(*version, "SDK_INT", "I");
+      }
+
       PreciseHiddenApiFinder precise_api_finder(hidden_api);
       precise_api_finder.Run(app_resolvers, app_class_filter);
       precise_api_finder.Dump(std::cout, &stats);
