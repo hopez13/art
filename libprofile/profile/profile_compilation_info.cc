@@ -85,6 +85,12 @@ static_assert(ProfileCompilationInfo::kIndividualInlineCacheSize < kIsMegamorphi
 static_assert(ProfileCompilationInfo::kIndividualInlineCacheSize < kIsMissingTypesEncoding,
               "InlineCache::kIndividualInlineCacheSize is larger than expected");
 
+static constexpr uint32_t kSizeWarningThresholdBytes = 500000U;
+static constexpr uint32_t kSizeErrorThresholdBytes = 1500000U;
+
+static constexpr uint32_t kSizeWarningThresholdBootBytes = 3000000U;
+static constexpr uint32_t kSizeErrorThresholdBootBytes = 6000000U;
+
 static bool ChecksumMatch(uint32_t dex_file_checksum, uint32_t checksum) {
   return kDebugIgnoreChecksum || dex_file_checksum == checksum;
 }
@@ -154,6 +160,10 @@ std::string ProfileCompilationInfo::GetProfileDexFileKey(const std::string& dex_
     DCHECK(last_sep_index < dex_location.size());
     return dex_location.substr(last_sep_index + 1);
   }
+
+  // TODO(calin): append the RuntimeInstructionSet to the key so we can capture arch-dependent data.
+  // This requires a bit of work as the ProfileSaver and various tests rely on this being a
+  // static public method.
 }
 
 bool ProfileCompilationInfo::AddMethodIndex(MethodHotness::Flag flags, const MethodReference& ref) {
@@ -395,10 +405,12 @@ bool ProfileCompilationInfo::Save(int fd) {
   }
   // Allow large profiles for non target builds for the case where we are merging many profiles
   // to generate a boot image profile.
-  if (kIsTargetBuild && required_capacity > kProfileSizeErrorThresholdInBytes) {
+  VLOG(profiler) << "Required capacity: " << required_capacity << " bytes.";
+  if (required_capacity > GetSizeErrorThresholdBytes()) {
     LOG(ERROR) << "Profile data size exceeds "
-               << std::to_string(kProfileSizeErrorThresholdInBytes)
-               << " bytes. Profile will not be written to disk.";
+               << GetSizeErrorThresholdBytes()
+               << " bytes. Profile will not be written to disk."
+               << " It requires " << required_capacity << " bytes.";
     return false;
   }
   AddUintToBuffer(&buffer, required_capacity);
@@ -472,9 +484,10 @@ bool ProfileCompilationInfo::Save(int fd) {
                                                                required_capacity,
                                                                &output_size);
 
-  if (output_size > kProfileSizeWarningThresholdInBytes) {
+  if (output_size > GetSizeWarningThresholdBytes()) {
     LOG(WARNING) << "Profile data size exceeds "
-                 << std::to_string(kProfileSizeWarningThresholdInBytes);
+        << GetSizeWarningThresholdBytes()
+        << " It has " << output_size << " bytes";
   }
 
   buffer.clear();
@@ -605,7 +618,8 @@ ProfileCompilationInfo::DexFileData* ProfileCompilationInfo::GetOrAddDexFileData
         profile_key,
         checksum,
         profile_index,
-        num_method_ids);
+        num_method_ids,
+        IsForBootImage());
     info_.push_back(dex_file_data);
   }
   DexFileData* result = info_[profile_index];
@@ -1325,16 +1339,16 @@ ProfileCompilationInfo::ProfileLoadStatus ProfileCompilationInfo::LoadInternal(
   }
   // Allow large profiles for non target builds for the case where we are merging many profiles
   // to generate a boot image profile.
-  if (kIsTargetBuild && uncompressed_data_size > kProfileSizeErrorThresholdInBytes) {
+  if (uncompressed_data_size > GetSizeErrorThresholdBytes()) {
     LOG(ERROR) << "Profile data size exceeds "
-               << std::to_string(kProfileSizeErrorThresholdInBytes)
-               << " bytes";
+               << GetSizeErrorThresholdBytes()
+               << " bytes. It has " << uncompressed_data_size << " bytes.";
     return kProfileLoadBadData;
   }
-  if (uncompressed_data_size > kProfileSizeWarningThresholdInBytes) {
+  if (uncompressed_data_size > GetSizeWarningThresholdBytes()) {
     LOG(WARNING) << "Profile data size exceeds "
-                 << std::to_string(kProfileSizeWarningThresholdInBytes)
-                 << " bytes";
+                 << GetSizeWarningThresholdBytes()
+                 << " bytes. It has " << uncompressed_data_size << " bytes.";
   }
 
   std::unique_ptr<uint8_t[]> compressed_data(new uint8_t[compressed_data_size]);
@@ -1385,7 +1399,8 @@ ProfileCompilationInfo::ProfileLoadStatus ProfileCompilationInfo::LoadInternal(
       size_t profile_line_size =
            profile_line_headers[k].class_set_size * sizeof(uint16_t) +
            profile_line_headers[k].method_region_size_bytes +
-           DexFileData::ComputeBitmapStorage(profile_line_headers[k].num_method_ids);
+           DexFileData::ComputeBitmapStorage(IsForBootImage(),
+              profile_line_headers[k].num_method_ids);
       uncompressed_data.Advance(profile_line_size);
     } else {
       // Now read the actual profile line.
@@ -2016,22 +2031,30 @@ bool ProfileCompilationInfo::DexFileData::AddMethod(MethodHotness::Flag flags, s
 void ProfileCompilationInfo::DexFileData::SetMethodHotness(size_t index,
                                                            MethodHotness::Flag flags) {
   DCHECK_LT(index, num_method_ids);
-  if ((flags & MethodHotness::kFlagStartup) != 0) {
-    method_bitmap.StoreBit(MethodBitIndex(/*startup=*/ true, index), /*value=*/ true);
-  }
-  if ((flags & MethodHotness::kFlagPostStartup) != 0) {
-    method_bitmap.StoreBit(MethodBitIndex(/*startup=*/ false, index), /*value=*/ true);
+  for (uint32_t flag = MethodHotness::kFlagFirst;
+        flag <= MethodHotness::kFlagLast;
+        flag = flag << 1) {
+    if (flag == MethodHotness::kFlagHot) {
+      // There's no bit for hotness in the bitmap.
+      // We store the hotness by recording the method in the method list.
+      continue;
+    }
+    if ((flags & flag) != 0) {
+      method_bitmap.StoreBit(
+          MethodBitIndex(GetMethodBitIndexFromFlag(static_cast<MethodHotness::Flag>(flag)), index),
+          /*value=*/ true);
+    }
   }
 }
 
 ProfileCompilationInfo::MethodHotness ProfileCompilationInfo::DexFileData::GetHotnessInfo(
     uint32_t dex_method_index) const {
   MethodHotness ret;
-  if (method_bitmap.LoadBit(MethodBitIndex(/*startup=*/ true, dex_method_index))) {
-    ret.AddFlag(MethodHotness::kFlagStartup);
-  }
-  if (method_bitmap.LoadBit(MethodBitIndex(/*startup=*/ false, dex_method_index))) {
-    ret.AddFlag(MethodHotness::kFlagPostStartup);
+  uint32_t largestIndex = is_for_boot_image ? kBitmapIndexCountBootImage : kBitmapIndexCountRegular;
+  for (uint32_t index = kBitmapIndexFirst; index < largestIndex; index++) {
+    if (method_bitmap.LoadBit(MethodBitIndex(static_cast<BitmapIndex>(index), dex_method_index))) {
+      ret.AddFlag(GetMethodFlagFromBitIndex(static_cast<BitmapIndex>(index)));
+    }
   }
   auto it = method_map.find(dex_method_index);
   if (it != method_map.end()) {
@@ -2039,6 +2062,54 @@ ProfileCompilationInfo::MethodHotness ProfileCompilationInfo::DexFileData::GetHo
     ret.AddFlag(MethodHotness::kFlagHot);
   }
   return ret;
+}
+
+ProfileCompilationInfo::MethodHotness::Flag
+ProfileCompilationInfo::DexFileData::GetMethodFlagFromBitIndex(
+      ProfileCompilationInfo::DexFileData::BitmapIndex index) const {
+  switch (index) {
+    case kBitmapIndexStartup: return MethodHotness::kFlagStartup;
+    case kBitmapIndexPostStartup: return MethodHotness::kFlagPostStartup;
+    case kBitmapIndexAmStartup: return MethodHotness::kFlagAmStartup;
+    case kBitmapIndexAmPostStartup: return MethodHotness::kFlagAmPostStartup;
+    case kBitmapIndexBoot: return MethodHotness::kFlagBoot;
+    case kBitmapIndexPostBoot: return MethodHotness::kFlagPostBoot;
+    case kBitmapIndexForeground: return MethodHotness::kFlagForeground;
+    case kBitmapIndexBackground: return MethodHotness::kFlagBackground;
+    case kBitmapIndexStartupBin: return MethodHotness::kFlagStartupBin;
+    case kBitmapIndexStartupMaxBin: return MethodHotness::kFlagStartupMaxBin;
+    default: {
+        CHECK(index > kBitmapIndexStartupBin & index < kBitmapIndexStartupMaxBin)
+            << "Bitmap index: " << index;
+        return static_cast<MethodHotness::Flag>(
+            MethodHotness::kFlagStartupBin << (index - kBitmapIndexStartupBin));
+      }
+  }
+}
+
+ProfileCompilationInfo::DexFileData::BitmapIndex
+ProfileCompilationInfo::DexFileData::GetMethodBitIndexFromFlag(
+        ProfileCompilationInfo::MethodHotness::Flag hotness) const {
+  DCHECK(IsPowerOfTwo(static_cast<uint32_t>(hotness)));
+  switch (hotness) {
+    case MethodHotness::kFlagStartup: return kBitmapIndexStartup;
+    case MethodHotness::kFlagPostStartup: return kBitmapIndexPostStartup;
+    case MethodHotness::kFlagAmStartup: return kBitmapIndexAmStartup;
+    case MethodHotness::kFlagAmPostStartup: return kBitmapIndexAmPostStartup;
+    case MethodHotness::kFlagBoot: return kBitmapIndexBoot;
+    case MethodHotness::kFlagPostBoot: return kBitmapIndexPostBoot;
+    case MethodHotness::kFlagForeground: return kBitmapIndexForeground;
+    case MethodHotness::kFlagBackground: return kBitmapIndexBackground;
+    case MethodHotness::kFlagStartupBin: return kBitmapIndexStartupBin;
+    case MethodHotness::kFlagStartupMaxBin: return kBitmapIndexStartupMaxBin;
+    default: {
+        CHECK(hotness > MethodHotness::kFlagStartupBin &&
+            hotness < MethodHotness::kFlagStartupMaxBin) << "Hotness flag: " << hotness;
+        return static_cast<BitmapIndex>(
+            kBitmapIndexStartupBin + WhichPowerOf2(static_cast<uint32_t>(hotness))
+                - WhichPowerOf2(static_cast<uint32_t>(MethodHotness::kFlagStartupBin)));
+      }
+  }
 }
 
 ProfileCompilationInfo::DexPcData*
@@ -2148,4 +2219,13 @@ const uint8_t* ProfileCompilationInfo::GetVersion() const {
 bool ProfileCompilationInfo::DexFileData::ContainsClass(const dex::TypeIndex type_index) const {
   return class_set.find(type_index) != class_set.end();
 }
+
+size_t ProfileCompilationInfo::GetSizeWarningThresholdBytes() const {
+  return IsForBootImage() ?  kSizeWarningThresholdBootBytes : kSizeWarningThresholdBytes;
+}
+
+size_t ProfileCompilationInfo::GetSizeErrorThresholdBytes() const {
+  return IsForBootImage() ?  kSizeErrorThresholdBootBytes : kSizeErrorThresholdBytes;
+}
+
 }  // namespace art
