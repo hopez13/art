@@ -94,6 +94,30 @@
       "revId": "bc44455cfc8a137b81fa84367bf381214acb83f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b5a3148_661eb3da",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-06T10:00:21Z",
+      "side": 1,
+      "message": "OK, it\u0027s the statically link in libperfetto_hprof.so part which makes it OK. And then the only \"API\" being used in the libperfetto_client is that socket with protobuf data you mentioned during the meeting?",
+      "parentUuid": "deff6154_d1e6d10e",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "bc44455cfc8a137b81fa84367bf381214acb83f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
