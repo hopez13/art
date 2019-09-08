@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cf27d8c6_12748a45",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-08T21:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c995502_5bfc895f",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 36
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5d7237a_acd49521",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -93,6 +117,30 @@
       "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47f6a79e_e63dca2c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-08T21:58:01Z",
+      "side": 1,
+      "message": "Deleted in next CL",
+      "parentUuid": "b5d7237a_acd49521",
+      "range": {
+        "startLine": 239,
+        "startChar": 27,
+        "endLine": 239,
+        "endChar": 40
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "19f88230_9d4a217d",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-08T21:58:01Z",
+      "side": 1,
+      "message": "It assigns \"const void*\" to \"const JITCodeEntry*\", where the address is in read-only memory. No masquerading, just dual mapping complexities.",
+      "parentUuid": "7e58b508_37ce7777",
+      "range": {
+        "startLine": 279,
+        "startChar": 31,
+        "endLine": 279,
+        "endChar": 77
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78f63d1c_982f226a",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -238,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "bf052901_dbd35469",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-08T21:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "050eb878_94a20a6f",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 18
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15cd438f_2a598b68",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -258,6 +354,30 @@
       "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83464f95_4740c9cd",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-08T21:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15cd438f_2a598b68",
+      "range": {
+        "startLine": 359,
+        "startChar": 40,
+        "endLine": 359,
+        "endChar": 42
+      },
+      "revId": "767f2ddce426e4530c2260ebe1be9b0161d22ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
