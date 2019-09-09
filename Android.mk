@@ -315,51 +315,9 @@ endif
 # ART APEX.
 
 include $(CLEAR_VARS)
-
-# The ART APEX comes in three flavors:
-# - the release module (`com.android.art.release`), containing
-#   only "release" artifacts;
-# - the debug module (`com.android.art.debug`), containing both
-#   "release" and "debug" artifacts, as well as additional tools;
-# - the testing module (`com.android.art.testing`), containing
-#   both "release" and "debug" artifacts, as well as additional tools
-#   and ART gtests).
-#
-# The ART APEX module (`com.android.art`) is an "alias" for either the
-# release or the debug module. By default, "user" build variants contain
-# the release module, while "userdebug" and "eng" build variants contain
-# the debug module. However, if `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD`
-# is defined, it overrides the previous logic:
-# - if `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD` is set to `false`, the
-#   build will include the release module (whatever the build
-#   variant);
-# - if `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD` is set to `true`, the
-#   build will include the debug module (whatever the build variant).
-
-art_target_include_debug_build := $(PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD)
-ifneq (false,$(art_target_include_debug_build))
-  ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
-    art_target_include_debug_build := true
-  endif
-endif
-ifeq (true,$(art_target_include_debug_build))
-  # Module with both release and debug variants, as well as
-  # additional tools.
-  TARGET_ART_APEX := $(DEBUG_ART_APEX)
-  APEX_TEST_MODULE := art-check-debug-apex-gen-fakebin
-else
-  # Release module (without debug variants nor tools).
-  TARGET_ART_APEX := $(RELEASE_ART_APEX)
-  APEX_TEST_MODULE := art-check-release-apex-gen-fakebin
-endif
-
 LOCAL_MODULE := com.android.art
 LOCAL_REQUIRED_MODULES := $(TARGET_ART_APEX)
 LOCAL_REQUIRED_MODULES += art_apex_boot_integrity
-
-# Clear locally used variable.
-art_target_include_debug_build :=
-
 include $(BUILD_PHONY_PACKAGE)
 
 include $(CLEAR_VARS)
@@ -373,7 +331,7 @@ include $(BUILD_PHONY_PACKAGE)
 # Create canonical name -> file name symlink in the symbol directory
 # The symbol files for the debug or release variant are installed to
 # $(TARGET_OUT_UNSTRIPPED)/$(TARGET_ART_APEX) directory. However,
-# since they are available via /apex/com.android.art at runtime
+# since they are available via /apex/com.android.art at run time
 # regardless of which variant is installed, create a symlink so that
 # $(TARGET_OUT_UNSTRIPPED)/apex/com.android.art is linked to
 # $(TARGET_OUT_UNSTRIPPED)/apex/$(TARGET_ART_APEX).

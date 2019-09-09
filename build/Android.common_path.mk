@@ -147,12 +147,4 @@ ifneq ($(ART_BUILD_HOST_DEBUG),false)
 ART_HOST_EXECUTABLES += $(foreach name,$(ART_CORE_DEBUGGABLE_EXECUTABLES),$(name)d-host)
 endif
 
-# Release ART APEX, included by default in "user" builds.
-RELEASE_ART_APEX := com.android.art.release
-# Debug ART APEX, included by default in "userdebug" and "eng"
-# builds and used in ART device benchmarking.
-DEBUG_ART_APEX := com.android.art.debug
-# Testing ART APEX, used in ART device testing.
-TESTING_ART_APEX := com.android.art.testing
-
 endif # ART_ANDROID_COMMON_PATH_MK
