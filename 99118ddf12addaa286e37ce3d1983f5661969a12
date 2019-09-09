@@ -22,6 +22,30 @@
       "revId": "99118ddf12addaa286e37ce3d1983f5661969a12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "544f35a9_8c3292f8",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-09-09T16:21:49Z",
+      "side": 1,
+      "message": "I know you\u0027re not testing on legacy devices, and I expect art to break soon again.\nThis silly workaround fixes it, if you want to pull it it\u0027s there.",
+      "parentUuid": "02e0efe8_6f719321",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "99118ddf12addaa286e37ce3d1983f5661969a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
