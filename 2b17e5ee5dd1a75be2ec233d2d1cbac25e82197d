@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "9fb28e22_306cd073",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-09T18:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a5fd9a_06b3f171",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7f9029_0c5746e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -150,6 +174,24 @@
       "side": 1,
       "message": "The size deltas are there - is the commit message okay?",
       "parentUuid": "5a7f9029_0c5746e6",
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85a12b53_39dde2f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-09T18:47:29Z",
+      "side": 1,
+      "message": "Mind adding boot-framework.oat as the largest \"client code?\"",
+      "parentUuid": "ef2b12f7_0cb4d364",
       "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
