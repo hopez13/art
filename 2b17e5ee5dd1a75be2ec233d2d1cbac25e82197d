@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "53a5fd9a_06b3f171",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-09T18:06:47Z",
+      "side": 1,
+      "message": "Have done it - is this okay?",
+      "parentUuid": "f7f14ee1_56a21dca",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a7f9029_0c5746e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -108,6 +132,24 @@
       "writtenOn": "2019-09-05T23:16:06Z",
       "side": 1,
       "message": "Intrinsics are \"inline,\" so a more complex intrinsic increases code size. It\u0027s common to write down in the commit message what the delta for the boot image is.",
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2b12f7_0cb4d364",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-09T18:06:47Z",
+      "side": 1,
+      "message": "The size deltas are there - is the commit message okay?",
+      "parentUuid": "5a7f9029_0c5746e6",
       "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
