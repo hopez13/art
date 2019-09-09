@@ -74,7 +74,7 @@ bool JitMemoryRegion::Initialize(size_t initial_capacity,
   } else {
     // Bionic supports memfd_create, but the call may fail on older kernels.
     mem_fd = unique_fd(art::memfd_create("/jit-cache", /* flags= */ 0));
-    if (mem_fd.get() < 0) {
+    if (mem_fd.get() < 0 && errno != ENOSYS) {
       std::ostringstream oss;
       oss << "Failed to initialize dual view JIT. memfd_create() error: " << strerror(errno);
       if (!rwx_memory_allowed) {
