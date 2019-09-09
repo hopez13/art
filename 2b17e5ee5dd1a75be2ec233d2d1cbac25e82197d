@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5bdc694_c812b4d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-09T10:56:47Z",
+      "side": 1,
+      "message": "It\u0027s approximately this (3sf):\n\nnum chars   increase in runtime (negative is improvement)\n\nSilver cores:\n1            1.772 \n2            1.276 \n3            3.407 \n4            3.332 \n5            3.096 \n6            2.748 \n7            2.704\n8          -17.318 \n9          -16.521 \n10         -17.318 \n11         -17.568 \n12         -19.532 \n13         -18.336 \n14         -19.230 \n\nGold cores:\n1           0.51\n2          -3.42\n3           3.09\n4           3.68\n5           3.43\n6           3.25\n7           3.01\n8          -30.4\n9          -34.1\n10         -33.8\n11         -33.3\n12         -32.5\n13         -31.1\n14         -29.7\n\nShould I add this to the commit message?",
+      "parentUuid": "36615382_8f07f2dd",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a7f9029_0c5746e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
