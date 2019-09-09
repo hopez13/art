@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02e0efe8_6f719321",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-09T16:01:41Z",
+      "side": 1,
+      "message": "This seems a pragmatic fix. So long as SELinux policy isn\u0027t aligned with the variable it shouldn\u0027t pose an issue.\n\nWe\u0027d discussed was moving to mmap/mremap which should work on kernels of this era, but we\u0027re pretty much assuming memfd_create() is available here and elsewhere. Appreciate that\u0027s not the case here, but not convinced we can be sufficiently wary or diligent not to break you.",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "99118ddf12addaa286e37ce3d1983f5661969a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
