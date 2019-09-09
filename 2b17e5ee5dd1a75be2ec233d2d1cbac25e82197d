@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f7f14ee1_56a21dca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-09T16:07:43Z",
+      "side": 1,
+      "message": "Would appreciate a summary line. Something like \"For very short strings (\u003c8), the overhead amounts to ~3%, which is immediately amortized for longer strings\" (or another side sentence in your list).",
+      "parentUuid": "a77150a8_82d4350a",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "2b17e5ee5dd1a75be2ec233d2d1cbac25e82197d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a7f9029_0c5746e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
