@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5b3c291_9c19b0fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-10T16:47:22Z",
+      "side": 1,
+      "message": "My current hypothesis is that maybe the intrinsic has somehow moved between files, but I don\u0027t really know enough about the whole system to know whether that\u0027s viable.\nThe intrinsic increases by 10 instructions (so 40 bytes) and the net size increase is 48 bytes, which sort of satisfies my back-of-envelope.",
+      "parentUuid": "4d35041c_0cb1361b",
+      "range": {
+        "startLine": 39,
+        "startChar": 35,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b4d7a8b7_400208e1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-10T16:20:47Z",
       "side": 1,
       "message": "(Same as above wrt/ no change)\n\nHow many intrinsics does this correspond to? One or two? Is that \"just\" the direct calls from String code?\n\n(I guess we\u0027d need to intrinsify higher-level code to see more?)",
+      "range": {
+        "startLine": 40,
+        "startChar": 36,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa0470f5_33222787",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-10T16:47:22Z",
+      "side": 1,
+      "message": "I believe that getCharsNoCheck is used exclusively by the String getChars method which would explain the small increase in size. I think getCharsNoCheck is not publicly accessible.\nString getChars essentially wraps getCharsNoCheck in bounds and null checks.\nI think making a subclass of String should allow you to use getCharsNoCheck, and see the related code size increase.",
+      "parentUuid": "b4d7a8b7_400208e1",
       "range": {
         "startLine": 40,
         "startChar": 36,
