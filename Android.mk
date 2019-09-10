@@ -325,6 +325,11 @@ LOCAL_MODULE := com.android.art
 LOCAL_IS_HOST_MODULE := true
 ifneq ($(HOST_OS),darwin)
   LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
+  ifeq ($(TARGET_FLATTEN_APEX),true)
+    # If APEX flattening is enabled, also check the installed flattened
+    # ART APEX.
+    LOCAL_REQUIRED_MODULES += art-check-auto-flattened-apex-gen-fakebin
+  endif
 endif
 include $(BUILD_PHONY_PACKAGE)
 
