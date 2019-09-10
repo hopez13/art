@@ -506,6 +506,46 @@ cc_prebuilt_binary {
     srcs: [":art-check-testing-apex-gen"],
 }
 
+// The flattened APEXes are only checked when flattening is enabled.
+//
+// If APEX flattening is enabled, we can currently only reasonably test one APEX
+// flavor: the one built for the selected product. Checking other flavors of the
+// flattened APEX would actually trigger their installation in the product
+// output, meaning all flavors would end up in the system image.
+//
+// Rely on the script's auto-detection to choose the flavor.
+genrule {
+    name: "art-check-auto-flattened-apex-gen",
+    defaults: ["art-check-apex-gen-defaults"],
+    enabled: false,
+    product_variables: {
+        flatten_apex: {
+            enabled: true,
+        },
+        art_apex: {
+            srcs: [":%s{.flattened}"],
+        },
+    },
+    cmd: art_check_apex_gen_stem +
+        " --flattened" +
+        " --flavor auto" +
+        " $(in)" +
+        " && touch $(out)",
+    out: ["art-check-auto-flattened-apex-gen.dummy"],
+}
+
+cc_prebuilt_binary {
+    name: "art-check-auto-flattened-apex-gen-fakebin",
+    defaults: ["art-check-apex-gen-fakebin-defaults"],
+    enabled: false,
+    product_variables: {
+        flatten_apex: {
+            enabled: true,
+        },
+    },
+    srcs: [":art-check-auto-flattened-apex-gen"],
+}
+
 // Pre-install scripts.
 
 sh_binary {
