@@ -93,6 +93,30 @@
       "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67d38057_0d1f32af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1540763
+      },
+      "writtenOn": "2019-09-10T17:04:13Z",
+      "side": 1,
+      "message": "As you say - if we intrinsified higher-level code (e.g. intrinsifying getChars directly or StringBuilder append) I think we would see more direct uses of the intrinsic so greater increase in code size",
+      "parentUuid": "fa0470f5_33222787",
+      "range": {
+        "startLine": 40,
+        "startChar": 36,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
