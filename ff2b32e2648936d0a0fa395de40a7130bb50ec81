@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55848fe5_39da63d6",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-10T05:42:45Z",
+      "side": 1,
+      "message": "I considered adding 16 bits for the startup bins for greater granularity but on the stress test that added another 680KB or memory use and 600KB of disk space so I decided to stick with 8 for now.",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 34
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
