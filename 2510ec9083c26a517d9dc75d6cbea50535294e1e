@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d35041c_0cb1361b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-10T16:20:47Z",
+      "side": 1,
+      "message": "No need to change commit message, just curiosity: any idea why it would get smaller?",
+      "range": {
+        "startLine": 39,
+        "startChar": 35,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d7a8b7_400208e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-10T16:20:47Z",
+      "side": 1,
+      "message": "(Same as above wrt/ no change)\n\nHow many intrinsics does this correspond to? One or two? Is that \"just\" the direct calls from String code?\n\n(I guess we\u0027d need to intrinsify higher-level code to see more?)",
+      "range": {
+        "startLine": 40,
+        "startChar": 36,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "2510ec9083c26a517d9dc75d6cbea50535294e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
