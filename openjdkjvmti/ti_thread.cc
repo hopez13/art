@@ -128,6 +128,7 @@ struct ThreadCallback : public art::ThreadLifecycleCallback {
         self->GetThreadName(name);
         if (name != "JDWP" &&
             name != "Signal Catcher" &&
+            name != "hprof_listener" &&
             !android::base::StartsWith(name, "Jit thread pool") &&
             !android::base::StartsWith(name, "Runtime worker thread")) {
           LOG(FATAL) << "Unexpected thread before start: " << name << " id: "
