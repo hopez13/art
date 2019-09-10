@@ -3758,7 +3758,7 @@ class ReferenceMapVisitor : public StackVisitor {
         }
       }
       mirror::Object* new_ref = klass.Ptr();
-      visitor_(&new_ref, /* vreg= */ -1, this);
+      visitor_(&new_ref, /* vreg= */ JavaFrameRootInfo::kMethodDeclaringClass, this);
       if (new_ref != klass) {
         method->CASDeclaringClass(klass.Ptr(), new_ref->AsClass());
       }
@@ -3831,7 +3831,7 @@ class ReferenceMapVisitor : public StackVisitor {
         mirror::Object* ref = ref_addr->AsMirrorPtr();
         if (ref != nullptr) {
           mirror::Object* new_ref = ref;
-          visitor_(&new_ref, /* vreg= */ -1, this);
+          visitor_(&new_ref, /* vreg= */ JavaFrameRootInfo::kProxyReferenceArgument, this);
           if (ref != new_ref) {
             ref_addr->Assign(new_ref);
           }
@@ -3862,7 +3862,7 @@ class ReferenceMapVisitor : public StackVisitor {
                       size_t stack_index ATTRIBUTE_UNUSED,
                       const StackVisitor* stack_visitor)
           REQUIRES_SHARED(Locks::mutator_lock_) {
-        visitor(ref, -1, stack_visitor);
+        visitor(ref, JavaFrameRootInfo::kImpreciseVreg, stack_visitor);
       }
 
       ALWAYS_INLINE
@@ -3870,7 +3870,7 @@ class ReferenceMapVisitor : public StackVisitor {
                          size_t register_index ATTRIBUTE_UNUSED,
                          const StackVisitor* stack_visitor)
           REQUIRES_SHARED(Locks::mutator_lock_) {
-        visitor(ref, -1, stack_visitor);
+        visitor(ref, JavaFrameRootInfo::kImpreciseVreg, stack_visitor);
       }
 
       RootVisitor& visitor;
@@ -3908,8 +3908,8 @@ class ReferenceMapVisitor : public StackVisitor {
         }
 
         if (!found) {
-          // If nothing found, report with -1.
-          visitor(ref, -1, stack_visitor);
+          // If nothing found, report with unknown.
+          visitor(ref, JavaFrameRootInfo::kUnknownVreg, stack_visitor);
         }
       }
 
