@@ -22,6 +22,76 @@
       "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1523d59e_c3997318",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-10T18:00:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55848fe5_39da63d6",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 34
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e69d956_227f383e",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-10T18:00:03Z",
+      "side": 1,
+      "message": "There seems to be duplicated data between this enum and the method hotness one, maybe we could remove one of the enums?",
+      "range": {
+        "startLine": 586,
+        "startChar": 9,
+        "endLine": 586,
+        "endChar": 20
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9803dd90_261fa6bf",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-10T18:00:03Z",
+      "side": 1,
+      "message": "Should be underscore for variable names (method_bit_index). Here and the other variable.",
+      "range": {
+        "startLine": 605,
+        "startChar": 38,
+        "endLine": 605,
+        "endChar": 52
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
