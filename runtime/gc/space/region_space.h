@@ -21,6 +21,7 @@
 #include "base/mutex.h"
 #include "space.h"
 #include "thread.h"
+#include "gc/heap.h"
 
 namespace art {
 namespace gc {
@@ -48,6 +49,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   enum EvacMode {
     kEvacModeNewlyAllocated,
     kEvacModeLivePercentNewlyAllocated,
+    kEvacModeAgedLivePercentNewlyAllocated,
     kEvacModeForceAll,
   };
 
@@ -78,6 +80,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // The main allocation routine.
   template<bool kForEvac>
   ALWAYS_INLINE mirror::Object* AllocNonvirtual(size_t num_bytes,
+                                                uint8_t age,
                                                 /* out */ size_t* bytes_allocated,
                                                 /* out */ size_t* usable_size,
                                                 /* out */ size_t* bytes_tl_bulk_allocated)
@@ -163,6 +166,19 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     kRegionStateLargeTail,       // Large tail (non-first regions of a large allocation).
   };
 
+  enum RegionAgeFlag {
+    // Newly Allocated. age = 0
+    kRegionAgeFlagNewlyAllocated = 0x1,
+    // Aged. age > 0 && age <= kRegionAgeTenureThreshold
+    kRegionAgeFlagAged = 0x2,
+    // Aged or NewlyAllocated
+    kRegionAgeFlagAgedOrNewlyAllocated = kRegionAgeFlagAged | kRegionAgeFlagNewlyAllocated,
+    // Tenured. age = kRegionAgeTenured
+    kRegionAgeFlagTenured = 0x4,
+    // All Ages.
+    kRegionAgeFlagAll = kRegionAgeFlagAged | kRegionAgeFlagNewlyAllocated | kRegionAgeFlagTenured,
+  };
+
   template<RegionType kRegionType> uint64_t GetBytesAllocatedInternal() REQUIRES(!region_lock_);
   template<RegionType kRegionType> uint64_t GetObjectsAllocatedInternal() REQUIRES(!region_lock_);
   uint64_t GetBytesAllocated() override REQUIRES(!region_lock_) {
@@ -183,6 +199,10 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   uint64_t GetObjectsAllocatedInUnevacFromSpace() REQUIRES(!region_lock_) {
     return GetObjectsAllocatedInternal<RegionType::kRegionTypeUnevacFromSpace>();
   }
+  template <RegionType kRegionType, RegionAgeFlag kRegionAgeFlag, typename Visitor>
+  void VisitRegionRanges(const Visitor& visitor);
+  template <RegionType kRegionType, RegionAgeFlag kRegionAgeFlag, typename Visitor>
+  void VisitRegions(const Visitor& visitor);
   size_t GetMaxPeakNumNonFreeRegions() const {
     return max_peak_num_non_free_regions_;
   }
@@ -228,6 +248,19 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   static constexpr size_t kAlignment = kObjectAlignment;
   // The region size.
   static constexpr size_t kRegionSize = 256 * KB;
+  // Age of NewlyAllocated Region
+  static constexpr uint8_t kRegionAgeNewlyAllocated = 0;
+  // Tenure Threshold
+  static constexpr uint8_t kRegionAgeTenureThreshold = 6;
+  // Age of Tenured region
+  static constexpr uint8_t kRegionAgeTenured = kRegionAgeTenureThreshold + 1;
+  // Age increment for regions with high live byte ratio
+  static constexpr uint8_t kRegionAgeBiasedIncrement = 3;
+  // Age region map size
+  static constexpr uint8_t kAgeRegionMapSize = kRegionAgeTenured + 1;
+  // If a region has live objects whose size is less than this percent
+  // value of the region size, evaculate the region.
+  static constexpr uint kEvacuateLivePercentThreshold = 75U;
 
   bool IsInFromSpace(mirror::Object* ref) {
     if (HasAddress(ref)) {
@@ -273,6 +306,47 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
     return false;
   }
+
+  bool IsAged(mirror::Object* ref) {
+    if (HasAddress(ref)) {
+      Region* r = RefToRegionUnlocked(ref);
+      return (r->IsAged());
+    }
+    return false;
+  }
+
+  bool IsTenured(mirror::Object* ref) {
+    if (HasAddress(ref)) {
+      Region* r = RefToRegionUnlocked(ref);
+      return (r->IsTenured());
+    }
+    return false;
+  }
+
+  bool IsTenuring(mirror::Object* ref) {
+    if (HasAddress(ref)) {
+      Region* r = RefToRegionUnlocked(ref);
+      return ((r->IsInToSpace() && r->IsTenured()) ||
+              (r->IsInUnevacFromSpace() &&
+                r->Age() > (kRegionAgeTenureThreshold - kRegionAgeBiasedIncrement)));
+    }
+    return false;
+  }
+
+  uint8_t GetAgeForForwarding(mirror::Object* ref) {
+    CHECK(HasAddress(ref));
+    Region* r = RefToRegionUnlocked(ref);
+    DCHECK(r->IsInFromSpace());
+    if (r->IsTenured() || r->IsLarge()) {
+      return kRegionAgeTenured;
+    } else {
+      DCHECK(!r->IsLargeTail());
+      return (r->age_ == kRegionAgeTenureThreshold) ? kRegionAgeTenured : r->age_+1;
+    }
+  }
+
+  template <RegionType kRegionType, RegionAgeFlag kRegionAgeFlag>
+  void ClearBitmap();
 
   // If `ref` is in the region space, return the type of its region;
   // otherwise, return `RegionType::kRegionTypeNone`.
@@ -389,6 +463,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
           alloc_time_(0),
           is_newly_allocated_(false),
           is_a_tlab_(false),
+          age_(kRegionAgeNewlyAllocated),
           state_(RegionState::kRegionStateAllocated),
           type_(RegionType::kRegionTypeToSpace) {}
 
@@ -397,6 +472,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
       begin_ = begin;
       top_.store(begin, std::memory_order_relaxed);
       end_ = end;
+      age_ = kRegionAgeNewlyAllocated;
       state_ = RegionState::kRegionStateFree;
       type_ = RegionType::kRegionTypeNone;
       objects_allocated_.store(0, std::memory_order_relaxed);
@@ -415,6 +491,16 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     RegionType Type() const {
       return type_;
+    }
+
+    RegionAgeFlag AgeCategory() {
+      if (IsTenured()) {
+        return RegionAgeFlag::kRegionAgeFlagTenured;
+      } else if (age_ > kRegionAgeNewlyAllocated && age_ <= kRegionAgeTenureThreshold) {
+        return RegionAgeFlag::kRegionAgeFlagAged;
+      } else {
+        return RegionAgeFlag::kRegionAgeFlagNewlyAllocated;
+      }
     }
 
     void Clear(bool zero_and_release_pages);
@@ -451,6 +537,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     void SetNewlyAllocated() {
       is_newly_allocated_ = true;
+      age_ = kRegionAgeNewlyAllocated;
     }
 
     // Non-large, non-large-tail allocated.
@@ -537,9 +624,26 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     // Set this region as to-space. Used by RegionSpace::ClearFromSpace.
     // This is only valid if it is currently an unevac from-space region.
+    // TODO: Needs work to make sure, IsTenuring() call is accurate.
+    // The tenuring logic here is not very deterministic during a GC.
+    // We only know if the region is really tenuring, at the end of a cycle.
     void SetUnevacFromSpaceAsToSpace() {
       DCHECK(!IsFree() && IsInUnevacFromSpace());
       type_ = RegionType::kRegionTypeToSpace;
+      if (!IsTenured()) {
+        const size_t bytes_allocated = RoundUp(BytesAllocated(), kRegionSize);
+        bool high_live_percent =
+            live_bytes_ * 100U >= kEvacuateLivePercentThreshold * bytes_allocated;
+        if (high_live_percent) {
+          if (age_ > (kRegionAgeTenureThreshold - kRegionAgeBiasedIncrement)) {
+            SetAge(kRegionAgeTenured);
+          } else {
+            SetAge(age_ + kRegionAgeBiasedIncrement);
+          }
+        } else {
+          SetAge((age_ == kRegionAgeTenureThreshold) ? age_ : age_ + 1);
+        }
+      }
     }
 
     // Return whether this region should be evacuated. Used by RegionSpace::SetFromSpace.
@@ -560,6 +664,11 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     size_t LiveBytes() const {
       return live_bytes_;
+    }
+
+    void SetAge(uint8_t age) {
+      CHECK(age_ != kRegionAgeTenured);
+      age_ = age;
     }
 
     // Returns the number of allocated bytes.  "Bulk allocated" bytes in active TLABs are excluded.
@@ -600,6 +709,16 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     uint64_t GetLongestConsecutiveFreeBytes() const;
 
+    inline bool IsAged() {
+      if (!IsNewlyAllocated() && !IsTenured()) {
+        DCHECK_GT(age_, kRegionAgeNewlyAllocated);
+        return true;
+      }
+      return false;
+    }
+    inline bool IsTenured() { return age_ == kRegionAgeTenured; }
+    inline uint8_t Age() { return age_; }
+
    private:
     static bool GetUseGenerationalCC();
 
@@ -620,6 +739,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     // special value for `live_bytes_`.
     bool is_newly_allocated_;           // True if it's allocated after the last collection.
     bool is_a_tlab_;                    // True if it's a tlab.
+    // age ranges from 0 to kRegionAgeTenured
+    uint8_t age_;                       // Age of the region.
     RegionState state_;                 // The region state (see RegionState).
     RegionType type_;                   // The region type (see RegionType).
 
@@ -753,7 +874,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   size_t non_free_region_index_limit_ GUARDED_BY(region_lock_);
 
   Region* current_region_;         // The region currently used for allocation.
-  Region* evac_region_;            // The region currently used for evacuation.
+  Region* evac_region_[kAgeRegionMapSize];  // The regions currently used for evacuation.
   Region full_region_;             // The dummy/sentinel region that looks full.
 
   // Index into the region array pointing to the starting region when

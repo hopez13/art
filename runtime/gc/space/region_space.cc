@@ -28,10 +28,6 @@ namespace art {
 namespace gc {
 namespace space {
 
-// If a region has live objects whose size is less than this percent
-// value of the region size, evaculate the region.
-static constexpr uint kEvacuateLivePercentThreshold = 75U;
-
 // Whether we protect the unused and cleared regions.
 static constexpr bool kProtectClearedRegions = true;
 
@@ -115,7 +111,6 @@ RegionSpace::RegionSpace(const std::string& name, MemMap&& mem_map, bool use_gen
       max_peak_num_non_free_regions_(0U),
       non_free_region_index_limit_(0U),
       current_region_(&full_region_),
-      evac_region_(nullptr),
       cyclic_alloc_region_index_(0U) {
   CHECK_ALIGNED(mem_map_.Size(), kRegionSize);
   CHECK_ALIGNED(mem_map_.Begin(), kRegionSize);
@@ -140,6 +135,9 @@ RegionSpace::RegionSpace(const std::string& name, MemMap&& mem_map, bool use_gen
   }
   DCHECK(!full_region_.IsFree());
   DCHECK(full_region_.IsAllocated());
+  for (uint8_t age = 0; age < kAgeRegionMapSize; ++age) {
+    evac_region_[age] = nullptr;
+  }
   size_t ignored;
   DCHECK(full_region_.Alloc(kAlignment, &ignored, nullptr, &ignored) == nullptr);
   // Protect the whole region space from the start.
@@ -264,7 +262,8 @@ inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
       // so we prefer not to evacuate it.
       result = false;
     }
-  } else if (evac_mode == kEvacModeLivePercentNewlyAllocated) {
+  } else if (evac_mode == kEvacModeLivePercentNewlyAllocated ||
+             evac_mode == kEvacModeAgedLivePercentNewlyAllocated) {
     bool is_live_percent_valid = (live_bytes_ != static_cast<size_t>(-1));
     if (is_live_percent_valid) {
       DCHECK(IsInToSpace());
@@ -273,14 +272,17 @@ inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
       DCHECK_LE(live_bytes_, BytesAllocated());
       const size_t bytes_allocated = RoundUp(BytesAllocated(), kRegionSize);
       DCHECK_LE(live_bytes_, bytes_allocated);
-      if (IsAllocated()) {
-        // Side node: live_percent == 0 does not necessarily mean
-        // there's no live objects due to rounding (there may be a
-        // few).
-        result = (live_bytes_ * 100U < kEvacuateLivePercentThreshold * bytes_allocated);
-      } else {
-        DCHECK(IsLarge());
-        result = (live_bytes_ == 0U);
+      if (evac_mode != kEvacModeAgedLivePercentNewlyAllocated ||
+          IsAged()) {
+        if (IsAllocated()) {
+          // Side node: live_percent == 0 does not necessarily mean
+          // there's no live objects due to rounding (there may be a
+          // few).
+          result = (live_bytes_ * 100U < kEvacuateLivePercentThreshold * bytes_allocated);
+        } else {
+          DCHECK(IsLarge());
+          result = (live_bytes_ == 0U);
+        }
       }
     } else {
       result = false;
@@ -362,7 +364,12 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());
         } else {
-          r->SetAsUnevacFromSpace(clear_live_bytes);
+          if (evac_mode == kEvacModeAgedLivePercentNewlyAllocated &&
+              r->IsAged()) {
+            r->SetAsUnevacFromSpace(true);
+          } else {
+            r->SetAsUnevacFromSpace(clear_live_bytes);
+          }
           DCHECK(r->IsInUnevacFromSpace());
         }
         if (UNLIKELY(state == RegionState::kRegionStateLarge &&
@@ -404,7 +411,9 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
   }
   DCHECK_EQ(num_expected_large_tails, 0U);
   current_region_ = &full_region_;
-  evac_region_ = &full_region_;
+  for (uint8_t age = 0; age < kAgeRegionMapSize; ++age) {
+    evac_region_[age] = &full_region_;
+  }
 }
 
 static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end) {
@@ -621,7 +630,9 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   }
   // Update non_free_region_index_limit_.
   SetNonFreeRegionLimit(new_non_free_region_index_limit);
-  evac_region_ = nullptr;
+  for (uint8_t age = 0; age < kAgeRegionMapSize; ++age) {
+    evac_region_[age] = nullptr;
+  }
   num_non_free_regions_ += num_evac_regions_;
   num_evac_regions_ = 0;
 }
@@ -764,7 +775,9 @@ void RegionSpace::Clear() {
   SetNonFreeRegionLimit(0);
   DCHECK_EQ(num_non_free_regions_, 0u);
   current_region_ = &full_region_;
-  evac_region_ = &full_region_;
+  for (uint8_t age = 0; age < kAgeRegionMapSize; ++age) {
+    evac_region_[age] = &full_region_;
+  }
 }
 
 void RegionSpace::Protect() {
@@ -840,6 +853,7 @@ bool RegionSpace::AllocNewTlab(Thread* self, size_t min_bytes) {
 
   Region* r = AllocateRegion(/*for_evac=*/ false);
   if (r != nullptr) {
+    DCHECK(r->Age() == kRegionAgeNewlyAllocated);
     r->is_a_tlab_ = true;
     r->thread_ = self;
     r->SetTop(r->End());
@@ -905,6 +919,7 @@ void RegionSpace::Region::Dump(std::ostream& os) const {
      << reinterpret_cast<void*>(begin_)
      << "-" << reinterpret_cast<void*>(Top())
      << "-" << reinterpret_cast<void*>(end_)
+     << " age=" << (size_t)age_
      << " state=" << state_
      << " type=" << type_
      << " objects_allocated=" << objects_allocated_
@@ -964,6 +979,7 @@ size_t RegionSpace::AllocationSizeNonvirtual(mirror::Object* obj, size_t* usable
 
 void RegionSpace::Region::Clear(bool zero_and_release_pages) {
   top_.store(begin_, std::memory_order_relaxed);
+  age_ = kRegionAgeNewlyAllocated;
   state_ = RegionState::kRegionStateFree;
   type_ = RegionType::kRegionTypeNone;
   objects_allocated_.store(0, std::memory_order_relaxed);

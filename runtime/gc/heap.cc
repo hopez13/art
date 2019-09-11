@@ -710,6 +710,10 @@ Heap::Heap(size_t initial_size,
         // At this point, non-moving space should be created.
         DCHECK(non_moving_space_ != nullptr);
         concurrent_copying_collector_->CreateInterRegionRefBitmaps();
+        accounting::RememberedSet* region_space_rem_set =
+              new accounting::RememberedSet("Region space remembered set", this, region_space_);
+        CHECK(region_space_rem_set != nullptr) << "Failed to create region space remembered set";
+        AddRememberedSet(region_space_rem_set);
       }
       garbage_collectors_.push_back(concurrent_copying_collector_);
       if (use_generational_cc_) {
@@ -4120,6 +4124,7 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
         if (!region_space_->AllocNewTlab(self, new_tlab_size)) {
           // Failed to allocate a tlab. Try non-tlab.
           return region_space_->AllocNonvirtual<false>(alloc_size,
+                                                       space::RegionSpace::kRegionAgeNewlyAllocated,
                                                        bytes_allocated,
                                                        usable_size,
                                                        bytes_tl_bulk_allocated);
@@ -4130,6 +4135,7 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
         // Check OOME for a non-tlab allocation.
         if (!IsOutOfMemoryOnAllocation(allocator_type, alloc_size, grow)) {
           return region_space_->AllocNonvirtual<false>(alloc_size,
+                                                       space::RegionSpace::kRegionAgeNewlyAllocated,
                                                        bytes_allocated,
                                                        usable_size,
                                                        bytes_tl_bulk_allocated);
@@ -4141,6 +4147,7 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
       // Large. Check OOME.
       if (LIKELY(!IsOutOfMemoryOnAllocation(allocator_type, alloc_size, grow))) {
         return region_space_->AllocNonvirtual<false>(alloc_size,
+                                                     space::RegionSpace::kRegionAgeNewlyAllocated,
                                                      bytes_allocated,
                                                      usable_size,
                                                      bytes_tl_bulk_allocated);
