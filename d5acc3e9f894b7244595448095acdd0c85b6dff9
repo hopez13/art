@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "911f7dd1_603e2a9f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-11T14:30:40Z",
+      "side": 1,
+      "message": "Do we need autodetection? Neither the genrules nor runtests.sh use it, right?",
+      "revId": "d5acc3e9f894b7244595448095acdd0c85b6dff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a95f7430_da011564",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-11T14:30:40Z",
+      "side": 1,
+      "message": "Where would they still be used from?",
+      "range": {
+        "startLine": 1229,
+        "startChar": 2,
+        "endLine": 1229,
+        "endChar": 49
+      },
+      "revId": "d5acc3e9f894b7244595448095acdd0c85b6dff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
