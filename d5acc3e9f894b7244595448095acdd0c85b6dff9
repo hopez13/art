@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "18e35daa_5d10c1bf",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-11T14:49:41Z",
+      "side": 1,
+      "message": "Auto-detection is used in https://android-review.googlesource.com/c/platform/art/+/1119154/. Of course, if we can get this information from the build system in the future, we can drop support for auto-detection here.",
+      "parentUuid": "911f7dd1_603e2a9f",
+      "revId": "d5acc3e9f894b7244595448095acdd0c85b6dff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a95f7430_da011564",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2019-09-11T14:30:40Z",
       "side": 1,
       "message": "Where would they still be used from?",
+      "range": {
+        "startLine": 1229,
+        "startChar": 2,
+        "endLine": 1229,
+        "endChar": 49
+      },
+      "revId": "d5acc3e9f894b7244595448095acdd0c85b6dff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f78548_ce944865",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-11T14:49:41Z",
+      "side": 1,
+      "message": "The only remaining use case I can see now is manual invocations.\n\nI\u0027ll upload a follow-up CL to remove those options – I thought it was better to introduce the new options in one CL and remove the old options in another one.",
+      "parentUuid": "a95f7430_da011564",
       "range": {
         "startLine": 1229,
         "startChar": 2,
