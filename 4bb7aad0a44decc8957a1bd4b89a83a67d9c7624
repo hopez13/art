@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eec09ff_a0dfa672",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T16:18:07Z",
+      "side": 1,
+      "message": "Please use a mutex and a CV here instead.\n\nTo drop the mutator_lock just do a\n\n```\nart::Thread* self \u003d art::Thread::Current();\nart::ScopedThreadSuspension sts(self, ThreadState::kNative);\nart::MutexLock mu(self, --whatever--);\ncv.Wait(self);\n\n```",
+      "range": {
+        "startLine": 410,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 42
+      },
+      "revId": "4bb7aad0a44decc8957a1bd4b89a83a67d9c7624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
