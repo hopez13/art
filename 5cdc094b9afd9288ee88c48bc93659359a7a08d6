@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bd96cf1_03f9886e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-11T20:32:33Z",
+      "side": 1,
+      "message": "Nit: $(adb shell which signal_dumper) is the common style in the file.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 23,
+        "endLine": 1057,
+        "endChar": 54
+      },
+      "revId": "5cdc094b9afd9288ee88c48bc93659359a7a08d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
