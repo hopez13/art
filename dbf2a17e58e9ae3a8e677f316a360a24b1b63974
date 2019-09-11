@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1a56d48_c5d381da",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-11T21:56:22Z",
+      "side": 1,
+      "message": "Should we remove the default? For ArtMethod, this would be a bug prone API by default.",
+      "range": {
+        "startLine": 60,
+        "startChar": 33,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3cc6ba2_b9037c20",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-11T21:56:22Z",
+      "side": 1,
+      "message": "Why is there a variant that takes the array by value?",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
