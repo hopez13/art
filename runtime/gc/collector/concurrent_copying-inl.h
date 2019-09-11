@@ -39,7 +39,7 @@ inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
   if (use_generational_cc_ && !done_scanning_.load(std::memory_order_acquire)) {
     // Everything in the unevac space should be marked for young generation CC,
     // except for large objects.
-    DCHECK(!young_gen_ || region_space_bitmap_->Test(ref) || region_space_->IsLargeObject(ref))
+    DCHECK(!young_gen_ || region_space_bitmap_->Test(ref) || region_space_->IsLargeObject(ref) || !region_space_->IsTenured(ref))
         << ref << " "
         << ref->GetClass<kVerifyNone, kWithoutReadBarrier>()->PrettyClass();
     // Since the mark bitmap is still filled in from last GC (or from marking phase of 2-phase CC,
@@ -123,13 +123,13 @@ inline mirror::Object* ConcurrentCopying::MarkImmuneSpace(Thread* const self,
   return ref;
 }
 
-template<bool kGrayImmuneObject, bool kNoUnEvac, bool kFromGCThread>
+template<bool kGrayImmuneObject, ConcurrentCopying::RegionTypeFlags kRegionTypeFlag, bool kFromGCThread>
 inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
                                                mirror::Object* from_ref,
                                                mirror::Object* holder,
                                                MemberOffset offset) {
-  // Cannot have `kNoUnEvac` when Generational CC collection is disabled.
-  DCHECK(!kNoUnEvac || use_generational_cc_);
+  // Cannot have `kIgnoreUnEvac` when Generational CC collection is disabled.
+  DCHECK((kRegionTypeFlag == RegionTypeFlags::kIgnoreNone) || use_generational_cc_);
   if (from_ref == nullptr) {
     return nullptr;
   }
@@ -171,11 +171,15 @@ inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
         return to_ref;
       }
       case space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace:
-        if (kNoUnEvac && use_generational_cc_ && !region_space_->IsLargeObject(from_ref)) {
-          if (!kFromGCThread) {
-            DCHECK(IsMarkedInUnevacFromSpace(from_ref)) << "Returning unmarked object to mutator";
+        if (kRegionTypeFlag != RegionTypeFlags::kIgnoreNone && use_generational_cc_ && !region_space_->IsLargeObject(from_ref)) {
+          if ((kRegionTypeFlag == RegionTypeFlags::kIgnoreUnevacFromSpace) ||
+              (kRegionTypeFlag == RegionTypeFlags::kIgnoreUnevacFromSpaceTenured && region_space_->IsTenured(from_ref)) ||
+              (kRegionTypeFlag == RegionTypeFlags::kIgnoreUnevacFromSpaceAged && region_space_->IsAged(from_ref))) {
+            if (!kFromGCThread) {
+              DCHECK(IsMarkedInUnevacFromSpace(from_ref)) << "Returning unmarked object to mutator";
+            }
+            return from_ref;
           }
-          return from_ref;
         }
         return MarkUnevacFromSpaceRegion(self, from_ref, region_space_bitmap_);
       default:
@@ -207,7 +211,7 @@ inline mirror::Object* ConcurrentCopying::MarkFromReadBarrier(mirror::Object* fr
   if (UNLIKELY(mark_from_read_barrier_measurements_)) {
     ret = MarkFromReadBarrierWithMeasurements(self, from_ref);
   } else {
-    ret = Mark</*kGrayImmuneObject=*/true, /*kNoUnEvac=*/false, /*kFromGCThread=*/false>(self,
+    ret = Mark</*kGrayImmuneObject=*/true, /*kRegionTypeFlag=*/RegionTypeFlags::kIgnoreNone, /*kFromGCThread=*/false>(self,
                                                                                          from_ref);
   }
   // Only set the mark bit for baker barrier.

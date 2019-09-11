@@ -34,7 +34,7 @@ inline mirror::Object* RegionSpace::Alloc(Thread* self ATTRIBUTE_UNUSED,
                                           /* out */ size_t* usable_size,
                                           /* out */ size_t* bytes_tl_bulk_allocated) {
   num_bytes = RoundUp(num_bytes, kAlignment);
-  return AllocNonvirtual<false>(num_bytes, bytes_allocated, usable_size,
+  return AllocNonvirtual<false>(num_bytes, kRegionAgeNewlyAllocated, bytes_allocated, usable_size,
                                 bytes_tl_bulk_allocated);
 }
 
@@ -49,14 +49,18 @@ inline mirror::Object* RegionSpace::AllocThreadUnsafe(Thread* self,
 
 template<bool kForEvac>
 inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
+                                                    uint8_t age,
                                                     /* out */ size_t* bytes_allocated,
                                                     /* out */ size_t* usable_size,
                                                     /* out */ size_t* bytes_tl_bulk_allocated) {
   DCHECK_ALIGNED(num_bytes, kAlignment);
+  uint8_t age_idx = age + 1;
+  CHECK(age_idx >= 0 && age_idx < kAgeRegionMapSize);
+  DCHECK(kForEvac == (age != kRegionAgeNewlyAllocated));
   mirror::Object* obj;
   if (LIKELY(num_bytes <= kRegionSize)) {
     // Non-large object.
-    obj = (kForEvac ? evac_region_ : current_region_)->Alloc(num_bytes,
+    obj = (kForEvac ? evac_region_[age_idx] : current_region_)->Alloc(num_bytes,
                                                              bytes_allocated,
                                                              usable_size,
                                                              bytes_tl_bulk_allocated);
@@ -66,7 +70,7 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
     MutexLock mu(Thread::Current(), region_lock_);
     // Retry with current region since another thread may have updated
     // current_region_ or evac_region_.  TODO: fix race.
-    obj = (kForEvac ? evac_region_ : current_region_)->Alloc(num_bytes,
+    obj = (kForEvac ? evac_region_[age_idx] : current_region_)->Alloc(num_bytes,
                                                              bytes_allocated,
                                                              usable_size,
                                                              bytes_tl_bulk_allocated);
@@ -80,7 +84,8 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
       // Do our allocation before setting the region, this makes sure no threads race ahead
       // and fill in the region before we allocate the object. b/63153464
       if (kForEvac) {
-        evac_region_ = r;
+        evac_region_[age_idx] = r;
+        r->SetAge(age);
       } else {
         current_region_ = r;
       }
@@ -126,70 +131,20 @@ inline mirror::Object* RegionSpace::Region::Alloc(size_t num_bytes,
 template<RegionSpace::RegionType kRegionType>
 inline uint64_t RegionSpace::GetBytesAllocatedInternal() {
   uint64_t bytes = 0;
-  MutexLock mu(Thread::Current(), region_lock_);
-  for (size_t i = 0; i < num_regions_; ++i) {
-    Region* r = &regions_[i];
-    if (r->IsFree()) {
-      continue;
-    }
-    switch (kRegionType) {
-      case RegionType::kRegionTypeAll:
-        bytes += r->BytesAllocated();
-        break;
-      case RegionType::kRegionTypeFromSpace:
-        if (r->IsInFromSpace()) {
-          bytes += r->BytesAllocated();
-        }
-        break;
-      case RegionType::kRegionTypeUnevacFromSpace:
-        if (r->IsInUnevacFromSpace()) {
-          bytes += r->BytesAllocated();
-        }
-        break;
-      case RegionType::kRegionTypeToSpace:
-        if (r->IsInToSpace()) {
-          bytes += r->BytesAllocated();
-        }
-        break;
-      default:
-        LOG(FATAL) << "Unexpected space type : " << kRegionType;
-    }
-  }
+  VisitRegions<kRegionType,
+               RegionAgeFlags::kRegionAgeFlagAll> ([&bytes](Region* r) {
+                                                    bytes +=  r->BytesAllocated();
+                                                  });
   return bytes;
 }
 
 template<RegionSpace::RegionType kRegionType>
 inline uint64_t RegionSpace::GetObjectsAllocatedInternal() {
   uint64_t bytes = 0;
-  MutexLock mu(Thread::Current(), region_lock_);
-  for (size_t i = 0; i < num_regions_; ++i) {
-    Region* r = &regions_[i];
-    if (r->IsFree()) {
-      continue;
-    }
-    switch (kRegionType) {
-      case RegionType::kRegionTypeAll:
-        bytes += r->ObjectsAllocated();
-        break;
-      case RegionType::kRegionTypeFromSpace:
-        if (r->IsInFromSpace()) {
-          bytes += r->ObjectsAllocated();
-        }
-        break;
-      case RegionType::kRegionTypeUnevacFromSpace:
-        if (r->IsInUnevacFromSpace()) {
-          bytes += r->ObjectsAllocated();
-        }
-        break;
-      case RegionType::kRegionTypeToSpace:
-        if (r->IsInToSpace()) {
-          bytes += r->ObjectsAllocated();
-        }
-        break;
-      default:
-        LOG(FATAL) << "Unexpected space type : " << kRegionType;
-    }
-  }
+  VisitRegions<kRegionType,
+              RegionAgeFlags::kRegionAgeFlagAll>([&bytes](Region* r) {
+                                                  bytes +=  r->ObjectsAllocated();
+                                                });
   return bytes;
 }
 
@@ -411,30 +366,29 @@ inline mirror::Object* RegionSpace::AllocLargeInRange(size_t begin,
       DCHECK(first_reg->IsFree());
       first_reg->UnfreeLarge(this, time_);
       if (kForEvac) {
+        first_reg->SetAge(kRegionAgeTenured);
         ++num_evac_regions_;
       } else {
+        // Evac doesn't count as newly allocated.
+        first_reg->SetNewlyAllocated();
         ++num_non_free_regions_;
       }
       size_t allocated = num_regs_in_large_region * kRegionSize;
       // We make 'top' all usable bytes, as the caller of this
       // allocation may use all of 'usable_size' (see mirror::Array::Alloc).
       first_reg->SetTop(first_reg->Begin() + allocated);
-      if (!kForEvac) {
-        // Evac doesn't count as newly allocated.
-        first_reg->SetNewlyAllocated();
-      }
+
       for (size_t p = left + 1; p < right; ++p) {
         DCHECK_LT(p, num_regions_);
         DCHECK(regions_[p].IsFree());
         regions_[p].UnfreeLargeTail(this, time_);
         if (kForEvac) {
+          regions_[p].SetAge(kRegionAgeTenured);
           ++num_evac_regions_;
         } else {
-          ++num_non_free_regions_;
-        }
-        if (!kForEvac) {
           // Evac doesn't count as newly allocated.
           regions_[p].SetNewlyAllocated();
+          ++num_non_free_regions_;
         }
       }
       *bytes_allocated = allocated;
@@ -519,6 +473,56 @@ inline size_t RegionSpace::Region::ObjectsAllocated() const {
   } else {
     DCHECK(IsAllocated()) << "state=" << state_;
     return objects_allocated_;
+  }
+}
+
+template <RegionSpace::RegionType kRegionType, RegionSpace::RegionAgeFlags kRegionAgeFlag>
+void RegionSpace::ClearBitmap() {
+  if (kRegionType == RegionType::kRegionTypeAll && kRegionAgeFlag == RegionAgeFlags::kRegionAgeFlagAll) {
+    mark_bitmap_.Clear();
+    return;
+  }
+  VisitRegionRanges<kRegionType, kRegionAgeFlag> ([this](uint8_t* begin, uint8_t* end) {
+                                                    mark_bitmap_.ClearRange(reinterpret_cast<mirror::Object*>(begin),
+                                                                             reinterpret_cast<mirror::Object*>(end));
+                                                 });
+}
+
+template <RegionSpace::RegionType kRegionType, RegionSpace::RegionAgeFlags kRegionAgeFlag, typename Visitor>
+void RegionSpace::VisitRegionRanges(const Visitor& visitor) {
+  uint8_t* prev_begin = nullptr;
+  uint8_t* prev_end = nullptr;
+  VisitRegions<kRegionType, kRegionAgeFlag>([&visitor, &prev_begin, &prev_end](Region *r) {
+                                        if (r->Begin() == prev_end) {
+                                          prev_end = r->End();
+                                        } else {
+                                          if (LIKELY(prev_begin != nullptr)) {
+                                            visitor(prev_begin, prev_end);
+                                          }
+                                          prev_begin = r->Begin();
+                                          prev_end = r->End();
+                                        }
+                                      });
+  // Flush out if we have any regions left
+  if (prev_begin != nullptr) {
+    visitor(prev_begin, prev_end);
+  }
+}
+
+template <RegionSpace::RegionType kRegionType, RegionSpace::RegionAgeFlags kRegionAgeFlag, typename Visitor>
+void RegionSpace::VisitRegions(const Visitor& visitor) {
+  MutexLock mu(Thread::Current(), region_lock_);
+  const size_t iter_limit = kUseTableLookupReadBarrier
+     ? num_regions_ : std::min(num_regions_, non_free_region_index_limit_);
+  for (size_t i = 0; i < iter_limit; ++i) {
+    Region* r = &regions_[i];
+    if (r->IsFree()) {
+      continue;
+    }
+    if (((kRegionType == RegionType::kRegionTypeAll) || (r->Type() == kRegionType)) &&
+        (r->AgeCategory() & kRegionAgeFlag)) {
+      visitor(r);
+    }
   }
 }
 

@@ -21,6 +21,7 @@
 #include "gc/accounting/space_bitmap.h"
 #include "immune_spaces.h"
 #include "offsets.h"
+#include "gc/space/region_space.h"
 
 #include <map>
 #include <memory>
@@ -65,6 +66,14 @@ class ConcurrentCopying : public GarbageCollector {
   // If kGrayDirtyImmuneObjects is true then we gray dirty objects in the GC pause to prevent dirty
   // pages.
   static constexpr bool kGrayDirtyImmuneObjects = true;
+  static constexpr size_t kAgeSkipBlockMapSize = space::RegionSpace::kRegionAgeTenureThreshold + 2;
+
+  enum class RegionTypeFlags : uint8_t{
+    kIgnoreNone = 0,                  // Ignore nothing
+    kIgnoreUnevacFromSpaceTenured,    // Ignore all UnevacFromSpace objects that are tenured
+    kIgnoreUnevacFromSpaceAged,       // Ignore all UnevacFromSpace objects that are Aged
+    kIgnoreUnevacFromSpace,           // Ignore all UnevacFromSpace objects
+  };
 
   ConcurrentCopying(Heap* heap,
                     bool young_gen,
@@ -111,6 +120,8 @@ class ConcurrentCopying : public GarbageCollector {
   space::RegionSpace* RegionSpace() {
     return region_space_;
   }
+  void ClearDirtyCards(accounting::RememberedSet* rem_set) REQUIRES_SHARED(Locks::mutator_lock_);
+  void AddDirtyCard(mirror::Object* ref) REQUIRES_SHARED(Locks::mutator_lock_);
   // Assert the to-space invariant for a heap reference `ref` held in `obj` at offset `offset`.
   void AssertToSpaceInvariant(mirror::Object* obj, MemberOffset offset, mirror::Object* ref)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -122,7 +133,7 @@ class ConcurrentCopying : public GarbageCollector {
     return IsMarked(ref) == ref;
   }
   // Mark object `from_ref`, copying it to the to-space if needed.
-  template<bool kGrayImmuneObject = true, bool kNoUnEvac = false, bool kFromGCThread = false>
+  template<bool kGrayImmuneObject = true, RegionTypeFlags kRegionTypeFlag = RegionTypeFlags::kIgnoreNone, bool kFromGCThread = false>
   ALWAYS_INLINE mirror::Object* Mark(Thread* const self,
                                      mirror::Object* from_ref,
                                      mirror::Object* holder = nullptr,
@@ -166,18 +177,19 @@ class ConcurrentCopying : public GarbageCollector {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);
   // Scan the reference fields of object `to_ref`.
-  template <bool kNoUnEvac>
-  void Scan(mirror::Object* to_ref) REQUIRES_SHARED(Locks::mutator_lock_)
+  template <RegionTypeFlags kRegionTypeFlag, bool kTargetSpaceRefsOnly>
+  void Scan(mirror::Object* to_ref,
+            bool* const contains_reference_to_target_space = nullptr) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
   // Scan the reference fields of object 'obj' in the dirty cards during
   // card-table scan. In addition to visiting the references, it also sets the
   // read-barrier state to gray for Reference-type objects to ensure that
   // GetReferent() called on these objects calls the read-barrier on the referent.
-  template <bool kNoUnEvac>
+  template <RegionTypeFlags kRegionTypeFlag>
   void ScanDirtyObject(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
   // Process a field.
-  template <bool kNoUnEvac>
+  template <RegionTypeFlags kRegionTypeFlag>
   void Process(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_ , !skipped_blocks_lock_, !immune_gray_stack_lock_);
@@ -258,7 +270,7 @@ class ConcurrentCopying : public GarbageCollector {
   void FillWithDummyObject(Thread* const self, mirror::Object* dummy_obj, size_t byte_size)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  mirror::Object* AllocateInSkippedBlock(Thread* const self, size_t alloc_size)
+  mirror::Object* AllocateInSkippedBlock(Thread* const self, size_t alloc_size, uint8_t age)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CheckEmptyMarkStack() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
@@ -424,7 +436,8 @@ class ConcurrentCopying : public GarbageCollector {
   // used without going through a GC cycle like other objects. They are reused only
   // if we run out of region space. TODO: Revisit this design.
   Mutex skipped_blocks_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
-  std::multimap<size_t, uint8_t*> skipped_blocks_map_ GUARDED_BY(skipped_blocks_lock_);
+  // TODO: Need to have individual locks for each age
+  std::multimap<size_t, uint8_t*> age_skipped_blocks_map_[kAgeSkipBlockMapSize];  // GUARDED_BY(skipped_blocks_lock_);
   Atomic<size_t> to_space_bytes_skipped_;
   Atomic<size_t> to_space_objects_skipped_;
 
@@ -475,7 +488,8 @@ class ConcurrentCopying : public GarbageCollector {
   template <bool kConcurrent> class GrayImmuneObjectVisitor;
   class ImmuneSpaceScanObjVisitor;
   class LostCopyVisitor;
-  template <bool kNoUnEvac> class RefFieldsVisitor;
+  template <RegionTypeFlags kRegionTypeFlag , bool kRememberIfAnyRegsToYoungRegions>
+  class RefFieldsVisitor;
   class RevokeThreadLocalMarkStackCheckpoint;
   class ScopedGcGraysImmuneObjects;
   class ThreadFlipVisitor;
@@ -487,6 +501,7 @@ class ConcurrentCopying : public GarbageCollector {
   template <bool kAtomicTestAndSet = false> class CaptureRootsForMarkingVisitor;
   class CaptureThreadRootsForMarkingAndCheckpoint;
   template <bool kHandleInterRegionRefs> class ComputeLiveBytesAndMarkRefFieldsVisitor;
+  class RegionSpaceRemSetObjVisitor;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(ConcurrentCopying);
 };
