@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3fee1845_f57f18cc",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T16:30:01Z",
+      "side": 1,
+      "message": "All other plugins load paths except the one added for perfetto_hprof call the init function in kNative state. You should make sure this one does as well.\n\nThis will also solve your issue with the mutator-lock preventing cv use.\n\nAFAICT no other changes will be needed.",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 48
+      },
+      "revId": "4bb7aad0a44decc8957a1bd4b89a83a67d9c7624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3eec09ff_a0dfa672",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 7
@@ -18,6 +41,53 @@
         "startChar": 2,
         "endLine": 416,
         "endChar": 42
+      },
+      "revId": "4bb7aad0a44decc8957a1bd4b89a83a67d9c7624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d1239b9_051e129b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T16:30:01Z",
+      "side": 1,
+      "message": "Actually see the comment below this function shouldn\u0027t be being called with the mutator-lock.",
+      "parentUuid": "3eec09ff_a0dfa672",
+      "range": {
+        "startLine": 410,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 42
+      },
+      "revId": "4bb7aad0a44decc8957a1bd4b89a83a67d9c7624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eaf9b3d_8c6436b4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T16:30:01Z",
+      "side": 1,
+      "message": "Hm just noticed this now but all other plugins and the normal -Xplugin: loading starts the plugin in kNative state (no mutator lock). You should follow this too.\n\nJust put a ScopedThreadSuspension sts(self, ThreadState::kNative); right above this and remove the REQUIRES_SHARED in perfetto_hprof.cc.",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1031,
+        "endChar": 38
       },
       "revId": "4bb7aad0a44decc8957a1bd4b89a83a67d9c7624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
