@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "41870040_97abdcfa",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-11T22:14:44Z",
+      "side": 1,
+      "message": "Maybe for safety reasons this should be two constructors? One that\u0027s just lpa but has an enable_if or so that forbids ArtMethod, and this one w/o defaults?",
+      "parentUuid": "7bc29182_758387f0",
+      "range": {
+        "startLine": 60,
+        "startChar": 33,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3cc6ba2_b9037c20",
         "filename": "libartbase/base/array_slice.h",
         "patchSetId": 1
