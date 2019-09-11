@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8388e22e_63304ff3",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T22:22:56Z",
+      "side": 1,
+      "message": "I\u0027ll keep that in mind for when I do the ArrayRef unification. Maybe have a list of everything with PointerSize things and hold onto all of them.\n\nIn any event I always find enable_if confusing and this isn\u0027t any worse than the normal LPA functions where you need to remember to pass in the size and alignment if they aren\u0027t default.",
+      "parentUuid": "41870040_97abdcfa",
+      "range": {
+        "startLine": 60,
+        "startChar": 33,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3cc6ba2_b9037c20",
         "filename": "libartbase/base/array_slice.h",
         "patchSetId": 1
