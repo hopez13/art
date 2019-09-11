@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7bc29182_758387f0",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T22:05:03Z",
+      "side": 1,
+      "message": "It makes it way simpler to use.\n\nI\u0027ll probably get rid of it if/when I unify this with the (slightly different) ArrayRef struct.",
+      "parentUuid": "d1a56d48_c5d381da",
+      "range": {
+        "startLine": 60,
+        "startChar": 33,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3cc6ba2_b9037c20",
         "filename": "libartbase/base/array_slice.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d6ed296_d43555bf",
+        "filename": "libartbase/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-09-11T22:05:03Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "f3cc6ba2_b9037c20",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "dbf2a17e58e9ae3a8e677f316a360a24b1b63974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
