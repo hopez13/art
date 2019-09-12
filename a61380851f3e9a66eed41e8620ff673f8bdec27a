@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dce6ee48_975557cb",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-12T13:58:29Z",
+      "side": 1,
+      "message": "This does not take into account the chroot dir. I think this should work:\n\n  adb shell \"test -e $CHROOT/apex/com.android.art.testing/bin/signal_dumper\"\n\nor maybe:\n\n  adb shell chroot $CHROOT \"test -e /apex/com.android.art.testing/bin/signal_dumper\"",
+      "range": {
+        "startLine": 1053,
+        "startChar": 9,
+        "endLine": 1053,
+        "endChar": 76
+      },
+      "revId": "a61380851f3e9a66eed41e8620ff673f8bdec27a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5d3949_abf44831",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-12T13:58:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 25,
+        "endLine": 1057,
+        "endChar": 54
+      },
+      "revId": "a61380851f3e9a66eed41e8620ff673f8bdec27a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
