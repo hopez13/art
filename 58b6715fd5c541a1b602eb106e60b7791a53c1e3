@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09eb74aa_293a9d20",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-12T14:20:13Z",
+      "side": 1,
+      "message": "This is only used in direct manual runs of art_apex_test.py, isn\u0027t it? Maybe we can get rid of it to reduce duplication wrt runtests.sh.\n\nJust a side note, not related to this CL.",
+      "range": {
+        "startLine": 1173,
+        "startChar": 4,
+        "endLine": 1173,
+        "endChar": 25
+      },
+      "revId": "58b6715fd5c541a1b602eb106e60b7791a53c1e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ce93eca_68097b07",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-12T14:20:13Z",
+      "side": 1,
+      "message": "g",
+      "range": {
+        "startLine": 1212,
+        "startChar": 11,
+        "endLine": 1212,
+        "endChar": 12
+      },
+      "revId": "58b6715fd5c541a1b602eb106e60b7791a53c1e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
