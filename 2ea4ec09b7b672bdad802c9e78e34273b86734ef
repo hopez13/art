@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4f0f9e5_075797a0",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-12T14:04:07Z",
+      "side": 1,
+      "message": "I think this will install `signal_dumper` in `/system/bin` – but what you want is the build system to \"install\" `signal_dumper` in the ART (Testing) APEX (which now includes `signal_dumper`). That dependency is already expressed line 33.",
+      "range": {
+        "startLine": 51,
+        "startChar": 41,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "2ea4ec09b7b672bdad802c9e78e34273b86734ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
