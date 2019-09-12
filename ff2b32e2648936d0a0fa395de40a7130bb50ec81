@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a3adca4e_a4b527d0",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-12T19:57:04Z",
+      "side": 1,
+      "message": "Good point. I changed a bit how things work an re-use the same enum.",
+      "parentUuid": "8e69d956_227f383e",
+      "range": {
+        "startLine": 586,
+        "startChar": 9,
+        "endLine": 586,
+        "endChar": 20
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9803dd90_261fa6bf",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 1
@@ -92,6 +116,30 @@
       "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23af1c9c_bfee0229",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-12T19:57:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9803dd90_261fa6bf",
+      "range": {
+        "startLine": 605,
+        "startChar": 38,
+        "endLine": 605,
+        "endChar": 52
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
