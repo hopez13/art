@@ -46,6 +46,30 @@
       "revId": "2088e277003146cbded21e5beb46ce837952e658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d90ba82_5f0bcd72",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2019-09-12T20:54:19Z",
+      "side": 1,
+      "message": "Because the comments above said 16 bins in total, not sure why only 8 bits here, since each bit represents one bin, IIUC?",
+      "parentUuid": "5e052a7f_9a6d8361",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 35
+      },
+      "revId": "2088e277003146cbded21e5beb46ce837952e658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
