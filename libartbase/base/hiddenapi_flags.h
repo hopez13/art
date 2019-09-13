@@ -295,6 +295,11 @@ class ApiList {
   void Dump(std::ostream& os) const {
     bool is_first = true;
 
+    if (IsEmpty()) {
+      os << "invalid";
+      return;
+    }
+
     if (GetValue() != Value::kInvalid) {
       os << kValueNames[GetIntValue()];
       is_first = false;

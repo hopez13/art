@@ -30,6 +30,7 @@ class ApiListFilter {
     std::set<hiddenapi::ApiList> exclude_set;
     for (const std::string& name : exclude_api_lists) {
       hiddenapi::ApiList list = hiddenapi::ApiList::FromName(name);
+
       if (!list.IsValid()) {
         LOG(ERROR) << "Unknown ApiList::Value " << name
                    << ". See valid values in art/libartbase/base/hiddenapi_flags.h.";
