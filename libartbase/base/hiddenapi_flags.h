@@ -295,6 +295,11 @@ class ApiList {
   void Dump(std::ostream& os) const {
     bool is_first = true;
 
+    if (IsEmpty()) {
+      os << "invalid";
+      return;
+    }
+
     if (GetValue() != Value::kInvalid) {
       os << kValueNames[GetIntValue()];
       is_first = false;
@@ -317,6 +322,7 @@ class ApiList {
 
   static constexpr uint32_t kValueCount = helper::NumValues<Value>();
   static constexpr uint32_t kDomainApiCount = helper::NumValues<DomainApi>();
+  static constexpr uint32_t kValueSize = (1u << kValueBitSize) + 1;
 
   // Check min and max values are calculated correctly.
   static_assert(Value::kMin == helper::GetEnumAt<Value>(0));
