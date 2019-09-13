@@ -198,6 +198,224 @@
       "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86f0350a_bbaf9c09",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 915,
+        "startChar": 2,
+        "endLine": 915,
+        "endChar": 6
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1453abd6_4268a8ad",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "I think a different name here would be better.",
+      "range": {
+        "startLine": 940,
+        "startChar": 79,
+        "endLine": 940,
+        "endChar": 87
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12d5dd7f_d7ad6e60",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 948,
+        "startChar": 8,
+        "endLine": 948,
+        "endChar": 58
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cbd5107_3f6bb47d",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Consider inverting the logic to make it a smaller diff in the future?\n\n  if (!is_structural || ...) {\n    return;\n  }\n  AddNewMethod();",
+      "range": {
+        "startLine": 950,
+        "startChar": 6,
+        "endLine": 955,
+        "endChar": 7
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864d2d8e_d30a9876",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Consider unifying with the one above (maybe with slightly different prologue?).",
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79814dbe_3be3206a",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1011,
+        "startChar": 8,
+        "endLine": 1011,
+        "endChar": 56
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d12fb9c1_7e461d8b",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Typo",
+      "range": {
+        "startLine": 1634,
+        "startChar": 84,
+        "endLine": 1634,
+        "endChar": 91
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20721836_ac5c7de7",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "Document how you think this will be kept up-to-date, i.e., what happens on classlinker changes?",
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcc3651_eb3915b7",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1641,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "/* ...\u003d */",
+      "range": {
+        "startLine": 1641,
+        "startChar": 70,
+        "endLine": 1641,
+        "endChar": 75
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "160ee47c_7484bb40",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T20:27:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1672,
+        "startChar": 13,
+        "endLine": 1672,
+        "endChar": 23
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
