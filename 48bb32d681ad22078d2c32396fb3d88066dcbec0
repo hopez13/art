@@ -46,6 +46,30 @@
       "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "145fb425_a465ca9b",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-09-13T16:41:49Z",
+      "side": 1,
+      "message": "The initialisation of the VeriClass static field seems to have been moved down a few lines and into an \u0027if\u0027 block. I understand the need of the \u0027if\u0027 block, but not the move further down.\nI don\u0027t know what happens in the Resolve method and api_finder.Run/Dump, and whether they use these global fields. I\u0027m not familiar with veridex; otherwise, the change looks fine to me ¯\\_(ツ)_/¯.",
+      "parentUuid": "066ac20b_dc8458af",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 15
+      },
+      "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
