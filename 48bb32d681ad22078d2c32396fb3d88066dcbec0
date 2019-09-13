@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "225194d1_4732372c",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-09-13T15:47:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this \u0027if\u0027 be before line 196?",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 15
+      },
+      "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
