@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "505f38d4_dca209a0",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-13T13:02:40Z",
+      "side": 1,
+      "message": "Should this be:\n\n  ${TIME_OUT_EXTRA}\n\n?",
+      "range": {
+        "startLine": 459,
+        "startChar": 42,
+        "endLine": 459,
+        "endChar": 45
+      },
+      "revId": "16043fc02bca6cfff348ff3985d717330b33700c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
