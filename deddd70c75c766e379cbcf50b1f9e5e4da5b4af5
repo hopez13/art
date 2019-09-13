@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7515e3d_91c586a0",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:44:04Z",
+      "side": 1,
+      "message": "INVALID_CLASS",
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a30ee853_48b16083",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:44:04Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 423,
+        "startChar": 100,
+        "endLine": 423,
+        "endChar": 101
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e1245c4_70edf8bf",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:44:04Z",
+      "side": 1,
+      "message": "self, or move the definition above down.",
+      "range": {
+        "startLine": 385,
+        "startChar": 41,
+        "endLine": 385,
+        "endChar": 63
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087a9c21_3d0603f1",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:44:04Z",
+      "side": 1,
+      "message": "Could optimize with \"is vtable equal to superclass vtable,\" but probably not worth it.",
+      "range": {
+        "startLine": 448,
+        "startChar": 4,
+        "endLine": 457,
+        "endChar": 33
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f0d4359_7c64c5a3",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:44:04Z",
+      "side": 1,
+      "message": "Enum or ArtMethod/ArtField would be prettier.",
+      "range": {
+        "startLine": 848,
+        "startChar": 10,
+        "endLine": 848,
+        "endChar": 23
+      },
+      "revId": "deddd70c75c766e379cbcf50b1f9e5e4da5b4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
