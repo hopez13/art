@@ -22,6 +22,30 @@
       "revId": "e949385df419408116560d6442a03b16b929cedc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ca5195_039fa999",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T17:58:47Z",
+      "side": 1,
+      "message": "I was trying to keep it simple. Expectation is that this should not be necessary, in general. I\u0027m trying to avoid as much non-bash as possible. :-)\n\nIf you feel strongly, will do a follow-up.",
+      "parentUuid": "bdf70862_9e396a0d",
+      "range": {
+        "startLine": 465,
+        "startChar": 2,
+        "endLine": 465,
+        "endChar": 68
+      },
+      "revId": "e949385df419408116560d6442a03b16b929cedc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
