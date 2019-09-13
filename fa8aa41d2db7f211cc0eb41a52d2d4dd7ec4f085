@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8187dd4f_996ea266",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T21:32:06Z",
+      "side": 1,
+      "message": "This statement is too strong.",
+      "range": {
+        "startLine": 3137,
+        "startChar": 5,
+        "endLine": 3137,
+        "endChar": 84
+      },
+      "revId": "fa8aa41d2db7f211cc0eb41a52d2d4dd7ec4f085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f86e0fee_cb457b8d",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-09-13T21:32:06Z",
+      "side": 1,
+      "message": "Move ApiChecker to Runtime?",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 81
+      },
+      "revId": "fa8aa41d2db7f211cc0eb41a52d2d4dd7ec4f085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
