@@ -22,6 +22,30 @@
       "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "066ac20b_dc8458af",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-13T15:59:27Z",
+      "side": 1,
+      "message": "Which if and why? All these types are used in PreciseHiddenApiFinder below. Or are you worried about app_resolvers overriding type_map?",
+      "parentUuid": "225194d1_4732372c",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 15
+      },
+      "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
