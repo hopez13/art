@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "81e6132c_5dcc21c5",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-13T18:59:43Z",
+      "side": 1,
+      "message": "When using numbers we cant easily combine flags. e.g. kFlagHot | kFlagBott | kFlatStartupBin.\n\nOr are you suggesting something else?",
+      "parentUuid": "e451bcc0_36bb8c17",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 34
+      },
+      "revId": "ff2b32e2648936d0a0fa395de40a7130bb50ec81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e69d956_227f383e",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 1
