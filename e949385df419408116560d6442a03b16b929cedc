@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdf70862_9e396a0d",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-13T13:16:54Z",
+      "side": 1,
+      "message": "Maybe also support floating point multipliers, e.g. using Python:\n\n  TIME_OUT_VALUE\u003d$(python -c \"print(int(${TIME_OUT_VALUE} * ${ART_TIME_OUT_MULTIPLIER}))\")\n\n?",
+      "range": {
+        "startLine": 465,
+        "startChar": 2,
+        "endLine": 465,
+        "endChar": 68
+      },
+      "revId": "e949385df419408116560d6442a03b16b929cedc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
