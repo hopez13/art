@@ -38,6 +38,7 @@ class ApiListFilter {
         continue;
       }
       hiddenapi::ApiList list = hiddenapi::ApiList::FromName(name);
+
       if (!list.IsValid()) {
         LOG(ERROR) << "Unknown ApiList::Value " << name
                    << ". See valid values in art/libartbase/base/hiddenapi_flags.h.";
