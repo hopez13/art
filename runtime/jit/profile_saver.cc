@@ -443,7 +443,8 @@ void ProfileSaver::FetchAndCacheResolvedClassesAndMethods(bool startup) {
     if (info_it == profile_cache_.end()) {
       info_it = profile_cache_.Put(
           filename,
-          new ProfileCompilationInfo(Runtime::Current()->GetArenaPool()));
+          new ProfileCompilationInfo(
+              Runtime::Current()->GetArenaPool(), options_.GetProfileBootClassPath()));
     }
     ProfileCompilationInfo* cached_info = info_it->second;
 
@@ -548,7 +549,8 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
       total_number_of_code_cache_queries_++;
     }
     {
-      ProfileCompilationInfo info(Runtime::Current()->GetArenaPool());
+      ProfileCompilationInfo info(
+          Runtime::Current()->GetArenaPool(), options_.GetProfileBootClassPath());
       if (!info.Load(filename, /*clear_if_invalid=*/ true)) {
         LOG(WARNING) << "Could not forcefully load profile " << filename;
         continue;
