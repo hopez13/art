@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0dd9bed_6b1567dc",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-09-14T16:56:47Z",
+      "side": 1,
+      "message": "It\u0027s 14 by checking at the used syscalls\nMEMBARRIER_CMD_GLOBAL requires 4.16, and it\u0027s not used yet",
+      "range": {
+        "startLine": 53,
+        "startChar": 40,
+        "endLine": 53,
+        "endChar": 42
+      },
+      "revId": "5680e9989183759a66a0f5fea7cd0357f24f36db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
