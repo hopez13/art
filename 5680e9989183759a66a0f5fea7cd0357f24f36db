@@ -22,6 +22,30 @@
       "revId": "5680e9989183759a66a0f5fea7cd0357f24f36db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856cb7a7_9c69dd29",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-09-14T17:02:59Z",
+      "side": 1,
+      "message": "NVM, read code improperly",
+      "parentUuid": "c0dd9bed_6b1567dc",
+      "range": {
+        "startLine": 53,
+        "startChar": 40,
+        "endLine": 53,
+        "endChar": 42
+      },
+      "revId": "5680e9989183759a66a0f5fea7cd0357f24f36db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
