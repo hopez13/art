@@ -2197,6 +2197,11 @@ void Runtime::VisitRoots(RootVisitor* visitor, VisitRootFlags flags) {
   VisitConcurrentRoots(visitor, flags);
 }
 
+void Runtime::VisitReflectiveTargets(ReflectiveValueVisitor *visitor) {
+  thread_list_->VisitReflectiveTargets(visitor);
+  heap_->VisitReflectiveTargets(visitor);
+}
+
 void Runtime::VisitImageRoots(RootVisitor* visitor) {
   for (auto* space : GetHeap()->GetContinuousSpaces()) {
     if (space->IsImageSpace()) {
