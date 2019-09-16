@@ -22,6 +22,30 @@
       "revId": "2c764a71c9b0fbfcfa23276452d1c54d18f7c209",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bab3f70_ddf4c39a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T21:47:12Z",
+      "side": 1,
+      "message": "It must match the sate at CFI_REMEMBER_STATE, which can in turn be affected by any previous CFI instructions...  so sadly, no - there is no obvious point to match up with.\n\nThe out of sync part is quite hard.  I think the only reliable way would be to write a tool to check the CFI opcodes.",
+      "parentUuid": "44026ed2_21482c0f",
+      "range": {
+        "startLine": 1692,
+        "startChar": 34,
+        "endLine": 1692,
+        "endChar": 41
+      },
+      "revId": "2c764a71c9b0fbfcfa23276452d1c54d18f7c209",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
