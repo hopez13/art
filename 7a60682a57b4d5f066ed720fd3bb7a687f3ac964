@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad73ca03_616e0273",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-16T19:56:33Z",
+      "side": 1,
+      "message": "\"another process\", line length.",
+      "range": {
+        "startLine": 80,
+        "startChar": 87,
+        "endLine": 80,
+        "endChar": 101
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7080b13_4d979654",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-16T19:56:33Z",
+      "side": 1,
+      "message": "Is this really non-racing, in the sense that concurrent loads are impossible? I would have presumed that a reader could still be looking at the deleted entry, though it will eventually discard the result of the read. If so, this should just be std::memory_order_relaxed.",
+      "range": {
+        "startLine": 249,
+        "startChar": 36,
+        "endLine": 249,
+        "endChar": 54
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b985420c_4c1f9061",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-16T19:56:33Z",
+      "side": 1,
+      "message": "Same question about these stores.",
+      "range": {
+        "startLine": 279,
+        "startChar": 58,
+        "endLine": 279,
+        "endChar": 76
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d5be861_069b7b27",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-16T19:56:33Z",
+      "side": 1,
+      "message": "Is there any danger of a concurrent reader of the obsolete object? If so, this should presumably be a release store.",
+      "range": {
+        "startLine": 359,
+        "startChar": 30,
+        "endLine": 359,
+        "endChar": 48
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
