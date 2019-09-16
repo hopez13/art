@@ -187,6 +187,30 @@
       "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fa288bb_18511fe2",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-16T22:14:40Z",
+      "side": 1,
+      "message": "I\u0027m worried about a debugger reader that starts reading the object before it\u0027s deallocated. The object is then deallocated and reallocated. The reader will finish and then hopefully notice the inconsistency. But it would still read concurrently.\n\nIs that possible? If so, I actually have two concerns: This should probably have a stronger store, and we should probably not be resetting the sequence number to 2.",
+      "parentUuid": "23e490be_ccd544dd",
+      "range": {
+        "startLine": 359,
+        "startChar": 30,
+        "endLine": 359,
+        "endChar": 48
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
