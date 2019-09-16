@@ -42,6 +42,7 @@
 #include "offsets.h"
 #include "process_state.h"
 #include "read_barrier_config.h"
+#include "reflective_handle_scope.h"
 #include "runtime_globals.h"
 #include "verify_object.h"
 
@@ -284,6 +285,9 @@ class Heap {
       REQUIRES(!Locks::heap_bitmap_lock_, !*gc_complete_lock_);
   template <typename Visitor>
   ALWAYS_INLINE void VisitObjectsPaused(Visitor&& visitor)
+      REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_, !*gc_complete_lock_);
+
+  void VisitReflectiveTargets(ReflectiveValueVisitor* visitor)
       REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_, !*gc_complete_lock_);
 
   void CheckPreconditionsForAllocObject(ObjPtr<mirror::Class> c, size_t byte_count)

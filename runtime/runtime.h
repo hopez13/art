@@ -43,6 +43,7 @@
 #include "offsets.h"
 #include "process_state.h"
 #include "quick/quick_method_frame_info.h"
+#include "reflective_handle_scope.h"
 #include "runtime_stats.h"
 
 namespace art {
@@ -396,6 +397,10 @@ class Runtime {
   // system weak is updated to be the visitor's returned value.
   void SweepSystemWeaks(IsMarkedVisitor* visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Walk all reflective objects and visit their targets as well as any method/fields held by the
+  // runtime threads that are marked as being reflective.
+  void VisitReflectiveTargets(ReflectiveValueVisitor* visitor) REQUIRES(Locks::mutator_lock_);
 
   // Returns a special method that calls into a trampoline for runtime method resolution
   ArtMethod* GetResolutionMethod();

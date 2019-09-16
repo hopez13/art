@@ -29,6 +29,7 @@
 #include "method_type-inl.h"
 #include "object_array-alloc-inl.h"
 #include "obj_ptr-inl.h"
+#include "reflective_handle_scope.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -2031,6 +2032,17 @@ bool ByteBufferViewVarHandle::Access(AccessMode access_mode,
   LOG(FATAL) << "Unreachable: Unexpected primitive " << primitive_type;
   UNREACHABLE();
 }
+
+void FieldVarHandle::VisitTarget(ReflectiveValueVisitor* v) {
+  ArtField* orig = GetField();
+  ArtField* new_value =
+      v->VisitField(orig, HeapReflectiveSourceInfo(kSourceJavaLangInvokeFieldVarHandle, this));
+  if (orig != new_value) {
+    SetField64</*kTransactionActive*/ false>(ArtFieldOffset(),
+                                             reinterpret_cast<uintptr_t>(new_value));
+  }
+}
+
 
 }  // namespace mirror
 }  // namespace art
