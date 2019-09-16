@@ -1,0 +1,550 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631013be_b4cee255",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1644,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "For correctness, I think it would be good to do WriteBarrierEveryFieldOf(new_obj_) here. Otherwise there could maybe be issues with generational GC.",
+      "range": {
+        "startLine": 1644,
+        "startChar": 20,
+        "endLine": 1644,
+        "endChar": 26
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d95b2f8c_0443db61",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "The env is still unused, why is there a new error code?",
+      "range": {
+        "startLine": 337,
+        "startChar": 11,
+        "endLine": 337,
+        "endChar": 35
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a164dee4_df7f7acb",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "What classes other than mirror would have problems with redefinition?",
+      "range": {
+        "startLine": 427,
+        "startChar": 86,
+        "endLine": 428,
+        "endChar": 24
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f6c05a9_b439dfbd",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Add a helper function somewhere to do this check?",
+      "range": {
+        "startLine": 481,
+        "startChar": 12,
+        "endLine": 481,
+        "endChar": 47
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92f756d4_e08d831b",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 493,
+        "startChar": 12,
+        "endLine": 493,
+        "endChar": 47
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b70c165_86eb010a",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Do you think we could use this other places in ART?",
+      "range": {
+        "startLine": 853,
+        "startChar": 29,
+        "endLine": 853,
+        "endChar": 45
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36a844a3_8bac9d1b",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "This only sets the flag, the naming is a bit misleading?",
+      "range": {
+        "startLine": 898,
+        "startChar": 35,
+        "endLine": 898,
+        "endChar": 47
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f141a09a_08e11100",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "And here",
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2fee0c9_760e2825",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "old_method_id?",
+      "range": {
+        "startLine": 942,
+        "startChar": 33,
+        "endLine": 942,
+        "endChar": 45
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e1dceb8_5f575b0e",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Could add another flag for this verification if it also runs in debug for non structural?",
+      "range": {
+        "startLine": 961,
+        "startChar": 15,
+        "endLine": 961,
+        "endChar": 50
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32ff290f_15c131d9",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Can you use std::advance here?",
+      "range": {
+        "startLine": 977,
+        "startChar": 4,
+        "endLine": 978,
+        "endChar": 5
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e7a8b88_472ddfcd",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "std::advance",
+      "range": {
+        "startLine": 1035,
+        "startChar": 3,
+        "endLine": 1036,
+        "endChar": 5
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d217d6f4_a0cce921",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "There are no cases where the field might not be found I assume?",
+      "range": {
+        "startLine": 1923,
+        "startChar": 32,
+        "endLine": 1923,
+        "endChar": 55
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3fcf2a9_116edff8",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2006,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 2006,
+        "startChar": 91,
+        "endLine": 2006,
+        "endChar": 93
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545211db_ee6b717d",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2020,
+        "startChar": 0,
+        "endLine": 2020,
+        "endChar": 104
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba13407b_36df3898",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2023,
+        "startChar": 0,
+        "endLine": 2023,
+        "endChar": 114
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "838b5402_a16e5fcb",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Is this OK? I thought we had field packing for fields smaller than 32 bits.",
+      "range": {
+        "startLine": 2029,
+        "startChar": 17,
+        "endLine": 2029,
+        "endChar": 22
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b379f3_b8da1cb7",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2040,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Can you clarify what pointers you are referring to?",
+      "range": {
+        "startLine": 2040,
+        "startChar": 17,
+        "endLine": 2040,
+        "endChar": 30
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb94e2a_00daa542",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2086,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "I assume there is system weak updating for the Monitor::obj_?",
+      "range": {
+        "startLine": 2086,
+        "startChar": 27,
+        "endLine": 2086,
+        "endChar": 51
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2170800c_fdbd3813",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Same comment as above for field packing",
+      "range": {
+        "startLine": 2128,
+        "startChar": 0,
+        "endLine": 2128,
+        "endChar": 30
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4a6deac_548c2f62",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2355,
+        "startChar": 1,
+        "endLine": 2357,
+        "endChar": 102
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d4b60e_b55e4b3b",
+        "filename": "runtime/mirror/class-refvisitor-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Do you think there are other occurrences in ART that should be calling this instead of GetMethods()?",
+      "range": {
+        "startLine": 74,
+        "startChar": 12,
+        "endLine": 74,
+        "endChar": 24
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc64212_7a479b69",
+        "filename": "test/1975-hello-structural-transformation/src/art/Transform1975.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "Add a reference fields for coverage?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a877d61_d424eeef",
+        "filename": "test/1976-hello-structural-static-methods/src/art/Transform1976.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T22:34:56Z",
+      "side": 1,
+      "message": "What is the static{} for?",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
