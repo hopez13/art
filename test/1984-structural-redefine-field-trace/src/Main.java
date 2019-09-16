@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
-#define ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
-
-#include "var_handle.h"
-
-#include "reflective_handle_scope.h"
-
-namespace art {
-class ArtField;
-
-namespace mirror {
-
-}  // namespace mirror
-}  // namespace art
-
-#endif  // ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
+public class Main {
+  public static void main(String[] args) throws Exception {
+    art.Test1984.run();
+  }
+}

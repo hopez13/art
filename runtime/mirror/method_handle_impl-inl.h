@@ -21,6 +21,7 @@
 
 #include "art_method-inl.h"
 #include "object-inl.h"
+#include "reflective_handle_scope.h"
 
 namespace art {
 namespace mirror {
@@ -37,20 +38,6 @@ inline ObjPtr<mirror::Class> MethodHandle::GetTargetClass() {
   Kind kind = GetHandleKind();
   return (kind < kFirstAccessorKind) ?
       GetTargetMethod()->GetDeclaringClass() : GetTargetField()->GetDeclaringClass();
-}
-
-template<typename Visitor>
-inline void MethodHandle::VisitTarget(Visitor&& v) {
-  void* target = GetTargetField();
-  void* result;
-  if (GetHandleKind() < kFirstAccessorKind) {
-    result = v(GetTargetMethod());
-  } else {
-    result = v(GetTargetField());
-  }
-  if (result != target) {
-    SetField64<false>(ArtFieldOrMethodOffset(), reinterpret_cast<uintptr_t>(result));
-  }
 }
 
 }  // namespace mirror
