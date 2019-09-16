@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8f3b2de7_0cb5c695",
+        "filename": "tools/veridex/api_list_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-16T13:39:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c315c37_ac5414fb",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "42c494e826763b10a3767468fe82407420a5ca7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eedcb70b_744c3119",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "42c494e826763b10a3767468fe82407420a5ca7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15890f6_971ad8df",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-16T13:39:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eedcb70b_744c3119",
+      "range": {
+        "startLine": 82,
+        "startChar": 34,
+        "endLine": 82,
+        "endChar": 36
+      },
+      "revId": "42c494e826763b10a3767468fe82407420a5ca7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
