@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "49a0977c_30a59545",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-16T09:59:15Z",
+      "side": 1,
+      "message": "Needs to be in the !defined(_WIN32) block below.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "5680e9989183759a66a0f5fea7cd0357f24f36db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0dd9bed_6b1567dc",
         "filename": "libartbase/base/membarrier.cc",
         "patchSetId": 2
