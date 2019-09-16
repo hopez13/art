@@ -143,6 +143,40 @@
     },
     {
       "key": {
+        "uuid": "7645b544_ab2a1f86",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:18:06Z",
+      "side": 1,
+      "message": "Note that this methods is called only once...",
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbcdcc98_58722cc3",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:18:06Z",
+      "side": 1,
+      "message": "...and that this is static object which is initialized here and then never freed.",
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d5be861_069b7b27",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 6
