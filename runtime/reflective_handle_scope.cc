@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
-#define ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
+#include "reflective_handle_scope-inl.h"
 
-#include "var_handle.h"
-
-#include "reflective_handle_scope.h"
+#include "base/locks.h"
+#include "base/mutex-inl.h"
+#include "mirror/class.h"
+#include "mirror/object-inl.h"
 
 namespace art {
-class ArtField;
 
-namespace mirror {
+void HeapReflectiveSourceInfo::Describe(std::ostream& os) const {
+  Locks::mutator_lock_->AssertExclusiveHeld(Thread::Current());
+  ReflectionSourceInfo::Describe(os);
+  os << " Type=" << src_->GetClass()->PrettyClass();
+}
 
-}  // namespace mirror
 }  // namespace art
-
-#endif  // ART_RUNTIME_MIRROR_VAR_HANDLE_INL_H_
