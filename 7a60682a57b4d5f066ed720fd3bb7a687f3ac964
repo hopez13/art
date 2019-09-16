@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a2c1ab0c_06f7e97c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad73ca03_616e0273",
+      "range": {
+        "startLine": 80,
+        "startChar": 87,
+        "endLine": 80,
+        "endChar": 101
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7080b13_4d979654",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d143923f_8720d5b5",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7080b13_4d979654",
+      "range": {
+        "startLine": 249,
+        "startChar": 36,
+        "endLine": 249,
+        "endChar": 54
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e46aa7f5_20a63a81",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b985420c_4c1f9061",
+      "range": {
+        "startLine": 279,
+        "startChar": 58,
+        "endLine": 279,
+        "endChar": 76
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d5be861_069b7b27",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2019-09-16T19:56:33Z",
       "side": 1,
       "message": "Is there any danger of a concurrent reader of the obsolete object? If so, this should presumably be a release store.",
+      "range": {
+        "startLine": 359,
+        "startChar": 30,
+        "endLine": 359,
+        "endChar": 48
+      },
+      "revId": "7a60682a57b4d5f066ed720fd3bb7a687f3ac964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e490be_ccd544dd",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-16T22:06:33Z",
+      "side": 1,
+      "message": "This object isn\u0027t \"visible/published\" until the line below, so I think this is non-racing (the release below should be sufficient).",
+      "parentUuid": "4d5be861_069b7b27",
       "range": {
         "startLine": 359,
         "startChar": 30,
