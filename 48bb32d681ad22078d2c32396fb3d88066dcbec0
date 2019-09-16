@@ -70,6 +70,30 @@
       "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b951ac1_78bb1e00",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-16T13:38:41Z",
+      "side": 1,
+      "message": "I don\u0027t it matters in practice as much, but kept it where it was and added an if condition. Thanks!",
+      "parentUuid": "145fb425_a465ca9b",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 15
+      },
+      "revId": "48bb32d681ad22078d2c32396fb3d88066dcbec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
