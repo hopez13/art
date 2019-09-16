@@ -1071,6 +1071,30 @@
     },
     {
       "key": {
+        "uuid": "c62805cc_5daa0c27",
+        "filename": "test/1975-hello-structural-transformation/src/art/Transform1975.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-16T23:47:49Z",
+      "side": 1,
+      "message": "Sorry, meant non 32 bit fields.",
+      "parentUuid": "e8dfb64e_c20a19c7",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "6a413046fed40ef1e8aecf58d9239271ea95e6d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a877d61_d424eeef",
         "filename": "test/1976-hello-structural-static-methods/src/art/Transform1976.java",
         "patchSetId": 29
