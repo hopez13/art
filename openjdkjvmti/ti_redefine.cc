@@ -112,6 +112,7 @@
 #include "non_debuggable_classes.h"
 #include "obj_ptr.h"
 #include "object_lock.h"
+#include "reflective_handle_scope.h"
 #include "runtime.h"
 #include "runtime_globals.h"
 #include "stack.h"
@@ -1957,49 +1958,6 @@ struct FuncVisitor : public art::ClassVisitor {
   T f_;
 };
 
-// TODO We should put this in Runtime once we have full ArtMethod/ArtField updating.
-template <typename FieldVis, typename MethodVis>
-void VisitReflectiveObjects(art::Thread* self,
-                            art::gc::Heap* heap,
-                            FieldVis&& fv,
-                            MethodVis&& mv) REQUIRES(art::Locks::mutator_lock_) {
-  // Horray for captures!
-  auto get_visitor = [&mv, &fv](const char* desc) REQUIRES(art::Locks::mutator_lock_) {
-    return [&mv, &fv, desc](auto* v) REQUIRES(art::Locks::mutator_lock_) {
-      if constexpr (std::is_same_v<decltype(v), art::ArtMethod*>) {
-        return mv(v, desc);
-      } else {
-        static_assert(std::is_same_v<decltype(v), art::ArtField*>,
-                      "Visitor called with unexpected type");
-        return fv(v, desc);
-      }
-    };
-  };
-  heap->VisitObjectsPaused(
-    [&](art::mirror::Object* ref) NO_THREAD_SAFETY_ANALYSIS {
-      art::Locks::mutator_lock_->AssertExclusiveHeld(self);
-      art::ObjPtr<art::mirror::Class> klass(ref->GetClass());
-      // All these classes are in the BootstrapClassLoader.
-      if (!klass->IsBootStrapClassLoaded()) {
-        return;
-      }
-      if (art::GetClassRoot<art::mirror::Method>()->IsAssignableFrom(klass) ||
-          art::GetClassRoot<art::mirror::Constructor>()->IsAssignableFrom(klass)) {
-        art::down_cast<art::mirror::Executable*>(ref)->VisitTarget(
-            get_visitor("java.lang.reflect.Executable"));
-      } else if (art::GetClassRoot<art::mirror::Field>() == klass) {
-        art::down_cast<art::mirror::Field*>(ref)->VisitTarget(
-            get_visitor("java.lang.reflect.Field"));
-      } else if (art::GetClassRoot<art::mirror::MethodHandle>()->IsAssignableFrom(klass)) {
-        art::down_cast<art::mirror::MethodHandle*>(ref)->VisitTarget(
-            get_visitor("java.lang.invoke.MethodHandle"));
-      } else if (art::GetClassRoot<art::mirror::FieldVarHandle>()->IsAssignableFrom(klass)) {
-        art::down_cast<art::mirror::FieldVarHandle*>(ref)->VisitTarget(
-            get_visitor("java.lang.invoke.FieldVarHandle"));
-      }
-    });
-}
-
 }  // namespace
 
 void Redefiner::ClassRedefinition::UpdateClassStructurally(const RedefinitionDataIter& holder) {
@@ -2058,63 +2016,13 @@ void Redefiner::ClassRedefinition::UpdateClassStructurally(const RedefinitionDat
     m.SetDontCompile();
     DCHECK_EQ(orig, m.GetDeclaringClass());
   }
-  // TODO Update live pointers in ART code. Currently we just assume there aren't any
-  // ArtMethod/ArtField*s hanging around in the runtime that need to be updated to the new
-  // non-obsolete versions. This isn't a totally safe assumption and we need to fix this oversight.
-  // Update jni-ids
-  driver_->runtime_->GetJniIdManager()->VisitIds(
-      driver_->self_,
-      [&](jmethodID mid, art::ArtMethod** meth) REQUIRES(art::Locks::mutator_lock_) {
-        auto repl = method_map.find(*meth);
-        if (repl != method_map.end()) {
-          // Set the new method to have the same id.
-          // TODO This won't be true when we do updates with actual instances.
-          DCHECK_EQ(repl->second->GetDeclaringClass(), replacement)
-              << "different classes! " << repl->second->GetDeclaringClass()->PrettyClass()
-              << " vs " << replacement->PrettyClass();
-          VLOG(plugin) << "Updating jmethodID " << reinterpret_cast<uintptr_t>(mid) << " from "
-                       << (*meth)->PrettyMethod() << " to " << repl->second->PrettyMethod();
-          *meth = repl->second;
-          replacement->GetExtData()->GetJMethodIDs()->SetElementPtrSize(
-              replacement->GetMethodsSlice(art::kRuntimePointerSize).OffsetOf(repl->second),
-              mid,
-              art::kRuntimePointerSize);
-        }
-      },
-      [&](jfieldID fid, art::ArtField** field) REQUIRES(art::Locks::mutator_lock_) {
-        auto repl = field_map.find(*field);
-        if (repl != field_map.end()) {
-          // Set the new field to have the same id.
-          // TODO This won't be true when we do updates with actual instances.
-          DCHECK_EQ(repl->second->GetDeclaringClass(), replacement)
-              << "different classes! " << repl->second->GetDeclaringClass()->PrettyClass()
-              << " vs " << replacement->PrettyClass();
-          VLOG(plugin) << "Updating jfieldID " << reinterpret_cast<uintptr_t>(fid) << " from "
-                       << (*field)->PrettyField() << " to " << repl->second->PrettyField();
-          *field = repl->second;
-          if (repl->second->IsStatic()) {
-            replacement->GetExtData()->GetStaticJFieldIDs()->SetElementPtrSize(
-                art::ArraySlice<art::ArtField>(replacement->GetSFieldsPtr()).OffsetOf(repl->second),
-                fid,
-                art::kRuntimePointerSize);
-          } else {
-            replacement->GetExtData()->GetInstanceJFieldIDs()->SetElementPtrSize(
-                art::ArraySlice<art::ArtField>(replacement->GetIFieldsPtr()).OffsetOf(repl->second),
-                fid,
-                art::kRuntimePointerSize);
-          }
-        }
-      });
   // Copy the lock-word
   replacement->SetLockWord(orig->GetLockWord(false), false);
   orig->SetLockWord(art::LockWord::Default(), false);
-  // Fix up java.lang.reflect.{Method,Field} and java.lang.invoke.{Method,FieldVar}Handle objects
+  // Update live pointers in ART code.
   // TODO Performing 2 stack-walks back to back isn't the greatest. We might want to try to combine
   // it with the one ReplaceReferences does. Doing so would be rather complicated though.
-  // TODO We maybe should just give the Heap the ability to do this.
-  VisitReflectiveObjects(
-      driver_->self_,
-      driver_->runtime_->GetHeap(),
+  driver_->runtime_->VisitReflectiveTargets(
       [&](art::ArtField* f, const auto& info) REQUIRES(art::Locks::mutator_lock_) {
         auto it = field_map.find(f);
         if (it == field_map.end()) {
@@ -2128,7 +2036,8 @@ void Redefiner::ClassRedefinition::UpdateClassStructurally(const RedefinitionDat
         if (it == method_map.end()) {
           return m;
         }
-        VLOG(plugin) << "Updating " << info << " object for (method) " << it->second->PrettyMethod();
+        VLOG(plugin) << "Updating " << info << " object for (method) "
+                     << it->second->PrettyMethod();
         return it->second;
       });
 

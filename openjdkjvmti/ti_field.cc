@@ -34,15 +34,45 @@
 #include "art_field-inl.h"
 #include "art_jvmti.h"
 #include "base/enums.h"
+#include "base/locks.h"
 #include "dex/dex_file_annotations.h"
 #include "dex/modifiers.h"
 #include "jni/jni_internal.h"
 #include "mirror/object_array-inl.h"
+#include "reflective_value_visitor.h"
+#include "runtime.h"
+#include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 
 namespace openjdkjvmti {
 
+struct ReflectiveValueCallback : public art::ReflectiveValueVisitCallback {
+ public:
+  void VisitReflectiveTargets(art::ReflectiveValueVisitor* visitor) REQUIRES(art::Locks::mutator_lock_) {
+    event_handler->ForEachEnv(art::Thread::Current(), [&](ArtJvmTiEnv* env) {
+      art::WriterMutexLock mu(art::Thread::Current(), env->event_info_mutex_);
+      for (auto it = env->access_watched_fields.begin(); it != env->access_watched_fields.end(); ++it) {
+        *it = visitor->VisitField(*it, )
+      }
+    });
+  }
+
+  EventHandler* event_handler = nullptr;
+};
+
+static ReflectiveValueCallback gReflectiveValueCallback;
+void FieldUtil::Register(EventHandler* eh) {
+  gReflectiveValueCallback.event_handler = eh;
+  art::ScopedThreadStateChange stsc(art::Thread::Current(),
+                                    art::ThreadState::kWaitingForDebuggerToAttach);
+  art::ScopedSuspendAll ssa("Add reflective value visit callback");
+  art::RuntimeCallbacks* callbacks = art::Runtime::Current()->GetRuntimeCallbacks();
+  callbacks->AddReflectiveValueVisitCallback(&gReflectiveValueCallback);
+}
+
+void FieldUtil::Unregister() {
+}
 // Note: For all these functions, we could do a check that the field actually belongs to the given
 //       class. But the spec seems to assume a certain encoding of the field ID, and so doesn't
 //       specify any errors.

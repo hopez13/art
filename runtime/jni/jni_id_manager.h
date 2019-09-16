@@ -17,14 +17,16 @@
 #ifndef ART_RUNTIME_JNI_JNI_ID_MANAGER_H_
 #define ART_RUNTIME_JNI_JNI_ID_MANAGER_H_
 
-#include <atomic>
 #include <jni.h>
+
+#include <atomic>
 #include <vector>
 
 #include "art_field.h"
 #include "art_method.h"
 #include "base/mutex.h"
 #include "jni_id_type.h"
+#include "reflective_value_visitor.h"
 
 namespace art {
 namespace jni {
@@ -32,15 +34,6 @@ namespace jni {
 class ScopedEnableSuspendAllJniIdQueries;
 class JniIdManager {
  public:
-  class IdVisitor {
-   public:
-    virtual ~IdVisitor() {}
-    virtual void VisitMethodId(jmethodID id, ArtMethod** method) = 0;
-    virtual void VisitFieldId(jfieldID id, ArtField** field) = 0;
-    virtual bool ShouldVisitFields() = 0;
-    virtual bool ShouldVisitMethods() = 0;
-  };
-
   template <typename T,
             typename = typename std::enable_if<std::is_same_v<T, jmethodID> ||
                                                std::is_same_v<T, jfieldID>>>
@@ -55,33 +48,8 @@ class JniIdManager {
   jfieldID EncodeFieldId(ArtField* field) REQUIRES(!Locks::jni_id_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void VisitIds(Thread* self, IdVisitor* visitor);
-
-  template<typename MethodVisitor, typename FieldVisitor>
-  void VisitIds(Thread* self, MethodVisitor m, FieldVisitor f) REQUIRES(!Locks::jni_id_lock_) {
-    struct FuncVisitor : public IdVisitor {
-     public:
-      FuncVisitor(MethodVisitor m, FieldVisitor f) : m_(m), f_(f) {}
-      bool ShouldVisitFields() override {
-        return true;
-      }
-      bool ShouldVisitMethods() override {
-        return true;
-      }
-      void VisitMethodId(jmethodID mid, ArtMethod** am) NO_THREAD_SAFETY_ANALYSIS override {
-        m_(mid, am);
-      }
-      void VisitFieldId(jfieldID fid, ArtField** af) NO_THREAD_SAFETY_ANALYSIS override {
-        f_(fid, af);
-      }
-
-     private:
-      MethodVisitor m_;
-      FieldVisitor f_;
-    };
-    FuncVisitor fv(m, f);
-    VisitIds(self, &fv);
-  }
+  void VisitReflectiveTargets(ReflectiveValueVisitor* rvv)
+      REQUIRES(Locks::mutator_lock_, !Locks::jni_id_lock_);
 
  private:
   template <typename ArtType>

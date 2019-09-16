@@ -19,20 +19,12 @@
 
 #include "var_handle.h"
 
+#include "reflective_handle_scope.h"
+
 namespace art {
 class ArtField;
 
 namespace mirror {
-
-template<typename Visitor>
-inline void FieldVarHandle::VisitTarget(Visitor&& v) {
-  ArtField* orig = GetField();
-  ArtField* new_value = v(orig);
-  if (orig != new_value) {
-    SetField64</*kTransactionActive*/ false>(ArtFieldOffset(),
-                                             reinterpret_cast<uintptr_t>(new_value));
-  }
-}
 
 }  // namespace mirror
 }  // namespace art
