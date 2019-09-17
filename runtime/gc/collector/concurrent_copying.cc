@@ -3629,6 +3629,7 @@ void ConcurrentCopying::FinishPhase() {
   {
     MutexLock mu(self, mark_stack_lock_);
     CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
+    CHECK(revoked_mark_stacks_.empty());
   }
   // kVerifyNoMissingCardMarks relies on the region space cards not being cleared to avoid false
   // positives.
