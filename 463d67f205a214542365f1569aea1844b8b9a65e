@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0aa334ed_538ee3b7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3632,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-17T22:38:56Z",
+      "side": 1,
+      "message": "This is called after another barrier, so we\u0027re sure that revoked_mark_stacks won\u0027t become nonempty after this?  Otherwise does it make sense to move it down?",
+      "range": {
+        "startLine": 3632,
+        "startChar": 10,
+        "endLine": 3632,
+        "endChar": 39
+      },
+      "revId": "463d67f205a214542365f1569aea1844b8b9a65e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
