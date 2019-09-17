@@ -22,6 +22,30 @@
       "revId": "c6e049d58560a771d891a15993deca8bf6a04348",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07198deb_1b27b91a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-17T16:00:14Z",
+      "side": 1,
+      "message": "\u003e There\u0027s also the aspect of avoiding special cases and duplicated logic. The symlink handling in Android.mk doesn\u0027t look specific to the APEX flavours, so why doesn\u0027t it work as-is?\n\nThe logic in `art/Android.mk` is tied to target `com.android.art`, which is an indirection for either `com.android.art.release` (Release ART APEX) or `com.android.art.debug` (Debug ART APEX), which are the only flavors shipped in system images; target `com.android.art.testing` (Testing ART APEX) was excluded from this logic on purpose, to avoid shipping it by mistake.\n\n\u003e Also, the make and Soong files don\u0027t generally seem restricted to actual products to me.\n\nYes, the Blueprint module definition of the Testing ART APEX is not guarded (because I don\u0027t think that\u0027s possible); but this should not prevent us from adding guards in other places.\n\n\u003e If anyone wants to build a testing apex for some reason, I\u0027d think the build system should be able to do that. Then it\u0027s a matter of release packaging to decide what goes into shipped products, isn\u0027t it?\n\nAre you suggesting we should implement something like the library absence check from `build/make/core/main.mk` (https://android.git.corp.google.com/platform/build/+/9f2e68009d74f33acc2c4eb78b0c7be0bcb40407/core/main.mk#1126)?",
+      "parentUuid": "7989e1b8_499ba77b",
+      "range": {
+        "startLine": 119,
+        "startChar": 63,
+        "endLine": 120,
+        "endChar": 24
+      },
+      "revId": "c6e049d58560a771d891a15993deca8bf6a04348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
