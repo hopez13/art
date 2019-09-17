@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b290884_a28698dd",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-09-17T01:17:08Z",
+      "side": 1,
+      "message": "Does this now call ftruncate(/*fd\u003d-1*/..._ and fail?",
+      "range": {
+        "startLine": 77,
+        "startChar": 25,
+        "endLine": 77,
+        "endChar": 43
+      },
+      "revId": "c49b303a3ae136dd7ee2d430a06638f42757f0f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
