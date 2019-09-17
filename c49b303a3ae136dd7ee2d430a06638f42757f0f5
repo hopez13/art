@@ -22,6 +22,30 @@
       "revId": "c49b303a3ae136dd7ee2d430a06638f42757f0f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2de65e6_df926970",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1319385
+      },
+      "writtenOn": "2019-09-17T03:47:31Z",
+      "side": 1,
+      "message": "It does not return error later here, but yes, calling ftruncate(2) seems useless. I prefer the old patch.",
+      "parentUuid": "3b290884_a28698dd",
+      "range": {
+        "startLine": 77,
+        "startChar": 25,
+        "endLine": 77,
+        "endChar": 43
+      },
+      "revId": "c49b303a3ae136dd7ee2d430a06638f42757f0f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
