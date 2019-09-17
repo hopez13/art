@@ -46,6 +46,30 @@
       "revId": "463d67f205a214542365f1569aea1844b8b9a65e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebca8334_a4991a85",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3632,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-09-17T23:44:16Z",
+      "side": 1,
+      "message": "My concern is whether this catches as many instances of the bug as possible. Is there a risk that, due to the bug we\u0027re trying to catch, which presumably adds to revoked_mark_stacks_ mode in shared mode, the incorrect addition to revoked_mark_stacks_ could happen even later than this?",
+      "parentUuid": "36a1f6a6_304d16fe",
+      "range": {
+        "startLine": 3632,
+        "startChar": 10,
+        "endLine": 3632,
+        "endChar": 39
+      },
+      "revId": "463d67f205a214542365f1569aea1844b8b9a65e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
