@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7989e1b8_499ba77b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-17T11:48:32Z",
+      "side": 1,
+      "message": "There\u0027s also the aspect of avoiding special cases and duplicated logic. The symlink handling in Android.mk doesn\u0027t look specific to the APEX flavours, so why doesn\u0027t it work as-is?\n\nAlso, the make and Soong files don\u0027t generally seem restricted to actual products to me. If anyone wants to build a testing apex for some reason, I\u0027d think the build system should be able to do that. Then it\u0027s a matter of release packaging to decide what goes into shipped products, isn\u0027t it?",
+      "range": {
+        "startLine": 119,
+        "startChar": 63,
+        "endLine": 120,
+        "endChar": 24
+      },
+      "revId": "c6e049d58560a771d891a15993deca8bf6a04348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
