@@ -46,6 +46,30 @@
       "revId": "c6e049d58560a771d891a15993deca8bf6a04348",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533da3b9_cbc53fb8",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-17T21:44:22Z",
+      "side": 1,
+      "message": "\u003e Are you suggesting we should implement something like the library absence check\n\nI suppose I am, yes. I hadn\u0027t realised the support for the testing APEX was that separated from the other ones. I think we better not try to \"hide\" the testing APEX if it starts to affect consistency, and instead rely on an absence check.\n\nThat seems out-of-scope for this CL though, so provided you agree I think it\u0027s enough with a TODO here and go with this as a short-term fix for the issue.",
+      "parentUuid": "07198deb_1b27b91a",
+      "range": {
+        "startLine": 119,
+        "startChar": 63,
+        "endLine": 120,
+        "endChar": 24
+      },
+      "revId": "c6e049d58560a771d891a15993deca8bf6a04348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
