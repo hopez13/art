@@ -22,6 +22,30 @@
       "revId": "70f2314b46bb98f80de38d3217c2bdad3adaba9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677ed5fa_be58ec0e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-09-17T09:20:59Z",
+      "side": 0,
+      "message": "The \"false\" isn\u0027t the issue.  It is the non-taken path that still clears the exit code.\nIt can (and should be fixed), but it is not \"easy\".  Hence the revert+reland choice.\n\nI am undecided whether to try to fix this CL or generalize the code to always print non-zero exit code.",
+      "parentUuid": "93f0c3ae_7b35188d",
+      "range": {
+        "startLine": 1108,
+        "startChar": 71,
+        "endLine": 1108,
+        "endChar": 76
+      },
+      "revId": "70f2314b46bb98f80de38d3217c2bdad3adaba9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
