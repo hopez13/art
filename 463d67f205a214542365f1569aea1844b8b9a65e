@@ -22,6 +22,30 @@
       "revId": "463d67f205a214542365f1569aea1844b8b9a65e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36a1f6a6_304d16fe",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3632,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-09-17T22:51:05Z",
+      "side": 1,
+      "message": "I didn\u0027t quite get your question.\nBut given the fact that thread-local mark stacks are not used after moving from \u0027thread-local mark-stack\u0027 mode to \u0027shared mark-stack\u0027 mode, it\u0027s guaranteed that revoked_mark_stacks is empty by the time we reach here.",
+      "parentUuid": "0aa334ed_538ee3b7",
+      "range": {
+        "startLine": 3632,
+        "startChar": 10,
+        "endLine": 3632,
+        "endChar": 39
+      },
+      "revId": "463d67f205a214542365f1569aea1844b8b9a65e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
