@@ -36,6 +36,8 @@ class BacktraceCollector {
   void Collect();
 
  private:
+  bool CollectImpl();
+
   uintptr_t* const out_frames_ = nullptr;
   size_t num_frames_ = 0u;
   const size_t max_depth_ = 0u;
