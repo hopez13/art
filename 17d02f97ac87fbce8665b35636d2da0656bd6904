@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb40765e_bbc8ca51",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-18T12:39:02Z",
+      "side": 1,
+      "message": "Maybe you could also log the value of `g_state` here?\n\nIf you don\u0027t want to write an ostream operator\u003c\u003c for enum `State` manually, you can leverage `art/tools/generate_operator_out.py` to generate one for you by defining this `gensrcs` module in `art/perfetto_hprof/Android.bp`:\n\n  gensrcs {\n      name: \"art_perfetto_hprof_operator_srcs\",\n      cmd: \"$(location generate_operator_out) art/perfetto_hprof $(in) \u003e $(out)\",\n      tools: [\"generate_operator_out\"],\n      srcs: [\n          \"perfetto_hprof.cc\",\n      ],\n      output_extension: \"operator_out.cc\",\n  }\n\nthen adding:\n\n    generated_sources: [\"art_compiler_operator_srcs\"],\n\nto the definition of \"perfetto_hprof-defaults\" in `art/perfetto_hprof/Android.bp`, and finally declaring the operator\u003c\u003c in this file.\n\n(See e.g. `art/dex2oat/Android.bp` for an example.)",
+      "range": {
+        "startLine": 357,
+        "startChar": 6,
+        "endLine": 357,
+        "endChar": 58
+      },
+      "revId": "17d02f97ac87fbce8665b35636d2da0656bd6904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
