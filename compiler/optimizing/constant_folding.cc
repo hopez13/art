@@ -219,19 +219,35 @@ void InstructionWithAbsorbingInputSimplifier::VisitBelowOrEqual(HBelowOrEqual* i
 void InstructionWithAbsorbingInputSimplifier::VisitAnd(HAnd* instruction) {
   DataType::Type type = instruction->GetType();
   HConstant* input_cst = instruction->GetConstantRight();
-  if ((input_cst != nullptr) && input_cst->IsZeroBitPattern()) {
-    // Replace code looking like
-    //    AND dst, src, 0
-    // with
-    //    CONSTANT 0
-    instruction->ReplaceWith(input_cst);
-    instruction->GetBlock()->RemoveInstruction(instruction);
+  if (input_cst != nullptr) {
+    if (input_cst->IsZeroBitPattern()) {
+      // Replace code looking like
+      //    AND dst, src, 0
+      // with
+      //    CONSTANT 0
+      instruction->ReplaceWith(input_cst);
+      instruction->GetBlock()->RemoveInstruction(instruction);
+    } else if (Int64FromConstant(input_cst) == -1) {
+      // Replace code looking like
+      //    AND dst, src, -1
+      // with
+      //    src
+      instruction->ReplaceUsesDominatedBy(instruction, instruction->GetLeft());
+      instruction->GetBlock()->RemoveInstruction(instruction);
+    }
   }
 
   HInstruction* left = instruction->GetLeft();
   HInstruction* right = instruction->GetRight();
 
-  if (left->IsNot() ^ right->IsNot()) {
+  if (left == right) {
+    // Replace code looking like
+    //    AND dst, src, src
+    // with
+    //    src
+    instruction->ReplaceUsesDominatedBy(instruction, left);
+    instruction->GetBlock()->RemoveInstruction(instruction);
+  } else if (left->IsNot() ^ right->IsNot()) {
     // Replace code looking like
     //    NOT notsrc, src
     //    AND dst, notsrc, src
