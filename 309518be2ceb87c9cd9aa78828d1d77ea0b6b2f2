@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81f53217_cb2c64ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-18T22:19:17Z",
+      "side": 1,
+      "message": "I\u0027ve only superficially looked at the dependencies to decide whether they need follow-up or not. Comments welcome on the dependencies in below the TODOs.",
+      "range": {
+        "startLine": 9,
+        "startChar": 72,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "309518be2ceb87c9cd9aa78828d1d77ea0b6b2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0dc46d_f4817618",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-18T22:19:17Z",
+      "side": 1,
+      "message": "Various libraries link this statically. The API in include/adbconnection/server.h is very simple, so I propose making it a dynamic dependency with a stub instead. If not it looks like we\u0027ll have a unix socket as boundary.",
+      "revId": "309518be2ceb87c9cd9aa78828d1d77ea0b6b2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab78275a_520a7198",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-18T22:19:17Z",
+      "side": 1,
+      "message": "A header with an enum for the return codes. Might be ok to leave as-is, although we should probably decide the policy for extending them (unless we revamp the installd integration completely, of course).",
+      "revId": "309518be2ceb87c9cd9aa78828d1d77ea0b6b2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73bf6788_55bb855f",
+        "filename": "libartimagevalues/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-18T22:19:17Z",
+      "side": 1,
+      "message": "Installd links this statically to get a few functions that return ART_BASE_ADDRESS etc. Change it too to a dynamic libs with stubs?",
+      "revId": "309518be2ceb87c9cd9aa78828d1d77ea0b6b2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
