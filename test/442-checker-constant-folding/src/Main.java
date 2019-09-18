@@ -864,6 +864,56 @@ public class Main {
     return lhs & rhs;
   }
 
+  /// CHECK-START: int Main.AndZero(int) constant_folding (before)
+  /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
+  /// CHECK-DAG:     <<Const0:i\d+>>  IntConstant 0
+  /// CHECK-DAG:     <<And:i\d+>>     And [<<Arg>>,<<Const0>>]
+  /// CHECK-DAG:                      Return [<<And>>]
+
+  /// CHECK-START: int Main.AndZero(int) constant_folding (after)
+  /// CHECK-DAG:     <<Const0:i\d+>>  IntConstant 0
+  /// CHECK-DAG:                      Return [<<Const0>>]
+
+  /// CHECK-START: int Main.AndZero(int) constant_folding (after)
+  /// CHECK-NOT:                      And
+
+  public static int AndZero(int arg) {
+    return arg & 0;
+  }
+
+  /// CHECK-START: int Main.AndMinusOne(int) constant_folding (before)
+  /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
+  /// CHECK-DAG:     <<ConstN1:i\d+>> IntConstant -1
+  /// CHECK-DAG:     <<And:i\d+>>     And [<<Arg>>,<<ConstN1>>]
+  /// CHECK-DAG:                      Return [<<And>>]
+
+  /// CHECK-START: int Main.AndMinusOne(int) constant_folding (after)
+  /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
+  /// CHECK-DAG:                      Return [<<Arg>>]
+
+  /// CHECK-START: int Main.AndMinusOne(int) constant_folding (after)
+  /// CHECK-NOT:                      And
+
+  public static int AndMinusOne(int arg) {
+    return arg & -1;
+  }
+
+  /// CHECK-START: int Main.AndSelf(int) constant_folding (before)
+  /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
+  /// CHECK-DAG:     <<And:i\d+>>     And [<<Arg>>,<<Arg>>]
+  /// CHECK-DAG:                      Return [<<And>>]
+
+  /// CHECK-START: int Main.AndSelf(int) constant_folding (after)
+  /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
+  /// CHECK-DAG:                      Return [<<Arg>>]
+
+  /// CHECK-START: int Main.AndSelf(int) constant_folding (after)
+  /// CHECK-NOT:                      And
+
+  public static int AndSelf(int arg) {
+    return arg & arg;
+  }
+
   /// CHECK-START: int Main.AndSelfNegated(int) constant_folding (before)
   /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Not:i\d+>>     Not [<<Arg>>]
