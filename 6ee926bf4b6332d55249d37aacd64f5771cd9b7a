@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "344c1573_8d2cf7cb",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-19T17:46:51Z",
+      "side": 1,
+      "message": "Would prefer if vogar_args was built from the arguments that should remain rather than removing them like this (wouldn\u0027t be surprised if we\u0027ll see this exact type of bug again the next time the argument list is expanded). However it\u0027s already the pattern here, so very well.",
+      "revId": "6ee926bf4b6332d55249d37aacd64f5771cd9b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
