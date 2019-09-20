@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94dd46ce_6c7756b1",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T15:20:39Z",
+      "side": 1,
+      "message": "were?",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "df7eecd4930bf76375c855fe910b30b28048aecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7ef9a39_b91b8340",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T15:20:39Z",
+      "side": 1,
+      "message": "I think this should be `kNonRacingRelaxed`, as this is a constant.",
+      "range": {
+        "startLine": 81,
+        "startChar": 28,
+        "endLine": 81,
+        "endChar": 46
+      },
+      "revId": "df7eecd4930bf76375c855fe910b30b28048aecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3096f59_98118fac",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T15:20:39Z",
+      "side": 1,
+      "message": "Identifiers starting with two underscore characters are reserved by the C++ standard (see https://en.cppreference.com/w/cpp/language/identifiers).",
+      "range": {
+        "startLine": 133,
+        "startChar": 11,
+        "endLine": 133,
+        "endChar": 38
+      },
+      "revId": "df7eecd4930bf76375c855fe910b30b28048aecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad13f91_43ca4140",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T15:20:39Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 134,
+        "startChar": 11,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "df7eecd4930bf76375c855fe910b30b28048aecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
