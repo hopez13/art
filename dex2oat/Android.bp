@@ -188,6 +188,7 @@ cc_defaults {
         "dex2oat_headers",
         "art_cmdlineparser_headers",
     ],
+    native_coverage: false,
 }
 
 cc_defaults {
