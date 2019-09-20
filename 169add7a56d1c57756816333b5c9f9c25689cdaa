@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c966bac1_c01dde27",
+        "filename": "runtime/backtrace_helper.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T13:47:22Z",
+      "side": 1,
+      "message": "We try to minimize calls to `Thread::Current()` because it is expensive. Maybe store the result of `Thread::Current()` in a `self` variable in this method and pass it as an argument to `CollectImpl()` (and add `DCHECK_EQ(self, Thread::Current())` in the beginning of `CollectImpl()`)?",
+      "range": {
+        "startLine": 86,
+        "startChar": 22,
+        "endLine": 86,
+        "endChar": 39
+      },
+      "revId": "169add7a56d1c57756816333b5c9f9c25689cdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e8e0e3c_84335f32",
+        "filename": "runtime/backtrace_helper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T13:47:22Z",
+      "side": 1,
+      "message": "I\u0027d document this method a bit (especially its return value).",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "169add7a56d1c57756816333b5c9f9c25689cdaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
