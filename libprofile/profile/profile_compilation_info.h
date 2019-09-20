@@ -98,7 +98,8 @@ class ProfileCompilationInfo {
 
     bool MatchesDex(const DexFile* dex_file) const {
       return dex_checksum == dex_file->GetLocationChecksum() &&
-           profile_key == GetProfileDexFileBaseKey(dex_file->GetLocation());
+           profile_key == GetProfileDexFileBaseKey(dex_file->GetLocation()) &&
+           num_method_ids == dex_file->NumMethodIds();
     }
 
     std::string profile_key;
@@ -255,6 +256,8 @@ class ProfileCompilationInfo {
         : inline_caches(inline_cache_map) {}
 
     bool operator==(const OfflineProfileMethodInfo& other) const;
+    // Checks that this offline represenation of inline caches matches the runtime view of the data.`
+    bool operator==(const std::vector<ProfileMethodInfo::ProfileInlineCache>& other) const;
 
     const InlineCacheMap* const inline_caches;
     std::vector<DexReference> dex_references;
