@@ -53,7 +53,10 @@ failing_tests=()
 for t in $tests; do
   echo "$t"
   "$adb" shell chroot "$ART_TEST_CHROOT" \
-    env ANDROID_I18N_ROOT="$android_i18n_root" ANDROID_RUNTIME_ROOT="$android_runtime_root" ANDROID_TZDATA_ROOT="$android_tzdata_root" $t \
+    env ANDROID_ART_ROOT="$android_art_root" \
+        ANDROID_I18N_ROOT="$android_i18n_root" \
+        ANDROID_TZDATA_ROOT="$android_tzdata_root" \
+        $t \
     || failing_tests+=("$t")
 done
 
