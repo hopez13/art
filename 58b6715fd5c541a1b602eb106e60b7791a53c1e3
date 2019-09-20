@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "658abc02_c836ee71",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T17:40:45Z",
+      "side": 1,
+      "message": "Agreed; we should remove the duplication (either here or in `art/build/apex/runtests.sh`).",
+      "parentUuid": "09eb74aa_293a9d20",
+      "range": {
+        "startLine": 1173,
+        "startChar": 4,
+        "endLine": 1173,
+        "endChar": 25
+      },
+      "revId": "58b6715fd5c541a1b602eb106e60b7791a53c1e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ce93eca_68097b07",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "58b6715fd5c541a1b602eb106e60b7791a53c1e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "402a75ce_78e02c3c",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-20T17:40:45Z",
+      "side": 1,
+      "message": "Good catch! Fixed in PS4.",
+      "parentUuid": "8ce93eca_68097b07",
+      "range": {
+        "startLine": 1212,
+        "startChar": 11,
+        "endLine": 1212,
+        "endChar": 12
+      },
+      "revId": "58b6715fd5c541a1b602eb106e60b7791a53c1e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
