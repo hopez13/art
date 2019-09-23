@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e93e094_8f434a7a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-23T11:58:07Z",
+      "side": 1,
+      "message": "Looks arbitrary when called from the compiler. Add a helper in profile compilation info called GetDexFileName() or something ?",
+      "range": {
+        "startLine": 751,
+        "startChar": 47,
+        "endLine": 751,
+        "endChar": 58
+      },
+      "revId": "4ba700af65f8346a96ba8d1dec051358a09487f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
