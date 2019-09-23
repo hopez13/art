@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9d760d3e_b87c0159",
+        "filename": "tools/veridex/api_list_filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-23T09:54:34Z",
+      "side": 1,
+      "message": "Indentation looks off?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 4
+      },
+      "revId": "7357d5d6a046f622c7f9cd492958a8df4c84b1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1f0ac1d_8ea43bd1",
         "filename": "tools/veridex/api_list_filter.h",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2019-09-16T15:16:45Z",
       "side": 1,
       "message": "nit: I think the preferred style is \u0027const auto\u0026 it\u0027, but could be wrong.",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "7357d5d6a046f622c7f9cd492958a8df4c84b1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8782e8a8_4c0ec5ae",
+        "filename": "tools/veridex/api_list_filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-23T09:54:34Z",
+      "side": 1,
+      "message": "That\u0027s correct, it should be \"const auto\u0026\"",
+      "parentUuid": "b1f0ac1d_8ea43bd1",
       "range": {
         "startLine": 49,
         "startChar": 9,
