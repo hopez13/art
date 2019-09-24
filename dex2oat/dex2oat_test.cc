@@ -52,7 +52,6 @@
 
 namespace art {
 
-static constexpr size_t kMaxMethodIds = 65535;
 static constexpr bool kDebugArgs = false;
 static const char* kDisableCompactDex = "--compact-dex-level=none";
 
@@ -632,19 +631,19 @@ class Dex2oatLayoutTest : public Dex2oatTest {
 
   // Emits a profile with a single dex file with the given location and a single class index of 1.
   void GenerateProfile(const std::string& test_profile,
-                       const std::string& dex_location,
-                       size_t num_classes,
-                       uint32_t checksum) {
+                       const DexFile* dex,
+                       size_t num_classes) {
     int profile_test_fd = open(test_profile.c_str(),
                                O_CREAT | O_TRUNC | O_WRONLY | O_CLOEXEC,
                                0644);
     CHECK_GE(profile_test_fd, 0);
 
     ProfileCompilationInfo info;
-    std::string profile_key = info.GetProfileDexFileKey(dex_location);
+    std::vector<dex::TypeIndex> classes;;
     for (size_t i = 0; i < num_classes; ++i) {
-      info.AddClassIndex(profile_key, checksum, dex::TypeIndex(1 + i), kMaxMethodIds);
+      classes.push_back(dex::TypeIndex(1 + i));
     }
+    info.AddClassesForDex(dex, classes.begin(), classes.end());
     bool result = info.Save(profile_test_fd);
     close(profile_test_fd);
     ASSERT_TRUE(result);
@@ -667,9 +666,8 @@ class Dex2oatLayoutTest : public Dex2oatTest {
     EXPECT_EQ(dex_files.size(), 1U);
     std::unique_ptr<const DexFile>& dex_file = dex_files[0];
     GenerateProfile(profile_location,
-                    dex_location,
-                    num_profile_classes,
-                    dex_file->GetLocationChecksum());
+                    dex_file.get(),
+                    num_profile_classes);
     std::vector<std::string> copy(extra_args);
     copy.push_back("--profile-file=" + profile_location);
     std::unique_ptr<File> app_image_file;
