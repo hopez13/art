@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "adf5ae14_c32b5532",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-24T15:29:25Z",
+      "side": 1,
+      "message": "I was indeed thinking of the latter case (people having the environment variable in their shell). This may happen when people check out old code (e.g. and old branch). Keeping this line here has no real cost, but can help prevent weird errors that may be hard to identify and/or be time costly.",
+      "parentUuid": "bc9cd4d4_119dfe92",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "8a4249006234f05032a0370268946bb1bb1184c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67a5cf04_0144ff34",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
