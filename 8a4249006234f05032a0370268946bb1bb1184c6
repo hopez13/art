@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93c00d78_ac6d373f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-24T13:13:20Z",
+      "side": 1,
+      "message": "Also got http://cl/270268332.",
+      "revId": "8a4249006234f05032a0370268946bb1bb1184c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67a5cf04_0144ff34",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-24T13:13:20Z",
+      "side": 1,
+      "message": "Note argument change here and in run-test and testrunner.py - needs corresponding updates in the test infrastructure?",
+      "range": {
+        "startLine": 374,
+        "startChar": 21,
+        "endLine": 374,
+        "endChar": 39
+      },
+      "revId": "8a4249006234f05032a0370268946bb1bb1184c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
