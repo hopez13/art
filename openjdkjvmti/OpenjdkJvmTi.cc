@@ -1535,6 +1535,8 @@ extern "C" bool ArtPlugin_Initialize() {
   HeapExtensions::Register(gEventHandler);
   SearchUtil::Register();
   HeapUtil::Register();
+  FieldUtil::Register(gEventHandler);
+  BreakpointUtil::Register(gEventHandler);
   Transformer::Setup();
 
   {
@@ -1558,6 +1560,8 @@ extern "C" bool ArtPlugin_Deinitialize() {
   MethodUtil::Unregister();
   SearchUtil::Unregister();
   HeapUtil::Unregister();
+  FieldUtil::Unregister();
+  BreakpointUtil::Unregister();
 
   // TODO It would be good to delete the gEventHandler and gDeoptManager here but we cannot since
   // daemon threads might be suspended and we want to make sure that even if they wake up briefly
