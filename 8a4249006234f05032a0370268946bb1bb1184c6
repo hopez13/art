@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "3a4bcb5c_28e8abcf",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-24T15:40:50Z",
+      "side": 1,
+      "message": "I think there is a cost keeping stale info around. In this case readers might think this variable is much more prevalent than it is, and taking effort to ensure the unset is reflected in their own scripts, etc.\n\nGranted the cost is small, but then I believe the benefit is (very) small too. Anyway, as you prefer.",
+      "parentUuid": "adf5ae14_c32b5532",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "8a4249006234f05032a0370268946bb1bb1184c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a5cf04_0144ff34",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
