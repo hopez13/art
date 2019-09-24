@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "bc9cd4d4_119dfe92",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-24T15:09:26Z",
+      "side": 1,
+      "message": "Given that ART_TEST_ANDROID_RUNTIME_ROOT doesn\u0027t have any function after this CL, I believe it\u0027d only be relevant if a) it reappears, and b) someone still has a really old shell environment from today. That seems like a long shot to keep around in the docs. Am I missing something?",
+      "parentUuid": "1d5dc920_3e851f63",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "8a4249006234f05032a0370268946bb1bb1184c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67a5cf04_0144ff34",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
