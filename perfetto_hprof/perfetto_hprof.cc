@@ -36,6 +36,7 @@
 #include "perfetto/trace/profiling/heap_graph.pbzero.h"
 #include "perfetto/trace/profiling/profile_common.pbzero.h"
 #include "perfetto/tracing.h"
+#include "external/perfetto/src/profiling/memory/ext.h"
 #include "runtime-inl.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
@@ -108,7 +109,9 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
  public:
   // TODO(fmayer): Change Client API and reject configs that do not target
   // this process.
-  void OnSetup(const SetupArgs&) override {}
+  void OnSetup(const SetupArgs& args) override {
+    ds_config_ = *args.config;
+  }
 
   void OnStart(const StartArgs&) override {
     art::MutexLock lk(art_thread(), GetStateMutex());
@@ -131,6 +134,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   }
 
  private:
+  perfetto::DataSourceConfig ds_config_;
   static art::Thread* self_;
 };
 
