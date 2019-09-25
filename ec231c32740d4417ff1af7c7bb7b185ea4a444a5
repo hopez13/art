@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f35d35ed_0f0c7931",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-09-25T21:21:26Z",
+      "side": 1,
+      "message": "If the thread is suspended, it should be the mutator lock is not held? How can this happen?",
+      "range": {
+        "startLine": 884,
+        "startChar": 15,
+        "endLine": 884,
+        "endChar": 57
+      },
+      "revId": "ec231c32740d4417ff1af7c7bb7b185ea4a444a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
