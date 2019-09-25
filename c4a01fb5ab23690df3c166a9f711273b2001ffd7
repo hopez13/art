@@ -22,6 +22,30 @@
       "revId": "c4a01fb5ab23690df3c166a9f711273b2001ffd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af3ce050_3f28d368",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-25T08:04:58Z",
+      "side": 1,
+      "message": "Because we now set generic JNI instead of the resolution stub for the boot image. I\u0027ve added a comment.",
+      "parentUuid": "e3df8986_4182afe7",
+      "range": {
+        "startLine": 2384,
+        "startChar": 14,
+        "endLine": 2384,
+        "endChar": 38
+      },
+      "revId": "c4a01fb5ab23690df3c166a9f711273b2001ffd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
