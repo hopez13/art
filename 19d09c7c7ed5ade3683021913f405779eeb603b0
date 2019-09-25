@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05ff7090_31a6ce59",
+        "filename": "tools/veridex/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a28c997_5de10c1d",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 79
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba5cf7cf_e6e73800",
         "filename": "tools/veridex/hidden_api.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "409c2453_834f24d7",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba5cf7cf_e6e73800",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8962847e_320fff5a",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done. Thank you!",
+      "parentUuid": "d5003700_af62ef46",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f83a8c5d_acf7bce1",
         "filename": "tools/veridex/hidden_api.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "43d2f41b_95b2baa5",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f83a8c5d_acf7bce1",
+      "range": {
+        "startLine": 88,
+        "startChar": 21,
+        "endLine": 88,
+        "endChar": 36
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "696fec50_10729232",
         "filename": "tools/veridex/hidden_api.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2019-09-17T14:44:07Z",
       "side": 1,
       "message": "Why * 2 ?",
+      "range": {
+        "startLine": 115,
+        "startChar": 54,
+        "endLine": 115,
+        "endChar": 57
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88c589e_025e58aa",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "I was struggling with this... magic numbers! The idea here is that kInvalid (which is private) is \"(1 \u003c\u003c kValueBitSize)-1\". I want api_counts[kInvalid] to be valid, so the simplest upper bound here is kValueCount (which is less than kInvalid) * 2 + 1... I know... Should I expose a new public method on hiddenapi::ApiList (goes into art) just for veridex?",
+      "parentUuid": "696fec50_10729232",
       "range": {
         "startLine": 115,
         "startChar": 54,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "7003a495_8fc27b3b",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c662fc8f_a3278255",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 15
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7503204c_b5b44bcc",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 2
@@ -160,6 +304,30 @@
       "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19c92efc_993b1789",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-09-25T16:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7503204c_b5b44bcc",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 15
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
