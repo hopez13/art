@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec3dc7eb_745fefce",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2019-09-25T17:13:59Z",
+      "side": 1,
+      "message": "will the (maybe) successful close() clear errno?",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 12
+      },
+      "revId": "edabd2a99c53dde9ef4c5d58a8a4bb9f4116e6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6354db7_d01af4b8",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2019-09-25T17:13:59Z",
+      "side": 1,
+      "message": "Should this one be a hard failure? Might be better to just ignore things we can\u0027t normalize in the config",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 19
+      },
+      "revId": "edabd2a99c53dde9ef4c5d58a8a4bb9f4116e6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "690315c2_2e1dfa8d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2019-09-25T17:13:59Z",
+      "side": 1,
+      "message": "strcmp could avoid the creating the two strings",
+      "range": {
+        "startLine": 159,
+        "startChar": 15,
+        "endLine": 159,
+        "endChar": 52
+      },
+      "revId": "edabd2a99c53dde9ef4c5d58a8a4bb9f4116e6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
