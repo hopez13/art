@@ -22,6 +22,30 @@
       "revId": "4ba700af65f8346a96ba8d1dec051358a09487f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b1ed4f_40e0ae3d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-25T02:31:58Z",
+      "side": 1,
+      "message": "Indeed... fixed in: https://android-review.googlesource.com/c/platform/art/+/1128176",
+      "parentUuid": "6e93e094_8f434a7a",
+      "range": {
+        "startLine": 751,
+        "startChar": 47,
+        "endLine": 751,
+        "endChar": 58
+      },
+      "revId": "4ba700af65f8346a96ba8d1dec051358a09487f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
