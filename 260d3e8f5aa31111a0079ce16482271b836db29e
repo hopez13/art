@@ -22,6 +22,30 @@
       "revId": "260d3e8f5aa31111a0079ce16482271b836db29e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12dc60a9_b7afb43d",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-26T18:26:27Z",
+      "side": 1,
+      "message": "In terms of bitness, not really. From an arch perspective there are a couple but we\u0027ll only cover 32/64 bit aspects.",
+      "parentUuid": "fcb79404_a5b9d9e9",
+      "range": {
+        "startLine": 209,
+        "startChar": 5,
+        "endLine": 209,
+        "endChar": 27
+      },
+      "revId": "260d3e8f5aa31111a0079ce16482271b836db29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
