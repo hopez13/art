@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e5530e1_20392dc3",
+        "filename": "test/670-bitstring-type-check/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-27T15:01:28Z",
+      "side": 1,
+      "message": "Hmm, maybe this should factor in an already set value. Couldn\u0027t find anywhere else where it\u0027s used, though.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "6077bf8be645b069246f41bbc7ea6f62af6c8dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
