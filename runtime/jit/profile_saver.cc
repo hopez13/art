@@ -722,7 +722,7 @@ void ProfileSaver::Start(const ProfileSaverOptions& options,
     std::set<std::string> code_paths_keys;
     for (const std::string& location : code_paths) {
       // Use the profile base key for checking file uniqueness (as it is constructed solely based
-      // on the location and ignores other metadata like architecture).
+      // on the location and ignores other metadata like origin package).
       code_paths_keys.insert(ProfileCompilationInfo::GetProfileDexFileBaseKey(location));
     }
     for (const DexFile* dex_file : runtime->GetClassLinker()->GetBootClassPath()) {
@@ -966,4 +966,15 @@ void ProfileSaver::ResolveTrackedLocations() {
   }
 }
 
+ProfileCompilationInfo::ProfileSampleAnnotation ProfileSaver::GetProfileSampleAnnotation() {
+  // Ideally, this would be cached in the class, but the profile is initialized
+  // before the process package name is set.
+  std::string package_name = Runtime::Current()->GetProcessPackageName();
+  if (package_name.empty()) {
+    package_name = "unknown";
+  }
+  return options_.GetProfileBootClassPath()
+      ? ProfileCompilationInfo::ProfileSampleAnnotation(package_name)
+      : ProfileCompilationInfo::ProfileSampleAnnotation::kNone;
+}
 }   // namespace art
