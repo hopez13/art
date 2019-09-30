@@ -16,6 +16,24 @@
       "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4c64d5a_0e689919",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T11:30:37Z",
+      "side": 1,
+      "message": "The bionic code handles the case the file exists but not the property. I wouldn\u0027t want to add too complicated logic here. This isn\u0027t proper infrastructure until bionic becomes updatable.",
+      "parentUuid": "7f9b83f0_31edbf3f",
+      "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
