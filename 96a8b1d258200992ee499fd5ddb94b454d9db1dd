@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e1fe4a7_8fd989a0",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-09-30T16:15:48Z",
+      "side": 1,
+      "message": "maybe call out specifically \"system\" apps versus \"ordinary\"?",
+      "range": {
+        "startLine": 285,
+        "startChar": 60,
+        "endLine": 285,
+        "endChar": 79
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fb1824a_df56305b",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-09-30T16:15:48Z",
+      "side": 1,
+      "message": "This is unclear to me.  Something more like:\n\nNote that if the profile was built with annotations, the same dex file may be\nrepresented multiple times in the profile (due to different annotation associated with it).\nIf so, and if no annotation is passed to this method, then only the first dex file is searched.",
+      "range": {
+        "startLine": 423,
+        "startChar": 5,
+        "endLine": 426,
+        "endChar": 36
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43f7d1c4_68c1a548",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-09-30T16:15:48Z",
+      "side": 1,
+      "message": "Technical question: should we merge rather than pick the first?",
+      "range": {
+        "startLine": 428,
+        "startChar": 5,
+        "endLine": 430,
+        "endChar": 63
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64fc4b98_69a169ce",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-09-30T16:15:48Z",
+      "side": 1,
+      "message": "original?",
+      "range": {
+        "startLine": 481,
+        "startChar": 82,
+        "endLine": 481,
+        "endChar": 88
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
