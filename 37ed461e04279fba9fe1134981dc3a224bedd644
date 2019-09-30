@@ -52,6 +52,24 @@
       "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a49d9cff_6e2b8005",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-30T12:37:16Z",
+      "side": 1,
+      "message": "Thanks Roland for clarifying that. And these devices may run other LUCI tests that we don\u0027t know anything about, right? Sure, it seems pretty unlikely anything else would be bothered by this state being carried over, but we\u0027re still making assumptions on that, aren\u0027t we?",
+      "parentUuid": "e2428f21_1c6c0633",
+      "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
