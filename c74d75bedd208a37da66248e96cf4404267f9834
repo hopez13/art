@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5eac1753_c68037c9",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T09:13:56Z",
+      "side": 1,
+      "message": "nit: mention which class (ProfileCompilationInfo?)",
+      "range": {
+        "startLine": 976,
+        "startChar": 35,
+        "endLine": 976,
+        "endChar": 47
+      },
+      "revId": "c74d75bedd208a37da66248e96cf4404267f9834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5911756f_29d5efe4",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T09:13:56Z",
+      "side": 1,
+      "message": "Add a comment why you only pass this for boot classpath.",
+      "range": {
+        "startLine": 982,
+        "startChar": 9,
+        "endLine": 983,
+        "endChar": 69
+      },
+      "revId": "c74d75bedd208a37da66248e96cf4404267f9834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
