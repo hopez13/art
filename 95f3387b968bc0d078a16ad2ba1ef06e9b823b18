@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e06c647_59836c88",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-30T19:58:56Z",
+      "side": 1,
+      "message": "I forgot to remove these imports (they were used in an earlier version of the test); I\u0027ll remove them in next patch set.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
