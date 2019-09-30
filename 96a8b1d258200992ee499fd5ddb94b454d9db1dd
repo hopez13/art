@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f96b581_1bd325d6",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2019-09-30T18:10:08Z",
+      "side": 1,
+      "message": "nit: align?",
+      "range": {
+        "startLine": 679,
+        "startChar": 8,
+        "endLine": 679,
+        "endChar": 10
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6348a7ff_aac16c04",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2019-09-30T18:10:08Z",
+      "side": 1,
+      "message": "Remove dead code?",
+      "range": {
+        "startLine": 688,
+        "startChar": 1,
+        "endLine": 688,
+        "endChar": 17
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e1fe4a7_8fd989a0",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 5
@@ -87,6 +133,29 @@
         "startChar": 82,
         "endLine": 481,
         "endChar": 88
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa3e849_188bcd2e",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2019-09-30T18:10:08Z",
+      "side": 1,
+      "message": "nit: seems a typo. Also why is it called ReAttathAnnotationInfo, while the comment show only attaching?",
+      "range": {
+        "startLine": 897,
+        "startChar": 21,
+        "endLine": 897,
+        "endChar": 42
       },
       "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
