@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f9b83f0_31edbf3f",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-09-30T11:27:54Z",
+      "side": 1,
+      "message": "Hadn\u0027t realised we could do stuff like this on the buildbot devices. Are they flashed or reset in some other way between test runs? If not, we better reset the setting or make it symmetric, i.e. set it to true when the file exists.",
+      "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
