@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10b1bd96_099b6bdf",
+        "filename": "test/096-array-copy-concurrent-gc/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-30T11:29:16Z",
+      "side": 1,
+      "message": "I think we only support integer timeout multiplier values at the moment (see the discussion in https://android-review.googlesource.com/c/platform/art/+/1121005/1/test/etc/run-test-jar#465).",
+      "range": {
+        "startLine": 18,
+        "startChar": 31,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "7c7af83cdd05c3fc15aef6f1be0fedbebb0080f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
