@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e76e2b84_6a1ecbd1",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T15:44:58Z",
+      "side": 1,
+      "message": "Right zygote_boot_map_, though it worked with boot_map as we expect those to be the same.",
+      "parentUuid": "628f2955_514b9bf0",
+      "range": {
+        "startLine": 1487,
+        "startChar": 36,
+        "endLine": 1487,
+        "endChar": 44
+      },
+      "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cefe4db3_bdc951e6",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-30T15:31:25Z",
       "side": 1,
       "message": "Is there any manual test for the CL description of this?",
+      "range": {
+        "startLine": 1488,
+        "startChar": 10,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd11c366_814c9802",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T15:44:58Z",
+      "side": 1,
+      "message": "Yeah,  I ran imgdiag after the boot image methods get mremap.",
+      "parentUuid": "cefe4db3_bdc951e6",
       "range": {
         "startLine": 1488,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e8918d9c_c5db916c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T15:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83ff0c96_b9a07995",
+      "range": {
+        "startLine": 700,
+        "startChar": 0,
+        "endLine": 700,
+        "endChar": 92
+      },
+      "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19111031_aa26a920",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8cbfa8a7_77903237",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T15:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19111031_aa26a920",
+      "range": {
+        "startLine": 436,
+        "startChar": 46,
+        "endLine": 436,
+        "endChar": 48
+      },
+      "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab9c0bab_bba86136",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f05afd_7211e476",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-09-30T15:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab9c0bab_bba86136",
+      "range": {
+        "startLine": 437,
+        "startChar": 2,
+        "endLine": 438,
+        "endChar": 44
+      },
+      "revId": "e0f39fd4ea1ecf67f8bb9436d03ee0a72ed53714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
