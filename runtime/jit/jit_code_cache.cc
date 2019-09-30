@@ -1829,6 +1829,8 @@ void ZygoteMap::Initialize(uint32_t number_of_methods) {
     region_->FillData(data, capacity, Entry { nullptr, nullptr });
     map_ = ArrayRef(data, capacity);
   }
+  done_ = reinterpret_cast<const bool*>(region_->AllocateData(sizeof(bool)));
+  region_->WriteData(done_, false);
 }
 
 const void* ZygoteMap::GetCodeFor(ArtMethod* method, uintptr_t pc) const {

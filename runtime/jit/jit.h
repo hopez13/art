@@ -374,6 +374,17 @@ class Jit {
   bool CanAssumeInitialized(ObjPtr<mirror::Class> cls, bool is_for_shared_region) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  const MemMap& GetZygoteMappingMethods() const {
+    return zygote_mapping_methods_;
+  }
+
+  const MemMap& GetChildMappingMethods() const {
+    return child_mapping_methods_;
+  }
+
+  // Map boot image methods after all compilation in zygote has been done.
+  void MapBootImageMethods();
+
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
 
@@ -420,6 +431,9 @@ class Jit {
   CumulativeLogger cumulative_timings_;
   Histogram<uint64_t> memory_use_ GUARDED_BY(lock_);
   Mutex lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
+
+  MemMap zygote_mapping_methods_;
+  MemMap child_mapping_methods_;
 
   DISALLOW_COPY_AND_ASSIGN(Jit);
 };
