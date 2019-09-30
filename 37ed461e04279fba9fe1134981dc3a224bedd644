@@ -34,6 +34,24 @@
       "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2428f21_1c6c0633",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-09-30T11:32:08Z",
+      "side": 1,
+      "message": "They devices are not flashed, nor factory-reset, nor rebooted, between two runs. They are also almost never updated, and if so, they would be rebooted before this script runs, so I think this should not be an issue.",
+      "parentUuid": "7f9b83f0_31edbf3f",
+      "revId": "37ed461e04279fba9fe1134981dc3a224bedd644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
