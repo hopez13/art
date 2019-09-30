@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8292e921_1010652d",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f96b581_1bd325d6",
+      "range": {
+        "startLine": 679,
+        "startChar": 8,
+        "endLine": 679,
+        "endChar": 10
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6348a7ff_aac16c04",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a203385a_3dcf8c6a",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "It\u0027t not dead.  The first `if` may not return if the info_ array is empty.",
+      "parentUuid": "6348a7ff_aac16c04",
+      "range": {
+        "startLine": 688,
+        "startChar": 1,
+        "endLine": 688,
+        "endChar": 17
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9c42271a_1804f76c",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e1fe4a7_8fd989a0",
+      "range": {
+        "startLine": 285,
+        "startChar": 60,
+        "endLine": 285,
+        "endChar": 79
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fb1824a_df56305b",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99b8c2fd_56e7dbf1",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fb1824a_df56305b",
+      "range": {
+        "startLine": 423,
+        "startChar": 5,
+        "endLine": 426,
+        "endChar": 36
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c94b0d6c_bd1e08fc",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "I consider it but the functionality won\u0027t be used anywhere today (we only do annotations for the boot image). So I preferred to add this comment; the merging across dex files gets more complex because of the inline caches.",
+      "parentUuid": "43f7d1c4_68c1a548",
+      "range": {
+        "startLine": 428,
+        "startChar": 5,
+        "endLine": 430,
+        "endChar": 63
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64fc4b98_69a169ce",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2019-09-30T16:15:48Z",
       "side": 1,
       "message": "original?",
+      "range": {
+        "startLine": 481,
+        "startChar": 82,
+        "endLine": 481,
+        "endChar": 88
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "632b3f35_376e6666",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "Chatted offline. Origin is probably better here (I want to capture the source of the data and no the first one).",
+      "parentUuid": "64fc4b98_69a169ce",
       "range": {
         "startLine": 481,
         "startChar": 82,
@@ -160,6 +304,30 @@
       "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25589583_60294d96",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-09-30T18:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa3e849_188bcd2e",
+      "range": {
+        "startLine": 897,
+        "startChar": 21,
+        "endLine": 897,
+        "endChar": 42
+      },
+      "revId": "96a8b1d258200992ee499fd5ddb94b454d9db1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
