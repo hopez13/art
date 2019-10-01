@@ -204,6 +204,7 @@ void WaitForDataSource(art::Thread* self) {
 
   perfetto::DataSourceDescriptor dsd;
   dsd.set_name("android.java_hprof");
+  JavaHprofDataSource::SetBufferExhaustedPolicy(perfetto::BufferExhaustedPolicy::kStall);
   JavaHprofDataSource::Register(dsd);
 
   LOG(INFO) << "waiting for data source";
