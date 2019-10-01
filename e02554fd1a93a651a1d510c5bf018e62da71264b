@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0081a127_9d47e82b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-01T13:58:33Z",
+      "side": 1,
+      "message": "I think Orion meant that `TIME_OUT_EXTRA` is set to 0 line 68 (https://android-review.googlesource.com/c/platform/art/+/1131167/1/test/etc/run-test-jar#68).\n\nBut the default timeout value is actually set elsewhere, line 445 (https://android-review.googlesource.com/c/platform/art/+/1131167/1/test/etc/run-test-jar#455):\n\n  if [ -z \"$TIME_OUT_VALUE\" ] ; then\n    # 10 minutes is the default.\n    TIME_OUT_VALUE\u003d600\n    # …",
+      "parentUuid": "b89b4c7a_9eda30c9",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "e02554fd1a93a651a1d510c5bf018e62da71264b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f010c95_d92f2367",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
