@@ -22,6 +22,30 @@
       "revId": "b6f97cf281e2105bf0b6181fe267592e13542b28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9701c9c_5b92c613",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T14:24:12Z",
+      "side": 1,
+      "message": "As discussed offline, I\u0027ll deal with this later. Submit as is to fix tests.",
+      "parentUuid": "0c94991b_c5b26f46",
+      "range": {
+        "startLine": 888,
+        "startChar": 65,
+        "endLine": 888,
+        "endChar": 80
+      },
+      "revId": "b6f97cf281e2105bf0b6181fe267592e13542b28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
