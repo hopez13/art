@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c94991b_c5b26f46",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T10:33:45Z",
+      "side": 1,
+      "message": "This is slower than IsVisiblyInitialized(). This is OK for compilation (AOT/JIT) but I\u0027d rather use IsVisiblyInitialized() in artQuickGenericJniTrampoline(), the EnsureInitialized() call will eventually make the class visibly initialized.",
+      "range": {
+        "startLine": 888,
+        "startChar": 65,
+        "endLine": 888,
+        "endChar": 80
+      },
+      "revId": "b6f97cf281e2105bf0b6181fe267592e13542b28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
