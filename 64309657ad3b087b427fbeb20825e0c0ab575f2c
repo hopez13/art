@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bcc9e11_c8814b0c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-01T08:37:07Z",
+      "side": 1,
+      "message": "... and fixing this would require unnecessary complex synchronization.",
+      "range": {
+        "startLine": 977,
+        "startChar": 80,
+        "endLine": 978,
+        "endChar": 42
+      },
+      "revId": "64309657ad3b087b427fbeb20825e0c0ab575f2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
