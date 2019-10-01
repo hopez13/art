@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5fde92c_55b5689c",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-01T19:47:02Z",
+      "side": 0,
+      "message": "We shouldn\u0027t have this directory in the ART APEX, and if it\u0027s there we get an error in the check on the preceding line, so this line can\u0027t do anything. It should have been removed with the libraries themselves in https://r.android.com/1012047, but I missed it there.",
+      "parentUuid": "6878fa4b_09107955",
+      "range": {
+        "startLine": 929,
+        "startChar": 4,
+        "endLine": 929,
+        "endChar": 58
+      },
+      "revId": "fd64e56b9f980423b65dd9ce76a16338a7240104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19bfa65_64068df0",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "fd64e56b9f980423b65dd9ce76a16338a7240104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a279f810_5ef6fa02",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-01T19:47:02Z",
+      "side": 0,
+      "message": "Yeah, see above.",
+      "parentUuid": "c19bfa65_64068df0",
+      "range": {
+        "startLine": 931,
+        "startChar": 4,
+        "endLine": 931,
+        "endChar": 60
+      },
+      "revId": "fd64e56b9f980423b65dd9ce76a16338a7240104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
