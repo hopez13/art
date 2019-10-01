@@ -22,6 +22,53 @@
       "revId": "e02554fd1a93a651a1d510c5bf018e62da71264b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6580340_e440d97b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-01T12:06:38Z",
+      "side": 1,
+      "message": "It adds 20 to the default 10, so the total timeout is 30.",
+      "parentUuid": "d1c5acac_a744e0eb",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "e02554fd1a93a651a1d510c5bf018e62da71264b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f010c95_d92f2367",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-01T12:06:38Z",
+      "side": 1,
+      "message": "Another option is to raise the timeout for this test, but it\u0027s fast without method tracing, and I\u0027d rather avoid complicating the logic with checking for both. Open for suggestions though.",
+      "range": {
+        "startLine": 186,
+        "startChar": 14,
+        "endLine": 186,
+        "endChar": 30
+      },
+      "revId": "e02554fd1a93a651a1d510c5bf018e62da71264b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
