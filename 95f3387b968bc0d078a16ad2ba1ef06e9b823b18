@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6e601fdc_db1a3598",
+        "filename": "test/1004-checker-volatile-ref-load/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T09:09:56Z",
+      "side": 1,
+      "message": "We usually write \"regression test\".",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e06c647_59836c88",
         "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
         "patchSetId": 3
@@ -18,6 +41,52 @@
         "startChar": 0,
         "endLine": 18,
         "endChar": 22
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bab6cce0_d7281460",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T09:09:56Z",
+      "side": 1,
+      "message": "Maybe \"volatile field of `foo`\"? (Or \"volatile field through reference `foo`\".)",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 36
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "433487bb_06200d8a",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T09:09:56Z",
+      "side": 1,
+      "message": "Also Brooks, or have we completely removed it from source code?",
+      "range": {
+        "startLine": 1260,
+        "startChar": 47,
+        "endLine": 1260,
+        "endChar": 58
       },
       "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
