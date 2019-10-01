@@ -46,6 +46,30 @@
       "revId": "b6f97cf281e2105bf0b6181fe267592e13542b28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d91a9e3_60247581",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-01T14:25:11Z",
+      "side": 1,
+      "message": "Good points. As discussed, let\u0027s submit this to fix the red bots, and I\u0027ll let you clean this up :)",
+      "parentUuid": "0c94991b_c5b26f46",
+      "range": {
+        "startLine": 888,
+        "startChar": 65,
+        "endLine": 888,
+        "endChar": 80
+      },
+      "revId": "b6f97cf281e2105bf0b6181fe267592e13542b28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
