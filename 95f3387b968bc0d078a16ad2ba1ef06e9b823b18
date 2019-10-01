@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "26b59242_092d53ef",
+        "filename": "test/1004-checker-volatile-ref-load/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-01T10:14:35Z",
+      "side": 1,
+      "message": "Yeah, I was trying to use the right term here (which I think it is), but everybody seems to be talking about regression tests. Changed for the sake of uniformity in PS4.",
+      "parentUuid": "6e601fdc_db1a3598",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e06c647_59836c88",
         "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c003cec5_8eab928c",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-01T10:14:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e06c647_59836c88",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2212e487_10c9034a",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-01T10:14:35Z",
+      "side": 1,
+      "message": "Right; the field currently named `bar` used to be called `foo`, but I forgot to update the comment; fixed in PS4.",
+      "parentUuid": "bab6cce0_d7281460",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 36
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "433487bb_06200d8a",
         "filename": "test/knownfailures.json",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08bfbbb0_03ed4b65",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-01T10:14:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure Brooks read barriers are working (I\u0027m not even sure whether they were fully implemented), and we don\u0027t exercise them in our continuous integration, so I think this is superfluous.",
+      "parentUuid": "433487bb_06200d8a",
+      "range": {
+        "startLine": 1260,
+        "startChar": 47,
+        "endLine": 1260,
+        "endChar": 58
+      },
+      "revId": "95f3387b968bc0d078a16ad2ba1ef06e9b823b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
