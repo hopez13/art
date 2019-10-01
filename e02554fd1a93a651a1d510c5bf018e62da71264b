@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "71404fd5_491c0bb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-01T14:07:18Z",
+      "side": 1,
+      "message": "Ah, yes. Thanks for clarifying.",
+      "parentUuid": "0081a127_9d47e82b",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "e02554fd1a93a651a1d510c5bf018e62da71264b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f010c95_d92f2367",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
