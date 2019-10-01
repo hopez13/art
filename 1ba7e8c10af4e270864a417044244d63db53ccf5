@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f79d85b_dc637acf",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-01T08:49:28Z",
+      "side": 1,
+      "message": "SETUP_FP_CALLEE_SAVE_FRAME says 4*8.",
+      "range": {
+        "startLine": 1430,
+        "startChar": 39,
+        "endLine": 1430,
+        "endChar": 42
+      },
+      "revId": "1ba7e8c10af4e270864a417044244d63db53ccf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
