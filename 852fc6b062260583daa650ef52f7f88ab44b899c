@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16fce05a_713c66e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-02T20:42:24Z",
+      "side": 1,
+      "message": "So it should be a runtime_libs dependency of libartd-compiler then? (Or strictly speaking in libart-compiler-defaults, but then we\u0027d get it in the release APEX too.)\n\nIf so, I don\u0027t think you necessarily have to fix it now, because I don\u0027t know if the APEX dependency recursion works for it or not, but please add a TODO(b/124476339) for them in Android.bp like in the other cases that should be cleaned up similarly (the TODO comments talk about using \"required\" instead of \"runtime_libs\", which is dated, but it\u0027s still the same issue).",
+      "range": {
+        "startLine": 11,
+        "startChar": 53,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "852fc6b062260583daa650ef52f7f88ab44b899c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e6b718_a35b4053",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-02T20:42:24Z",
+      "side": 1,
+      "message": "I\u0027d just lump them in into the \"internal libraries\" list above. Why they\u0027re in the APEX is described in Android.bp - in here I prefer brevity.",
+      "revId": "852fc6b062260583daa650ef52f7f88ab44b899c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
