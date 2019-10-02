@@ -603,6 +603,10 @@ class DebugChecker:
     self._checker.check_native_library('libopenjdkjvmtid')
     self._checker.check_native_library('libprofiled')
 
+    # Check libraries needed to execute ART run-tests.
+    self._checker.check_native_library('libart-disassembler')
+    self._checker.check_native_library('libartd-disassembler')
+
     # Check internal libraries for Managed Core Library.
     self._checker.check_native_library('libopenjdkd')
 
@@ -621,7 +625,6 @@ class DebugTargetChecker:
 
     # Check ART internal libraries.
     self._checker.check_native_library('libdexfiled_external')
-    self._checker.check_prefer64_library('libartd-disassembler')
     self._checker.check_native_library('libperfetto_hprofd')
 
     # Check internal native library dependencies.
@@ -898,7 +901,6 @@ class TestingTargetChecker:
 
     # Check ART test (internal) libraries.
     self._checker.check_native_library('libart-gtest')
-    self._checker.check_native_library('libartd-disassembler')
     self._checker.check_native_library('libartd-simulator-container')
 
     # Check ART test tools.
