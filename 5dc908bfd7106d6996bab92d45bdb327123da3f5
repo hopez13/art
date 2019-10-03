@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af1136a1_3ec43ec6",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "To make this easier on the reader, suggest making this an if (\u003c\u003d) { continue; }.",
+      "range": {
+        "startLine": 849,
+        "startChar": 4,
+        "endLine": 849,
+        "endChar": 32
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ca30312_c46aef18",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "Consider early return here as it\u0027s slightly easier to read in complex code.",
+      "range": {
+        "startLine": 859,
+        "startChar": 0,
+        "endLine": 861,
+        "endChar": 38
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "347c3f57_25e896de",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "Hard to reason about whether the destination potentially overlaps with methods in the aligned region. Possibly just a reader shortcoming.",
+      "range": {
+        "startLine": 867,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 61
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "676ac5f0_6260a7f7",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "\u003e\u003d",
+      "range": {
+        "startLine": 878,
+        "startChar": 29,
+        "endLine": 878,
+        "endChar": 30
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61a54800_07d9fc7c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "The common case?",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 11
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4971be6_62f78f00",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-03T12:55:33Z",
+      "side": 1,
+      "message": "from the zygote to child processes.",
+      "range": {
+        "startLine": 924,
+        "startChar": 62,
+        "endLine": 925,
+        "endChar": 38
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
