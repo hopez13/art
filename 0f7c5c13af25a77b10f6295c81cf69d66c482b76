@@ -70,6 +70,30 @@
       "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "137a289e_5cc884f9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-03T14:31:37Z",
+      "side": 1,
+      "message": "We could but it feels a bit like an overkill.  We would also need to move MethodDebugInfo to runtime.\n\nAlternatively, I was also thinking if we could move the code allocation call out of CommitCode, so that we know the code address here.",
+      "parentUuid": "16aba196_eac4e816",
+      "range": {
+        "startLine": 1335,
+        "startChar": 8,
+        "endLine": 1335,
+        "endChar": 27
+      },
+      "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
