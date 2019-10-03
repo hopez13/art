@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b436ce2f_dc2c50c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Good point - added that to the commit message.\n\nre: test, see line 13 below: PostLaunchMemoryUsage.",
+      "parentUuid": "03590318_1186cd9b",
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af1136a1_3ec43ec6",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82e493d6_f476e679",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af1136a1_3ec43ec6",
+      "range": {
+        "startLine": 849,
+        "startChar": 4,
+        "endLine": 849,
+        "endChar": 32
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e3e27839_29a9b2a4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca30312_c46aef18",
+      "range": {
+        "startLine": 859,
+        "startChar": 0,
+        "endLine": 861,
+        "endChar": 38
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "347c3f57_25e896de",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2019-10-03T12:55:33Z",
       "side": 1,
       "message": "Hard to reason about whether the destination potentially overlaps with methods in the aligned region. Possibly just a reader shortcoming.",
+      "range": {
+        "startLine": 867,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 61
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eaf7d51_5ba88b58",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Added some ascii art to help :)",
+      "parentUuid": "347c3f57_25e896de",
       "range": {
         "startLine": 867,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "b551c347_12a1c8fe",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Good catch, done.",
+      "parentUuid": "676ac5f0_6260a7f7",
+      "range": {
+        "startLine": 878,
+        "startChar": 29,
+        "endLine": 878,
+        "endChar": 30
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61a54800_07d9fc7c",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2019-10-03T12:55:33Z",
       "side": 1,
       "message": "The common case?",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 11
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d4f9131_8c92a250",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Yes, moved to first check.",
+      "parentUuid": "61a54800_07d9fc7c",
       "range": {
         "startLine": 879,
         "startChar": 0,
@@ -154,6 +292,30 @@
       "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3236ccb_07929ea8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T16:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4971be6_62f78f00",
+      "range": {
+        "startLine": 924,
+        "startChar": 62,
+        "endLine": 925,
+        "endChar": 38
+      },
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
