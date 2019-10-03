@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "03590318_1186cd9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-03T13:53:01Z",
+      "side": 1,
+      "message": "Maybe we should mention that this change relies on the undefined behaviour in the kernel, and explain what behaviour we expect in practice? (If the change is scary, so should be the commit message.)\n\nAlso, maybe it\u0027s worth saying that this is a performance optimization, how it affects dirty pages, and what was the test that confirmed the performance gain?",
+      "revId": "5dc908bfd7106d6996bab92d45bdb327123da3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af1136a1_3ec43ec6",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
