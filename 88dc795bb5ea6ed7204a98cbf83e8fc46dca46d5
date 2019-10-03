@@ -22,6 +22,30 @@
       "revId": "88dc795bb5ea6ed7204a98cbf83e8fc46dca46d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "564a1984_40810379",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-03T11:46:41Z",
+      "side": 1,
+      "message": "On second though, I am not sure if the gdb tests can timeout or not.\nEither way, there is no harm in applying the change there as well.",
+      "parentUuid": "d55575e4_a2454147",
+      "range": {
+        "startLine": 574,
+        "startChar": 57,
+        "endLine": 574,
+        "endChar": 74
+      },
+      "revId": "88dc795bb5ea6ed7204a98cbf83e8fc46dca46d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
