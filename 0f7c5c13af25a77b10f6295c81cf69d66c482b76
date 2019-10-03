@@ -46,6 +46,30 @@
       "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16aba196_eac4e816",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-03T14:26:00Z",
+      "side": 1,
+      "message": "We could make this a new API from JIT to compiler.",
+      "parentUuid": "a705e5ea_ce37eed0",
+      "range": {
+        "startLine": 1335,
+        "startChar": 8,
+        "endLine": 1335,
+        "endChar": 27
+      },
+      "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
