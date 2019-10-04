@@ -70,6 +70,30 @@
       "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cbdfd34_e8572945",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-04T22:01:40Z",
+      "side": 1,
+      "message": "Well, keeping the version same and relying on sizeof field was very intentional.\nBut at the same time, I don\u0027t feel strongly about it.   I am happy to change it.",
+      "parentUuid": "241e8f60_3685459d",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 63
+      },
+      "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
