@@ -46,6 +46,30 @@
       "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241e8f60_3685459d",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2019-10-04T18:02:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand why not change the magic, even if it seems backward compatible.\nFrom user\u0027s point of simpleperf, there are below changes:\n1. sizeof_entry in JITDescriptor is changed, and simpleperf checks that. So simpleperf can\u0027t work with new interface without a change.\n2. With seqlock_ field in JITCodeEntryPublic, simpleperf can check if an entry is valid without rechecking the seqlock_ in JITDescriptorPublic. It is an improvement that simpleperf wants to take advantage of.\n3. In application_tail_entry_ and zygote_head_, the symfile_addr is 0 and symfile_size is 0, and they are valid in linked list. Current simpleperf probably can\u0027t deal with it. So we need a change.\n\nSo simpleperf wants to know the difference in interface. And a change in magic field is the most convenient way. I can use sizeof_entry, but I feel that\u0027s not elegant.",
+      "parentUuid": "45228c41_f69e237f",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 63
+      },
+      "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
