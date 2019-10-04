@@ -30,6 +30,7 @@
 
 #include <vector>
 
+#include "jvmti.h"
 #include "ti_extension.h"
 
 #include "art_jvmti.h"
@@ -45,6 +46,7 @@
 #include "ti_monitor.h"
 #include "ti_redefine.h"
 #include "ti_search.h"
+#include "transform.h"
 
 #include "thread-inl.h"
 
@@ -416,7 +418,73 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       return error;
     }
 
-    // StructurallyRedefineClass
+#if 0
+    // StructurallyRetransformClasses
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(Transformer::StructurallyRetransformClasses),
+        "com.android.art.class.structurally_retransform_classes",
+        "Entrypoint for structural class retransformation. Has the same signature as"
+        " RetransformClasses. Currently this only supports adding new static fields to a class"
+        " without any instance fields or methods. Calling this will cause any "
+        " com.android.art.structural_dex_file_load_hook and retransformable ClassFileLoadHook"
+        " events to be executed.",
+        {
+          { "num_classes", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+          { "classes", JVMTI_KIND_IN_BUF, JVMTI_TYPE_JCLASS, false },
+        },
+        {
+          ERR(CLASS_LOADER_UNSUPPORTED),
+          ERR(FAILS_VERIFICATION),
+          ERR(ILLEGAL_ARGUMENT),
+          ERR(INVALID_CLASS),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(NULL_POINTER),
+          ERR(OUT_OF_MEMORY),
+          ERR(UNMODIFIABLE_CLASS),
+          ERR(UNSUPPORTED_REDEFINITION_HIERARCHY_CHANGED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED),
+          ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+        });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+    // StructurallyRedefineClasses
+    error = add_extension(
+        reinterpret_cast<jvmtiExtensionFunction>(Redefiner::StructurallyRedefineClasses),
+        "com.android.art.class.structurally_redefine_classes",
+        "Entrypoint for structural class redefinition. Has the same signature as RedefineClasses."
+        " Currently this only supports adding new static fields to a class without any instance"
+        " fields or methods. After calling this com.android.art.structural_dex_file_load_hook"
+        " events will be triggered, followed by re-transformable ClassFileLoadHook events. After"
+        " this method completes subsequent com.android.art.structural_retransform_class calls will"
+        " use the input to this function as the inital class definition.",
+        {
+          { "num_classes", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+          { "class_definitions", JVMTI_KIND_IN_BUF, JVMTI_TYPE_CVOID, false },
+        },
+        {
+          ERR(CLASS_LOADER_UNSUPPORTED),
+          ERR(FAILS_VERIFICATION),
+          ERR(ILLEGAL_ARGUMENT),
+          ERR(INVALID_CLASS),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(MUST_POSSESS_CAPABILITY),
+          ERR(NULL_POINTER),
+          ERR(OUT_OF_MEMORY),
+          ERR(UNMODIFIABLE_CLASS),
+          ERR(UNSUPPORTED_REDEFINITION_HIERARCHY_CHANGED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+          ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED),
+          ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+        });
+    if (error != ERR(NONE)) {
+      return error;
+    }
+
+#endif
+    // StructurallyRedefineClassDirect
     error = add_extension(
         reinterpret_cast<jvmtiExtensionFunction>(Redefiner::StructurallyRedefineClassDirect),
         "com.android.art.UNSAFE.class.structurally_redefine_class_direct",
