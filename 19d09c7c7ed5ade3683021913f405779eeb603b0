@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "8f7cad60_1ee2ec5d",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-10-04T09:27:38Z",
+      "side": 1,
+      "message": "I see. I\u0027m fine with this for now, I guess - perhaps ngeoffray@ has a better suggestion.",
+      "parentUuid": "a88c589e_025e58aa",
+      "range": {
+        "startLine": 115,
+        "startChar": 54,
+        "endLine": 115,
+        "endChar": 57
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c662fc8f_a3278255",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 2
