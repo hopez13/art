@@ -1761,14 +1761,14 @@ void InstructionCodeGeneratorARM64::GenerateClassInitializationCheck(SlowPathCod
   UseScratchRegisterScope temps(GetVIXLAssembler());
   Register temp = temps.AcquireW();
   constexpr size_t status_lsb_position = SubtypeCheckBits::BitStructSizeOf();
-  constexpr uint32_t visibly_initialized = enum_cast<uint32_t>(ClassStatus::kVisiblyInitialized);
-  static_assert(visibly_initialized == MaxInt<uint32_t>(32u - status_lsb_position),
-                "kVisiblyInitialized must have all bits set");
+  const size_t status_byte_offset =
+      mirror::Class::StatusOffset().SizeValue() + (status_lsb_position / kBitsPerByte);
+  constexpr uint32_t shifted_visibly_initialized_value =
+      enum_cast<uint32_t>(ClassStatus::kVisiblyInitialized) << (status_lsb_position % kBitsPerByte);
 
-  const size_t status_offset = mirror::Class::StatusOffset().SizeValue();
-  __ Ldr(temp, HeapOperand(class_reg, status_offset));
-  __ Mvn(temp, Operand(temp, ASR, status_lsb_position));  // Were all the bits of the status set?
-  __ Cbnz(temp, slow_path->GetEntryLabel());              // If not, go to slow path.
+  __ Ldrb(temp, HeapOperand(class_reg, status_byte_offset));
+  __ Cmp(temp, shifted_visibly_initialized_value);
+  __ B(lo, slow_path->GetEntryLabel());
   __ Bind(slow_path->GetExitLabel());
 }
 
