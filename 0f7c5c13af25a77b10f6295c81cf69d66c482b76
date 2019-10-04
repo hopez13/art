@@ -118,6 +118,30 @@
       "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f208d59a_22660a62",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-04T13:44:49Z",
+      "side": 1,
+      "message": "I believe the reserve might be the best way to go forward, but it is also non-trivial.\n\nCan I do it as followup CL?",
+      "parentUuid": "7b3b077a_9b3cc3dc",
+      "range": {
+        "startLine": 1335,
+        "startChar": 8,
+        "endLine": 1335,
+        "endChar": 27
+      },
+      "revId": "0f7c5c13af25a77b10f6295c81cf69d66c482b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
