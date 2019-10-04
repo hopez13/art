@@ -46,6 +46,30 @@
       "revId": "5a0b6726562948421fbbeb38d20ffd66ef688ff8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72b4fb95_a7fad60f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3374,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-04T17:00:21Z",
+      "side": 1,
+      "message": "The invoke will take different paths to the same end result. That makes it more difficult to reason about (and invites future bugs when a developer considers only one of the paths) and can give misleading results when looking at performance difference with and without app image.",
+      "parentUuid": "cb2ff54e_ac3bb0fc",
+      "range": {
+        "startLine": 3374,
+        "startChar": 4,
+        "endLine": 3374,
+        "endChar": 11
+      },
+      "revId": "5a0b6726562948421fbbeb38d20ffd66ef688ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
