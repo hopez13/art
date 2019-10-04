@@ -22,6 +22,30 @@
       "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45228c41_f69e237f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-04T12:29:56Z",
+      "side": 1,
+      "message": "The change is backwards compatible though (since only new field was added at the end).\nSo I intentionally didn\u0027t want to change the magic until there is breaking change.\nYou can ignore the new field in simpleperf for your purposes.\nOr if you do care, you can check the sizeof_entry.",
+      "parentUuid": "a6644b8c_783db2ec",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 63
+      },
+      "revId": "8b276373165915e3b030eef0e177bdb3c20617f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
