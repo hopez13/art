@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8bf391a_92dae68c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3374,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-04T16:37:17Z",
+      "side": 1,
+      "message": "The change from \"if\" to \"if else\" makes this out-of-sync with LinkCode() function in class_linker.cc which still uses the resolution stub for static native non-constructor without compiled code.",
+      "range": {
+        "startLine": 3374,
+        "startChar": 4,
+        "endLine": 3374,
+        "endChar": 11
+      },
+      "revId": "5a0b6726562948421fbbeb38d20ffd66ef688ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
