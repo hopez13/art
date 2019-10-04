@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "1dbb80e9_60a16c42",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-04T10:01:32Z",
+      "side": 1,
+      "message": "I agree this reads odd. Values should be from 0 to kValueCount-1, so a size of kValueCount + 1 should do?",
+      "parentUuid": "8f7cad60_1ee2ec5d",
+      "range": {
+        "startLine": 115,
+        "startChar": 54,
+        "endLine": 115,
+        "endChar": 57
+      },
+      "revId": "19d09c7c7ed5ade3683021913f405779eeb603b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c662fc8f_a3278255",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 2
