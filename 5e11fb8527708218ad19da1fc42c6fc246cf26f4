@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9ee12f0_62debe17",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1565058
+      },
+      "writtenOn": "2019-10-05T01:46:13Z",
+      "side": 1,
+      "message": "In this block, how do you stop owner from dying? Previously the argument was that the owner would be stuck in unlock, but now between 436 and 440 it\u0027s possible owner terminates?\n\nI think you need to grab the thread_list lock here. In general systrace isn\u0027t enabled, so at least in practice that degradation shouldn\u0027t matter.",
+      "range": {
+        "startLine": 436,
+        "startChar": 4,
+        "endLine": 457,
+        "endChar": 5
+      },
+      "revId": "5e11fb8527708218ad19da1fc42c6fc246cf26f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
