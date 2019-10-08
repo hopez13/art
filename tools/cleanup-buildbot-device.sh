@@ -17,6 +17,11 @@
 green='\033[0;32m'
 nc='\033[0m'
 
+# Reboot device to ensure it is in a clean state.
+echo "Rebooting device"
+adb reboot
+adb wait-for-device
+
 # Setup as root, as device cleanup requires it.
 adb root
 adb wait-for-device
