@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "f2199500_9719eee3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-08T11:50:33Z",
+      "side": 1,
+      "message": "This test uses dalvikvm and fails without this patch.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "320ab7c6991afb2c65e002c6d8a1aca50d193b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95e68939_c8654fc2",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
