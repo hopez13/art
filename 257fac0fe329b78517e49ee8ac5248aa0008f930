@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01e56a0a_25b08f38",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-08T09:51:15Z",
+      "side": 1,
+      "message": "We could also be more strict in this script and add:\n\n  set -e\n\nat the top.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 34
+      },
+      "revId": "257fac0fe329b78517e49ee8ac5248aa0008f930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
