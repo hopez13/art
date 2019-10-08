@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "111be24f_8e1ce4a4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "Is the memcpy+mremap sequence safe while other threads may run? Aren\u0027t we losing concurrent updates of access flags, data, entrypoint and hotness/imt_index? (Given that memcpy does not guarantee 4-byte atomicity, we\u0027re also theoretically risking tearing of these fields.)\n\nSame for MapBootImageMethods().",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 712,
+        "endChar": 21
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4117c97d_424d6af5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "The child mapping still owns the virtual address space. You should TakeReservedMemory(capacity) and if the remap was successful you should also ResetInForkedProcess() the taken range (the function name is misleading for this use case but we need the same functionality). This will also adjust the start of the mapping, so you need to drop the `offset` variable.\n\nSame for MapBootImageMethods().",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3866e3ba_2618582b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "If all mremap() calls succeeded, I believe you can unmap the GetZygoteMappingMethods() here.",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b63a6cd_14ddc194",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "But are we allowed to drop local changes to access flags, etc.?",
+      "range": {
+        "startLine": 865,
+        "startChar": 8,
+        "endLine": 865,
+        "endChar": 41
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93725015_d94cc590",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "Should we diff the contents of the method piece to avoid clobbering the first and last page?",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f14083_212ede0c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T10:12:46Z",
+      "side": 1,
+      "message": "You should allocate this together with the data above.",
+      "range": {
+        "startLine": 1832,
+        "startChar": 40,
+        "endLine": 1832,
+        "endChar": 75
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
