@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c31af2db_4718134b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "- memcpy+mremap: I\u0027ll confirm with the kernel team\n- Aren\u0027t we losing concurrent updates of access flags, data, entrypoint and hotness/imt_index: that\u0027s correct we\u0027re loosing updates made concurrently by other threads, and children are also loosing those updates. However, I believe this is safe as we just \"returning\" to a state that is still functional.",
+      "parentUuid": "111be24f_8e1ce4a4",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 712,
+        "endChar": 21
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4117c97d_424d6af5",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 8
@@ -36,6 +60,24 @@
       "writtenOn": "2019-10-08T10:12:46Z",
       "side": 1,
       "message": "The child mapping still owns the virtual address space. You should TakeReservedMemory(capacity) and if the remap was successful you should also ResetInForkedProcess() the taken range (the function name is misleading for this use case but we need the same functionality). This will also adjust the start of the mapping, so you need to drop the `offset` variable.\n\nSame for MapBootImageMethods().",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab515d9d_91e59a77",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "Righ, this is the MemMap object of the child mapping now pointing to obsolete data, right? I\u0027ll clean this up in a follow-up CL.",
+      "parentUuid": "4117c97d_424d6af5",
       "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "b08d6169_7e97fe89",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3866e3ba_2618582b",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b63a6cd_14ddc194",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 8
@@ -70,6 +130,30 @@
       "writtenOn": "2019-10-08T10:12:46Z",
       "side": 1,
       "message": "But are we allowed to drop local changes to access flags, etc.?",
+      "range": {
+        "startLine": 865,
+        "startChar": 8,
+        "endLine": 865,
+        "endChar": 41
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70e75965_8137104f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "Yes, those do no affect correctness. They are used for optimizations (eg can use fast interpreter invoke path) or fast path for hidden api checks.",
+      "parentUuid": "3b63a6cd_14ddc194",
       "range": {
         "startLine": 865,
         "startChar": 8,
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "3ad15f5c_b8829d28",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "You mean avoid doing the memcpy if the contents are the same?",
+      "parentUuid": "93725015_d94cc590",
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78f14083_212ede0c",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -110,6 +212,30 @@
       "writtenOn": "2019-10-08T10:12:46Z",
       "side": 1,
       "message": "You should allocate this together with the data above.",
+      "range": {
+        "startLine": 1832,
+        "startChar": 40,
+        "endLine": 1832,
+        "endChar": 75
+      },
+      "revId": "623d4f1ba4f4218c5472e3d9e1e9bf707795878d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bf6b3e3_1799aaf5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-08T10:23:03Z",
+      "side": 1,
+      "message": "Ack - will clean up in follow-up CL.",
+      "parentUuid": "78f14083_212ede0c",
       "range": {
         "startLine": 1832,
         "startChar": 40,
