@@ -108,8 +108,7 @@ done
 
 echo "Executing $make_command"
 # Disable path restrictions to enable luci builds using vpython.
-bash -c "$make_command"
-
+bash -c "$make_command" || exit $?
 
 # Create canonical name -> file name symlink in the symbol directory for the
 # Testing ART APEX.
