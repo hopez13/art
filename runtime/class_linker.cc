@@ -3789,16 +3789,20 @@ static void LinkCode(ClassLinker* class_linker,
     return;
   }
 
-  if (method->IsStatic() && !method->IsConstructor()) {
-    // For static methods excluding the class initializer, install the trampoline.
+  // Note: this mimics the logic in image_writer.cc that installs the resolution
+  // stub only if we have compiled code and the method needs a class initialization
+  // check.
+  if (enter_interpreter) {
+    method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
+  } else if (quick_code == nullptr) {
+    method->SetEntryPointFromQuickCompiledCode(
+        method->IsNative() ? GetQuickGenericJniStub() : GetQuickToInterpreterBridge());
+  } else if (method->NeedsInitializationCheck()) {
+    // If there is compiled code, and the method needs to make sure the class is
+    // initialized before execution, install the resolution stub.
     // It will be replaced by the proper entry point by ClassLinker::FixupStaticTrampolines
     // after initializing class (see ClassLinker::InitializeClass method).
     method->SetEntryPointFromQuickCompiledCode(GetQuickResolutionStub());
-  } else if (quick_code == nullptr && method->IsNative()) {
-    method->SetEntryPointFromQuickCompiledCode(GetQuickGenericJniStub());
-  } else if (enter_interpreter) {
-    // Set entry point from compiled code if there's no code or in interpreter only mode.
-    method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
   }
 
   if (method->IsNative()) {
