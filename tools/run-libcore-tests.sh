@@ -199,7 +199,7 @@ fi
 if $gcstress && $debug && $device_mode; then
   vogar_args="$vogar_args --timeout 1440"
 else
-  vogar_args="$vogar_args --timeout 480"
+  vogar_args="$vogar_args --timeout 900"
 fi
 
 # set the toolchain to use.
