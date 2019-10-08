@@ -16,6 +16,24 @@
       "revId": "32dc8d320da3ef9ce340eaf74af1dba26638ddf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "184dcfb2_8812318e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-08T14:20:38Z",
+      "side": 1,
+      "message": "Done; I didn\u0027t go into details about the performance difference in the comment even though I can guess 2 contributing factors. The first is that ARM CPUs tend to have special forwarding for the common pattern CMP+B.cond while MNV+CBNZ is not likely to get that special treatment. The second may have to do with the MVN being a shited register instruction, limiting the ability to dual-issue.",
+      "parentUuid": "b58e8733_e112ead9",
+      "revId": "32dc8d320da3ef9ce340eaf74af1dba26638ddf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
