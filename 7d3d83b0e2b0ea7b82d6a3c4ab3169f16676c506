@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0af50c6f_9bdb2c0f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "These are actually 3 instructions, even if 2 of them are MOV+NEG which together do not exceed kMaxMacroInstructionSizeInBytes. Maybe we should just rewrite the code as\n\n  vixl32::Register value_reg \u003d RegisterFrom(value);\n  if (kPoisonHeapReferences \u0026\u0026 needs_write_barrier) {\n    // ...\n    value_reg \u003d RegisterFrom(locations-\u003eGetTemp(0));\n    __ Mov(value_reg, RegisterFrom(value));\n    GetAssembler()-\u003ePoisonHeapReference(temp);\n  }\n  // Ensure...\n  EmissionCheckScope guard(GetVIXLAssembler(), kMaxMacroInstructionSizeInBytes);\n  GetAssembler()-\u003eStoreToOffset(kStoreWord, value_reg, base, offset);\n  codegen_-\u003eMaybeRecordImplicitNullCheck(instruction);",
+      "range": {
+        "startLine": 5465,
+        "startChar": 8,
+        "endLine": 5467,
+        "endChar": 70
+      },
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e66db81_e562d48d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5719,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "Fits on one line (100 characters).",
+      "range": {
+        "startLine": 5718,
+        "startChar": 10,
+        "endLine": 5719,
+        "endChar": 49
+      },
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51719b8_cbdf1d05",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "Missing null check.",
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26656614_da08d6b2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "Should fit on one line.",
+      "range": {
+        "startLine": 6175,
+        "startChar": 12,
+        "endLine": 6176,
+        "endChar": 70
+      },
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d72efb7_f793c460",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "maybe_compressed_char_at can be true only for kUint16 (and we could allow kInt16 but the transformation is currently forbidden in TryReplaceFieldOrArrayGetType() in instruction simplifier because we do not support it in codegen\u0027s VisitArrayGet on any architecture).",
+      "range": {
+        "startLine": 6231,
+        "startChar": 10,
+        "endLine": 6231,
+        "endChar": 35
+      },
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "450cbdca_a93b0f7d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-09T15:08:20Z",
+      "side": 1,
+      "message": "One arg per line, or break before first arg and put all args on one line.",
+      "range": {
+        "startLine": 6485,
+        "startChar": 44,
+        "endLine": 6486,
+        "endChar": 69
+      },
+      "revId": "7d3d83b0e2b0ea7b82d6a3c4ab3169f16676c506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
