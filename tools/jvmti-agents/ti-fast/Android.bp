@@ -16,6 +16,9 @@
 
 // Build variants {target,host} x {debug,ndebug} x {32,64}
 cc_defaults {
+    cflags: [
+        "-Wno-reorder-init-list",
+    ],
     name: "tifast-base-defaults",
     srcs: ["tifast.cc"],
     defaults: ["art_defaults"],
