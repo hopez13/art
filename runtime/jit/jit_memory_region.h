@@ -79,8 +79,12 @@ class JitMemoryRegion {
   // Set the footprint limit of the code cache.
   void SetFootprintLimit(size_t new_footprint) REQUIRES(Locks::jit_lock_);
 
-  const uint8_t* AllocateCode(size_t code_size) REQUIRES(Locks::jit_lock_);
-  void FreeCode(const uint8_t* code) REQUIRES(Locks::jit_lock_);
+  const uint8_t* AllocateCode(size_t code_size)
+      REQUIRES(Locks::jit_lock_)
+      REQUIRES(Locks::jit_code_cache_write_lock_);
+  void FreeCode(const uint8_t* code)
+      REQUIRES(Locks::jit_lock_)
+      REQUIRES(Locks::jit_code_cache_write_lock_);
   const uint8_t* AllocateData(size_t data_size) REQUIRES(Locks::jit_lock_);
   void FreeData(const uint8_t* data) REQUIRES(Locks::jit_lock_);
   void FreeData(uint8_t* writable_data) REQUIRES(Locks::jit_lock_) = delete;
@@ -92,7 +96,8 @@ class JitMemoryRegion {
                             ArrayRef<const uint8_t> code,
                             const uint8_t* stack_map,
                             bool has_should_deoptimize_flag)
-      REQUIRES(Locks::jit_lock_);
+      REQUIRES(Locks::jit_lock_)
+      REQUIRES(!Locks::jit_code_cache_write_lock_);
 
   // Emit roots and stack map into the memory pointed by `roots_data` (despite it being const).
   bool CommitData(ArrayRef<const uint8_t> reserved_data,

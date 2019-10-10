@@ -68,6 +68,7 @@ enum LockLevel : uint8_t {
   // Can be held while GC related work is done, and thus must be above kMarkSweepMarkStackLock
   kThreadWaitLock,
   kCHALock,
+  kJitCodeCacheWriteLock,
   kJitCodeCacheLock,
   kRosAllocGlobalLock,
   kRosAllocBracketLock,
@@ -332,8 +333,11 @@ class Locks {
   // Guard access to any JIT data structure.
   static Mutex* jit_lock_ ACQUIRED_AFTER(custom_tls_lock_);
 
+  // Guards writes to JIT memory pages.
+  static Mutex* jit_code_cache_write_lock_ ACQUIRED_AFTER(jit_lock_);
+
   // Guards Class Hierarchy Analysis (CHA).
-  static Mutex* cha_lock_ ACQUIRED_AFTER(jit_lock_);
+  static Mutex* cha_lock_ ACQUIRED_AFTER(jit_code_cache_write_lock_);
 
   // When declaring any Mutex add BOTTOM_MUTEX_ACQUIRED_AFTER to use annotalysis to check the code
   // doesn't try to acquire a higher level Mutex. NB Due to the way the annotalysis works this

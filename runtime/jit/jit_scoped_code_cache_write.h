@@ -19,6 +19,7 @@
 
 #include <sys/mman.h>
 
+#include "base/locks.h"
 #include "base/systrace.h"
 #include "base/utils.h"  // For CheckedCall
 
@@ -33,11 +34,13 @@ static constexpr int kProtRWX = PROT_READ | PROT_WRITE | PROT_EXEC;
 static constexpr int kProtRX = PROT_READ | PROT_EXEC;
 
 // Helper for toggling JIT memory R <-> RW.
-class ScopedCodeCacheWrite : ScopedTrace {
+class SCOPED_CAPABILITY ScopedCodeCacheWrite : ScopedTrace, MutexLock {
  public:
   explicit ScopedCodeCacheWrite(const JitMemoryRegion& region)
+      ACQUIRE(Locks::jit_code_cache_write_lock_)
       : ScopedTrace("ScopedCodeCacheWrite"),
-        region_(region) {
+        MutexLock(Thread::Current(), *Locks::jit_code_cache_write_lock_),
+        region_(region)  {
     ScopedTrace trace("mprotect all");
     const MemMap* const updatable_pages = region.GetUpdatableCodeMapping();
     if (updatable_pages != nullptr) {
@@ -46,7 +49,7 @@ class ScopedCodeCacheWrite : ScopedTrace {
     }
   }
 
-  ~ScopedCodeCacheWrite() {
+  ~ScopedCodeCacheWrite() RELEASE() {
     ScopedTrace trace("mprotect code");
     const MemMap* const updatable_pages = region_.GetUpdatableCodeMapping();
     if (updatable_pages != nullptr) {
