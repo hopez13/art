@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3161b5_4ac88e00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-10T17:50:09Z",
+      "side": 1,
+      "message": "Test: ...",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "44ac62735f8c14df000e90de08d7012db238edbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379934c8_d3f48332",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-10T17:50:09Z",
+      "side": 1,
+      "message": "nit: Can you add a comment that there is no 1\u003c\u003c6.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 35
+      },
+      "revId": "44ac62735f8c14df000e90de08d7012db238edbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
