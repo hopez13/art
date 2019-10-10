@@ -1,11 +1,9 @@
 # ART Testing
 
-There are two suites of tests in the Android Runtime (ART): run-tests and
-gtests:
-* run-tests  
-  Tests of the ART runtime using Dex bytecode (mostly written in Java).
-* gtests  
-  C++ tests exercising various aspects of ART.
+There are two suites of tests in the Android Runtime (ART):
+* _ART run-tests_: Tests of the ART runtime using Dex bytecode (mostly written
+  in Java).
+* _ART gtests_: C++ tests exercising various aspects of ART.
 
 ## ART run-tests
 
