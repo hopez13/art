@@ -16,6 +16,24 @@
       "revId": "5ead61d22bd9cf22b55f143555a82edb48a0f04c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18718a83_a879da76",
+        "filename": "tools/jvmti-agents/ti-fast/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-10T17:44:29Z",
+      "side": 1,
+      "message": "The order of fields in the jvmtiEventCallbacks struct is part of the JVMTI ABI. You cannot change it.",
+      "parentUuid": "b04320ae_298993af",
+      "revId": "5ead61d22bd9cf22b55f143555a82edb48a0f04c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
