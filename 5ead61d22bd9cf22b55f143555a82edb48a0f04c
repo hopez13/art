@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b04320ae_298993af",
+        "filename": "tools/jvmti-agents/ti-fast/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1114194
+      },
+      "writtenOn": "2019-10-10T17:38:19Z",
+      "side": 1,
+      "message": "\u003e error: unknown warning option \u0027-Wno-reorder-init-list\u0027; did you mean \u0027-Wno-empty-init-stmt\u0027? [-Werror,-Wunknown-warning-option]\n\nRight, the current compiler won\u0027t recognize this.\n\nThinking more about this instance last night, reordering the members of the class to support the partition of the callbacks into JNI/non-JNI methods seems simple enough (the class is composed of just callbacks, initialization order should not matter).\n\nI\u0027ll just do the fixup in this CL, rather than two. Stay tuned.",
+      "revId": "5ead61d22bd9cf22b55f143555a82edb48a0f04c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
