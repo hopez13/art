@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b699f9bf_2145faf4",
+        "filename": "test/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-10T14:25:14Z",
+      "side": 1,
+      "message": "Reformated in https://android-review.googlesource.com/c/platform/art/+/1137700.",
+      "parentUuid": "ca8944dc_456eb06b",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 13
+      },
+      "revId": "836e216d76db3d3ff6e7d4beac799be6e8506c3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "195152d0_0d55bde2",
         "filename": "test/README.md",
         "patchSetId": 2
