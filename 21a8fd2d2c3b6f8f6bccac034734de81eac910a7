@@ -22,6 +22,30 @@
       "revId": "21a8fd2d2c3b6f8f6bccac034734de81eac910a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff35505a_364cf3d2",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-10-10T17:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54c4e495_5b16e99f",
+      "range": {
+        "startLine": 103,
+        "startChar": 23,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "21a8fd2d2c3b6f8f6bccac034734de81eac910a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
