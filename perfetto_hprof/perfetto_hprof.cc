@@ -261,7 +261,6 @@ class ReferredObjectsFinder {
  public:
   explicit ReferredObjectsFinder(
       std::vector<std::pair<std::string, art::mirror::Object*>>* referred_objects)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
       : referred_objects_(referred_objects) {}
 
   // For art::mirror::Object::VisitReferences.
@@ -291,6 +290,24 @@ class ReferredObjectsFinder {
   // We can use a raw Object* pointer here, because there are no concurrent GC threads after the
   // fork.
   std::vector<std::pair<std::string, art::mirror::Object*>>* referred_objects_;
+};
+
+class RootFinder : public art::SingleRootVisitor {
+ public:
+  explicit RootFinder(
+    std::map<std::string, std::vector<art::mirror::Object*>>* root_objects)
+      : root_objects_(root_objects) {}
+
+  void VisitRoot(art::mirror::Object* root, const art::RootInfo& info) override {
+    std::stringstream root_name;
+    root_name << info.GetType();
+    (*root_objects_)[root_name.str()].emplace_back(root);
+  }
+
+ private:
+  // We can use a raw Object* pointer here, because there are no concurrent GC threads after the
+  // fork.
+  std::map<std::string, std::vector<art::mirror::Object*>>* root_objects_;
 };
 
 void DumpPerfetto(art::Thread* self) {
@@ -336,6 +353,19 @@ void DumpPerfetto(art::Thread* self) {
             // (default proto value for a string).
             std::map<std::string, uint64_t> interned_fields{{"", 0}};
             std::map<std::string, uint64_t> interned_types{{"", 0}};
+
+            std::map<std::string, std::vector<art::mirror::Object*>> root_objects;
+            RootFinder rcf(&root_objects);
+            art::Runtime::Current()->VisitRoots(&rcf);
+            for (const auto& p : root_objects) {
+              const std::string& root_name = p.first;
+              const std::vector<art::mirror::Object*> children = p.second;
+              perfetto::protos::pbzero::HeapGraphRoot* root_proto =
+                writer.GetHeapGraph()->add_roots();
+              root_proto->set_root_type(root_name.c_str());
+              for (art::mirror::Object* obj : children)
+                root_proto->add_object_ids(reinterpret_cast<uintptr_t>(obj));
+            }
 
             art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
                 [&writer, &interned_types, &interned_fields](
