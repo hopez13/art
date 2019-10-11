@@ -46,6 +46,30 @@
       "revId": "6c5052253d828af84b7852a62b2f42f750f7652d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28265de0_3fe975aa",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-11T13:55:09Z",
+      "side": 1,
+      "message": "Yeah, but you do have a concurrent reader, don\u0027t you?",
+      "parentUuid": "1ea1710c_90c440ab",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 3
+      },
+      "revId": "6c5052253d828af84b7852a62b2f42f750f7652d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
