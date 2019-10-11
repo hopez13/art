@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e862a11b_1f6b38b4",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-11T13:48:12Z",
+      "side": 1,
+      "message": "A bit of comments here would help. For example why is it ok to have tail_ and prev-\u003enext ot updated atomically at the same time.",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 3
+      },
+      "revId": "6c5052253d828af84b7852a62b2f42f750f7652d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
