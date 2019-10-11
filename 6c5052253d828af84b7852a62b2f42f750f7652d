@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c04d08a_402b9bb8",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-11T13:57:09Z",
+      "side": 1,
+      "message": "Ah, yes.  The reader isn\u0027t supposed to use the prev_ links.",
+      "revId": "6c5052253d828af84b7852a62b2f42f750f7652d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e862a11b_1f6b38b4",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
