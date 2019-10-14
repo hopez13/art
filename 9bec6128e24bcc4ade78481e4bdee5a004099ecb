@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72cc7a6_eeaf99b2",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-14T09:21:32Z",
+      "side": 1,
+      "message": "You\u0027re adding an extra null check as the compiler will not be able to prove that this is not null.",
+      "range": {
+        "startLine": 1926,
+        "startChar": 41,
+        "endLine": 1926,
+        "endChar": 45
+      },
+      "revId": "9bec6128e24bcc4ade78481e4bdee5a004099ecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
