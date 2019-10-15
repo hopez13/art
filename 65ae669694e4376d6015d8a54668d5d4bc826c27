@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95a8f12d_4022be54",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-15T12:17:57Z",
+      "side": 1,
+      "message": "Drop this?",
+      "range": {
+        "startLine": 1860,
+        "startChar": 5,
+        "endLine": 1860,
+        "endChar": 6
+      },
+      "revId": "65ae669694e4376d6015d8a54668d5d4bc826c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce217719_c7609cc6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-15T12:17:57Z",
+      "side": 1,
+      "message": "There\u0027s an opportunity for refactoring similar code here.",
+      "range": {
+        "startLine": 1863,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 3
+      },
+      "revId": "65ae669694e4376d6015d8a54668d5d4bc826c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
