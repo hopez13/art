@@ -1175,6 +1175,7 @@ static DeoptRequirement GetDeoptRequirement(ArtJvmtiEvent event, jthread thread)
     case ArtJvmtiEvent::kClassFileLoadHookRetransformable:
     case ArtJvmtiEvent::kDdmPublishChunk:
     case ArtJvmtiEvent::kObsoleteObjectCreated:
+    case ArtJvmtiEvent::kStructuralDexFileLoadHook:
       return DeoptRequirement::kNone;
   }
 }
