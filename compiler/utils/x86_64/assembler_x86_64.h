@@ -420,6 +420,8 @@ class X86_64Assembler final : public Assembler {
   void movaps(const Address& dst, XmmRegister src);  // store aligned
   void movups(const Address& dst, XmmRegister src);  // store unaligned
 
+  void movhlps(XmmRegister dst, XmmRegister src);     // move
+  void vmovhlps(XmmRegister dst, XmmRegister src1, XmmRegister src2);     // move
   void vmovaps(XmmRegister dst, XmmRegister src);     // move
   void vmovaps(XmmRegister dst, const Address& src);  // load aligned
   void vmovaps(const Address& dst, XmmRegister src);  // store aligned
@@ -438,6 +440,7 @@ class X86_64Assembler final : public Assembler {
   void movd(XmmRegister dst, CpuRegister src, bool is64bit);
   void movd(CpuRegister dst, XmmRegister src, bool is64bit);
 
+  void vaddss(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addss(XmmRegister dst, XmmRegister src);
   void addss(XmmRegister dst, const Address& src);
   void subss(XmmRegister dst, XmmRegister src);
@@ -477,6 +480,8 @@ class X86_64Assembler final : public Assembler {
   void movsd(XmmRegister dst, const Address& src);
   void movsd(const Address& dst, XmmRegister src);
   void movsd(XmmRegister dst, XmmRegister src);
+
+  void vaddsd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
 
   void addsd(XmmRegister dst, XmmRegister src);
   void addsd(XmmRegister dst, const Address& src);
@@ -615,6 +620,7 @@ class X86_64Assembler final : public Assembler {
   void pavgw(XmmRegister dst, XmmRegister src);
   void psadbw(XmmRegister dst, XmmRegister src);
   void pmaddwd(XmmRegister dst, XmmRegister src);
+  void vpmaddwd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void phaddw(XmmRegister dst, XmmRegister src);
   void phaddd(XmmRegister dst, XmmRegister src);
   void haddps(XmmRegister dst, XmmRegister src);
@@ -655,6 +661,7 @@ class X86_64Assembler final : public Assembler {
 
   void shufpd(XmmRegister dst, XmmRegister src, const Immediate& imm);
   void shufps(XmmRegister dst, XmmRegister src, const Immediate& imm);
+  void vshufps(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void pshufd(XmmRegister dst, XmmRegister src, const Immediate& imm);
 
   void punpcklbw(XmmRegister dst, XmmRegister src);
@@ -667,6 +674,9 @@ class X86_64Assembler final : public Assembler {
   void punpckhdq(XmmRegister dst, XmmRegister src);
   void punpckhqdq(XmmRegister dst, XmmRegister src);
 
+  void vunpckhpd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
+  void unpckhpd(XmmRegister dst, XmmRegister src);
+
   void psllw(XmmRegister reg, const Immediate& shift_count);
   void pslld(XmmRegister reg, const Immediate& shift_count);
   void psllq(XmmRegister reg, const Immediate& shift_count);
@@ -678,7 +688,9 @@ class X86_64Assembler final : public Assembler {
   void psrlw(XmmRegister reg, const Immediate& shift_count);
   void psrld(XmmRegister reg, const Immediate& shift_count);
   void psrlq(XmmRegister reg, const Immediate& shift_count);
+  void vpsrlq(XmmRegister dst, XmmRegister src, const Immediate& shift_count);
   void psrldq(XmmRegister reg, const Immediate& shift_count);
+  void vpsrldq(XmmRegister dst, XmmRegister src, const Immediate& shift_count);
 
   void flds(const Address& src);
   void fstps(const Address& dst);

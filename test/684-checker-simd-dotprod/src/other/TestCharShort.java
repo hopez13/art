@@ -34,7 +34,7 @@ public class TestCharShort {
   /// CHECK-DAG:                  Add [<<Phi2>>,<<Mul>>]                                loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  Add [<<Phi1>>,<<Const1>>]                             loop:<<Loop>>      outer_loop:none
 
-  /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdSimple(short[], short[]) loop_optimization (after)
+  /// CHECK-START-{ARM64,X86_64}: int other.TestCharShort.testDotProdSimple(short[], short[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
   /// CHECK-DAG: <<Const8:i\d+>>  IntConstant 8                                         loop:none
@@ -72,7 +72,7 @@ public class TestCharShort {
   /// CHECK-DAG:                  Add [<<Phi2>>,<<Mul>>]                                loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  Add [<<Phi1>>,<<Const1>>]                             loop:<<Loop>>      outer_loop:none
 
-  /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplex(short[], short[]) loop_optimization (after)
+  /// CHECK-START-{ARM64,X86_64}: int other.TestCharShort.testDotProdComplex(short[], short[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
   /// CHECK-DAG: <<Const8:i\d+>>  IntConstant 8                                         loop:none
@@ -188,7 +188,7 @@ public class TestCharShort {
   /// CHECK-DAG:                  Add [<<Phi2>>,<<Mul>>]                                loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  Add [<<Phi1>>,<<Const1>>]                             loop:<<Loop>>      outer_loop:none
 
-  /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplexUnsignedCastedToSigned(char[], char[]) loop_optimization (after)
+  /// CHECK-START-{ARM64,X86_64}: int other.TestCharShort.testDotProdComplexUnsignedCastedToSigned(char[], char[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
   /// CHECK-DAG: <<Const8:i\d+>>  IntConstant 8                                         loop:none
