@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5dddbf1_def86c56",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-15T17:04:42Z",
+      "side": 1,
+      "message": "Is there any reason you don\u0027t want to just use the RootType enum value directly?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 57
+      },
+      "revId": "115c758688bc26ec040c6f7f9449771b9d68bd43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
