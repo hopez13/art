@@ -19,7 +19,7 @@ package art;
 import java.util.ArrayList;
 // Common Redefinition functions. Placed here for use by CTS
 public class Redefinition {
-  public static final class CommonClassDefinition {
+  public static class CommonClassDefinition {
     public final Class<?> target;
     public final byte[] class_file_bytes;
     public final byte[] dex_file_bytes;
@@ -28,6 +28,12 @@ public class Redefinition {
       this.target = target;
       this.class_file_bytes = class_file_bytes;
       this.dex_file_bytes = dex_file_bytes;
+    }
+  }
+
+  public static class DexOnlyClassDefinition extends CommonClassDefinition {
+    public DexOnlyClassDefinition(Class<?> target, byte[] dex_file_bytes) {
+      super(target, new byte[0], dex_file_bytes);
     }
   }
 
@@ -90,5 +96,18 @@ public class Redefinition {
                                                           byte[] dex_bytes);
 
   public static native void doCommonStructuralClassRedefinition(Class<?> target, byte[] dex_file);
+  public static void doMultiStructuralClassRedefinition(CommonClassDefinition... defs) {
+    ArrayList<Class<?>> classes = new ArrayList<>();
+    ArrayList<byte[]> dex_files = new ArrayList<>();
+
+    for (CommonClassDefinition d : defs) {
+      classes.add(d.target);
+      dex_files.add(d.dex_file_bytes);
+    }
+    doCommonMultiStructuralClassRedefinition(classes.toArray(new Class<?>[0]),
+                                             dex_files.toArray(new byte[0][]));
+  }
+  public static native void doCommonMultiStructuralClassRedefinition(Class<?>[] targets,
+                                                                     byte[][] dexfiles);
   public static native boolean isStructurallyModifiable(Class<?> target);
 }
