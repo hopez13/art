@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "78e9a142_b0cfd563",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-10-15T13:20:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b9dac1f_7f1a9cef",
+      "range": {
+        "startLine": 362,
+        "startChar": 53,
+        "endLine": 362,
+        "endChar": 54
+      },
+      "revId": "a6ffba9abe487caa94e0ffc45cab540c361e5a06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b58a04d_a20318d2",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "a6ffba9abe487caa94e0ffc45cab540c361e5a06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d064f541_b1d62a8d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-10-15T13:20:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b58a04d_a20318d2",
+      "range": {
+        "startLine": 365,
+        "startChar": 40,
+        "endLine": 365,
+        "endChar": 57
+      },
+      "revId": "a6ffba9abe487caa94e0ffc45cab540c361e5a06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
