@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be2b179_4403d688",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-15T13:40:30Z",
+      "side": 1,
+      "message": "Comment that appending packed entries at the end makes the latest state visible to libunwind if it\u0027s walking the list?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "3f69017a034aa8fbbe1641171cc42b6f9aff248a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6f3cd52_4040ca9c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-10-15T13:40:30Z",
+      "side": 1,
+      "message": "(or as tail if \u0027next\u0027 is null?)",
+      "range": {
+        "startLine": 258,
+        "startChar": 37,
+        "endLine": 258,
+        "endChar": 50
+      },
+      "revId": "3f69017a034aa8fbbe1641171cc42b6f9aff248a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
