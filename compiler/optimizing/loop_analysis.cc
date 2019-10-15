@@ -178,11 +178,176 @@ class Arm64LoopHelper : public ArchDefaultLoopHelper {
   }
 };
 
+// Custom implementation of loop helper for X86_64 target. Enables heuristics for scalar loop
+// peeling and unrolling and supports SIMD loop unrolling.
+class X86_64LoopHelper : public ArchDefaultLoopHelper {
+  // map having instruction count for most used IRs
+  // Few IRs generate different number of instructions based on input and result type.
+  // We checked top java apps, benchmarks and used the most generated instruction count.
+  std::map<std::string, uint32_t> map_IR_Inst = {
+    {"Abs", 3},
+    {"Add", 1},
+    {"And", 1},
+    {"ArrayLength", 1},
+    {"ArrayGet", 1},
+    {"ArraySet", 1},
+    {"BoundsCheck", 2},
+    {"CheckCast", 9},
+    {"Div", 8},
+    {"DivZeroCheck", 2},
+    {"Equal", 3},
+    {"GreaterThan", 3},
+    {"GreaterThanOrEqual", 3},
+    {"If", 2},
+    {"InstanceFieldGet", 2},
+    {"InstanceFieldSet", 1},
+    {"LessThan", 3},
+    {"LessThanOrEqual", 3},
+    {"Max", 2},
+    {"Min", 2},
+    {"Mul", 1},
+    {"NotEqual", 3},
+    {"Or", 1},
+    {"Rem", 11},
+    {"Select", 2},
+    {"Shl", 1},
+    {"Shr", 1},
+    {"Sub", 1},
+    {"TypeConversion", 1},
+    {"UShr", 1},
+    {"VecReplicateScalar", 2},
+    {"VecExtractScalar", 1},
+    {"VecReduce", 4},
+    {"VecNeg", 2},
+    {"VecAbs", 4},
+    {"VecNot", 3},
+    {"VecAdd", 1},
+    {"VecSub", 1},
+    {"VecMul", 1},
+    {"VecDiv", 1},
+    {"VecMax", 1},
+    {"VecMin", 1},
+    {"VecOr", 1},
+    {"VecXor", 1},
+    {"VecShl", 1},
+    {"VecShr", 1},
+    {"VecLoad", 2},
+    {"VecStore", 2},
+    {"Xor", 1}};
+
+  // Maximum possible unrolling factor.
+  static constexpr uint32_t kX86_64MaxUnrollFactor = 2;  // pow(2,2) = 4
+
+  // Maximum total instruction count after unrolling. Loops with higher count will not be unrolled.
+  // this variable is set according to utilize LSD (loop stream decoder) on IA
+  // For atom processor (silvermont & goldmont), LSD size is 28
+  // TODO - identify architecture and LSD size at runtime
+  static constexpr uint32_t kX86_64UnrolledMaxBodySizeInstr = 28;
+
+  // Loop's maximum basic block count. Loops with higher count will not be partial unrolled (unknown iterations).
+  static constexpr uint32_t kX86_64UnknownIterMaxBodySizeBlocks = 2;
+
+  uint32_t GetUnrollingFactor(HLoopInformation* loop_info, HBasicBlock* header) const;
+
+ public:
+  uint32_t GetSIMDUnrollingFactor(HBasicBlock* block,
+                                  int64_t trip_count,
+                                  uint32_t max_peel,
+                                  uint32_t vector_length) const override {
+    DCHECK_NE(vector_length, 0u);
+    HLoopInformation* loop_info = block->GetLoopInformation();
+    DCHECK(loop_info);
+    HBasicBlock* header = loop_info->GetHeader();
+    DCHECK(header);
+    uint32_t unroll_factor = 0;
+
+    if ((trip_count == 0) || (trip_count == LoopAnalysisInfo::kUnknownTripCount)) {
+      // Don't unroll for large loop body size.
+      unroll_factor = GetUnrollingFactor(loop_info, header);
+      if (unroll_factor <= 1) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+    } else {
+      // Don't unroll with insufficient iterations.
+      if (trip_count < (2 * vector_length + max_peel)) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+
+      // Don't unroll for large loop body size.
+      uint32_t unroll_cnt = GetUnrollingFactor(loop_info, header);
+      if (unroll_cnt <= 1) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+
+      // Find a beneficial unroll factor with the following restrictions:
+      //  - At least one iteration of the transformed loop should be executed.
+      //  - The loop body shouldn't be "too big" (heuristic).
+      uint32_t uf2 = (trip_count - max_peel) / vector_length;
+      unroll_factor = TruncToPowerOfTwo(std::min({uf2, unroll_cnt}));
+      DCHECK_GE(unroll_factor, 1u);
+    }
+
+    return unroll_factor;
+  }
+};
+
+uint32_t X86_64LoopHelper::GetUnrollingFactor(HLoopInformation* loop_info, HBasicBlock* header) const {
+  uint32_t num_inst = 0, num_inst_header = 0, num_inst_oth = 0;
+  for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
+    HBasicBlock* block = it.Current();
+    DCHECK(block);
+    num_inst = 0;
+
+    for (HInstructionIterator it1(block->GetInstructions()); !it1.Done(); it1.Advance()) {
+      HInstruction* inst = it1.Current();
+      DCHECK(inst);
+
+      // SuspendCheck inside loop is handled with Goto
+      if (inst->IsPhi() || inst->IsSuspendCheck() || inst->IsGoto()) continue;
+
+      std::string t_str = inst->DebugName();
+      auto iter = map_IR_Inst.find(t_str);
+      if (iter != map_IR_Inst.end()) {
+        num_inst += iter->second;
+      } else {
+        num_inst++;
+      }
+    }
+
+    if (block == header) {
+      num_inst_header = num_inst;
+    } else {
+      num_inst_oth += num_inst;
+    }
+  }
+
+  // calculate actual unroll factor
+  // "-3" instrutions for Goto
+  uint32_t unrolling_factor = kX86_64MaxUnrollFactor;
+  uint32_t unrolling_inst = kX86_64UnrolledMaxBodySizeInstr;
+  uint32_t desired_size = unrolling_inst - num_inst_header - 3;
+  if (desired_size < (2*num_inst_oth)) {
+    return 1;
+  }
+
+  while (unrolling_factor > 0) {
+    if ((desired_size >> unrolling_factor) >= num_inst_oth) {
+      break;
+    }
+    unrolling_factor--;
+  }
+
+  return (1 << unrolling_factor);
+}
+
 ArchNoOptsLoopHelper* ArchNoOptsLoopHelper::Create(InstructionSet isa,
                                                    ArenaAllocator* allocator) {
   switch (isa) {
     case InstructionSet::kArm64: {
       return new (allocator) Arm64LoopHelper;
+    }
+    case InstructionSet::kX86_64: {
+      return new (allocator) X86_64LoopHelper;
     }
     default: {
       return new (allocator) ArchDefaultLoopHelper;
