@@ -46,6 +46,30 @@
       "revId": "115c758688bc26ec040c6f7f9449771b9d68bd43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42be3276_3e130522",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2019-10-15T17:28:05Z",
+      "side": 1,
+      "message": "Also I think this just adds complexity to downstream consumers of this data, because they need to have a copy of this enum, for vanishing size improvements.",
+      "parentUuid": "a812ebf0_67e1c097",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 57
+      },
+      "revId": "115c758688bc26ec040c6f7f9449771b9d68bd43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
