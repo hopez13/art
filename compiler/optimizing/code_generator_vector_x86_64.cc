@@ -196,6 +196,7 @@ void LocationsBuilderX86_64::VisitVecReduce(HVecReduce* instruction) {
 }
 
 void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
+  bool cpu_has_avx = CpuHasAvxFeatureFlag();
   LocationSummary* locations = instruction->GetLocations();
   XmmRegister src = locations->InAt(0).AsFpuRegister<XmmRegister>();
   XmmRegister dst = locations->Out().AsFpuRegister<XmmRegister>();
@@ -227,6 +228,49 @@ void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
           break;
         case HVecReduce::kMin:
         case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (cpu_has_avx) {
+            __ vmovhlps(dst, src, src);
+            __ vaddps(dst, dst, src);
+            __ vshufps(src, dst, dst, Immediate(245));
+            __ vaddss(dst, dst, src);
+          } else {
+            __ movaps(dst, src);
+            __ movhlps(dst, src);
+            __ addps(dst, src);
+            __ movaps(src, dst);
+            __ shufps(dst, dst, Immediate(245));
+            __ addss(dst, src);
+          }
+          break;
+       case HVecReduce::kMin:
+       case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (!cpu_has_avx) {
+           __  movaps(dst, src);
+           __  unpckhpd(dst, src);
+           __  addsd(dst, src);
+          } else {
+           __ vunpckhpd(dst, src, src);
+           __ vaddsd(dst, dst, src);
+          }
+          break;
+       case HVecReduce::kMin:
+       case HVecReduce::kMax:
           LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
       }
       break;
@@ -1174,11 +1218,46 @@ void InstructionCodeGeneratorX86_64::VisitVecSADAccumulate(HVecSADAccumulate* in
 }
 
 void LocationsBuilderX86_64::VisitVecDotProd(HVecDotProd* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  locations->SetInAt(0, Location::RequiresFpuRegister());
+  locations->SetInAt(1, Location::RequiresFpuRegister());
+  locations->SetInAt(2, Location::RequiresFpuRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+  locations->AddTemp(Location::RequiresFpuRegister());
 }
 
 void InstructionCodeGeneratorX86_64::VisitVecDotProd(HVecDotProd* instruction) {
-  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+  bool cpu_has_avx = CpuHasAvxFeatureFlag();
+  LocationSummary* locations = instruction->GetLocations();
+  XmmRegister acc = locations->InAt(0).AsFpuRegister<XmmRegister>();
+  XmmRegister left = locations->InAt(1).AsFpuRegister<XmmRegister>();
+  XmmRegister right = locations->InAt(2).AsFpuRegister<XmmRegister>();
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kInt32: {
+     DCHECK_EQ(4u, instruction->GetVectorLength());
+     XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+     cpu_has_avx ?  __ vpmaddwd(tmp, left, right) : __ pmaddwd(left, right);
+     cpu_has_avx ?  __ vpaddd(acc, acc, tmp) : __ paddd(acc, left);
+      break;
+     }
+     case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      cpu_has_avx ?  __ vmulps(tmp, left, right) : __ mulps(left, right);
+      cpu_has_avx ?  __ vaddps(acc, acc, tmp) : __ addps(acc, left);
+      break;
+     }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      cpu_has_avx ? __ vmulpd(tmp, left, right) : __ mulpd(left, right);
+      cpu_has_avx ? __ vaddpd(acc, acc, tmp) : __ addpd(acc, left);
+      break;
+     }
+    default:
+      LOG(FATAL) << "Unsupported SIMD Type" << instruction->GetPackedType();
+      UNREACHABLE();
+  }
 }
 
 // Helper to set up locations for vector memory operations.
