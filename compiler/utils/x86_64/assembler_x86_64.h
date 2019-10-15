@@ -438,6 +438,7 @@ class X86_64Assembler final : public Assembler {
   void movd(XmmRegister dst, CpuRegister src, bool is64bit);
   void movd(CpuRegister dst, XmmRegister src, bool is64bit);
 
+  void vaddss(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addss(XmmRegister dst, XmmRegister src);
   void addss(XmmRegister dst, const Address& src);
   void subss(XmmRegister dst, XmmRegister src);
@@ -477,6 +478,8 @@ class X86_64Assembler final : public Assembler {
   void movsd(XmmRegister dst, const Address& src);
   void movsd(const Address& dst, XmmRegister src);
   void movsd(XmmRegister dst, XmmRegister src);
+
+  void vaddsd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
 
   void addsd(XmmRegister dst, XmmRegister src);
   void addsd(XmmRegister dst, const Address& src);
@@ -615,6 +618,7 @@ class X86_64Assembler final : public Assembler {
   void pavgw(XmmRegister dst, XmmRegister src);
   void psadbw(XmmRegister dst, XmmRegister src);
   void pmaddwd(XmmRegister dst, XmmRegister src);
+  void vpmaddwd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void phaddw(XmmRegister dst, XmmRegister src);
   void phaddd(XmmRegister dst, XmmRegister src);
   void haddps(XmmRegister dst, XmmRegister src);
