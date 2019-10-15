@@ -90,5 +90,18 @@ public class Redefinition {
                                                           byte[] dex_bytes);
 
   public static native void doCommonStructuralClassRedefinition(Class<?> target, byte[] dex_file);
+  public static void doMultiStructuralClassRedefinition(CommonClassDefinition... defs) {
+    ArrayList<Class<?>> classes = new ArrayList<>();
+    ArrayList<byte[]> dex_files = new ArrayList<>();
+
+    for (CommonClassDefinition d : defs) {
+      classes.add(d.target);
+      dex_files.add(d.dex_file_bytes);
+    }
+    doCommonMultiStructuralClassRedefinition(classes.toArray(new Class<?>[0]),
+                                             dex_files.toArray(new byte[0][]));
+  }
+  public static native void doCommonMultiStructuralClassRedefinition(Class<?>[] targets,
+                                                                     byte[][] dexfiles);
   public static native boolean isStructurallyModifiable(Class<?> target);
 }
