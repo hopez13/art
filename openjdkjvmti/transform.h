@@ -39,6 +39,7 @@
 
 #include "art_jvmti.h"
 #include "ti_class_definition.h"
+#include "ti_redefine.h"
 
 namespace openjdkjvmti {
 
@@ -56,13 +57,24 @@ class Transformer {
       art::Thread* self,
       /*in-out*/ArtClassDefinition* def);
 
+  template<RedefinitionType kType>
   static jvmtiError RetransformClassesDirect(
       art::Thread* self,
       /*in-out*/std::vector<ArtClassDefinition>* definitions);
 
+  static jvmtiError StructurallyRetransformClasses(jvmtiEnv* env,
+                                                   jint class_count,
+                                                   const jclass* classes);
+
   static jvmtiError RetransformClasses(jvmtiEnv* env,
                                        jint class_count,
                                        const jclass* classes);
+
+ private:
+  template<RedefinitionType kType = RedefinitionType::kNormal>
+  static jvmtiError RetransformClassesGeneric(jvmtiEnv* env,
+                                              jint class_count,
+                                              const jclass* classes);
 };
 
 }  // namespace openjdkjvmti
