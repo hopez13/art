@@ -22,6 +22,30 @@
       "revId": "5dd77bdbfde807f47aae42ca32cd35998d8c4b4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25d6147c_037ad626",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1924,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-17T22:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6df86fd_bef834a7",
+      "range": {
+        "startLine": 1919,
+        "startChar": 55,
+        "endLine": 1924,
+        "endChar": 56
+      },
+      "revId": "5dd77bdbfde807f47aae42ca32cd35998d8c4b4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
