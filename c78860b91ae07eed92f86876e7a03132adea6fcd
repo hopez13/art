@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9f12e0b_e2d73240",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-17T22:15:23Z",
+      "side": 1,
+      "message": "I can\u0027t imagine this visibility going away (unless we decide to move app_process into the APEX or something like that). I\u0027ll move it above the TODO comment: https://r.android.com/1145868",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "c78860b91ae07eed92f86876e7a03132adea6fcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28071e6_703e1cf2",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-17T22:15:23Z",
+      "side": 1,
+      "message": "Should also be vetted as part of b/133140750. Adding TODO in https://r.android.com/1145868.",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 47
+      },
+      "revId": "c78860b91ae07eed92f86876e7a03132adea6fcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
