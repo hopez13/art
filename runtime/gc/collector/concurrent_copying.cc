@@ -944,6 +944,24 @@ class ConcurrentCopying::CaptureRootsForMarkingVisitor : public RootVisitor {
   Thread* const self_;
 };
 
+void ConcurrentCopying::RemoveThreadMarkStackMapping(Thread* thread,
+                                                     accounting::ObjectStack* tl_mark_stack) {
+  CHECK(thread_mark_stack_map_.find(thread) != thread_mark_stack_map_.end());
+  CHECK(thread_mark_stack_map_[thread] == tl_mark_stack);
+  thread_mark_stack_map_.erase(thread);
+}
+
+void ConcurrentCopying::AssertNoThreadMarkStackMapping(Thread* thread) {
+  MutexLock mu(Thread::Current(), mark_stack_lock_);
+  CHECK(thread_mark_stack_map_.find(thread) == thread_mark_stack_map_.end());
+}
+
+void ConcurrentCopying::AddThreadMarkStackMapping(Thread* thread,
+                                                  accounting::ObjectStack* tl_mark_stack) {
+  CHECK(thread_mark_stack_map_.find(thread) == thread_mark_stack_map_.end());
+  thread_mark_stack_map_[thread] = tl_mark_stack;
+}
+
 class ConcurrentCopying::RevokeThreadLocalMarkStackCheckpoint : public Closure {
  public:
   RevokeThreadLocalMarkStackCheckpoint(ConcurrentCopying* concurrent_copying,
@@ -963,6 +981,7 @@ class ConcurrentCopying::RevokeThreadLocalMarkStackCheckpoint : public Closure {
       MutexLock mu(self, concurrent_copying_->mark_stack_lock_);
       concurrent_copying_->revoked_mark_stacks_.push_back(tl_mark_stack);
       thread->SetThreadLocalMarkStack(nullptr);
+      concurrent_copying_->RemoveThreadMarkStackMapping(thread, tl_mark_stack);
     }
     // Disable weak ref access.
     if (disable_weak_ref_access_) {
@@ -1772,6 +1791,7 @@ void ConcurrentCopying::PushOntoMarkStack(Thread* const self, mirror::Object* to
               accounting::AtomicStack<mirror::Object>::Create(
                   "thread local mark stack", 4 * KB, 4 * KB);
         }
+        AddThreadMarkStackMapping(self, new_tl_mark_stack);
         DCHECK(new_tl_mark_stack != nullptr);
         DCHECK(new_tl_mark_stack->IsEmpty());
         new_tl_mark_stack->PushBack(to_ref);
@@ -1779,6 +1799,7 @@ void ConcurrentCopying::PushOntoMarkStack(Thread* const self, mirror::Object* to
         if (tl_mark_stack != nullptr) {
           // Store the old full stack into a vector.
           revoked_mark_stacks_.push_back(tl_mark_stack);
+          RemoveThreadMarkStackMapping(self, tl_mark_stack);
         }
       } else {
         tl_mark_stack->PushBack(to_ref);
@@ -2006,6 +2027,7 @@ void ConcurrentCopying::RevokeThreadLocalMarkStack(Thread* thread) {
     CHECK(is_marking_);
     MutexLock mu(self, mark_stack_lock_);
     revoked_mark_stacks_.push_back(tl_mark_stack);
+    RemoveThreadMarkStackMapping(thread, tl_mark_stack);
     thread->SetThreadLocalMarkStack(nullptr);
   }
 }
@@ -2055,6 +2077,7 @@ bool ConcurrentCopying::ProcessMarkStackOnce() {
     {
       MutexLock mu(thread_running_gc_, mark_stack_lock_);
       CHECK(revoked_mark_stacks_.empty());
+      CHECK(thread_mark_stack_map_.empty());
       CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
     }
     while (true) {
@@ -2082,6 +2105,7 @@ bool ConcurrentCopying::ProcessMarkStackOnce() {
     {
       MutexLock mu(thread_running_gc_, mark_stack_lock_);
       CHECK(revoked_mark_stacks_.empty());
+      CHECK(thread_mark_stack_map_.empty());
       CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
     }
     // Process the GC mark stack in the exclusive mode. No need to take the lock.
@@ -2369,6 +2393,7 @@ void ConcurrentCopying::CheckEmptyMarkStack() {
     MutexLock mu(thread_running_gc_, mark_stack_lock_);
     CHECK(gc_mark_stack_->IsEmpty());
     CHECK(revoked_mark_stacks_.empty());
+    CHECK(thread_mark_stack_map_.empty());
     CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
   }
 }
@@ -3632,6 +3657,7 @@ void ConcurrentCopying::FinishPhase() {
   {
     MutexLock mu(self, mark_stack_lock_);
     CHECK(revoked_mark_stacks_.empty());
+    CHECK(thread_mark_stack_map_.empty());
     CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
   }
   // kVerifyNoMissingCardMarks relies on the region space cards not being cleared to avoid false
