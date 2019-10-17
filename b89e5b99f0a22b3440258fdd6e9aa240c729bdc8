@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c555bdc_b2f50129",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2080,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-10-17T22:01:44Z",
+      "side": 1,
+      "message": "Should we print some more info if it\u0027s not empty? i.e. the size?",
+      "range": {
+        "startLine": 2080,
+        "startChar": 6,
+        "endLine": 2080,
+        "endChar": 44
+      },
+      "revId": "b89e5b99f0a22b3440258fdd6e9aa240c729bdc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
