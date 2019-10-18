@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "458db6dd_650271af",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-10-18T17:25:53Z",
+      "side": 1,
+      "message": "Looking at the code, could we get failures sometimes? E.g:\nkUseReadBarrier \u0026\u0026 delta \u003e 0 \u0026\u0026 this !\u003d self \u0026\u0026 tlsPtr_.flip_function !\u003d nullptr\n\nI wonder if this is an existing bug.",
+      "revId": "252ab11bfb3fb8c4eead79f88af1188a52029741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8a8fa3a_3048b414",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-10-18T17:25:53Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 373,
+        "startChar": 8,
+        "endLine": 373,
+        "endChar": 12
+      },
+      "revId": "252ab11bfb3fb8c4eead79f88af1188a52029741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
