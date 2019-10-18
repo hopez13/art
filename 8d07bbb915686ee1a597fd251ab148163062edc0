@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fecce7c_0f3a1986",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-18T17:42:52Z",
+      "side": 1,
+      "message": "Nit: This code does looks up the same object three times. I\u0027d suggest refactoring it to reduce the number of look-ups, e.g.:\n\n  auto it \u003d thread_mark_stack_map_.find(thread)\n  CHECK(it !\u003d thread_mark_stack_map_.end());\n  CHECK(it-\u003esecond \u003d\u003d tl_mark_stack);\n  thread_mark_stack_map_.erase(it);",
+      "range": {
+        "startLine": 950,
+        "startChar": 0,
+        "endLine": 952,
+        "endChar": 39
+      },
+      "revId": "8d07bbb915686ee1a597fd251ab148163062edc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3afd4c07_959651b7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-18T17:42:52Z",
+      "side": 1,
+      "message": "Style: This list of #include\u0027s should be kept sorted.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "8d07bbb915686ee1a597fd251ab148163062edc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
