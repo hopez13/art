@@ -22,6 +22,30 @@
       "revId": "b1e75256f8d7082df8121d402fcc94e3982ca588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ccadacc_f7078816",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-10-18T17:00:32Z",
+      "side": 1,
+      "message": "It\u0027s not always self, though that is the usual case. See line 226. Passing in the owner explicitly is nonetheless probably an improvement. Do you agree?",
+      "parentUuid": "8726c629_8e16f624",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 57
+      },
+      "revId": "b1e75256f8d7082df8121d402fcc94e3982ca588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
