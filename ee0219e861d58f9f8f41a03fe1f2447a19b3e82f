@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3054f4d_81ff8723",
+        "filename": "tools/jvmti-agents/ti-fast/tifast.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-18T22:25:05Z",
+      "side": 0,
+      "message": "You could leave the macro names the same to make a slightly smaller diff.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 0
+      },
+      "revId": "ee0219e861d58f9f8f41a03fe1f2447a19b3e82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
