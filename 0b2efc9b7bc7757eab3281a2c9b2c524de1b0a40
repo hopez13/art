@@ -16,6 +16,24 @@
       "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f24e506_b39d2b20",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-10-20T23:27:10Z",
+      "side": 1,
+      "message": "Interesting style question. I tend to read the dereference as a CHECK that it\u0027s not null. But opinions seem to vary.",
+      "parentUuid": "0dac001b_96dbe041",
+      "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
