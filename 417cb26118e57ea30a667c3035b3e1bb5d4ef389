@@ -16,6 +16,29 @@
       "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37423d0c_afffe69a",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-10-21T19:05:22Z",
+      "side": 1,
+      "message": "This violates SuperblockCloner design idea of not having any assumptions on the structure of the region (bb_set).",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 59
+      },
+      "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
