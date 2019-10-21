@@ -11,12 +11,13 @@ dir.art = /apex/com.android.art/bin/
 additional.namespaces = platform,conscrypt,art,neuralnetworks
 
 # The default namespace here only links to other namespaces, in particular "art"
-# where the real library loading takes place. Any outgoing links from "art" also
-# need to be present here.
+# where the real library loading takes place. Any permitted paths in "art" and
+# outgoing links from it also need to be present here.
+namespace.default.permitted.paths = /data
+namespace.default.permitted.paths += /system/framework
 namespace.default.isolated = true
-namespace.default.links = art,platform
+namespace.default.links = art
 namespace.default.link.art.allow_all_shared_libs = true
-namespace.default.link.platform.allow_all_shared_libs = true
 
 ###############################################################################
 # "art" APEX namespace
@@ -33,20 +34,18 @@ namespace.art.visible = true
 # Keep in sync with the "art" namespace in system/core/rootdir/etc/ld.config*.txt.
 namespace.art.search.paths = /apex/com.android.art/${LIB}
 namespace.art.asan.search.paths = /apex/com.android.art/${LIB}
+
 # JVMTI libraries used in ART testing are located under /data; dalvikvm
 # has to be able to dlopen them.
 # TODO(b/129534335): Move this to the linker configuration of the Test
 # ART APEX when it is available.
 namespace.art.permitted.paths = /data
+
 # odex files are in /system/framework. dalvikvm has to be able to dlopen the
 # files for CTS.
 namespace.art.permitted.paths += /system/framework
-namespace.art.links = platform,neuralnetworks
-# Need allow_all_shared_libs because libart.so can dlopen oat files in
-# /system/framework and /data.
-# TODO(b/130340935): Use a dynamically created linker namespace similar to
-# classloader-namespace for oat files, and tighten this up.
-namespace.art.link.platform.allow_all_shared_libs = true
+
+namespace.art.links = neuralnetworks
 namespace.art.link.neuralnetworks.shared_libs = libneuralnetworks.so
 
 ###############################################################################
