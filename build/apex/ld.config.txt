@@ -11,12 +11,48 @@ dir.art = /apex/com.android.art/bin/
 additional.namespaces = platform,conscrypt,art,neuralnetworks
 
 # The default namespace here only links to other namespaces, in particular "art"
-# where the real library loading takes place. Any outgoing links from "art" also
-# need to be present here.
+# where the real library loading takes place. Any permitted paths in "art" and
+# outgoing links from it also need to be present here.
 namespace.default.isolated = true
+namespace.default.permitted.paths  = /data
+namespace.default.permitted.paths += /system/framework
 namespace.default.links = art,platform
 namespace.default.link.art.allow_all_shared_libs = true
-namespace.default.link.platform.allow_all_shared_libs = true
+
+namespace.default.link.platform.shared_libs = libartpalette-system.so
+namespace.default.link.platform.shared_libs += libdl_android.so
+namespace.default.link.platform.shared_libs += liblog.so
+namespace.default.link.platform.shared_libs += libandroid.so
+namespace.default.link.platform.shared_libs += libaaudio.so
+namespace.default.link.platform.shared_libs += libamidi.so
+namespace.default.link.platform.shared_libs += libbinder_ndk.so
+namespace.default.link.platform.shared_libs += libc.so
+namespace.default.link.platform.shared_libs += libcamera2ndk.so
+namespace.default.link.platform.shared_libs += libdl.so
+namespace.default.link.platform.shared_libs += libEGL.so
+namespace.default.link.platform.shared_libs += libGLESv1_CM.so
+namespace.default.link.platform.shared_libs += libGLESv2.so
+namespace.default.link.platform.shared_libs += libGLESv3.so
+namespace.default.link.platform.shared_libs += libjnigraphics.so
+namespace.default.link.platform.shared_libs += liblog.so
+namespace.default.link.platform.shared_libs += libmediandk.so
+namespace.default.link.platform.shared_libs += libm.so
+namespace.default.link.platform.shared_libs += libnativewindow.so
+namespace.default.link.platform.shared_libs += libOpenMAXAL.so
+namespace.default.link.platform.shared_libs += libOpenSLES.so
+namespace.default.link.platform.shared_libs += libRS.so
+namespace.default.link.platform.shared_libs += libstdc++.so
+namespace.default.link.platform.shared_libs += libsync.so
+namespace.default.link.platform.shared_libs += libvulkan.so
+namespace.default.link.platform.shared_libs += libwebviewchromium_plat_support.so
+namespace.default.link.platform.shared_libs += libmedia_jni.so
+namespace.default.link.platform.shared_libs += libsoundpool.so
+namespace.default.link.platform.shared_libs += libcompiler_rt.so
+namespace.default.link.platform.shared_libs += libwebviewchromium_loader.so
+namespace.default.link.platform.shared_libs += libc.so
+namespace.default.link.platform.shared_libs += libm.so
+namespace.default.link.platform.shared_libs += libdl.so
+namespace.default.link.platform.shared_libs += libclang_rt.asan-aarch64-android.so:libclang_rt.asan-arm-android.so:libclang_rt.hwasan-aarch64-android.so:libclang_rt.hwasan-arm-android.so:libclang_rt.tsan-aarch64-android.so:libclang_rt.tsan-arm-android.so:libclang_rt.ubsan_standalone-aarch64-android.so:libclang_rt.ubsan_standalone-arm-android.so
 
 ###############################################################################
 # "art" APEX namespace
@@ -33,21 +69,54 @@ namespace.art.visible = true
 # Keep in sync with the "art" namespace in system/core/rootdir/etc/ld.config*.txt.
 namespace.art.search.paths = /apex/com.android.art/${LIB}
 namespace.art.asan.search.paths = /apex/com.android.art/${LIB}
+
 # JVMTI libraries used in ART testing are located under /data; dalvikvm
 # has to be able to dlopen them.
 # TODO(b/129534335): Move this to the linker configuration of the Test
 # ART APEX when it is available.
 namespace.art.permitted.paths = /data
+
 # odex files are in /system/framework. dalvikvm has to be able to dlopen the
 # files for CTS.
 namespace.art.permitted.paths += /system/framework
-namespace.art.links = platform,neuralnetworks
-# Need allow_all_shared_libs because libart.so can dlopen oat files in
-# /system/framework and /data.
-# TODO(b/130340935): Use a dynamically created linker namespace similar to
-# classloader-namespace for oat files, and tighten this up.
-namespace.art.link.platform.allow_all_shared_libs = true
+
+namespace.art.links = neuralnetworks,platform
 namespace.art.link.neuralnetworks.shared_libs = libneuralnetworks.so
+
+namespace.art.link.platform.shared_libs = libartpalette-system.so
+namespace.art.link.platform.shared_libs += libdl_android.so
+namespace.art.link.platform.shared_libs += liblog.so
+namespace.art.link.platform.shared_libs += libandroid.so
+namespace.art.link.platform.shared_libs += libaaudio.so
+namespace.art.link.platform.shared_libs += libamidi.so
+namespace.art.link.platform.shared_libs += libbinder_ndk.so
+namespace.art.link.platform.shared_libs += libc.so
+namespace.art.link.platform.shared_libs += libcamera2ndk.so
+namespace.art.link.platform.shared_libs += libdl.so
+namespace.art.link.platform.shared_libs += libEGL.so
+namespace.art.link.platform.shared_libs += libGLESv1_CM.so
+namespace.art.link.platform.shared_libs += libGLESv2.so
+namespace.art.link.platform.shared_libs += libGLESv3.so
+namespace.art.link.platform.shared_libs += libjnigraphics.so
+namespace.art.link.platform.shared_libs += liblog.so
+namespace.art.link.platform.shared_libs += libmediandk.so
+namespace.art.link.platform.shared_libs += libm.so
+namespace.art.link.platform.shared_libs += libnativewindow.so
+namespace.art.link.platform.shared_libs += libOpenMAXAL.so
+namespace.art.link.platform.shared_libs += libOpenSLES.so
+namespace.art.link.platform.shared_libs += libRS.so
+namespace.art.link.platform.shared_libs += libstdc++.so
+namespace.art.link.platform.shared_libs += libsync.so
+namespace.art.link.platform.shared_libs += libvulkan.so
+namespace.art.link.platform.shared_libs += libwebviewchromium_plat_support.so
+namespace.art.link.platform.shared_libs += libmedia_jni.so
+namespace.art.link.platform.shared_libs += libsoundpool.so
+namespace.art.link.platform.shared_libs += libcompiler_rt.so
+namespace.art.link.platform.shared_libs += libwebviewchromium_loader.so
+namespace.art.link.platform.shared_libs += libc.so
+namespace.art.link.platform.shared_libs += libm.so
+namespace.art.link.platform.shared_libs += libdl.so
+namespace.art.link.platform.shared_libs += libclang_rt.asan-aarch64-android.so:libclang_rt.asan-arm-android.so:libclang_rt.hwasan-aarch64-android.so:libclang_rt.hwasan-arm-android.so:libclang_rt.tsan-aarch64-android.so:libclang_rt.tsan-arm-android.so:libclang_rt.ubsan_standalone-aarch64-android.so:libclang_rt.ubsan_standalone-arm-android.so
 
 ###############################################################################
 # "platform" namespace
