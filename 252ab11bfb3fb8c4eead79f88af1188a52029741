@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02818b61_914a4fd8",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-21T09:24:39Z",
+      "side": 1,
+      "message": "Yes, that looks like an existing bug.",
+      "parentUuid": "458db6dd_650271af",
+      "revId": "252ab11bfb3fb8c4eead79f88af1188a52029741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8a8fa3a_3048b414",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "252ab11bfb3fb8c4eead79f88af1188a52029741",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db71d14_dd878ed9",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-21T09:24:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8a8fa3a_3048b414",
+      "range": {
+        "startLine": 373,
+        "startChar": 8,
+        "endLine": 373,
+        "endChar": 12
+      },
+      "revId": "252ab11bfb3fb8c4eead79f88af1188a52029741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
