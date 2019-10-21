@@ -52,6 +52,24 @@
       "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "773947b4_2d27ba07",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-10-21T18:43:31Z",
+      "side": 1,
+      "message": "It is undefined behavior in C++. But we know that all sane implementations (on devices with MMUs) trap. ART has to trap to avoid Java null checks. (I did once work on a platform that didn\u0027t. And I think some old C implementations didn\u0027t so that \"\" and null could be the same. Both bad ideas.)\n\nBut I\u0027m OK with adding it if it\u0027s generally preferred.",
+      "parentUuid": "22877f6d_3d37d212",
+      "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
