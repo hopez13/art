@@ -1,0 +1,6 @@
+java_test {
+    name: "art-run-test-001-HelloWorld",
+    srcs: ["src/*.java"],
+    data: ["expected.txt"],
+    test_suites: ["general-tests"],
+}
