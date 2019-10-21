@@ -34,6 +34,24 @@
       "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22877f6d_3d37d212",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-10-21T17:22:01Z",
+      "side": 1,
+      "message": "Isn\u0027t dereferencing a null pointer undefined behavior? It would seem more correct to add an extra not-null CHECK?",
+      "parentUuid": "6f24e506_b39d2b20",
+      "revId": "0b2efc9b7bc7757eab3281a2c9b2c524de1b0a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
