@@ -1,4 +1,4 @@
-%def bindiv(result="", second="", wide="", suffix="", rem="0", ext="cdq"):
+%def bindiv(result="", second="", tmp="", wide="", suffix="", rem="0", ext="cdq"):
 /*
  * 32-bit binary div/rem operation.  Handles special case of op1=-1.
  */
@@ -16,6 +16,8 @@
     jz      common_errDivideByZero
     cmp${suffix}  $$-1, $second
     je      2f
+    cmp${suffix}  $$2, $second
+    je 3f
     $ext                                    # rdx:rax <- sign-extended of rax
     idiv${suffix}   $second
 1:
@@ -30,6 +32,22 @@
     xor${suffix} $result, $result
     .else
     neg${suffix} $result
+    .endif
+    jmp     1b
+3:
+    .if $rem
+    $ext
+    idiv${suffix} $second
+    jmp    1b
+    .else
+    mov${suffix} $result, $tmp
+    .if $wide
+    shr${suffix} $$63, $tmp
+    .else
+    shr${suffix} $$31, $tmp
+    .endif
+    add${suffix} $tmp, $result
+    sar${suffix} $result
     .endif
     jmp     1b
 
@@ -372,7 +390,7 @@ $instr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_div_int():
-%  bindiv(result="%eax", second="%ecx", wide="0", suffix="l")
+%  bindiv(result="%eax", second="%ecx", tmp="%edx", wide="0", suffix="l")
 
 %def op_div_int_2addr():
 %  bindiv2addr(result="%eax", second="%ecx", wide="0", suffix="l")
@@ -384,7 +402,7 @@ $instr
 %  bindivLit8(result="%eax")
 
 %def op_div_long():
-%  bindiv(result="%rax", second="%rcx", wide="1", suffix="q", ext="cqo")
+%  bindiv(result="%rax", second="%rcx", tmp="%rdx", wide="1", suffix="q", ext="cqo")
 
 %def op_div_long_2addr():
 %  bindiv2addr(result="%rax", second="%rcx", wide="1", suffix="q", ext="cqo")
