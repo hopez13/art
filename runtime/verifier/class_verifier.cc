@@ -133,6 +133,7 @@ FailureKind ClassVerifier::CommonVerifyClass(Thread* self,
                      allow_soft_failures,
                      log_level,
                      api_level,
+                     /*skip_dead_code=*/ true,
                      can_allocate,
                      error);
 }
@@ -156,6 +157,7 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
                      allow_soft_failures,
                      log_level,
                      api_level,
+                     /*skip_dead_code=*/ true,
                      /*can_allocate=*/ true,
                      error);
 }
@@ -169,6 +171,7 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
                                        bool allow_soft_failures,
                                        HardFailLogMode log_level,
                                        uint32_t api_level,
+                                       bool skip_dead_code,
                                        bool can_allocate,
                                        std::string* error) {
   // A class must not be abstract and final.
@@ -224,6 +227,7 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
                                      log_level,
                                      /*need_precise_constants=*/ false,
                                      api_level,
+                                     skip_dead_code,
                                      Runtime::Current()->IsAotCompiler(),
                                      can_allocate,
                                      &hard_failure_msg);

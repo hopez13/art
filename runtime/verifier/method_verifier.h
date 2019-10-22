@@ -212,6 +212,7 @@ class MethodVerifier {
                  bool can_load_classes,
                  bool allow_thread_suspension,
                  bool allow_soft_failures,
+                 bool skip_dead_code,
                  bool aot_mode)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -252,6 +253,7 @@ class MethodVerifier {
                                   HardFailLogMode log_level,
                                   bool need_precise_constants,
                                   uint32_t api_level,
+                                  bool skip_dead_code,
                                   bool aot_mode,
                                   bool allow_suspension,
                                   std::string* hard_failure_msg)
@@ -274,6 +276,7 @@ class MethodVerifier {
                                   HardFailLogMode log_level,
                                   bool need_precise_constants,
                                   uint32_t api_level,
+                                  bool skip_dead_code,
                                   bool aot_mode,
                                   bool allow_suspension,
                                   std::string* hard_failure_msg)
@@ -367,6 +370,10 @@ class MethodVerifier {
   // Converts soft failures to hard failures when false. Only false when the compiler isn't
   // running and the verifier is called from the class linker.
   const bool allow_soft_failures_;
+
+  // Use runtime throws to identify dead-code due to runtime throws. Only false if running in a
+  // a situation where classes might be changing and there will be a subsequent ReverifyClass.
+  const bool skip_dead_code_;
 
   // Indicates the method being verified contains at least one check-cast or aput-object
   // instruction. Aput-object operations implicitly check for array-store exceptions, similar to
