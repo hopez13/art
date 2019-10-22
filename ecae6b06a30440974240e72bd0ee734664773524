@@ -1,0 +1,273 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79c0c3f9_7e69eb8d",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 1193,
+        "startChar": 5,
+        "endLine": 1196,
+        "endChar": 67
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80f8bd61_2ea8b626",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Maybe forward to vmovhlps() if CpuHasAVXorAVX2FeatureFlag()? Like movupd-\u003evmovupd.\n(I don\u0027t know if it makes sense for all instructions or only for some.)",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc6a10b_fe954809",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Nit: reorder addss() and vaddss().",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd005bf9_548318af",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Nit: reorder addsd() and vaddsd()?",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec4e3386_151bf8c5",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e695ddc6_d3d3a549",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Please add assembler tests for all added instructions.",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a36e7486_4e600dd5",
+        "filename": "test/684-checker-simd-dotprod/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "074d3e9b_b592e538",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "This will fail without specific --instruction-set-features, so we cannot generally enable the test for x86-64.\nWe still do not have CHECKER support for discriminating based on the --instruction-set-features.",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35a6124_af388568",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7292c98_c943ea8d",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65173f95_abe27415",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ebf3cb_5009f7dd",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Should be MAX_D as Hans noted on PS4. (Sorry I missed that earlier.)",
+      "range": {
+        "startLine": 68,
+        "startChar": 43,
+        "endLine": 68,
+        "endChar": 48
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a20c661_9cb29cf7",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T08:56:06Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 4
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
