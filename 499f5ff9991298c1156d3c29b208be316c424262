@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71bb9344_37db291a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T10:30:08Z",
+      "side": 1,
+      "message": "The floating point addition and comparison is quite heavy and diminishes the actual measured gains. I think we should benchmark\n\n  int benchmarkToHalf() {\n    int result \u003d 0;\n    int raw_input \u003d 0;\n    do {\n      float input \u003d Float.intBitsToFloat(raw_input);\n      short output \u003d FP16.toHalf(input);\n      result +\u003d output;\n    } while (++raw_input !\u003d 0);\n    return result;\n  }\n\nor with different termination condition if using all `int` values takes too long.",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5631ef_156a9995",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T10:30:08Z",
+      "side": 1,
+      "message": "Do you do anything with `ret` afterwards? Because this looks like a candidate for DCE if the method is inlined or intrinsic has the right attributes.",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8781a501_c1dff91b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T10:30:08Z",
+      "side": 1,
+      "message": "Idea for future improvement: We could change the Invoke result type to Uint16 and insert a TypeConversion to Int16 and hope that that the TypeConversion is eliminated or scheduled further away from the Fmov.",
+      "range": {
+        "startLine": 3240,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 20
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
