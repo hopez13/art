@@ -179,6 +179,10 @@ class Redefiner {
     bool EnsureClassAllocationsFinished(/*out*/RedefinitionDataIter* data)
         REQUIRES_SHARED(art::Locks::mutator_lock_);
 
+    // Ensures the dex-caches are filled with all required classes prior to redefiniton.
+    bool EnsureDexCachesFilled(RedefinitionDataIter* data)
+        REQUIRES_SHARED(art::Locks::mutator_lock_);
+
     // This will check that no constraints are violated (more than 1 class in dex file, any changes
     // in number/declaration of methods & fields, changes in access flags, etc.)
     bool CheckRedefinitionIsValid() REQUIRES_SHARED(art::Locks::mutator_lock_);
@@ -299,6 +303,8 @@ class Redefiner {
   bool EnsureAllClassAllocationsFinished(RedefinitionDataHolder& holder)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
   bool FinishAllRemainingAllocations(RedefinitionDataHolder& holder)
+      REQUIRES_SHARED(art::Locks::mutator_lock_);
+  bool EnsureAllDexCachesFilled(RedefinitionDataHolder& holder)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
   void ReleaseAllDexFiles() REQUIRES_SHARED(art::Locks::mutator_lock_);
   void ReverifyClasses(RedefinitionDataHolder& holder) REQUIRES(art::Locks::mutator_lock_);

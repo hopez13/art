@@ -74,6 +74,7 @@
 #include "gc/heap.h"
 #include "gc/heap-inl.h"
 #include "gc/heap-visit-objects-inl.h"
+#include "gc_root.h"
 #include "handle.h"
 #include "handle_scope.h"
 #include "instrumentation.h"
@@ -103,15 +104,19 @@
 #include "mirror/method.h"
 #include "mirror/method_handle_impl-inl.h"
 #include "mirror/object.h"
+#include "mirror/object-inl.h"
+#include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-alloc-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/object_array.h"
+#include "mirror/object_reference.h"
 #include "mirror/string.h"
 #include "mirror/var_handle.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "non_debuggable_classes.h"
 #include "obj_ptr.h"
 #include "object_lock.h"
+#include "offsets.h"
 #include "runtime.h"
 #include "runtime_globals.h"
 #include "stack.h"
@@ -131,6 +136,26 @@
 
 namespace openjdkjvmti {
 
+static void DumpDc(art::ObjPtr<art::mirror::Object> dc) NO_THREAD_SAFETY_ANALYSIS {
+  class SRVisitor {
+   public:
+    void operator()(art::mirror::Object* obj ATTRIBUTE_UNUSED, art::MemberOffset off ATTRIBUTE_UNUSED, bool v ATTRIBUTE_UNUSED) const {}
+    void VisitRoot(art::mirror::CompressedReference<art::mirror::Object>* root_ptr) const NO_THREAD_SAFETY_ANALYSIS {
+      art::mirror::Object* root = root_ptr->AsMirrorPtr();
+      if (root->IsClass()) {
+        LOG(INFO) << "Got " << root->AsClass()->PrettyClass();
+      }
+    }
+    void VisitRootIfNonNull(art::mirror::CompressedReference<art::mirror::Object>* root_ptr) const NO_THREAD_SAFETY_ANALYSIS {
+      if (root_ptr == nullptr || root_ptr->IsNull()) {
+        return;
+      }
+      VisitRoot(root_ptr);
+    }
+  };
+  SRVisitor srv;
+  dc->VisitReferences(srv, art::VoidFunctor{});
+}
 // Debug check to force us to directly check we saw all methods and fields exactly once directly.
 // Normally we don't need to do this since if any are missing the count will be different
 constexpr bool kCheckAllMethodsSeenOnce = art::kIsDebugBuild;
@@ -1482,6 +1507,11 @@ bool Redefiner::ClassRedefinition::CheckVerification(const RedefinitionDataIter&
   art::StackHandleScope<2> hs(driver_->self_);
   std::string error;
   // TODO Make verification log level lower
+  VLOG(plugin) << "Running verification for " << class_sig_;
+  LOG(INFO) << "old dex-cache!";
+  DumpDc(iter.GetMirrorClass()->GetDexCache());
+  LOG(INFO) << "before first verify!";
+  DumpDc(iter.GetNewDexCache());
   art::verifier::FailureKind failure =
       art::verifier::ClassVerifier::VerifyClass(driver_->self_,
                                                 dex_file_.get(),
@@ -1494,6 +1524,8 @@ bool Redefiner::ClassRedefinition::CheckVerification(const RedefinitionDataIter&
                                                 art::verifier::HardFailLogMode::kLogWarning,
                                                 art::Runtime::Current()->GetTargetSdkVersion(),
                                                 &error);
+  LOG(INFO) << "After first verify!";
+  DumpDc(iter.GetNewDexCache());
   switch (failure) {
     case art::verifier::FailureKind::kNoFailure:
       // TODO It is possible that by doing redefinition previous NO_COMPILE verification failures
@@ -1562,6 +1594,49 @@ bool Redefiner::ClassRedefinition::AllocateAndRememberNewDexFileCookie(
     }
   }
 
+  return true;
+}
+
+// If we had soft-failures it's possible that the dex-cache is only partly filled (since normally
+// the verifier is responsible for filling it). This can only happen when the verifier thinks some
+// code is dead due to (for example) missing methods. Since we know the dex-file has only a single
+// class we can just fill the dex-cache with all the classes referenced in the dex-file and call it
+// a day. We don't need to fill up the method/field references because those will be handled by the
+// reverify (since no need to allocate to get those).
+// TODO This is all terrible.
+bool Redefiner::ClassRedefinition::EnsureDexCachesFilled(RedefinitionDataIter *data) {
+  if (LIKELY(!needs_reverify_)) {
+    // If the verification succeeded we would have already done all of this in the verifier.
+    return true;
+  }
+  const art::DexFile* df = data->GetNewDexCache()->GetDexFile();
+  art::ClassLinker* cl = driver_->runtime_->GetClassLinker();
+  art::StackHandleScope<3> hs(driver_->self_);
+  art::Handle<art::mirror::DexCache> dc(hs.NewHandle(data->GetNewDexCache()));
+  art::Handle<art::mirror::ClassLoader> loader(hs.NewHandle(GetClassLoader()));
+  art::Handle<art::mirror::Class> oome(hs.NewHandle(
+      driver_->self_->DecodeJObject(art::WellKnownClasses::java_lang_OutOfMemoryError)->AsClass()));
+  for (uint32_t i = 0; i < df->NumTypeIds(); i++) {
+    driver_->self_->AssertNoPendingException();
+    art::ObjPtr<art::mirror::Class> res = cl->ResolveType(art::dex::TypeIndex(i), dc, loader);
+    if (res.IsNull()) {
+      const char* desc = df->GetTypeDescriptor(df->GetTypeId(art::dex::TypeIndex(i)));
+      VLOG(plugin) << "Could not find class " << desc << "(idx: " << art::dex::TypeIndex(i)
+                   << ") when preparing for reverification of "
+                   << data->GetMirrorClass()->PrettyClass();
+      driver_->self_->AssertPendingException();
+      if (UNLIKELY(driver_->self_->GetException()->GetClass() == oome.Get())) {
+        // We couldn't resolve a pointed-to class. Can't be sure the dex-cache will be valid.
+        driver_->self_->ClearException();
+        RecordFailure(ERR(OUT_OF_MEMORY), "Unable to resolve potentially referenced class");
+        return false;
+      }
+      driver_->self_->ClearException();
+    } else if (VLOG_IS_ON(plugin)) {
+      VLOG(plugin) << "Resolved " << art::dex::TypeIndex(i) << " -> " << res->PrettyClass()
+                   << " for " << data->GetMirrorClass()->PrettyClass();
+    }
+  }
   return true;
 }
 
@@ -1790,6 +1865,15 @@ bool Redefiner::FinishAllRemainingAllocations(RedefinitionDataHolder& holder) {
   }
   return true;
 }
+bool Redefiner::EnsureAllDexCachesFilled(RedefinitionDataHolder& holder) {
+  for (RedefinitionDataIter data = holder.begin(); data != holder.end(); ++data) {
+    if (!data.GetRedefinition().EnsureDexCachesFilled(&data)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 
 void Redefiner::ClassRedefinition::ReleaseDexFile() {
   dex_file_.release();  // NOLINT b/117926937
@@ -1849,11 +1933,13 @@ jvmtiError Redefiner::Run() {
   if (!CheckAllRedefinitionAreValid() ||
       !EnsureAllClassAllocationsFinished(holder) ||
       !FinishAllRemainingAllocations(holder) ||
-      !CheckAllClassesAreVerified(holder)) {
+      !CheckAllClassesAreVerified(holder) ||
+      !EnsureAllDexCachesFilled(holder)) {
     return result_;
   }
 
   // At this point we can no longer fail without corrupting the runtime state.
+
   for (RedefinitionDataIter data = holder.begin(); data != holder.end(); ++data) {
     art::ClassLinker* cl = runtime_->GetClassLinker();
     cl->RegisterExistingDexCache(data.GetNewDexCache(), data.GetSourceClassLoader());
@@ -1917,6 +2003,8 @@ void Redefiner::ClassRedefinition::ReverifyClass(const RedefinitionDataIter &cur
                                                   art::Runtime::Current()->GetTargetSdkVersion(),
                                                   &error);
   CHECK_NE(failure, art::verifier::FailureKind::kHardFailure);
+  art::ObjPtr<art::mirror::Object> dc(cur_data.GetNewDexCache());
+  DumpDc(dc);
 }
 
 void Redefiner::ClassRedefinition::UpdateMethods(art::ObjPtr<art::mirror::Class> mclass,
