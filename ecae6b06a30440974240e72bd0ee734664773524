@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4716763_d62007cf",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c0c3f9_7e69eb8d",
+      "range": {
+        "startLine": 1193,
+        "startChar": 5,
+        "endLine": 1196,
+        "endChar": 67
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80f8bd61_2ea8b626",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2019-10-22T08:56:06Z",
       "side": 1,
       "message": "Maybe forward to vmovhlps() if CpuHasAVXorAVX2FeatureFlag()? Like movupd-\u003evmovupd.\n(I don\u0027t know if it makes sense for all instructions or only for some.)",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c2b6d2c_32ef88f8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "vmovhlps accepts three arguments (one being the non destructive source) whereas movhlps accepts two arguments (overrides the source with result). Hence I put them separately.\n\nHowever these instructions were used for VecReduce in getting the horizaontal sum of fp vector.\nSince we do not have that now, I\u0027m removing these as well.",
+      "parentUuid": "80f8bd61_2ea8b626",
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "e02b6f42_d6c385c3",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfc6a10b_fe954809",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd005bf9_548318af",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 4
@@ -73,6 +133,24 @@
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc7f174_149f6694",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd005bf9_548318af",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "42601ecb_1350ae21",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3596,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec4e3386_151bf8c5",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e695ddc6_d3d3a549",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 4
@@ -107,6 +203,24 @@
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3c16fd5_43787d0f",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e695ddc6_d3d3a549",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "33d98446_ae5c1fa7",
+        "filename": "test/684-checker-simd-dotprod/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a36e7486_4e600dd5",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "074d3e9b_b592e538",
         "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
         "patchSetId": 4
@@ -144,6 +282,30 @@
       "writtenOn": "2019-10-22T08:56:06Z",
       "side": 1,
       "message": "This will fail without specific --instruction-set-features, so we cannot generally enable the test for x86-64.\nWe still do not have CHECKER support for discriminating based on the --instruction-set-features.",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04e08c76_0eda2eb7",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Removed changes from this file",
+      "parentUuid": "074d3e9b_b592e538",
       "range": {
         "startLine": 37,
         "startChar": 25,
@@ -179,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "c82d4d63_4b99d87c",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b35a6124_af388568",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7292c98_c943ea8d",
         "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
         "patchSetId": 4
@@ -199,6 +385,30 @@
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7f12f0c_52223b73",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7292c98_c943ea8d",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -225,6 +435,30 @@
     },
     {
       "key": {
+        "uuid": "e3b9cc01_3fbc9f1f",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65173f95_abe27415",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43ebf3cb_5009f7dd",
         "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
         "patchSetId": 4
@@ -248,6 +482,30 @@
     },
     {
       "key": {
+        "uuid": "131d2a1c_5335b333",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ebf3cb_5009f7dd",
+      "range": {
+        "startLine": 68,
+        "startChar": 43,
+        "endLine": 68,
+        "endChar": 48
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a20c661_9cb29cf7",
         "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
         "patchSetId": 4
@@ -268,6 +526,30 @@
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15fabc80_ac226c0d",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a20c661_9cb29cf7",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 4
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
