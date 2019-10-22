@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "5a48c517_5ce47492",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T11:54:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c2b6d2c_32ef88f8",
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfc6a10b_fe954809",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 4
@@ -315,6 +333,30 @@
       "revId": "ecae6b06a30440974240e72bd0ee734664773524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "142de04e_c6eb31ba",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T11:54:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "04e08c76_0eda2eb7",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "ecae6b06a30440974240e72bd0ee734664773524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
