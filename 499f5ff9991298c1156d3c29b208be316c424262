@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "945b5811_5e1c34fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-10-22T13:20:10Z",
+      "side": 1,
+      "message": "The reason that i didnt do a benchmark similar to what you suggested is because for the range of input of benchmarkToHalf a very large majority of them will return infinity or 0 for 16 bit Floats as they are out of range and i thought that converting values within 16 bit float range would be more a more real world scenario for benchmarking. \n\nIn the java implementation when there is an overflow, the value infinity is returned immediately and when there is an underflow and e \u003c -10 the value 0 is returned immediately. So the java implementation is quite fast for overflow and underflow with e \u003c -10 (all values outside the FP16 range). For your benchmark the results are:\n\n# Java implementation\nBig cluster: 20446ms\nLittle cluster: 67465ms\n\n# Intrinsic implementation\nBig cluster: 18415ms (10% faster)\nLittle cluster: 61390ms (9% faster)\n\nI think that we should do benchmarking with values that are mostly within the FP16 range. But if you prefer i can change the commit message to your benchmark and its results?",
+      "parentUuid": "71bb9344_37db291a",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d5631ef_156a9995",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb37c83f_e2dd88f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-10-22T13:20:10Z",
+      "side": 1,
+      "message": "I was printing it. I am also printing the result from your benchmark after returning it. The original code was \n\n    public static int perftoHalf () {\n\n        short ret \u003d 0;\n        long before \u003d 0;\n        long after \u003d 0;\n        int fors \u003d 8000;\n\n        // Time libcore FP16 implementation (intrinsic on ARM64)\n        before \u003d System.currentTimeMillis();\n        for (int i \u003d0; i \u003c fors; i++){\n            for (float f \u003d Float.MIN_VALUE; f \u003c 0.0001; f+\u003d0.000000001)\n            {\n                ret \u003d  FP16.toHalf(f);\n            }\n            for (float f \u003d Float.MIN_VALUE; f \u003c 65560; f+\u003d1)\n            {\n                ret \u003d  FP16.toHalf(f);\n             }\n         }\n        after \u003d System.currentTimeMillis();\n        System.out.println(\"Time of FP16.toHalf (ms): \" + (after - before));\n        return ret;\n\n   }\n\nand in the main()\n\n        int ret \u003d perftoHalf();\n        System.out.println(ret);",
+      "parentUuid": "0d5631ef_156a9995",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8781a501_c1dff91b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-10-22T10:30:08Z",
       "side": 1,
       "message": "Idea for future improvement: We could change the Invoke result type to Uint16 and insert a TypeConversion to Int16 and hope that that the TypeConversion is eliminated or scheduled further away from the Fmov.",
+      "range": {
+        "startLine": 3240,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 20
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef9f5010_c6a43431",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-10-22T13:20:10Z",
+      "side": 1,
+      "message": "Ok, but not required in this CL?",
+      "parentUuid": "8781a501_c1dff91b",
       "range": {
         "startLine": 3240,
         "startChar": 2,
