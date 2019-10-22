@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39a436ca_4b6b65cf",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1272703
+      },
+      "writtenOn": "2019-10-22T10:52:20Z",
+      "side": 1,
+      "message": "This condition can be checked first to take advantage of avoiding idiv instruction",
+      "revId": "c90827cd169a9c9499f5c53044c65f7864a63d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49489d99_30c17771",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1272703
+      },
+      "writtenOn": "2019-10-22T10:52:20Z",
+      "side": 1,
+      "message": "Add label in line no 21 and jmp to the label. These two statements are redundant\n$ext                                    \nidiv${suffix}   $second",
+      "revId": "c90827cd169a9c9499f5c53044c65f7864a63d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
