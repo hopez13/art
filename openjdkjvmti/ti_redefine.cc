@@ -74,6 +74,7 @@
 #include "gc/heap.h"
 #include "gc/heap-inl.h"
 #include "gc/heap-visit-objects-inl.h"
+#include "gc_root.h"
 #include "handle.h"
 #include "handle_scope.h"
 #include "instrumentation.h"
@@ -103,15 +104,19 @@
 #include "mirror/method.h"
 #include "mirror/method_handle_impl-inl.h"
 #include "mirror/object.h"
+#include "mirror/object-inl.h"
+#include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-alloc-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/object_array.h"
+#include "mirror/object_reference.h"
 #include "mirror/string.h"
 #include "mirror/var_handle.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "non_debuggable_classes.h"
 #include "obj_ptr.h"
 #include "object_lock.h"
+#include "offsets.h"
 #include "runtime.h"
 #include "runtime_globals.h"
 #include "stack.h"
@@ -1482,6 +1487,7 @@ bool Redefiner::ClassRedefinition::CheckVerification(const RedefinitionDataIter&
   art::StackHandleScope<2> hs(driver_->self_);
   std::string error;
   // TODO Make verification log level lower
+  VLOG(plugin) << "Running verification for " << class_sig_;
   art::verifier::FailureKind failure =
       art::verifier::ClassVerifier::VerifyClass(driver_->self_,
                                                 dex_file_.get(),
@@ -1493,6 +1499,8 @@ bool Redefiner::ClassRedefinition::CheckVerification(const RedefinitionDataIter&
                                                 /*log_level=*/
                                                 art::verifier::HardFailLogMode::kLogWarning,
                                                 art::Runtime::Current()->GetTargetSdkVersion(),
+                                                /*skip_dead_code=*/ false,
+                                                /*can_allocate=*/ true,
                                                 &error);
   switch (failure) {
     case art::verifier::FailureKind::kNoFailure:
@@ -1854,6 +1862,7 @@ jvmtiError Redefiner::Run() {
   }
 
   // At this point we can no longer fail without corrupting the runtime state.
+
   for (RedefinitionDataIter data = holder.begin(); data != holder.end(); ++data) {
     art::ClassLinker* cl = runtime_->GetClassLinker();
     cl->RegisterExistingDexCache(data.GetNewDexCache(), data.GetSourceClassLoader());

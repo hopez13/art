@@ -78,6 +78,7 @@ class ClassVerifier {
                                  uint32_t api_level,
                                  std::string* error)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  // All the options version.
   static FailureKind VerifyClass(Thread* self,
                                  const DexFile* dex_file,
                                  Handle<mirror::DexCache> dex_cache,
@@ -87,6 +88,7 @@ class ClassVerifier {
                                  bool allow_soft_failures,
                                  HardFailLogMode log_level,
                                  uint32_t api_level,
+                                 bool skip_dead_code,
                                  bool can_allocate,
                                  std::string* error)
       REQUIRES_SHARED(Locks::mutator_lock_);

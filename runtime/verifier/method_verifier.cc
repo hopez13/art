@@ -53,6 +53,7 @@
 #include "mirror/method_handle_impl.h"
 #include "mirror/method_type.h"
 #include "mirror/object-inl.h"
+#include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/var_handle.h"
 #include "obj_ptr-inl.h"
@@ -159,6 +160,7 @@ class MethodVerifier final : public ::art::verifier::MethodVerifier {
                  bool can_load_classes,
                  bool allow_thread_suspension,
                  bool allow_soft_failures,
+                 bool skip_dead_code,
                  bool aot_mode,
                  Handle<mirror::DexCache> dex_cache,
                  Handle<mirror::ClassLoader> class_loader,
@@ -178,6 +180,7 @@ class MethodVerifier final : public ::art::verifier::MethodVerifier {
                                      can_load_classes,
                                      allow_thread_suspension,
                                      allow_soft_failures,
+                                     skip_dead_code,
                                      aot_mode),
        method_being_verified_(method),
        method_access_flags_(access_flags),
@@ -3490,12 +3493,17 @@ bool MethodVerifier<kVerifierDebug>::CodeFlowVerifyInstruction(uint32_t* start_g
     info_messages_ << "Rejecting opcode " << inst->DumpString(dex_file_);
     return false;
   } else if (flags_.have_pending_runtime_throw_failure_) {
-    LogVerifyInfo() << "Elevating opcode flags from " << opcode_flags << " to Throw";
-    /* checking interpreter will throw, mark following code as unreachable */
-    opcode_flags = Instruction::kThrow;
-    // Note: the flag must be reset as it is only global to decouple Fail and is semantically per
-    //       instruction. However, RETURN checking may throw LOCKING errors, so we clear at the
-    //       very end.
+    if (LIKELY(skip_dead_code_)) {
+      LogVerifyInfo() << "Elevating opcode flags from " << opcode_flags << " to Throw";
+      /* checking interpreter will throw, mark following code as unreachable */
+      opcode_flags = Instruction::kThrow;
+      // Note: the flag must be reset as it is only global to decouple Fail and is semantically per
+      //       instruction. However, RETURN checking may throw LOCKING errors, so we clear at the
+      //       very end.
+    } else {
+      LogVerifyInfo() << "Would elevate opcode flags from " << opcode_flags << " to Throw but "
+                      << "verification set to consider dead-code potentially reachable.";
+    }
   }
   /*
    * If we didn't just set the result register, clear it out. This ensures that you can only use
@@ -5069,6 +5077,7 @@ MethodVerifier::MethodVerifier(Thread* self,
                                bool can_load_classes,
                                bool allow_thread_suspension,
                                bool allow_soft_failures,
+                               bool skip_dead_code,
                                bool aot_mode)
     : self_(self),
       arena_stack_(arena_pool),
@@ -5084,6 +5093,7 @@ MethodVerifier::MethodVerifier(Thread* self,
       encountered_failure_types_(0),
       can_load_classes_(can_load_classes),
       allow_soft_failures_(allow_soft_failures),
+      skip_dead_code_(skip_dead_code),
       has_check_casts_(false),
       class_linker_(class_linker),
       link_(nullptr) {
@@ -5111,6 +5121,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          HardFailLogMode log_level,
                                                          bool need_precise_constants,
                                                          uint32_t api_level,
+                                                         bool skip_dead_code,
                                                          bool aot_mode,
                                                          bool allow_suspension,
                                                          std::string* hard_failure_msg) {
@@ -5131,6 +5142,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                               log_level,
                               need_precise_constants,
                               api_level,
+                              skip_dead_code,
                               aot_mode,
                               allow_suspension,
                               hard_failure_msg);
@@ -5151,6 +5163,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                log_level,
                                need_precise_constants,
                                api_level,
+                               skip_dead_code,
                                aot_mode,
                                allow_suspension,
                                hard_failure_msg);
@@ -5174,6 +5187,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          HardFailLogMode log_level,
                                                          bool need_precise_constants,
                                                          uint32_t api_level,
+                                                         bool skip_dead_code,
                                                          bool aot_mode,
                                                          bool allow_suspension,
                                                          std::string* hard_failure_msg) {
@@ -5189,6 +5203,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                 /* can_load_classes= */ allow_suspension,
                                                 /* allow_thread_suspension= */ allow_suspension,
                                                 allow_soft_failures,
+                                                skip_dead_code,
                                                 aot_mode,
                                                 dex_cache,
                                                 class_loader,
@@ -5336,6 +5351,7 @@ MethodVerifier* MethodVerifier::CalculateVerificationInfo(
                                       /* can_load_classes= */ false,
                                       /* allow_thread_suspension= */ false,
                                       /* allow_soft_failures= */ true,
+                                      /* skip_dead_code= */ true,
                                       Runtime::Current()->IsAotCompiler(),
                                       dex_cache,
                                       class_loader,
@@ -5383,6 +5399,7 @@ MethodVerifier* MethodVerifier::VerifyMethodAndDump(Thread* self,
       /* can_load_classes= */ true,
       /* allow_thread_suspension= */ true,
       /* allow_soft_failures= */ true,
+      /* skip_dead_code= */ true,
       Runtime::Current()->IsAotCompiler(),
       dex_cache,
       class_loader,
@@ -5424,6 +5441,7 @@ void MethodVerifier::FindLocksAtDexPc(
                                        /* can_load_classes= */ false,
                                        /* allow_thread_suspension= */ false,
                                        /* allow_soft_failures= */ true,
+                                       /* skip_dead_code= */ true,
                                        Runtime::Current()->IsAotCompiler(),
                                        dex_cache,
                                        class_loader,
@@ -5463,6 +5481,7 @@ MethodVerifier* MethodVerifier::CreateVerifier(Thread* self,
                                          can_load_classes,
                                          allow_thread_suspension,
                                          allow_soft_failures,
+                                         /* skip_dead_code=*/ true,
                                          Runtime::Current()->IsAotCompiler(),
                                          dex_cache,
                                          class_loader,
