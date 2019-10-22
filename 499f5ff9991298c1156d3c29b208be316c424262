@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6970257d_dc96c068",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T13:51:43Z",
+      "side": 1,
+      "message": "I think avoiding the FP add/cmp overhead is important to get this right but we should indeed benchmark different ranges separately (even your benchmark bundles 2 cases together). I would expect much better improvement than 40% for the intrinsic in the two \"normal\" cases (not NaN/+-Inf/+-0.0).",
+      "parentUuid": "945b5811_5e1c34fe",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d5631ef_156a9995",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ee184c90_9558b88b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T13:51:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb37c83f_e2dd88f8",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8781a501_c1dff91b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Ok, but not required in this CL?",
       "parentUuid": "8781a501_c1dff91b",
+      "range": {
+        "startLine": 3240,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 20
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95cda74b_38b22ece",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-22T13:51:43Z",
+      "side": 1,
+      "message": "Of course not. (If I add a comment immediately marked as resolved, it\u0027s FYI and does not require any action on the CL.)",
+      "parentUuid": "ef9f5010_c6a43431",
       "range": {
         "startLine": 3240,
         "startChar": 2,
