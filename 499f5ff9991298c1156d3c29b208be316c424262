@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2149bf98_a4b7b745",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-10-22T14:51:18Z",
+      "side": 1,
+      "message": "So i ran the benchmark for the code below. 0x33800032 is 5.9605E-8 (smallest positive subnormal number) and 0x47800000 is 65536 is the max value of FP16+1.:\n\n\n  public static int benchmarkToHalf() {\n    int result \u003d 0;\n    int raw_input \u003d 0x33800032;\n\n    long before \u003d 0;\n    long after \u003d 0;\n    before \u003d System.currentTimeMillis();\n    do {\n      float input \u003d Float.intBitsToFloat(raw_input);\n      short output \u003d FP16.toHalf(input);\n      result +\u003d output;\n    } while (++raw_input !\u003d 0x477fff00);\n    after \u003d System.currentTimeMillis();\n    System.out.println(\"Time of FP16.toHalf (ms): \" + (after - before));\n    return result;\n  }\n\nJava implementation:\nBig cluster: 2136ms\nLittle cluster: 6442ms\n\nIntrinsic:\nBig cluster: 1347ms (~37% faster)\nLittle cluster: 4937ms (~23% faster)\n\nI have updated the commit message with this code and result, I hope this is an acceptable benchmark for now but if you prefer your method or my previous method for benchmarking for the commit message let me know.",
+      "parentUuid": "6970257d_dc96c068",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "499f5ff9991298c1156d3c29b208be316c424262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d5631ef_156a9995",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
