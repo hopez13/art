@@ -16,12 +16,9 @@
 
 cc_defaults {
     name: "libnativebridge-dummy-defaults",
-
-    host_supported: true,
-    cflags: [
-        "-Wall",
-        "-Wextra",
-        "-Werror",
+    defaults: [
+        "art_defaults",
+        "art_test_defaults",
     ],
     header_libs: ["libnativebridge-headers"],
     cppflags: ["-fvisibility=protected"],
@@ -48,12 +45,11 @@ cc_library_shared {
 // Build the unit tests.
 cc_defaults {
     name: "libnativebridge-tests-defaults",
-    test_per_src: true,
-
-    cflags: [
-        "-Wall",
-        "-Werror",
+    defaults: [
+        "art_defaults",
+        "art_test_defaults",
     ],
+    test_per_src: true,
 
     srcs: [
         "CodeCacheCreate_test.cpp",
@@ -88,20 +84,23 @@ cc_defaults {
 cc_test {
     name: "libnativebridge-tests",
     defaults: ["libnativebridge-tests-defaults"],
-    host_supported: true,
     shared_libs: ["libnativebridge"],
 }
 
 cc_test {
     name: "libnativebridge-lazy-tests",
     defaults: ["libnativebridge-tests-defaults"],
+    host_supported: false,
     shared_libs: ["libnativebridge_lazy"],
 }
 
 // Build the test for the C API.
 cc_test {
     name: "libnativebridge-api-tests",
-    host_supported: true,
+    defaults: [
+        "art_defaults",
+        "art_test_defaults",
+    ],
     test_per_src: true,
     srcs: [
         "NativeBridgeApi.c",
