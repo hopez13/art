@@ -22,6 +22,30 @@
       "revId": "99103e1accc3577a817681f9ccbc028f6ada6b57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb55933_d7fdcd9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-10-23T11:19:34Z",
+      "side": 1,
+      "message": "The \"fix\" would not fail if memfd isn\u0027t supported like I did before in https://android-review.googlesource.com/c/platform/art/+/1117131\nBut we ended up backporting it because it was found to be needed in all cases ( ex selinux goes crazy without it )",
+      "parentUuid": "8bac7c4f_faa8f083",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "99103e1accc3577a817681f9ccbc028f6ada6b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
