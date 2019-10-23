@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "578e419c_0307c390",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-23T12:15:51Z",
+      "side": 1,
+      "message": "in?",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "edebad041a6cb7ac5dcfbbdecce8ad2f670e1837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7daf5543_2846e0a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-23T12:15:51Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 10,
+        "startChar": 69,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "edebad041a6cb7ac5dcfbbdecce8ad2f670e1837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99594295_06791dba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2469,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-23T12:15:51Z",
+      "side": 1,
+      "message": "Nit: I think this space is superfluous: one is already added between the printed failed assertion and the additional information printed using `\u003c\u003c`.",
+      "range": {
+        "startLine": 2469,
+        "startChar": 40,
+        "endLine": 2469,
+        "endChar": 41
+      },
+      "revId": "edebad041a6cb7ac5dcfbbdecce8ad2f670e1837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8761be6b_dcd0419c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2469,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-23T12:15:51Z",
+      "side": 1,
+      "message": "Nit: However, I\u0027d add a space after `:` here.",
+      "range": {
+        "startLine": 2469,
+        "startChar": 51,
+        "endLine": 2469,
+        "endChar": 52
+      },
+      "revId": "edebad041a6cb7ac5dcfbbdecce8ad2f670e1837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
