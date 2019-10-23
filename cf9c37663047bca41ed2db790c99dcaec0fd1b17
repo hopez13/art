@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "89454822_9df366d9",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-23T12:58:25Z",
+      "side": 1,
+      "message": "I added the comment in https://r.android.com/953538",
+      "parentUuid": "d3234cf9_585453a9",
+      "range": {
+        "startLine": 57,
+        "startChar": 73,
+        "endLine": 57,
+        "endChar": 90
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7d8eddb_ca460f38",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 8
