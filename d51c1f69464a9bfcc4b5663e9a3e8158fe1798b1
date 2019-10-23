@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d91355f4_442e5936",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-23T21:55:47Z",
+      "side": 1,
+      "message": "\u003e As I understand it, that means the methods are obsolete methods that should point to an obsolete class?\n\nNo these methods are found during the reverify we do to check for things like lock-ordering failures that might not be seen by the initial verify. Obsolete methods have nothing to do with this. It is the new implementation that might have invalid dex-caches.\n\n\u003e Given dex cache entries can randomly change, I don\u0027t think it should be an error to have a method in the dex cache but not its declaring class.\n\nI guess ideally yes. I\u0027m not sure it\u0027s a good use of time to go looking for all the places we break that though.\n\nI do wonder if simply clearing the dex-cache would be a simpler way of solving the problem here though.",
+      "parentUuid": "7057b84d_9d96d86f",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db16c57e_7f135c62",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c512fe48_13473309",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-23T21:55:47Z",
+      "side": 1,
+      "message": "rewrote.",
+      "parentUuid": "db16c57e_7f135c62",
+      "range": {
+        "startLine": 374,
+        "startChar": 5,
+        "endLine": 374,
+        "endChar": 67
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a8348d9_412167e5",
         "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97651d99_ff905b02",
+        "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-23T21:55:47Z",
+      "side": 1,
+      "message": "It seems there is a dependency that it isn\u0027t.",
+      "parentUuid": "7a8348d9_412167e5",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
