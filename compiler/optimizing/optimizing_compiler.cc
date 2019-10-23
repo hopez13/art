@@ -155,6 +155,10 @@ class PassObserver : public ValueObject {
     return cached_method_name_.c_str();
   }
 
+  // Debug.
+  // TODO: remove.
+  void DumpCfg();
+
  private:
   void StartPass(const char* pass_name) {
     VLOG(compiler) << "Starting pass: " << pass_name;
@@ -242,6 +246,16 @@ class PassObserver : public ValueObject {
 
   DISALLOW_COPY_AND_ASSIGN(PassObserver);
 };
+
+// Debug.
+// TODO: remove.
+void PassObserver::DumpCfg() {
+  if (visualizer_enabled_) {
+    visualizer_.DumpGraph("debug print", /* is_after_pass */ true, graph_in_bad_state_);
+    FlushVisualizer();
+  }
+}
+
 
 class PassScope : public ValueObject {
  public:
