@@ -167,6 +167,7 @@ class OatWriter {
   dchecked_vector<std::string> GetSourceLocations() const;
 
   // Write raw dex files to the vdex file, mmap the file and open the dex files from it.
+  // Supporting data structures are written into the .rodata section of the oat file.
   // The `verify` setting dictates whether the dex file verifier should check the dex files.
   // This is generally the case, and should only be false for tests.
   // If `update_input_vdex` is true, then this method won't actually write the dex files,
@@ -177,13 +178,14 @@ class OatWriter {
                             CopyOption copy_dex_files,
                             /*out*/ std::vector<MemMap>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
-  // Initialize the writer with the given parameters and start writing .rodata.
-  // Supporting data structures for dex files are written into the .rodata section of the oat file.
-  bool StartRoData(const CompilerDriver* compiler_driver,
-                   ImageWriter* image_writer,
-                   const std::vector<const DexFile*>& dex_files,
+  // Start writing .rodata, including supporting data structures for dex files.
+  bool StartRoData(const std::vector<const DexFile*>& dex_files,
                    OutputStream* oat_rodata,
                    SafeMap<std::string, std::string>* key_value_store);
+  // Initialize the writer with the given parameters.
+  void Initialize(const CompilerDriver* compiler_driver,
+                  ImageWriter* image_writer,
+                  const std::vector<const DexFile*>& dex_files);
   bool WriteQuickeningInfo(OutputStream* vdex_out);
   bool WriteVerifierDeps(OutputStream* vdex_out, verifier::VerifierDeps* verifier_deps);
   bool WriteChecksumsAndVdexHeader(OutputStream* vdex_out);
@@ -356,6 +358,7 @@ class OatWriter {
   enum class WriteState {
     kAddingDexFileSources,
     kStartRoData,
+    kInitialize,
     kPrepareLayout,
     kWriteRoData,
     kWriteText,
