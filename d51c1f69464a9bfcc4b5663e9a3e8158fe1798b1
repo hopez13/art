@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7057b84d_9d96d86f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-23T09:25:21Z",
+      "side": 1,
+      "message": "As I understand it, that means the methods are obsolete methods that should point to an obsolete class?\n\nGiven dex cache entries can randomly change, I don\u0027t think it should be an error to have a method in the dex cache but not its declaring class.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db16c57e_7f135c62",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-23T09:25:21Z",
+      "side": 1,
+      "message": "Can you re-word this? I\u0027m having a hard time grasping it.",
+      "range": {
+        "startLine": 374,
+        "startChar": 5,
+        "endLine": 374,
+        "endChar": 67
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
