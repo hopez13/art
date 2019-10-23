@@ -45,6 +45,29 @@
       "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8348d9_412167e5",
+        "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-10-23T19:55:27Z",
+      "side": 1,
+      "message": "Why does this cause problems? Since the dex caches have replacement, couldn\u0027t the class be gone from the dex cache normally?",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
