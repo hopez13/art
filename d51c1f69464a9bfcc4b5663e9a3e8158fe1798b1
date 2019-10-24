@@ -188,6 +188,30 @@
       "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8cec1ad_d77c83e2",
+        "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-24T16:24:56Z",
+      "side": 1,
+      "message": "Yeah, so that crash does show you\u0027re hitting what I\u0027m mentioning above. You need to make sure the methods entering the dex cache always have their declaring class in the class table. Clearing the dex cache is indeed a brute force solution that prevents it, but it just hides the fact that at some point, some component is doing things wrong. Given we\u0027re not hitting this today, this is likely directly caused by your CL.",
+      "parentUuid": "d763af29_0d92114f",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
