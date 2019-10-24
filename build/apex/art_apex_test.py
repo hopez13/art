@@ -267,6 +267,14 @@ class Checker:
       return False, '%s is a directory'
     return True, ''
 
+  def is_dir(self, path):
+    fs_object = self._provider.get(path)
+    if fs_object is None:
+      return False, 'Could not find %s'
+    if not fs_object.is_dir:
+      return False, '%s is not a directory'
+    return True, ''
+
   def check_file(self, path):
     ok, msg = self.is_file(path)
     if not ok:
@@ -355,6 +363,20 @@ class Checker:
         expected_paths |= set(fnmatch.filter(paths, dir_prefix + subpath_first_segment))
     for unexpected_path in set(paths) - expected_paths:
       self.fail('Unexpected file \'%s\'', unexpected_path)
+
+  def check_dexpreopt(self, basename):
+    # Try to find dexpreopt directory for some arch and check all files there
+    for arch in ARCHS:
+      dir = 'dexpreopt/%s' % arch
+      found, _ = self.is_dir(dir)
+      if found:
+        dexpreopt_dir = dir
+        break
+    if dexpreopt_dir:
+      for ext in ['art', 'oat', 'vdex']:
+        self.check_file('%s/%s.%s' % (dexpreopt_dir, basename, ext))
+    else:
+      self.fail('Could not find dexpreopt directory for any arch.')
 
   # Just here for docs purposes, even if it isn't good Python style.
 
@@ -522,6 +544,13 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
 
+    # Check dexpreopt files for libcore bootclasspath jars
+    self._checker.check_dexpreopt('boot-art')
+    self._checker.check_dexpreopt('boot-art-apache-xml')
+    self._checker.check_dexpreopt('boot-art-bouncycastle')
+    self._checker.check_dexpreopt('boot-art-core-icu4j')
+    self._checker.check_dexpreopt('boot-art-core-libart')
+    self._checker.check_dexpreopt('boot-art-okhttp')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
@@ -534,7 +563,6 @@ class ReleaseTargetChecker:
     # Check the APEX package scripts.
     self._checker.check_executable('art_postinstall_hook')
     self._checker.check_executable('art_preinstall_hook')
-    self._checker.check_executable('art_preinstall_hook_boot')
     self._checker.check_executable('art_preinstall_hook_system_server')
     self._checker.check_executable('art_prepostinstall_utils')
 
