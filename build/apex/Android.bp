@@ -231,7 +231,6 @@ apex_defaults {
     binaries: [
         "art_postinstall_hook",
         "art_preinstall_hook",
-        "art_preinstall_hook_boot",
         "art_preinstall_hook_system_server",
         "art_prepostinstall_utils",
     ],
@@ -241,6 +240,7 @@ apex_defaults {
         "art_apex_boot_integrity",
         "com.android.i18n",
     ],
+    dexpreopt_libcore: true,
 }
 
 // Default values shared by (device) Debug and Testing ART APEXes.
@@ -468,11 +468,6 @@ cc_prebuilt_binary {
 sh_binary {
     name: "art_preinstall_hook",
     src: "art_preinstall_hook.sh",
-}
-
-sh_binary {
-    name: "art_preinstall_hook_boot",
-    src: "art_preinstall_hook_boot.sh",
 }
 
 sh_binary {
