@@ -164,6 +164,30 @@
       "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d763af29_0d92114f",
+        "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-24T16:12:55Z",
+      "side": 1,
+      "message": "gpaste/5908954355859456\n\nYeah but the interpreter at least seems to have additional invariants, if it\u0027s able to find the method in the dex-cache it only searches the dex-cache for the class.",
+      "parentUuid": "412c0342_69405c6f",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -16,6 +16,24 @@
       "revId": "f672ff67ff8b34b69e553eae99961b703a803641",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86eb4ad9_043cc0ac",
+        "filename": "runtime/verifier/class_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-24T16:12:55Z",
+      "side": 1,
+      "message": "Me neither but go/lem seems to show no real difference between doing it this way and the old version (after all this is a flat \u003csmall-number\u003e of extra instructions per method verified, not a big deal considering how complicated the rest of the verification process is).\n\ngo/lem/Comparison?team\u003dart#targetA%3Dart-opt%3BmachineTypeA%3Dlinux-ia32%3BrevisionA%3D14946%3BpatchA%3Dallight-golem-test%3BtargetB%3Dart-opt%3BmachineTypeB%3Dlinux-ia32%3BrevisionB%3D14946%3BpatchB%3DNone\n\nI can try to make this a bit faster if you want but I don\u0027t really see any reason to.\n\nUnfortunately if we want to do this all safely we can only really fiddle with the access flags while the runtime is suspended so we need some way to record what the verifier wanted to do and repeat it later.",
+      "parentUuid": "3d8dc509_55908506",
+      "revId": "f672ff67ff8b34b69e553eae99961b703a803641",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
