@@ -212,6 +212,30 @@
       "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d171e36_8ff6e3b5",
+        "filename": "test/1990-structural-bad-verify/src/art/Test1990.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-24T16:30:23Z",
+      "side": 1,
+      "message": "yeah that was my impression too. As I said the actual cause was that due to the differing way the verifier loads classes and methods the methods were being added to the dex-cache even when classes could not be loaded but classes were not. Normally that mode is used when there aren\u0027t any classes (other then a few BCP ones) loaded at all and the code isn\u0027t run there wasn\u0027t any problems.",
+      "parentUuid": "d8cec1ad_d77c83e2",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "d51c1f69464a9bfcc4b5663e9a3e8158fe1798b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
