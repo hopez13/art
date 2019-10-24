@@ -356,6 +356,11 @@ class Checker:
     for unexpected_path in set(paths) - expected_paths:
       self.fail('Unexpected file \'%s\'', unexpected_path)
 
+  def check_dexpreopt(self, basename):
+    for arch in ['arm', 'arm64']:
+      for ext in ['art', 'oat', 'vdex']:
+        self.check_file('dexpreopt/%s/%s.%s' % (arch, basename, ext))
+
   # Just here for docs purposes, even if it isn't good Python style.
 
   def check_symlinked_multilib_executable(self, filename):
@@ -522,6 +527,13 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
 
+    # Check dexpreopt files for libcore bootclasspath jars
+    self._checker.check_dexpreopt('boot-libcore')
+    self._checker.check_dexpreopt('boot-libcore-apache-xml')
+    self._checker.check_dexpreopt('boot-libcore-bouncycastle')
+    self._checker.check_dexpreopt('boot-libcore-core-icu4j')
+    self._checker.check_dexpreopt('boot-libcore-core-libart')
+    self._checker.check_dexpreopt('boot-libcore-okhttp')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
@@ -534,7 +546,6 @@ class ReleaseTargetChecker:
     # Check the APEX package scripts.
     self._checker.check_executable('art_postinstall_hook')
     self._checker.check_executable('art_preinstall_hook')
-    self._checker.check_executable('art_preinstall_hook_boot')
     self._checker.check_executable('art_preinstall_hook_system_server')
     self._checker.check_executable('art_prepostinstall_utils')
 
