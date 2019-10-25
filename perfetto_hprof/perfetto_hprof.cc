@@ -122,6 +122,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
     for (auto pid_it = cfg->pid(); pid_it; ++pid_it) {
       if (*pid_it == self_pid) {
         enabled_ = true;
+        LOG(INFO) << "Received data-source: matches PID.";
         return;
       }
     }
@@ -159,10 +160,12 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
         }
         if (sz == other_sz && strncmp(cmdline_ptr, other_ptr, static_cast<size_t>(sz)) == 0) {
           enabled_ = true;
+          LOG(INFO) << "Received data-source: matches cmdline.";
           return;
         }
       }
     }
+    LOG(INFO) << "Received data-source: does not match";
   }
 
   bool enabled() { return enabled_; }
@@ -392,11 +395,18 @@ void DumpPerfetto(art::Thread* self) {
             for (const auto& p : root_objects) {
               const art::RootType root_type = p.first;
               const std::vector<art::mirror::Object*>& children = p.second;
-              perfetto::protos::pbzero::HeapGraphRoot* root_proto =
-                writer.GetHeapGraph()->add_roots();
-              root_proto->set_root_type(ToProtoType(root_type));
-              for (art::mirror::Object* obj : children)
+              perfetto::protos::pbzero::HeapGraph* prev_heapgraph = nullptr;
+              perfetto::protos::pbzero::HeapGraphRoot* root_proto = nullptr;
+              for (art::mirror::Object* obj : children) {
+                perfetto::protos::pbzero::HeapGraph* heap_graph = writer.GetHeapGraph();
+                if (heap_graph != prev_heapgraph) {
+                  root_proto = heap_graph->add_roots();
+                  root_proto->set_root_type(ToProtoType(root_type));
+                  prev_heapgraph = heap_graph;
+                }
+
                 root_proto->add_object_ids(reinterpret_cast<uintptr_t>(obj));
+              }
             }
 
             art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
