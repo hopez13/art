@@ -16,6 +16,40 @@
       "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15dddef2_6897c279",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-25T16:34:51Z",
+      "side": 1,
+      "message": "You are reading from the temporary register?\nI guess it is not really a temporary register?",
+      "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef1623bc_c4e7984d",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-10-25T16:34:51Z",
+      "side": 1,
+      "message": "Again reading from result before it is assigned?",
+      "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
