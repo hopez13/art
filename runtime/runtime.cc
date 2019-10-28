@@ -998,6 +998,15 @@ void Runtime::InitNonZygoteOrPostFork(
     if (profile_system_server) {
       jit_options_->SetWaitForJitNotificationsToSaveProfile(false);
       VLOG(profiler) << "Enabling system server profiles";
+      // Deoptimze everything to be sure we get samples for system server.
+      ScopedObjectAccess soa(Thread::Current());
+      ScopedThreadSuspension sts(soa.Self(), ThreadState::kNative);
+      gc::ScopedGCCriticalSection gcs(soa.Self(),
+                                      gc::kGcCauseInstrumentation,
+                                      gc::kCollectorTypeInstrumentation);
+      ScopedSuspendAll ssa("Deoptimize for profilesystemserver");
+      GetInstrumentation()->EnableDeoptimization();
+      GetInstrumentation()->DeoptimizeEverything("profilesystemserver");
     }
   }
 
