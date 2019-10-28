@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd0d37c2_bc631a24",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-28T15:52:51Z",
+      "side": 1,
+      "message": "This is the same opportunistic loop through candidate architectures as in check_art_test_executable. I suggest making a common function that finds the architecture directory (or directories?) in use, not the least so that it can carry the comment in check_art_test_executable and we keep the somewhat questionable behaviour in one place.",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 13
+      },
+      "revId": "0efbad03118f6ea25bc73398de7b443bd51ec1f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
