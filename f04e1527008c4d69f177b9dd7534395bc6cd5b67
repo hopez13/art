@@ -22,6 +22,30 @@
       "revId": "f04e1527008c4d69f177b9dd7534395bc6cd5b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d894d33c_2f6105eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-28T14:20:50Z",
+      "side": 1,
+      "message": "Hmm... I thought it is stable across all configurations, but clearly it is arch-specific. Removed.",
+      "parentUuid": "e6528789_5a779f21",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "f04e1527008c4d69f177b9dd7534395bc6cd5b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
