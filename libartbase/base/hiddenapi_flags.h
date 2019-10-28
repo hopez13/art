@@ -289,6 +289,16 @@ class ApiList {
   // Returns true when no ApiList is specified and no domain_api flags either.
   bool IsEmpty() const { return (GetValue() == Value::kInvalid) && (GetDomainApis() == 0); }
 
+  // Returns true if the ApiList is on blacklist.
+  bool IsBlacklisted() const {
+    return GetValue() == Value::kBlacklist;
+  }
+
+  // Returns true if the ApiList is a test API.
+  bool IsTestApi() const {
+    return helper::MatchesBitMask(dex_flags_, helper::ToBit(DomainApi::kTestApi));
+  }
+
   // Returns the maximum target SDK version allowed to access this ApiList.
   SdkVersion GetMaxAllowedSdkVersion() const { return kMaxSdkVersions[GetIntValue()]; }
 
