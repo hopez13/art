@@ -972,6 +972,21 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
   }
 }
 
+class Runtime::UseDebugMethodsCallbacks : public MethodInspectionCallback {
+ public:
+  bool IsMethodBeingInspected(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return false;
+  }
+
+  bool IsMethodSafeToJit(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return false;
+  }
+
+  bool MethodNeedsDebugVersion(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return true;
+  }
+};
+
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env,
     bool is_system_server,
@@ -998,6 +1013,11 @@ void Runtime::InitNonZygoteOrPostFork(
     if (profile_system_server) {
       jit_options_->SetWaitForJitNotificationsToSaveProfile(false);
       VLOG(profiler) << "Enabling system server profiles";
+      // Add a runtime callback that will use the debug methods (aka avoid using the oat file). This
+      // still enables the JIT to run.
+      ues_debug_methods_callbacks_.reset(new UseDebugMethodsCallbacks);
+      ScopedObjectAccess soa(env);
+      GetRuntimeCallbacks()->AddMethodInspectionCallback(ues_debug_methods_callbacks_.get());
     }
   }
 

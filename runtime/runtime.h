@@ -92,6 +92,7 @@ class InternTable;
 class IsMarkedVisitor;
 class JavaVMExt;
 class LinearAlloc;
+class MethodInspectionCallback;
 class MonitorList;
 class MonitorPool;
 class NullPointerHandler;
@@ -1291,11 +1292,14 @@ class Runtime {
 
   bool verifier_missing_kthrow_fatal_;
 
+  std::unique_ptr<MethodInspectionCallback> ues_debug_methods_callbacks_;
+
   // Note: See comments on GetFaultMessage.
   friend std::string GetFaultMessageForAbortLogging();
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
   class NotifyStartupCompletedTask;
+  class UseDebugMethodsCallbacks;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };
