@@ -1129,6 +1129,10 @@ void Instrumentation::UndeoptimizeEverything(const char* key) {
   ConfigureStubs(key, InstrumentationLevel::kInstrumentNothing);
 }
 
+void Instrumentation::EnableInstrumentationStubs(const char* key) {
+  ConfigureStubs(key, InstrumentationLevel::kInstrumentWithInstrumentationStubs);
+}
+
 void Instrumentation::EnableMethodTracing(const char* key, bool needs_interpreter) {
   InstrumentationLevel level;
   if (needs_interpreter) {

@@ -276,6 +276,13 @@ class Instrumentation {
                !Locks::classlinker_classes_lock_,
                !GetDeoptimizedMethodsLock());
 
+  // Enable instrumentation stubs.
+  void EnableInstrumentationStubs(const char* key)
+      REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_)
+      REQUIRES(!Locks::thread_list_lock_,
+               !Locks::classlinker_classes_lock_,
+               !GetDeoptimizedMethodsLock());
+
   // Disable method tracing by uninstalling instrumentation entry/exit stubs or interpreter.
   void DisableMethodTracing(const char* key)
       REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_)

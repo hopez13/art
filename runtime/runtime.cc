@@ -974,6 +974,21 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
   }
 }
 
+class Runtime::UseDebugMethodsCallbacks : public MethodInspectionCallback {
+ public:
+  bool IsMethodBeingInspected(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return false;
+  }
+
+  bool IsMethodSafeToJit(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return true;
+  }
+
+  bool MethodNeedsDebugVersion(ArtMethod* method ATTRIBUTE_UNUSED) override {
+    return true;
+  }
+};
+
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env,
     bool is_system_server,
@@ -1003,6 +1018,19 @@ void Runtime::InitNonZygoteOrPostFork(
       SetProcessPackageName("android");
       jit_options_->SetWaitForJitNotificationsToSaveProfile(false);
       VLOG(profiler) << "Enabling system server profiles";
+      // Add a runtime callback that will use the debug methods (aka avoid using the oat file). This
+      // still enables the JIT to run.
+      ues_debug_methods_callbacks_.reset(new UseDebugMethodsCallbacks);
+      ScopedObjectAccess soa(env);
+      GetRuntimeCallbacks()->AddMethodInspectionCallback(ues_debug_methods_callbacks_.get());
+      // Use EnableMethodTracing to enable stubs.
+      ScopedThreadSuspension sts(soa.Self(), ThreadState::kNative);
+      art::gc::ScopedGCCriticalSection gcs(soa.Self(),
+                                           art::gc::kGcCauseInstrumentation,
+                                           art::gc::kCollectorTypeInstrumentation);
+      art::ScopedSuspendAll ssa("Deoptimizing oat file");
+      // Enable instrumentation stubs so that UseDebugMethodsCallbacks are actually used.
+      GetInstrumentation()->EnableInstrumentationStubs("Deoptimize oat file");
     }
   }
 
@@ -2971,10 +2999,6 @@ void Runtime::SetJniIdType(JniIdType t) {
   jni_ids_indirection_ = t;
   JNIEnvExt::ResetFunctionTable();
   WellKnownClasses::HandleJniIdTypeChange(Thread::Current()->GetJniEnv());
-}
-
-bool Runtime::GetOatFilesExecutable() const {
-  return !IsAotCompiler() && !(IsSystemServer() && jit_options_->GetSaveProfilingInfo());
 }
 
 }  // namespace art
