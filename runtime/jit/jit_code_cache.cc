@@ -1296,8 +1296,16 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
     osr_code_map_.clear();
   }
 
-  // Run a checkpoint on all threads to mark the JIT compiled code they are running.
-  MarkCompiledCodeOnThreadStacks(self);
+  {
+    // The ScopedGCCriticalSection prevents GC triggering RunCheckpoint or disabling weak ref.
+    // access. That will cause some threads in fast JNI call blocking and can't run JIT's checkpoint
+    // in MarkCompiledCodeOnThreadStacks.
+    gc::ScopedGCCriticalSection sgcs(self,
+        gc::kGcCauseJitCodeCache,
+        gc::kCollectorTypeCriticalSection);
+    // Run a checkpoint on all threads to mark the JIT compiled code they are running.
+    MarkCompiledCodeOnThreadStacks(self);
+  }
 
   // At this point, mutator threads are still running, and entrypoints of methods can
   // change. We do know they cannot change to a code cache entry that is not marked,
