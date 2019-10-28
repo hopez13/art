@@ -298,6 +298,7 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   Thread* thread = reinterpret_cast<Thread*>(token);
   // Our system thread ID, etc, has changed so reset Thread state.
   thread->InitAfterFork();
+  LOG(ERROR) << "PFLAGS system server flag " << (runtime_flags & PROFILE_SYSTEM_SERVER);
   runtime_flags = EnableDebugFeatures(runtime_flags);
   hiddenapi::EnforcementPolicy api_enforcement_policy = hiddenapi::EnforcementPolicy::kDisabled;
 
@@ -328,6 +329,7 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   runtime_flags &= ~DISABLE_TEST_API_ENFORCEMENT_POLICY;
 
   bool profile_system_server = (runtime_flags & PROFILE_SYSTEM_SERVER) == PROFILE_SYSTEM_SERVER;
+  LOG(ERROR) << "PFLAGS system server flag " << profile_system_server;
   runtime_flags &= ~PROFILE_SYSTEM_SERVER;
 
   runtime->SetLoadAppImageStartupCacheEnabled(
