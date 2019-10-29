@@ -22,6 +22,30 @@
       "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461ec687_d73d28b6",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-29T18:50:08Z",
+      "side": 1,
+      "message": "Agreed, this is very error-prone. Will find a different way to address the issue.",
+      "parentUuid": "e7d65c25_f3a42913",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 54
+      },
+      "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
