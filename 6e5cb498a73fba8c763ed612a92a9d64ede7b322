@@ -46,6 +46,30 @@
       "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e56ea5b_3243ba39",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-29T18:56:00Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded a change that addresses the issue in a different way here: https://android-review.googlesource.com/c/platform/art/+/1153441. It\u0027s not a perfect solution, especially regarding the \"R as host system\" case. I think we might need an escape hatch in the linker for that case.",
+      "parentUuid": "461ec687_d73d28b6",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 54
+      },
+      "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
