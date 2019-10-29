@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7d65c25_f3a42913",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-10-29T18:02:25Z",
+      "side": 1,
+      "message": "Discussed offline: A problem with this is when the host system is R, which makes us use the host /dev/linkerconfig in the chroot. That won\u0027t happen on the buildbot devices for some time, but it\u0027s already the case when we test locally. Also, in Q it\u0027d be an old file from the first test run after reboot.",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 54
+      },
+      "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
