@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b7ec945_117d38ff",
+        "filename": "tools/jvmti-agents/ti-alloc-sample/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1565058
+      },
+      "writtenOn": "2019-10-29T21:31:06Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ab7bea2abdd13622b30cd742dde73b2b741f0173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f1ad1e_86c108f6",
+        "filename": "tools/jvmti-agents/ti-alloc-sample/ti_alloc_sample.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1565058
+      },
+      "writtenOn": "2019-10-29T21:31:06Z",
+      "side": 1,
+      "message": "Include JvmtiUniquePtr from ti-agent test code?",
+      "revId": "ab7bea2abdd13622b30cd742dde73b2b741f0173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
