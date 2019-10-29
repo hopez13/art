@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e12ccc9_f8306657",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-29T13:22:55Z",
+      "side": 1,
+      "message": "Add a comment why you need a gc critical section.",
+      "range": {
+        "startLine": 1004,
+        "startChar": 0,
+        "endLine": 1006,
+        "endChar": 73
+      },
+      "revId": "aad88521ab63bfe1939fc3fd166b1926b2f98942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "234e24a9_75a441d5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-29T13:22:55Z",
+      "side": 1,
+      "message": "Can we avoid using deoptimization logic? I fear most of the code over there is for jdwp purposes, and might not be appropriate.",
+      "range": {
+        "startLine": 1009,
+        "startChar": 28,
+        "endLine": 1009,
+        "endChar": 48
+      },
+      "revId": "aad88521ab63bfe1939fc3fd166b1926b2f98942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f65e065e_a999b459",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-29T13:22:55Z",
+      "side": 1,
+      "message": "This preceds your CL, but how are we making sure that results from ArtMethod::FindOatMethodFor isn\u0027t being used to later update the entrypoints (eg after resolution trampoline).",
+      "range": {
+        "startLine": 2817,
+        "startChar": 26,
+        "endLine": 2817,
+        "endChar": 60
+      },
+      "revId": "aad88521ab63bfe1939fc3fd166b1926b2f98942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
