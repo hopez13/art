@@ -189,6 +189,29 @@ if [[ "$ld_host_system_config_file_path" != "$ld_guest_system_config_file_path" 
       "$ART_TEST_CHROOT$ld_host_system_config_file_path"
 fi
 
+# Provide a makeshift linkerconfig file in the chroot environment if needed.
+#
+# The linkerconfig file `/dev/linkerconfig/ld.config.txt` started to appear in
+# Android R builds. If it exists in the "host system", it will also be present
+# in the "guest system", as `$ART_TEST_CHROOT/dev` exposes the same tmpfs
+# filesystem as `/dev`. If it does not exist, we provide it as a copy
+# (`$ART_TEST_CHROOT/dev/linkerconfig/ld.config.txt`) of the above linker
+# configuration file (located under `/system/etc`). This is a simple solution,
+# but it breaks the host/guest system separation a bit, as this file will also
+# appear as `/dev/linkerconfig/ld.config.txt`, but this should not be a problem
+# in practice. This also needs root access to the device, but that's already a
+# requirement for our current chroot setup.
+linkerconfig_dir="/dev/linkerconfig"
+linkerconfig_file="$linkerconfig_dir/ld.config.txt"
+if adb shell test ! -f "$linkerconfig_file"; then
+  echo -e "${green}Copying linker configuration file as linkerconfig:" \
+    "\`$ART_TEST_CHROOT$ld_host_system_config_file_path\`" \
+    "-> \`$ART_TEST_CHROOT$linkerconfig_file\`${nc}"
+  adb shell mkdir -p "$ART_TEST_CHROOT$linkerconfig_dir"
+  adb shell cp -f "$ART_TEST_CHROOT$ld_host_system_config_file_path" \
+    "$ART_TEST_CHROOT$linkerconfig_file"
+fi
+
 # Sync the data directory to the chroot.
 echo -e "${green}Syncing data directory...${nc}"
 adb shell mkdir -p "$ART_TEST_CHROOT/data"
