@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b11535fb_d7e9c2ed",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-29T17:58:03Z",
+      "side": 1,
+      "message": "Right, thanks (obsolete in PS8).",
+      "parentUuid": "06ec7936_c59b5e63",
+      "range": {
+        "startLine": 368,
+        "startChar": 71,
+        "endLine": 368,
+        "endChar": 72
+      },
+      "revId": "0efbad03118f6ea25bc73398de7b443bd51ec1f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd0d37c2_bc631a24",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 7
@@ -69,6 +93,30 @@
       "revId": "0efbad03118f6ea25bc73398de7b443bd51ec1f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e59d1789_f12b9640",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-29T17:58:03Z",
+      "side": 1,
+      "message": "True, I reworked this in PS8. There is a bug to fix this in a more fundamental way: http://b/123602136.",
+      "parentUuid": "0e0d2299_987f8dca",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 13
+      },
+      "revId": "0efbad03118f6ea25bc73398de7b443bd51ec1f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

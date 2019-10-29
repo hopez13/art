@@ -22,6 +22,30 @@
       "revId": "7f958e36546bc0ebf92573da24ff620179526243",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7733f731_bd47f6f4",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-29T17:58:03Z",
+      "side": 0,
+      "message": "I thought it makes sense to remove the old way of handling boot images in apex in the same CL that adds a new way. Should I split this CL in two?",
+      "parentUuid": "b76be897_ea6df807",
+      "range": {
+        "startLine": 234,
+        "startChar": 9,
+        "endLine": 234,
+        "endChar": 33
+      },
+      "revId": "7f958e36546bc0ebf92573da24ff620179526243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
