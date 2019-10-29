@@ -976,7 +976,7 @@ elif [ "$update_mode" = "yes" ]; then
     build_exit="$?"
     if [ "$build_exit" = '0' ]; then
         echo "${test_dir}: running..." 1>&2
-        "./${run}" "${run_args[@]}" "$@" >"$output" 2>&1
+        "./${run}" "${run_args[@]}" "$@" >"$output"
         if [ "$run_checker" = "yes" ]; then
           if [ "$target_mode" = "yes" ]; then
             adb pull "$chroot/$cfg_output_dir/$cfg_output" &> /dev/null
@@ -1010,7 +1010,7 @@ else
     build_exit="$?"
     if [ "$build_exit" = '0' ]; then
         echo "${test_dir}: running..." 1>&2
-        "./${run}" "${run_args[@]}" "$@" >"$output" 2>&1
+        "./${run}" "${run_args[@]}" "$@" >"$output"
         run_exit="$?"
         if [ "$run_exit" != "0" ]; then
             err_echo "run exit status: $run_exit"
