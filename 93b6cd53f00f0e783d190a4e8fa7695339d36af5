@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "9ded1afe_88222be1",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-29T05:57:05Z",
+      "side": 1,
+      "message": "Yes it is not really a temporary register. tmp here would be eax, which is also the dividend.\nIm using it as place holder.",
+      "parentUuid": "15dddef2_6897c279",
+      "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef1623bc_c4e7984d",
         "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
         "patchSetId": 2
@@ -47,6 +65,24 @@
       "writtenOn": "2019-10-25T16:34:51Z",
       "side": 1,
       "message": "Again reading from result before it is assigned?",
+      "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a1fd13c_7de0d78b",
+        "filename": "runtime/interpreter/mterp/x86_64/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-10-29T05:57:05Z",
+      "side": 1,
+      "message": "result here would be eax which is also the dividend. I\u0027m keeping a copy of the dividend in tmp and later shifting the tmp register.",
+      "parentUuid": "ef1623bc_c4e7984d",
       "revId": "93b6cd53f00f0e783d190a4e8fa7695339d36af5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
