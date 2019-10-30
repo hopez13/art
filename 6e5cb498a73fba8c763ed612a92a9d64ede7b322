@@ -70,6 +70,30 @@
       "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebf4fa64_89c3806a",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-10-30T04:22:50Z",
+      "side": 1,
+      "message": "That\u0027s a good point. IIUC, the correct procedure would be to execute linkerconfig just after entering into the chroot so that ld.config.txt is created under /dev/linkerconfig directory of the chroot, right?",
+      "parentUuid": "0e56ea5b_3243ba39",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 54
+      },
+      "revId": "6e5cb498a73fba8c763ed612a92a9d64ede7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
