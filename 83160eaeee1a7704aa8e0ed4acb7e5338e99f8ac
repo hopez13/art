@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27dab1a3_458d1a3a",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "Can you add a high-level comment about what this rule does, how many dex2oat invocations, etc ?",
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f756b4ff_8401ed68",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "boot image and boot image extensions",
+      "range": {
+        "startLine": 947,
+        "startChar": 44,
+        "endLine": 947,
+        "endChar": 56
+      },
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a502ef8_3ff6dea9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "Add a high-level comment what this is.",
+      "range": {
+        "startLine": 1405,
+        "startChar": 0,
+        "endLine": 1413,
+        "endChar": 0
+      },
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7500cb0_5f6d5436",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1462,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "\u0026",
+      "range": {
+        "startLine": 1462,
+        "startChar": 46,
+        "endLine": 1462,
+        "endChar": 47
+      },
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09e4c0d_135fbf34",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "Can you add a comment here, ala \"For the first element....\"",
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89e9efed_5754a471",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "component\u0027s",
+      "range": {
+        "startLine": 71,
+        "startChar": 39,
+        "endLine": 71,
+        "endChar": 49
+      },
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be4455c1_1328419c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-10-30T10:06:37Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 860,
+        "startChar": 48,
+        "endLine": 860,
+        "endChar": 50
+      },
+      "revId": "83160eaeee1a7704aa8e0ed4acb7e5338e99f8ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
