@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbd917ad_7a2558ea",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-10-31T00:06:15Z",
+      "side": 1,
+      "message": "🤦‍♂️\n\nThis should be kClassFileLoadHookRetransformable not kClassFileLoadHook**Non**Retransformable",
+      "range": {
+        "startLine": 297,
+        "startChar": 56,
+        "endLine": 297,
+        "endChar": 92
+      },
+      "revId": "b7b9e3cd36092329aa8bee1fd46bdd51437bb1a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
