@@ -286,7 +286,8 @@ static const JITCodeEntry* CreateJITCodeEntryInternal(
     ArrayRef<const uint8_t> symfile = ArrayRef<const uint8_t>(),
     const void* addr = nullptr,
     bool allow_packing = false,
-    bool is_compressed = false) {
+    bool is_compressed = false,
+    bool append_at_end = false) {
   JITDescriptor& descriptor = NativeInfo::Descriptor();
 
   // Allocate JITCodeEntry if needed.
@@ -314,9 +315,14 @@ static const JITCodeEntry* CreateJITCodeEntryInternal(
   uint64_t timestamp = GetNextTimestamp(descriptor);
 
   // We must insert entries at specific place.  See NativeDebugInfoPreFork().
-  const JITCodeEntry* next = nullptr;  // Append at the end of linked list.
-  if (!Runtime::Current()->IsZygote() && descriptor.zygote_head_entry_ != nullptr) {
-    next = &descriptor.application_tail_entry_;
+  const JITCodeEntry* next = append_at_end ? nullptr : descriptor.head_.load(kNonRacingRelaxed);
+  if (descriptor.zygote_head_entry_ != nullptr) {  // Is the memory space split?
+    if (Runtime::Current()->IsZygote()) {
+      next = append_at_end ? nullptr : descriptor.zygote_head_entry_->next_.load(kNonRacingRelaxed);
+    } else {
+      const JITCodeEntry* app_tail = &descriptor.application_tail_entry_;
+      next = append_at_end ? app_tail : descriptor.head_.load(kNonRacingRelaxed);
+    }
   }
 
   // Pop entry from the free list.
@@ -423,9 +429,9 @@ void RemoveNativeDebugInfoForDex(Thread* self, const DexFile* dexfile) {
 // <------- owned by the application memory --------> <--- owned by zygote memory --->
 //         |----------------------|------------------|-------------|-----------------|
 // head -> | application_entries* | application_tail | zygote_head | zygote_entries* |
-//         |---------------------+|------------------|-------------|----------------+|
-//                               |                                                  |
-//     (new application entries)-/                             (new zygote entries)-/
+//         |+--------------------+|------------------|-------------|+---------------+|
+//          |                    |                                  |               |
+//   (new)-/         (repacked)-/                            (new)-/    (repacked)-/
 //
 void NativeDebugInfoPreFork() {
   CHECK(Runtime::Current()->IsZygote());
@@ -533,10 +539,12 @@ static void RepackEntries(bool compress_entries, ArrayRef<const void*> removed)
         << " size=" << packed.size() << (compress ? "(lzma)" : "");
 
     // Replace the old entries with the new one (with their lifetime temporally overlapping).
+    // We have to append the entry at the end of the linked list to avoid races with libunwind.
     CreateJITCodeEntryInternal<JitNativeInfo>(ArrayRef<const uint8_t>(packed),
-                                              /*addr_=*/ group_ptr,
-                                              /*allow_packing_=*/ true,
-                                              /*is_compressed_=*/ compress);
+                                              /*addr=*/ group_ptr,
+                                              /*allow_packing=*/ true,
+                                              /*is_compressed=*/ compress,
+                                              /*append_at_end=*/ true);
     for (auto it : elfs) {
       DeleteJITCodeEntryInternal<JitNativeInfo>(/*entry=*/ it);
     }
@@ -551,10 +559,12 @@ void AddNativeDebugInfoForJit(const void* code_ptr,
   MutexLock mu(Thread::Current(), g_jit_debug_lock);
   DCHECK_NE(symfile.size(), 0u);
 
+  // We have to add the entry at the head to fulfil the expectations of simpleperf.
   CreateJITCodeEntryInternal<JitNativeInfo>(ArrayRef<const uint8_t>(symfile),
                                             /*addr=*/ code_ptr,
                                             /*allow_packing=*/ allow_packing,
-                                            /*is_compressed=*/ false);
+                                            /*is_compressed=*/ false,
+                                            /*append_at_end=*/ false);
 
   VLOG(jit)
       << "JIT mini-debug-info added"
