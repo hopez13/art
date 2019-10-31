@@ -22,6 +22,30 @@
       "revId": "8015fce8e1a06067687bc420037171b41f3b9da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461df270_419f037a",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-10-31T14:04:26Z",
+      "side": 1,
+      "message": "Yes, I was thinking about it. I thought some people might want to preserve \u0027FP\u0027 semantic in names for clarity.\nI can rename the functions if there are no objections.",
+      "parentUuid": "251225c9_619c329f",
+      "range": {
+        "startLine": 110,
+        "startChar": 32,
+        "endLine": 110,
+        "endChar": 46
+      },
+      "revId": "8015fce8e1a06067687bc420037171b41f3b9da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
