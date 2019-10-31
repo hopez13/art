@@ -110,7 +110,7 @@ class ArtMethod final {
     return MemberOffset(OFFSETOF_MEMBER(ArtMethod, declaring_class_));
   }
 
-  uint32_t GetAccessFlags() {
+  uint32_t GetAccessFlags() const {
     return access_flags_.load(std::memory_order_relaxed);
   }
 
@@ -539,6 +539,10 @@ class ArtMethod final {
     } else {
       ClearAccessFlags(kAccSingleImplementation);
     }
+  }
+
+  ALWAYS_INLINE bool HasSingleImplementationFlag() const {
+    return (GetAccessFlags() & kAccSingleImplementation) != 0;
   }
 
   // Takes a method and returns a 'canonical' one if the method is default (and therefore
