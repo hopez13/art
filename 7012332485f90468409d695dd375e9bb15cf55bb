@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42f61da5_2485903e",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-10-31T15:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5249b0e0_3627b0e4",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 73
+      },
+      "revId": "7012332485f90468409d695dd375e9bb15cf55bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21ef83d6_2f2dc9fa",
         "filename": "runtime/hidden_api_test.cc",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "7012332485f90468409d695dd375e9bb15cf55bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d07bab0_e99e2b85",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-10-31T15:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ef83d6_2f2dc9fa",
+      "revId": "7012332485f90468409d695dd375e9bb15cf55bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
