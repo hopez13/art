@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3cbe450_d40793c0",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2019-10-31T21:05:22Z",
+      "side": 1,
+      "message": "Changed the logic to allow access to *any* test api if policy is disabled. This means that regardless whether the api is also @SystemApi or @UnsupportedAppUsage it would be allowed.\n\ntestApiEnforcement is only disabled if disableTestApiChecks was passed from am instrument (in follow up CL)",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 80
+      },
+      "revId": "adfb64890e194dd9006c21cd9ca28c977102580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
