@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "d405a8f5_9dc021a1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T17:47:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e4cae378_d29735fa",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 763,
+        "endChar": 5
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eabae499_9b170e64",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
@@ -598,6 +622,30 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97e7326d_4e63baa1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T17:47:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "824a5bee_6ecae67b",
+      "range": {
+        "startLine": 2597,
+        "startChar": 0,
+        "endLine": 2601,
+        "endChar": 7
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
