@@ -557,7 +557,7 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
     // First get the control_sock_ from adb if we don't have one. We only need to do this once.
     if (control_sock_ == -1 && !SetupAdbConnection()) {
       LOG(ERROR) << "Failed to setup adb connection.";
-      return;
+      goto loop_stop;
     }
     while (!shutting_down_ && control_sock_ != -1) {
       bool should_listen_on_connection = !agent_has_socket_ && !sent_agent_fds_;
@@ -576,7 +576,7 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
       int res = TEMP_FAILURE_RETRY(poll(pollfds, 4, -1));
       if (res < 0) {
         PLOG(ERROR) << "Failed to poll!";
-        return;
+        goto loop_stop;
       }
       // We don't actually care about doing this we just use it to wake us up.
       // const struct pollfd& sleep_event_poll     = pollfds[0];
@@ -664,6 +664,9 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
       }
     }
   }
+  loop_stop:
+    art::ScopedObjectAccess soa(self);
+    art::Runtime::Current()->GetRuntimeCallbacks()->RemoveDdmCallback(&ddm_callback_);
 }
 
 static uint32_t ReadUint32AndAdvance(/*in-out*/uint8_t** in) {
