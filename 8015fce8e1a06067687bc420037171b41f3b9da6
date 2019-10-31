@@ -46,6 +46,30 @@
       "revId": "8015fce8e1a06067687bc420037171b41f3b9da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c856d6_5f0c61a0",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-10-31T14:09:37Z",
+      "side": 1,
+      "message": "Looking at this again, let\u0027s keep it as is. \"VRegister\" is quite generic given that it can represent different sizes and data types as in the functions above.",
+      "parentUuid": "461df270_419f037a",
+      "range": {
+        "startLine": 110,
+        "startChar": 32,
+        "endLine": 110,
+        "endChar": 46
+      },
+      "revId": "8015fce8e1a06067687bc420037171b41f3b9da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
