@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f3f26b6_01ed2323",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Is there a bug associated with this work?",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90535edd_05cdcbd8",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this variable name be escaped (like `DEX2OAT` in the previous line), i.e.:\n\n $$(DEX2OAT_IMAGE_XMS)\n\n(and likewise below with other occurrences of `DEX2OAT_IMAGE_XMS` and `DEX2OAT_IMAGE_XMX`)?",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b454aa87_83fad390",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Use `art::GetAndroidRootSafe` or `art::GetAndroidRoot` here?",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 763,
+        "endChar": 5
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eabae499_9b170e64",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "purposes",
+      "range": {
+        "startLine": 1450,
+        "startChar": 34,
+        "endLine": 1450,
+        "endChar": 42
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e7d23e_e5d0e8f1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1537,
+        "startChar": 0,
+        "endLine": 1538,
+        "endChar": 55
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4273dedb_52cf153f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Also log `bcp_dex_files.size()` and `dex_files.size()` here?",
+      "range": {
+        "startLine": 1543,
+        "startChar": 8,
+        "endLine": 1543,
+        "endChar": 100
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79bfe4e5_5df5c54a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "You could also use something like:\n\n  std::any_of(bcp_dex_files.begin(), bcp_dex_files.end() - dex_files.size(),\n              std::not_fn(has_no_image))\n\nhere, which would stop iterating on the BCP Dex file as soon as one without an image is found.",
+      "range": {
+        "startLine": 1582,
+        "startChar": 10,
+        "endLine": 1582,
+        "endChar": 96
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9bebc1_4fe4df35",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2950,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Nit: Maybe put this one on its own line, to match the items listed in the comment?",
+      "range": {
+        "startLine": 2950,
+        "startChar": 23,
+        "endLine": 2950,
+        "endChar": 42
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd67cbae_c3e95674",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Could you add a comment explaining this value?",
+      "range": {
+        "startLine": 309,
+        "startChar": 29,
+        "endLine": 309,
+        "endChar": 31
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4364a2d0_5b65c73f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1417,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 62
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea137034_fcc910fe",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Maybe introduce a typedef for this long type?",
+      "range": {
+        "startLine": 1964,
+        "startChar": 29,
+        "endLine": 1964,
+        "endChar": 76
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa00cf8_209b44c1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Nit: Extra space.",
+      "range": {
+        "startLine": 1990,
+        "startChar": 33,
+        "endLine": 1990,
+        "endChar": 34
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21fab422_5baab083",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Instead of pushing the new space into `spaces` and then checking whether it is null, how about doing the converse:\n\n  auto space \u003d Load(locations[i], filenames[i], logger, image_reservation, error_msg);\n  if (space \u003d\u003d nullptr) {\n    return false;\n  }\n  spaces-\u003eemplace_back(std::move(space));\n\n?",
+      "range": {
+        "startLine": 2597,
+        "startChar": 0,
+        "endLine": 2601,
+        "endChar": 7
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd6c949_b66bcaab",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 2660,
+        "startChar": 93,
+        "endLine": 2660,
+        "endChar": 96
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75fdb6e2_807e7721",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-10-31T15:44:36Z",
+      "side": 1,
+      "message": "%zu?",
+      "range": {
+        "startLine": 2660,
+        "startChar": 86,
+        "endLine": 2660,
+        "endChar": 89
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
