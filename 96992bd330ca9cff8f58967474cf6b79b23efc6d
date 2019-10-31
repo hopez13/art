@@ -155,6 +155,29 @@
     },
     {
       "key": {
+        "uuid": "9c7f9f3a_26a4eac2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "This is repeated a few times, maybe worth adding IsBootImageOrExt() or something similar.",
+      "range": {
+        "startLine": 947,
+        "startChar": 28,
+        "endLine": 947,
+        "endChar": 67
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eabae499_9b170e64",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
@@ -199,6 +222,29 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "701a021d_20d12d20",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "This also occurs a few times and can be converted to !IsBootImageOrExt().",
+      "range": {
+        "startLine": 1506,
+        "startChar": 8,
+        "endLine": 1506,
+        "endChar": 49
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -390,6 +436,52 @@
     },
     {
       "key": {
+        "uuid": "76ce4580_34a8d175",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "Why this number? Maybe worth a comment or a named constant?",
+      "range": {
+        "startLine": 148,
+        "startChar": 31,
+        "endLine": 148,
+        "endChar": 50
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "facebf25_1752b6bf",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "The same magic number as above.",
+      "range": {
+        "startLine": 282,
+        "startChar": 36,
+        "endLine": 282,
+        "endChar": 46
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd67cbae_c3e95674",
         "filename": "dex2oat/dex2oat_image_test.cc",
         "patchSetId": 19
@@ -437,6 +529,23 @@
     },
     {
       "key": {
+        "uuid": "f0458baf_d18446b0",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "I probably missed it, but is there a test for an ill-formed location where search path comes before component path? Something like:\n\n  boot.art:/system/frameworks/*:/apex/com.android.art/ext.art",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4364a2d0_5b65c73f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 19
@@ -481,6 +590,52 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e1249e_ab4e7c78",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "It seems that the branches are duplicated mostly to avoid vector creation for primary boot image in case of release build. Maybe it is better to add FirstMultiImageLocation() that would share a common part with ExpandMultiImageLocations() via a helper function?",
+      "range": {
+        "startLine": 1467,
+        "startChar": 0,
+        "endLine": 1486,
+        "endChar": 3
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8396ac4d_bc1b090e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "Perhaps search paths can be preprocessed once to avoid wildcard handling in the inner loop?",
+      "range": {
+        "startLine": 1834,
+        "startChar": 0,
+        "endLine": 1848,
+        "endChar": 0
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -575,6 +730,23 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1db864a_b8b3bbb3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "A bit paranoid, but maybe have a debug check instead of the comment, since std::numeric_limits\u003cuint32_t\u003e::max() is a magic constant and the subtraction of size_t from uint32_t can underflow and wrap (theoretically).\n\n  DCHECK_LT(image_reservation_size, kMaxTotalImageReservationSize);",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -740,6 +912,109 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5144c4a0_d8d6a313",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "LoadFromSystem and LoadFromDalvikCache have much in common; perhaps it is better to factor out the common part before the code has diverged in subtle ways?",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc6b32e0_828640de",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "I probably overlooked it, but is this format documented in the help message for dex2oat?",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c87428e_adb789a3",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "Consider the (improbable) case when primary boot image is updated separately from secondary boot images (e.g. when installing updatable ART apex), but the update does not change the checksum of the primary boot image, so secondary images are still valid.\n\nIn this case, if the basename of the primary boot image changes, secondary images won\u0027t be found and loaded (because of the different basename). Do we (1) consider this case improbable and don\u0027t care, or (2) require that all primary boot images have the same basename?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 76
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02aa8e86_8a8a6ea7",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "Please make it more explicit in the comment that search paths may not be intermixed with (and if present, must follow) the named components.\n\nAre the search paths necessary, or is it a convenience feature?\n\nSearch paths have the semantics of include paths. Considering this, and also the increased complexity of location validation, perhaps it is better to not mix search paths and location components and have a dedicated option for search paths? Then we won\u0027t need any wildcards (which do not behave like real wildcards anyway; they are only allowed at the end, and their expansion depends on BCP components).",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 10
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53868d3e_e8c2f54f",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-10-31T18:04:34Z",
+      "side": 1,
+      "message": "com.android.art? (And some other places below).",
+      "range": {
+        "startLine": 82,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
