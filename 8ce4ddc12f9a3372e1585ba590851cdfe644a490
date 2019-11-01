@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b27d5e8_cdae4d80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T16:25:12Z",
+      "side": 1,
+      "message": "Can you elaborate a bit on how it was broken?",
+      "revId": "8ce4ddc12f9a3372e1585ba590851cdfe644a490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd074576_2b05484a",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T16:25:12Z",
+      "side": 1,
+      "message": "What if image_size_ for boot image or extension accidentally happens to be 4096 or whatever the page size is?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 1
+      },
+      "revId": "8ce4ddc12f9a3372e1585ba590851cdfe644a490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
