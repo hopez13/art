@@ -13,17 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<configuration description="Test module config for ART run-test 001-HelloWorld">
+<!-- Note: This test config for {MODULE} is generated from a template. -->
+<configuration description="Test module config for {MODULE}">
     <!-- Root access is needed to pull the "expected.txt" file from the device
          at the end of the test. -->
     <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer" />
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
-      <!-- TODO: Place files in a different directory (e.g.
-           /data/local/tmp/art-run-test/001-HelloWorld)? -->
         <option name="cleanup" value="true" />
         <!-- TODO: Use option `push-file` instead of deprecated option
              `push`. -->
-        <option name="push" value="art-run-test-001-HelloWorld.jar->/data/local/tmp/art-run-test-001-HelloWorld/art-run-test-001-HelloWorld.jar" />
+        <option name="push" value="{MODULE}.jar->/data/local/tmp/{MODULE}/{MODULE}.jar" />
         <!-- TODO: Check whether this the correct way to handle the expected
              output file ("expected.txt"). Currently, we do the following
              (inspired by the logic of
@@ -40,11 +39,11 @@
              This does not seem efficient; we could just fetch the file directly
              from its original location in the test runner instead, but it's not
              clear whether this is a recommended TradeFed idiom. -->
-        <option name="push" value="expected.txt->/data/local/tmp/art-run-test-001-HelloWorld/expected.txt" />
+        <option name="push" value="expected.txt->/data/local/tmp/{MODULE}/expected.txt" />
     </target_preparer>
     <test class="com.android.tradefed.testtype.ArtRunTest">
-        <option name="run-test-name" value="art-run-test-001-HelloWorld" />
-        <option name="classpath" value="/data/local/tmp/art-run-test-001-HelloWorld/art-run-test-001-HelloWorld.jar" />
-        <option name="expected" value="/data/local/tmp/art-run-test-001-HelloWorld/expected.txt" />
+        <option name="run-test-name" value="{MODULE}" />
+        <option name="classpath" value="/data/local/tmp/{MODULE}/{MODULE}.jar" />
+        <option name="expected" value="/data/local/tmp/{MODULE}/expected.txt" />
     </test>
 </configuration>
