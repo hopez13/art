@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71e8f833_b0563c4d",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T14:43:40Z",
+      "side": 1,
+      "message": "This change broke relocation. Disabled loading the boot image extension for tests in https://android-review.googlesource.com/1156359 .\n\nThe extension should really have non-zero values here but that requires rewriting the ImageHeader::IsAppImage().",
+      "range": {
+        "startLine": 2696,
+        "startChar": 6,
+        "endLine": 2697,
+        "endChar": 61
+      },
+      "revId": "4f6ebe89af462ff05d97433deb2bca3f3b011fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
