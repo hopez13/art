@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8fc8f000_1e570c34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T16:50:52Z",
+      "side": 1,
+      "message": "Done.\n\n(It was broken because I never tested it; I did not realize that run tests are --no-relocate by default and I need to specify --relocate.)",
+      "parentUuid": "8b27d5e8_cdae4d80",
+      "revId": "8ce4ddc12f9a3372e1585ba590851cdfe644a490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd074576_2b05484a",
         "filename": "runtime/image.cc",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "8ce4ddc12f9a3372e1585ba590851cdfe644a490",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d25e17_c6b58a89",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T16:50:52Z",
+      "side": 1,
+      "message": "The oat files mentioned above start at page boundary and have have non-zero size. So their inclusion in the boot image or extension reservation size prevents a match here. See also comments for `image_reservation_size_`.",
+      "parentUuid": "bd074576_2b05484a",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 1
+      },
+      "revId": "8ce4ddc12f9a3372e1585ba590851cdfe644a490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
