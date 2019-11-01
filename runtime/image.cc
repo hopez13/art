@@ -93,6 +93,12 @@ void ImageHeader::RelocateBootImageReferences(int64_t delta) {
   }
 }
 
+bool ImageHeader::IsAppImage() const {
+  // Unlike boot image and boot image extensions, app images are loaded separately from
+  // oat files and their reservation size is the image size rounded up to full page.
+  return image_reservation_size_ == RoundUp(image_size_, kPageSize);
+}
+
 bool ImageHeader::IsValid() const {
   if (memcmp(magic_, kImageMagic, sizeof(kImageMagic)) != 0) {
     return false;
