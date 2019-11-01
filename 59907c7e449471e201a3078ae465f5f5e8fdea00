@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "684a3b3a_8e35b21d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:51:54Z",
+      "side": 1,
+      "message": "Are you sure you want a CHECK() rather than a DCHECK()?",
+      "range": {
+        "startLine": 2733,
+        "startChar": 2,
+        "endLine": 2733,
+        "endChar": 7
+      },
+      "revId": "59907c7e449471e201a3078ae465f5f5e8fdea00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
