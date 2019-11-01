@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "e3cfb0a7_f0058f2f",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-11-01T13:19:27Z",
+      "side": 1,
+      "message": "yup, that\u0027s a potential pitfall\n\nother than that, where the $ vs $$ distinction really matters is usually for non-constants, like $(1), which is common in macros, $(LOCAL_MODULE) and other stuff like that.",
+      "parentUuid": "21724ab6_116487eb",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b454aa87_83fad390",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
