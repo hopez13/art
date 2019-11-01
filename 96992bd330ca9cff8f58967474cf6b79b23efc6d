@@ -202,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "71872fc0_c5a1d03a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T12:27:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a67e3bd_99cba3f4",
+      "range": {
+        "startLine": 947,
+        "startChar": 28,
+        "endLine": 947,
+        "endChar": 67
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eabae499_9b170e64",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
@@ -284,6 +308,30 @@
       "side": 1,
       "message": "Same as above.",
       "parentUuid": "701a021d_20d12d20",
+      "range": {
+        "startLine": 1506,
+        "startChar": 8,
+        "endLine": 1506,
+        "endChar": 49
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd813901_9d60f153",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T12:27:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d91a8cf_91a258ad",
       "range": {
         "startLine": 1506,
         "startChar": 8,
@@ -801,6 +849,30 @@
     },
     {
       "key": {
+        "uuid": "65c2b2be_72400826",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T12:27:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cdf4a920_ee30faf6",
+      "range": {
+        "startLine": 1834,
+        "startChar": 0,
+        "endLine": 1848,
+        "endChar": 0
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea137034_fcc910fe",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 19
@@ -1124,6 +1196,24 @@
       "side": 1,
       "message": "They do not share that much, considering the deliberate difference in __PRETTY_FUNCTION__ and the log. (And, ideally, the LoadFromDalvikCache should be eliminated entirely.)",
       "parentUuid": "5144c4a0_d8d6a313",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "221b9259_7d98123e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-01T12:27:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bfb6d91e_932178df",
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
