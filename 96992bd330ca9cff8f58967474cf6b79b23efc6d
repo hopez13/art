@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "6a67e3bd_99cba3f4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "I thought about that and decided not to do that. The reason is that, in my opinion, it is easy to confuse `IsBootImageExtension` and `IsBootImageOrExtension`, so I prefer to be explicit.",
+      "parentUuid": "9c7f9f3a_26a4eac2",
+      "range": {
+        "startLine": 947,
+        "startChar": 28,
+        "endLine": 947,
+        "endChar": 67
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eabae499_9b170e64",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
@@ -245,6 +269,30 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d91a8cf_91a258ad",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "701a021d_20d12d20",
+      "range": {
+        "startLine": 1506,
+        "startChar": 8,
+        "endLine": 1506,
+        "endChar": 49
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -459,6 +507,30 @@
     },
     {
       "key": {
+        "uuid": "9de13d8a_c548b977",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76ce4580_34a8d175",
+      "range": {
+        "startLine": 148,
+        "startChar": 31,
+        "endLine": 148,
+        "endChar": 50
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facebf25_1752b6bf",
         "filename": "dex2oat/dex2oat_image_test.cc",
         "patchSetId": 19
@@ -479,6 +551,30 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b6e86bd_3da755f9",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facebf25_1752b6bf",
+      "range": {
+        "startLine": 282,
+        "startChar": 36,
+        "endLine": 282,
+        "endChar": 46
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -543,6 +639,24 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d401f1d8_06819709",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0458baf_d18446b0",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -616,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "43e46325_cc09f650",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e1249e_ab4e7c78",
+      "range": {
+        "startLine": 1467,
+        "startChar": 0,
+        "endLine": 1486,
+        "endChar": 3
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8396ac4d_bc1b090e",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 19
@@ -636,6 +774,30 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdf4a920_ee30faf6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "That would complicate the code further. And I expect there to be usually zero or one search path anyway, so the extra code complexity to avoid some repetition does not seem to be worth it.",
+      "parentUuid": "8396ac4d_bc1b090e",
+      "range": {
+        "startLine": 1834,
+        "startChar": 0,
+        "endLine": 1848,
+        "endChar": 0
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -747,6 +909,24 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f838700_8e901e96",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1db864a_b8b3bbb3",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -932,6 +1112,24 @@
     },
     {
       "key": {
+        "uuid": "bfb6d91e_932178df",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "They do not share that much, considering the deliberate difference in __PRETTY_FUNCTION__ and the log. (And, ideally, the LoadFromDalvikCache should be eliminated entirely.)",
+      "parentUuid": "5144c4a0_d8d6a313",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc6b32e0_828640de",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 19
@@ -949,6 +1147,24 @@
     },
     {
       "key": {
+        "uuid": "3f1e273b_1693fef2",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Added two examples to the usage message.",
+      "parentUuid": "cc6b32e0_828640de",
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c87428e_adb789a3",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 19
@@ -960,6 +1176,30 @@
       "writtenOn": "2019-10-31T18:04:34Z",
       "side": 1,
       "message": "Consider the (improbable) case when primary boot image is updated separately from secondary boot images (e.g. when installing updatable ART apex), but the update does not change the checksum of the primary boot image, so secondary images are still valid.\n\nIn this case, if the basename of the primary boot image changes, secondary images won\u0027t be found and loaded (because of the different basename). Do we (1) consider this case improbable and don\u0027t care, or (2) require that all primary boot images have the same basename?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 76
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7111e879_cb9d7828",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "What would be the reason to change the basename for an ART update? (We\u0027ve never changed it before.)",
+      "parentUuid": "7c87428e_adb789a3",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -995,6 +1235,30 @@
     },
     {
       "key": {
+        "uuid": "445e5a7b_a9879d37",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aa8e86_8a8a6ea7",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 10
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53868d3e_e8c2f54f",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 19
@@ -1015,6 +1279,30 @@
       "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a770147_c74643a8",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53868d3e_e8c2f54f",
+      "range": {
+        "startLine": 82,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
