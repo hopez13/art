@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "21724ab6_116487eb",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T13:09:41Z",
+      "side": 1,
+      "message": "So it\u0027s fine as long as the VALUE-OF-DEX2OAT_IMAGE_XMS does not itself contain \u0027$\u0027 or other control characters.",
+      "parentUuid": "f3edd195_838e53d9",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b454aa87_83fad390",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
