@@ -22,6 +22,30 @@
       "revId": "59907c7e449471e201a3078ae465f5f5e8fdea00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b644d5b9_64fc3aea",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-01T11:57:05Z",
+      "side": 1,
+      "message": "Almost :) Code is slow path, and the check is guaranteed according to the compiler. So I\u0027d prefer using the bigger test coverage that CHECKs provide compared to DCHECKs.",
+      "parentUuid": "684a3b3a_8e35b21d",
+      "range": {
+        "startLine": 2733,
+        "startChar": 2,
+        "endLine": 2733,
+        "endChar": 7
+      },
+      "revId": "59907c7e449471e201a3078ae465f5f5e8fdea00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
