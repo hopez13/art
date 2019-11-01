@@ -1212,6 +1212,30 @@
     },
     {
       "key": {
+        "uuid": "036930c8_5c72ca11",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-01T11:51:05Z",
+      "side": 1,
+      "message": "Marking resolved after offline discussion. If we had a reason to change the basename and keep loading old extensions, we can rewrite the current naming convention to make that work.",
+      "parentUuid": "7111e879_cb9d7828",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 76
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02aa8e86_8a8a6ea7",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 19
