@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "f3edd195_838e53d9",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-11-01T12:59:54Z",
+      "side": 1,
+      "message": "this is some pretty dense Make... the tl;dr is that either $(DEX2OAT) or $$(DEX2OAT) is fine here, but in a normal recipe the double dollar syntax would attempt to run the command DEX2OAT which doesn\u0027t exist\n\nthe code here is evaluated twice in make, because it\u0027s inside a define expanded via $(call), so \nit\u0027ll actually expand to\n[...] $(DEX2OAT) \\\n[...] -XmsVALUE-OF-DEX2OAT_IMAGE_XMS\n\nwhich then expands to\n[...] VALUE-OF-DEX2OAT \\\n[...] -XmsVALUE-OF-DEX2OAT_IMAGE_XMS",
+      "parentUuid": "c1176a2b_cb3dad3f",
+      "range": {
+        "startLine": 89,
+        "startChar": 21,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "96992bd330ca9cff8f58967474cf6b79b23efc6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b454aa87_83fad390",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 19
