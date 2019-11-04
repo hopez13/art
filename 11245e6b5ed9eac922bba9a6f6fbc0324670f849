@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ac9ea0d8_80726f75",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-04T15:15:31Z",
+      "side": 1,
+      "message": "Right. In that case, I think we should also change the `clean-oat-host` target, but that can be done in another CL.",
+      "parentUuid": "50eecf8c_6272d816",
+      "range": {
+        "startLine": 101,
+        "startChar": 23,
+        "endLine": 101,
+        "endChar": 119
+      },
+      "revId": "11245e6b5ed9eac922bba9a6f6fbc0324670f849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b11f2ffb_b73d1a85",
         "filename": "dex2oat/dex2oat_image_test.cc",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "11245e6b5ed9eac922bba9a6f6fbc0324670f849",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8f0a5f8_1138f4c5",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-04T15:15:31Z",
+      "side": 1,
+      "message": "I think this would be easier to read, but this is your call. :) Also, I think this is better for uniformity/uniqueness (one constant instead of multiple instances of the same literal value, which can be inadvertently changed independently in the future).",
+      "parentUuid": "de1adc9e_2ef5a2c7",
+      "range": {
+        "startLine": 299,
+        "startChar": 48,
+        "endLine": 299,
+        "endChar": 52
+      },
+      "revId": "11245e6b5ed9eac922bba9a6f6fbc0324670f849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
