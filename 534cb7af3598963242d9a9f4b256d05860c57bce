@@ -22,6 +22,30 @@
       "revId": "534cb7af3598963242d9a9f4b256d05860c57bce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62f0eb46_e0eb9a0b",
+        "filename": "runtime/image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-04T09:35:46Z",
+      "side": 1,
+      "message": "No, see answer on PS1 and the description of image_reservation_size_ in the header file.",
+      "parentUuid": "8434f170_228af865",
+      "range": {
+        "startLine": 97,
+        "startChar": 62,
+        "endLine": 97,
+        "endChar": 83
+      },
+      "revId": "534cb7af3598963242d9a9f4b256d05860c57bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
