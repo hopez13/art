@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b1f5008_5a1efa75",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-04T20:35:31Z",
+      "side": 1,
+      "message": "This doesn\u0027t read right either :( Could we have an option instead to just discard the oat compiled code entirely? I think there is already a IsExecutable that could fit this purpose.",
+      "range": {
+        "startLine": 985,
+        "startChar": 7,
+        "endLine": 985,
+        "endChar": 30
+      },
+      "revId": "e8ab017ff10872c2130490b701c7259c56f2c1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
