@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d78d109a_7ef3ff8a",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-04T13:14:23Z",
+      "side": 1,
+      "message": "You can use `find` directly to erase the files instead of using `xargs`:\n\n  find $(OUT_DIR) -name \"*.oat\" -o -name \"*.odex\" -o -name \"*.art\" -o -name \u0027*.vdex\u0027 -exec rm -f \u0027{}\u0027 \\;",
+      "range": {
+        "startLine": 101,
+        "startChar": 23,
+        "endLine": 101,
+        "endChar": 119
+      },
+      "revId": "11245e6b5ed9eac922bba9a6f6fbc0324670f849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b11f2ffb_b73d1a85",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-04T13:14:23Z",
+      "side": 1,
+      "message": "Should this value (used here and below) be put in a constant?",
+      "range": {
+        "startLine": 299,
+        "startChar": 48,
+        "endLine": 299,
+        "endChar": 52
+      },
+      "revId": "11245e6b5ed9eac922bba9a6f6fbc0324670f849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
