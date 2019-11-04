@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7dc27c38_2238d8c1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-04T20:14:59Z",
+      "side": 1,
+      "message": "I meant \"instrumentation logic\" instead of \"deoptimization logic\", and Alex is confirming this probably isn\u0027t a good idea to rely on it.",
+      "parentUuid": "e02f54a1_6782ea41",
+      "range": {
+        "startLine": 1009,
+        "startChar": 28,
+        "endLine": 1009,
+        "endChar": 48
+      },
+      "revId": "aad88521ab63bfe1939fc3fd166b1926b2f98942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f65e065e_a999b459",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
