@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9448d86d_7327f5d8",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-05T11:48:12Z",
+      "side": 1,
+      "message": "Clean-up (for a future CL): I think we should materialize this constant (as well as `ART_BASE_ADDRESS_MAX_DELTA`), e.g. in `libartbase/base/globals.h`:\n\n  static constexpr size_t kBaseAddressMinDelta \u003d ART_BASE_ADDRESS_MIN_DELTA;\n  static constexpr size_t kBaseAddressMaxDelta \u003d ART_BASE_ADDRESS_MAX_DELTA;",
+      "range": {
+        "startLine": 287,
+        "startChar": 16,
+        "endLine": 287,
+        "endChar": 42
+      },
+      "revId": "beb66b38dcce937d7eee9ef2d07b6402c720f8ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
