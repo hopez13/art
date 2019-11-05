@@ -22,6 +22,30 @@
       "revId": "b44681c198c34870bb33f643c22b9d42f08df399",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7578ba7a_09454314",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-11-05T15:26:50Z",
+      "side": 1,
+      "message": "Yes its odd alone, but i will push FP16.rint and FP16.ceil within the next couple of days along with their changes for libcore.",
+      "parentUuid": "fabcfdfa_1d27c8cf",
+      "range": {
+        "startLine": 3269,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 4
+      },
+      "revId": "b44681c198c34870bb33f643c22b9d42f08df399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
