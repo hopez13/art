@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a2256b5_8b234869",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-05T15:22:15Z",
+      "side": 1,
+      "message": "nit: add a comment what this loop means and why we know it will stop.",
+      "range": {
+        "startLine": 961,
+        "startChar": 4,
+        "endLine": 961,
+        "endChar": 68
+      },
+      "revId": "1152194efec0f3fd3a0cca5464745048c7151b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca2ba833_6314697d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-05T15:22:15Z",
+      "side": 1,
+      "message": "component",
+      "range": {
+        "startLine": 1739,
+        "startChar": 25,
+        "endLine": 1739,
+        "endChar": 33
+      },
+      "revId": "1152194efec0f3fd3a0cca5464745048c7151b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48b7dd08_20a15a56",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-05T15:22:15Z",
+      "side": 1,
+      "message": "depends",
+      "range": {
+        "startLine": 478,
+        "startChar": 53,
+        "endLine": 478,
+        "endChar": 59
+      },
+      "revId": "1152194efec0f3fd3a0cca5464745048c7151b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3eda789_a3ed6f89",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-05T15:22:15Z",
+      "side": 1,
+      "message": "nit: \"only applies to ....\"",
+      "range": {
+        "startLine": 479,
+        "startChar": 5,
+        "endLine": 479,
+        "endChar": 50
+      },
+      "revId": "1152194efec0f3fd3a0cca5464745048c7151b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
