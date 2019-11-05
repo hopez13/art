@@ -2679,6 +2679,22 @@ void ImageWriter::CreateHeader(size_t oat_index) {
               << " Oat file end=" << reinterpret_cast<uintptr_t>(oat_file_end);
   }
 
+  // Compute boot image checksums for the primary component, leave as 0 otherwise.
+  uint32_t boot_image_components = 0u;
+  uint32_t boot_image_checksums = 0u;
+  if (oat_index == 0u) {
+    const std::vector<gc::space::ImageSpace*>& image_spaces =
+        Runtime::Current()->GetHeap()->GetBootImageSpaces();
+    boot_image_components = dchecked_integral_cast<uint32_t>(image_spaces.size());
+    DCHECK_EQ(boot_image_components == 0u, compiler_options_.IsBootImage());
+    for (uint32_t i = 0; i != boot_image_components; ) {
+      const ImageHeader& header = image_spaces[i]->GetImageHeader();
+      boot_image_checksums ^= header.GetImageChecksum();
+      DCHECK_LE(header.GetComponentCount(), boot_image_components - i);
+      i += header.GetComponentCount();
+    }
+  }
+
   // Create the header, leave 0 for data size since we will fill this in as we are writing the
   // image.
   new (image_info.image_.Begin()) ImageHeader(
@@ -2693,8 +2709,10 @@ void ImageWriter::CreateHeader(size_t oat_index) {
       PointerToLowMemUInt32(image_info.oat_data_begin_),
       PointerToLowMemUInt32(oat_data_end),
       PointerToLowMemUInt32(oat_file_end),
-      boot_image_begin_,
-      boot_image_size_,
+      (oat_index == 0u) ? boot_image_begin_ : 0u,
+      (oat_index == 0u) ? boot_image_size_ : 0u,
+      boot_image_components,
+      boot_image_checksums,
       static_cast<uint32_t>(target_ptr_size_));
 }
 
