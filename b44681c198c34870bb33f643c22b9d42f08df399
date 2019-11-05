@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fabcfdfa_1d27c8cf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-05T15:23:51Z",
+      "side": 1,
+      "message": "You\u0027re probably thinking ahead with more intrinsics, but this reads odd when there is currently only one use case.",
+      "range": {
+        "startLine": 3269,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 4
+      },
+      "revId": "b44681c198c34870bb33f643c22b9d42f08df399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
