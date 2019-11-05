@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5276e109_a882546a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2019-11-05T00:59:11Z",
+      "side": 1,
+      "message": "I don\u0027t know if you want to mention jemalloc since we are probably moving to scudo and will use the same definition.",
+      "range": {
+        "startLine": 2483,
+        "startChar": 5,
+        "endLine": 2483,
+        "endChar": 13
+      },
+      "revId": "33d7eb5b38bcc065218b5de7946e4c375a42fefd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
