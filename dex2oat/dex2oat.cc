@@ -1221,10 +1221,6 @@ class Dex2Oat final {
   bool OpenFile() {
     // Prune non-existent dex files now so that we don't create empty oat files for multi-image.
     PruneNonExistentDexFiles();
-    if (dex_locations_.empty()) {
-      LOG(ERROR) << "Nothing to compile after pruning non-existent dex files.";
-      return false;
-    }
 
     // Expand oat and image filenames for multi image.
     if ((IsBootImage() || IsBootImageExtension()) && image_filenames_.size() == 1) {
