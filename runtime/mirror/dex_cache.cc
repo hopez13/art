@@ -21,6 +21,7 @@
 #include "gc/accounting/card_table-inl.h"
 #include "gc/heap.h"
 #include "linear_alloc.h"
+#include "mirror/dex_cache.h"
 #include "oat_file.h"
 #include "object-inl.h"
 #include "object.h"
@@ -182,7 +183,11 @@ void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
     ArtField* new_val = visitor->VisitField(
         pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedField, pair.index, this));
     if (UNLIKELY(new_val != pair.object)) {
-      pair.object = new_val;
+      if (new_val == nullptr) {
+        pair = FieldDexCachePair(nullptr, FieldDexCachePair::InvalidIndexForSlot(i));
+      } else {
+        pair.object = new_val;
+      }
       SetNativePairPtrSize(GetResolvedFields(), i, pair, kRuntimePointerSize);
     }
   }
@@ -194,7 +199,11 @@ void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
     ArtMethod* new_val = visitor->VisitMethod(
         pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedMethod, pair.index, this));
     if (UNLIKELY(new_val != pair.object)) {
-      pair.object = new_val;
+      if (new_val == nullptr) {
+        pair = MethodDexCachePair(nullptr, MethodDexCachePair::InvalidIndexForSlot(i));
+      } else {
+        pair.object = new_val;
+      }
       SetNativePairPtrSize(GetResolvedMethods(), i, pair, kRuntimePointerSize);
     }
   }
