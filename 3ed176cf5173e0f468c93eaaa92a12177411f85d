@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a81bad3_3c0966f0",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-07T23:20:00Z",
+      "side": 1,
+      "message": "Is it worth using HasSameNameAndSignature here?",
+      "range": {
+        "startLine": 2127,
+        "startChar": 44,
+        "endLine": 2128,
+        "endChar": 95
+      },
+      "revId": "3ed176cf5173e0f468c93eaaa92a12177411f85d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
