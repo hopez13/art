@@ -127,7 +127,7 @@ class OatWriter {
 
   // To produce a valid oat file, the user must first add sources with any combination of
   //   - AddDexFileSource(),
-  //   - AddZippedDexFilesSource(),
+  //   - AddDexFilesSource(),
   //   - AddRawDexFileSource(),
   //   - AddVdexDexFilesSource().
   // Then the user must call in order
@@ -148,9 +148,10 @@ class OatWriter {
       const char* filename,
       const char* location,
       CreateTypeLookupTable create_type_lookup_table = CreateTypeLookupTable::kDefault);
-  // Add dex file source(s) from a zip file specified by a file handle.
-  bool AddZippedDexFilesSource(
-      File&& zip_fd,
+  // Add dex file source(s) from a file specified by a file handle.
+  // Note: The `dex_file_fd` specifies a plain dex file or a zip file.
+  bool AddDexFilesSource(
+      File&& dex_file_fd,
       const char* location,
       CreateTypeLookupTable create_type_lookup_table = CreateTypeLookupTable::kDefault);
   // Add dex file source from raw memory.
