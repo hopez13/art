@@ -2701,7 +2701,7 @@ class Dex2Oat final {
       }
     } else if (zip_fd_ != -1) {
       DCHECK_EQ(oat_writers_.size(), 1u);
-      if (!oat_writers_[0]->AddZippedDexFilesSource(File(zip_fd_, /* check_usage */ false),
+      if (!oat_writers_[0]->AddDexFilesSource(File(zip_fd_, /* check_usage */ false),
                                                     zip_location_.c_str())) {
         return false;
       }
