@@ -526,7 +526,7 @@ bool OatWriter::AddDexFileSource(const char* filename,
         header->checksum_,
         header->file_size_);
   } else if (IsZipMagic(magic)) {
-    if (!AddZippedDexFilesSource(std::move(fd), location, create_type_lookup_table)) {
+    if (!AddDexFilesSource(std::move(fd), location, create_type_lookup_table)) {
       return false;
     }
   } else {
@@ -536,13 +536,34 @@ bool OatWriter::AddDexFileSource(const char* filename,
   return true;
 }
 
-// Add dex file source(s) from a zip file specified by a file handle.
-bool OatWriter::AddZippedDexFilesSource(File&& zip_fd,
-                                        const char* location,
-                                        CreateTypeLookupTable create_type_lookup_table) {
+// Add dex file source(s) from a file specified by a file handle.
+// Note: The `dex_file_fd` specifies a plain dex file or a zip file.
+bool OatWriter::AddDexFilesSource(File&& dex_file_fd,
+                                  const char* location,
+                                  CreateTypeLookupTable create_type_lookup_table) {
   DCHECK(write_state_ == WriteState::kAddingDexFileSources);
   std::string error_msg;
-  zip_archives_.emplace_back(ZipArchive::OpenFromFd(zip_fd.Release(), location, &error_msg));
+  uint32_t magic;
+  // Installd always set --zip-fd to dex2oat, however some apps use RawDexFile rather than
+  // ZipArchive as secondary dex, so check whether it's a RawDexfile before try it as ZipArchive.
+  if (ReadMagicAndReset(dex_file_fd.Fd(), &magic, &error_msg) && DexFileLoader::IsMagicValid(magic)) {
+    uint8_t raw_header[sizeof(DexFile::Header)];
+    const UnalignedDexFileHeader* header = GetDexFileHeader(&dex_file_fd, raw_header, location);
+    if (header == nullptr) {
+      LOG(ERROR) << "Failed to get DexFileHeader from file descriptor for '"
+          << location << "': " << error_msg;
+      return false;
+    }
+    raw_dex_files_.emplace_back(new File(dex_file_fd.Release(), location, /* checkUsage */ false));
+    oat_dex_files_.emplace_back(/* OatDexFile */
+        location,
+        DexFileSource(raw_dex_files_.back().get()),
+        create_type_lookup_table,
+        header->checksum_,
+        header->file_size_);
+    return true;
+  }
+  zip_archives_.emplace_back(ZipArchive::OpenFromFd(dex_file_fd.Release(), location, &error_msg));
   ZipArchive* zip_archive = zip_archives_.back().get();
   if (zip_archive == nullptr) {
     LOG(ERROR) << "Failed to open zip from file descriptor for '" << location << "': "
