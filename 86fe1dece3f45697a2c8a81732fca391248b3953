@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "349a8708_8726d3e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-08T12:39:23Z",
+      "side": 1,
+      "message": "You can also use:\n\n  Test: art/build/apex/runtests.sh\n\nhere.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 60
+      },
+      "revId": "86fe1dece3f45697a2c8a81732fca391248b3953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f59fe396_7f5693c0",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-08T12:39:23Z",
+      "side": 1,
+      "message": "Could you add a comment explaining this condition here, in the script (not just in the commit message)?",
+      "range": {
+        "startLine": 546,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 100
+      },
+      "revId": "86fe1dece3f45697a2c8a81732fca391248b3953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
