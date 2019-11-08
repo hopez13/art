@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a40ce89_96b2323f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-08T12:54:12Z",
+      "side": 1,
+      "message": "Oh right, I didn\u0027t realized you already had it on line 25. :)",
+      "parentUuid": "74277609_3ced038c",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 60
+      },
+      "revId": "86fe1dece3f45697a2c8a81732fca391248b3953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f59fe396_7f5693c0",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Sure.",
       "parentUuid": "f59fe396_7f5693c0",
+      "range": {
+        "startLine": 546,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 100
+      },
+      "revId": "86fe1dece3f45697a2c8a81732fca391248b3953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff28a37_6c427a44",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-08T12:54:12Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "6979fa64_40df6b84",
       "range": {
         "startLine": 546,
         "startChar": 4,
