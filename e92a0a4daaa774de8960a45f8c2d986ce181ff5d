@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a689453b_5e891c4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-08T18:19:39Z",
+      "side": 1,
+      "message": "This looks slower than the Java implementation?",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "e92a0a4daaa774de8960a45f8c2d986ce181ff5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2abb10c7_36b653e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-08T18:19:39Z",
+      "side": 1,
+      "message": "I\u0027d be more comfortable if this said +\u003d. Since all except the last assignment are dead, some compiler will figure out how to remove the  loop. Apparently we don\u0027t, currently.",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "e92a0a4daaa774de8960a45f8c2d986ce181ff5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
