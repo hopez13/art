@@ -114,6 +114,75 @@
       "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6fb79e3_ad6fa2a6",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-08T12:50:42Z",
+      "side": 1,
+      "message": "Naively I don\u0027t know why ART_USE_FUTEXES affects the owner-\u003eIsSuspended() check.\n\nPerhaps there should be a constant and comment that describes what changes with ART_USE_FUTEXES in this file. Previously, this file didn\u0027t have any visible dependency on whether futexes are available or not.",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 56
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1870ef78_10bfd3f6",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-08T12:50:42Z",
+      "side": 1,
+      "message": "Could this go into a non-futex version of Mutex::ExclusiveLockUncontendedFor()?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 7
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79a1a3d_ba6859a5",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-08T12:50:42Z",
+      "side": 1,
+      "message": "/* spin\u003d */",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 434,
+        "endChar": 20
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
