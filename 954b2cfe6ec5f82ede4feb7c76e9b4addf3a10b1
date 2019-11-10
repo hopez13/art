@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd9598e9_037d41e6",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Just keep the current one open? We can add it to the various TODOs here? Or would you prefer a new one?\n\nRealistically, I will deprioritize this once we\u0027re in the right ballpark here. I think the other somewhat major remaining opportunity is that we immediately call sched_yield() on thin lock contention. I suspect that\u0027s also a bad idea; we should call something like BackOff() instead. This CL is getting too big for that.",
+      "parentUuid": "327140d4_2824919e",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 10
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b5a94830_918c705a",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e931a8_29f9be44",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a94830_918c705a",
+      "range": {
+        "startLine": 95,
+        "startChar": 28,
+        "endLine": 95,
+        "endChar": 38
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cffc67bd_21dc9600",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5528c025_715f1210",
+      "range": {
+        "startLine": 210,
+        "startChar": 49,
+        "endLine": 210,
+        "endChar": 60
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d8270cf_f2ce102f",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 10
@@ -91,6 +163,30 @@
       "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16fa1f9a_e71f033c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8270cf_f2ce102f",
+      "range": {
+        "startLine": 225,
+        "startChar": 36,
+        "endLine": 225,
+        "endChar": 42
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6e37577e_f0b761b2",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Those are called from monitor.cc, so unfortunately I don\u0027t think that works. It would be nice if we could keep this distinction private. But the fact that these are only implementable on one side propagates up.",
+      "parentUuid": "f4467c26_e6346837",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 19
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6fb79e3_ad6fa2a6",
         "filename": "runtime/monitor.cc",
         "patchSetId": 10
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "6b081480_e6272ee2",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Actually, this was overzealous copying of the DCHECK from the calling context. Removing. I don\u0027t think it\u0027s required here.",
+      "parentUuid": "d6fb79e3_ad6fa2a6",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 56
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1870ef78_10bfd3f6",
         "filename": "runtime/monitor.cc",
         "patchSetId": 10
@@ -151,6 +295,30 @@
       "writtenOn": "2019-11-08T12:50:42Z",
       "side": 1,
       "message": "Could this go into a non-futex version of Mutex::ExclusiveLockUncontendedFor()?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 7
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8db1f50f_27933cde",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "It would have a much more restricted API, making the name inappropriate. The method is only interesting because it can acquire the mutex on behalf of another thread. Which we can\u0027t do in Posix.",
+      "parentUuid": "1870ef78_10bfd3f6",
       "range": {
         "startLine": 222,
         "startChar": 0,
@@ -183,6 +351,30 @@
       "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01899b5_ea3c066e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-10T23:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f79a1a3d_ba6859a5",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 434,
+        "endChar": 20
+      },
+      "revId": "954b2cfe6ec5f82ede4feb7c76e9b4addf3a10b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
