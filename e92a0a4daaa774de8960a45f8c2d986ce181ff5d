@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "be3c3be7_c8d0191e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-11T19:30:57Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "77b650c1_46703d13",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "e92a0a4daaa774de8960a45f8c2d986ce181ff5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2abb10c7_36b653e7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done.\n\nThe performance numbers changed with using +\u003d and i have updated the commit messages with the new numbers.",
       "parentUuid": "2abb10c7_36b653e7",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "e92a0a4daaa774de8960a45f8c2d986ce181ff5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e151cb8_51185db0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-11T19:30:57Z",
+      "side": 1,
+      "message": "Thanks. The performance changes look to me as I would have expected.",
+      "parentUuid": "1bb1571f_bb0fde7b",
       "range": {
         "startLine": 41,
         "startChar": 16,
