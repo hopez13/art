@@ -967,7 +967,7 @@ dalvikvm_cmdline="$INVOKE_WITH $GDB $ANDROID_ART_BIN_DIR/$DALVIKVM \
                   $JNI_OPTS \
                   $INT_OPTS \
                   $DEBUGGER_OPTS \
-                  $DALVIKVM_BOOT_OPT \
+                  ${DALVIKVM_BOOT_OPT@Q} \
                   $TMP_DIR_OPTION \
                   -XX:DumpNativeStackOnSigQuit:false \
                   -cp $DEX_LOCATION/$TEST_NAME.jar$SECONDARY_DEX $MAIN $ARGS"
