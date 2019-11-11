@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c113861_327b203b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-11T16:49:46Z",
+      "side": 1,
+      "message": "\"if test_args.flavor not in [FLAVOR_AUTO, FLAVOR_DEBUG]: ...\" makes it easier to ascertain that the error check doesn\u0027t leak.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 0,
+        "endLine": 1092,
+        "endChar": 14
+      },
+      "revId": "275869079f9b831cf26e7963134eadddde684f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
