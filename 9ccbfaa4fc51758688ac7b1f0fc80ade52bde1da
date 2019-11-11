@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "582f89eb_e1947e0b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2019-11-11T23:56:51Z",
+      "side": 1,
+      "message": "Only Q-launching modules will have Android Q compatible apex_manifest.json.\n(b/143951586)\nART APEX is not supposed to be installed to Q device, isn\u0027t it?",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 50
+      },
+      "revId": "9ccbfaa4fc51758688ac7b1f0fc80ade52bde1da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
