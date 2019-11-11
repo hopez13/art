@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "50580a24_d99fe860",
+        "filename": "profman/profile_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-11T21:37:53Z",
+      "side": 1,
+      "message": "analyze",
+      "range": {
+        "startLine": 74,
+        "startChar": 41,
+        "endLine": 74,
+        "endChar": 48
+      },
+      "revId": "767a0e332ea2dc9583b7ce9a043b8ea8a9ed83bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b83b728_938fd208",
+        "filename": "profman/profile_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-11T21:37:53Z",
+      "side": 1,
+      "message": "I would just initialize the variables at the declaration.",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "767a0e332ea2dc9583b7ce9a043b8ea8a9ed83bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a192c5d0_8f7d3e64",
         "filename": "profman/profile_assistant.h",
         "patchSetId": 1
