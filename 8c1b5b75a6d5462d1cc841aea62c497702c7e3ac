@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ff1085f_fa8c8cb7",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-12T19:08:09Z",
+      "side": 1,
+      "message": "We needed a lock level between instrument-entrypoints and UserCodeSuspension so I added one.",
+      "parentUuid": "342789d1_beb233b8",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27ab523e_39a781b8",
         "filename": "runtime/gc/allocation_listener.h",
         "patchSetId": 18
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2df05323_18a1ba76",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-12T19:08:09Z",
+      "side": 1,
+      "message": "rewrote",
+      "parentUuid": "27ab523e_39a781b8",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a9d1cc5_81143d97",
         "filename": "runtime/gc/allocation_listener.h",
         "patchSetId": 18
@@ -68,6 +116,30 @@
       "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e185e772_fa103bcf",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-12T19:08:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a9d1cc5_81143d97",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
