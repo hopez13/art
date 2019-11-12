@@ -22,6 +22,30 @@
       "revId": "9ccbfaa4fc51758688ac7b1f0fc80ade52bde1da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d25bf9a_55027ed9",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2019-11-12T12:59:32Z",
+      "side": 1,
+      "message": "+1, please don\u0027t check the json manifest at all. I\u0027m strongly considering removing it entirely in this release.",
+      "parentUuid": "582f89eb_e1947e0b",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 50
+      },
+      "revId": "9ccbfaa4fc51758688ac7b1f0fc80ade52bde1da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
