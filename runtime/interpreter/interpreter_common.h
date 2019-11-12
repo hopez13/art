@@ -632,6 +632,19 @@ ALWAYS_INLINE bool DoIGetQuick(ShadowFrame& shadow_frame, const Instruction* ins
   return true;
 }
 
+static inline bool CheckWriteValueConstraint(Thread* self, ObjPtr<mirror::Object> value)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->GetTransaction()->WriteValueConstraint(self, value)) {
+    const char* msg = value->IsClass()
+        ? "Can't store reference to class "
+        : "Can't store reference to instance of ";
+    runtime->AbortTransactionAndThrowAbortError(self, msg + mirror::Object::PrettyTypeOf(value));
+    return false;
+  }
+  return true;
+}
+
 // Handles iput-XXX and sput-XXX instructions.
 // Returns true on success, otherwise throws an exception and returns false.
 template<FindFieldType find_type, Primitive::Type field_type, bool do_access_check,
@@ -678,6 +691,13 @@ ALWAYS_INLINE bool DoFieldPut(Thread* self, const ShadowFrame& shadow_frame,
 
   uint32_t vregA = is_static ? inst->VRegA_21c(inst_data) : inst->VRegA_22c(inst_data);
   JValue value = GetFieldValue<field_type>(shadow_frame, vregA);
+
+  if (transaction_active &&
+      field_type == Primitive::kPrimNot &&
+      !CheckWriteValueConstraint(self, value.GetL())) {
+    return false;
+  }
+
   return DoFieldPutCommon<field_type, do_assignability_check, transaction_active>(self,
                                                                                   shadow_frame,
                                                                                   obj,
