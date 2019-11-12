@@ -493,6 +493,20 @@ class AssemblerTest : public testing::Test {
                                                      fmt);
   }
 
+  std::string RepeatFFFI(void (Ass::*f)(FPReg, FPReg, FPReg, const Imm&),
+                        size_t imm_bytes,
+                        const std::string& fmt) {
+    return RepeatTemplatedRegistersImm<FPReg, FPReg, FPReg>(f,
+                                                     GetFPRegisters(),
+                                                     GetFPRegisters(),
+                                                     GetFPRegisters(),
+                                                     &AssemblerTest::GetFPRegName,
+                                                     &AssemblerTest::GetFPRegName,
+                                                     &AssemblerTest::GetFPRegName,
+                                                     imm_bytes,
+                                                     fmt);
+  }
+
   template <typename ImmType>
   std::string RepeatFFIb(void (Ass::*f)(FPReg, FPReg, ImmType),
                          int imm_bits,
@@ -1482,6 +1496,67 @@ class AssemblerTest : public testing::Test {
           str += base;
         }
       }
+    }
+    // Add a newline at the end.
+    str += "\n";
+    return str;
+  }
+  template <typename Reg1, typename Reg2, typename Reg3>
+  std::string RepeatTemplatedRegistersImm(void (Ass::*f)(Reg1, Reg2, Reg3, const Imm&),
+                                          const std::vector<Reg1*> reg1_registers,
+                                          const std::vector<Reg2*> reg2_registers,
+                                          const std::vector<Reg3*> reg3_registers,
+                                          std::string (AssemblerTest::*GetName1)(const Reg1&),
+                                          std::string (AssemblerTest::*GetName2)(const Reg2&),
+                                          std::string (AssemblerTest::*GetName3)(const Reg3&),
+                                          size_t imm_bytes,
+                                          const std::string& fmt) {
+    std::vector<int64_t> imms = CreateImmediateValues(imm_bytes);
+    WarnOnCombinations(reg1_registers.size() * reg2_registers.size() * imms.size());
+
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto reg3 : reg3_registers) {
+          for (int64_t imm : imms) {
+          Imm new_imm = CreateImmediate(imm);
+          if (f != nullptr) {
+            (assembler_.get()->*f)(*reg1, *reg2, *reg3, new_imm);
+          }
+          std::string base = fmt;
+
+          std::string reg1_string = (this->*GetName1)(*reg1);
+          size_t reg1_index;
+          while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+            base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+          }
+
+          std::string reg2_string = (this->*GetName2)(*reg2);
+          size_t reg2_index;
+          while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+            base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+          }
+          std::string reg3_string = (this->*GetName3)(*reg3);
+          size_t reg3_index;
+          while ((reg3_index = base.find(REG3_TOKEN)) != std::string::npos) {
+            base.replace(reg3_index, ConstexprStrLen(REG3_TOKEN), reg3_string);
+          }
+
+          size_t imm_index = base.find(IMM_TOKEN);
+          if (imm_index != std::string::npos) {
+            std::ostringstream sreg;
+            sreg << imm;
+            std::string imm_string = sreg.str();
+            base.replace(imm_index, ConstexprStrLen(IMM_TOKEN), imm_string);
+          }
+
+          if (str.size() > 0) {
+            str += "\n";
+          }
+          str += base;
+        }
+       }
+     }
     }
     // Add a newline at the end.
     str += "\n";
