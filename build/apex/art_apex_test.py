@@ -567,6 +567,9 @@ class ReleaseTargetChecker:
     # included for compatibility reasons with Android Q and will likely be
     # removed in Android R.
 
+    # Check the APEX public key file.
+    self._checker.check_file('apex_pubkey')
+
     # Check binaries for ART.
     self._checker.check_executable('oatdump')
 
