@@ -565,6 +565,9 @@ class ReleaseTargetChecker:
     # Check the (Android Q compatible) JSON APEX manifest.
     self._checker.check_file('apex_manifest.json')
 
+    # Check the APEX public key file.
+    self._checker.check_file('apex_pubkey')
+
     # Check binaries for ART.
     self._checker.check_executable('oatdump')
 
