@@ -189,6 +189,8 @@ void LocationsBuilderX86_64::VisitVecReduce(HVecReduce* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
   // Long reduction or min/max require a temporary.
   if (instruction->GetPackedType() == DataType::Type::kInt64 ||
+      instruction->GetPackedType() == DataType::Type::kFloat32 ||
+      instruction->GetPackedType() == DataType::Type::kFloat64 ||
       instruction->GetReductionKind() == HVecReduce::kMin ||
       instruction->GetReductionKind() == HVecReduce::kMax) {
     instruction->GetLocations()->AddTemp(Location::RequiresFpuRegister());
@@ -199,6 +201,7 @@ void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   XmmRegister src = locations->InAt(0).AsFpuRegister<XmmRegister>();
   XmmRegister dst = locations->Out().AsFpuRegister<XmmRegister>();
+  bool cpu_has_avx = CpuHasAvxFeatureFlag();
   switch (instruction->GetPackedType()) {
     case DataType::Type::kInt32:
       DCHECK_EQ(4u, instruction->GetVectorLength());
@@ -227,6 +230,55 @@ void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
           break;
         case HVecReduce::kMin:
         case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (cpu_has_avx) {
+            __ vshufps(tmp, src, src, Immediate(85));
+            __ vaddss(dst, tmp, src);
+            __ vshufps(tmp, src, src, Immediate(170));
+            __ vaddss(dst, dst, tmp);
+            __ vshufps(tmp, src, src, Immediate(255));
+            __ vaddss(dst, dst, tmp);
+          } else {
+            __ movaps(dst, src);
+            __ movaps(tmp, src);
+            __ shufps(tmp, tmp, Immediate(249));
+            __ addss(dst, tmp);
+            __ shufps(tmp, tmp, Immediate(249));
+            __ addss(dst, tmp);
+            __ shufps(tmp, tmp, Immediate(249));
+            __ addss(dst, tmp);
+          }
+          break;
+        case HVecReduce::kMin:
+        case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (cpu_has_avx) {
+            __ vshufpd(tmp, src, src, Immediate(3));
+            __ vaddsd(dst, src, tmp);
+          } else {
+            __ movapd(dst, src);
+            __ shufpd(src, src, Immediate(3));
+            __ addsd(dst, src);
+          }
+          break;
+       case HVecReduce::kMin:
+       case HVecReduce::kMax:
           LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
       }
       break;
@@ -1199,6 +1251,32 @@ void InstructionCodeGeneratorX86_64::VisitVecDotProd(HVecDotProd* instruction) {
       } else {
         __ vpmaddwd(tmp, left, right);
         __ vpaddd(acc, acc, tmp);
+      }
+      break;
+    }
+    case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      if (cpu_has_avx) {
+        __ vdpps(tmp, left, right, Immediate(241));
+        __ vaddss(acc, acc, tmp);
+      } else {
+        __ movaps(tmp, left);
+        __ dpps(tmp, right, Immediate(241));
+        __ addss(acc, tmp);
+      }
+      break;
+    }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      if (cpu_has_avx) {
+        __ vdppd(tmp, left, right, Immediate(49));
+        __ vaddsd(acc, acc, tmp);
+      } else {
+        __ movapd(tmp, left);
+        __ dppd(tmp, right, Immediate(49));
+        __ addsd(acc, tmp);
       }
       break;
     }
