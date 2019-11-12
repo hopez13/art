@@ -22,6 +22,30 @@
       "revId": "f1b18facd1edd6c8652c42085c5432c878507c8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22cd9e57_71e779ff",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-12T16:55:29Z",
+      "side": 1,
+      "message": "I\u0027ll do that now,. b/144349987. Just a P4 to look into this at some point.\n\nI\u0027d guess some sort of automatically created gtest maybe.",
+      "parentUuid": "d86ca1fb_73367405",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 49
+      },
+      "revId": "f1b18facd1edd6c8652c42085c5432c878507c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
