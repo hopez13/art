@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc1517fe_4c5567c1",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-12T13:19:23Z",
+      "side": 1,
+      "message": "From the discussion on https://r.android.com/1162804 I gather we ought not check this file because it\u0027s going away. We also don\u0027t check for superfluous files here, so why have this check?",
+      "revId": "29e476a72fefeace48fa57604d8173b823cd1413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
