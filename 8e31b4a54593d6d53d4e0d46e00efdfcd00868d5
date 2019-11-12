@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7877616_fdde8c14",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "Isn\u0027t that what the restrictions logic per arch above is for?",
+      "range": {
+        "startLine": 2176,
+        "startChar": 0,
+        "endLine": 2180,
+        "endChar": 8
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9863a194_3c1e90b1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2199,
+        "startChar": 0,
+        "endLine": 2199,
+        "endChar": 101
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0b6fc44_b25a6c45",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "nit: 4 more spaces",
+      "range": {
+        "startLine": 2229,
+        "startChar": 12,
+        "endLine": 2229,
+        "endChar": 22
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ebd114_221121cb",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "Lines too long (here and below).",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cf3d2e1_52e4c885",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "Lines too long (here and below)",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f7e0fb7_d5a6e2e3",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:42:41Z",
+      "side": 1,
+      "message": "Lines too long (here and below).",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
