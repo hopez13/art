@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "342789d1_beb233b8",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:39:01Z",
+      "side": 1,
+      "message": "Why is this here given it\u0027s only used by jvmti?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27ab523e_39a781b8",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:39:01Z",
+      "side": 1,
+      "message": "grammar?",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a9d1cc5_81143d97",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-12T14:39:01Z",
+      "side": 1,
+      "message": "PreObjectAllocated",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
