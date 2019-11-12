@@ -5361,14 +5361,15 @@ bool ClassLinker::CanWeInitializeClass(ObjPtr<mirror::Class> klass, bool can_ini
         return false;
       }
     }
-    // If we are a class we need to initialize all interfaces with default methods when we are
-    // initialized. Check all of them.
-    if (!klass->IsInterface()) {
-      size_t num_interfaces = klass->GetIfTableCount();
-      for (size_t i = 0; i < num_interfaces; i++) {
-        ObjPtr<mirror::Class> iface = klass->GetIfTable()->GetInterface(i);
-        if (iface->HasDefaultMethods() &&
-            !CanWeInitializeClass(iface, can_init_statics, can_init_parents)) {
+  }
+  // If we are a class we need to initialize all interfaces with default methods when we are
+  // initialized. Check all of them.
+  if (!klass->IsInterface()) {
+    size_t num_interfaces = klass->GetIfTableCount();
+    for (size_t i = 0; i < num_interfaces; i++) {
+      ObjPtr<mirror::Class> iface = klass->GetIfTable()->GetInterface(i);
+      if (iface->HasDefaultMethods() && !iface->IsInitialized()) {
+        if (!can_init_parents || !CanWeInitializeClass(iface, can_init_statics, can_init_parents)) {
           return false;
         }
       }
