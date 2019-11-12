@@ -24,19 +24,13 @@ public class TestFloatDouble {
   public static final int ARRAY_SIZE = 1024;
 
 
-  /// CHECK-START-{X86_64}: float other.TestFloatDouble.testDotProdSimpleFloat(float[], float[]) loop_optimization (after)
-  /// CHECK-NOT:                 VecDotProd
   public static final float testDotProdSimpleFloat(float[] a, float[] b) {
-    float sum = 0;
+    float sum = 0.0f;
     for (int i = 0; i < b.length; i++) {
       sum += a[i] * b[i];
     }
     return sum;
   }
-
-
-  /// CHECK-START-{X86_64}: double other.TestFloatDouble.testDotProdSimpleDouble(double[], double[]) loop_optimization (after)
-  /// CHECK-NOT:                 VecDotProd
 
   public static final double testDotProdSimpleDouble(double[] a, double[] b) {
     double sum = 0;
@@ -69,6 +63,12 @@ public class TestFloatDouble {
     double[] b = new double[1024];
     for (int i = 0; i != 1024; ++i) b[i] = ((i & 1) == 0) ? 1.0 : -1.0;
     expectEquals(0.0, testDotProdSimpleDouble(a,b));
+
+    float[] a1 = new float[1024];
+    for (int i = 0; i != 4; ++i) a1[i] = MAX_F;
+    float[] b1 = new float[1024];
+    for (int i = 0; i != 4; ++i) b1[i] = ((i & 1) == 0) ? 1.0f : -1.0f;
+    expectEquals(0.0, testDotProdSimpleFloat(a1,b1));
 
     float[] f1_1 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.33f, 0.125f, 3.0f, 0.25f};
     float[] f2_1 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.125f, 2.25f, 1.213f, 0.5f};

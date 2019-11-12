@@ -681,12 +681,20 @@ TEST_F(AssemblerX86AVXTest, VAddPS) {
   DriverStr(RepeatFFF(&x86::X86Assembler::vaddps, "vaddps %{reg3}, %{reg2}, %{reg1}"), "vaddps");
 }
 
+TEST_F(AssemblerX86AVXTest, VAddSS) {
+  DriverStr(RepeatFFF(&x86::X86Assembler::vaddss, "vaddss %{reg3}, %{reg2}, %{reg1}"), "vaddss");
+}
+
 TEST_F(AssemblerX86Test, AddPD) {
   DriverStr(RepeatFF(&x86::X86Assembler::addpd, "addpd %{reg2}, %{reg1}"), "addpd");
 }
 
 TEST_F(AssemblerX86AVXTest, VAddpd) {
   DriverStr(RepeatFFF(&x86::X86Assembler::vaddpd, "vaddpd %{reg3}, %{reg2}, %{reg1}"), "vaddpd");
+}
+
+TEST_F(AssemblerX86AVXTest, VAddsd) {
+  DriverStr(RepeatFFF(&x86::X86Assembler::vaddsd, "vaddsd %{reg3}, %{reg2}, %{reg1}"), "vaddsd");
 }
 
 TEST_F(AssemblerX86Test, SubPS) {
@@ -1102,8 +1110,18 @@ TEST_F(AssemblerX86Test, ShufPS) {
   DriverStr(RepeatFFI(&x86::X86Assembler::shufps, 1, "shufps ${imm}, %{reg2}, %{reg1}"), "shufps");
 }
 
+TEST_F(AssemblerX86AVXTest, VShufPS) {
+  DriverStr(RepeatFFFI(&x86::X86Assembler::vshufps, 1,
+                       "vshufps ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vshufps");
+}
+
 TEST_F(AssemblerX86Test, ShufPD) {
   DriverStr(RepeatFFI(&x86::X86Assembler::shufpd, 1, "shufpd ${imm}, %{reg2}, %{reg1}"), "shufpd");
+}
+
+TEST_F(AssemblerX86AVXTest, VShufPD) {
+  DriverStr(RepeatFFFI(&x86::X86Assembler::vshufpd, 1,
+                       "vshufpd ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vshufpd");
 }
 
 TEST_F(AssemblerX86Test, PShufD) {
