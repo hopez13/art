@@ -22,6 +22,30 @@
       "revId": "1c049234ba5456442455b74549348d4bf539cc7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "300cbcbc_bc73f4e7",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-12T13:19:44Z",
+      "side": 1,
+      "message": "Thanks; I implemented Martin\u0027s suggestion (https://android-review.googlesource.com/c/platform/art/+/1162803/2/build/apex/art_apex_test.py#1092) in PS6.",
+      "parentUuid": "8f059911_92789eac",
+      "range": {
+        "startLine": 1093,
+        "startChar": 0,
+        "endLine": 1100,
+        "endChar": 0
+      },
+      "revId": "1c049234ba5456442455b74549348d4bf539cc7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
