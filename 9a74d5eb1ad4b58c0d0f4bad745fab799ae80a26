@@ -22,6 +22,30 @@
       "revId": "9a74d5eb1ad4b58c0d0f4bad745fab799ae80a26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2687df5d_c30d2cdd",
+        "filename": "profman/profile_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-12T21:23:48Z",
+      "side": 1,
+      "message": "Forgot to comment. It doesn\u0027t work, looks like you need an init in ctor if there\u0027s a method parameter with a default value.",
+      "parentUuid": "d239bf14_980e0290",
+      "range": {
+        "startLine": 61,
+        "startChar": 9,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "9a74d5eb1ad4b58c0d0f4bad745fab799ae80a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
