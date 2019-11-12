@@ -426,6 +426,7 @@ class X86_64Assembler final : public Assembler {
   void vmovups(XmmRegister dst, const Address& src);  // load unaligned
   void vmovups(const Address& dst, XmmRegister src);  // store unaligned
 
+  void vmovss(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void movss(XmmRegister dst, const Address& src);
   void movss(const Address& dst, XmmRegister src);
   void movss(XmmRegister dst, XmmRegister src);
@@ -438,6 +439,7 @@ class X86_64Assembler final : public Assembler {
   void movd(XmmRegister dst, CpuRegister src, bool is64bit);
   void movd(CpuRegister dst, XmmRegister src, bool is64bit);
 
+  void vaddss(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addss(XmmRegister dst, XmmRegister src);
   void addss(XmmRegister dst, const Address& src);
   void subss(XmmRegister dst, XmmRegister src);
@@ -477,7 +479,9 @@ class X86_64Assembler final : public Assembler {
   void movsd(XmmRegister dst, const Address& src);
   void movsd(const Address& dst, XmmRegister src);
   void movsd(XmmRegister dst, XmmRegister src);
+  void vmovsd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
 
+  void vaddsd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addsd(XmmRegister dst, XmmRegister src);
   void addsd(XmmRegister dst, const Address& src);
   void subsd(XmmRegister dst, XmmRegister src);
@@ -654,8 +658,10 @@ class X86_64Assembler final : public Assembler {
   void pcmpgtd(XmmRegister dst, XmmRegister src);
   void pcmpgtq(XmmRegister dst, XmmRegister src);  // SSE4.2
 
+  void vshufpd(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void shufpd(XmmRegister dst, XmmRegister src, const Immediate& imm);
   void shufps(XmmRegister dst, XmmRegister src, const Immediate& imm);
+  void vshufps(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void pshufd(XmmRegister dst, XmmRegister src, const Immediate& imm);
 
   void punpcklbw(XmmRegister dst, XmmRegister src);

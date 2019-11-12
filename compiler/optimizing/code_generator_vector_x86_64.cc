@@ -199,6 +199,7 @@ void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   XmmRegister src = locations->InAt(0).AsFpuRegister<XmmRegister>();
   XmmRegister dst = locations->Out().AsFpuRegister<XmmRegister>();
+  bool cpu_has_avx = CpuHasAvxFeatureFlag();
   switch (instruction->GetPackedType()) {
     case DataType::Type::kInt32:
       DCHECK_EQ(4u, instruction->GetVectorLength());
@@ -227,6 +228,38 @@ void InstructionCodeGeneratorX86_64::VisitVecReduce(HVecReduce* instruction) {
           break;
         case HVecReduce::kMin:
         case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (cpu_has_avx) {
+            __ vmovss(dst, src, src);
+          } else {
+            __ movss(dst, src);
+          }
+          break;
+        case HVecReduce::kMin:
+        case HVecReduce::kMax:
+          LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      }
+      break;
+    }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      switch (instruction->GetReductionKind()) {
+        case HVecReduce::kSum:
+          if (cpu_has_avx) {
+            __ vmovsd(dst, src, src);
+          } else {
+            __ movsd(dst, src);
+          }
+          break;
+       case HVecReduce::kMin:
+       case HVecReduce::kMax:
           LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
       }
       break;
@@ -1199,6 +1232,48 @@ void InstructionCodeGeneratorX86_64::VisitVecDotProd(HVecDotProd* instruction) {
       } else {
         __ vpmaddwd(tmp, left, right);
         __ vpaddd(acc, acc, tmp);
+      }
+      break;
+    }
+    case DataType::Type::kFloat32: {
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      if (cpu_has_avx) {
+          __ vmulps(tmp, left, right);
+          __ vaddss(acc, acc, tmp);
+          __ vshufps(tmp, tmp, tmp, Immediate(0xF9));
+          __ vaddss(acc, acc, tmp);
+          __ vshufps(tmp, tmp, tmp, Immediate(0xF9));
+          __ vaddss(acc, acc, tmp);
+          __ vshufps(tmp, tmp, tmp, Immediate(0xF9));
+          __ vaddss(acc, acc, tmp);
+      } else {
+        __ movaps(tmp, left);
+        __ mulps(tmp,  right);
+        __ addss(acc, tmp);
+        __ shufps(tmp, tmp, Immediate(0xF9));
+        __ addss(acc, tmp);
+        __ shufps(tmp, tmp, Immediate(0xF9));
+        __ addss(acc, tmp);
+        __ shufps(tmp, tmp, Immediate(0xF9));
+        __ addss(acc, tmp);
+      }
+      break;
+    }
+    case DataType::Type::kFloat64: {
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      XmmRegister tmp = locations->GetTemp(0).AsFpuRegister<XmmRegister>();
+      if (cpu_has_avx) {
+        __ vmulpd(tmp, left, right);
+        __ vaddsd(acc, acc, tmp);
+        __ vshufpd(tmp, tmp, tmp, Immediate(0x3));
+        __ vaddsd(acc, acc, tmp);
+      } else {
+        __ movapd(tmp, left);
+        __ mulpd(tmp, right);
+        __ addsd(acc, tmp);
+        __ shufpd(tmp, tmp, Immediate(0x3));
+        __ addsd(acc, tmp);
       }
       break;
     }

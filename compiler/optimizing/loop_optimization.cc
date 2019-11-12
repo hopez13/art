@@ -1644,10 +1644,10 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
             *restrictions |= kNoMul | kNoDiv | kNoShr | kNoAbs | kNoSAD;
             return TrySetVectorLength(2);
           case DataType::Type::kFloat32:
-            *restrictions |= kNoReduction;
+            *restrictions |= kNoSAD | kNoSignedHAdd | kNoUnroundedHAdd;
             return TrySetVectorLength(4);
           case DataType::Type::kFloat64:
-            *restrictions |= kNoReduction;
+            *restrictions |= kNoSAD | kNoSignedHAdd | kNoUnroundedHAdd;
             return TrySetVectorLength(2);
           default:
             break;
@@ -2172,7 +2172,17 @@ bool HLoopOptimization::VectorizeDotProdIdiom(LoopNode* node,
                                               bool generate_code,
                                               DataType::Type reduction_type,
                                               uint64_t restrictions) {
-  if (!instruction->IsAdd() || reduction_type != DataType::Type::kInt32) {
+  if (DataType::IsIntegralType(reduction_type)) {
+    if (reduction_type != DataType::Type::kInt32) {
+      return false;
+    }
+  } else {
+    if (!TrySetVectorType(reduction_type, &restrictions) ||
+        HasVectorRestrictions(restrictions, kNoDotProd)) {
+      return false;
+    }
+  }
+  if (!instruction->IsAdd()) {
     return false;
   }
 
@@ -2189,7 +2199,8 @@ bool HLoopOptimization::VectorizeDotProdIdiom(LoopNode* node,
   DataType::Type op_type = GetNarrowerType(a, b);
   bool is_unsigned = false;
 
-  if (!IsNarrowerOperands(a, b, op_type, &r, &s, &is_unsigned)) {
+  if (DataType::IsIntegralType(op_type) &&
+      !IsNarrowerOperands(a, b, op_type, &r, &s, &is_unsigned)) {
     return false;
   }
   op_type = HVecOperation::ToProperType(op_type, is_unsigned);
@@ -2218,7 +2229,9 @@ bool HLoopOptimization::VectorizeDotProdIdiom(LoopNode* node,
             vector_map_->Get(s),
             reduction_type,
             is_unsigned,
-            GetOtherVL(reduction_type, op_type, vector_length_),
+            DataType::IsIntegralType(op_type)
+                          ? GetOtherVL(reduction_type, op_type, vector_length_)
+                          : vector_length_,
             kNoDexPc));
         MaybeRecordStat(stats_, MethodCompilationStat::kLoopVectorizedIdiom);
       } else {
