@@ -414,6 +414,10 @@ class X86_64Assembler final : public Assembler {
   void leaq(CpuRegister dst, const Address& src);
   void leal(CpuRegister dst, const Address& src);
 
+  void dpps(XmmRegister dst, XmmRegister src, const Immediate& imm);
+  void vdpps(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
+  void dppd(XmmRegister dst, XmmRegister src, const Immediate& imm);
+  void vdppd(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void movaps(XmmRegister dst, XmmRegister src);     // move
   void movaps(XmmRegister dst, const Address& src);  // load aligned
   void movups(XmmRegister dst, const Address& src);  // load unaligned
@@ -438,6 +442,7 @@ class X86_64Assembler final : public Assembler {
   void movd(XmmRegister dst, CpuRegister src, bool is64bit);
   void movd(CpuRegister dst, XmmRegister src, bool is64bit);
 
+  void vaddss(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addss(XmmRegister dst, XmmRegister src);
   void addss(XmmRegister dst, const Address& src);
   void subss(XmmRegister dst, XmmRegister src);
@@ -478,6 +483,7 @@ class X86_64Assembler final : public Assembler {
   void movsd(const Address& dst, XmmRegister src);
   void movsd(XmmRegister dst, XmmRegister src);
 
+  void vaddsd(XmmRegister dst, XmmRegister src1, XmmRegister src2);
   void addsd(XmmRegister dst, XmmRegister src);
   void addsd(XmmRegister dst, const Address& src);
   void subsd(XmmRegister dst, XmmRegister src);
@@ -654,8 +660,10 @@ class X86_64Assembler final : public Assembler {
   void pcmpgtd(XmmRegister dst, XmmRegister src);
   void pcmpgtq(XmmRegister dst, XmmRegister src);  // SSE4.2
 
+  void vshufpd(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void shufpd(XmmRegister dst, XmmRegister src, const Immediate& imm);
   void shufps(XmmRegister dst, XmmRegister src, const Immediate& imm);
+  void vshufps(XmmRegister dst, XmmRegister src1, XmmRegister src2, const Immediate& imm);
   void pshufd(XmmRegister dst, XmmRegister src, const Immediate& imm);
 
   void punpcklbw(XmmRegister dst, XmmRegister src);

@@ -1119,6 +1119,16 @@ TEST_F(AssemblerX86_64Test, Movaps) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::movaps, "movaps %{reg2}, %{reg1}"), "movaps");
 }
 
+TEST_F(AssemblerX86_64Test, Dpps) {
+  DriverStr(RepeatFFI(&x86_64::X86_64Assembler::dpps, /*imm_bytes*/ 1U,
+                      "dpps ${imm}, %{reg2}, %{reg1}, "), "dpps");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VDpps) {
+  DriverStr(RepeatFFFI(&x86_64::X86_64Assembler::vdpps, /*imm_bytes*/ 1U,
+                      "vdpps ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vdpps");
+}
+
 TEST_F(AssemblerX86_64AVXTest, VMovaps) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::vmovaps, "vmovaps %{reg2}, %{reg1}"), "vmovaps");
 }
@@ -1181,6 +1191,16 @@ TEST_F(AssemblerX86_64Test, Movss) {
 
 TEST_F(AssemblerX86_64Test, Movapd) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::movapd, "movapd %{reg2}, %{reg1}"), "movapd");
+}
+
+TEST_F(AssemblerX86_64Test, Dppd) {
+  DriverStr(RepeatFFI(&x86_64::X86_64Assembler::dppd, /*imm_bytes*/ 1U,
+                      "dppd ${imm}, %{reg2}, %{reg1}"), "dppd");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VDppd) {
+  DriverStr(RepeatFFFI(&x86_64::X86_64Assembler::vdppd, /*imm_bytes*/ 1U,
+                      "vdppd ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vdppd");
 }
 
 TEST_F(AssemblerX86_64AVXTest, VMovapd) {
@@ -1315,8 +1335,16 @@ TEST_F(AssemblerX86_64Test, Addss) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::addss, "addss %{reg2}, %{reg1}"), "addss");
 }
 
+TEST_F(AssemblerX86_64AVXTest, VAddss) {
+  DriverStr(RepeatFFF(&x86_64::X86_64Assembler::vaddss, "vaddss %{reg3}, %{reg2}, %{reg1}"), "vaddss");
+}
+
 TEST_F(AssemblerX86_64Test, Addsd) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::addsd, "addsd %{reg2}, %{reg1}"), "addsd");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VAddsd) {
+  DriverStr(RepeatFFF(&x86_64::X86_64Assembler::vaddsd, "vaddsd %{reg3}, %{reg2}, %{reg1}"), "vaddsd");
 }
 
 TEST_F(AssemblerX86_64Test, Addps) {
@@ -1878,9 +1906,19 @@ TEST_F(AssemblerX86_64Test, Shufps) {
                       "shufps ${imm}, %{reg2}, %{reg1}"), "shufps");
 }
 
+TEST_F(AssemblerX86_64AVXTest, VShufps) {
+  DriverStr(RepeatFFFI(&x86_64::X86_64Assembler::vshufps, /*imm_bytes*/ 1U,
+                      "vshufps ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vshufps");
+}
+
 TEST_F(AssemblerX86_64Test, Shufpd) {
   DriverStr(RepeatFFI(&x86_64::X86_64Assembler::shufpd, /*imm_bytes*/ 1U,
                       "shufpd ${imm}, %{reg2}, %{reg1}"), "shufpd");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VShufpd) {
+  DriverStr(RepeatFFFI(&x86_64::X86_64Assembler::vshufpd, /*imm_bytes*/ 1U,
+                      "vshufpd ${imm}, %{reg3}, %{reg2}, %{reg1}"), "vshufpd");
 }
 
 TEST_F(AssemblerX86_64Test, PShufd) {

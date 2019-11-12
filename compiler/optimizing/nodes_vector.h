@@ -1053,7 +1053,6 @@ class HVecDotProd final : public HVecOperation {
                     vector_length,
                     dex_pc) {
     DCHECK(HasConsistentPackedTypes(accumulator, packed_type));
-    DCHECK(DataType::IsIntegralType(packed_type));
     DCHECK(left->IsVecOperation());
     DCHECK(right->IsVecOperation());
     DCHECK_EQ(ToSignedType(left->AsVecOperation()->GetPackedType()),
