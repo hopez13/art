@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70242cf4_cd0b0aef",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-12T21:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c2719e_674cdefa",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 571,
+        "endChar": 112
+      },
+      "revId": "e5c8098426e5a1c168febc0c5d899ce54db83520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35f630b6_a7b83b28",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fc26c0b8_e5d43db7",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-12T21:24:09Z",
+      "side": 1,
+      "message": "This will reset the profile format according to the option_.GetProfileBootClassPath().\nIf we profile the boot image -\u003e regular profiles will be bumped to boot-profile-version\nIf we profile regular -\u003e boot profiles will be transformed to regular",
+      "parentUuid": "35f630b6_a7b83b28",
+      "range": {
+        "startLine": 572,
+        "startChar": 13,
+        "endLine": 572,
+        "endChar": 38
+      },
+      "revId": "e5c8098426e5a1c168febc0c5d899ce54db83520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdf61223_422e415d",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "e5c8098426e5a1c168febc0c5d899ce54db83520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f8402c0_a8a12410",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-12T21:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf61223_422e415d",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 26
+      },
+      "revId": "e5c8098426e5a1c168febc0c5d899ce54db83520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
