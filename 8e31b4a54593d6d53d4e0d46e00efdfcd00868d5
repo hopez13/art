@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1399e928_50f79630",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "For architectures other than x86 and x86_64, DotProd Idiom is supported only for integer data types. This CL has made the support available for kFloat32 and kFloat64 only for x86 and x86_64. So we have this restriction.",
+      "parentUuid": "b7877616_fdde8c14",
+      "range": {
+        "startLine": 2176,
+        "startChar": 0,
+        "endLine": 2180,
+        "endChar": 8
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9863a194_3c1e90b1",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-12T14:42:41Z",
       "side": 1,
       "message": "Line too long",
+      "range": {
+        "startLine": 2199,
+        "startChar": 0,
+        "endLine": 2199,
+        "endChar": 101
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ce0c87_a25add40",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9863a194_3c1e90b1",
       "range": {
         "startLine": 2199,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e2773389_a6167a63",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0b6fc44_b25a6c45",
+      "range": {
+        "startLine": 2229,
+        "startChar": 12,
+        "endLine": 2229,
+        "endChar": 22
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8ebd114_221121cb",
         "filename": "compiler/utils/x86/assembler_x86.cc",
         "patchSetId": 1
@@ -85,6 +157,24 @@
       "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdbef77_795e242a",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8ebd114_221121cb",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "f361b516_145f4ac0",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cf3d2e1_52e4c885",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f7e0fb7_d5a6e2e3",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 1
@@ -119,6 +227,24 @@
       "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7989cae2_7082aee1",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T04:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7e0fb7_d5a6e2e3",
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
