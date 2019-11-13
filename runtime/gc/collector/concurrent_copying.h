@@ -159,6 +159,18 @@ class ConcurrentCopying : public GarbageCollector {
   void AssertNoThreadMarkStackMapping(Thread* thread) REQUIRES(!mark_stack_lock_);
 
  private:
+  enum PageFlags : uint8_t {
+    kPFNonMoving,
+    kPFFromSpace,
+    kPFUnevacLarge,
+    kPFUnevac,
+    kPFMarked,
+  };
+
+  PageFlags GetFlagsForPage(mirror::Object* from_ref) const;
+  template<bool kNoUnEvac>
+  static bool FlagsAreMarked(PageFlags flags);
+
   void PushOntoMarkStack(Thread* const self, mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
@@ -181,7 +193,7 @@ class ConcurrentCopying : public GarbageCollector {
       REQUIRES(!mark_stack_lock_);
   // Process a field.
   template <bool kNoUnEvac>
-  void Process(mirror::Object* obj, MemberOffset offset)
+  ALWAYS_INLINE void Process(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_ , !skipped_blocks_lock_, !immune_gray_stack_lock_);
   void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info) override
@@ -472,6 +484,9 @@ class ConcurrentCopying : public GarbageCollector {
 
   // Use signed because after_gc may be larger than before_gc.
   int64_t num_bytes_allocated_before_gc_;
+
+  // For accelerating marking
+  std::vector<PageFlags> page_flags_;
 
   class ActivateReadBarrierEntrypointsCallback;
   class ActivateReadBarrierEntrypointsCheckpoint;

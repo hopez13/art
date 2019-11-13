@@ -151,6 +151,8 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
     CHECK(sweep_array_free_buffer_mem_map_.IsValid())
         << "Couldn't allocate sweep array free buffer: " << error_msg;
   }
+  // Cover entire low 4gb.
+  page_flags_.resize(0x100000, kPFNonMoving);
 }
 
 void ConcurrentCopying::MarkHeapReference(mirror::HeapReference<mirror::Object>* field,
@@ -535,6 +537,35 @@ class ConcurrentCopying::FlipCallback : public Closure {
           cc->rb_table_,
           evac_mode,
           /*clear_live_bytes=*/ !cc->use_generational_cc_);
+      PageFlags* page_flags = &cc->page_flags_[0];
+      cc->region_space_->VisitRegions([&](space::RegionSpace::RegionType type,
+                                          space::RegionSpace::RegionState state,
+                                          uint8_t* start,
+                                          uint8_t* end) {
+        PageFlags* pf_start = &page_flags[reinterpret_cast<uintptr_t>(start) / kPageSize];
+        PageFlags* pf_end = &page_flags[reinterpret_cast<uintptr_t>(end) / kPageSize];
+        PageFlags flags = kPFMarked;
+        const bool is_large = (state == space::RegionSpace::RegionState::kRegionStateLarge);
+        if (is_large || state == space::RegionSpace::RegionState::kRegionStateAllocated) {
+          switch (type) {
+            case space::RegionSpace::RegionType::kRegionTypeToSpace: {
+              flags = kPFMarked;
+              break;
+            }
+            case space::RegionSpace::RegionType::kRegionTypeFromSpace: {
+              flags = kPFFromSpace;
+              break;
+            }
+            case space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace: {
+              flags = is_large ? kPFUnevacLarge : kPFUnevac;
+              break;
+            }
+            default:
+              LOG(FATAL) << "Error";
+          }
+        }
+        std::fill(pf_start, pf_end, flags);
+      });
     }
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
@@ -3532,18 +3563,18 @@ mirror::Object* ConcurrentCopying::Copy(Thread* const self,
 
 mirror::Object* ConcurrentCopying::IsMarked(mirror::Object* from_ref) {
   DCHECK(from_ref != nullptr);
-  space::RegionSpace::RegionType rtype = region_space_->GetRegionType(from_ref);
-  if (rtype == space::RegionSpace::RegionType::kRegionTypeToSpace) {
+  PageFlags flags = GetFlagsForPage(from_ref);
+  if (flags == kPFMarked) {
     // It's already marked.
     return from_ref;
   }
   mirror::Object* to_ref;
-  if (rtype == space::RegionSpace::RegionType::kRegionTypeFromSpace) {
+  if (flags == kPFFromSpace) {
     to_ref = GetFwdPtr(from_ref);
     DCHECK(to_ref == nullptr || region_space_->IsInToSpace(to_ref) ||
            heap_->non_moving_space_->HasAddress(to_ref))
         << "from_ref=" << from_ref << " to_ref=" << to_ref;
-  } else if (rtype == space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace) {
+  } else if (flags == kPFUnevac) {
     if (IsMarkedInUnevacFromSpace(from_ref)) {
       to_ref = from_ref;
     } else {

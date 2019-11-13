@@ -522,6 +522,15 @@ inline size_t RegionSpace::Region::ObjectsAllocated() const {
   }
 }
 
+template <typename Visitor>
+void RegionSpace::VisitRegions(const Visitor& visitor) {
+  MutexLock mu(Thread::Current(), region_lock_);
+  for (size_t i = 0; i < num_regions_; ++i) {
+    Region* r = &regions_[i];
+    visitor(r->Type(), r->State(), r->Begin(), r->Begin() + kRegionSize);
+  }
+}
+
 }  // namespace space
 }  // namespace gc
 }  // namespace art

@@ -123,6 +123,16 @@ inline mirror::Object* ConcurrentCopying::MarkImmuneSpace(Thread* const self,
   return ref;
 }
 
+inline ConcurrentCopying::PageFlags ConcurrentCopying::GetFlagsForPage(mirror::Object* from_ref)
+    const {
+  return page_flags_[reinterpret_cast<uintptr_t>(from_ref) / kPageSize];
+}
+
+template<bool kNoUnEvac>
+inline bool ConcurrentCopying::FlagsAreMarked(PageFlags flags) {
+  return kNoUnEvac ? (flags >= kPFUnevac) : (flags >= kPFMarked);
+}
+
 template<bool kGrayImmuneObject, bool kNoUnEvac, bool kFromGCThread>
 inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
                                                mirror::Object* from_ref,
@@ -151,49 +161,43 @@ inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
     // against this, return here if the CC collector isn't running.
     return from_ref;
   }
+
   DCHECK(region_space_ != nullptr) << "Read barrier slow path taken when CC isn't running?";
-  if (region_space_->HasAddress(from_ref)) {
-    space::RegionSpace::RegionType rtype = region_space_->GetRegionTypeUnsafe(from_ref);
-    switch (rtype) {
-      case space::RegionSpace::RegionType::kRegionTypeToSpace:
-        // It's already marked.
-        return from_ref;
-      case space::RegionSpace::RegionType::kRegionTypeFromSpace: {
-        mirror::Object* to_ref = GetFwdPtr(from_ref);
-        if (to_ref == nullptr) {
-          // It isn't marked yet. Mark it by copying it to the to-space.
-          to_ref = Copy(self, from_ref, holder, offset);
-        }
-        // The copy should either be in a to-space region, or in the
-        // non-moving space, if it could not fit in a to-space region.
-        DCHECK(region_space_->IsInToSpace(to_ref) || heap_->non_moving_space_->HasAddress(to_ref))
-            << "from_ref=" << from_ref << " to_ref=" << to_ref;
-        return to_ref;
-      }
-      case space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace:
-        if (kNoUnEvac && use_generational_cc_ && !region_space_->IsLargeObject(from_ref)) {
-          if (!kFromGCThread) {
-            DCHECK(IsMarkedInUnevacFromSpace(from_ref)) << "Returning unmarked object to mutator";
-          }
-          return from_ref;
-        }
-        return MarkUnevacFromSpaceRegion(self, from_ref, region_space_bitmap_);
-      default:
-        // The reference is in an unused region. Remove memory protection from
+
+  PageFlags flags = GetFlagsForPage(from_ref);
+  if (LIKELY(FlagsAreMarked<kNoUnEvac>(flags))) {
+    return from_ref;
+  }
+  if (flags == kPFFromSpace) {
+    mirror::Object* to_ref = GetFwdPtr(from_ref);
+    if (to_ref == nullptr) {
+      // It isn't marked yet. Mark it by copying it to the to-space.
+      to_ref = Copy(self, from_ref, holder, offset);
+    }
+    // The copy should either be in a to-space region, or in the
+    // non-moving space, if it could not fit in a to-space region.
+    DCHECK(region_space_->IsInToSpace(to_ref) || heap_->non_moving_space_->HasAddress(to_ref))
+        << "from_ref=" << from_ref << " to_ref=" << to_ref;
+    return to_ref;
+  } else if (flags == kPFUnevacLarge) {
+    CHECK(region_space_->IsLargeObject(from_ref));
+    return MarkUnevacFromSpaceRegion(self, from_ref, region_space_bitmap_);
+  } else if (!kNoUnEvac && flags == kPFUnevac) {
+    return MarkUnevacFromSpaceRegion(self, from_ref, region_space_bitmap_);
+  } else if (immune_spaces_.ContainsObject(from_ref)) {
+    return MarkImmuneSpace<kGrayImmuneObject>(self, from_ref);
+  } else {
+    return MarkNonMoving(self, from_ref, holder, offset);
+  }
+  #if 0
+// The reference is in an unused region. Remove memory protection from
         // the region space and log debugging information.
         region_space_->Unprotect();
         LOG(FATAL_WITHOUT_ABORT) << DumpHeapReference(holder, offset, from_ref);
         region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
         heap_->GetVerification()->LogHeapCorruption(holder, offset, from_ref, /* fatal= */ true);
         UNREACHABLE();
-    }
-  } else {
-    if (immune_spaces_.ContainsObject(from_ref)) {
-      return MarkImmuneSpace<kGrayImmuneObject>(self, from_ref);
-    } else {
-      return MarkNonMoving(self, from_ref, holder, offset);
-    }
-  }
+  #endif
 }
 
 inline mirror::Object* ConcurrentCopying::MarkFromReadBarrier(mirror::Object* from_ref) {

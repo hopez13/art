@@ -163,6 +163,10 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     kRegionStateLargeTail,       // Large tail (non-first regions of a large allocation).
   };
 
+  // Visitor takes RegionType, RegionState, Start, End
+  template <typename Visitor>
+  void VisitRegions(const Visitor& visitor) REQUIRES(!region_lock_);
+
   template<RegionType kRegionType> uint64_t GetBytesAllocatedInternal() REQUIRES(!region_lock_);
   template<RegionType kRegionType> uint64_t GetObjectsAllocatedInternal() REQUIRES(!region_lock_);
   uint64_t GetBytesAllocated() override REQUIRES(!region_lock_) {
