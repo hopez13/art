@@ -3359,12 +3359,27 @@ static bool IsReservedBootClassPathDescriptor(const char* descriptor) {
       StartsWith(descriptor_sv, "Landroid/media/");
 }
 
+struct ScopedDefiningClass {
+ public:
+  explicit ScopedDefiningClass(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) : self_(self) {
+    Runtime::Current()->GetRuntimeCallbacks()->BeginDefineClass();
+    self_->IncrDefineClassCount();
+  }
+  ~ScopedDefiningClass() REQUIRES_SHARED(Locks::mutator_lock_) {
+    self_->DecrDefineClassCount();
+    Runtime::Current()->GetRuntimeCallbacks()->EndDefineClass();
+  }
+ private:
+  Thread* self_;
+};
+
 ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
                                                const char* descriptor,
                                                size_t hash,
                                                Handle<mirror::ClassLoader> class_loader,
                                                const DexFile& dex_file,
                                                const dex::ClassDef& dex_class_def) {
+  ScopedDefiningClass sdc(self);
   StackHandleScope<3> hs(self);
   auto klass = hs.NewHandle<mirror::Class>(nullptr);
 
