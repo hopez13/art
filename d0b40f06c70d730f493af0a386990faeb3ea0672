@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "616f2a09_d13d4974",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T16:25:22Z",
+      "side": 1,
+      "message": "I had to read up on the DPPS/VDPPS. These instructions sum up the intermediate results and you\u0027re then adding that sum to the accumulator. That\u0027s not good enough, you really need to add the results to the accumulator one after another. (And the accumulator needs to be correctly initialized with the starting value from before the loop.)",
+      "parentUuid": "57f14a57_da53df01",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce7e1ade_98aab40e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5
@@ -69,6 +93,30 @@
       "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9a6fbf_40057286",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T16:25:22Z",
+      "side": 1,
+      "message": "Done in PS6 (but see comment there).",
+      "parentUuid": "ce7e1ade_98aab40e",
+      "range": {
+        "startLine": 2232,
+        "startChar": 12,
+        "endLine": 2233,
+        "endChar": 83
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
