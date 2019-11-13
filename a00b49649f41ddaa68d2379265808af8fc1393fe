@@ -82,6 +82,30 @@
     },
     {
       "key": {
+        "uuid": "d8bc1570_01f331bb",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-13T19:02:31Z",
+      "side": 1,
+      "message": "Yeap. We keep that. It will enable us to be more accurate with important API but which are less used. Think about camera APIs or system APIs.\n\nAs mention in the commit, the challenge is that suddenly we have a lot more dex file to handle which increases the memory footprint.",
+      "parentUuid": "14af93ae_472d64ff",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 30
+      },
+      "revId": "a00b49649f41ddaa68d2379265808af8fc1393fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad78a8b8_64df1055",
         "filename": "libprofile/profile/profile_compilation_info.h",
         "patchSetId": 1
