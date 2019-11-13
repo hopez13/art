@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50a4f909_3dd1a508",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T15:10:29Z",
+      "side": 1,
+      "message": "You\u0027re accumulating intermediate values in 4 different `float`s. That does not really fix the semantics. You need to do 4 consecutive additions here and the VecReduce is an identity, i.e. it can be removed from the graph.",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce7e1ade_98aab40e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T15:10:29Z",
+      "side": 1,
+      "message": "I\u0027d prefer\n\n   condition\n       ? then_expression\n       : else_expression,\n\n(At the very least, there\u0027s a missing space before \u0027:\u0027.)",
+      "range": {
+        "startLine": 2232,
+        "startChar": 12,
+        "endLine": 2233,
+        "endChar": 83
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12352ae3_116d6277",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T15:10:29Z",
+      "side": 1,
+      "message": "Parameter description.",
+      "range": {
+        "startLine": 3660,
+        "startChar": 36,
+        "endLine": 3660,
+        "endChar": 41
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5eeeb18_73bacdf8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3663,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T15:10:29Z",
+      "side": 1,
+      "message": "Parameter description.",
+      "range": {
+        "startLine": 3663,
+        "startChar": 36,
+        "endLine": 3663,
+        "endChar": 41
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
