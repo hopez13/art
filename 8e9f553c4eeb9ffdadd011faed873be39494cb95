@@ -70,6 +70,30 @@
       "revId": "8e9f553c4eeb9ffdadd011faed873be39494cb95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c404ceb_1807f7a4",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-13T12:16:46Z",
+      "side": 1,
+      "message": "All right, clarified. Thanks.\n\nThat should answer my question about overlap with apk_origin too, but I note the same applies there: vendors can\u0027t update the \"unbundled\" apps in /vendor and /product without losing library access. But I suppose they can always choose to get a shared namespace if that\u0027d be a problem.",
+      "parentUuid": "dfcabd3b_2c2549e7",
+      "range": {
+        "startLine": 63,
+        "startChar": 67,
+        "endLine": 63,
+        "endChar": 79
+      },
+      "revId": "8e9f553c4eeb9ffdadd011faed873be39494cb95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
