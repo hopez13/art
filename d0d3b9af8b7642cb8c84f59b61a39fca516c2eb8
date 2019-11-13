@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b5d3dc6_79341d07",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T14:14:59Z",
+      "side": 1,
+      "message": "q+\u003d a*b, This line checks for restrictions on operands a, b. We had also checked for restrictions on the type of q  above.(reduction type.) we need both. Please let me know your opinion",
+      "parentUuid": "f8a5a77f_de9d5feb",
+      "range": {
+        "startLine": 2207,
+        "startChar": 0,
+        "endLine": 2210,
+        "endChar": 3
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "313674a3_7bb5d449",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-13T13:28:40Z",
       "side": 1,
       "message": "ouch - could this be submitted in a differen CL? (with a comment why it wasn\u0027t a problem)",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 15
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be3c6854_6cc66048",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-13T14:14:59Z",
+      "side": 1,
+      "message": "Sorry for that Instead of using --instruction-set-features \"sse4.1,avx\", while testing, I had changed it here directly as my host has the feature support.",
+      "parentUuid": "313674a3_7bb5d449",
       "range": {
         "startLine": 71,
         "startChar": 2,
