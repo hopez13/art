@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6d47a81e_f7708675",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-13T09:14:22Z",
+      "side": 1,
+      "message": "Yes, but why having this #if defined when TrySetVectorType has already logic to know what is restricted at the arch level?",
+      "parentUuid": "1399e928_50f79630",
+      "range": {
+        "startLine": 2176,
+        "startChar": 0,
+        "endLine": 2180,
+        "endChar": 8
+      },
+      "revId": "8e31b4a54593d6d53d4e0d46e00efdfcd00868d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9863a194_3c1e90b1",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
