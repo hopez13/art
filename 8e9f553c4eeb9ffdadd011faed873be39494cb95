@@ -22,6 +22,30 @@
       "revId": "8e9f553c4eeb9ffdadd011faed873be39494cb95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42132f8c_6ff71a5f",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-13T11:02:41Z",
+      "side": 1,
+      "message": "Done, to the best of my knowledge. Jiyong, can you please fact check?\n\nBtw, if it only is used for apps in /vendor, /system and /product, then it could be inferred from the apk_origin check in Create?",
+      "parentUuid": "bbb36426_047f4b10",
+      "range": {
+        "startLine": 63,
+        "startChar": 67,
+        "endLine": 63,
+        "endChar": 79
+      },
+      "revId": "8e9f553c4eeb9ffdadd011faed873be39494cb95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
