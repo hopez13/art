@@ -21,7 +21,7 @@
  * accompanied this code).
  *
  * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
+ * 2 along with ths work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
@@ -52,6 +52,8 @@
 #include "obj_ptr.h"
 
 namespace art {
+class ClassAccessor;
+class ClassLinker;
 namespace dex {
 struct ClassDef;
 }  // namespace dex
@@ -168,10 +170,15 @@ class Redefiner {
     void FindAndAllocateObsoleteMethods(art::ObjPtr<art::mirror::Class> art_klass)
         REQUIRES(art::Locks::mutator_lock_);
 
+    art::ObjPtr<art::mirror::Class> AllocateNewClassObject(
+        art::Handle<art::mirror::Class> old_class,
+        art::Handle<art::mirror::Class> super_class,
+        art::Handle<art::mirror::DexCache> cache,
+        uint16_t dex_class_def_index) REQUIRES_SHARED(art::Locks::mutator_lock_);
     art::ObjPtr<art::mirror::Class> AllocateNewClassObject(art::Handle<art::mirror::DexCache> cache)
         REQUIRES_SHARED(art::Locks::mutator_lock_);
 
-    uint32_t GetNewClassSize(bool with_embedded_tables, art::Handle<art::mirror::Class> old_class)
+    uint32_t GetNewClassSize(art::ClassAccessor& accessor)
         REQUIRES_SHARED(art::Locks::mutator_lock_);
 
     // Checks that the dex file contains only the single expected class and that the top-level class
@@ -317,6 +324,7 @@ class Redefiner {
   jvmtiError Run() REQUIRES_SHARED(art::Locks::mutator_lock_);
 
   bool CheckAllRedefinitionAreValid() REQUIRES_SHARED(art::Locks::mutator_lock_);
+  bool CheckClassHierarchy() REQUIRES_SHARED(art::Locks::mutator_lock_);
   bool CheckAllClassesAreVerified(RedefinitionDataHolder& holder)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
   bool EnsureAllClassAllocationsFinished(RedefinitionDataHolder& holder)
