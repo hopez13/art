@@ -49,6 +49,207 @@
     },
     {
       "key": {
+        "uuid": "e09c7a15_5a2d4f1e",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Indentation looks off.",
+      "range": {
+        "startLine": 500,
+        "startChar": 53,
+        "endLine": 500,
+        "endChar": 70
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "215d649d_7470a2e0",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Indentation.",
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc27cdd1_b8b94b0e",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter names.",
+      "range": {
+        "startLine": 439,
+        "startChar": 34,
+        "endLine": 440,
+        "endChar": 39
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8172234_caa94571",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter names.",
+      "range": {
+        "startLine": 468,
+        "startChar": 34,
+        "endLine": 469,
+        "endChar": 39
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5743241_28aba94e",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter name.",
+      "range": {
+        "startLine": 698,
+        "startChar": 33,
+        "endLine": 698,
+        "endChar": 38
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a7d4d1_a7ee424a",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter name.",
+      "range": {
+        "startLine": 1101,
+        "startChar": 33,
+        "endLine": 1101,
+        "endChar": 38
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3844f88e_573dbe83",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2667,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter name.",
+      "range": {
+        "startLine": 2667,
+        "startChar": 34,
+        "endLine": 2667,
+        "endChar": 39
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92a85f3a_99e2d977",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter name.",
+      "range": {
+        "startLine": 2691,
+        "startChar": 34,
+        "endLine": 2691,
+        "endChar": 39
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6228eee_8528d571",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "/*imm_bytes\u003d*/",
+      "range": {
+        "startLine": 501,
+        "startChar": 50,
+        "endLine": 501,
+        "endChar": 59
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "313674a3_7bb5d449",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 3
@@ -90,6 +291,155 @@
         "endLine": 71,
         "endChar": 15
       },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b8d68f_bf55334b",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Indentation seems off. Add parameter description for \"false\".",
+      "range": {
+        "startLine": 435,
+        "startChar": 36,
+        "endLine": 435,
+        "endChar": 41
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "356c6b82_ce3140a4",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter description.",
+      "range": {
+        "startLine": 467,
+        "startChar": 34,
+        "endLine": 467,
+        "endChar": 39
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2677e39_da19902e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3620,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter description.",
+      "range": {
+        "startLine": 3620,
+        "startChar": 36,
+        "endLine": 3620,
+        "endChar": 41
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0b1a2a_742179db",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Parameter description.",
+      "range": {
+        "startLine": 3660,
+        "startChar": 36,
+        "endLine": 3660,
+        "endChar": 41
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3ff66c7_ed5a9da4",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Add \"\u003d\", i.e. \"/*imm_bytes\u003d*/\", here and elsewhere in this file (including old tests).",
+      "range": {
+        "startLine": 1123,
+        "startChar": 56,
+        "endLine": 1123,
+        "endChar": 65
+      },
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eefd91b6_9d67a3da",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01724a29_90d2a240",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-13T14:26:03Z",
+      "side": 1,
+      "message": "Line too long.",
       "revId": "d0d3b9af8b7642cb8c84f59b61a39fca516c2eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
