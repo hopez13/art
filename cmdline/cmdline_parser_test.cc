@@ -20,7 +20,6 @@
 
 #include "gtest/gtest.h"
 
-#include "base/mutex.h"
 #include "base/utils.h"
 #include "jdwp_provider.h"
 #include "experimental_flags.h"
