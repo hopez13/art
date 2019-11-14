@@ -36,6 +36,7 @@ class ProfileAssistant {
     kErrorIO = 3,
     kErrorCannotLock = 4,
     kSuccess = 5,  // Generic success code for non-analysis runs.
+    kErrorDifferentVersions = 6,
   };
 
   class Options {
