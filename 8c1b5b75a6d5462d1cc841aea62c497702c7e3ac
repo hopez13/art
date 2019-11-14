@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5afea0d0_d8bb1e77",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-14T23:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09459bb8_4828b1f9",
+      "range": {
+        "startLine": 486,
+        "startChar": 100,
+        "endLine": 486,
+        "endChar": 102
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "342789d1_beb233b8",
         "filename": "runtime/base/locks.h",
         "patchSetId": 18
@@ -186,6 +210,30 @@
       "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f868bc12_2ee31850",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-14T23:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80181065_ad03fa3d",
+      "range": {
+        "startLine": 60,
+        "startChar": 81,
+        "endLine": 60,
+        "endChar": 82
+      },
+      "revId": "8c1b5b75a6d5462d1cc841aea62c497702c7e3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
