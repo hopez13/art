@@ -1404,4 +1404,30 @@ TEST_F(ProfileAssistantTest, BootImageMergeWithAnnotations) {
   ASSERT_TRUE(result.Load(reference_profile_fd));
   ASSERT_TRUE(info.Equals(result));
 }
+
+TEST_F(ProfileAssistantTest, DifferentProfileVersions) {
+  ScratchFile profile1;
+  ScratchFile profile2;
+
+  ProfileCompilationInfo info1(/*for_boot_image*/ false);
+  info1.Save(profile1.GetFd());
+  profile1.GetFile()->ResetOffset();
+
+  ProfileCompilationInfo info2(/*for_boot_image*/ true);
+  info2.Save(profile2.GetFd());
+  profile2.GetFile()->ResetOffset();
+
+  std::vector<int> profile_fds({ GetFd(profile1)});
+  int reference_profile_fd = GetFd(profile2);
+  ASSERT_EQ(ProcessProfiles(profile_fds, reference_profile_fd),
+            ProfileAssistant::kErrorDifferentVersions);
+
+  // Reverse the order of the profiles to verify we get the same behaviour.
+  profile_fds[0] = GetFd(profile2);
+  reference_profile_fd = GetFd(profile1);
+  profile1.GetFile()->ResetOffset();
+  profile2.GetFile()->ResetOffset();
+  ASSERT_EQ(ProcessProfiles(profile_fds, reference_profile_fd),
+            ProfileAssistant::kErrorDifferentVersions);
+}
 }  // namespace art
