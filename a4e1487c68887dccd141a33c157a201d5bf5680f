@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28d48433_453c9b06",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-14T14:08:17Z",
+      "side": 1,
+      "message": "Add something like \"If it\u0027s already in the image (in this case we are compiling an extension of an existing image).\", don\u0027t add the class.\n\nShould you call CanIncludeInCurrentImage instead ?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 3
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfb110ac_56fbd748",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-14T14:08:17Z",
+      "side": 1,
+      "message": "I don\u0027t understand this: we\u0027re rejecting the class if its superclass is in a different image?",
+      "range": {
+        "startLine": 1307,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 5
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a0b51e_265b2315",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-14T14:08:17Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1162,
+        "startChar": 22,
+        "endLine": 1162,
+        "endChar": 47
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8127cb7_517a6b10",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-14T14:08:17Z",
+      "side": 1,
+      "message": "I guess this is the reason we check for strict_mode ? Can you mention it?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
