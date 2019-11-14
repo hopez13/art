@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "68e80ce2_d6fb2880",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-14T09:05:32Z",
+      "side": 1,
+      "message": "Thanks Vladmir. For the test case, \n double[] a \u003d new double[1024];\n    for (int i \u003d 0; i !\u003d 1024; ++i) a[i] \u003d X;\n    double[] b \u003d new double[1024];\n    for (int i \u003d 0; i !\u003d 1024; ++i) b[i] \u003d ((i \u0026 1) \u003d\u003d 0) ? 1.0 : -1.0;\n    double result \u003d testDotProdSimpleDouble(a, b);\n\nIf the sum var  had an initial value z, sequential computation would add Inf+z, then subtract Inf, the final answer would be zero. But with dpps dot product of first 4 entities would be 0 and then 0\u003d z in accumulator will be z. \n\nSo I\u0027m not using dpps.  Accumulator is being correctly intialized with the starting value.",
+      "parentUuid": "616f2a09_d13d4974",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce7e1ade_98aab40e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5
