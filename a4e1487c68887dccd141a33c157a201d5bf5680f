@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af54e2a8_6b5ba314",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-14T14:42:49Z",
+      "side": 1,
+      "message": "Added a comment.\n\nCanIncludeInCurrentImage() is unnecessary as the class and all its superclasses have already been checked before calling MaybeAddToImageClasses().",
+      "parentUuid": "28d48433_453c9b06",
+      "range": {
+        "startLine": 1126,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 3
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfb110ac_56fbd748",
         "filename": "dex2oat/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861baad2_e06ea9cb",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-14T14:42:49Z",
+      "side": 1,
+      "message": "See comments above (lines 1284-1286).",
+      "parentUuid": "bfb110ac_56fbd748",
+      "range": {
+        "startLine": 1307,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 5
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d31f7e33_8559e3e2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-14T14:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38a0b51e_265b2315",
+      "range": {
+        "startLine": 1162,
+        "startChar": 22,
+        "endLine": 1162,
+        "endChar": 47
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8127cb7_517a6b10",
         "filename": "runtime/aot_class_linker.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2019-11-14T14:08:17Z",
       "side": 1,
       "message": "I guess this is the reason we check for strict_mode ? Can you mention it?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "a4e1487c68887dccd141a33c157a201d5bf5680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5cf588d_5ba2ed9a",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-14T14:42:49Z",
+      "side": 1,
+      "message": "The `!strict_mode` is essentially \"is compiling boot image or boot image extension\". For boot image, the second condition is trivially false.",
+      "parentUuid": "d8127cb7_517a6b10",
       "range": {
         "startLine": 59,
         "startChar": 0,
