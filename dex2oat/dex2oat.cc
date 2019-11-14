@@ -29,11 +29,15 @@
 #include <type_traits>
 #include <vector>
 
-#if defined(__linux__) && defined(__arm__)
+#if defined(__linux__)
+#include <sched.h>
+#if defined(__arm__)
 #include <sys/personality.h>
 #include <sys/utsname.h>
+#endif  // __arm__
 #endif
 
+#include "android-base/parseint.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
@@ -223,6 +227,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("       Default is the number of detected hardware threads available on the");
   UsageError("       host system.");
   UsageError("      Example: -j12");
+  UsageError("");
+  UsageError("  --cpu-set=<set>: sets the cpu affinity to <set>. The <set> argument is a comma");
+  UsageError("    separated list of CPUs.");
+  UsageError("    Example: --cpu-set=0,1,2,3");
   UsageError("");
   UsageError("  --dex-file=<dex-file>: specifies a .dex, .jar, or .apk file to compile.");
   UsageError("      Example: --dex-file=/system/framework/core.jar");
@@ -500,6 +508,45 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
+
+
+// Set CPU affinity from a string containing a comma-separated list of numeric CPU identifiers.
+static void ParseAndSetCpuAffinity(const std::string& cpu_list_csv) {
+#ifdef __linux__
+  std::vector<std::string> values;
+  Split(cpu_list_csv, ',', &values);
+
+  // Fail if |cpu_list_csv| has leading, trailing, or consecutive commas, e.g. ",0", "0,,1"
+  size_t separator_count = std::count(cpu_list_csv.begin(), cpu_list_csv.end(), ',');
+  if (values.size() != separator_count + 1) {
+    Usage("Invalid --cpu-set argument: \"%s\"", cpu_list_csv.c_str());
+  }
+
+  int cpu_count = sysconf(_SC_NPROCESSORS_CONF);
+  cpu_set_t target_cpu_set;
+  CPU_ZERO(&target_cpu_set);
+  for (std::string value : values) {
+    int cpu;
+    if (android::base::ParseInt(value, &cpu) && cpu >= 0 && cpu < cpu_count) {
+      CPU_SET(cpu, &target_cpu_set);
+    } else {
+      // Argument error is considered fatal, suggests misconfigured system properties.
+      Usage("Invalid cpu \"%s\" specified in --cpu-set argument (nprocessors = %d)",
+            value.c_str(), cpu_count);
+    }
+  }
+
+  if (sched_setaffinity(getpid(), sizeof(target_cpu_set), &target_cpu_set) == -1) {
+    // Failure to set affinity may be outside control of requestor, log warning rather than
+    // treating as fatal.
+    PLOG(WARNING) << "Failed to set CPU affinity: " << cpu_list_csv;
+  }
+#else
+  LOG(WARNING) << "--cpu-set not supported on this platform.";
+#endif  // __linux__
+}
+
+
 
 // The primary goal of the watchdog is to prevent stuck build servers
 // during development when fatal aborts lead to a cascade of failures
@@ -918,6 +965,10 @@ class Dex2Oat final {
       }
     }
 
+    if (!cpu_set_.empty()) {
+      ParseAndSetCpuAffinity(cpu_set_);
+    }
+
     if (compiler_options_->inline_max_code_units_ == CompilerOptions::kUnsetInlineMaxCodeUnits) {
       compiler_options_->inline_max_code_units_ = CompilerOptions::kDefaultInlineMaxCodeUnits;
     }
@@ -1113,6 +1164,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::Watchdog, &parser_options->watch_dog_enabled);
     AssignIfExists(args, M::WatchdogTimeout, &parser_options->watch_dog_timeout_in_ms);
     AssignIfExists(args, M::Threads, &thread_count_);
+    AssignIfExists(args, M::CpuSet, &cpu_set_);
     AssignIfExists(args, M::Passes, &passes_to_run_filename_);
     AssignIfExists(args, M::BootImage, &parser_options->boot_image_filename);
     AssignIfExists(args, M::AndroidRoot, &android_root_);
@@ -2710,6 +2762,7 @@ class Dex2Oat final {
   std::unique_ptr<ClassLoaderContext> stored_class_loader_context_;
 
   size_t thread_count_;
+  std::string cpu_set_;
   uint64_t start_ns_;
   uint64_t start_cputime_ns_;
   std::unique_ptr<WatchDog> watchdog_;
