@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "383becf3_c51c08f5",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-14T16:07:04Z",
+      "side": 1,
+      "message": "Why are you saying that you\u0027re \"not using dpps\"? The code says to use vdpps() or dpps() based on the AVX support flag. And both instructions are described in the manual as doing the same operation.\n\nAccording to the description of DPPS/VDDPS, you\u0027re doing\n\n  acc \u003d acc + (  ((left[0] * right[0]) + (left[1] * right[1]))\n               + ((left[2] * right[2]) + (left[3] * right[3])));\n\nbut we need\n\n  acc \u003d ((((acc + (left[0] * right[0]))\n                + (left[1] * right[1]))\n                + (left[2] * right[2]))\n                + (left[3] * right[3]));\n\nNote that for the test case you mention (which is using `double` rather than `float`), the intermediate result\n\n   (left[0] * right[0]) + (left[1] * right[1])\n\nalways yield zero, so it seems to correctly cancel out. However, it\u0027s not really correct. If you initialize the `sum` in `testDotProdSimpleDouble()` as X, the correct end value should be +Inf (after the first addition, it\u0027s +Inf and adding final values +X or -X has no effect) but by cancelling out the intermediate results, the vectorized loop will return the starting value X. (Or just change the test to initialize `b[1] \u003d 0.0`.)",
+      "parentUuid": "68e80ce2_d6fb2880",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce7e1ade_98aab40e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5
