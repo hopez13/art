@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9572c40_35dd0ddb",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-14T21:27:10Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 102
+      },
+      "revId": "6c095e489f9e779c22e88ec6b1a051272a037df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77f6c9c9_723ea3fe",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-14T21:27:10Z",
+      "side": 1,
+      "message": "Delete?",
+      "range": {
+        "startLine": 60,
+        "startChar": 81,
+        "endLine": 60,
+        "endChar": 82
+      },
+      "revId": "6c095e489f9e779c22e88ec6b1a051272a037df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "775fa2df_c1607676",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-14T21:27:10Z",
+      "side": 1,
+      "message": "Maybe we should add a inverse primitive, i.e. ScopedAllowThreadSuspension or such",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 46
+      },
+      "revId": "6c095e489f9e779c22e88ec6b1a051272a037df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
