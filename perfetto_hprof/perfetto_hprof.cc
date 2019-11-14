@@ -37,6 +37,7 @@
 #include "perfetto/trace/profiling/heap_graph.pbzero.h"
 #include "perfetto/trace/profiling/profile_common.pbzero.h"
 #include "perfetto/config/profiling/java_hprof_config.pbzero.h"
+#include "perfetto/protozero/packed_repeated_fields.h"
 #include "perfetto/tracing.h"
 #include "runtime-inl.h"
 #include "runtime_callbacks.h"
@@ -347,16 +348,21 @@ void DumpPerfetto(art::Thread* self) {
                       FindOrAppend(&interned_types, obj->PrettyTypeOf()));
                   object_proto->set_self_size(obj->SizeOf());
 
+                  std::unique_ptr<protozero::PackedVarInt> reference_field_ids(
+                      new protozero::PackedVarInt);
+                  std::unique_ptr<protozero::PackedVarInt> reference_object_ids(
+                      new protozero::PackedVarInt);
+
                   std::vector<std::pair<std::string, art::mirror::Object*>>
                       referred_objects;
                   ReferredObjectsFinder objf(&referred_objects);
                   obj->VisitReferences(objf, art::VoidFunctor());
                   for (const auto& p : referred_objects) {
-                    object_proto->add_reference_field_id(
-                        FindOrAppend(&interned_fields, p.first));
-                    object_proto->add_reference_object_id(
-                        reinterpret_cast<uintptr_t>(p.second));
+                    reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
+                    reference_object_ids->Append(reinterpret_cast<uintptr_t>(p.second));
                   }
+                  object_proto->set_reference_field_id(*reference_field_ids);
+                  object_proto->set_reference_object_id(*reference_object_ids);
                 });
 
             for (const auto& p : interned_fields) {
