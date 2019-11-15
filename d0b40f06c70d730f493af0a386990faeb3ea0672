@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "6bcdada5_f198d1be",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-15T10:00:22Z",
+      "side": 1,
+      "message": "Oh, I see. Gerrit says that you \"Set Work In Progress\" and then uploaded PS7. I guess \"Work in Progress\" CLs do not send out emails about a new patch set as I didn\u0027t get one about the PS7. And then I missed it in Gerrit, so I thought we\u0027re still at the old PS6.",
+      "parentUuid": "9a5f5316_5cb03f70",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce7e1ade_98aab40e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5

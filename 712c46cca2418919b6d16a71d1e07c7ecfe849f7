@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "912580d6_0cc9a4a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-15T10:00:22Z",
+      "side": 1,
+      "message": "Is this till the case with PS7?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0113a396_2dc1e550",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-15T10:00:22Z",
+      "side": 1,
+      "message": "I think you do not need this reduction at all for the FP DotProd as you\u0027ve already summed up the result.",
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffce2adb_ab6522df",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-15T10:00:22Z",
+      "side": 1,
+      "message": "Can you write these magic constants in hexadecimal or even binary, please? They are interpreted as pairs of bits, so the decimal representation is difficult to read.",
+      "range": {
+        "startLine": 1290,
+        "startChar": 46,
+        "endLine": 1290,
+        "endChar": 49
+      },
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
