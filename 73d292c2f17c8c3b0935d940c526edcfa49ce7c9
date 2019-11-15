@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f33d36e_e8dbf92d",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-15T01:07:31Z",
+      "side": 1,
+      "message": "It\u0027s more that the more garbage instances there are the more memory we need to use.",
+      "parentUuid": "6110f0b4_ae5203a5",
+      "range": {
+        "startLine": 2005,
+        "startChar": 45,
+        "endLine": 2005,
+        "endChar": 53
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b9372a8_701e61e1",
         "filename": "test/1994-final-virtual-structural/src/art/Test1994.java",
         "patchSetId": 20
@@ -45,6 +69,30 @@
       "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b200bc9c_350fca48",
+        "filename": "test/1994-final-virtual-structural/src/art/Test1994.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-15T01:07:31Z",
+      "side": 1,
+      "message": "doesn\u0027t seem to cause any problems... I can remove it if you want.",
+      "parentUuid": "1b9372a8_701e61e1",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
