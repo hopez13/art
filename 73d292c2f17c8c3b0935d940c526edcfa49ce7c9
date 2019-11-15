@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ed46de77_a09693bc",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-15T16:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b509ab7_481ab002",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "827c8252_280b4fa5",
         "filename": "runtime/gc/allocation_listener.h",
         "patchSetId": 20
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "84649d9a_3e40ed64",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-15T16:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "827c8252_280b4fa5",
+      "range": {
+        "startLine": 50,
+        "startChar": 44,
+        "endLine": 50,
+        "endChar": 69
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf1c7c0b_b8d2119e",
         "filename": "runtime/gc/allocation_listener.h",
         "patchSetId": 20
@@ -115,6 +163,30 @@
       "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d53b8297_1acfae44",
+        "filename": "runtime/gc/allocation_listener.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-15T16:54:29Z",
+      "side": 1,
+      "message": "no we want it invoked again after the suspend point. That behavior is needed to ensure that whenever we start pausing allocations we will correctly see and stop the thread.",
+      "parentUuid": "bf1c7c0b_b8d2119e",
+      "range": {
+        "startLine": 51,
+        "startChar": 21,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
