@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d005e3ab_9a0d961f",
+        "filename": "openjdkjvmti/ti_class_loader-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-15T16:58:12Z",
+      "side": 1,
+      "message": "Is it worth adding a Handle::Iterate that would enable doing something like dex_element_list.Iterate",
+      "range": {
+        "startLine": 62,
+        "startChar": 62,
+        "endLine": 62,
+        "endChar": 79
+      },
+      "revId": "e155feb3a18320123063bb95137bc14deb3644ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808adf63_1f18ab18",
+        "filename": "runtime/mirror/object_array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-15T16:58:12Z",
+      "side": 1,
+      "message": "Add a comment that this also checks the lock?",
+      "range": {
+        "startLine": 200,
+        "startChar": 7,
+        "endLine": 200,
+        "endChar": 15
+      },
+      "revId": "e155feb3a18320123063bb95137bc14deb3644ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
