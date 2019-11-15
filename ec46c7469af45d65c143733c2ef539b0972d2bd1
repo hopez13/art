@@ -22,6 +22,30 @@
       "revId": "ec46c7469af45d65c143733c2ef539b0972d2bd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9093c0d_4bdfcd05",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-15T15:08:18Z",
+      "side": 1,
+      "message": "I\u0027ll add an integer list parser to the cmdline lib, there\u0027s already one for csv string values.",
+      "parentUuid": "61487c12_ce46194f",
+      "range": {
+        "startLine": 514,
+        "startChar": 12,
+        "endLine": 514,
+        "endChar": 34
+      },
+      "revId": "ec46c7469af45d65c143733c2ef539b0972d2bd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
