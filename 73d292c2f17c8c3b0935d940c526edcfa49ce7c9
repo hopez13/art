@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6110f0b4_ae5203a5",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-15T00:30:46Z",
+      "side": 1,
+      "message": "Running GC is fairly expensive, is recreate that slow?",
+      "range": {
+        "startLine": 2005,
+        "startChar": 45,
+        "endLine": 2005,
+        "endChar": 53
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9372a8_701e61e1",
+        "filename": "test/1994-final-virtual-structural/src/art/Test1994.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-15T00:30:46Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s OK to have unicode in the ART sources?",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "73d292c2f17c8c3b0935d940c526edcfa49ce7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
