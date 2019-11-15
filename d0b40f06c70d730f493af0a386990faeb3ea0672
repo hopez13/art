@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "9a5f5316_5cb03f70",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-15T03:39:01Z",
+      "side": 1,
+      "message": "Sorry for the confusion. I also wanted to convey the same. So in the newer patch set PS7, I have removed dpps and have done parallel multiplication using mulps. Then, I\u0027m adding values to the accumulator one by one as you have mentioned. ( acc \u003d ((((acc + (left[0] * right[0]))\n                + (left[1] * right[1]))\n                + (left[2] * right[2]))\n                + (left[3] * right[3]));)",
+      "parentUuid": "383becf3_c51c08f5",
+      "range": {
+        "startLine": 1289,
+        "startChar": 8,
+        "endLine": 1289,
+        "endChar": 33
+      },
+      "revId": "d0b40f06c70d730f493af0a386990faeb3ea0672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce7e1ade_98aab40e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5
