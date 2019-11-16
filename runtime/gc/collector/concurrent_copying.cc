@@ -1069,7 +1069,10 @@ class ConcurrentCopying::ComputeLiveBytesAndMarkRefFieldsVisitor {
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
     DCHECK_EQ(collector_->RegionSpace()->RegionIdxForRef(obj), obj_region_idx_);
     DCHECK(kHandleInterRegionRefs || collector_->immune_spaces_.ContainsObject(obj));
-    CheckReference(obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset));
+    mirror::Object* ref =
+        obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
+    SanityCheck(obj, offset, ref);
+    CheckReference(ref);
   }
 
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref) const
@@ -1098,7 +1101,9 @@ class ConcurrentCopying::ComputeLiveBytesAndMarkRefFieldsVisitor {
   void VisitRoot(mirror::CompressedReference<mirror::Object>* root) const
       ALWAYS_INLINE
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    CheckReference(root->AsMirrorPtr());
+    mirror::Object* obj = root->AsMirrorPtr();
+    SanityCheck(obj, MemberOffset(0), nullptr);
+    CheckReference(obj);
   }
 
   bool ContainsInterRegionRefs() const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1106,6 +1111,14 @@ class ConcurrentCopying::ComputeLiveBytesAndMarkRefFieldsVisitor {
   }
 
  private:
+  void SanityCheck(mirror::Object* obj, MemberOffset offset, mirror::Object* ref) const
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (offset != mirror::Object::ClassOffset() && !IsAligned<kObjectAlignment>(ref)) {
+      collector_->GetHeap()->GetVerification()->LogHeapCorruption(obj, offset, ref, /*fatal*/ true);
+    }
+  }
+
   void CheckReference(mirror::Object* ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     if (ref == nullptr) {
@@ -1136,6 +1149,13 @@ void ConcurrentCopying::AddLiveBytesAndScanRef(mirror::Object* ref) {
   DCHECK(!immune_spaces_.ContainsObject(ref));
   DCHECK(TestMarkBitmapForRef(ref));
   size_t obj_region_idx = static_cast<size_t>(-1);
+  mirror::Class* klass = ref->GetClass<kVerifyNone, kWithoutReadBarrier>();
+  if (klass == nullptr || !heap_->GetVerification()->IsValidClass(klass)) {
+    heap_->GetVerification()->LogHeapCorruption(/* holder */ ref,
+                                                /* offset */ mirror::Object::ClassOffset(),
+                                                /* ref */ klass,
+                                                /* fatal */ true);
+  }
   if (LIKELY(region_space_->HasAddress(ref))) {
     obj_region_idx = region_space_->RegionIdxForRefUnchecked(ref);
     // Add live bytes to the corresponding region
@@ -1238,6 +1258,7 @@ void ConcurrentCopying::PushOntoLocalMarkStack(mirror::Object* ref) {
 }
 
 void ConcurrentCopying::ProcessMarkStackForMarkingAndComputeLiveBytes() {
+  CHECK_EQ(mark_stack_mode_.load(std::memory_order_relaxed), kMarkStackModeThreadLocal);
   // Process thread-local mark stack containing thread roots
   ProcessThreadLocalMarkStacks(/* disable_weak_ref_access */ false,
                                /* checkpoint_callback */ nullptr,
@@ -1349,6 +1370,7 @@ void ConcurrentCopying::MarkingPhase() {
   accounting::CardTable* const card_table = heap_->GetCardTable();
   Thread* const self = Thread::Current();
   CHECK_EQ(self, thread_running_gc_);
+  CHECK(gc_mark_stack_->IsEmpty());
   // Clear live_bytes_ of every non-free region, except the ones that are newly
   // allocated.
   region_space_->SetAllRegionLiveBytesZero();
@@ -1808,7 +1830,7 @@ void ConcurrentCopying::PushOntoMarkStack(Thread* const self, mirror::Object* to
                   "thread local mark stack", 4 * KB, 4 * KB);
         }
         DCHECK(new_tl_mark_stack != nullptr);
-        DCHECK(new_tl_mark_stack->IsEmpty());
+        CHECK(new_tl_mark_stack->IsEmpty());
         new_tl_mark_stack->PushBack(to_ref);
         self->SetThreadLocalMarkStack(new_tl_mark_stack);
         if (tl_mark_stack != nullptr) {
