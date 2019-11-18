@@ -275,7 +275,7 @@ std::string GetAndroidData() {
 }
 
 std::string GetDefaultBootImageLocation(const std::string& android_root) {
-  return StringPrintf("%s/framework/boot.art", android_root.c_str());
+  return StringPrintf("/apex/com.android.art/javalib/boot.art:%s/framework/boot-framework.art", android_root.c_str());
 }
 
 std::string GetDefaultBootImageLocation(std::string* error_msg) {

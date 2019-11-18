@@ -41,6 +41,8 @@ namespace.art.permitted.paths = /data
 # odex files are in /system/framework. dalvikvm has to be able to dlopen the
 # files for CTS.
 namespace.art.permitted.paths += /system/framework
+namespace.art.permitted.paths += /apex/com.android.art/javalib
+namespace.art.asan.permitted.paths += /apex/com.android.art/javalib
 namespace.art.links = platform,neuralnetworks
 # Need allow_all_shared_libs because libart.so can dlopen oat files in
 # /system/framework and /data.
