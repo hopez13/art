@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c794aa37_4f16aba0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-11-18T23:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a87beee_711d7437",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 104
+      },
+      "revId": "4f9df727e45312601c624d7cca4fb0559ab1e077",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c346df0e_a3d079b7",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -41,6 +65,53 @@
         "startChar": 7,
         "endLine": 1113,
         "endChar": 18
+      },
+      "revId": "4f9df727e45312601c624d7cca4fb0559ab1e077",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e609073_b559167e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-11-18T23:24:03Z",
+      "side": 1,
+      "message": "Since most of the references are not at class offset, the ordinary reference case matters more. I can make it cheaper by doing the alignment check here, instead of calling IsValidHeapObjectAddress(). But it does an additional thing, which is to confirm that the reference is within some space. I\u0027d like to keep this check, but, as you said, it is expensive.\n\nWhat do you suggest?",
+      "parentUuid": "c346df0e_a3d079b7",
+      "range": {
+        "startLine": 1113,
+        "startChar": 7,
+        "endLine": 1113,
+        "endChar": 18
+      },
+      "revId": "4f9df727e45312601c624d7cca4fb0559ab1e077",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d674281_b55b9b62",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-11-18T23:24:03Z",
+      "side": 1,
+      "message": "This one is definitely expensive, given that almost every call to this function will end up here. In the latest patch, I\u0027ve refactored this, to ensure that we do the class check only once per object. Not sure how can it be further improved.",
+      "range": {
+        "startLine": 1157,
+        "startChar": 33,
+        "endLine": 1157,
+        "endChar": 77
       },
       "revId": "4f9df727e45312601c624d7cca4fb0559ab1e077",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
