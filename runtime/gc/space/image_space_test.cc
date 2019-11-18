@@ -206,7 +206,7 @@ class ImageSpaceLoadingTest : public CommonRuntimeTest {
 };
 
 using ImageSpaceDex2oatTest = ImageSpaceLoadingTest<false, true, true>;
-TEST_F(ImageSpaceDex2oatTest, Test) {
+TEST_F(ImageSpaceDex2oatTest, DISABLED_Test) {
   EXPECT_FALSE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
 }
 
