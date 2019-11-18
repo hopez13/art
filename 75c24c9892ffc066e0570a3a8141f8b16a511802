@@ -22,6 +22,30 @@
       "revId": "75c24c9892ffc066e0570a3a8141f8b16a511802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4826ecb_a15ae7cc",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-18T10:52:55Z",
+      "side": 1,
+      "message": "Re-formulated.",
+      "parentUuid": "bcee62ac_bf10bc39",
+      "range": {
+        "startLine": 330,
+        "startChar": 41,
+        "endLine": 330,
+        "endChar": 42
+      },
+      "revId": "75c24c9892ffc066e0570a3a8141f8b16a511802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
