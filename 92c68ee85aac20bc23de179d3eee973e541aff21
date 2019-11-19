@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3368933_93ed3b72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-19T14:06:28Z",
+      "side": 1,
+      "message": "Please run ART runtests on device to test this. They go through /apex/com.android.art/bin/dalvikvm, which means this linker config gets exercised.",
+      "revId": "92c68ee85aac20bc23de179d3eee973e541aff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
