@@ -221,7 +221,11 @@ class Runtime {
 
   bool IsShuttingDown(Thread* self);
   bool IsShuttingDownLocked() const REQUIRES(Locks::runtime_shutdown_lock_) {
-    return shutting_down_;
+    return shutting_down_.load(std::memory_order_relaxed);
+  }
+  bool MaybeShuttingDown() NO_THREAD_SAFETY_ANALYSIS {
+    // Used only as a hint; hence we can cheat with locking.
+    return IsShuttingDownLocked();
   }
 
   size_t NumberOfThreadsBeingBorn() const REQUIRES(Locks::runtime_shutdown_lock_) {
@@ -1099,7 +1103,8 @@ class Runtime {
   std::unique_ptr<ConditionVariable> shutdown_cond_ GUARDED_BY(Locks::runtime_shutdown_lock_);
 
   // Set when runtime shutdown is past the point that new threads may attach.
-  bool shutting_down_ GUARDED_BY(Locks::runtime_shutdown_lock_);
+  // Atomic only because MaybeShuttingDown cheats and doesn't acquire the lock.
+  std::atomic<bool> shutting_down_ GUARDED_BY(Locks::runtime_shutdown_lock_);
 
   // The runtime is starting to shutdown but is blocked waiting on shutdown_cond_.
   bool shutting_down_started_ GUARDED_BY(Locks::runtime_shutdown_lock_);
