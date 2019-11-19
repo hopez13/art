@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff1bd130_6ba64aa6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-19T11:18:11Z",
+      "side": 1,
+      "message": "Sorry about that. Will have to update this.",
+      "parentUuid": "912580d6_0cc9a4a3",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0113a396_2dc1e550",
         "filename": "compiler/optimizing/code_generator_vector_x86.cc",
         "patchSetId": 7
@@ -39,6 +63,24 @@
       "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b3b9d5c_6563b571",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-19T11:18:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0113a396_2dc1e550",
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "164473d8_348d163c",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-19T11:18:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ffce2adb_ab6522df",
+      "range": {
+        "startLine": 1290,
+        "startChar": 46,
+        "endLine": 1290,
+        "endChar": 49
+      },
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
