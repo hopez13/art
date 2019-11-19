@@ -1936,8 +1936,8 @@ class Dex2Oat final {
     if (!IsBootImage() && !IsBootImageExtension()) {
       class_loader =
           class_loader_context_->CreateClassLoader(compiler_options_->dex_files_for_oat_file_);
-      callbacks_->SetDexFiles(&dex_files);
     }
+    callbacks_->SetDexFiles(&dex_files);
 
     // Register dex caches and key them to the class loader so that they only unload when the
     // class loader unloads.
