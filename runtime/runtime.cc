@@ -400,7 +400,7 @@ Runtime::~Runtime() {
     while (threads_being_born_ > 0) {
       shutdown_cond_->Wait(self);
     }
-    shutting_down_ = true;
+    shutting_down_.store(true, std::memory_order_relaxed);
   }
   // Shutdown and wait for the daemons.
   CHECK(self != nullptr);
