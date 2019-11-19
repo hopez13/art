@@ -52,6 +52,13 @@ class HashSetTest : public testing::Test {
     oss << " " << unique_number_++;  // Relies on ' ' < 'A'
     return oss.str();
   }
+  void AddRandomUniqueString(size_t len, /*inout*/ std::vector<std::string>* strings) {
+    std::string s;
+    do {
+      s = RandomString(len);
+    } while (std::find(strings->begin(), strings->end(), s) != strings->end());
+    strings->push_back(s);
+  }
   void SetSeed(size_t seed) {
     seed_ = seed;
   }
@@ -87,7 +94,7 @@ TEST_F(HashSetTest, TestInsertAndErase) {
   std::vector<std::string> strings;
   for (size_t i = 0; i < count; ++i) {
     // Insert a bunch of elements and make sure we can find them.
-    strings.push_back(RandomString(10));
+    AddRandomUniqueString(10, &strings);
     hash_set.insert(strings[i]);
     auto it = hash_set.find(strings[i]);
     ASSERT_TRUE(it != hash_set.end());
@@ -120,7 +127,7 @@ TEST_F(HashSetTest, TestIterator) {
   std::vector<std::string> strings;
   for (size_t i = 0; i < count; ++i) {
     // Insert a bunch of elements and make sure we can find them.
-    strings.push_back(RandomString(10));
+    AddRandomUniqueString(10, &strings);
     hash_set.insert(strings[i]);
   }
   // Make sure we visit each string exactly once.
@@ -148,14 +155,14 @@ TEST_F(HashSetTest, TestSwap) {
   std::vector<std::string> strings;
   static constexpr size_t count = 1000;
   for (size_t i = 0; i < count; ++i) {
-    strings.push_back(RandomString(10));
+    AddRandomUniqueString(10, &strings);
     hash_seta.insert(strings[i]);
   }
   std::swap(hash_seta, hash_setb);
   hash_seta.insert("TEST");
   hash_setb.insert("TEST2");
   for (size_t i = 0; i < count; ++i) {
-    strings.push_back(RandomString(10));
+    AddRandomUniqueString(10, &strings);
     hash_seta.insert(strings[i]);
   }
 }
@@ -175,7 +182,7 @@ TEST_F(HashSetTest, TestShrink) {
   std::vector<std::string> random_strings;
   static constexpr size_t count = 1000;
   for (size_t i = 0; i < count; ++i) {
-    random_strings.push_back(RandomString(10));
+    AddRandomUniqueString(10, &random_strings);
     hash_set.insert(random_strings[i]);
   }
 
@@ -203,7 +210,7 @@ TEST_F(HashSetTest, TestLoadFactor) {
   static constexpr size_t kStringCount = 1000;
   static constexpr double kEpsilon = 0.01;
   for (size_t i = 0; i < kStringCount; ++i) {
-    hash_set.insert(RandomString(i % 10 + 1));
+    do { } while (!hash_set.insert(RandomString(i % 10 + 1)).second);
   }
   // Check that changing the load factor resizes the table to be within the target range.
   EXPECT_GE(hash_set.CalculateLoadFactor() + kEpsilon, hash_set.GetMinLoadFactor());
@@ -218,7 +225,7 @@ TEST_F(HashSetTest, TestLoadFactor) {
 
 TEST_F(HashSetTest, TestStress) {
   HashSet<std::string, IsEmptyFnString> hash_set;
-  std::unordered_multiset<std::string> std_set;
+  std::unordered_set<std::string> std_set;
   std::vector<std::string> strings;
   static constexpr size_t string_count = 2000;
   static constexpr size_t operations = 100000;
@@ -277,7 +284,7 @@ TEST_F(HashSetTest, TestHashMap) {
   ASSERT_EQ(it->second, 123);
   hash_map.erase(it);
   it = hash_map.find(std::string("abcd"));
-  ASSERT_EQ(it->second, 124);
+  ASSERT_EQ(it, hash_map.end());
 }
 
 struct IsEmptyFnVectorInt {
@@ -359,18 +366,26 @@ TEST_F(HashSetTest, TestReserve) {
 TEST_F(HashSetTest, IteratorConversion) {
   const char* test_string = "dummy";
   HashSet<std::string> hash_set;
-  HashSet<std::string>::iterator it = hash_set.insert(test_string);
+  HashSet<std::string>::iterator it = hash_set.insert(test_string).first;
   HashSet<std::string>::const_iterator cit = it;
   ASSERT_TRUE(it == cit);
   ASSERT_EQ(*it, *cit);
 }
 
-TEST_F(HashSetTest, StringSearchyStringView) {
+TEST_F(HashSetTest, StringSearchStringView) {
   const char* test_string = "dummy";
   HashSet<std::string> hash_set;
-  HashSet<std::string>::iterator insert_pos = hash_set.insert(test_string);
+  HashSet<std::string>::iterator insert_pos = hash_set.insert(test_string).first;
   HashSet<std::string>::iterator it = hash_set.find(std::string_view(test_string));
   ASSERT_TRUE(it == insert_pos);
+}
+
+TEST_F(HashSetTest, DoubleInsert) {
+  const char* test_string = "dummy";
+  HashSet<std::string> hash_set;
+  hash_set.insert(test_string);
+  hash_set.insert(test_string);
+  ASSERT_EQ(1u, hash_set.size());
 }
 
 }  // namespace art
