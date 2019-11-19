@@ -1795,11 +1795,11 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
 
   bool caller_dead_reference_safe = graph_->IsDeadReferenceSafe();
   const dex::ClassDef& callee_class = resolved_method->GetClassDef();
-  // MethodContainsRSensitiveAccess is currently slow, but HasDeadReferenceSafeAnnotation()
+  // MethodContainsCleanedAccess is currently slow, but HasDeadReferenceSafeAnnotation()
   // is currently rarely true.
   bool callee_dead_reference_safe =
       annotations::HasDeadReferenceSafeAnnotation(callee_dex_file, callee_class)
-      && !annotations::MethodContainsRSensitiveAccess(callee_dex_file, callee_class, method_index);
+      && !annotations::MethodContainsCleanedAccess(callee_dex_file, callee_class, method_index);
 
   const int32_t caller_instruction_counter = graph_->GetCurrentInstructionId();
   HGraph* callee_graph = new (graph_->GetAllocator()) HGraph(

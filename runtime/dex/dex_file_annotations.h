@@ -86,28 +86,34 @@ bool IsMethodAnnotationPresent(ArtMethod* method,
 uint32_t GetNativeMethodAnnotationAccessFlags(const DexFile& dex_file,
                                               const dex::ClassDef& class_def,
                                               uint32_t method_index);
+// Does the class have a @dalvik.annotation.Cleaned annotation anywhere?
+// We compute this once to avoid repeated lookups for individual fields/methods.
+bool ClassMentionsCleaned(const DexFile& dex_file,
+                          const dex::ClassDef& class_def);
 // Is the field from the `dex_file` with the given `field_index`
-// annotated with @dalvik.annotation.optimization.ReachabilitySensitive?
-bool FieldIsReachabilitySensitive(const DexFile& dex_file,
-                                  const dex::ClassDef& class_def,
-                                  uint32_t field_index);
+// annotated with @dalvik.annotation.Cleaned?
+bool FieldIsCleaned(const DexFile& dex_file,
+                    const dex::ClassDef& class_def,
+                    uint32_t field_index);
 // Is the method from the `dex_file` with the given `method_index`
-// annotated with @dalvik.annotation.optimization.ReachabilitySensitive?
-bool MethodIsReachabilitySensitive(const DexFile& dex_file,
-                                   const dex::ClassDef& class_def,
-                                   uint32_t method_index);
+// annotated with @dalvik.annotation.Cleaned?
+bool MethodIsCleaned(const DexFile& dex_file,
+                     const dex::ClassDef& class_def,
+                     uint32_t method_index);
 // Does the method from the `dex_file` with the given `method_index` contain an access to a field
-// annotated with @dalvik.annotation.optimization.ReachabilitySensitive, or a call to a method
-// with that annotation?
+// annotated with @dalvik.annotation.Cleaned, or a call to a method with that annotation?
 // Class_def is the class defining the method. We consider only accessses to classes or methods
 // declared in the static type of the corresponding object. We may overlook accesses to annotated
 // fields or methods that are in neither class_def nor a containing (outer) class.
-bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
-                                    const dex::ClassDef& class_def,
-                                    uint32_t method_index);
+bool MethodContainsCleanedAccess(const DexFile& dex_file,
+                                 const dex::ClassDef& class_def,
+                                 uint32_t method_index);
 // Is the given class annotated with @dalvik.annotation.optimization.DeadReferenceSafe?
 bool HasDeadReferenceSafeAnnotation(const DexFile& dex_file,
                                     const dex::ClassDef& class_def);
+// Is the given class annotated with @dalvik.annotation.Cleaned?
+bool ClassHasCleanedAnnotation(const DexFile& dex_file,
+                               const dex::ClassDef& class_def);
 
 // Class annotations.
 ObjPtr<mirror::Object> GetAnnotationForClass(Handle<mirror::Class> klass,

@@ -148,10 +148,9 @@ bool IsVisibilityCompatible(uint32_t actual, uint32_t expected) {
   return actual == expected;
 }
 
-static const AnnotationSetItem* FindAnnotationSetForField(const DexFile& dex_file,
-                                                          const dex::ClassDef& class_def,
-                                                          uint32_t field_index)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+const AnnotationSetItem* FindAnnotationSetForField(const DexFile& dex_file,
+                                                   const dex::ClassDef& class_def,
+                                                   uint32_t field_index) {
   const AnnotationsDirectoryItem* annotations_dir = dex_file.GetAnnotationsDirectory(class_def);
   if (annotations_dir == nullptr) {
     return nullptr;
@@ -169,7 +168,7 @@ static const AnnotationSetItem* FindAnnotationSetForField(const DexFile& dex_fil
   return nullptr;
 }
 
-static const AnnotationSetItem* FindAnnotationSetForField(ArtField* field)
+const AnnotationSetItem* FindAnnotationSetForField(ArtField* field)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::Class> klass = field->GetDeclaringClass();
   const dex::ClassDef* class_def = klass->GetClassDef();
@@ -183,8 +182,7 @@ static const AnnotationSetItem* FindAnnotationSetForField(ArtField* field)
 const AnnotationItem* SearchAnnotationSet(const DexFile& dex_file,
                                           const AnnotationSetItem* annotation_set,
                                           const char* descriptor,
-                                          uint32_t visibility)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+                                          uint32_t visibility) {
   const AnnotationItem* result = nullptr;
   for (uint32_t i = 0; i < annotation_set->size_; ++i) {
     const AnnotationItem* annotation_item = dex_file.GetAnnotationItem(annotation_set, i);
@@ -200,6 +198,55 @@ const AnnotationItem* SearchAnnotationSet(const DexFile& dex_file,
     }
   }
   return result;
+}
+
+// Do the count annotation items starting at annotations mention the annotation described
+// by (descriptor, visibility)? Generic across methods, field, etc. annotations.
+template<class XAnnotationsItem>
+bool MentionsAnnotation(const DexFile& dex_file,
+                        const dex::AnnotationSetItem* (DexFile::*GetASI)
+                            (const XAnnotationsItem&) const,
+                        const XAnnotationsItem* annotations,
+                        uint32_t count,
+                        const char* descriptor,
+                        uint32_t visibility) {
+  if (annotations == nullptr) {
+    return false;
+  }
+  for (uint32_t i = 0; i < count; ++i) {
+    const AnnotationSetItem* annotation_set = (dex_file.*GetASI)(annotations[i]);
+    if (SearchAnnotationSet(dex_file, annotation_set, descriptor, visibility) != nullptr) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool MentionsClassFieldOrMethodAnnotation(const DexFile& dex_file,
+                                          const dex::ClassDef& class_def,
+                                          const char* descriptor,
+                                          uint32_t visibility) {
+  const AnnotationsDirectoryItem* annotations_dir = dex_file.GetAnnotationsDirectory(class_def);
+  if (annotations_dir == nullptr) {
+    return false;
+  }
+  const AnnotationSetItem* class_annotation_set = dex_file.GetClassAnnotationSet(annotations_dir);
+  if (class_annotation_set != nullptr
+      && SearchAnnotationSet(dex_file, class_annotation_set, descriptor, visibility) != nullptr) {
+      return true;
+  }
+  return MentionsAnnotation(dex_file,
+                            &DexFile::GetFieldAnnotationSetItem,
+                            dex_file.GetFieldAnnotations(annotations_dir),
+                            annotations_dir->fields_size_,
+                            descriptor,
+                            visibility)
+         || MentionsAnnotation(dex_file,
+                               &DexFile::GetMethodAnnotationSetItem,
+                               dex_file.GetMethodAnnotations(annotations_dir),
+                               annotations_dir->methods_size_,
+                               descriptor,
+                               visibility);
 }
 
 bool SkipAnnotationValue(const DexFile& dex_file, const uint8_t** annotation_ptr)
@@ -282,9 +329,9 @@ const uint8_t* SearchEncodedAnnotation(const DexFile& dex_file,
   return nullptr;
 }
 
-static const AnnotationSetItem* FindAnnotationSetForMethod(const DexFile& dex_file,
-                                                           const dex::ClassDef& class_def,
-                                                           uint32_t method_index) {
+const AnnotationSetItem* FindAnnotationSetForMethod(const DexFile& dex_file,
+                                                    const dex::ClassDef& class_def,
+                                                    uint32_t method_index) {
   const AnnotationsDirectoryItem* annotations_dir = dex_file.GetAnnotationsDirectory(class_def);
   if (annotations_dir == nullptr) {
     return nullptr;
@@ -335,7 +382,7 @@ const ParameterAnnotationsItem* FindAnnotationsItemForMethod(ArtMethod* method)
   return nullptr;
 }
 
-static const AnnotationSetItem* FindAnnotationSetForClass(const ClassData& klass)
+const AnnotationSetItem* FindAnnotationSetForClass(const ClassData& klass)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const DexFile& dex_file = klass.GetDexFile();
   const dex::ClassDef* class_def = klass.GetClassDef();
@@ -862,7 +909,7 @@ ObjPtr<mirror::Object> GetAnnotationValue(const ClassData& klass,
   return annotation_value.value_.GetL();
 }
 
-static ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureValue(
+ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureValue(
     const ClassData& klass,
     const AnnotationSetItem* annotation_set)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1316,54 +1363,79 @@ uint32_t GetNativeMethodAnnotationAccessFlags(const DexFile& dex_file,
   return access_flags;
 }
 
-bool FieldIsReachabilitySensitive(const DexFile& dex_file,
-                                  const dex::ClassDef& class_def,
-                                  uint32_t field_index)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+bool ClassMentionsCleaned(const DexFile& dex_file,
+                          const dex::ClassDef& class_def) {
+  const char* reachability_sensitive = "Ldalvik/annotation/optimization/ReachabilitySensitive;";
+  return MentionsClassFieldOrMethodAnnotation(dex_file,
+                                              class_def,
+                                              "Ldalvik/annotation/Cleaned;",
+                                              DexFile::kDexVisibilityRuntime)
+         || MentionsClassFieldOrMethodAnnotation(dex_file,
+                                              class_def,
+                                              reachability_sensitive,
+                                              DexFile::kDexVisibilityRuntime);
+}
+
+bool FieldIsCleaned(const DexFile& dex_file,
+                    const dex::ClassDef& class_def,
+                    uint32_t field_index) {
   const AnnotationSetItem* annotation_set =
       FindAnnotationSetForField(dex_file, class_def, field_index);
   if (annotation_set == nullptr) {
     return false;
   }
+  // TODO: Remove as soon as clients have moved to @Cleaned.
   const AnnotationItem* annotation_item = SearchAnnotationSet(dex_file, annotation_set,
       "Ldalvik/annotation/optimization/ReachabilitySensitive;", DexFile::kDexVisibilityRuntime);
+  if (annotation_item != nullptr) {
+    return true;
+  }
+  return SearchAnnotationSet(dex_file, annotation_set, "Ldalvik/annotation/Cleaned;",
+                             DexFile::kDexVisibilityRuntime) != nullptr;
   // TODO: We're missing the equivalent of DCheckNativeAnnotation (not a DCHECK). Does it matter?
-  return annotation_item != nullptr;
 }
 
-bool MethodIsReachabilitySensitive(const DexFile& dex_file,
-                                   const dex::ClassDef& class_def,
-                                   uint32_t method_index)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+bool MethodIsCleaned(const DexFile& dex_file,
+                     const dex::ClassDef& class_def,
+                     uint32_t method_index) {
   const AnnotationSetItem* annotation_set =
       FindAnnotationSetForMethod(dex_file, class_def, method_index);
   if (annotation_set == nullptr) {
     return false;
   }
+  // TODO: Remove as soon as clients have moved to @Cleaned.
   const AnnotationItem* annotation_item = SearchAnnotationSet(dex_file, annotation_set,
       "Ldalvik/annotation/optimization/ReachabilitySensitive;", DexFile::kDexVisibilityRuntime);
-  return annotation_item != nullptr;
+  if (annotation_item != nullptr) {
+    return true;
+  }
+  return SearchAnnotationSet(dex_file, annotation_set,
+                             "Ldalvik/annotation/Cleaned;", DexFile::kDexVisibilityRuntime)
+      != nullptr;
 }
 
-static bool MethodIsReachabilitySensitive(const DexFile& dex_file,
-                                               uint32_t method_index)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+static bool MethodIsCleaned(const DexFile& dex_file,
+                            uint32_t method_index) {
   DCHECK(method_index < dex_file.NumMethodIds());
   const dex::MethodId& method_id = dex_file.GetMethodId(method_index);
   dex::TypeIndex class_index = method_id.class_idx_;
   const dex::ClassDef * class_def = dex_file.FindClassDef(class_index);
   return class_def != nullptr
-         && MethodIsReachabilitySensitive(dex_file, *class_def, method_index);
+         && MethodIsCleaned(dex_file, *class_def, method_index);
 }
 
-bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
-                                    const dex::ClassDef& class_def,
-                                    uint32_t method_index)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+bool MethodContainsCleanedAccess(const DexFile& dex_file,
+                                 const dex::ClassDef& class_def,
+                                 uint32_t method_index) {
+  if (ClassHasCleanedAnnotation(dex_file, class_def)) {
+    // This is possibly a bit too conservative, but it means the class annotation is effectively a
+    // way to get back pre-R dead reference elimination, a good thing.
+    return true;
+  }
   // TODO: This is too slow to run very regularly. Currently this is only invoked in the
   // presence of @DeadReferenceSafe, which will be rare. In the long run, we need to quickly
-  // check once whether a class has any @ReachabilitySensitive annotations. If not, we can
-  // immediately return false here for any method in that class.
+  // check once whether a class has any @Cleaned annotations. If not, we can immediately return
+  // false here for any method in that class.
   uint32_t code_item_offset = dex_file.FindCodeItemOffset(class_def, method_index);
   const dex::CodeItem* code_item = dex_file.GetCodeItem(code_item_offset);
   CodeItemInstructionAccessor accessor(dex_file, code_item);
@@ -1423,7 +1495,7 @@ bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
           // We do not handle the case in which the field is declared in a superclass, and
           // don't claim to do so. The annotated field should normally be private.
           if (field_class_def != nullptr
-              && FieldIsReachabilitySensitive(dex_file, *field_class_def, field_index)) {
+              && FieldIsCleaned(dex_file, *field_class_def, field_index)) {
             return true;
           }
         }
@@ -1440,7 +1512,7 @@ bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
       case Instruction::INVOKE_DIRECT:
         {
           uint32_t called_method_index = iter->VRegB_35c();
-          if (MethodIsReachabilitySensitive(dex_file, called_method_index)) {
+          if (MethodIsCleaned(dex_file, called_method_index)) {
             return true;
           }
         }
@@ -1450,7 +1522,7 @@ bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
       case Instruction::INVOKE_DIRECT_RANGE:
         {
           uint32_t called_method_index = iter->VRegB_3rc();
-          if (MethodIsReachabilitySensitive(dex_file, called_method_index)) {
+          if (MethodIsCleaned(dex_file, called_method_index)) {
             return true;
           }
         }
@@ -1459,20 +1531,20 @@ bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
       case Instruction::INVOKE_VIRTUAL_RANGE_QUICK:
         {
           uint32_t called_method_index = quicken_info.GetData(quicken_index);
-          if (MethodIsReachabilitySensitive(dex_file, called_method_index)) {
+          if (MethodIsCleaned(dex_file, called_method_index)) {
             return true;
           }
         }
         break;
-        // We explicitly do not handle indirect ReachabilitySensitive accesses through VarHandles,
+        // We explicitly do not handle indirect @Cleaned accesses through VarHandles,
         // etc. Thus we ignore INVOKE_CUSTOM / INVOKE_CUSTOM_RANGE / INVOKE_POLYMORPHIC /
         // INVOKE_POLYMORPHIC_RANGE.
       default:
         // There is no way to add an annotation to array elements, and so far we've encountered no
         // need for that, so we ignore AGET and APUT.
         // It's impractical or impossible to garbage collect a class while one of its methods is
-        // on the call stack. We allow ReachabilitySensitive annotations on static methods and
-        // fields, but they can be safely ignored.
+        // on the call stack. We allow @Cleaned annotations on static methods and fields, but they
+        // can be safely ignored.
         break;
     }
     if (QuickenInfoTable::NeedsIndexForInstruction(&iter.Inst())) {
@@ -1482,11 +1554,11 @@ bool MethodContainsRSensitiveAccess(const DexFile& dex_file,
   return false;
 }
 
+// TODO: Remove this once we turn on dead reference elimination by default.
 bool HasDeadReferenceSafeAnnotation(const DexFile& dex_file,
-                                    const dex::ClassDef& class_def)
+                                    const dex::ClassDef& class_def) {
   // TODO: This should check outer classes as well.
   // It's conservatively correct not to do so.
-    REQUIRES_SHARED(Locks::mutator_lock_) {
   const AnnotationsDirectoryItem* annotations_dir =
       dex_file.GetAnnotationsDirectory(class_def);
   if (annotations_dir == nullptr) {
@@ -1498,6 +1570,23 @@ bool HasDeadReferenceSafeAnnotation(const DexFile& dex_file,
   }
   const AnnotationItem* annotation_item = SearchAnnotationSet(dex_file, annotation_set,
       "Ldalvik/annotation/optimization/DeadReferenceSafe;", DexFile::kDexVisibilityRuntime);
+  return annotation_item != nullptr;
+}
+
+bool ClassHasCleanedAnnotation(const DexFile& dex_file,
+                                    const dex::ClassDef& class_def) {
+  // TODO: This eventually needs to check outer classes as well.
+  const AnnotationsDirectoryItem* annotations_dir =
+      dex_file.GetAnnotationsDirectory(class_def);
+  if (annotations_dir == nullptr) {
+    return false;
+  }
+  const AnnotationSetItem* annotation_set = dex_file.GetClassAnnotationSet(annotations_dir);
+  if (annotation_set == nullptr) {
+    return false;
+  }
+  const AnnotationItem* annotation_item = SearchAnnotationSet(dex_file, annotation_set,
+      "Ldalvik/annotation/Cleaned;", DexFile::kDexVisibilityRuntime);
   return annotation_item != nullptr;
 }
 

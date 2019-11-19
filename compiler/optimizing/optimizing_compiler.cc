@@ -831,11 +831,11 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
       containing_class = &method->GetClassDef();
       interpreter_metadata = method->GetQuickenedInfo();
     }
-    // MethodContainsRSensitiveAccess is currently slow, but HasDeadReferenceSafeAnnotation()
+    // MethodContainsCleanedAccess is currently slow, but HasDeadReferenceSafeAnnotation()
     // is currently rarely true.
     dead_reference_safe =
         annotations::HasDeadReferenceSafeAnnotation(dex_file, *containing_class)
-        && !annotations::MethodContainsRSensitiveAccess(dex_file, *containing_class, method_idx);
+        && !annotations::MethodContainsCleanedAccess(dex_file, *containing_class, method_idx);
   } else {
     // If we could not resolve the class, conservatively assume it's dead-reference unsafe.
     dead_reference_safe = false;

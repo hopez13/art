@@ -55,9 +55,13 @@ public class Main {
     // Only the DeadReferenceSafeTest should finalize every previously allocated object.
     DeadReferenceUnsafeTest.runTest();
     DeadReferenceSafeTest.runTest();
+    CleanedTest.runTest();
+    CleanedFunTest.runTest();
+    ReachabilityFenceTest.runTest();
+
+    // TODO: Remove when we drop support for @ReachabilitySensitive.
     ReachabilitySensitiveTest.runTest();
     ReachabilitySensitiveFunTest.runTest();
-    ReachabilityFenceTest.runTest();
   }
   public static native void ensureMethodJitCompiled(Method meth);
   public static native boolean hasJitCompiledEntrypoint(Class<?> cls, String methodName);
