@@ -128,6 +128,30 @@
       "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffe43160_7c0392a5",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-19T12:59:30Z",
+      "side": 1,
+      "message": "You updated x86-64 but not x86.",
+      "parentUuid": "164473d8_348d163c",
+      "range": {
+        "startLine": 1290,
+        "startChar": 46,
+        "endLine": 1290,
+        "endChar": 49
+      },
+      "revId": "712c46cca2418919b6d16a71d1e07c7ecfe849f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
