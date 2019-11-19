@@ -1278,5 +1278,10 @@
         "variant": "gcstress",
         "bug": "b/137887811",
         "description": ["Occasional timeouts."]
+    },
+    {
+        "tests": ["2029-contended-monitors"],
+        "variant": "interpreter | interp-ac | gcstress | trace",
+        "description": ["Slow test. Prone to timeouts."]
     }
 ]
