@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901f9683_ef6cb097",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-20T11:38:32Z",
+      "side": 1,
+      "message": "This reads odd with the FATAL below. Should you add a comment: \"WE should only get interned string at this point\" ?",
+      "range": {
+        "startLine": 2190,
+        "startChar": 0,
+        "endLine": 2192,
+        "endChar": 11
+      },
+      "revId": "c526e42d6091b8f2b3b4ac810299ccba9506e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
