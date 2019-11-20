@@ -22,6 +22,30 @@
       "revId": "c526e42d6091b8f2b3b4ac810299ccba9506e380",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45b3c028_ecda65e1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-20T11:45:27Z",
+      "side": 1,
+      "message": "You seem to be reading this out of context. If you look at the whole `ensure_bin_slots_assigned`, you\u0027ll see the \"ignore [this], ignore [that]\" pattern, terminating with LOG(FATAL) for stuff we did not expect.\n\n(I could pull the comment before the `if (obj-\u003eIsString())` to make this clear and use a `\u0026\u0026` with an oddly-formatted long expression.)",
+      "parentUuid": "901f9683_ef6cb097",
+      "range": {
+        "startLine": 2190,
+        "startChar": 0,
+        "endLine": 2192,
+        "endChar": 11
+      },
+      "revId": "c526e42d6091b8f2b3b4ac810299ccba9506e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
