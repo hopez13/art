@@ -141,6 +141,30 @@
       "revId": "8c6af714ff593fcfa2fa1b2d4d5aa469003fb0d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f3c050_aab47a15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-20T14:53:44Z",
+      "side": 1,
+      "message": "\u003e Regarding instructions: adding them to this project is on my list.\n\nI added some instruction for the on-device chroot-based case here:\n\nhttps://android.git.corp.google.com/platform/art/+/master/test/README.chroot.md",
+      "parentUuid": "f13f30e6_603ac43f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 71
+      },
+      "revId": "8c6af714ff593fcfa2fa1b2d4d5aa469003fb0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
