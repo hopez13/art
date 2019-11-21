@@ -37,10 +37,6 @@ class ScopedCorePlatformApiCheck final {
   static bool IsCurrentCallerApproved(Thread* self);
 
  private:
-  // Captures calling PC for frame above the frame allocating the current ScopedCorePlatformApiCheck
-  // instance.
-  void* CaptureCallerPc();
-
   // Instances should only be stack allocated, copy and assignment not useful.
   DISALLOW_ALLOCATION();
   DISALLOW_COPY_AND_ASSIGN(ScopedCorePlatformApiCheck);
