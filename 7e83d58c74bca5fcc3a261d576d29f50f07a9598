@@ -46,6 +46,30 @@
       "revId": "7e83d58c74bca5fcc3a261d576d29f50f07a9598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cde6f9e6_8e1660a1",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2019-11-21T16:06:06Z",
+      "side": 1,
+      "message": "\":com.android.art.debug-file_contexts\" points to a module \"com.android.art.debug-file_contexts\" which is defined in /system/sepolicy/apex/Android.pb and is a filegroup containing /system/sepolicy/apex/com.android.art-file_context. (uploaded together with this topic) So the resulting apex packages will see no difference.",
+      "parentUuid": "a8b13c25_7d08d1bb",
+      "range": {
+        "startLine": 311,
+        "startChar": 20,
+        "endLine": 311,
+        "endChar": 21
+      },
+      "revId": "7e83d58c74bca5fcc3a261d576d29f50f07a9598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
