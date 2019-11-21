@@ -85,12 +85,28 @@ namespace art {
 // things not rendering correctly. E.g. b/16858794
 static constexpr bool kWarnJniAbort = false;
 
+/*
+inline static std::string PrettyMember(ArtField* f) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return f->PrettyField(f);
+}
+
+inline static std::string PrettyMember(ArtMethod* f) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return f->PrettyMethod(f);
+}
+*/
+
 template<typename T>
 ALWAYS_INLINE static bool ShouldDenyAccessToMember(T* member, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (hiddenapi::ScopedCorePlatformApiCheck::IsCurrentCallerApproved(self)) {
+  const bool native_caller_trusted =
+      hiddenapi::ScopedCorePlatformApiCheck::IsCurrentCallerApproved(self);
+  if (native_caller_trusted) {
     return false;
   }
+
+  // Construct AccessContext from the first calling class on stack.
+  // If the calling class cannot be determined, e.g. unattached threads,
+  // we conservatively assume the caller is trusted.
   return hiddenapi::ShouldDenyAccessToMember(
       member,
       [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
