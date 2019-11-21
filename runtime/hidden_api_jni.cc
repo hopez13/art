@@ -45,7 +45,7 @@ namespace {
 
 // The maximum number of frames to back trace through when performing Core Platform API checks of
 // native code.
-static constexpr size_t kMaxFrames = 3;
+static constexpr size_t kMaxFramesForHiddenApiJniCheck = 5;
 
 static std::mutex gUnwindingMutex;
 
@@ -73,16 +73,18 @@ struct UnwindHelper {
 };
 
 static UnwindHelper& GetUnwindHelper() {
-  static UnwindHelper helper(kMaxFrames);
+  static UnwindHelper helper(kMaxFramesForHiddenApiJniCheck);
   return helper;
 }
 
 }  // namespace
 
+
+// Kind of memory page from mapped shared object files.
 enum class SharedObjectKind {
-  kRuntime = 0,
-  kApexModule = 1,
-  kOther = 2
+  kRuntime = 0,     // Part of the runtime.
+  kApexModule = 1,  // Part of the APEX module.
+  kOther = 2        // Neither of the above.
 };
 
 std::ostream& operator<<(std::ostream& os, SharedObjectKind kind) {
@@ -231,7 +233,7 @@ ScopedCorePlatformApiCheck::ScopedCorePlatformApiCheck() {
   CorePlatformApiCookie cookie =
       bit_cast<CorePlatformApiCookie, uint32_t>(self->CorePlatformApiCookie());
   bool is_core_platform_api_approved = false;  // Default value for non-device testing.
-  if (!kIsTargetBuild) {
+  if (kIsTargetBuild) {
     // On target device, if policy says enforcement is disabled, then treat all callers as
     // approved.
     auto policy = Runtime::Current()->GetCorePlatformApiEnforcementPolicy();
@@ -293,6 +295,8 @@ void* ScopedCorePlatformApiCheck::CaptureCallerPc() {
       return reinterpret_cast<void*>(it->pc);
     }
   }
+  // Reaching here likely means the stack walker has not walked enough frames.
+  DCHECK(false) << "Stack walker did not find caller. Increase kMaxFramesForHiddenApiJniCheck";
   return nullptr;
 }
 
