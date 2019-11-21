@@ -45,7 +45,7 @@ namespace {
 
 // The maximum number of frames to back trace through when performing Core Platform API checks of
 // native code.
-static constexpr size_t kMaxFrames = 3;
+static constexpr size_t kMaxFramesForHiddenApiJniCheck = 3;
 
 static std::mutex gUnwindingMutex;
 
@@ -73,16 +73,18 @@ struct UnwindHelper {
 };
 
 static UnwindHelper& GetUnwindHelper() {
-  static UnwindHelper helper(kMaxFrames);
+  static UnwindHelper helper(kMaxFramesForHiddenApiJniCheck);
   return helper;
 }
 
 }  // namespace
 
+
+// Kind of memory page from mapped shared object files.
 enum class SharedObjectKind {
-  kRuntime = 0,
-  kApexModule = 1,
-  kOther = 2
+  kRuntime = 0,     // Part of the runtime.
+  kApexModule = 1,  // Part of the APEX module.
+  kOther = 2        // Neither of the above.
 };
 
 std::ostream& operator<<(std::ostream& os, SharedObjectKind kind) {
@@ -231,17 +233,35 @@ ScopedCorePlatformApiCheck::ScopedCorePlatformApiCheck() {
   CorePlatformApiCookie cookie =
       bit_cast<CorePlatformApiCookie, uint32_t>(self->CorePlatformApiCookie());
   bool is_core_platform_api_approved = false;  // Default value for non-device testing.
-  if (!kIsTargetBuild) {
+  if (kIsTargetBuild) {
     // On target device, if policy says enforcement is disabled, then treat all callers as
     // approved.
     auto policy = Runtime::Current()->GetCorePlatformApiEnforcementPolicy();
     if (policy == hiddenapi::EnforcementPolicy::kDisabled) {
       is_core_platform_api_approved = true;
     } else if (cookie.depth == 0) {
-      // On target device, only check the caller at depth 0 (the outermost entry into JNI
-      // interface).
+      // On target device, only check the caller at depth 0 which corresponds to the the outermost
+      // entry into the JNI interface. When performing the check here, we note that |*this| is
+      // stack allocated at entry points to JNI field and method resolution |*methods. We can use
+      // the address of |this| to find the callers frame.
       DCHECK_EQ(cookie.approved, false);
-      void* caller_pc = CaptureCallerPc();
+      void* caller_pc = nullptr;
+      {
+        std::lock_guard<std::mutex> guard(gUnwindingMutex);
+        unwindstack::Unwinder* unwinder = GetUnwindHelper().Unwinder();
+        std::unique_ptr<unwindstack::Regs> regs(unwindstack::Regs::CreateFromLocal());
+        RegsGetLocal(regs.get());
+        unwinder->SetRegs(regs.get());
+        unwinder->Unwind();
+        for (auto it = unwinder->frames().begin(); it != unwinder->frames().end(); ++it) {
+          // Unwind to frame above the tlsJniStackMarker. The stack markers should be on the first
+          // frame calling JNI methods.
+          if (it->sp > reinterpret_cast<uint64_t>(this)) {
+            caller_pc = reinterpret_cast<void*>(it->pc);
+            break;
+          }
+        }
+      }
       if (caller_pc != nullptr) {
         SharedObjectKind kind = CodeRangeCache::GetSingleton().GetSharedObjectKind(caller_pc);
         is_core_platform_api_approved = ((kind == SharedObjectKind::kRuntime) ||
@@ -277,23 +297,6 @@ bool ScopedCorePlatformApiCheck::IsCurrentCallerApproved(Thread* self) {
       bit_cast<CorePlatformApiCookie, uint32_t>(self->CorePlatformApiCookie());
   DCHECK_GT(cookie.depth, 0u);
   return cookie.approved;
-}
-
-void* ScopedCorePlatformApiCheck::CaptureCallerPc() {
-  std::lock_guard<std::mutex> guard(gUnwindingMutex);
-  unwindstack::Unwinder* unwinder = GetUnwindHelper().Unwinder();
-  std::unique_ptr<unwindstack::Regs> regs(unwindstack::Regs::CreateFromLocal());
-  RegsGetLocal(regs.get());
-  unwinder->SetRegs(regs.get());
-  unwinder->Unwind();
-  for (auto it = unwinder->frames().begin(); it != unwinder->frames().end(); ++it) {
-    // Unwind to frame above the tlsJniStackMarker. The stack markers should be on the first frame
-    // calling JNI methods.
-    if (it->sp > reinterpret_cast<uint64_t>(this)) {
-      return reinterpret_cast<void*>(it->pc);
-    }
-  }
-  return nullptr;
 }
 
 void JniInitializeNativeCallerCheck() {
