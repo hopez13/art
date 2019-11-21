@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "838e1ff0_0e11c63b",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-21T12:31:30Z",
+      "side": 1,
+      "message": "This constant looks a bit fragile (if someone adds another option and forgets to fix it). I would save the previous size, add extra options, then reset to the previous size.",
+      "range": {
+        "startLine": 444,
+        "startChar": 40,
+        "endLine": 444,
+        "endChar": 42
+      },
+      "revId": "f1a86d7969735a09eb74e629c33653aaa2d52847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
