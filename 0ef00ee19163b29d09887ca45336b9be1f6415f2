@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21a78983_ea5cc41f",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-21T12:10:26Z",
+      "side": 1,
+      "message": "TreeHugger says this is failing:\n+error: Assertion could not be matched starting from line 1075105\n+TestFloatDouble.java:28: VecDotProd",
+      "revId": "0ef00ee19163b29d09887ca45336b9be1f6415f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
