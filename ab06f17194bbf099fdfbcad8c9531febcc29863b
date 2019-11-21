@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80cbac88_1e176a82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-21T22:37:04Z",
+      "side": 1,
+      "message": "There is not really any substantial code called in between the class loader creation and zygoteInit. I can probably fix it with another zygote hook too though.",
+      "parentUuid": "8fdfeada_91db9ad5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 65
+      },
+      "revId": "ab06f17194bbf099fdfbcad8c9531febcc29863b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fdd8f241_1ee390ae",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "ab06f17194bbf099fdfbcad8c9531febcc29863b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45c61b4a_005f008e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-21T22:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd8f241_1ee390ae",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 61
+      },
+      "revId": "ab06f17194bbf099fdfbcad8c9531febcc29863b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
