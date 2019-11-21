@@ -45,7 +45,7 @@ namespace {
 
 // The maximum number of frames to back trace through when performing Core Platform API checks of
 // native code.
-static constexpr size_t kMaxFrames = 3;
+static constexpr size_t kMaxFramesForHiddenApiJniCheck = 3;
 
 static std::mutex gUnwindingMutex;
 
@@ -73,22 +73,16 @@ struct UnwindHelper {
 };
 
 static UnwindHelper& GetUnwindHelper() {
-  static UnwindHelper helper(kMaxFrames);
+  static UnwindHelper helper(kMaxFramesForHiddenApiJniCheck);
   return helper;
 }
 
 }  // namespace
 
-enum class SharedObjectKind {
-  kRuntime = 0,
-  kApexModule = 1,
-  kOther = 2
-};
-
 std::ostream& operator<<(std::ostream& os, SharedObjectKind kind) {
   switch (kind) {
-    case SharedObjectKind::kRuntime:
-      os << "Runtime";
+    case SharedObjectKind::kArtRuntime:
+      os << "ART Runtime";
       break;
     case SharedObjectKind::kApexModule:
       os << "APEX Module";
@@ -118,12 +112,9 @@ class CodeRangeCache final {
     return SharedObjectKind::kOther;
   }
 
-  bool HasCache() const {
-    return memory_type_table_.Size() != 0;
-  }
-
   void BuildCache() {
-    DCHECK(!HasCache());
+    std::lock_guard<std::mutex> guard(mutex_);
+    DCHECK_EQ(memory_type_table_.Size(), 0u);
     art::MemoryTypeTable<SharedObjectKind>::Builder builder;
     builder_ = &builder;
     libjavacore_loaded_ = false;
@@ -141,7 +132,16 @@ class CodeRangeCache final {
     builder_ = nullptr;
   }
 
+  void SetLibraryPathClassifier(JniLibraryPathClassifier* fc_classifier) {
+    fc_classifier_ = fc_classifier;
+  }
+
+  bool HasLibraryPathClassifier() const {
+    return fc_classifier_ != nullptr;
+  }
+
   void DropCache() {
+    const std::lock_guard<std::mutex> guard(mutex_);
     memory_type_table_ = {};
   }
 
@@ -149,6 +149,7 @@ class CodeRangeCache final {
   CodeRangeCache() {}
 
   bool Find(uintptr_t address, SharedObjectKind* kind) const {
+    std::lock_guard<std::mutex> guard(mutex_);
     const art::MemoryTypeRange<SharedObjectKind>* range = memory_type_table_.Lookup(address);
     if (range == nullptr) {
       return false;
@@ -170,6 +171,13 @@ class CodeRangeCache final {
       uintptr_t start = info->dlpi_addr + phdr.p_vaddr;
       const uintptr_t limit = art::RoundUp(start + phdr.p_memsz, art::kPageSize);
       SharedObjectKind kind = GetKind(info->dlpi_name, start, limit);
+      if (cache->fc_classifier_ != nullptr) {
+        std::optional<SharedObjectKind> maybe_kind =
+            cache->fc_classifier_->Classify(info->dlpi_name);
+        if (maybe_kind.has_value()) {
+          kind = maybe_kind.value();
+        }
+      }
       art::MemoryTypeRange<SharedObjectKind> range{start, limit, kind};
       if (!builder->Add(range)) {
         LOG(WARNING) << "Overlapping/invalid range found in ELF headers: " << range;
@@ -192,9 +200,11 @@ class CodeRangeCache final {
   }
 
   static SharedObjectKind GetKind(const char* so_name, uintptr_t start, uintptr_t limit) {
+    // Take an arbitrary method we know exists in the ART runtime library...
     uintptr_t runtime_method = reinterpret_cast<uintptr_t>(CodeRangeCache::GetKind);
+    // ...and see if the shared object section contains the ART Runtime library.
     if (runtime_method >= start && runtime_method < limit) {
-      return SharedObjectKind::kRuntime;
+      return SharedObjectKind::kArtRuntime;
     }
     return art::LocationIsOnApex(so_name) ? SharedObjectKind::kApexModule
                                           : SharedObjectKind::kOther;
@@ -203,12 +213,16 @@ class CodeRangeCache final {
   art::MemoryTypeTable<SharedObjectKind> memory_type_table_;
 
   // Table builder, only valid during BuildCache().
-  art::MemoryTypeTable<SharedObjectKind>::Builder* builder_;
+  art::MemoryTypeTable<SharedObjectKind>::Builder* builder_ = nullptr;
+
+  JniLibraryPathClassifier* fc_classifier_ = nullptr;
 
   // Sanity checking state.
   bool libjavacore_loaded_;
   bool libnativehelper_loaded_;
   bool libopenjdk_loaded_;
+
+  mutable std::mutex mutex_;
 
   static constexpr std::string_view kLibjavacore = "libjavacore.so";
   static constexpr std::string_view kLibnativehelper = "libnativehelper.so";
@@ -231,20 +245,39 @@ ScopedCorePlatformApiCheck::ScopedCorePlatformApiCheck() {
   CorePlatformApiCookie cookie =
       bit_cast<CorePlatformApiCookie, uint32_t>(self->CorePlatformApiCookie());
   bool is_core_platform_api_approved = false;  // Default value for non-device testing.
-  if (!kIsTargetBuild) {
-    // On target device, if policy says enforcement is disabled, then treat all callers as
-    // approved.
+  const bool is_under_test = CodeRangeCache::GetSingleton().HasLibraryPathClassifier();
+  if (kIsTargetBuild || is_under_test) {
+    // On target device (or running tests). If policy says enforcement is disabled,
+    // then treat all callers as approved.
     auto policy = Runtime::Current()->GetCorePlatformApiEnforcementPolicy();
     if (policy == hiddenapi::EnforcementPolicy::kDisabled) {
       is_core_platform_api_approved = true;
     } else if (cookie.depth == 0) {
-      // On target device, only check the caller at depth 0 (the outermost entry into JNI
-      // interface).
+      // On target device, only check the caller at depth 0 which corresponds to the outermost
+      // entry into the JNI interface. When performing the check here, we note that |*this| is
+      // stack allocated at entry points to JNI field and method resolution |*methods. We can use
+      // the address of |this| to find the callers frame.
       DCHECK_EQ(cookie.approved, false);
-      void* caller_pc = CaptureCallerPc();
+      void* caller_pc = nullptr;
+      {
+        std::lock_guard<std::mutex> guard(gUnwindingMutex);
+        unwindstack::Unwinder* unwinder = GetUnwindHelper().Unwinder();
+        std::unique_ptr<unwindstack::Regs> regs(unwindstack::Regs::CreateFromLocal());
+        RegsGetLocal(regs.get());
+        unwinder->SetRegs(regs.get());
+        unwinder->Unwind();
+        for (auto it = unwinder->frames().begin(); it != unwinder->frames().end(); ++it) {
+          // Unwind to frame above the tlsJniStackMarker. The stack markers should be on the first
+          // frame calling JNI methods.
+          if (it->sp > reinterpret_cast<uint64_t>(this)) {
+            caller_pc = reinterpret_cast<void*>(it->pc);
+            break;
+          }
+        }
+      }
       if (caller_pc != nullptr) {
         SharedObjectKind kind = CodeRangeCache::GetSingleton().GetSharedObjectKind(caller_pc);
-        is_core_platform_api_approved = ((kind == SharedObjectKind::kRuntime) ||
+        is_core_platform_api_approved = ((kind == SharedObjectKind::kArtRuntime) ||
                                          (kind == SharedObjectKind::kApexModule));
       }
     }
@@ -279,30 +312,15 @@ bool ScopedCorePlatformApiCheck::IsCurrentCallerApproved(Thread* self) {
   return cookie.approved;
 }
 
-void* ScopedCorePlatformApiCheck::CaptureCallerPc() {
-  std::lock_guard<std::mutex> guard(gUnwindingMutex);
-  unwindstack::Unwinder* unwinder = GetUnwindHelper().Unwinder();
-  std::unique_ptr<unwindstack::Regs> regs(unwindstack::Regs::CreateFromLocal());
-  RegsGetLocal(regs.get());
-  unwinder->SetRegs(regs.get());
-  unwinder->Unwind();
-  for (auto it = unwinder->frames().begin(); it != unwinder->frames().end(); ++it) {
-    // Unwind to frame above the tlsJniStackMarker. The stack markers should be on the first frame
-    // calling JNI methods.
-    if (it->sp > reinterpret_cast<uint64_t>(this)) {
-      return reinterpret_cast<void*>(it->pc);
-    }
-  }
-  return nullptr;
-}
-
-void JniInitializeNativeCallerCheck() {
+void JniInitializeNativeCallerCheck(JniLibraryPathClassifier* classifier) {
   // This method should be called only once and before there are multiple runtime threads.
-  DCHECK(!CodeRangeCache::GetSingleton().HasCache());
+  CodeRangeCache::GetSingleton().DropCache();
+  CodeRangeCache::GetSingleton().SetLibraryPathClassifier(classifier);
   CodeRangeCache::GetSingleton().BuildCache();
 }
 
 void JniShutdownNativeCallerCheck() {
+  CodeRangeCache::GetSingleton().SetLibraryPathClassifier(nullptr);
   CodeRangeCache::GetSingleton().DropCache();
 }
 
@@ -322,7 +340,7 @@ bool ScopedCorePlatformApiCheck::IsCurrentCallerApproved(Thread* self ATTRIBUTE_
   return false;
 }
 
-void JniInitializeNativeCallerCheck() {}
+void JniInitializeNativeCallerCheck(JniLibraryPathClassifier* f ATTRIBUTE_UNUSED) {}
 
 void JniShutdownNativeCallerCheck() {}
 
