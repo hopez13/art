@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fdfeada_91db9ad5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-21T08:36:45Z",
+      "side": 1,
+      "message": "This sounds problematic. Does it mean we\u0027re loosing all the profiling info until we actually know we\u0027re profiling system server? I think this needs fixing.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 65
+      },
+      "revId": "ab06f17194bbf099fdfbcad8c9531febcc29863b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdd8f241_1ee390ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-21T08:36:45Z",
+      "side": 1,
+      "message": "I would really really prefer that we don\u0027t use such a hammer for only discarding compiled code in system server. Getting the profile flag at the right time or after the fact marking the oat file non executable seem simpler?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 61
+      },
+      "revId": "ab06f17194bbf099fdfbcad8c9531febcc29863b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
