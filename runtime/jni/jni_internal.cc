@@ -88,9 +88,19 @@ static constexpr bool kWarnJniAbort = false;
 template<typename T>
 ALWAYS_INLINE static bool ShouldDenyAccessToMember(T* member, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (hiddenapi::ScopedCorePlatformApiCheck::IsCurrentCallerApproved(self)) {
-    return false;
+  const uint32_t runtime_flags = hiddenapi::GetRuntimeFlags(member);
+  if ((runtime_flags & kAccCorePlatformApi) == kAccCorePlatformApi) {
+    const bool native_caller_trusted =
+        hiddenapi::ScopedCorePlatformApiCheck::IsCurrentCallerApproved(self);
+    if (native_caller_trusted) {
+      // Native code is in a trusted domain and access is to the Core Platform API.
+      return false;
+    }
   }
+
+  // Construct AccessContext from the first calling class on stack.
+  // If the calling class cannot be determined, e.g. unattached threads,
+  // we conservatively assume the caller is trusted.
   return hiddenapi::ShouldDenyAccessToMember(
       member,
       [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
