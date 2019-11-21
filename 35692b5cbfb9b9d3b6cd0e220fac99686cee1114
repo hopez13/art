@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e96ff5a6_49ea3a5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-11-21T21:53:03Z",
+      "side": 1,
+      "message": "Intrinsic",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8eed4564_31cd7f9f",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
