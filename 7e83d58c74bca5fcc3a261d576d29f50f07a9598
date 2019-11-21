@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c11ceba_b28b33d0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-11-21T15:19:53Z",
+      "side": 1,
+      "message": "Doesn\u0027t this mean we\u0027re looking in this module directory, i.e. build/apex/com.android.art.debug-file_contexts\" instead of system/sepolicy/apex/...?",
+      "range": {
+        "startLine": 311,
+        "startChar": 20,
+        "endLine": 311,
+        "endChar": 21
+      },
+      "revId": "7e83d58c74bca5fcc3a261d576d29f50f07a9598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
