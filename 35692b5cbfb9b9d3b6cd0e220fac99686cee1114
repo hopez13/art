@@ -114,6 +114,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f40ff36_158c3e99",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-11-21T23:20:19Z",
+      "side": 1,
+      "message": "Restructure the code by making the NaN case fallthrough and only forward branches, also fixed typos in the comments:\n\n    __ Fcmp(in0, in1);\n    __ Mov(out, 1);\n    __ B(gt, \u0026end);\n    __ B(mi, \u0026neg_one);\n    __ B(eq, \u0026equal);\n\n    // Either of the inputs is NaN.\n    // NaN is equal to itself and greater than any other number.\n    // Therefore:\n    // - if only in0 is NaN \u003d\u003e return 1\n    // - if only in1 is NaN \u003d\u003e return -1\n    // - if both in0 and in1 are NaN \u003d\u003e return 0\n    __ Fcmp(in0, 0.0);\n    __ B(vc, \u0026neg_one); // in0 !\u003d NaN \u003d\u003e out \u003d -1\n    __ Fcmp(in1, 0.0);\n    __ Cset(out, vc); // if in1 !\u003d NaN \u003d\u003e out \u003d 1, otherwise both are NaNs \u003d\u003e out \u003d 0\n    __ B(\u0026end);\n\n    // in0 \u003d\u003d in1 or if one of the inputs is +0 and the other is -0\n    __ Bind(\u0026equal);\n    __ Fcmp(in0.V1D(), in1.V1D());\n    __ B(hi, \u0026neg_one);  // in0 is -0, in1 is +0 \u003d\u003e out \u003d -1\n    __ Cset(out, mi);    // if in0 is +0 and in1 is -0 \u003d\u003e out \u003d 1, otherwise out \u003d 0\n    __ B(\u0026end);\n\n    // if in0 \u003c in1 or if only the 2nd input is NaN or in0 \u003d\u003d -0 and in1 \u003d\u003d +0\n    __ Bind(\u0026neg_one);\n    __ Mov(out, -1);\n\n    __ Bind(\u0026end);",
+      "parentUuid": "52ca97ce_82022e46",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
