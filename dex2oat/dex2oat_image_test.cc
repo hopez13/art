@@ -68,6 +68,11 @@ class Dex2oatImageTest : public CommonRuntimeTest {
   void TearDown() override {}
 
  protected:
+  void SetUpRuntimeOptions(RuntimeOptions* options) override {
+    // Disable implicit dex2oat invocations when loading image spaces.
+    options->emplace_back("-Xnoimage-dex2oat", nullptr);
+  }
+
   // Visitors take method and type references
   template <typename MethodVisitor, typename ClassVisitor>
   void VisitLibcoreDexes(const MethodVisitor& method_visitor,
@@ -241,6 +246,38 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     }
     return res.StandardSuccess();
   }
+
+  MemMap ReserveCoreImageAddressSpace(/*out*/std::string* error_msg) {
+    constexpr size_t kReservationSize = 256 * MB;  // This should be enough for the compiled images.
+    // Extend to both directions for maximum relocation difference.
+    static_assert(ART_BASE_ADDRESS_MIN_DELTA < 0);
+    static_assert(ART_BASE_ADDRESS_MAX_DELTA > 0);
+    static_assert(IsAligned<kPageSize>(ART_BASE_ADDRESS_MIN_DELTA));
+    static_assert(IsAligned<kPageSize>(ART_BASE_ADDRESS_MAX_DELTA));
+    constexpr size_t kExtra = ART_BASE_ADDRESS_MAX_DELTA - ART_BASE_ADDRESS_MIN_DELTA;
+    uint32_t min_relocated_address = kBaseAddress + ART_BASE_ADDRESS_MIN_DELTA;
+    return MemMap::MapAnonymous("Reservation",
+                                reinterpret_cast<uint8_t*>(min_relocated_address),
+                                kReservationSize + kExtra,
+                                PROT_NONE,
+                                /*low_4gb=*/ true,
+                                /*reuse=*/ false,
+                                /*reservation=*/ nullptr,
+                                error_msg);
+  }
+
+  void CopyDexFiles(const std::string& dir, /*inout*/std::vector<std::string>* dex_files) {
+    CHECK(EndsWith(dir, "/"));
+    for (std::string& dex_file : *dex_files) {
+      size_t slash_pos = dex_file.rfind('/');
+      CHECK_NE(std::string::npos, slash_pos);
+      std::string new_location = dir + dex_file.substr(slash_pos + 1u);
+      std::ifstream src_stream(dex_file, std::ios::binary);
+      std::ofstream dst_stream(new_location, std::ios::binary);
+      dst_stream << src_stream.rdbuf();
+      dex_file = new_location;
+    }
+  }
 };
 
 TEST_F(Dex2oatImageTest, TestModesAndFilters) {
@@ -307,24 +344,9 @@ TEST_F(Dex2oatImageTest, TestModesAndFilters) {
 }
 
 TEST_F(Dex2oatImageTest, TestExtension) {
-  constexpr size_t kReservationSize = 256 * MB;  // This should be enough for the compiled images.
-  // Extend to both directions for maximum relocation difference.
-  static_assert(ART_BASE_ADDRESS_MIN_DELTA < 0);
-  static_assert(ART_BASE_ADDRESS_MAX_DELTA > 0);
-  static_assert(IsAligned<kPageSize>(ART_BASE_ADDRESS_MIN_DELTA));
-  static_assert(IsAligned<kPageSize>(ART_BASE_ADDRESS_MAX_DELTA));
-  constexpr size_t kExtra = ART_BASE_ADDRESS_MAX_DELTA - ART_BASE_ADDRESS_MIN_DELTA;
-  uint32_t min_relocated_address = kBaseAddress + ART_BASE_ADDRESS_MIN_DELTA;
   std::string error_msg;
-  MemMap reservation = MemMap::MapAnonymous("Reservation",
-                                            reinterpret_cast<uint8_t*>(min_relocated_address),
-                                            kReservationSize + kExtra,
-                                            PROT_NONE,
-                                            /*low_4gb=*/ true,
-                                            /*reuse=*/ false,
-                                            /*reservation=*/ nullptr,
-                                            &error_msg);
-  ASSERT_TRUE(reservation.IsValid());
+  MemMap reservation = ReserveCoreImageAddressSpace(&error_msg);
+  ASSERT_TRUE(reservation.IsValid()) << error_msg;
 
   ScratchFile scratch;
   std::string scratch_dir = scratch.GetFilename() + "-d";
@@ -343,15 +365,7 @@ TEST_F(Dex2oatImageTest, TestExtension) {
   ASSERT_EQ(0, mkdir_result);
   jar_dir += '/';
   std::vector<std::string> libcore_dex_files = GetLibCoreDexFileNames();
-  for (std::string& dex_file : libcore_dex_files) {
-    size_t slash_pos = dex_file.rfind('/');
-    ASSERT_NE(std::string::npos, slash_pos);
-    std::string new_location = jar_dir + dex_file.substr(slash_pos + 1u);
-    std::ifstream src_stream(dex_file, std::ios::binary);
-    std::ofstream dst_stream(new_location, std::ios::binary);
-    dst_stream << src_stream.rdbuf();
-    dex_file = new_location;
-  }
+  CopyDexFiles(jar_dir, &libcore_dex_files);
 
   // Create a profile.
   ScratchFile profile_file;
@@ -415,10 +429,10 @@ TEST_F(Dex2oatImageTest, TestExtension) {
   extra_args.push_back("--boot-image=" + base_location);
   bool mid_ok = CompileBootImage(extra_args, filename_prefix, mid_dex_files, &error_msg);
   ASSERT_TRUE(mid_ok) << error_msg;
+  extra_args.resize(extra_args.size() - 3u);
 
   // Try to compile the "tail" without specifying the "mid" extension. This shall fail.
   std::string full_bcp_string = android::base::Join(full_bcp, ':');
-  extra_args.clear();
   AddRuntimeArg(extra_args, "-Xbootclasspath:" + full_bcp_string);
   AddRuntimeArg(extra_args, "-Xbootclasspath-locations:" + full_bcp_string);
   extra_args.push_back("--boot-image=" + base_location);
@@ -454,8 +468,12 @@ TEST_F(Dex2oatImageTest, TestExtension) {
                                                 &boot_image_spaces,
                                                 &extra_reservation);
   };
+  auto silent_load = [&](const std::string& image_location) {
+    ScopedLogSeverity quiet(LogSeverity::FATAL);
+    return load(image_location);
+  };
 
-  for (bool r : { false, true}) {
+  for (bool r : { false, true }) {
     relocate = r;
 
     // Load primary image with full path.
@@ -465,13 +483,13 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
 
     // Fail to load primary image with just the name.
-    load_ok = load(base_name);
+    load_ok = silent_load(base_name);
     ASSERT_FALSE(load_ok);
 
     // Fail to load primary image with a search path.
-    load_ok = load("*");
+    load_ok = silent_load("*");
     ASSERT_FALSE(load_ok);
-    load_ok = load(scratch_dir + "*");
+    load_ok = silent_load(scratch_dir + "*");
     ASSERT_FALSE(load_ok);
 
     // Load the primary and first extension with full path.
@@ -523,7 +541,7 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     bcp_component = new_location;
   }
 
-  for (bool r : { false, true}) {
+  for (bool r : { false, true }) {
     relocate = r;
 
     // Loading the primary image with just the name now succeeds.
@@ -531,9 +549,9 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     ASSERT_TRUE(load_ok) << error_msg;
 
     // Loading the primary image with a search path still fails.
-    load_ok = load("*");
+    load_ok = silent_load("*");
     ASSERT_FALSE(load_ok);
-    load_ok = load(scratch_dir + "*");
+    load_ok = silent_load(scratch_dir + "*");
     ASSERT_FALSE(load_ok);
 
     // Load the primary and first extension without paths.
@@ -568,9 +586,9 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     ASSERT_EQ(full_bcp.size(), boot_image_spaces.size());
 
     // Fail to load any images with invalid image locations (named component after search paths).
-    load_ok = load(base_location + ":*:" + tail_location);
+    load_ok = silent_load(base_location + ":*:" + tail_location);
     ASSERT_FALSE(load_ok);
-    load_ok = load(base_location + ':' + scratch_dir + "*:" + tail_location);
+    load_ok = silent_load(base_location + ':' + scratch_dir + "*:" + tail_location);
     ASSERT_FALSE(load_ok);
   }
 
