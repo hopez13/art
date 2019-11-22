@@ -22,6 +22,30 @@
       "revId": "363e9f7dce7ab1d60127c4ec5e7d9b38ce5c75d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf31f89b_e9cb58ed",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-22T20:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c86a162_597da19d",
+      "range": {
+        "startLine": 1732,
+        "startChar": 37,
+        "endLine": 1732,
+        "endChar": 52
+      },
+      "revId": "363e9f7dce7ab1d60127c4ec5e7d9b38ce5c75d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

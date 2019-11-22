@@ -22,6 +22,30 @@
       "revId": "148e7da880d57dece7377a26bb0c70a46e7f9601",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4494e1fe_7a16fac6",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-22T20:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea3ea017_9b09fff9",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 26
+      },
+      "revId": "148e7da880d57dece7377a26bb0c70a46e7f9601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
