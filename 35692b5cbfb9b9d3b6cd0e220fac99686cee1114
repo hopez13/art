@@ -234,6 +234,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fd3c44c_2d465898",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-11-22T11:34:26Z",
+      "side": 1,
+      "message": "It looks like we don\u0027t need \"Fcmp(in1.V1D(), in0.V1D())\" at all. We can compare original integer registers.",
+      "parentUuid": "a8614951_26cc6d61",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
