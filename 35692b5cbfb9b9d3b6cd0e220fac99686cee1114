@@ -378,6 +378,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da9f2d92_4f0b07c1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-22T13:26:01Z",
+      "side": 1,
+      "message": "Besides this being an unnecessary restriction, it is generally wrong to have such assertions in the macro assembler and not the raw assembler. As a workaround we could create the scope and call csinc() directly.",
+      "parentUuid": "e6ef5ba0_259a2405",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
