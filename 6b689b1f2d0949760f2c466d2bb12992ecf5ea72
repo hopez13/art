@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28514e08_c3e70cfb",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-22T08:41:27Z",
+      "side": 1,
+      "message": "This may have an unexpected interaction with the JIT GC. Do you really need to do this?",
+      "range": {
+        "startLine": 752,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 9
+      },
+      "revId": "6b689b1f2d0949760f2c466d2bb12992ecf5ea72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
