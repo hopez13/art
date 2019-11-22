@@ -954,15 +954,18 @@ void ConcurrentCopying::RemoveThreadMarkStackMapping(Thread* thread,
 }
 
 void ConcurrentCopying::AssertEmptyThreadMarkStackMap() {
-  if (!thread_mark_stack_map_.empty()) {
-    LOG(FATAL_WITHOUT_ABORT) << "thread_mark_stack_map not empty. size:"
-                             << thread_mark_stack_map_.size()
-                             << " Mappings:";
+  std::ostringstream oss;
+  auto capture_mappings = [this, &oss] () REQUIRES(mark_stack_lock_) {
     for (const auto & iter : thread_mark_stack_map_) {
-      LOG(FATAL_WITHOUT_ABORT) << "thread:" << iter.first << " mark-stack:" << iter.second;
+      oss << "thread:" << iter.first << " mark-stack:" << iter.second << "\n";
     }
-    LOG(FATAL) << "pooled_mark_stacks size:" << pooled_mark_stacks_.size();
-  }
+  };
+  CHECK(thread_mark_stack_map_.empty()) << "thread_mark_stack_map not empty. size:"
+                                        << thread_mark_stack_map_.size()
+                                        << "Mappings:\n"
+                                        << (capture_mappings(), oss.str())
+                                        << "pooled_mark_stacks size:"
+                                        << pooled_mark_stacks_.size();
 }
 
 void ConcurrentCopying::AssertNoThreadMarkStackMapping(Thread* thread) {
