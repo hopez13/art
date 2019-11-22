@@ -94,6 +94,30 @@
       "revId": "7e83d58c74bca5fcc3a261d576d29f50f07a9598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d7b163_a29fe7b2",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-22T17:57:26Z",
+      "side": 1,
+      "message": "Martin, the filegroup `com.android.art.debug-file_contexts` is defined here: https://android-review.googlesource.com/c/platform/system/sepolicy/+/1169768/1/apex/Android.bp#31",
+      "parentUuid": "6afe69a3_a8f19860",
+      "range": {
+        "startLine": 311,
+        "startChar": 20,
+        "endLine": 311,
+        "endChar": 21
+      },
+      "revId": "7e83d58c74bca5fcc3a261d576d29f50f07a9598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
