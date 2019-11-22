@@ -22,6 +22,30 @@
       "revId": "6b689b1f2d0949760f2c466d2bb12992ecf5ea72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22023c22_f33eff04",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-22T10:57:52Z",
+      "side": 1,
+      "message": "I think this is not necessary. It shouldn\u0027t matter from a profile point of view. Eventually there will be more jit activity and when the profile saver looks for the hot methods, it queries the profling_infos from the code cache, and it doesn\u0027t care if those were created before or after the preload-classes event.",
+      "parentUuid": "28514e08_c3e70cfb",
+      "range": {
+        "startLine": 752,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 9
+      },
+      "revId": "6b689b1f2d0949760f2c466d2bb12992ecf5ea72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
