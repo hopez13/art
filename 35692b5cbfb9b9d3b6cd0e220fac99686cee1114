@@ -138,6 +138,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "030c4971_1fdf634e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-22T10:31:34Z",
+      "side": 1,
+      "message": "Can you explain the meaning of the `__ Fcmp(in0.V1D(), in1.V1D());` in the `equal` path? Do we just interpret the value as `double` with the higher bits being zero and thus comparing denormal values and/or +0 (but never NaN)? Would it work if we compared just floats with V1S?\n\nIf my understanding of the above is correct, this can be further improved by making both the \"normal\" and \"equal\" paths feed the same CSET+CSINV:\n\n    __ Fcmp(in0, in1);\n    __ B(eq, \u0026equal);\n    __ B(vc, \u0026normal);\n\n    // Either of the inputs is NaN.\n    // NaN is equal to itself and greater than any other number.\n    // Therefore:\n    // - if only in0 is NaN \u003d\u003e return 1\n    // - if only in1 is NaN \u003d\u003e return -1\n    // - if both in0 and in1 are NaN \u003d\u003e return 0\n    __ Fcmp(in0, 0.0);\n    __ B(vc, \u0026neg_one); // in0 !\u003d NaN \u003d\u003e out \u003d -1\n    __ Fcmp(in1, 0.0);\n    __ Cset(out, vc); // if in1 !\u003d NaN \u003d\u003e out \u003d 1, otherwise both are NaNs \u003d\u003e out \u003d 0\n    __ B(\u0026end);\n\n    // in0 \u003d\u003d in1 or if one of the inputs is +0 and the other is -0\n    __ Bind(\u0026equal);\n    // Reverse operand order because -0 \u003e +0 when compared as `double`.\n    __ Fcmp(in1.V1D(), in0.V1D());\n\n    __ Bind(\u0026normal);\n    __ Cset(out, gt);\n    __ Csinv(out, out, xzr, pl);\n\n    __ Bind(\u0026end);\n\n\n(The NaN path can also be rewritten with CSETM+CSINC if we want to reduce the number of branches but the number of instructions would remain the same.)",
+      "parentUuid": "6f40ff36_158c3e99",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
