@@ -354,6 +354,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6ef5ba0_259a2405",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-11-22T13:20:14Z",
+      "side": 1,
+      "message": "It does not matter whether xzr or wzr is used.\nThe current implementation of Csinv:\n\n  void Csinv(const Register\u0026 rd,\n             const Register\u0026 rn,\n             const Register\u0026 rm,\n             Condition cond) {\n    VIXL_ASSERT(allow_macro_instructions_);\n    VIXL_ASSERT(!rd.IsZero());\n    VIXL_ASSERT(!rn.IsZero());\n    VIXL_ASSERT(!rm.IsZero());\n    VIXL_ASSERT((cond !\u003d al) \u0026\u0026 (cond !\u003d nv));\n    SingleEmissionCheckScope guard(this);\n    csinv(rd, rn, rm, cond);\n  }\n\nIt requires \u0027rn\u0027 and \u0027rm\u0027 not to be the zero register. The same situation exists for Csinc and Csneg.\nI think we need to fix this.",
+      "parentUuid": "d2fa7dee_6ea17283",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
