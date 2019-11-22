@@ -162,6 +162,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569c255f_ac852a97",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-11-22T11:07:57Z",
+      "side": 1,
+      "message": "At the point we have  __ Fcmp(in0.V1D(), in1.V1D()); we are just trying to compare +/-0. For that we need to compare more than 16 bits. In Neon ARM, we can only modify 64 bits or 128 bits at a time, which is why i believe there is no V1S, which is 32 bits. The possibilities are as seen in src/aarch64/operands-aarch64.h:\n\n  VRegister V8B() const { return VRegister(code_, kDRegSize, 8); }\n  VRegister V16B() const { return VRegister(code_, kQRegSize, 16); }\n  VRegister V2H() const { return VRegister(code_, kSRegSize, 2); }\n  VRegister V4H() const { return VRegister(code_, kDRegSize, 4); }\n  VRegister V8H() const { return VRegister(code_, kQRegSize, 8); }\n  VRegister V2S() const { return VRegister(code_, kDRegSize, 2); }\n  VRegister V4S() const { return VRegister(code_, kQRegSize, 4); }\n  VRegister V2D() const { return VRegister(code_, kQRegSize, 2); }\n  VRegister V1D() const { return VRegister(code_, kDRegSize, 1); }\n\n\nWe could use V2S (2 32bits) but the result wont be any different from V1D (1 64 bits). I believe V1D might be slightly better to understand for anyone reading it in the future.",
+      "parentUuid": "030c4971_1fdf634e",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
