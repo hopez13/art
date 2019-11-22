@@ -306,6 +306,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda5c4fb_e99f3e84",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-11-22T12:09:40Z",
+      "side": 1,
+      "message": "BTW, this \"Csinv(out, out, xzr, pl)\" does not work at the moment. It triggers an assertion in VIXL. Jacob told me the assertion has been there historically. It might be that we don\u0027t need the assertion any more.",
+      "parentUuid": "cc1cef33_2132c2db",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
