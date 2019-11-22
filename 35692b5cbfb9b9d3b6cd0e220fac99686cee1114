@@ -258,6 +258,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37e3d92_c73dd305",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-11-22T11:35:23Z",
+      "side": 1,
+      "message": "Evgeny pointed out that as we have access to input W register, Cmp would be faster than using Fcmp. Fcmp can take upto 3 cycles depending on the core. So will switch to using W register. This will mean i cant use the GenerateFP16Compare. I will post a new patch with the changes.",
+      "parentUuid": "ac01a306_c1deccf3",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
