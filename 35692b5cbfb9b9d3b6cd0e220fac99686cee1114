@@ -282,6 +282,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc1cef33_2132c2db",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-22T11:45:21Z",
+      "side": 1,
+      "message": "I have not reviewed your previous CLs but let me comment on the overall approach now. Your current approach contains a lot of unnecessary moves between W registers and S registers. You should specify all input and output locations as S registers for FP16 and let the parallel move resolver deal with moving things around if needed. If you have two chained FP16 operations and do not need to keep the intermediate result for any other calculation, you shall save 2 instructions.\n\nTherefore you should not use the W registers for the comparison in the \"equal\" path.",
+      "parentUuid": "e37e3d92_c73dd305",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
