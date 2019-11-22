@@ -210,6 +210,30 @@
       "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac01a306_c1deccf3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-22T11:24:21Z",
+      "side": 1,
+      "message": "Looking at that file, while there\u0027s no \"V1S()\", there is indeed \"S()\" which would be more appropriate for the scalar instruction FCMP. Even if you want to use a `double` comparison, you should use `D()` instead of `V1D()`.",
+      "parentUuid": "a8614951_26cc6d61",
+      "range": {
+        "startLine": 3437,
+        "startChar": 1,
+        "endLine": 3475,
+        "endChar": 18
+      },
+      "revId": "35692b5cbfb9b9d3b6cd0e220fac99686cee1114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
