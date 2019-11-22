@@ -16,6 +16,24 @@
       "revId": "0ef00ee19163b29d09887ca45336b9be1f6415f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc0e652f_e89d5dbe",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestFloatDouble.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-11-22T04:22:43Z",
+      "side": 1,
+      "message": "Removed this as this will succeed only with --instruction-set-features \"sse4.1\" or above",
+      "parentUuid": "21a78983_ea5cc41f",
+      "revId": "0ef00ee19163b29d09887ca45336b9be1f6415f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
