@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c86a162_597da19d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-22T18:39:03Z",
+      "side": 1,
+      "message": "REQUIRES(!Roles::uninterruptable_).",
+      "range": {
+        "startLine": 1732,
+        "startChar": 37,
+        "endLine": 1732,
+        "endChar": 52
+      },
+      "revId": "363e9f7dce7ab1d60127c4ec5e7d9b38ce5c75d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
