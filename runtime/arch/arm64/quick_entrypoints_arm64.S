@@ -2874,3 +2874,51 @@ ENTRY ExecuteSwitchImplAsm
     RESTORE_TWO_REGS_DECREASE_FRAME x19, xLR, 16
     ret
 END ExecuteSwitchImplAsm
+
+// r0 contains the class, ip0 contains the inline cache
+ENTRY art_quick_update_inline_cache
+    INCREASE_FRAME 16
+    str x1, [sp, #0]
+    ldr wIP1, [xIP0, #4]
+    cmp wIP1, w0
+    beq .Ldone
+    cmp wIP1, #0
+    bne .Lentry2
+    add xIP1, xIP0, #4
+    stxr  w1, w0, [xIP1]
+    cbz   w1, .Ldone
+.Lentry2:
+    ldr wIP1, [xIP0, #8]
+    cmp wIP1, w0
+    beq .Ldone
+    cmp wIP1, #0
+    bne .Lentry3
+    add xIP1, xIP0, #8
+    stxr  w1, w0, [xIP1]
+    cbz   w1, .Ldone
+.Lentry3:
+    ldr wIP1, [xIP0, #12]
+    cmp wIP1, w0
+    beq .Ldone
+    cmp wIP1, #0
+    bne .Lentry4
+    add xIP1, xIP0, #12
+    stxr  w1, w0, [xIP1]
+    cbz   w1, .Ldone
+.Lentry4:
+    ldr wIP1, [xIP0, #16]
+    cmp wIP1, w0
+    beq .Ldone
+    cmp wIP1, #0
+    bne .Lentry5
+    add xIP1, xIP0, #16
+    stxr  w1, w0, [xIP1]
+    cbz   w1, .Ldone
+.Lentry5:
+    // Unconditionally store, the inline cache is megamorphic.
+    str  w0, [xIP0, #20]
+.Ldone:
+    ldr x1, [sp, #0]
+    DECREASE_FRAME 16
+    ret
+END art_quick_update_inline_cache
