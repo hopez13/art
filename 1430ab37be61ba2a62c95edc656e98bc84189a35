@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fda32e75_e678f453",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-25T14:46:06Z",
+      "side": 1,
+      "message": "This is not a special term, it\u0027s intended to be plain English. It\u0027s terse as usual for the first line of the commit message.",
+      "parentUuid": "b75642dd_dd7e634b",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "1430ab37be61ba2a62c95edc656e98bc84189a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f1c61a1_81124848",
         "filename": "runtime/aot_class_linker.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "54ed4119_f482cf42",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-25T14:46:06Z",
+      "side": 1,
+      "message": "Primitive types must be in the boot image and their arrays can be referenced if and only if those arrays are themselves in the primary boot image, see lines 129-132.",
+      "parentUuid": "5f1c61a1_81124848",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 89
+      },
+      "revId": "1430ab37be61ba2a62c95edc656e98bc84189a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1100fffb_27bae6b9",
         "filename": "runtime/aot_class_linker.cc",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "1430ab37be61ba2a62c95edc656e98bc84189a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f4eec54_1245c8d8",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-25T14:46:06Z",
+      "side": 1,
+      "message": "Yes, that\u0027s intentional. We need to check the superclass and interfaces of the non-array element type.",
+      "parentUuid": "1100fffb_27bae6b9",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 146,
+        "endChar": 36
+      },
+      "revId": "1430ab37be61ba2a62c95edc656e98bc84189a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
