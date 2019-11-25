@@ -79,6 +79,25 @@ InlineCache* ProfilingInfo::GetInlineCache(uint32_t dex_pc) {
   UNREACHABLE();
 }
 
+extern "C" void my_profiling_info_check(mirror::Class* cls, InlineCache* cache, int i)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+  while (true) {
+    mirror::Class* read = cache->classes_[i].Read<kWithoutReadBarrier>();
+    if (read == cls) {
+      return;
+    } else if (read != nullptr) {
+      return;
+    } else {
+      GcRoot<mirror::Class> expected_root(static_cast<mirror::Class*>(nullptr));
+      GcRoot<mirror::Class> desired_root(cls);
+      auto atomic_root = reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(&cache->classes_[i]);
+      if (atomic_root->CompareAndSetStrongSequentiallyConsistent(expected_root, desired_root)) {
+        return;
+      }
+    }
+  }
+}
+
 void ProfilingInfo::AddInvokeInfo(uint32_t dex_pc, mirror::Class* cls) {
   InlineCache* cache = GetInlineCache(dex_pc);
   for (size_t i = 0; i < InlineCache::kIndividualCacheSize; ++i) {
