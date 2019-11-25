@@ -70,6 +70,30 @@
       "revId": "6b689b1f2d0949760f2c466d2bb12992ecf5ea72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9ff6c00_5e7b4873",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-11-25T19:34:57Z",
+      "side": 1,
+      "message": "I wouldn\u0027t bother, unless Nicolas thinks that it will be a problem when the method becomes warm/hot again.\n\nLooking at the code, there should be no problem to keep them as is.",
+      "parentUuid": "d342651f_667fcd91",
+      "range": {
+        "startLine": 752,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 9
+      },
+      "revId": "6b689b1f2d0949760f2c466d2bb12992ecf5ea72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
