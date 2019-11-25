@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "798864d0_4da0f6b6",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-11-25T16:11:30Z",
+      "side": 1,
+      "message": "Nit: Shouldn\u0027t this be placed before the declaration of `AotClassLinker::CanReferenceInBootImageExtension` instead?",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 80
+      },
+      "revId": "7ed2d385b513ced901e42181ae9a83e220b47912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
