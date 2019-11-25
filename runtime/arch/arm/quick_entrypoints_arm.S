@@ -2742,3 +2742,44 @@ ENTRY ExecuteSwitchImplAsm
     blx r1                                        // Call the wrapped method.
     pop {r4, pc}
 END ExecuteSwitchImplAsm
+
+// r0 contains the class, ip contains the inline cache
+ENTRY art_quick_update_inline_cache
+    push {r5, lr}
+    ldr r5, [ip, #4]
+    cmp r5, r0
+    beq .Ldone
+    cmp r5, #0
+    bne .Lentry2
+    strex  r5, r0, [ip, #4]
+    cbz   r5, .Ldone
+.Lentry2:
+    ldr r5, [ip, #8]
+    cmp r5, r0
+    beq .Ldone
+    cmp r5, #0
+    bne .Lentry3
+    strex  r5, r0, [ip, #8]
+    cbz   r5, .Ldone
+.Lentry3:
+    ldr r5, [ip, #12]
+    cmp r5, r0
+    beq .Ldone
+    cmp r5, #0
+    bne .Lentry4
+    strex  r5, r0, [ip, #12]
+    cbz   r5, .Ldone
+.Lentry4:
+    ldr r5, [ip, #16]
+    cmp r5, r0
+    beq .Ldone
+    cmp r5, #0
+    bne .Lentry5
+    strex  r5, r0, [ip, #16]
+    cbz   r5, .Ldone
+.Lentry5:
+    // Unconditionally store, the inline cache is megamorphic.
+    str  r0, [ip, #20]
+.Ldone:
+    pop {r5, pc}
+END art_quick_update_inline_cache
