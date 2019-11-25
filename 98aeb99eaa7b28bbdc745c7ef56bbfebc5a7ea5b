@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee814632_d9ba7192",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-25T16:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b81e4b_ed00b948",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 56
+      },
+      "revId": "98aeb99eaa7b28bbdc745c7ef56bbfebc5a7ea5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b91625_3b7dcab8",
         "filename": "openjdkjvmti/ti_redefine.cc",
         "patchSetId": 16
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f3c5af12_b898a82b",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1796,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-25T16:15:01Z",
+      "side": 1,
+      "message": "yeah but we\u0027d need to maintain that seperately. Since these aren\u0027t expected to get super long (cannot modify object and most other classes have a handful of subtypes at most) this seemed easier.",
+      "parentUuid": "62b91625_3b7dcab8",
+      "range": {
+        "startLine": 1796,
+        "startChar": 50,
+        "endLine": 1796,
+        "endChar": 58
+      },
+      "revId": "98aeb99eaa7b28bbdc745c7ef56bbfebc5a7ea5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "835e7e32_1343871e",
         "filename": "openjdkjvmti/ti_redefine.cc",
         "patchSetId": 16
@@ -68,6 +116,30 @@
       "revId": "98aeb99eaa7b28bbdc745c7ef56bbfebc5a7ea5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1059c5e_0343ea61",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2155,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-25T16:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "835e7e32_1343871e",
+      "range": {
+        "startLine": 2155,
+        "startChar": 52,
+        "endLine": 2155,
+        "endChar": 94
+      },
+      "revId": "98aeb99eaa7b28bbdc745c7ef56bbfebc5a7ea5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
