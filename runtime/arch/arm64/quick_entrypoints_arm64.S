@@ -2874,3 +2874,67 @@ ENTRY ExecuteSwitchImplAsm
     RESTORE_TWO_REGS_DECREASE_FRAME x19, xLR, 16
     ret
 END ExecuteSwitchImplAsm
+
+// x0 contains the class, x8 contains the inline cache. x9-x15 can be used.
+ENTRY art_quick_update_inline_cache
+#if (INLINE_CACHE_SIZE != 5)
+#error "INLINE_CACHE_SIZE not as expected."
+#endif
+.Lentry1:
+    ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET]
+    cmp w9, w0
+    beq .Ldone
+    cmp w9, #0
+    bne .Lentry2
+    add x10, x8, #INLINE_CACHE_CLASSES_OFFSET
+    ldxr w9, [x10]
+    cmp w9, #0
+    bne .Lentry1
+    stxr  w9, w0, [x10]
+    cbz   w9, .Ldone
+    b .Lentry1
+.Lentry2:
+    ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+4]
+    cmp w9, w0
+    beq .Ldone
+    cmp w9, #0
+    bne .Lentry3
+    add x10, x8, #INLINE_CACHE_CLASSES_OFFSET+4
+    ldxr w9, [x10]
+    cmp w9, #0
+    bne .Lentry2
+    stxr  w9, w0, [x10]
+    cbz   w9, .Ldone
+    b .Lentry2
+.Lentry3:
+    ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+8]
+    cmp w9, w0
+    beq .Ldone
+    cmp w9, #0
+    bne .Lentry4
+    add x10, x8, #INLINE_CACHE_CLASSES_OFFSET+8
+    ldxr w9, [x10]
+    cmp w9, #0
+    bne .Lentry3
+    stxr  w9, w0, [x10]
+    cbz   w9, .Ldone
+    b .Lentry3
+.Lentry4:
+    ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+12]
+    cmp w9, w0
+    beq .Ldone
+    cmp w9, #0
+    bne .Lentry5
+    add x10, x8, #INLINE_CACHE_CLASSES_OFFSET+12
+    ldxr w9, [x10]
+    cmp w9, #0
+    bne .Lentry4
+    stxr  w9, w0, [x10]
+    cbz   w9, .Ldone
+    b .Lentry4
+.Lentry5:
+    // Unconditionally store, the inline cache is megamorphic.
+    str  w0, [x8, #INLINE_CACHE_CLASSES_OFFSET+16]
+.Ldone:
+    ret
+END art_quick_update_inline_cache
