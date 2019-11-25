@@ -22,6 +22,30 @@
       "revId": "7ed2d385b513ced901e42181ae9a83e220b47912",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e93c774_538a49db",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-25T16:20:31Z",
+      "side": 1,
+      "message": "This comment is related to the implementation details (why the code below) rather than interface/purpose (what does the function provide; this should be obvious from the name here). As such I prefer to keep the comment inside.\n\nAdmittedly, people (including me) tend to be inconsistent and often the comment relates to both anyway.",
+      "parentUuid": "798864d0_4da0f6b6",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 80
+      },
+      "revId": "7ed2d385b513ced901e42181ae9a83e220b47912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
