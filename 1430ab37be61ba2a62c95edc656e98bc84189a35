@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "af139eca_cd24998b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-25T15:18:36Z",
+      "side": 1,
+      "message": "Resolved.",
+      "parentUuid": "fda32e75_e678f453",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "1430ab37be61ba2a62c95edc656e98bc84189a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1c61a1_81124848",
         "filename": "runtime/aot_class_linker.cc",
         "patchSetId": 2
