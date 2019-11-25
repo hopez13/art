@@ -2467,3 +2467,42 @@ DEFINE_FUNCTION ExecuteSwitchImplAsm
     POP rbx                  // Restore RBX
     ret
 END_FUNCTION ExecuteSwitchImplAsm
+
+// On entry: edi is the class, r11 is the inline cache.
+DEFINE_FUNCTION art_quick_update_inline_cache
+    PUSH rax // alignment and also RAX will be used for cmpxchg
+    movq LITERAL(0), %rax
+    cmpl 4(%r11), %edi
+    je .Ldone
+    cmpl LITERAL(0), 4(%r11)
+    jne .Lentry2
+    lock cmpxchg %edi, 4(%r11)
+    jz .Ldone
+.Lentry2:
+    cmpl 8(%r11), %edi
+    je .Ldone
+    cmpl LITERAL(0), 8(%r11)
+    jne .Lentry3
+    lock cmpxchg %edi, 8(%r11)
+    jz .Ldone
+.Lentry3:
+    cmpl 12(%r11), %edi
+    je .Ldone
+    cmpl LITERAL(0), 12(%r11)
+    jne .Lentry4
+    lock cmpxchg %edi, 12(%r11)
+    jz .Ldone
+.Lentry4:
+    cmpl 16(%r11), %edi
+    je .Ldone
+    cmpl LITERAL(0), 16(%r11)
+    jne .Lentry5
+    lock cmpxchg %edi, 16(%r11)
+    jz .Ldone
+.Lentry5:
+    // Unconditionally store, the cache is megamorphic.
+    movl %edi, 20(%r11)
+.Ldone:
+    POP rax
+    ret
+END_FUNCTION art_quick_update_inline_cache

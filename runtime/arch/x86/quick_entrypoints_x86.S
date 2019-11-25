@@ -2519,5 +2519,47 @@ DEFINE_FUNCTION ExecuteSwitchImplAsm
     ret
 END_FUNCTION ExecuteSwitchImplAsm
 
+// On entry: eax is the class, ebp is the inline cache.
+DEFINE_FUNCTION art_quick_update_inline_cache
+    PUSH ecx
+    movl %eax, %ecx // eax will be used for cmpxchg
+    movl LITERAL(0), %eax
+    cmpl 4(%ebp), %ecx
+    je .Ldone
+    cmpl LITERAL(0), 4(%ebp)
+    jne .Lentry2
+    lock cmpxchg %ecx, 4(%ebp)
+    jz .Ldone
+.Lentry2:
+    cmpl 8(%ebp), %ecx
+    je .Ldone
+    cmpl LITERAL(0), 8(%ebp)
+    jne .Lentry3
+    lock cmpxchg %ecx, 8(%ebp)
+    jz .Ldone
+.Lentry3:
+    cmpl 12(%ebp), %ecx
+    je .Ldone
+    cmpl LITERAL(0), 12(%ebp)
+    jne .Lentry4
+    lock cmpxchg %ecx, 12(%ebp)
+    jz .Ldone
+.Lentry4:
+    cmpl 16(%ebp), %ecx
+    je .Ldone
+    cmpl LITERAL(0), 16(%ebp)
+    jne .Lentry5
+    lock cmpxchg %ecx, 16(%ebp)
+    jz .Ldone
+.Lentry5:
+    // Unconditionally store, the cache is megamorphic.
+    movl %ecx, 20(%ebp)
+.Ldone:
+    // Restore registers
+    movl %ecx, %eax
+    POP ecx
+    ret
+END_FUNCTION art_quick_update_inline_cache
+
     // TODO: implement these!
 UNIMPLEMENTED art_quick_memcmp16
