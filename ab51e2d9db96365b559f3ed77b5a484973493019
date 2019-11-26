@@ -22,6 +22,30 @@
       "revId": "ab51e2d9db96365b559f3ed77b5a484973493019",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2264310_585b32fc",
+        "filename": "tools/jvmti-agents/field-counts/fieldcount.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-26T19:20:43Z",
+      "side": 1,
+      "message": "yeah I want ClassCount to be the number of fields with that Type as the contents, even if most of the contents are the same.",
+      "parentUuid": "6d1aafe3_38474bf0",
+      "range": {
+        "startLine": 154,
+        "startChar": 8,
+        "endLine": 154,
+        "endChar": 20
+      },
+      "revId": "ab51e2d9db96365b559f3ed77b5a484973493019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
