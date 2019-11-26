@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc970c22_a7686610",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-26T22:06:56Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 3395,
+        "startChar": 2,
+        "endLine": 3395,
+        "endChar": 101
+      },
+      "revId": "2180f0b28aa6f7a39c193b2f30cb9c76c76fc607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35d97fa7_a6bc93f5",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-26T22:06:56Z",
+      "side": 1,
+      "message": "Maybe I\u0027m missing something, but where exactly is SetStatusLocked called?",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 27
+      },
+      "revId": "2180f0b28aa6f7a39c193b2f30cb9c76c76fc607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
