@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b9758c8_60e8cd5b",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-26T20:15:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "692034f7_242af8c5",
+      "range": {
+        "startLine": 69,
+        "startChar": 24,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d225cab_261e8a1f",
         "filename": "runtime/jni/jni_id_manager.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a6bee1d_23e35056",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-26T20:15:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d225cab_261e8a1f",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 104
+      },
+      "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "66f7a920_573e40da",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-26T20:15:26Z",
+      "side": 1,
+      "message": "We don\u0027t want to have to create these arrays every time a class needs a ClassExt for any reason. They can be pretty big and most classes never have any jmethod/jfieldIDs pointing to it.\n\nTherefore we want to leave null for \u0027not initialized\u0027 instead of something else.",
+      "parentUuid": "a387ac96_9ee86943",
+      "range": {
+        "startLine": 397,
+        "startChar": 11,
+        "endLine": 397,
+        "endChar": 21
+      },
+      "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95047bd1_8021d026",
         "filename": "runtime/mirror/class_ext-inl.h",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b1e1d1d_06fb5c22",
+        "filename": "runtime/mirror/class_ext-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-11-26T20:15:26Z",
+      "side": 1,
+      "message": "this seemed easier to read than having a massive ternary.",
+      "parentUuid": "95047bd1_8021d026",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 15
+      },
+      "revId": "13d777f685c37d401f5482ad8fa98c9d1c556e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
