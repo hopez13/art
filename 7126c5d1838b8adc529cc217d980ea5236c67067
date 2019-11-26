@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "767029e1_76e785ae",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3318,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "Unnecessary if you use r4 - currently a scratch register that can be clobbered by the invoke anyway.",
+      "range": {
+        "startLine": 3318,
+        "startChar": 4,
+        "endLine": 3318,
+        "endChar": 23
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d33509_eb464409",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "instruction-\u003eGetLocations()-\u003eGetTempCount() - 1u",
+      "range": {
+        "startLine": 2307,
+        "startChar": 26,
+        "endLine": 2307,
+        "endChar": 66
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b296a1ad_195ecbc2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "Or you could just use EBP directly and DCHECK() that the last temp is EBP. (Avoid looking at locations in release mode.)",
+      "range": {
+        "startLine": 2309,
+        "startChar": 4,
+        "endLine": 2309,
+        "endChar": 25
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b16f917_4cc7fd53",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "Add CFI information. Or just use R4 instead and you don\u0027t need to save any registers. But since you need to call IsMarked() anyway (see below), you\u0027ll have to save/restore at least if rMR !\u003d 0.",
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd649b44_3b1a55d0",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2749,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "Add auto-generated macros for these constants.",
+      "range": {
+        "startLine": 2749,
+        "startChar": 18,
+        "endLine": 2749,
+        "endChar": 19
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82ed53f_dc20f683",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2750,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "You really should call IsMarked(), otherwise you risk storing 2 references to the same class. See also b/119486841 .",
+      "range": {
+        "startLine": 2750,
+        "startChar": 4,
+        "endLine": 2750,
+        "endChar": 14
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d9c6450_d09f538b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "STREX without LDREX",
+      "range": {
+        "startLine": 2754,
+        "startChar": 4,
+        "endLine": 2754,
+        "endChar": 9
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e88051c_d1f8bea7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "ARM64 has plenty of scratch registers that will be clobbered by the invoke: x8-x15.",
+      "range": {
+        "startLine": 2880,
+        "startChar": 4,
+        "endLine": 2881,
+        "endChar": 20
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b3e99f_11f1b485",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "STXR without LDXR.",
+      "range": {
+        "startLine": 2888,
+        "startChar": 4,
+        "endLine": 2888,
+        "endChar": 8
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2111113_1c701971",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "Why not \"PUSH eax\"?",
+      "range": {
+        "startLine": 2524,
+        "startChar": 4,
+        "endLine": 2525,
+        "endChar": 19
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5698dd83_48fe115d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-26T13:06:02Z",
+      "side": 1,
+      "message": "I\u0027d say we should try to replace a null with the value first. That will also load the old value to EAX for calling IsMarked() and comparing to RDI. (Current code also fails to reload 0 to EAX if CMPXCHG fails.)",
+      "range": {
+        "startLine": 2475,
+        "startChar": 4,
+        "endLine": 2479,
+        "endChar": 30
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
