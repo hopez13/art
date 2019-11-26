@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d1aafe3_38474bf0",
+        "filename": "tools/jvmti-agents/field-counts/fieldcount.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-11-26T18:09:26Z",
+      "side": 1,
+      "message": "Is it OK if the class count is added multiple times but the class size is only added once?",
+      "range": {
+        "startLine": 154,
+        "startChar": 8,
+        "endLine": 154,
+        "endChar": 20
+      },
+      "revId": "ab51e2d9db96365b559f3ed77b5a484973493019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
