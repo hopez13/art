@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5be20da_71fd6264",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-26T11:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89699ebe_8ce1b6f8",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "c16be3479e8269b2dd6dd74691fda0ce43d540bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eecb0bb_b9aab61e",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-11-26T10:46:17Z",
       "side": 1,
       "message": "Mix of single and double spaces makes this slightly less readable (perhaps). Same in x86 version.",
+      "range": {
+        "startLine": 2475,
+        "startChar": 0,
+        "endLine": 2479,
+        "endChar": 31
+      },
+      "revId": "c16be3479e8269b2dd6dd74691fda0ce43d540bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e8687c9_eb16aa88",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-26T11:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eecb0bb_b9aab61e",
       "range": {
         "startLine": 2475,
         "startChar": 0,
