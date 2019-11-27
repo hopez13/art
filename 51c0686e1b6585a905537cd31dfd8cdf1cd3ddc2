@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e148d86_25744012",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T10:56:32Z",
+      "side": 1,
+      "message": "cbnz w9, .Lentry2",
+      "range": {
+        "startLine": 2887,
+        "startChar": 4,
+        "endLine": 2888,
+        "endChar": 16
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55e9f028_ecc8608a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T10:56:32Z",
+      "side": 1,
+      "message": "cbnz w9, .Lentry1",
+      "range": {
+        "startLine": 2891,
+        "startChar": 4,
+        "endLine": 2892,
+        "endChar": 16
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd35518_fa51e4dc",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T10:56:32Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2535,
+        "startChar": 4,
+        "endLine": 2535,
+        "endChar": 25
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3354eb5_e05fcdf9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T10:56:32Z",
+      "side": 1,
+      "message": "We\u0027re not calling another function, so this is not required for stack alignment. However, we do need the RAX for CMPXCHG. Please change the comment.",
+      "range": {
+        "startLine": 2476,
+        "startChar": 16,
+        "endLine": 2476,
+        "endChar": 31
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732478dd_ceac3322",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T10:56:32Z",
+      "side": 1,
+      "message": "This is unnecessary now. Given that you have rewritten the in-memory comparison to load and register comparison, you do not need to load 0 to RAX as it\u0027s now guaranteed by the CMP+JNE above.",
+      "range": {
+        "startLine": 2483,
+        "startChar": 4,
+        "endLine": 2483,
+        "endChar": 25
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
