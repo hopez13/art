@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e14f4955_9a6f6242",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T11:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e148d86_25744012",
+      "range": {
+        "startLine": 2887,
+        "startChar": 4,
+        "endLine": 2888,
+        "endChar": 16
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55e9f028_ecc8608a",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc871a4c_827fd7bf",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T11:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55e9f028_ecc8608a",
+      "range": {
+        "startLine": 2891,
+        "startChar": 4,
+        "endLine": 2892,
+        "endChar": 16
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "35d51332_d21fe28f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T11:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cd35518_fa51e4dc",
+      "range": {
+        "startLine": 2535,
+        "startChar": 4,
+        "endLine": 2535,
+        "endChar": 25
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3354eb5_e05fcdf9",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7f91dde9_69ecf80d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T11:24:28Z",
+      "side": 1,
+      "message": "Actually, rax can be used if I change VisitInvokeInterface in the codegen. Done.",
+      "parentUuid": "b3354eb5_e05fcdf9",
+      "range": {
+        "startLine": 2476,
+        "startChar": 16,
+        "endLine": 2476,
+        "endChar": 31
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "732478dd_ceac3322",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2019-11-27T10:56:32Z",
       "side": 1,
       "message": "This is unnecessary now. Given that you have rewritten the in-memory comparison to load and register comparison, you do not need to load 0 to RAX as it\u0027s now guaranteed by the CMP+JNE above.",
+      "range": {
+        "startLine": 2483,
+        "startChar": 4,
+        "endLine": 2483,
+        "endChar": 25
+      },
+      "revId": "51c0686e1b6585a905537cd31dfd8cdf1cd3ddc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bee66ad_f85a832d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T11:24:28Z",
+      "side": 1,
+      "message": "Good catch. Done.",
+      "parentUuid": "732478dd_ceac3322",
       "range": {
         "startLine": 2483,
         "startChar": 4,
