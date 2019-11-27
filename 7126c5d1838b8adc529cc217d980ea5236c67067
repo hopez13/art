@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "8fa2fbf8_cb59fe5f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2750,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T11:30:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea460d14_680e6072",
+      "range": {
+        "startLine": 2750,
+        "startChar": 4,
+        "endLine": 2750,
+        "endChar": 14
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d9c6450_d09f538b",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -460,6 +484,30 @@
     },
     {
       "key": {
+        "uuid": "db06b897_ced9ba69",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T11:30:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2ac68ab_2811a1af",
+      "range": {
+        "startLine": 2524,
+        "startChar": 4,
+        "endLine": 2525,
+        "endChar": 19
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5698dd83_48fe115d",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 6
@@ -480,6 +528,30 @@
       "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b605e9a0_b8646c8a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T11:30:11Z",
+      "side": 1,
+      "message": "Or not. PS9 looks OK.",
+      "parentUuid": "5698dd83_48fe115d",
+      "range": {
+        "startLine": 2475,
+        "startChar": 4,
+        "endLine": 2479,
+        "endChar": 30
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
