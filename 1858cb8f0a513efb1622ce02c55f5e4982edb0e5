@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e3098759_38999202",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T15:10:36Z",
+      "side": 1,
+      "message": "I see, we would have to skip those checks for intrinsics or insert extra FloatIntBitsToFloat/FloatFloatToRawIntBits calls.\n\nLet\u0027s submit this is as and keep it in mind for future improvements.",
+      "parentUuid": "960a6fef_2dfd2f47",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 54
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a37ffe75_69d8ca57",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -69,6 +93,30 @@
       "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffb008d8_21f7b379",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T15:10:36Z",
+      "side": 1,
+      "message": "Postponed.",
+      "parentUuid": "a37ffe75_69d8ca57",
+      "range": {
+        "startLine": 3273,
+        "startChar": 2,
+        "endLine": 3273,
+        "endChar": 25
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "cfc9867e_4027e950",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T15:10:36Z",
+      "side": 1,
+      "message": "Postponed.",
+      "parentUuid": "95d54bf1_fb8450b2",
+      "range": {
+        "startLine": 3326,
+        "startChar": 2,
+        "endLine": 3327,
+        "endChar": 52
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4de71413_dc8342f2",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -115,6 +187,30 @@
       "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a5db28d_4b7e9c79",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T15:10:36Z",
+      "side": 1,
+      "message": "Postponed.",
+      "parentUuid": "4de71413_dc8342f2",
+      "range": {
+        "startLine": 3337,
+        "startChar": 2,
+        "endLine": 3338,
+        "endChar": 67
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
