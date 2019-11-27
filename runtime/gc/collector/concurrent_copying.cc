@@ -440,6 +440,9 @@ class ConcurrentCopying::ThreadFlipVisitor : public Closure, public RootVisitor 
   void Run(Thread* thread) override REQUIRES_SHARED(Locks::mutator_lock_) {
     // Note: self is not necessarily equal to thread since thread may be suspended.
     Thread* self = Thread::Current();
+    // TODO (lokeshgidra): Remove once b/140119552 is fixed.
+    CHECK(self->GetThreadLocalMarkStack()
+          != reinterpret_cast<accounting::AtomicStack<mirror::Object>*>(0x1));
     CHECK(thread == self || thread->IsSuspended() || thread->GetState() == kWaitingPerformingGc)
         << thread->GetState() << " thread " << thread << " self " << self;
     thread->SetIsGcMarkingAndUpdateEntrypoints(true);
@@ -2059,6 +2062,9 @@ void ConcurrentCopying::RevokeThreadLocalMarkStack(Thread* thread) {
     RemoveThreadMarkStackMapping(thread, tl_mark_stack);
     thread->SetThreadLocalMarkStack(nullptr);
   }
+  // TODO (lokeshgidra): storing a non-null value to diagnose b/140119552.
+  // The CL to be reverted once the issue is fixed.
+  thread->SetThreadLocalMarkStack(reinterpret_cast<accounting::AtomicStack<mirror::Object>*>(0x1));
 }
 
 void ConcurrentCopying::ProcessMarkStack() {
