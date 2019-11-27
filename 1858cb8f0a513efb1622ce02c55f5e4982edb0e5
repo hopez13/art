@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "960a6fef_2dfd2f47",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-11-27T14:43:33Z",
+      "side": 1,
+      "message": "Thanks for the review!\n\nI had tried this when i was writing the first of FP16 intrinsics to use: \n\n  locations-\u003eSetInAt(0, Location::RequiresFpuRegister());\n\n\nWhen doing this, i get the error:\nCheck failed: CheckType(inputs[i]-\u003eGetType(), locations-\u003eInAt(i)) Int16 \n\n\nYou can see that in CheckType function \n\n\n  if (location.IsFpuRegister()\n      || (location.IsUnallocated() \u0026\u0026 (location.GetPolicy() \u003d\u003d Location::kRequiresFpuRegister)))     {\n    return (type \u003d\u003d DataType::Type::kFloat32) || (type \u003d\u003d DataType::Type::kFloat64);\n  } else if (location.IsRegister() ||\n             (location.IsUnallocated() \u0026\u0026 (location.GetPolicy() \u003d\u003d Location::kRequiresRegister))) {\n    return DataType::IsIntegralType(type) || (type \u003d\u003d DataType::Type::kReference);\n\n\nWhen input is a FpuRegister, the input datatype must be float32 or float64.\n\nAs the input to these functions are short (DataType::Type::Int16), they must be Register and not FpuRegister, unless there are changes to code_generator.cc",
+      "parentUuid": "00851347_689b68e1",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 54
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a37ffe75_69d8ca57",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
