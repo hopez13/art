@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "8f5cc901_8b83d060",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3368,
+      "author": {
+        "id": 1576111
+      },
+      "writtenOn": "2019-11-27T15:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc89780_45baeb2d",
+      "range": {
+        "startLine": 3368,
+        "startChar": 17,
+        "endLine": 3368,
+        "endChar": 19
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5525391_8d60f168",
         "filename": "runtime/image.cc",
         "patchSetId": 1
