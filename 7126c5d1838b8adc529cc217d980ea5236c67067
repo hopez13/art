@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f656419_4e91d2cc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3318,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "767029e1_76e785ae",
+      "range": {
+        "startLine": 3318,
+        "startChar": 4,
+        "endLine": 3318,
+        "endChar": 23
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27d33509_eb464409",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acbd7089_6cc138de",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27d33509_eb464409",
+      "range": {
+        "startLine": 2307,
+        "startChar": 26,
+        "endLine": 2307,
+        "endChar": 66
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0240e880_f9677dd0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b296a1ad_195ecbc2",
+      "range": {
+        "startLine": 2309,
+        "startChar": 4,
+        "endLine": 2309,
+        "endChar": 25
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b16f917_4cc7fd53",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -85,6 +157,24 @@
       "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d439a675_1e80e505",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b16f917_4cc7fd53",
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "86334d83_490021cd",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd649b44_3b1a55d0",
+      "range": {
+        "startLine": 2749,
+        "startChar": 18,
+        "endLine": 2749,
+        "endChar": 19
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e82ed53f_dc20f683",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -122,6 +236,30 @@
       "writtenOn": "2019-11-26T13:06:02Z",
       "side": 1,
       "message": "You really should call IsMarked(), otherwise you risk storing 2 references to the same class. See also b/119486841 .",
+      "range": {
+        "startLine": 2750,
+        "startChar": 4,
+        "endLine": 2750,
+        "endChar": 14
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea460d14_680e6072",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2750,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "As discussed, let\u0027s think about how we want to handle this and resolve this in a future CL (potentially adding some assembly code for IsMarked).",
+      "parentUuid": "e82ed53f_dc20f683",
       "range": {
         "startLine": 2750,
         "startChar": 4,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "b31108e8_74bd5d22",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2754,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d9c6450_d09f538b",
+      "range": {
+        "startLine": 2754,
+        "startChar": 4,
+        "endLine": 2754,
+        "endChar": 9
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e88051c_d1f8bea7",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 6
@@ -177,6 +339,30 @@
       "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a3d4b8_3bfe86ae",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e88051c_d1f8bea7",
+      "range": {
+        "startLine": 2880,
+        "startChar": 4,
+        "endLine": 2881,
+        "endChar": 20
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "082bc85b_12437c8c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8b3e99f_11f1b485",
+      "range": {
+        "startLine": 2888,
+        "startChar": 4,
+        "endLine": 2888,
+        "endChar": 8
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2111113_1c701971",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 6
@@ -214,6 +424,30 @@
       "writtenOn": "2019-11-26T13:06:02Z",
       "side": 1,
       "message": "Why not \"PUSH eax\"?",
+      "range": {
+        "startLine": 2524,
+        "startChar": 4,
+        "endLine": 2525,
+        "endChar": 19
+      },
+      "revId": "7126c5d1838b8adc529cc217d980ea5236c67067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2ac68ab_2811a1af",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-27T09:29:41Z",
+      "side": 1,
+      "message": "Because I need ecx as a temp, and eax for cmpxchg.",
+      "parentUuid": "c2111113_1c701971",
       "range": {
         "startLine": 2524,
         "startChar": 4,
