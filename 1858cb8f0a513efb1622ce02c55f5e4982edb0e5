@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00851347_689b68e1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "Make these FP registers to avoid unnecessary moves (rename to CreateFP16FP16ToIntLocations()). If the moves are necessary, we\u0027ll insert a ParallelMove for them.",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 54
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a37ffe75_69d8ca57",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "And you should revisit the submitted intrinsics. This should be CreateFP16ToFP16Locations() to avoid unnecessary moves. You may want to write a benchmark where you feed the result of one intrinsic to another.",
+      "range": {
+        "startLine": 3273,
+        "startChar": 2,
+        "endLine": 3273,
+        "endChar": 25
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d54bf1_fb8450b2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "These are the moves we may avoid if we request input in FP registers.",
+      "range": {
+        "startLine": 3326,
+        "startChar": 2,
+        "endLine": 3327,
+        "endChar": 52
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4de71413_dc8342f2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "And we will not need temps here or below.",
+      "range": {
+        "startLine": 3337,
+        "startChar": 2,
+        "endLine": 3338,
+        "endChar": 67
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "619d08a4_d151a852",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t this fit on one line?",
+      "range": {
+        "startLine": 3343,
+        "startChar": 26,
+        "endLine": 3345,
+        "endChar": 46
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dc89780_45baeb2d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "This function differs from VisitFP16Greater() only in the condition code. What about a helper function? Same for VisitFP16Less() and VisitFP16LessEquals().",
+      "range": {
+        "startLine": 3368,
+        "startChar": 17,
+        "endLine": 3368,
+        "endChar": 19
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5525391_8d60f168",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-27T13:22:36Z",
+      "side": 1,
+      "message": "FP16 gt/ge/lt/le intrinsic\n\n(stick to 100 character limit)",
+      "range": {
+        "startLine": 32,
+        "startChar": 74,
+        "endLine": 32,
+        "endChar": 129
+      },
+      "revId": "1858cb8f0a513efb1622ce02c55f5e4982edb0e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
