@@ -22,6 +22,52 @@
       "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91c2babf_04ec9380",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-28T16:53:48Z",
+      "side": 1,
+      "message": "Unnecessary, you do not allow thread suspension in artCompileOptimized.",
+      "range": {
+        "startLine": 2817,
+        "startChar": 4,
+        "endLine": 2817,
+        "endChar": 28
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6987bf6_9d3d8712",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-11-28T16:53:48Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 2941,
+        "startChar": 4,
+        "endLine": 2941,
+        "endChar": 28
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
