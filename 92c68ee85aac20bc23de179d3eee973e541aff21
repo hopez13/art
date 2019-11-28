@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9ac2e18a_d8ba8c3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-28T14:59:50Z",
+      "side": 1,
+      "message": "Thanks, I did now.\n\nI decided to add asan paths in a separate CL, to avoid asymmetry in handling /apex/com.android.art/ and /system/framework paths.",
+      "parentUuid": "a3368933_93ed3b72",
+      "revId": "92c68ee85aac20bc23de179d3eee973e541aff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ff3631d_9e8dfa55",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2019-11-20T12:50:07Z",
       "side": 1,
       "message": "Note: The full path is unnecessary given that you put the files into the \u003carch\u003e subfolder of the jar folders. You could simply return \"boot.art:boot-framework.art\".",
+      "range": {
+        "startLine": 278,
+        "startChar": 23,
+        "endLine": 278,
+        "endChar": 116
+      },
+      "revId": "92c68ee85aac20bc23de179d3eee973e541aff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65500d5_2842265f",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-11-28T14:59:50Z",
+      "side": 1,
+      "message": "I would prefer to keep the full path, because I think it is better to use exact location and do not rely on defaults unless we really have to. Is there any reason to use the short version aside from aesthetic reasons?",
+      "parentUuid": "3ff3631d_9e8dfa55",
       "range": {
         "startLine": 278,
         "startChar": 23,
