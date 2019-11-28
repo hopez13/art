@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "140e3b08_683e7be6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-28T17:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716ec965_8f0bbe43",
+      "range": {
+        "startLine": 1097,
+        "startChar": 8,
+        "endLine": 1098,
+        "endChar": 54
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91c2babf_04ec9380",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "98126751_8f22a3a3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-28T17:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91c2babf_04ec9380",
+      "range": {
+        "startLine": 2817,
+        "startChar": 4,
+        "endLine": 2817,
+        "endChar": 28
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6987bf6_9d3d8712",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea721cb6_4e0dc4e6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-11-28T17:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6987bf6_9d3d8712",
+      "range": {
+        "startLine": 2941,
+        "startChar": 4,
+        "endLine": 2941,
+        "endChar": 28
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
