@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52745acf_e505aba1",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2058,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-11-28T00:24:03Z",
+      "side": 1,
+      "message": "Is it worth checking for the 1 case here as well?",
+      "range": {
+        "startLine": 2058,
+        "startChar": 6,
+        "endLine": 2058,
+        "endChar": 30
+      },
+      "revId": "caea197ea2f6e856cef7b54bc3b923c481ac094b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
