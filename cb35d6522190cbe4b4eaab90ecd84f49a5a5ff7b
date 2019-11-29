@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "eb954e82_e077da3a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:19:41Z",
+      "side": 1,
+      "message": "wayward declaration",
+      "range": {
+        "startLine": 1090,
+        "startChar": 0,
+        "endLine": 1090,
+        "endChar": 29
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91c2babf_04ec9380",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -140,6 +163,29 @@
       "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce595c2_e7b30cca",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2582,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:19:41Z",
+      "side": 1,
+      "message": "bogon",
+      "range": {
+        "startLine": 2582,
+        "startChar": 27,
+        "endLine": 2582,
+        "endChar": 29
+      },
+      "revId": "cb35d6522190cbe4b4eaab90ecd84f49a5a5ff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

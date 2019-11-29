@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f32b148a_3e096602",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:19:41Z",
+      "side": 1,
+      "message": "Not sure what depends on the extension here.",
+      "range": {
+        "startLine": 1091,
+        "startChar": 0,
+        "endLine": 1091,
+        "endChar": 30
+      },
+      "revId": "8139b44130fdffed99cc4698959ada788e4cc63b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a93d9c_5bd87ce7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2117,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:19:41Z",
+      "side": 1,
+      "message": "Not seeing what depends on this.",
+      "range": {
+        "startLine": 2116,
+        "startChar": 0,
+        "endLine": 2117,
+        "endChar": 48
+      },
+      "revId": "8139b44130fdffed99cc4698959ada788e4cc63b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1a8217b_16925b75",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:19:41Z",
+      "side": 1,
+      "message": "This might be marginally faster in the non-overflow case for x86/x86-64:\n\n addw Address(...), Immediate(1)\n j(kCarryClear, no_overflow)\n movw Address(...), MaxCounter()\n Bind(\u0026no_overflow)\n\nwhich might be easier to read as:\n\naddw Address(...), Immediate(1)\ncmov kCarrySet, Address(...), MaxCounter()",
+      "range": {
+        "startLine": 1079,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 25
+      },
+      "revId": "8139b44130fdffed99cc4698959ada788e4cc63b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
