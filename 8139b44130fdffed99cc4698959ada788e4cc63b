@@ -68,6 +68,30 @@
       "revId": "8139b44130fdffed99cc4698959ada788e4cc63b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0806901d_60988485",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-11-29T12:27:07Z",
+      "side": 1,
+      "message": "Maybe not this as overflow is observable.",
+      "parentUuid": "d1a8217b_16925b75",
+      "range": {
+        "startLine": 1079,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 25
+      },
+      "revId": "8139b44130fdffed99cc4698959ada788e4cc63b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
