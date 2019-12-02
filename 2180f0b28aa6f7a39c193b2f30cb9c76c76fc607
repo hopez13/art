@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7762f7ef_048447fa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-02T15:20:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc970c22_a7686610",
+      "range": {
+        "startLine": 3395,
+        "startChar": 2,
+        "endLine": 3395,
+        "endChar": 101
+      },
+      "revId": "2180f0b28aa6f7a39c193b2f30cb9c76c76fc607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35d97fa7_a6bc93f5",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2180f0b28aa6f7a39c193b2f30cb9c76c76fc607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c0ab2b_16d6de45",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-02T15:20:45Z",
+      "side": 1,
+      "message": "I forgot to add it. It\u0027s in ti_redefine.cc now.",
+      "parentUuid": "35d97fa7_a6bc93f5",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 27
+      },
+      "revId": "2180f0b28aa6f7a39c193b2f30cb9c76c76fc607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
