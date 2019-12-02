@@ -22,6 +22,30 @@
       "revId": "b963d267abd4f4ab72eae12c8808f13360b3bb7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e1effa_9eb6bfcd",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T15:00:24Z",
+      "side": 1,
+      "message": "I guess the short form is unsupported on arm64 as the assembler flatly rejected it when I tried.",
+      "parentUuid": "3b6eb2d4_254b0db2",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "b963d267abd4f4ab72eae12c8808f13360b3bb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
