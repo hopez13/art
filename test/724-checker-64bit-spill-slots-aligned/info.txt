@@ -1,0 +1,4 @@
+Regression test for the optimizing compiler to
+check that 64 bit values that are spilled
+are aligned to a 64 bit address preventing
+unaligned loads (ldur)

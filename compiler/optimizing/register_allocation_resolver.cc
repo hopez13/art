@@ -37,15 +37,27 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
                                          size_t double_spill_slots,
                                          size_t catch_phi_spill_slots,
                                          ArrayRef<LiveInterval* const> temp_intervals) {
-  size_t spill_slots = int_spill_slots
-                     + long_spill_slots
-                     + float_spill_slots
-                     + double_spill_slots
-                     + catch_phi_spill_slots;
+  size_t double_width_spill_slots = long_spill_slots + double_spill_slots;
+  size_t single_width_spill_slots = float_spill_slots + int_spill_slots;
+  size_t non_phi_spill_slots = double_width_spill_slots + single_width_spill_slots;
+  size_t spill_slots = non_phi_spill_slots + catch_phi_spill_slots;
 
   // Update safepoints and calculate the size of the spills.
   UpdateSafepointLiveRegisters();
   size_t maximum_safepoint_spill_size = CalculateMaximumSafepointSpillSize(safepoints);
+
+  // We want to align 64-bit values to a 64-bit boundary using an value that needs
+  // a single slot as padding so not to increase the stack size
+  bool hasOddNumOfSingleSlotValues = (reserved_out_slots + single_width_spill_slots) % 2 != 0;
+  bool useSingleSlotValueAsBuffer = hasOddNumOfSingleSlotValues
+                                     && single_width_spill_slots > 0
+                                     && double_width_spill_slots > 0;
+  // If we cannot use a single slot value use padding
+  bool usePaddingAsBuffer = hasOddNumOfSingleSlotValues
+                              && single_width_spill_slots == 0 && double_width_spill_slots > 0;
+  if (usePaddingAsBuffer) {
+    spill_slots++;
+  }
 
   // Computes frame size and spill mask.
   codegen_->InitializeCodeGeneration(spill_slots,
@@ -53,7 +65,8 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
                                      reserved_out_slots,  // Includes slot(s) for the art method.
                                      codegen_->GetGraph()->GetLinearOrder());
 
-  // Resolve outputs, including stack locations.
+
+  // resolve outputs, including stack locations.
   // TODO: Use pointers of Location inside LiveInterval to avoid doing another iteration.
   for (size_t i = 0, e = liveness_.GetNumberOfSsaValues(); i < e; ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
@@ -99,13 +112,21 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
       // [maximum out values    ] (number of arguments for calls)
       // [art method            ].
       size_t slot = current->GetSpillSlot();
-      switch (current->GetType()) {
+      bool isSingleSlotValue = true;
+      DataType::Type type = current->GetType();
+      switch (type) {
         case DataType::Type::kFloat64:
           slot += long_spill_slots;
           FALLTHROUGH_INTENDED;
         case DataType::Type::kUint64:
         case DataType::Type::kInt64:
           slot += float_spill_slots;
+          // Add padding between Single Slot Values and Double slot values
+          // to align if required
+          if (usePaddingAsBuffer) {
+            slot++;
+          }
+          isSingleSlotValue = false;
           FALLTHROUGH_INTENDED;
         case DataType::Type::kFloat32:
           slot += int_spill_slots;
@@ -118,6 +139,17 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
         case DataType::Type::kInt8:
         case DataType::Type::kBool:
         case DataType::Type::kInt16:
+          // Move the first single spill slot type in the stack to the top so that 64-bit types
+          // will not cross a 64-bit boundary
+          if (useSingleSlotValueAsBuffer) {
+            if (isSingleSlotValue
+                && (int_spill_slots == 0 ? type == DataType::Type::kFloat32 :
+                                           type != DataType::Type::kFloat32)
+                && current->GetSpillSlot() == 0) {
+              slot = non_phi_spill_slots;
+            }
+            slot -= 1;
+          }
           slot += reserved_out_slots;
           break;
         case DataType::Type::kVoid:
