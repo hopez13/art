@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b6eb2d4_254b0db2",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-02T14:55:40Z",
+      "side": 1,
+      "message": "Noob question: why does 64-bit version use the full form (bic xIP0, xIP0, #1) and the 32-bit version omits the second register operand (bic ip, #1)?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "b963d267abd4f4ab72eae12c8808f13360b3bb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
