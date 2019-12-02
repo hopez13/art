@@ -111,10 +111,14 @@ ART_HOST_SHARED_LIBRARY_DEPENDENCIES += $(foreach lib,$(ART_CORE_SHARED_LIBRARIE
 ART_HOST_SHARED_LIBRARY_DEBUG_DEPENDENCIES += $(foreach lib,$(ART_CORE_SHARED_DEBUG_LIBRARIES), $(2ND_HOST_OUT_SHARED_LIBRARIES)/$(lib).so)
 endif
 
-ART_TARGET_SHARED_LIBRARY_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_LIBRARIES), $(TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
+# $(lib).com.android.art.debug refers to the APEX variant of the lib. We no longer can use
+# $(TARGET_OUT_SHARED_LIBRARIES)/$(lib).so because the libraries are never installed to the
+# system partition due to their 'apex_available' settings.
+# Also note that, both the primary and the secondary arches of the libs are built by depending
+# on the module name.
+ART_TARGET_SHARED_LIBRARY_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_LIBRARIES), $(lib).com.android.art.debug)
 ART_TARGET_SHARED_LIBRARY_DEBUG_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_DEBUG_LIBRARIES), $(TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
 ifdef TARGET_2ND_ARCH
-ART_TARGET_SHARED_LIBRARY_DEPENDENCIES += $(foreach lib,$(ART_CORE_SHARED_LIBRARIES), $(2ND_TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
 ART_TARGET_SHARED_LIBRARY_DEBUG_DEPENDENCIES += $(foreach lib,$(ART_CORE_SHARED_DEBUG_LIBRARIES), $(2ND_TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
 endif
 
