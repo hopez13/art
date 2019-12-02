@@ -500,13 +500,18 @@ define define-art-gtest-rule-target
 
   # Add the test dependencies to test-art-target-sync, which will be a prerequisite for the test
   # to ensure files are pushed to the device.
+  # Note: $(lib).com.android.art.debug refers to the APEX variant of the lib. We no longer can use
+  # $(TARGET_OUT_SHARED_LIBRARIES)/$(lib).so because the libraries are never installed to the
+  # system partition due to their 'apex_available' settings.
+  # Also note that, both the primary and the secondary arches of the libs are built by depending
+  # on the module name.
   gtest_deps := \
     $$(ART_GTEST_$(1)_TARGET_DEPS) \
     $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_TARGET_GTEST_$(file)_DEX)) \
     $$(gtest_exe) \
-    $$($(3)TARGET_OUT_SHARED_LIBRARIES)/libicu_jni.so \
-    $$($(3)TARGET_OUT_SHARED_LIBRARIES)/libjavacore.so \
-    $$($(3)TARGET_OUT_SHARED_LIBRARIES)/libopenjdkd.so \
+    libicu_jni.com.android.art.debug \
+    libjavacore.com.android.art.debug \
+    libopenjdkd.com.android.art.debug \
     $$(foreach jar,$$(TARGET_TEST_CORE_JARS),$$(TARGET_OUT_JAVA_LIBRARIES)/$$(jar).jar)
 
   ART_TEST_TARGET_GTEST_DEPENDENCIES += $$(gtest_deps)

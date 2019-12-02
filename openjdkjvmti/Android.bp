@@ -76,6 +76,11 @@ art_cc_library {
         "libdexfile",
         "libartbase",
     ],
+    apex_available: [
+        "com.android.art.release",
+        "com.android.art.debug",
+        "//apex_available:platform_noinstall",
+    ],
 }
 
 art_cc_library {
@@ -90,5 +95,8 @@ art_cc_library {
         "libartd-dexlayout",
         "libdexfiled",
         "libartbased",
+    ],
+    apex_available: [
+        "com.android.art.debug",
     ],
 }

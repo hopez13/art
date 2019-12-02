@@ -23,6 +23,11 @@ cc_library {
         // TODO(b/133140750): Clean this up.
         "//frameworks/base/native/webview/loader/libwebviewchromium_loader",
     ],
+    apex_available: [
+        "com.android.art.release",
+        "com.android.art.debug",
+        "//apex_available:platform_noinstall",
+    ],
 
     host_supported: true,
     srcs: ["native_bridge.cc"],
