@@ -22,6 +22,30 @@
       "revId": "d538868c00d550687c527b510fa2e8f5bf5fb1d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf0e50e0_de5153c0",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-02T09:52:30Z",
+      "side": 1,
+      "message": "Thanks. I am aware of it. For test apexes, this is not checked. https://android-review.googlesource.com/c/platform/build/soong/+/1178643/1/apex/apex.go#1151",
+      "parentUuid": "d427316b_6122572f",
+      "range": {
+        "startLine": 58,
+        "startChar": 25,
+        "endLine": 58,
+        "endChar": 30
+      },
+      "revId": "d538868c00d550687c527b510fa2e8f5bf5fb1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
