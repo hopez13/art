@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cee19904_657d64d8",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-02T12:33:27Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "0322845d_182b55fc",
+      "range": {
+        "startLine": 41,
+        "startChar": 37,
+        "endLine": 41,
+        "endChar": 38
+      },
+      "revId": "5000c571ae7d6ee67bad943094e44288e36451dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48e85c03_e5e006c1",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 9
@@ -68,6 +92,54 @@
       "revId": "5000c571ae7d6ee67bad943094e44288e36451dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e25b02cc_3214a5f7",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-02T12:33:27Z",
+      "side": 1,
+      "message": "Used it, thanks.",
+      "parentUuid": "bd8131e2_104ce842",
+      "range": {
+        "startLine": 278,
+        "startChar": 23,
+        "endLine": 278,
+        "endChar": 44
+      },
+      "revId": "5000c571ae7d6ee67bad943094e44288e36451dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6e1c05b_2d32dba8",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-02T12:33:27Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "48e85c03_e5e006c1",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 118
+      },
+      "revId": "5000c571ae7d6ee67bad943094e44288e36451dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
