@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a26e081_625b235d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-12-02T16:53:04Z",
+      "side": 1,
+      "message": "Nit: could you add comment with reason for claiming and the amount?",
+      "range": {
+        "startLine": 1096,
+        "startChar": 8,
+        "endLine": 1096,
+        "endChar": 21
+      },
+      "revId": "a01c607fdd234c9eb76b581d892ca8d7c56c4a72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fd7c7bc_3c3b2f79",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-12-02T16:53:04Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t know, it might be useful to comment here that we don\u0027t need to emit stackmap / frame info as (as commented) the thread can\u0027t be suspended.",
+      "range": {
+        "startLine": 1107,
+        "startChar": 5,
+        "endLine": 1107,
+        "endChar": 15
+      },
+      "revId": "a01c607fdd234c9eb76b581d892ca8d7c56c4a72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
