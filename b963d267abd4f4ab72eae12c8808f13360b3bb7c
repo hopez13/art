@@ -46,6 +46,30 @@
       "revId": "b963d267abd4f4ab72eae12c8808f13360b3bb7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2380e584_f5dbf3b9",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-02T15:15:17Z",
+      "side": 1,
+      "message": "Ok. I couldn\u0027t find the form which allows to omit the 2nd register, only what\u0027s called \"Operand2\" (and is in this case the 3rd operand):\n\nhttps://static.docs.arm.com/100076/0100/arm_instruction_set_reference_guide_100076_0100_00_en.pdf (C2.17)",
+      "parentUuid": "c2e1effa_9eb6bfcd",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "b963d267abd4f4ab72eae12c8808f13360b3bb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
