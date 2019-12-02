@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77296e56_05be9304",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "You could optionally rewrite this as TST+BNE and drop the UXTH above. Besides being similar to the suggested ARM code, I guess it would yield better performance on little cores.",
+      "range": {
+        "startLine": 1093,
+        "startChar": 4,
+        "endLine": 1093,
+        "endChar": 28
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ff95fb_bbfa542d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "zero extend to clear (the code is correct, the comment is not)",
+      "range": {
+        "startLine": 2092,
+        "startChar": 17,
+        "endLine": 2092,
+        "endChar": 35
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc32d2a8_03741110",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Could be done with UXTH but it should be dropped altogether because it\u0027s unnecessary for the STRH and the CompareAndBranchIfNonZero() below should be replaced anyway, see below.",
+      "range": {
+        "startLine": 2116,
+        "startChar": 4,
+        "endLine": 2117,
+        "endChar": 48
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c31c6a74_8acb92d2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Never generates CBNZ for the register IP. Therefore this can be replaced by \"TST ip, #0xffff; BNE\".",
+      "range": {
+        "startLine": 2122,
+        "startChar": 4,
+        "endLine": 2122,
+        "endChar": 44
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4cd1ce0_49179964",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Refactor to avoid code duplication.",
+      "range": {
+        "startLine": 1090,
+        "startChar": 5,
+        "endLine": 1096,
+        "endChar": 25
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6e7f1ca_dbe1a3ce",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Needs immediate CFA adjustment (and the one below should only adjust for EAX).",
+      "range": {
+        "startLine": 1109,
+        "startChar": 6,
+        "endLine": 1109,
+        "endChar": 33
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c1ff64_b170b01f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "If I remember correctly, kOverflow/kNoOverflow applies to signed operations. You should use kCarryClear.",
+      "range": {
+        "startLine": 1115,
+        "startChar": 11,
+        "endLine": 1115,
+        "endChar": 22
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e42a4a8e_06810fa6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Bad ordering and CFI. Should be\n\n  __ popl(EAX);\n  __ cfi().AdjustCFAOffset(-4);\n  __ addl(ESP, Immediate(8));\n  __ cfi().AdjustCFAOffset(-8);\n\nOTOH, maybe we do not need to restore EAX if the frame is empty?",
+      "range": {
+        "startLine": 1119,
+        "startChar": 6,
+        "endLine": 1121,
+        "endChar": 36
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c048bed9_d3a39c26",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Adjust CFA.",
+      "range": {
+        "startLine": 1128,
+        "startChar": 6,
+        "endLine": 1128,
+        "endChar": 20
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c9d1f7_e10edef8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Adjust CFA.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 6,
+        "endLine": 1131,
+        "endChar": 19
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df986f28_7f0b6561",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "kCarryClear",
+      "range": {
+        "startLine": 1132,
+        "startChar": 11,
+        "endLine": 1132,
+        "endChar": 22
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "510fe6bf_f332be7d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "kCarryClear",
+      "range": {
+        "startLine": 1374,
+        "startChar": 9,
+        "endLine": 1374,
+        "endChar": 20
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d03f146_837a2568",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Adjust CFA.",
+      "range": {
+        "startLine": 1378,
+        "startChar": 6,
+        "endLine": 1378,
+        "endChar": 33
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90782f71_a7849d15",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-02T14:53:58Z",
+      "side": 1,
+      "message": "Adjust CFA. (And maybe we do not need to restore RDI when the frame is empty but POP is probably less code than explicit RSP adjustment.)",
+      "range": {
+        "startLine": 1386,
+        "startChar": 6,
+        "endLine": 1386,
+        "endChar": 32
+      },
+      "revId": "1472d32a9288eb5544192e5d383d92d372deb6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
