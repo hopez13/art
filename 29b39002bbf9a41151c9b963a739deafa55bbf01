@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b1e3665_1d226216",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-03T18:19:29Z",
+      "side": 1,
+      "message": "Usually this is only required for marking the holder object, are you sure it\u0027s required for these roots?",
+      "range": {
+        "startLine": 1723,
+        "startChar": 0,
+        "endLine": 1723,
+        "endChar": 60
+      },
+      "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099faa0a_ed9bfbd0",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-03T18:19:29Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 1752,
+        "startChar": 29,
+        "endLine": 1752,
+        "endChar": 47
+      },
+      "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
