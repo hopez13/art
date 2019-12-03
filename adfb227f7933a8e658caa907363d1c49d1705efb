@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f425a52f_15f4b23c",
+        "filename": "libdexfile/dex/standard_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-03T18:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6197324_a849d966",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60302057_0a7ba337",
         "filename": "tools/cpp-define-generator/art_method.def",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-03T16:47:30Z",
       "side": 1,
       "message": "Perhaps easier for reader if next to ART_METHOD_ACCESS_FLAGS_OFFSET.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d78e4b85_43ac7341",
+        "filename": "tools/cpp-define-generator/art_method.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-03T18:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60302057_0a7ba337",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "993cd358_208be5cb",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-03T18:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45c7546a_bccfc2b3",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 80
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16616160_6b0a2710",
         "filename": "tools/cpp-define-generator/thread.def",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4f54a3ed_194e4c4c",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-03T18:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16616160_6b0a2710",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 1
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c849b85_17050e32",
         "filename": "tools/cpp-define-generator/thread.def",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b07821e_2fb4089b",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-03T18:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c849b85_17050e32",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
