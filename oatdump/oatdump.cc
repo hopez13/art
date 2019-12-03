@@ -1889,8 +1889,6 @@ class ImageDumper {
                                oat_location,
                                /*executable=*/ false,
                                /*low_4gb=*/ false,
-                               /*abs_dex_location=*/ nullptr,
-                               /*reservation=*/ nullptr,
                                &error_msg);
     }
     if (oat_file == nullptr) {
@@ -2765,14 +2763,13 @@ static int DumpImages(Runtime* runtime, OatDumperOptions* options, std::ostream*
     // We need to map the oat file in the low 4gb or else the fixup wont be able to fit oat file
     // pointers into 32 bit pointer sized ArtMethods.
     std::string error_msg;
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
-                                                    options->app_oat_,
-                                                    options->app_oat_,
-                                                    /*executable=*/ false,
-                                                    /*low_4gb=*/ true,
-                                                    /*abs_dex_location=*/ nullptr,
-                                                    /*reservation=*/ nullptr,
-                                                    &error_msg));
+    std::unique_ptr<OatFile> oat_file(
+        OatFile::Open(/*zip_fd=*/ -1,
+                      options->app_oat_,
+                      options->app_oat_,
+                      /*executable=*/ false,
+                      /*low_4gb=*/ true,
+                      &error_msg));
     if (oat_file == nullptr) {
       LOG(ERROR) << "Failed to open oat file " << options->app_oat_ << " with error " << error_msg;
       return EXIT_FAILURE;
@@ -2889,13 +2886,16 @@ static int DumpOat(Runtime* runtime,
     LOG(WARNING) << "No dex filename provided, "
                  << "oatdump might fail if the oat file does not contain the dex code.";
   }
+  std::string dex_filename_str((dex_filename != nullptr) ? dex_filename : "");
+  ArrayRef<const std::string> dex_filenames(&dex_filename_str,
+                                            /*size=*/ (dex_filename != nullptr) ? 1u : 0u);
   std::string error_msg;
   std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
                                                   oat_filename,
                                                   oat_filename,
                                                   /*executable=*/ false,
                                                   /*low_4gb=*/ false,
-                                                  dex_filename,
+                                                  dex_filenames,
                                                   /*reservation=*/ nullptr,
                                                   &error_msg));
   if (oat_file == nullptr) {
@@ -2914,13 +2914,16 @@ static int SymbolizeOat(const char* oat_filename,
                         const char* dex_filename,
                         std::string& output_name,
                         bool no_bits) {
+  std::string dex_filename_str((dex_filename != nullptr) ? dex_filename : "");
+  ArrayRef<const std::string> dex_filenames(&dex_filename_str,
+                                            /*size=*/ (dex_filename != nullptr) ? 1u : 0u);
   std::string error_msg;
   std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
                                                   oat_filename,
                                                   oat_filename,
                                                   /*executable=*/ false,
                                                   /*low_4gb=*/ false,
-                                                  dex_filename,
+                                                  dex_filenames,
                                                   /*reservation=*/ nullptr,
                                                   &error_msg));
   if (oat_file == nullptr) {
@@ -2961,13 +2964,16 @@ class IMTDumper {
     std::vector<const DexFile*> class_path;
 
     if (oat_filename != nullptr) {
+    std::string dex_filename_str((dex_filename != nullptr) ? dex_filename : "");
+    ArrayRef<const std::string> dex_filenames(&dex_filename_str,
+                                              /*size=*/ (dex_filename != nullptr) ? 1u : 0u);
       std::string error_msg;
       std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
                                                       oat_filename,
                                                       oat_filename,
                                                       /*executable=*/ false,
                                                       /*low_4gb=*/false,
-                                                      dex_filename,
+                                                      dex_filenames,
                                                       /*reservation=*/ nullptr,
                                                       &error_msg));
       if (oat_file == nullptr) {

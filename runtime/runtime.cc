@@ -1221,14 +1221,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
         GetSystemImageFilename(image_location_.c_str(), instruction_set_));
     std::string system_oat_location = ImageHeader::GetOatLocationFromImageLocation(image_location_);
     std::string error_msg;
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
-                                                    system_oat_filename,
-                                                    system_oat_location,
-                                                    /*executable=*/ false,
-                                                    /*low_4gb=*/ false,
-                                                    /*abs_dex_location=*/ nullptr,
-                                                    /*reservation=*/ nullptr,
-                                                    &error_msg));
+    std::unique_ptr<OatFile> oat_file(
+        OatFile::Open(/*zip_fd=*/ -1,
+                      system_oat_filename,
+                      system_oat_location,
+                      /*executable=*/ false,
+                      /*low_4gb=*/ false,
+                      &error_msg));
     if (oat_file == nullptr) {
       LOG(ERROR) << "Could not open boot oat file for extracting boot class path: " << error_msg;
       return false;
