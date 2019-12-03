@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d4c855c_58cbc7d1",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-03T18:29:31Z",
+      "side": 1,
+      "message": "The test failures seem to indicate that roots should have their cards marked. As far as I could tell this is the place it needed to be done.\n\nSee\n\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:696] dalvik.system.InMemoryDexClassLoader(0x15b94bf8) references object java.lang.Class\u003cart.SubTransform\u003e(0x15c038a8) in newly allocated region at offset\u003d-1\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:699] time\u003d9\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] holder_\u003d0x15b94bf8 klass\u003d0x6013afe0(java.lang.Class\u003cdalvik.system.InMemoryDexClassLoader\u003e) space\u003dmain space (region space) 0x12c00000-0x32c00000 card\u003d0 adjacent_ram\u003dc071b41500000000000000000000000000000000904e1360804e136000000000|e0af136000000000c04cb915f802b415e84cb91500000000e03a0b8c2f7f0000\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] holder_-\u003eGetMarkBit()\u003d0\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] holder_-\u003eGetReadBarrierState()\u003d0\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] Region containing holder_:\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] Region[190]\u003d0x15b80000-0x15bbfc68-0x15bc0000 state\u003dRegionStateAllocated type\u003dRegionTypeToSpace objects_allocated\u003d5203 alloc_time\u003d9 live_bytes\u003d18446744073709551615 is_newly_allocated\u003dfalse is_a_tlab\u003dfalse thread\u003d(nil)\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:701] region_space_bitmap_-\u003eTest(holder_)\u003dtrue\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] ref\u003d0x15c038a8 klass\u003d0x600319d0(java.lang.Class\u003cjava.lang.Class\u003e) space\u003dmain space (region space) 0x12c00000-0x32c00000 card\u003d111 adjacent_ram\u003dc093347b2f7f0000402e02600000000001000000000000009893347b2f7f0000|d019036000000000f84bb91500000000284cb915c039c015d837c01500000000\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] ref-\u003eGetMarkBit()\u003d0\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] ref-\u003eGetReadBarrierState()\u003d0\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] Region containing ref:\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] Region[192]\u003d0x15c00000-0x15c40000-0x15c40000 state\u003dRegionStateAllocated type\u003dRegionTypeToSpace objects_allocated\u003d4194 alloc_time\u003d9 live_bytes\u003d18446744073709551615 is_newly_allocated\u003dtrue is_a_tlab\u003dfalse thread\u003d(nil)\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:702] region_space_bitmap_-\u003eTest(ref)\u003dfalse\n+dalvikvm64 F 12-03 06:42:36 19938 20138 concurrent_copying.cc:703] Unexpected reference to newly allocated region.\n\nThe check makes sure that everything is either in an old region or has it\u0027s card marked. This marks the card (and we just potentially allocated the object so it can\u0027t be in the old region).",
+      "parentUuid": "0b1e3665_1d226216",
+      "range": {
+        "startLine": 1723,
+        "startChar": 0,
+        "endLine": 1723,
+        "endChar": 60
+      },
+      "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "099faa0a_ed9bfbd0",
         "filename": "openjdkjvmti/ti_heap.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef87c197_0cec77bb",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-03T18:29:31Z",
+      "side": 1,
+      "message": "see above.",
+      "parentUuid": "099faa0a_ed9bfbd0",
+      "range": {
+        "startLine": 1752,
+        "startChar": 29,
+        "endLine": 1752,
+        "endChar": 47
+      },
+      "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
