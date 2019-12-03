@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fb1d0e8d_d3238a5e",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-03T22:03:25Z",
+      "side": 1,
+      "message": "That check is for generational CC to make sure that all references to newly allocated regions are on marked cards. It seems to imply that the class loader referring to java.lang.Class\u003cart.SubTransform\u003e should be on a dirty card but isn\u0027t. It\u0027s unclear how marking the runtime roots would be the correct fix. I think the bug is that ReplaceObjectReferences is doing the read barrier on the reference instead of the holder (in VisitRoot).",
+      "parentUuid": "8d4c855c_58cbc7d1",
+      "range": {
+        "startLine": 1723,
+        "startChar": 0,
+        "endLine": 1723,
+        "endChar": 60
+      },
+      "revId": "29b39002bbf9a41151c9b963a739deafa55bbf01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "099faa0a_ed9bfbd0",
         "filename": "openjdkjvmti/ti_heap.cc",
         "patchSetId": 1
