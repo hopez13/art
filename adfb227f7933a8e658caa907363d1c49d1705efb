@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6197324_a849d966",
+        "filename": "libdexfile/dex/standard_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-03T16:47:30Z",
+      "side": 1,
+      "message": "nit: extra line.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60302057_0a7ba337",
+        "filename": "tools/cpp-define-generator/art_method.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-03T16:47:30Z",
+      "side": 1,
+      "message": "Perhaps easier for reader if next to ART_METHOD_ACCESS_FLAGS_OFFSET.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45c7546a_bccfc2b3",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-03T16:47:30Z",
+      "side": 1,
+      "message": "Order 32, 64, 64, 32",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 80
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16616160_6b0a2710",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-03T16:47:30Z",
+      "side": 1,
+      "message": "tab",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 1
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c849b85_17050e32",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-03T16:47:30Z",
+      "side": 1,
+      "message": "tab",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "adfb227f7933a8e658caa907363d1c49d1705efb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
