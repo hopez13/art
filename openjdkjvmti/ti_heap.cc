@@ -58,6 +58,7 @@
 #include "object_callbacks.h"
 #include "object_tagging.h"
 #include "offsets.h"
+#include "read_barrier.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
@@ -1701,7 +1702,7 @@ static void ReplaceStrongRoots(art::Thread* self, const ObjectMap& map)
         REQUIRES_SHARED(art::Locks::mutator_lock_) {
       art::mirror::Object*** end = roots + count;
       for (art::mirror::Object** obj = *roots; roots != end; obj = *(++roots)) {
-        auto it = map_.find(*obj);
+        auto it = map_.find(art::ReadBarrier::BarrierForRoot(obj));
         if (it != map_.end()) {
           // Java frames might have the JIT doing optimizations (for example loop-unrolling or
           // eliding bounds checks) so we need deopt them once we're done here.
@@ -1718,6 +1719,8 @@ static void ReplaceStrongRoots(art::Thread* self, const ObjectMap& map)
             }
           }
           *obj = it->second.Ptr();
+          // Mark the new value.
+          art::WriteBarrier::ForEveryFieldWrite(it->second);
         }
       }
     }
@@ -1728,7 +1731,7 @@ static void ReplaceStrongRoots(art::Thread* self, const ObjectMap& map)
       art::mirror::CompressedReference<art::mirror::Object>** end = roots + count;
       for (art::mirror::CompressedReference<art::mirror::Object>* obj = *roots; roots != end;
            obj = *(++roots)) {
-        auto it = map_.find(obj->AsMirrorPtr());
+        auto it = map_.find(art::ReadBarrier::BarrierForRoot(obj));
         if (it != map_.end()) {
           // Java frames might have the JIT doing optimizations (for example loop-unrolling or
           // eliding bounds checks) so we need deopt them once we're done here.
@@ -1745,6 +1748,8 @@ static void ReplaceStrongRoots(art::Thread* self, const ObjectMap& map)
             }
           }
           obj->Assign(it->second);
+          // Mark the new value.
+          art::WriteBarrier::ForEveryFieldWrite(it->second);
         }
       }
     }
