@@ -65,8 +65,8 @@ class X86JniCallingConvention final : public JniCallingConvention {
   ManagedRegister IntReturnRegister() override;
   ManagedRegister InterproceduralScratchRegister() override;
   // JNI calling convention
-  size_t FrameSize() override;
-  size_t OutArgSize() override;
+  size_t FrameSize() const override;
+  size_t OutArgSize() const override;
   ArrayRef<const ManagedRegister> CalleeSaveRegisters() const override;
   ManagedRegister ReturnScratchRegister() const override;
   uint32_t CoreSpillMask() const override;
@@ -78,11 +78,14 @@ class X86JniCallingConvention final : public JniCallingConvention {
 
   // x86 needs to extend small return types.
   bool RequiresSmallResultTypeExtension() const override {
-    return true;
+    return HasSmallReturnType();
   }
 
- protected:
-  size_t NumberOfOutgoingStackArgs() override;
+  // Hidden argument register, used to pass the method pointer for @CriticalNative call.
+  ManagedRegister HiddenArgumentRegister() const override;
+
+  // Whether to use tail call (used only for @CriticalNative).
+  bool UseTailCall() const override;
 
  private:
   DISALLOW_COPY_AND_ASSIGN(X86JniCallingConvention);

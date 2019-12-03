@@ -63,8 +63,8 @@ class ArmJniCallingConvention final : public JniCallingConvention {
   ManagedRegister InterproceduralScratchRegister() override;
   // JNI calling convention
   void Next() override;  // Override default behavior for AAPCS
-  size_t FrameSize() override;
-  size_t OutArgSize() override;
+  size_t FrameSize() const override;
+  size_t OutArgSize() const override;
   ArrayRef<const ManagedRegister> CalleeSaveRegisters() const override;
   ManagedRegister ReturnScratchRegister() const override;
   uint32_t CoreSpillMask() const override;
@@ -79,8 +79,11 @@ class ArmJniCallingConvention final : public JniCallingConvention {
     return false;
   }
 
- protected:
-  size_t NumberOfOutgoingStackArgs() override;
+  // Hidden argument register, used to pass the method pointer for @CriticalNative call.
+  ManagedRegister HiddenArgumentRegister() const override;
+
+  // Whether to use tail call (used only for @CriticalNative).
+  bool UseTailCall() const override;
 
  private:
   // Padding to ensure longs and doubles are not split in AAPCS
