@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04e81cc5_87310805",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-04T01:49:29Z",
+      "side": 1,
+      "message": "Looking at this again, I don\u0027t think this and later accesses to orig_owner are safe, since there\u0027s nothing to prevent the underlying thread from terminating and getting deallocated. In the original version that wasn\u0027t an issue because orig_owner needed to acquire the mutex to release the monitor. I thought I had addressed this, but if so, it got lost.",
+      "range": {
+        "startLine": 452,
+        "startChar": 68,
+        "endLine": 452,
+        "endChar": 79
+      },
+      "revId": "536589b0713da845410d7625d1c8d1122b5413e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
