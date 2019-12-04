@@ -70,6 +70,46 @@
       "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf54708d_ece0289e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4059,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-04T16:58:55Z",
+      "side": 1,
+      "message": "Why not clear the entry? I guess it doesn\u0027t make much difference as we\u0027re clearing the cache when unloading a class loader.",
+      "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0777942_45e92819",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4064,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-04T16:58:55Z",
+      "side": 1,
+      "message": "We should have a bug for making them weak interns.",
+      "range": {
+        "startLine": 4064,
+        "startChar": 55,
+        "endLine": 4064,
+        "endChar": 72
+      },
+      "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
