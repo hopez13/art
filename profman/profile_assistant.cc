@@ -35,7 +35,6 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
         const ProfileCompilationInfo::ProfileLoadFilterFn& filter_fn,
         const Options& options) {
   DCHECK(!profile_files.empty());
-
   ProfileCompilationInfo info(options.IsBootImageMerge());
 
   // Load the reference profile.
@@ -58,6 +57,12 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
     ProfileCompilationInfo cur_info;
     if (!cur_info.Load(profile_files[i]->Fd(), /*merge_classes=*/ true, filter_fn)) {
       LOG(WARNING) << "Could not load profile file at index " << i;
+      if (options.IsForceMerge()) {
+        // If we have to merge forcefully, ignore load failures.
+        // This is useful for boot image profiles to ignore stale profiles which are
+        // cleared lazily.
+        continue;
+      }
       return kErrorBadProfiles;
     }
 
