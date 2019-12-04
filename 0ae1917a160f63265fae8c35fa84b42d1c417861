@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84f693c9_ac2e4c0b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-04T15:45:09Z",
+      "side": 1,
+      "message": "half wonder whether this should slot into runtime/gc?\n\nProcessWeakClass is a bit generic, not sure what processing would entail.",
+      "range": {
+        "startLine": 778,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 44
+      },
+      "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
