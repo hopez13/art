@@ -26,6 +26,9 @@
 extern "C" void* artMterpAsmInstructionStart[];
 extern "C" void* artMterpAsmInstructionEnd[];
 
+extern "C" void* artNterpAsmInstructionStart[];
+extern "C" void* artNterpAsmInstructionEnd[];
+
 namespace art {
 
 class Thread;
@@ -34,6 +37,7 @@ namespace interpreter {
 
 void InitMterpTls(Thread* self);
 void CheckMterpAsmConstants();
+void CheckNterpAsmConstants();
 bool CanUseMterp();
 
 // Poison value for TestExportPC.  If we segfault with this value, it means that a mterp
