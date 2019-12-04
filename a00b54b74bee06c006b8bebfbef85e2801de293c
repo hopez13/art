@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4dac7f2c_d24bc713",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T16:17:43Z",
+      "side": 1,
+      "message": "Yes, sorry for confusion - It\u0027s not for stack overflow but other implicit checks, where we want to map from native PC to dex PC, but for the new interpreter logic, we need to know the start of the frame to compute the dex pc.",
+      "parentUuid": "dc239798_913e1ab0",
+      "range": {
+        "startLine": 27,
+        "startChar": 39,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b5c3086_d50bb32c",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
