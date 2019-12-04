@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "51e6c923_48f22cf5",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T14:44:42Z",
+      "side": 1,
+      "message": "To play with implicit stack overflow checks in the interpreter. The logic to go from native PC to dex pc in a fault handler needs to be different for interpreter.",
+      "parentUuid": "e55dd1fe_abc8bc58",
+      "range": {
+        "startLine": 27,
+        "startChar": 39,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b5c3086_d50bb32c",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-04T12:49:41Z",
       "side": 1,
       "message": "Note: David was experimenting with non-instruction pointers as the key.",
+      "range": {
+        "startLine": 4041,
+        "startChar": 30,
+        "endLine": 4041,
+        "endChar": 79
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "903d9cab_3c4039b2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4041,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T14:44:42Z",
+      "side": 1,
+      "message": "Ack - I\u0027ll sync with David.",
+      "parentUuid": "6b5c3086_d50bb32c",
       "range": {
         "startLine": 4041,
         "startChar": 30,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "5a9e1410_f2fdcf05",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4053,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T14:44:42Z",
+      "side": 1,
+      "message": "Ah right, this needs to move to weak reference handling. Good catch.",
+      "parentUuid": "e2130f33_5a735860",
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57d048b7_0c96f3ed",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "a4d2692d_0844e10c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T14:44:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d048b7_0c96f3ed",
+      "range": {
+        "startLine": 729,
+        "startChar": 48,
+        "endLine": 729,
+        "endChar": 59
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0816e08d_21fc7d98",
         "filename": "tools/cpp-define-generator/mirror_object.def",
         "patchSetId": 5
@@ -99,6 +189,30 @@
       "writtenOn": "2019-12-04T12:49:41Z",
       "side": 1,
       "message": "These are probably x86-specific (for in-memory comparison), arm/arm64 should load the entire word.\n\nSo, you should provide the raw offset and flag values and X86 can manipulate them with \"/ 8\", \"%8\" and \"\u003e\u003e24\".",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98e9cfeb_2eea0324",
+        "filename": "tools/cpp-define-generator/mirror_object.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T14:44:42Z",
+      "side": 1,
+      "message": "Ack, will cleanup once we do more than x64.",
+      "parentUuid": "0816e08d_21fc7d98",
       "range": {
         "startLine": 27,
         "startChar": 0,
