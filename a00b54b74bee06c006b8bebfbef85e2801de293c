@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dc239798_913e1ab0",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-04T16:15:01Z",
+      "side": 1,
+      "message": "Makes sense after discussing offline.",
+      "parentUuid": "51e6c923_48f22cf5",
+      "range": {
+        "startLine": 27,
+        "startChar": 39,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b5c3086_d50bb32c",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -128,6 +152,24 @@
       "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f08d8af9_d393da00",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4053,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-04T16:15:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a9e1410_f2fdcf05",
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -222,6 +264,30 @@
       "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d3f2a0d_64d55da1",
+        "filename": "tools/cpp-define-generator/mirror_object.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-04T16:15:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98e9cfeb_2eea0324",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "a00b54b74bee06c006b8bebfbef85e2801de293c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
