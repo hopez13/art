@@ -22,6 +22,30 @@
       "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf480bb3_b0c24b16",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-04T15:51:19Z",
+      "side": 1,
+      "message": "Yeah, I agree runtime isn\u0027t the right place for this. Are you suggesting runtime/gc/heap.h? Another file? Or do you prefer a new file?",
+      "parentUuid": "84f693c9_ac2e4c0b",
+      "range": {
+        "startLine": 778,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 44
+      },
+      "revId": "0ae1917a160f63265fae8c35fa84b42d1c417861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
