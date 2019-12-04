@@ -38,6 +38,7 @@
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
+#include "nterp_helpers.h"
 #include "oat_quick_method_header.h"
 #include "obj_ptr-inl.h"
 #include "quick/quick_method_frame_info.h"
@@ -122,13 +123,16 @@ uint32_t StackVisitor::GetDexPc(bool abort_on_failure) const {
       return current_inline_frames_.back().GetDexPc();
     } else if (cur_oat_quick_method_header_ == nullptr) {
       return dex::kDexNoIndex;
-    } else if (!(*GetCurrentQuickFrame())->IsNative()) {
+    } else if ((*GetCurrentQuickFrame())->IsNative()) {
+      return cur_oat_quick_method_header_->ToDexPc(
+          GetCurrentQuickFrame(), cur_quick_frame_pc_, abort_on_failure);
+    } else if (cur_oat_quick_method_header_->IsOptimized()) {
       StackMap* stack_map = GetCurrentStackMap();
       DCHECK(stack_map->IsValid());
       return stack_map->GetDexPc();
     } else {
-      return cur_oat_quick_method_header_->ToDexPc(
-          GetCurrentQuickFrame(), cur_quick_frame_pc_, abort_on_failure);
+      DCHECK(cur_oat_quick_method_header_->IsNterpMethodHeader());
+      return NterpGetDexPC(cur_quick_frame_);
     }
   } else {
     return 0;
@@ -212,6 +216,10 @@ bool StackVisitor::GetVReg(ArtMethod* m,
     DCHECK(m == GetMethod());
     // Check if there is value set by the debugger.
     if (GetVRegFromDebuggerShadowFrame(vreg, kind, val)) {
+      return true;
+    }
+    if (cur_oat_quick_method_header_->IsNterpMethodHeader()) {
+      *val = NterpGetVReg(cur_quick_frame_, vreg);
       return true;
     }
     DCHECK(cur_oat_quick_method_header_->IsOptimized());
@@ -746,7 +754,7 @@ void StackVisitor::SanityCheckFrame() const {
       // TODO: this seems architecture specific for the case of JNI frames.
       // TODO: 083-compiler-regressions ManyFloatArgs shows this estimate is wrong.
       // const size_t kMaxExpectedFrameSize = (256 + 2 + 3 + 3) * sizeof(word);
-      const size_t kMaxExpectedFrameSize = 2 * KB;
+      const size_t kMaxExpectedFrameSize = 3 * KB;
       CHECK_LE(frame_size, kMaxExpectedFrameSize) << method->PrettyMethod();
       size_t return_pc_offset = GetCurrentQuickFrameInfo().GetReturnPcOffset();
       CHECK_LT(return_pc_offset, frame_size);
@@ -771,7 +779,12 @@ static uint32_t GetNumberOfReferenceArgsWithoutReceiver(ArtMethod* method)
 
 QuickMethodFrameInfo StackVisitor::GetCurrentQuickFrameInfo() const {
   if (cur_oat_quick_method_header_ != nullptr) {
-    return cur_oat_quick_method_header_->GetFrameInfo();
+    if (cur_oat_quick_method_header_->IsOptimized()) {
+      return cur_oat_quick_method_header_->GetFrameInfo();
+    } else {
+      DCHECK(cur_oat_quick_method_header_->IsNterpMethodHeader());
+      return NterpFrameInfo(cur_quick_frame_);
+    }
   }
 
   ArtMethod* method = GetMethod();
@@ -838,7 +851,6 @@ void StackVisitor::WalkStack(bool include_transitions) {
     cur_quick_frame_ = current_fragment->GetTopQuickFrame();
     cur_quick_frame_pc_ = 0;
     cur_oat_quick_method_header_ = nullptr;
-
     if (cur_quick_frame_ != nullptr) {  // Handle quick stack frames.
       // Can't be both a shadow and a quick fragment.
       DCHECK(current_fragment->GetTopShadowFrame() == nullptr);

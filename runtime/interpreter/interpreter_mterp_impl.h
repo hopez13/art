@@ -36,6 +36,8 @@ extern "C" bool ExecuteMterpImpl(Thread* self,
                                  ShadowFrame* shadow_frame,
                                  JValue* result_register) REQUIRES_SHARED(Locks::mutator_lock_);
 
+extern "C" void ExecuteNterpImpl() REQUIRES_SHARED(Locks::mutator_lock_);
+
 }  // namespace interpreter
 }  // namespace art
 

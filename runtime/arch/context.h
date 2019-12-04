@@ -88,6 +88,10 @@ class Context {
   // Smashes the caller save registers. If we're throwing, we don't want to return bogus values.
   virtual void SmashCallerSaves() = 0;
 
+  virtual void SetNterpDexPC(uintptr_t new_value ATTRIBUTE_UNUSED) {
+    abort();
+  }
+
   // Switches execution of the executing context to this context
   NO_RETURN virtual void DoLongJump() = 0;
 
