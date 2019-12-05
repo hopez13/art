@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f8174b7_4432dd8e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-05T16:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a9b911_d07ff61a",
+      "range": {
+        "startLine": 1488,
+        "startChar": 6,
+        "endLine": 1488,
+        "endChar": 41
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bd3f63e_d24aa24d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "64eec6b2_07bb065f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-05T16:51:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bd3f63e_d24aa24d",
+      "range": {
+        "startLine": 1264,
+        "startChar": 22,
+        "endLine": 1264,
+        "endChar": 36
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f39c32d_e6aedffd",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-12-05T16:44:08Z",
       "side": 1,
       "message": "Is this going to be part of this CL?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 38
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88d52a7_85484642",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-05T16:51:43Z",
+      "side": 1,
+      "message": "No - this CL is a quick fix to stop flakes on go/lem.",
+      "parentUuid": "9f39c32d_e6aedffd",
       "range": {
         "startLine": 1278,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fb7c62ae_403dd134",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-05T16:51:43Z",
+      "side": 1,
+      "message": "Yeah, but I want the null check after line 1687 in case we failed to allocate.",
+      "parentUuid": "4984ea05_900912ae",
+      "range": {
+        "startLine": 1685,
+        "startChar": 50,
+        "endLine": 1685,
+        "endChar": 65
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97c2a976_eb52374b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2019-12-05T16:44:08Z",
       "side": 1,
       "message": "Should there be VLOG(jit) here on success? cf ProfilingInfo::Create in jit.cc",
+      "range": {
+        "startLine": 1687,
+        "startChar": 6,
+        "endLine": 1687,
+        "endChar": 72
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e490240_e352ebc2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-05T16:51:43Z",
+      "side": 1,
+      "message": "No need I think, we\u0027ll get a vlog that the method is being baseline compiled, which implicitly means profiled.",
+      "parentUuid": "97c2a976_eb52374b",
       "range": {
         "startLine": 1687,
         "startChar": 6,
