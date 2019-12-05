@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6a9b911_d07ff61a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T16:44:08Z",
+      "side": 1,
+      "message": "Comment? Task being added is for optimized compile.",
+      "range": {
+        "startLine": 1488,
+        "startChar": 6,
+        "endLine": 1488,
+        "endChar": 41
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bd3f63e_d24aa24d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T16:44:08Z",
+      "side": 1,
+      "message": "Seems destined to be out of date with edits above.",
+      "range": {
+        "startLine": 1264,
+        "startChar": 22,
+        "endLine": 1264,
+        "endChar": 36
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f39c32d_e6aedffd",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T16:44:08Z",
+      "side": 1,
+      "message": "Is this going to be part of this CL?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 38
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4984ea05_900912ae",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T16:44:08Z",
+      "side": 1,
+      "message": "common condition between this line and L1689.",
+      "range": {
+        "startLine": 1685,
+        "startChar": 50,
+        "endLine": 1685,
+        "endChar": 65
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c2a976_eb52374b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T16:44:08Z",
+      "side": 1,
+      "message": "Should there be VLOG(jit) here on success? cf ProfilingInfo::Create in jit.cc",
+      "range": {
+        "startLine": 1687,
+        "startChar": 6,
+        "endLine": 1687,
+        "endChar": 72
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
