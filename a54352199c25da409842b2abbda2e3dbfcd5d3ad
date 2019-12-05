@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "cee9ec14_c5f8f932",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-05T16:40:19Z",
+      "side": 1,
+      "message": "Can you please add the rationale?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1c07597_ec447b3c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-05T16:40:19Z",
+      "side": 1,
+      "message": "What about boot image extension, don\u0027t we want to enforce multi_image_ as well? If no, maybe it\u0027s worth a comment explaining how primary and extension images differ in this respect.",
+      "range": {
+        "startLine": 956,
+        "startChar": 8,
+        "endLine": 956,
+        "endChar": 21
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8630556_9b931436",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-05T16:40:19Z",
+      "side": 1,
+      "message": "Why the test for boot image / boot image extension, and not for multi_image_ flag? Isn\u0027t it possible that we may need multi-image in some other case in future?",
+      "range": {
+        "startLine": 1335,
+        "startChar": 4,
+        "endLine": 1335,
+        "endChar": 50
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b23cff9_f2ff9cce",
         "filename": "dex2oat/dex2oat_image_test.cc",
         "patchSetId": 3
@@ -64,6 +133,29 @@
         "startChar": 7,
         "endLine": 742,
         "endChar": 13
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a05a2d54_f5d4b625",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3238,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-05T16:40:19Z",
+      "side": 1,
+      "message": "Not for this Cl, but generally I think it\u0027s better to do massive renamings in a separate CL that would have no functional changes.",
+      "range": {
+        "startLine": 3238,
+        "startChar": 13,
+        "endLine": 3238,
+        "endChar": 24
       },
       "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
