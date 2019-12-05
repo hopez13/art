@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0e101e1_1daab9f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-05T17:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee9ec14_c5f8f932",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c07597_ec447b3c",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "28a2e84a_6b223d5f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-05T17:05:01Z",
+      "side": 1,
+      "message": "No, extensions are exactly the intended use case for --single-image.",
+      "parentUuid": "e1c07597_ec447b3c",
+      "range": {
+        "startLine": 956,
+        "startChar": 8,
+        "endLine": 956,
+        "endChar": 21
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8630556_9b931436",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e3f495a_063359ac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-05T17:05:01Z",
+      "side": 1,
+      "message": "ExpandOatImageFiles() itself checks the multi-image flag and behaves accordingly. But the comment was out of date, so I updated that.",
+      "parentUuid": "b8630556_9b931436",
+      "range": {
+        "startLine": 1335,
+        "startChar": 4,
+        "endLine": 1335,
+        "endChar": 50
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +295,30 @@
       "writtenOn": "2019-12-05T16:40:19Z",
       "side": 1,
       "message": "Not for this Cl, but generally I think it\u0027s better to do massive renamings in a separate CL that would have no functional changes.",
+      "range": {
+        "startLine": 3238,
+        "startChar": 13,
+        "endLine": 3238,
+        "endChar": 24
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b953eb4_484e5d7b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-05T17:05:01Z",
+      "side": 1,
+      "message": "This is not a rename, we still have a component count and we use it below. Previously the number of spaces was directly tied to the number of components but this CL allows a single space for multiple components.",
+      "parentUuid": "a05a2d54_f5d4b625",
       "range": {
         "startLine": 3238,
         "startChar": 13,
