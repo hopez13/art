@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "3def2397_b254ed09",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T17:15:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a88d52a7_85484642",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 38
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4984ea05_900912ae",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Yeah, but I want the null check after line 1687 in case we failed to allocate.",
       "parentUuid": "4984ea05_900912ae",
+      "range": {
+        "startLine": 1685,
+        "startChar": 50,
+        "endLine": 1685,
+        "endChar": 65
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2e9e012_8334d443",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T17:15:03Z",
+      "side": 1,
+      "message": "Should |info| be updated if ProfilingInfo::Create() succeeds?",
+      "parentUuid": "fb7c62ae_403dd134",
       "range": {
         "startLine": 1685,
         "startChar": 50,
@@ -234,6 +282,30 @@
       "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12711e41_e0c1620f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-05T17:15:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e490240_e352ebc2",
+      "range": {
+        "startLine": 1687,
+        "startChar": 6,
+        "endLine": 1687,
+        "endChar": 72
+      },
+      "revId": "e8c7d2d20638d17c76c5e51037ae9a1b0cb6d595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
