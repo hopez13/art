@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6d72482_08cd5aeb",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "I think that this is only really useful for dex-files that can be hit by class-loading so I think we want to keep it to dex-files + class-loaders the class-linker knows about.",
+      "parentUuid": "5124b8a3_ab5e514d",
+      "range": {
+        "startLine": 460,
+        "startChar": 5,
+        "endLine": 460,
+        "endChar": 12
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "036a2f8a_f41de97c",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b13903a2_1d62d4da",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "It shouldn\u0027t. Each art::DexFile needs to be owned by exactly one class-loader (or be BCP) in order for class-unloading to work.",
+      "parentUuid": "036a2f8a_f41de97c",
+      "range": {
+        "startLine": 464,
+        "startChar": 8,
+        "endLine": 464,
+        "endChar": 21
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "23400b19_c6b51422",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8824ad70_db9000f6",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 119
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee4d5601_87f75504",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2b5746a_ce5c7887",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee4d5601_87f75504",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "db197bbc_bf2e8878",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2850,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf8674a_3d91ff11",
+      "range": {
+        "startLine": 2850,
+        "startChar": 20,
+        "endLine": 2850,
+        "endChar": 38
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7abeb360_62ef1d44",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9875021_aaf154c0",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-06T20:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7abeb360_62ef1d44",
+      "range": {
+        "startLine": 221,
+        "startChar": 28,
+        "endLine": 221,
+        "endChar": 33
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
