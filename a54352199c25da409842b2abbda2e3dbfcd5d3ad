@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0d1524cb_8c69be62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-06T10:56:24Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "b0e101e1_1daab9f1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c07597_ec447b3c",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3c734fa2_702d825f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-06T10:56:24Z",
+      "side": 1,
+      "message": "Ah, right.",
+      "parentUuid": "28a2e84a_6b223d5f",
+      "range": {
+        "startLine": 956,
+        "startChar": 8,
+        "endLine": 956,
+        "endChar": 21
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8630556_9b931436",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "ExpandOatImageFiles() itself checks the multi-image flag and behaves accordingly. But the comment was out of date, so I updated that.",
       "parentUuid": "b8630556_9b931436",
+      "range": {
+        "startLine": 1335,
+        "startChar": 4,
+        "endLine": 1335,
+        "endChar": 50
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c8f41fd_7c303a35",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-06T10:56:24Z",
+      "side": 1,
+      "message": "Ah, thanks.",
+      "parentUuid": "2e3f495a_063359ac",
       "range": {
         "startLine": 1335,
         "startChar": 4,
@@ -328,6 +400,30 @@
       "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b42f1424_4ef38668",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3238,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-06T10:56:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b953eb4_484e5d7b",
+      "range": {
+        "startLine": 3238,
+        "startChar": 13,
+        "endLine": 3238,
+        "endChar": 24
+      },
+      "revId": "a54352199c25da409842b2abbda2e3dbfcd5d3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
