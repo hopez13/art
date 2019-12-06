@@ -1192,6 +1192,10 @@ class Heap {
 
   ALWAYS_INLINE void IncrementNumberOfBytesFreedRevoke(size_t freed_bytes_revoke);
 
+  // On switching app from background to foreground, grow the heap size
+  // to incorporate foreground heap growth multiplier.
+  void GrowHeapOnJankPerceptibleSwitch();
+
   // Update *_freed_ever_ counters to reflect current GC values.
   void IncrementFreedEver();
 
@@ -1340,6 +1344,11 @@ class Heap {
   // non-concurrent GC. Used as a guideline for computing concurrent_start_bytes_ in the
   // concurrent GC case.
   Atomic<size_t> target_footprint_;
+
+  // Computed with foreground-multiplier in GrowForUtilization() when run in
+  // jank non-perceptible state. On update to process state from background to
+  // foreground we set target_footprint_ to this value.
+  Atomic<size_t> target_footprint_process_state_switch_;
 
   // When num_bytes_allocated_ exceeds this amount then a concurrent GC should be requested so that
   // it completes ahead of an allocation failing.
