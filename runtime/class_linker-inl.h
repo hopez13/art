@@ -19,6 +19,7 @@
 
 #include <atomic>
 
+#include "android-base/thread_annotations.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/mutex.h"
@@ -27,12 +28,14 @@
 #include "dex/dex_file_structs.h"
 #include "gc_root-inl.h"
 #include "handle_scope-inl.h"
+#include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache-inl.h"
 #include "mirror/iftable.h"
 #include "mirror/object_array-inl.h"
 #include "obj_ptr-inl.h"
 #include "scoped_thread_state_change-inl.h"
+#include "well_known_classes.h"
 
 namespace art {
 
@@ -447,6 +450,21 @@ inline ObjPtr<mirror::ObjectArray<mirror::Class>> ClassLinker::GetClassRoots() {
       class_roots_.Read<kReadBarrierOption>();
   DCHECK(class_roots != nullptr);
   return class_roots;
+}
+
+template <typename Visitor>
+void ClassLinker::VisitKnownDexFiles(Thread* self, Visitor visitor) {
+  // BCP.
+  std::for_each(GetBootClassPath().begin(), GetBootClassPath().end(), visitor);
+  ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
+  // Non-BCP.
+  auto cl_vis = [&](ObjPtr<mirror::ClassLoader> cl) NO_THREAD_SAFETY_ANALYSIS {
+    Locks::mutator_lock_->AssertExclusiveHeld(self);
+    CHECK(cl->IsClassLoader());
+    cl->VisitDexFiles(visitor);
+  };
+  ClassLoaderFuncVisitor clfv(cl_vis);
+  VisitClassLoaders(&clfv);
 }
 
 }  // namespace art
