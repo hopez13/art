@@ -3712,7 +3712,11 @@ class Heap::CollectorTransitionTask : public HeapTask {
 
   void Run(Thread* self) override {
     gc::Heap* heap = Runtime::Current()->GetHeap();
-    heap->DoPendingCollectorTransition();
+    // If the process has moved back to foreground in meantime, then don't run
+    // GC.
+    if (!CareAboutPauseTimes()) {
+      heap->DoPendingCollectorTransition();
+    }
     heap->ClearPendingCollectorTransition(self);
   }
 };
