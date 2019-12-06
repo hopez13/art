@@ -63,6 +63,8 @@ class MANAGED ClassLoader : public Object {
                       reinterpret_cast<uint64_t>(allocator));
   }
 
+  template<typename Visitor> void VisitDexFiles(Visitor vis) REQUIRES(Locks::mutator_lock_);
+
  private:
   // Visit instance fields of the class loader as well as its associated classes.
   // Null class loader is handled by ClassLinker::VisitClassRoots.

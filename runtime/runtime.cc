@@ -18,6 +18,8 @@
 
 // sys/mount.h has to come before linux/fs.h due to redefinition of MS_RDONLY, MS_BIND, etc
 #include <sys/mount.h>
+#include <unordered_set>
+#include "class_linker.h"
 #ifdef __linux__
 #include <linux/fs.h>
 #include <sys/prctl.h>
@@ -104,7 +106,7 @@
 #include "mirror/class-alloc-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_ext.h"
-#include "mirror/class_loader.h"
+#include "mirror/class_loader-inl.h"
 #include "mirror/emulated_stack_frame.h"
 #include "mirror/field.h"
 #include "mirror/method.h"
@@ -2842,6 +2844,26 @@ void Runtime::DeoptimizeBootImage() {
       // Code JITted by the zygote is not compiled debuggable.
       jit->GetCodeCache()->ClearEntryPointsInZygoteExecSpace();
     }
+  }
+  // Also de-quicken all -quick opcodes.
+  std::unordered_set<const VdexFile*> vdexs;
+  GetClassLinker()->VisitKnownDexFiles(Thread::Current(), [&](const art::DexFile* df) {
+    const OatDexFile* odf = df->GetOatDexFile();
+    if (odf == nullptr) {
+      return;
+    }
+    const OatFile* of = odf->GetOatFile();
+    if (of == nullptr || of->IsDebuggable()) {
+      // no Oat or already debuggable so no -quick.
+      return;
+    }
+    vdexs.insert(of->GetVdexFile());
+  });
+  LOG(INFO) << "Unquickening " << vdexs.size() << " vdex files!";
+  for (const VdexFile* vf : vdexs) {
+    vf->AllowWriting(true);
+    vf->UnquickenInPlace(/*decompile_return_instruction=*/true);
+    vf->AllowWriting(false);
   }
 }
 
