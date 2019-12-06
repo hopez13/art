@@ -22,6 +22,30 @@
       "revId": "0d6e2809d2d243c1a7ed0c6608d0c7a3a1b5c6cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3070860_f8f90d9a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1403,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-06T21:33:00Z",
+      "side": 1,
+      "message": "You are right! Somehow, I missed seeing this 😊. Thanks a lot. I\u0027ll abandon the CL then.",
+      "parentUuid": "870191d0_76d8af40",
+      "range": {
+        "startLine": 1403,
+        "startChar": 3,
+        "endLine": 1403,
+        "endChar": 33
+      },
+      "revId": "0d6e2809d2d243c1a7ed0c6608d0c7a3a1b5c6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
