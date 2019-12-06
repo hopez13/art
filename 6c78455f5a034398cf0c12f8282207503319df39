@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "261faac6_1e1901e6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-06T11:48:35Z",
+      "side": 1,
+      "message": "Nit: 1686 can test for success of create and then conditionally re-assign info.",
+      "range": {
+        "startLine": 1688,
+        "startChar": 4,
+        "endLine": 1688,
+        "endChar": 57
+      },
+      "revId": "6c78455f5a034398cf0c12f8282207503319df39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
