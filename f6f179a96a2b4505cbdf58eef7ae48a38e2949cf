@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8f20919_e52fbfc8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "These branches are not easy to read and I think the logic is tricky. Especially, some of the if conditions are not trivial to interpret semantically.\n\nCould you add docs before each of them with examples of what it matches?",
+      "range": {
+        "startLine": 593,
+        "startChar": 4,
+        "endLine": 593,
+        "endChar": 6
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "762e61c1_934a8e7a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "Is this saying that you only expect a single primary location in an oat file? i.e. a single.apk name?",
+      "range": {
+        "startLine": 596,
+        "startChar": 8,
+        "endLine": 603,
+        "endChar": 9
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32909ec3_ca261634",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "This is saying that any multidex location cannot be first and any primary location cannot be on a position other than 0. Right?\n\nCan you break this in 2 different conditions with docs? even if it means duplicating some code.",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 5
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d022a96_2c0e7a9d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "Use DexFileLoader::GetBaseLocation(); the logic will be cleaner.",
+      "range": {
+        "startLine": 618,
+        "startChar": 13,
+        "endLine": 618,
+        "endChar": 91
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad4abb69_2cf0bdff",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "instead of doing this, I would construct a new dex file name using DexFileLoader::GetMultiDexLocation.\n\nAlternatively add this sort of functionality in DexFileLoader so we have all the location manipulation in one place.",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 95
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38998fa3_3940c3d7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "Before, we would replace the location name as well. Don\u0027t you have to do it here as well?",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 19
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0f6608_e2c36359",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand this comment.",
+      "range": {
+        "startLine": 714,
+        "startChar": 79,
+        "endLine": 715,
+        "endChar": 83
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8dec01a_6b08b825",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "This implies that only the dex files with the given names are open. But that\u0027s not the case.",
+      "range": {
+        "startLine": 110,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 52
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f75c7d8_7389a3de",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-06T23:13:47Z",
+      "side": 1,
+      "message": "you could use \u0027using ...\u0027 for the Join to make it shorter.",
+      "range": {
+        "startLine": 1410,
+        "startChar": 37,
+        "endLine": 1410,
+        "endChar": 56
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
