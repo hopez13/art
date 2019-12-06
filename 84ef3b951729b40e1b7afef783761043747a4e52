@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5124b8a3_ab5e514d",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "Might be easier to use Heap::VisitObjects and check each object of being an instance of dalvik.system.DexFile? not sure",
+      "range": {
+        "startLine": 460,
+        "startChar": 5,
+        "endLine": 460,
+        "endChar": 12
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036a2f8a_f41de97c",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "Maybe this would visit the same dex file multiple times, is that WAI?",
+      "range": {
+        "startLine": 464,
+        "startChar": 8,
+        "endLine": 464,
+        "endChar": 21
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8824ad70_db9000f6",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 119
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee4d5601_87f75504",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "Put this with the other art includes below",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cf8674a_3d91ff11",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2850,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "Why are you dequickening all the dex files instead of only the boot image? Add a comment?",
+      "range": {
+        "startLine": 2850,
+        "startChar": 20,
+        "endLine": 2850,
+        "endChar": 38
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7abeb360_62ef1d44",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-06T19:46:28Z",
+      "side": 1,
+      "message": "use mutable instead of const_cast",
+      "range": {
+        "startLine": 221,
+        "startChar": 28,
+        "endLine": 221,
+        "endChar": 33
+      },
+      "revId": "84ef3b951729b40e1b7afef783761043747a4e52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
