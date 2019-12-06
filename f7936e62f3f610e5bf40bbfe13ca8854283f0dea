@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c81e8eda_ccc314a5",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-12-06T14:52:38Z",
+      "side": 1,
+      "message": "For the Java side, we were using a \u0027sparse array\u0027 type; it\u0027s probably worth using a sorted std::vector and std::binary_search or unsorted + linear search.",
+      "range": {
+        "startLine": 1184,
+        "startChar": 21,
+        "endLine": 1184,
+        "endChar": 45
+      },
+      "revId": "f7936e62f3f610e5bf40bbfe13ca8854283f0dea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
