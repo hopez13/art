@@ -169,6 +169,8 @@ uint8_t* const Heap::kPreferredAllocSpaceBegin = reinterpret_cast<uint8_t*>(0x40
 #endif
 #endif
 
+static constexpr double kJankNonPerceptibleHeapGrowthMultiplier = 1.0;
+
 static inline bool CareAboutPauseTimes() {
   return Runtime::Current()->InJankPerceptibleProcessState();
 }
@@ -282,6 +284,7 @@ Heap::Heap(size_t initial_size,
       capacity_(capacity),
       growth_limit_(growth_limit),
       target_footprint_(initial_size),
+      target_footprint_process_state_switch_(0),
       concurrent_start_bytes_(std::numeric_limits<size_t>::max()),
       total_bytes_freed_ever_(0),
       total_objects_freed_ever_(0),
@@ -976,12 +979,39 @@ void Heap::ThreadFlipEnd(Thread* self) {
   thread_flip_cond_->Broadcast(self);
 }
 
+void Heap::GrowHeapOnJankPerceptibleSwitch() {
+  // Acquire-release order to ensure that target_footprint_ load (below), and
+  // process-state update (prior to calling this function) are not reordered
+  // w.r.t. this load.
+  //
+  // If this thread gets suspended and GC-thread runs GrowForUtilization() (with
+  // foreground heap-growth multiplier) in meantime, then, depending on where is
+  // this thread suspended, we'll see different behavior, as follows:
+  //
+  // 1. Suspension between process-state switch and here will be fine as
+  // GrowForUtilization() would set target_footprint_process_state_switch_ to 0.
+  const size_t new_target_footprint =
+      target_footprint_process_state_switch_.load(std::memory_order_acq_rel);
+  // 2. Suspension here leaves a tiny possibility that we may update
+  // target_footprint_ to larger than what it should be. But this will get
+  // corrected in the next GC cycle.
+  size_t orig_target_footprint = target_footprint_.load(std::memory_order_relaxed);
+  // 3. Suspension here is covered by compare-exchange below, which will fail as
+  // target_footprint_ is modified in GrowForUtilization().
+  if (orig_target_footprint < new_target_footprint) {
+    target_footprint_.compare_exchange_strong(orig_target_footprint,
+                                              new_target_footprint,
+                                              std::memory_order_relaxed);
+  }
+}
+
 void Heap::UpdateProcessState(ProcessState old_process_state, ProcessState new_process_state) {
   if (old_process_state != new_process_state) {
     const bool jank_perceptible = new_process_state == kProcessStateJankPerceptible;
     if (jank_perceptible) {
       // Transition back to foreground right away to prevent jank.
       RequestCollectorTransition(foreground_collector_type_, 0);
+      GrowHeapOnJankPerceptibleSwitch();
     } else {
       // Don't delay for debug builds since we may want to stress test the GC.
       // If background_collector_type_ is kCollectorTypeHomogeneousSpaceCompact then we have
@@ -3488,7 +3518,7 @@ collector::GarbageCollector* Heap::FindCollectorByGcType(collector::GcType gc_ty
 double Heap::HeapGrowthMultiplier() const {
   // If we don't care about pause times we are background, so return 1.0.
   if (!CareAboutPauseTimes()) {
-    return 1.0;
+    return kJankNonPerceptibleHeapGrowthMultiplier;
   }
   return foreground_heap_growth_multiplier_;
 }
@@ -3500,23 +3530,18 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   const size_t bytes_allocated = GetBytesAllocated();
   // Trace the new heap size after the GC is finished.
   TraceHeapSize(bytes_allocated);
-  uint64_t target_size;
+  uint64_t target_size, grow_bytes;
   collector::GcType gc_type = collector_ran->GetGcType();
   // Use the multiplier to grow more for foreground.
-  const double multiplier = HeapGrowthMultiplier();  // Use the multiplier to grow more for
-  // foreground.
-  const size_t adjusted_min_free = static_cast<size_t>(min_free_ * multiplier);
-  const size_t adjusted_max_free = static_cast<size_t>(max_free_ * multiplier);
+  const double multiplier = HeapGrowthMultiplier();
   if (gc_type != collector::kGcTypeSticky) {
     // Grow the heap for non sticky GC.
     uint64_t delta = bytes_allocated * (1.0 / GetTargetHeapUtilization() - 1.0);
     DCHECK_LE(delta, std::numeric_limits<size_t>::max()) << "bytes_allocated=" << bytes_allocated
         << " target_utilization_=" << target_utilization_;
-    target_size = bytes_allocated + delta * multiplier;
-    target_size = std::min(target_size,
-                           static_cast<uint64_t>(bytes_allocated + adjusted_max_free));
-    target_size = std::max(target_size,
-                           static_cast<uint64_t>(bytes_allocated + adjusted_min_free));
+    grow_bytes = std::min(delta, static_cast<uint64_t>(max_free_));
+    grow_bytes = std::max(grow_bytes, static_cast<uint64_t>(min_free_));
+    target_size = bytes_allocated + static_cast<uint64_t>(grow_bytes * multiplier);
     next_gc_type_ = collector::kGcTypeSticky;
   } else {
     collector::GcType non_sticky_gc_type = NonStickyGcType();
@@ -3546,15 +3571,31 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
       next_gc_type_ = non_sticky_gc_type;
     }
     // If we have freed enough memory, shrink the heap back down.
+    const size_t adjusted_max_free = static_cast<size_t>(max_free_ * multiplier);
     if (bytes_allocated + adjusted_max_free < target_footprint) {
       target_size = bytes_allocated + adjusted_max_free;
+      grow_bytes = max_free_;
     } else {
       target_size = std::max(bytes_allocated, target_footprint);
+      grow_bytes = 0;
     }
   }
   CHECK_LE(target_size, std::numeric_limits<size_t>::max());
   if (!ignore_target_footprint_) {
     SetIdealFootprint(target_size);
+    // Store target size (computed with foreground heap growth multiplier) for updating
+    // target_footprint_ when process state switches to foreground.
+    // target_size = 0 ensures that target_footprint_ is not updated on
+    // process-state switch.
+    if (multiplier <= kJankNonPerceptibleHeapGrowthMultiplier) {
+      target_size = grow_bytes > 0
+          ? bytes_allocated + static_cast<size_t>(grow_bytes * foreground_heap_growth_multiplier_)
+          : 0;
+    } else {
+      target_size = 0;
+    }
+    // Release order guarantees that the target_footprint_ store above happens-before.
+    target_footprint_process_state_switch_.store(target_size, std::memory_order_release);
     if (IsGcConcurrent()) {
       const uint64_t freed_bytes = current_gc_iteration_.GetFreedBytes() +
           current_gc_iteration_.GetFreedLargeObjectBytes() +
