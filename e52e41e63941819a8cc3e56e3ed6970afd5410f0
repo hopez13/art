@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "273ecec3_a479636d",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-06T22:07:12Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary? All dex files are registered to the class linker. Look at the dex_caches_ field.",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 27
+      },
+      "revId": "e52e41e63941819a8cc3e56e3ed6970afd5410f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
