@@ -270,14 +270,15 @@ bool OatFileBase::LoadVdex(const std::string& vdex_filename,
                            bool writable,
                            bool low_4gb,
                            std::string* error_msg) {
-  vdex_ = VdexFile::OpenAtAddress(vdex_begin_,
-                                  vdex_end_ - vdex_begin_,
-                                  /*mmap_reuse=*/ vdex_begin_ != nullptr,
-                                  vdex_filename,
-                                  writable,
-                                  low_4gb,
-                                  /* unquicken=*/ false,
-                                  error_msg);
+  vdex_ = VdexFile::OpenAtAddress(
+      vdex_begin_,
+      vdex_end_ - vdex_begin_,
+      /*mmap_reuse=*/vdex_begin_ != nullptr,
+      vdex_filename,
+      writable,
+      low_4gb,
+      /* unquicken=*/ !IsDebuggable() && Runtime::Current()->IsJavaDebuggable(),
+      error_msg);
   if (vdex_.get() == nullptr) {
     *error_msg = StringPrintf("Failed to load vdex file '%s' %s",
                               vdex_filename.c_str(),
@@ -298,16 +299,17 @@ bool OatFileBase::LoadVdex(int vdex_fd,
     if (rc == -1) {
       PLOG(WARNING) << "Failed getting length of vdex file";
     } else {
-      vdex_ = VdexFile::OpenAtAddress(vdex_begin_,
-                                      vdex_end_ - vdex_begin_,
-                                      /*mmap_reuse=*/ vdex_begin_ != nullptr,
-                                      vdex_fd,
-                                      s.st_size,
-                                      vdex_filename,
-                                      writable,
-                                      low_4gb,
-                                      /*unquicken=*/ false,
-                                      error_msg);
+      vdex_ = VdexFile::OpenAtAddress(
+          vdex_begin_,
+          vdex_end_ - vdex_begin_,
+          /*mmap_reuse=*/vdex_begin_ != nullptr,
+          vdex_fd,
+          s.st_size,
+          vdex_filename,
+          writable,
+          low_4gb,
+          /*unquicken=*/ !IsDebuggable() && Runtime::Current()->IsJavaDebuggable(),
+          error_msg);
       if (vdex_.get() == nullptr) {
         *error_msg = "Failed opening vdex file.";
         return false;
