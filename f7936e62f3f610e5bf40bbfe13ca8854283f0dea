@@ -70,6 +70,30 @@
       "revId": "f7936e62f3f610e5bf40bbfe13ca8854283f0dea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "871a18a5_5a7bdd1b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-12-06T15:08:33Z",
+      "side": 1,
+      "message": "There\u0027s a 4-5x space overhead https://www.ideone.com/E3UZ9k . Not sure what the situation wrt cache misses is in a binary search on a vector vs dereferencing going on in a tree traversal, but I\u0027m inclined to think the former is better. It may be a micro-optimisation, so I don\u0027t have any strong opinions.",
+      "parentUuid": "c50f3621_2809b33e",
+      "range": {
+        "startLine": 1184,
+        "startChar": 21,
+        "endLine": 1184,
+        "endChar": 45
+      },
+      "revId": "f7936e62f3f610e5bf40bbfe13ca8854283f0dea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
