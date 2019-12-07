@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38b702fe_a3d9a209",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-07T00:32:52Z",
+      "side": 1,
+      "message": "Can\u0027t we just introduce a mutex, acquired here and in GrowForUtilization, and sidestep all the tricky concurrency issues? I\u0027m not sure what we gain by the use of atomics here. This isn\u0027t performance critical, right?",
+      "range": {
+        "startLine": 983,
+        "startChar": 2,
+        "endLine": 992,
+        "endChar": 80
+      },
+      "revId": "e58dfa7eee98cbe8af3a7408ca08d55617dee875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e202d74_bd9330b0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3581,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-07T00:32:52Z",
+      "side": 1,
+      "message": "This reads like it should be target_footprint - bytes_allocated.  I think I understand what you\u0027re doing. How about adding a comment:\n\n// The same whether jank perceptible or not; just avoid the adjustment.",
+      "range": {
+        "startLine": 3581,
+        "startChar": 19,
+        "endLine": 3581,
+        "endChar": 20
+      },
+      "revId": "e58dfa7eee98cbe8af3a7408ca08d55617dee875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11cbdfe1_4ad7d7b8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3599,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-07T00:32:52Z",
+      "side": 1,
+      "message": "Is it correct to rename this min_foreground_target_footprint_? If so, I like that name much better.",
+      "range": {
+        "startLine": 3599,
+        "startChar": 4,
+        "endLine": 3599,
+        "endChar": 42
+      },
+      "revId": "e58dfa7eee98cbe8af3a7408ca08d55617dee875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
