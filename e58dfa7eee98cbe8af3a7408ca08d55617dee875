@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2817fbbe_c2ed5b3c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-07T02:11:02Z",
+      "side": 1,
+      "message": "Good point! This is not performance critical. I\u0027ll change the implementation in the next patch.",
+      "parentUuid": "38b702fe_a3d9a209",
+      "range": {
+        "startLine": 983,
+        "startChar": 2,
+        "endLine": 992,
+        "endChar": 80
+      },
+      "revId": "e58dfa7eee98cbe8af3a7408ca08d55617dee875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e202d74_bd9330b0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
