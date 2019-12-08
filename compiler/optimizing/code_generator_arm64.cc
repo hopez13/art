@@ -5530,7 +5530,20 @@ void LocationsBuilderARM64::VisitReturn(HReturn* instruction) {
   locations->SetInAt(0, ARM64ReturnLocation(return_type));
 }
 
-void InstructionCodeGeneratorARM64::VisitReturn(HReturn* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARM64::VisitReturn(HReturn* ret) {
+  if (GetGraph()->IsCompilingOsr()) {
+    // The caller of the OSR method expects the result in X0.
+    switch (ret->InputAt(0)->GetType()) {
+      case DataType::Type::kFloat32:
+        __ Fmov(w0, s0);
+        break;
+      case DataType::Type::kFloat64:
+        __ Fmov(x0, d0);
+        break;
+      default:
+        break;
+    }
+  }
   codegen_->GenerateFrameExit();
 }
 
