@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "db0fec16_2772943e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T19:48:56Z",
+      "side": 1,
+      "message": "I see. Can you add that as a comment? Also given that check is done on two occasions, can you add a helper?",
+      "parentUuid": "21959b2b_11e0ec2f",
+      "range": {
+        "startLine": 280,
+        "startChar": 22,
+        "endLine": 280,
+        "endChar": 79
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4021b92b_a1f84bfc",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
