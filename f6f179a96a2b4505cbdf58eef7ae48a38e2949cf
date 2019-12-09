@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5948458_3ab6a94a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "Added comments and reordered in https://android-review.googlesource.com/1182685 .",
+      "parentUuid": "f8f20919_e52fbfc8",
+      "range": {
+        "startLine": 593,
+        "startChar": 4,
+        "endLine": 593,
+        "endChar": 6
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762e61c1_934a8e7a",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2458e988_93362373",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "No, I\u0027m saying it\u0027s the caller\u0027s responsibility to provide the right number of file names in `dex_filenames` if it wants to override locations from the oat file.",
+      "parentUuid": "762e61c1_934a8e7a",
+      "range": {
+        "startLine": 596,
+        "startChar": 8,
+        "endLine": 603,
+        "endChar": 9
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6097b6ef_bc2e9e88",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "You seem to erroneously assume that `dex_filenames` can contain only 1 element if any. It can in fact contain as many as needed, corresponding to each primary location in the oat file.\n\nComments added. I really don\u0027t want to duplicate the code.",
+      "parentUuid": "32909ec3_ca261634",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 5
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d022a96_2c0e7a9d",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2019-12-06T23:13:47Z",
       "side": 1,
       "message": "Use DexFileLoader::GetBaseLocation(); the logic will be cleaner.",
+      "range": {
+        "startLine": 618,
+        "startChar": 13,
+        "endLine": 618,
+        "endChar": 91
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f557c682_cf32e47f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "I\u0027m not too fond of all the string copying.\n\nI\u0027ve had a CL to change the signature to\n\n  std::string_view GetBaseLocation(std::string_view);\n\nto avoid the excessive string allocations. But then, the lifetime of those objects is easy to get wrong if you\u0027re not careful, so I abandoned it. (I don\u0027t want to clutter the code with unimplemented private overloads that take \"std::string\u0026\u0026\" to avoid the most obvious lifetime problem of passing temporary strings to such functions.)\n\nAnd as long as the DexFileLoader interface is based on a mix of wasteful string copying and \"const char*\" (often requiring unnecessary strlen()), I\u0027m not very keen on using or extending it.",
+      "parentUuid": "1d022a96_2c0e7a9d",
       "range": {
         "startLine": 618,
         "startChar": 13,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "d9d3564c_5115e553",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "See my answer at line 618.",
+      "parentUuid": "ad4abb69_2cf0bdff",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 95
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2167d04_098277fe",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "I\u0027ve conservatively done this below for the case where the location does not contain a \u0027/\u0027. I don\u0027t think we need to do this otherwise. And even that may possibly be dropped if we adjust a few tests in oat_file_assistant_test.",
+      "parentUuid": "38998fa3_3940c3d7",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 19
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc0f6608_e2c36359",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2019-12-06T23:13:47Z",
       "side": 1,
       "message": "I don\u0027t fully understand this comment.",
+      "range": {
+        "startLine": 714,
+        "startChar": 79,
+        "endLine": 715,
+        "endChar": 83
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9da26f9a_276ef624",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "Maybe because of your erroneous asumption that `dex_filenames` can contain only 1 filename if any? (See comments under the lines 603 and 615.)",
+      "parentUuid": "cc0f6608_e2c36359",
       "range": {
         "startLine": 714,
         "startChar": 79,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "49fa896f_7ce16fcf",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1182685 .",
+      "parentUuid": "f8dec01a_6b08b825",
+      "range": {
+        "startLine": 110,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 52
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f75c7d8_7389a3de",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 4
@@ -206,6 +398,30 @@
       "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "483f51d3_560fd497",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T16:22:39Z",
+      "side": 1,
+      "message": "Looks short enough to me (no line break is needed).",
+      "parentUuid": "5f75c7d8_7389a3de",
+      "range": {
+        "startLine": 1410,
+        "startChar": 37,
+        "endLine": 1410,
+        "endChar": 56
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
