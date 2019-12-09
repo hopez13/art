@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "787d18bc_712557ed",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-09T19:12:19Z",
+      "side": 1,
+      "message": "It actually doesn\u0027t. replaced with REQUIRES(Locks::mutator_lock_).",
+      "parentUuid": "c7d39dad_9b912248",
+      "range": {
+        "startLine": 460,
+        "startChar": 39,
+        "endLine": 460,
+        "endChar": 64
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7edcbe95_b5dd79d7",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21959b2b_11e0ec2f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-09T19:12:19Z",
+      "side": 1,
+      "message": "If the oat file IsDebuggable it won\u0027t have any -quick opcodes. If the runtime is not JavaDebuggable we don\u0027t care if there are -quick opcodes. Therefore we only need to do this work if we aren\u0027t debuggable and the runtime is.",
+      "parentUuid": "7edcbe95_b5dd79d7",
+      "range": {
+        "startLine": 280,
+        "startChar": 22,
+        "endLine": 280,
+        "endChar": 79
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b12a70f6_6de5da63",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-09T19:12:19Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "4021b92b_a1f84bfc",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 25
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8696b4d1_f46aebf1",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59411117_f56a4dfe",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-09T19:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8696b4d1_f46aebf1",
+      "range": {
+        "startLine": 2847,
+        "startChar": 51,
+        "endLine": 2847,
+        "endChar": 52
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
