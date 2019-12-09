@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "8451e30d_f3214ed4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc93d50_517a0534",
+        "filename": "runtime/arch/x86_64/context_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "This looks like it should be in the x86-64 implementation CL, not this one.",
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fbde3942_ddfb2ec6",
         "filename": "runtime/check_reference_map_visitor.h",
         "patchSetId": 3
@@ -41,6 +81,144 @@
         "startChar": 0,
         "endLine": 47,
         "endChar": 56
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8716c285_1ce02b81",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "... already spilled on entry. (The stack frame shall contain the return address for other architectures but it shall be spilled explicitly.)",
+      "range": {
+        "startLine": 43,
+        "startChar": 28,
+        "endLine": 43,
+        "endChar": 76
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3df9c099_42f02c97",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "The location of the alignment is quite odd and the calculations below would be simpler if the alignment was just below callee-save regs.",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 18
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9ec8dce_0d9b6c7d",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "... for exception delivery (make this easier to read for people less familiar with the implementation details)",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14587f5_e9dcae1a",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "I\u0027d prefer 2 extra spaces of indentation for bullet points.",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "001d0d43_f524a059",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "kPointerSize",
+      "range": {
+        "startLine": 84,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 36
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "381c85cf_d0a89e83",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 86,
+        "startChar": 14,
+        "endLine": 86,
+        "endChar": 36
       },
       "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -71,6 +249,29 @@
     },
     {
       "key": {
+        "uuid": "8f1c1642_ee08abfc",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "kVRegSize here and below.",
+      "range": {
+        "startLine": 102,
+        "startChar": 18,
+        "endLine": 102,
+        "endChar": 19
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "317dcdf5_d398e812",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
@@ -87,6 +288,29 @@
         "startChar": 38,
         "endLine": 138,
         "endChar": 39
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30da1883_6580c7dc",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T11:41:33Z",
+      "side": 1,
+      "message": "I do not see any definition in the .cc file.",
+      "range": {
+        "startLine": 41,
+        "startChar": 31,
+        "endLine": 41,
+        "endChar": 48
       },
       "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
