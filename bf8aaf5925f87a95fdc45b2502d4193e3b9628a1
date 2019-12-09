@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "6afc5528_09e32553",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-09T21:11:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db0fec16_2772943e",
+      "range": {
+        "startLine": 280,
+        "startChar": 22,
+        "endLine": 280,
+        "endChar": 79
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4021b92b_a1f84bfc",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
