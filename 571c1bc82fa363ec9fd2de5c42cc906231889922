@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c2dc753_ff23eb18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:37:41Z",
+      "side": 1,
+      "message": "stack",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fbde3942_ddfb2ec6",
         "filename": "runtime/check_reference_map_visitor.h",
         "patchSetId": 3
