@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbde3942_ddfb2ec6",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:11:30Z",
+      "side": 1,
+      "message": "There are doc comments for OatQuickMethodHeader explaining possible states.\n\nShould the reader see this as an nterp frame check or something else?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f500595_ab8a1664",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:11:30Z",
+      "side": 1,
+      "message": "dex registers and reference registers",
+      "range": {
+        "startLine": 102,
+        "startChar": 31,
+        "endLine": 102,
+        "endChar": 65
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "317dcdf5_d398e812",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:11:30Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 138,
+        "startChar": 38,
+        "endLine": 138,
+        "endChar": 39
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2ec1ceb_8c99683a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:11:30Z",
+      "side": 1,
+      "message": "Any change to rough guess comment above?",
+      "range": {
+        "startLine": 757,
+        "startChar": 44,
+        "endLine": 757,
+        "endChar": 50
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9fa72fa_19674169",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-09T11:11:30Z",
+      "side": 1,
+      "message": "Please add explanatory comment and a pointer to frame layout for nterp. Hard to grok in isolation, e.g. are regs in vreg_ref_base region zero/null for non-refs?",
+      "range": {
+        "startLine": 3780,
+        "startChar": 0,
+        "endLine": 3799,
+        "endChar": 5
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
