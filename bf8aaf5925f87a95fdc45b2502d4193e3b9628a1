@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7d39dad_9b912248",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T09:46:32Z",
+      "side": 1,
+      "message": "Add a comment why you need this, and why it\u0027s OK.",
+      "range": {
+        "startLine": 460,
+        "startChar": 39,
+        "endLine": 460,
+        "endChar": 64
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7edcbe95_b5dd79d7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T09:46:32Z",
+      "side": 1,
+      "message": "Why is that not \"IsDebuggable() || Runtime::Current()-\u003eIsJavaDebuggable()\" ?",
+      "range": {
+        "startLine": 280,
+        "startChar": 22,
+        "endLine": 280,
+        "endChar": 79
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4021b92b_a1f84bfc",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T09:46:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 25
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8696b4d1_f46aebf1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T09:46:32Z",
+      "side": 1,
+      "message": "for",
+      "range": {
+        "startLine": 2847,
+        "startChar": 51,
+        "endLine": 2847,
+        "endChar": 52
+      },
+      "revId": "bf8aaf5925f87a95fdc45b2502d4193e3b9628a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
