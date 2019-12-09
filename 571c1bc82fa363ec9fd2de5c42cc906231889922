@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "a5f208da_6d0a118d",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-09T17:22:23Z",
+      "side": 1,
+      "message": "In the end the nterp frame setup has to actually compute the frame size, so it should not really matter there unless we\u0027re under heavy register pressure. OTOH, the functions below currently need to calculate the frame size but they would not need to do that at all if we moved the padding.",
+      "parentUuid": "c0b25bbd_4ed8c59a",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 18
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9ec8dce_0d9b6c7d",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
