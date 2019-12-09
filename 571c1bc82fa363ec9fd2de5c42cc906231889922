@@ -296,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "aa0d63bf_0945e671",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T19:41:43Z",
+      "side": 1,
+      "message": "Even on x64 we are under register pressure :) You\u0027re right that this would simplify the helpers. I\u0027ve added a TODO.",
+      "parentUuid": "a5f208da_6d0a118d",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 18
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9ec8dce_0d9b6c7d",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
@@ -622,6 +646,30 @@
       "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af608f35_9e39f4a4",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-09T19:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fafbe57_016e6cf0",
+      "range": {
+        "startLine": 138,
+        "startChar": 38,
+        "endLine": 138,
+        "endChar": 39
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
