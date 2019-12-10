@@ -21,10 +21,25 @@
  */
 
 namespace art {
+
+class ArtMethod;
+
 namespace interpreter {
 
 bool IsNterpSupported() {
   return false;
+}
+
+bool CanRuntimeUseNterp() {
+  return false;
+}
+
+bool CanMethodUseNterp(ArtMethod* method ATTRIBUTE_UNUSED) {
+  return false;
+}
+
+const void* GetNterpEntryPoint() {
+  return nullptr;
 }
 
 void CheckNterpAsmConstants() {
