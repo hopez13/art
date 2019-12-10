@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "2feb9dfb_efa885d1",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-10T18:28:37Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "e2167d04_098277fe",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 19
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc0f6608_e2c36359",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
@@ -319,6 +343,30 @@
       "side": 1,
       "message": "Maybe because of your erroneous asumption that `dex_filenames` can contain only 1 filename if any? (See comments under the lines 603 and 615.)",
       "parentUuid": "cc0f6608_e2c36359",
+      "range": {
+        "startLine": 714,
+        "startChar": 79,
+        "endLine": 715,
+        "endChar": 83
+      },
+      "revId": "f6f179a96a2b4505cbdf58eef7ae48a38e2949cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcdd8c2a_23e627ce",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-12-10T18:28:37Z",
+      "side": 1,
+      "message": "got it. Thanks.",
+      "parentUuid": "9da26f9a_276ef624",
       "range": {
         "startLine": 714,
         "startChar": 79,
