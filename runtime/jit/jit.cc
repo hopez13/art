@@ -1742,5 +1742,22 @@ bool Jit::CanAssumeInitialized(ObjPtr<mirror::Class> cls, bool is_for_shared_reg
   }
 }
 
+void Jit::EnqueueCompilationFromNterp(ArtMethod* method, Thread* self) {
+  if (thread_pool_ == nullptr) {
+    return;
+  }
+  if (GetCodeCache()->ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
+    // If we already have compiled code for it, nterp may be stuck in a loop.
+    // Compile OSR.
+    thread_pool_->AddTask(
+        self, new JitCompileTask(method, JitCompileTask::TaskKind::kCompileOsr));
+    return;
+  }
+  // TODO: Remove below and adjust task based on options.
+  ProfilingInfo::Create(self, method, /* retry_allocation= */ false);
+  thread_pool_->AddTask(
+      self, new JitCompileTask(method, JitCompileTask::TaskKind::kCompileBaseline));
+}
+
 }  // namespace jit
 }  // namespace art

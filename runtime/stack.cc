@@ -754,7 +754,7 @@ void StackVisitor::SanityCheckFrame() const {
       // TODO: this seems architecture specific for the case of JNI frames.
       // TODO: 083-compiler-regressions ManyFloatArgs shows this estimate is wrong.
       // const size_t kMaxExpectedFrameSize = (256 + 2 + 3 + 3) * sizeof(word);
-      const size_t kMaxExpectedFrameSize = 2 * KB;
+      const size_t kMaxExpectedFrameSize = interpreter::kMaxNterpFrame;
       CHECK_LE(frame_size, kMaxExpectedFrameSize) << method->PrettyMethod();
       size_t return_pc_offset = GetCurrentQuickFrameInfo().GetReturnPcOffset();
       CHECK_LT(return_pc_offset, frame_size);
@@ -851,7 +851,6 @@ void StackVisitor::WalkStack(bool include_transitions) {
     cur_quick_frame_ = current_fragment->GetTopQuickFrame();
     cur_quick_frame_pc_ = 0;
     cur_oat_quick_method_header_ = nullptr;
-
     if (cur_quick_frame_ != nullptr) {  // Handle quick stack frames.
       // Can't be both a shadow and a quick fragment.
       DCHECK(current_fragment->GetTopShadowFrame() == nullptr);
