@@ -435,6 +435,9 @@ class Jit {
 
   void EnqueueOptimizedCompilation(ArtMethod* method, Thread* self);
 
+  void EnqueueCompilationFromNterp(ArtMethod* method, Thread* self)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
 
