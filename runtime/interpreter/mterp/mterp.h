@@ -31,6 +31,7 @@ extern "C" void* artNterpAsmInstructionEnd[];
 
 namespace art {
 
+class ArtMethod;
 class Thread;
 
 namespace interpreter {
@@ -40,6 +41,10 @@ void CheckMterpAsmConstants();
 void CheckNterpAsmConstants();
 bool CanUseMterp();
 bool IsNterpSupported();
+bool CanRuntimeUseNterp();
+bool CanMethodUseNterp(ArtMethod* method);
+const void* GetNterpEntryPoint();
+
 
 // Poison value for TestExportPC.  If we segfault with this value, it means that a mterp
 // handler for a recent opcode failed to export the Dalvik PC prior to a possible exit from
