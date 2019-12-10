@@ -2,6 +2,190 @@
   "comments": [
     {
       "key": {
+        "uuid": "b763bd22_97a689de",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f9b8c5_f8912e20",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Unnecessary (and contains unnecessary memory barrier).\nPossibly broken for obsolete methods but maybe we do not use mterp/nterp when debuggable? Or bail to the switch interpreter when making the method obsolete?",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30e436c7_0f9886f0",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 97,
+        "startChar": 15,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00d74aa_9f75612f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 107,
+        "startChar": 28,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef0965c_b4fd25fb",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Similar concerns about obsolete methods.",
+      "range": {
+        "startLine": 197,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 38
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f92c76b2_6e7586a3",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "TODO: What about invoke-interface MyInterface.toString()? It is permitted to call public methods from j.l.Object on interfaces. (I didn\u0027t review the related parts of the invoke-interface in assembler yet but this is a concern I want to look at.)",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 81
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d199a852_3fd94e21",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Style: Either remove the \"else\" or move the final return to the else-block.",
+      "range": {
+        "startLine": 347,
+        "startChar": 3,
+        "endLine": 347,
+        "endChar": 10
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40a42755_fefb8b15",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Not the best name given the allocation done for NEW_INSTANCE. Maybe this should be split into two separate functions.",
+      "range": {
+        "startLine": 353,
+        "startChar": 27,
+        "endLine": 353,
+        "endChar": 40
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a8607fb_76e1b92c",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -73,6 +257,804 @@
     },
     {
       "key": {
+        "uuid": "5613751b_ed290651",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "This can be stronger if you use `is_range`.",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 63
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0808031f_abe92348",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Maybe just DCHECK_LE()? This should be enforced by the verifier. And for range version, it should not exceed 255.",
+      "range": {
+        "startLine": 459,
+        "startChar": 4,
+        "endLine": 459,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7bf9652_c56d4087",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Allways false. I think the `length` should be uint32_t. But then you\u0027ll probably need to cast it below.",
+      "range": {
+        "startLine": 461,
+        "startChar": 15,
+        "endLine": 461,
+        "endChar": 26
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c9cd5d9_9fefd792",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "DCHECK()?",
+      "range": {
+        "startLine": 475,
+        "startChar": 2,
+        "endLine": 475,
+        "endChar": 7
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "113a2bc7_48869b67",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "passes null (we do not use \"nullptr\" in comment, except in code snippets)",
+      "range": {
+        "startLine": 538,
+        "startChar": 13,
+        "endLine": 538,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73b5172c_1ebed3cb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "What\u0027s \".long\" in this context? Is it 32-bit value?",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "784bf951_1b8db146",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Missing CFI data. You could also reduce the number of instructions by using \"pushq %rax\" after loading the low 32 bits to EAX. (But do not emit .cfi_rel_offset for that.)",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdfd8e84_c8c394cd",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "VREG_ADDRESS",
+      "range": {
+        "startLine": 274,
+        "startChar": 16,
+        "endLine": 274,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bae61fc9_83daf34a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "We could simplify a lot of code by loading the G argument into the \"inst\" register. Given that we enter the handler with \"1(rPC)\" in the rINST, we can just add rINST\u003c\u003c16 to the args and we don\u0027t even need to pass \"arg_index\" around.",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30ee8887_b3ede8e3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Can we do this in a single instruction?",
+      "range": {
+        "startLine": 399,
+        "startChar": 4,
+        "endLine": 400,
+        "endChar": 35
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76660c35_ddf5978d",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 405,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 35
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e6f8f27_6402565f",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Or we could just copy all the vregs to the stack slots in a simple loop (or REP MOVSD) without looking at the shorty at all. (We could also drop the \"stack_index\" from the macros for loading registers.) We could also do that conditionally if argument word count \u003e 6; otherwise we know that all args fit into registers.",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 43
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0737da43_cedfcb9a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "If you\u0027re adding the number of bytes and not scaling arg_index, you should rename arg_index to arg_offset. Or use it as an index and use VREG_ADDRESS.",
+      "range": {
+        "startLine": 531,
+        "startChar": 23,
+        "endLine": 531,
+        "endChar": 24
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bdff8e5_216f5e87",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Or we could just spill regs to the reserved slots in the caller\u0027s frame and copy all regs in a simple loop. This time, however, we would need to look at the shorty anyway to look for the references. (The trade-off is different for passing arguments and receiving them.)",
+      "range": {
+        "startLine": 583,
+        "startChar": 3,
+        "endLine": 584,
+        "endChar": 44
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea2a29fc_8a482151",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Describe outputs, i.e. rNEW_FP, rNEW_REFS, rPC, EDI, ECX.",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dc6e578_56fe794b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "This looks insufficient for large frames but you solved this in PS6 by limiting the frame size for which we allow nterp. Please add a comment.",
+      "range": {
+        "startLine": 675,
+        "startChar": 15,
+        "endLine": 675,
+        "endChar": 51
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16bdba6f_ae840ff3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "This spills xmm12-xmm15 which is unnecessary for nterp to nterp transition as they are not callee-saves in native ABI. Maybe rIBASE doesn\u0027t need spilling either.\n\nNit: Using macro before its definition.",
+      "range": {
+        "startLine": 676,
+        "startChar": 3,
+        "endLine": 676,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7473e6_56454bd9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "MACRO_LITERAL(2)",
+      "range": {
+        "startLine": 688,
+        "startChar": 8,
+        "endLine": 688,
+        "endChar": 11
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f41feec_332ab41c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "MACRO_LITERAL(24)",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "910a2330_ae418126",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "You could get rid of this if you preserve r11 until you copy rNEW_REFS to rREFS. (You currently do because you use it for copying parameters. I suggest that you move the alignment and rewrite the parameter copy so that you do not need r11 for that and still preserve r11.)",
+      "range": {
+        "startLine": 709,
+        "startChar": 3,
+        "endLine": 709,
+        "endChar": 58
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d0ae306_8c82071e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "LEAL",
+      "range": {
+        "startLine": 727,
+        "startChar": 3,
+        "endLine": 728,
+        "endChar": 17
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8906579_0401cfe2",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Unnecesary, SHR sets the Z flag.",
+      "range": {
+        "startLine": 740,
+        "startChar": 3,
+        "endLine": 740,
+        "endChar": 19
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf1e375_36f31cfb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "This is quite unreadable, copying to rNEW_FP/rNEW_REFS but using rNEW_REFS/r11 as the base and using negative r10...\n\nYou should set up r10 as the number of registers (this can be an additional output from SETUP_STACK_FOR_INVOKE) and then just decrement it by one before copying each arg to (rNEW_FP, r10, 4) and (rNEW_REFS, r10, 4). Maybe even introduce macros NEW_VREG_ADDRESS/NEW_VREG_REF_ADDRESS.",
+      "range": {
+        "startLine": 752,
+        "startChar": 3,
+        "endLine": 755,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86d29da6_d6e3d8f4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Isn\u0027t this a NOP here, given that EAX \u003c\u003d 15u? (ECX was read with MOVZWL.)",
+      "range": {
+        "startLine": 760,
+        "startChar": 3,
+        "endLine": 760,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e953425_392d5769",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Shift first, then mask. (Smaller code, easier to read.) Use EAX instead of RAX.",
+      "range": {
+        "startLine": 768,
+        "startChar": 3,
+        "endLine": 769,
+        "endChar": 24
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eb915cc_a12ba4a9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Document that ESI is the receiver. (Maybe document all inputs to the macro.)",
+      "range": {
+        "startLine": 795,
+        "startChar": 16,
+        "endLine": 795,
+        "endChar": 19
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "666b567a_84928368",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Does bregx take a signed 7-bit value?",
+      "range": {
+        "startLine": 803,
+        "startChar": 34,
+        "endLine": 803,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aabd2fab_9fddd964",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "You are assuming that string init calls never use range invokes. However, there are no constraints that would guarantee that.",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88a405f2_ab091185",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Unreadable, same as above.",
+      "range": {
+        "startLine": 825,
+        "startChar": 3,
+        "endLine": 828,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "767c7003_4c603abd",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Do comparison in memory if you\u0027re not going to reuse the value in RCX.",
+      "range": {
+        "startLine": 855,
+        "startChar": 3,
+        "endLine": 855,
+        "endChar": 51
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c330c5e8_9c1a60fb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Move the .endif further down to avoid emitting the code below for polymorphic/custom calls as it would be unreachable anyway. And then get rid of the unnecessary JMP instructions above.",
+      "range": {
+        "startLine": 859,
+        "startChar": 3,
+        "endLine": 859,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af744a7_f587bd2c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Odd indentation, which one is correct?",
+      "range": {
+        "startLine": 951,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 20
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb6f2c20_0de84104",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Again, assuming that StringInit cannot use a range invoke is wrong.",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9abe107d_4961279b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Refactor to avoid dead code (same as above). Maybe move the \"use nterp to nterp\" checks to a macro to deduplicate the code.",
+      "range": {
+        "startLine": 998,
+        "startChar": 3,
+        "endLine": 998,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56492fc6_e168787c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Introduce a macro for shorty retrieval to deduplicate the code.",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4de64b4_8172a32b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "rINSTq",
+      "range": {
+        "startLine": 1035,
+        "startChar": 14,
+        "endLine": 1035,
+        "endChar": 18
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f5bb72b_efc436ea",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -141,6 +1123,29 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61a8389d_870a1c5d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1621,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Make the OSR check before locking the mutex.",
+      "range": {
+        "startLine": 1621,
+        "startChar": 4,
+        "endLine": 1621,
+        "endChar": 11
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {

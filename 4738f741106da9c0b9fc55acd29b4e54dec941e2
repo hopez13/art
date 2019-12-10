@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa0528e2_447fafec",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "Indentation.",
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4584c22_8be3e28a",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T18:12:44Z",
+      "side": 1,
+      "message": "You assume that StringInit calls are rare. Is that really so?\n\n(We use the same for volatile fields and I agree with that one.)",
+      "range": {
+        "startLine": 240,
+        "startChar": 77,
+        "endLine": 242,
+        "endChar": 20
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
