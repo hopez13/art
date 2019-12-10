@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60282dee_28c55700",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "They are logically different. The first if is whether we can put nterp given the state of a method. The other test is whether we can put nterp given the state of the class.\n\nWe cannot put the IsVisiblyInitialized test out of the loop, as this only applies to static methods.",
+      "parentUuid": "3b2bc633_ee2e5a26",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 0
+      },
+      "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "afb425b6_39923e71",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-10T13:35:02Z",
       "side": 1,
       "message": "Shouldn\u0027t this (and other small predicates) be defined as inline in a header? I see there is an alternative definition for stub, but that can be done in a header as well, no?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a17df8cb_ac45d9bd",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "The mtepr design is header for definitions and then stub/non-stub for implementation. I kept it as-is - also we haven\u0027t followed a rule on where to put such small functions in general.",
+      "parentUuid": "afb425b6_39923e71",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -68,6 +116,30 @@
       "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd79173_6e5e7e45",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c575be2c_eea2f6b0",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

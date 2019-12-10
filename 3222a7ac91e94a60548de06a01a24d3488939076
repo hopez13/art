@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48e760e6_4c4ed2d3",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "No - the else line 242 needs to be executed for the kSuper case.",
+      "parentUuid": "ad4912fe_90974f18",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 34
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf4ab920_d97639e6",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f256b42_81a9f79f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf4ab920_d97639e6",
+      "range": {
+        "startLine": 238,
+        "startChar": 53,
+        "endLine": 238,
+        "endChar": 56
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1d2f2df7_d855eef8",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e1a46bc_8d4ff876",
+      "range": {
+        "startLine": 318,
+        "startChar": 52,
+        "endLine": 318,
+        "endChar": 55
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0197e1b7_c2e8c9ec",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ea41e7e4_7b17f5dc",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "Actually that\u0027s a stalled comment. The exception is what matters here. I removed the comment.",
+      "parentUuid": "0197e1b7_c2e8c9ec",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 41
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9c49ce4_b0895f09",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2019-12-10T13:35:02Z",
       "side": 1,
       "message": "Maybe set the sign bit here instead of negation? Negating unsigned integer looks weird. With bit set you can use btr (see the related comment where nterp_get_instance_field_offset is used).",
+      "range": {
+        "startLine": 344,
+        "startChar": 54,
+        "endLine": 344,
+        "endChar": 69
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34b44ce5_ee28cde2",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-10T14:20:12Z",
+      "side": 1,
+      "message": "There may be other archs too :) It\u0027s really just a convention for a rare case, so I wouldn\u0027t worry too much about it.",
+      "parentUuid": "c9c49ce4_b0895f09",
       "range": {
         "startLine": 344,
         "startChar": 54,
