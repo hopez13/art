@@ -320,6 +320,30 @@
     },
     {
       "key": {
+        "uuid": "da11975b_81073d05",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-10T16:18:34Z",
+      "side": 1,
+      "message": "What register pressure? In SETUP_STACK_FOR_INVOKE you have saved the caller\u0027s rbx, rbp, r12-r15 and you do not need the old rINSTQ/RBP/rREFS, so you can reuse them. You\u0027re not using the available r10 at all. And if you construct the new `regs` and `refs` after aligning the SP, you can use the rNEW_FP, rNEW_REFS to store some values in the meantime, say the number of registers and out registers.",
+      "parentUuid": "aa0d63bf_0945e671",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 18
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9ec8dce_0d9b6c7d",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
