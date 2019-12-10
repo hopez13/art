@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fc04fb1a_a21029d5",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Sure. I sometimes prefer helper because it is useful not only to hide casts, but also to add debug checks that are too clumsy to be added in every use case.",
+      "parentUuid": "c412740d_92171a4e",
+      "range": {
+        "startLine": 396,
+        "startChar": 37,
+        "endLine": 396,
+        "endChar": 87
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f5bb72b_efc436ea",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "cdc5bf19_b1fe17a4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d03cef3_4affc0ce",
+      "range": {
+        "startLine": 1297,
+        "startChar": 0,
+        "endLine": 1300,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb3386d8_599443ed",
         "filename": "runtime/stack.cc",
         "patchSetId": 4
@@ -140,6 +188,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d351e3d_d3cda73e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "7a3b5461_6741bd0f",
+      "range": {
+        "startLine": 757,
+        "startChar": 43,
+        "endLine": 757,
+        "endChar": 44
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

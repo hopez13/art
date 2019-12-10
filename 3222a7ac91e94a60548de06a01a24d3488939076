@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2e371395_11744757",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Ah, right, sorry.",
+      "parentUuid": "48e760e6_4c4ed2d3",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 34
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf4ab920_d97639e6",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 3
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "8beffd5b_aaf85251",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea41e7e4_7b17f5dc",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 41
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9c49ce4_b0895f09",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 3
@@ -234,6 +282,30 @@
       "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37bb28eb_a2b6bcda",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Sure.\n\nOn arm, i think, you can use \u0027ands reg, reg, 0x80000000\u0027 or something like this instead of btr, but I don\u0027t really know.",
+      "parentUuid": "34b44ce5_ee28cde2",
+      "range": {
+        "startLine": 344,
+        "startChar": 54,
+        "endLine": 344,
+        "endChar": 69
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

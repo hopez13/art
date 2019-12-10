@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "32b755bd_49b0f710",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Right, thanks for the explanation.",
+      "parentUuid": "60282dee_28c55700",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 0
+      },
+      "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afb425b6_39923e71",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f94af979_81e4bd8d",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T14:53:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a17df8cb_ac45d9bd",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "eb75feb2c804bf90958dcd3a498e34f1a8a82e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
