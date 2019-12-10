@@ -22,6 +22,53 @@
       "revId": "7c04693a5095ae2b6fbc8229dfb06e0c8da5414c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "283aac00_300f91df",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-10T15:45:18Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "30464424_8070f807",
+      "range": {
+        "startLine": 61,
+        "startChar": 9,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "7c04693a5095ae2b6fbc8229dfb06e0c8da5414c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc95f7ba_5f86fb1c",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-10T15:45:18Z",
+      "side": 1,
+      "message": "Move to next CL in series.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 15
+      },
+      "revId": "7c04693a5095ae2b6fbc8229dfb06e0c8da5414c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
