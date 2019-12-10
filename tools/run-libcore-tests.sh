@@ -58,7 +58,7 @@ function boot_classpath_arg {
 function usage {
   (
     cat << EOF
-  Usage: $(basename "${BASH_SOURCE[0]}") --mode=<mode>
+  Usage: $(basename "${BASH_SOURCE[0]}") --mode=<mode> [options] [-- <package_to_test> ...]
 
   Run libcore tests using the vogar testing tool.
 
@@ -73,6 +73,10 @@ function usage {
 
   The script passes unrecognized options to the command-line created for vogar.
 
+  The script runs a hardcoded list of libcore test packages by default. The user
+  may run a subset of packages by appending '--' followed by a list of package
+  names.
+
   Examples:
 
     1. Run full test suite on host:
@@ -80,6 +84,9 @@ function usage {
 
     2. Run full test suite on device:
       $(basename "${BASH_SOURCE[0]}") --mode=device
+
+    3. Run tests within libcore.java.lang package on device:
+      $(basename "${BASH_SOURCE[0]}") --mode=device -- libcore.java.lang
 EOF
   ) | sed -e 's/^  //' >&2 # Strip leading whitespace from heredoc.
 }
@@ -176,6 +183,12 @@ while [ -n "$1" ]; do
       vogar_args="$vogar_args $1"
       gcstress=true
       ;;
+    --)
+      shift
+      # Assume remaining elements are packages to test.
+      user_packages=("$@")
+      break
+      ;;
     --help)
       usage
       exit 1
@@ -250,6 +263,7 @@ vogar_args="$vogar_args --toolchain d8 --language CUR"
 if $use_jit; then
   vogar_args="$vogar_args --vm-arg -Xcompiler-option --vm-arg --compiler-filter=quicken"
 fi
+
 vogar_args="$vogar_args --vm-arg -Xusejit:$use_jit"
 
 # gcstress may lead to timeouts, so we need dedicated expectations files for it.
@@ -275,6 +289,12 @@ fi
 if [ ! -t 1 ] ; then
   # Suppress color codes if not attached to a terminal
   vogar_args="$vogar_args --no-color"
+fi
+
+# Override working_packages if user provided specific packages to
+# test.
+if [[ ${#user_packages[@]} != 0 ]] ; then
+  working_packages=("${user_packages[@]}")
 fi
 
 # Run the tests using vogar.
