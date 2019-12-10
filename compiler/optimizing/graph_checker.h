@@ -34,7 +34,8 @@ class GraphChecker : public HGraphDelegateVisitor {
       errors_(graph->GetAllocator()->Adapter(kArenaAllocGraphChecker)),
       dump_prefix_(dump_prefix),
       allocator_(graph->GetArenaStack()),
-      seen_ids_(&allocator_, graph->GetCurrentInstructionId(), false, kArenaAllocGraphChecker) {
+      seen_ids_(&allocator_, graph->GetCurrentInstructionId(), false, kArenaAllocGraphChecker),
+      check_reference_type_info_(true) {
     seen_ids_.ClearAllBits();
   }
 
@@ -95,6 +96,15 @@ class GraphChecker : public HGraphDelegateVisitor {
     }
   }
 
+  // Enable/Disable the reference type info check.
+  //
+  // Return: the previous status of the check.
+  bool SetRefTypeInfoCheckEnabled(bool value = true) {
+    bool old_value = check_reference_type_info_;
+    check_reference_type_info_ = value;
+    return old_value;
+  }
+
  protected:
   // Report a new error.
   void AddError(const std::string& error) {
@@ -111,6 +121,10 @@ class GraphChecker : public HGraphDelegateVisitor {
   const char* const dump_prefix_;
   ScopedArenaAllocator allocator_;
   ArenaBitVector seen_ids_;
+  // Whether to perform the reference type info check for instructions which use or produce
+  // object references, e.g. HNewInstance, HLoadClass.
+  // The default value is true.
+  bool check_reference_type_info_;
 
   DISALLOW_COPY_AND_ASSIGN(GraphChecker);
 };

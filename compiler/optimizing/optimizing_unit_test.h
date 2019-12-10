@@ -105,6 +105,29 @@ class ArenaPoolAndAllocator {
   ScopedArenaAllocator scoped_allocator_;
 };
 
+// The interface to allow unit tests to configure a graph checker before it runs checks.
+class GraphCheckerConfig {
+ public:
+  virtual ~GraphCheckerConfig() {}
+
+  // Apply a desired configuration to the provided graph checker.
+  virtual void Apply(GraphChecker* graph_checker) const = 0;
+};
+
+// The default implementation when there is no need to configure a graph checker.
+class DefaultGraphCheckerConfig final : public GraphCheckerConfig {
+ public:
+  void Apply(GraphChecker* ATTRIBUTE_UNUSED) const override { /* do nothing */ }
+};
+
+// Configure a graph checker not to do reference type info checks.
+class NoRefTypeInfoChecks final : public GraphCheckerConfig {
+ public:
+  void Apply(GraphChecker* graph_checker) const override {
+    graph_checker->SetRefTypeInfoCheckEnabled(false);
+  }
+};
+
 // Have a separate helper so the OptimizingCFITest can inherit it without causing
 // multiple inheritance errors from having two gtest as a parent twice.
 class OptimizingUnitTestHelper {
@@ -180,6 +203,15 @@ class OptimizingUnitTestHelper {
     }
   }
 
+  bool CheckGraph(HGraph* graph,
+                  const GraphCheckerConfig& graph_checker_config = DefaultGraphCheckerConfig{}) {
+    GraphChecker checker(graph);
+    graph_checker_config.Apply(&checker);
+    checker.Run();
+    checker.Dump(std::cerr);
+    return checker.IsValid();
+  }
+
  private:
   std::vector<std::unique_ptr<const StandardDexFile>> dex_files_;
   std::unique_ptr<ArenaPoolAndAllocator> pool_and_allocator_;
@@ -222,16 +254,8 @@ class ImprovedOptimizingUnitTest : public OptimizingUnitTest {
     exit_block_->AddInstruction(new (GetAllocator()) HExit());
   }
 
-  bool CheckGraph() {
-    GraphChecker checker(graph_);
-    checker.Run();
-    if (!checker.IsValid()) {
-      for (const std::string& error : checker.GetErrors()) {
-        std::cout << error << std::endl;
-      }
-      return false;
-    }
-    return true;
+  bool CheckGraph(const GraphCheckerConfig& graph_checker_config = DefaultGraphCheckerConfig{}) {
+    return OptimizingUnitTestHelper::CheckGraph(graph_, graph_checker_config);
   }
 
   HEnvironment* ManuallyBuildEnvFor(HInstruction* instruction,
