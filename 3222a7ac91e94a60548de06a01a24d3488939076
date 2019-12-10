@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad4912fe_90974f18",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Should this be an \u0027else if\u0027?",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 34
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4ab920_d97639e6",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Maybe add a comment why this bit needs to be set (and why string class is handled in a special way)?",
+      "range": {
+        "startLine": 238,
+        "startChar": 53,
+        "endLine": 238,
+        "endChar": 56
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e1a46bc_8d4ff876",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Maybe add a comment?",
+      "range": {
+        "startLine": 318,
+        "startChar": 52,
+        "endLine": 318,
+        "endChar": 55
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0197e1b7_c2e8c9ec",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Use a named constant? Also, in similar functions zero is returned on failure and there is no comment.",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 41
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c49ce4_b0895f09",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Maybe set the sign bit here instead of negation? Negating unsigned integer looks weird. With bit set you can use btr (see the related comment where nterp_get_instance_field_offset is used).",
+      "range": {
+        "startLine": 344,
+        "startChar": 54,
+        "endLine": 344,
+        "endChar": 69
+      },
+      "revId": "3222a7ac91e94a60548de06a01a24d3488939076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

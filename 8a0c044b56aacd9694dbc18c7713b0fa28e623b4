@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a8607fb_76e1b92c",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "This pattern seems to occur often (reinterpret cast from pointer to size_t when passing arg to GetInterpreterCache()-\u003eSet, about 5 times in this PS). Maybe worth adding GetInterpreterCache()-\u003eSetFromPtr that would do the cast.",
+      "range": {
+        "startLine": 396,
+        "startChar": 37,
+        "endLine": 396,
+        "endChar": 87
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f5bb72b_efc436ea",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Maybe it is a bit simper to set the sign bit of the offset instead of negating it (that would also avoid negating uint32_t which looks incorrect from the type system perspective). Then you can use btr and jnc if I\u0027m not mistaken (in that case neg is not needed).",
+      "range": {
+        "startLine": 1297,
+        "startChar": 0,
+        "endLine": 1300,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb3386d8_599443ed",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-10T13:35:02Z",
+      "side": 1,
+      "message": "Is this 3 related to the 3 from runtime.cc:852 ?",
+      "range": {
+        "startLine": 757,
+        "startChar": 43,
+        "endLine": 757,
+        "endChar": 44
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
