@@ -70,6 +70,52 @@
       "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd8e8d5_5acb715f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-11T15:41:29Z",
+      "side": 1,
+      "message": "I think these changes should be reverted back to PS4. If we\u0027re bailing for obsolete methods, then getting the DexFile/DexCache from the `executing_class` is OK as we have already paid the read barrier cost because we need the `executing_class` below anyway. (Micro-optimizing this I would just retrieve the DexCache first and get the DexFile from it but I think the compiler should be optimize that for us with the PS4 code.)",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 200,
+        "endChar": 29
+      },
+      "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd52cde1_9bd6328d",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-11T15:41:29Z",
+      "side": 1,
+      "message": "We will need to store r11 earlier or later, I was only suggesting to avoid the CFI define. (Though the r11 store could be indeed postponed until the other CFI define.)",
+      "range": {
+        "startLine": 753,
+        "startChar": 36,
+        "endLine": 753,
+        "endChar": 51
+      },
+      "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
