@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a9146d1_695fa202",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T21:52:20Z",
+      "side": 1,
+      "message": "This kind of comes out of the blue. Please add a comment (and mention in the comment as well which part of a run-test would trip if the check wasn\u0027t there).\n\nAlso is this place the only place we check final / is_set ?",
+      "range": {
+        "startLine": 362,
+        "startChar": 17,
+        "endLine": 362,
+        "endChar": 68
+      },
+      "revId": "270db1ce48377e3d9ca0c3dcec834ac807ca885b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
