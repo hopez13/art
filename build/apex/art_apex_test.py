@@ -533,6 +533,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libjdwp')
     self._checker.check_native_library('liblzma')
     self._checker.check_native_library('libnpt')
+    self._checker.check_native_library('libunwind')
     self._checker.check_native_library('libunwindstack')
     self._checker.check_native_library('libziparchive')
     self._checker.check_optional_native_library('libvixl')  # Only on ARM/ARM64
