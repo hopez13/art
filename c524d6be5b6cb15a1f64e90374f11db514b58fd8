@@ -22,6 +22,30 @@
       "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09161221_d8f86ec9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T14:04:14Z",
+      "side": 1,
+      "message": "For that, see the other CL:\nhttps://android-review.googlesource.com/c/platform/art/+/1180627/3\n\nIn particular nterp_helpers.cc",
+      "parentUuid": "71858c4f_2013b53c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
