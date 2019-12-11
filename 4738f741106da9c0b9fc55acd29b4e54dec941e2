@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a76ad0f7_e7953be1",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa0528e2_447fafec",
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4584c22_8be3e28a",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "You assume that StringInit calls are rare. Is that really so?\n\n(We use the same for volatile fields and I agree with that one.)",
+      "range": {
+        "startLine": 240,
+        "startChar": 77,
+        "endLine": 242,
+        "endChar": 20
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba94ddb9_ba742538",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "They are much less frequent than regular calls, I\u0027ve expanded the comment.",
+      "parentUuid": "c4584c22_8be3e28a",
       "range": {
         "startLine": 240,
         "startChar": 77,

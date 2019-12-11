@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f6702ef_a9337b2b",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b763bd22_97a689de",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0f9b8c5_f8912e20",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Unnecessary (and contains unnecessary memory barrier).\nPossibly broken for obsolete methods but maybe we do not use mterp/nterp when debuggable? Or bail to the switch interpreter when making the method obsolete?",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5447519_d29af369",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Good catch! And yeah, we bail for obsolete.",
+      "parentUuid": "b0f9b8c5_f8912e20",
       "range": {
         "startLine": 87,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "67f197b4_627fb29e",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e436c7_0f9886f0",
+      "range": {
+        "startLine": 97,
+        "startChar": 15,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e00d74aa_9f75612f",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43067a75_9359bcd7",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e00d74aa_9f75612f",
+      "range": {
+        "startLine": 107,
+        "startChar": 28,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a712174a_272be060",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef0965c_b4fd25fb",
+      "range": {
+        "startLine": 197,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 38
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f92c76b2_6e7586a3",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "TODO: What about invoke-interface MyInterface.toString()? It is permitted to call public methods from j.l.Object on interfaces. (I didn\u0027t review the related parts of the invoke-interface in assembler yet but this is a concern I want to look at.)",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 81
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c01c2074_6f2aa781",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Yeah, but for MyInterface.toString that\u0027s an invokevirtual. For invokeinterface, the method must be an interface method (if MyInterface.toString is defined, then it is an interface method with an IMT).",
+      "parentUuid": "f92c76b2_6e7586a3",
       "range": {
         "startLine": 232,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5e38a6aa_3a7b89d5",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d199a852_3fd94e21",
+      "range": {
+        "startLine": 347,
+        "startChar": 3,
+        "endLine": 347,
+        "endChar": 10
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40a42755_fefb8b15",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Not the best name given the allocation done for NEW_INSTANCE. Maybe this should be split into two separate functions.",
+      "range": {
+        "startLine": 353,
+        "startChar": 27,
+        "endLine": 353,
+        "endChar": 40
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5376a5d1_faa244ca",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Given they do the same resolution logic, I\u0027d like to keep the same helper. Renamed.",
+      "parentUuid": "40a42755_fefb8b15",
       "range": {
         "startLine": 353,
         "startChar": 27,
@@ -280,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "7a0cdde0_ad89b2e2",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5613751b_ed290651",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 63
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0808031f_abe92348",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -300,6 +516,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb794f03_18f0c5b8",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0808031f_abe92348",
+      "range": {
+        "startLine": 459,
+        "startChar": 4,
+        "endLine": 459,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -326,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "fba3eb5d_a7beeb95",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7bf9652_c56d4087",
+      "range": {
+        "startLine": 461,
+        "startChar": 15,
+        "endLine": 461,
+        "endChar": 26
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c9cd5d9_9fefd792",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -346,6 +610,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cab4f40_64f651f8",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9cd5d9_9fefd792",
+      "range": {
+        "startLine": 475,
+        "startChar": 2,
+        "endLine": 475,
+        "endChar": 7
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -372,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "ea3ae7ff_d90a4071",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113a2bc7_48869b67",
+      "range": {
+        "startLine": 538,
+        "startChar": 13,
+        "endLine": 538,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73b5172c_1ebed3cb",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -383,6 +695,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "What\u0027s \".long\" in this context? Is it 32-bit value?",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80826bbc_953eb59b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Yes. Removed two occurences.",
+      "parentUuid": "73b5172c_1ebed3cb",
       "range": {
         "startLine": 206,
         "startChar": 4,
@@ -412,6 +748,24 @@
     },
     {
       "key": {
+        "uuid": "b91ea285_f2d9f7b9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "We shouldn\u0027t put cfi data here. The CFA is expressed as an offset of rREFS, not rsp.",
+      "parentUuid": "784bf951_1b8db146",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdfd8e84_c8c394cd",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -423,6 +777,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "VREG_ADDRESS",
+      "range": {
+        "startLine": 274,
+        "startChar": 16,
+        "endLine": 274,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "582c00a7_1c6c2601",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done (using GET_VREG).",
+      "parentUuid": "cdfd8e84_c8c394cd",
       "range": {
         "startLine": 274,
         "startChar": 16,
@@ -458,6 +836,30 @@
     },
     {
       "key": {
+        "uuid": "b3df3ebd_8de3bfbb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added that as TODO.",
+      "parentUuid": "bae61fc9_83daf34a",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30ee8887_b3ede8e3",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -469,6 +871,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Can we do this in a single instruction?",
+      "range": {
+        "startLine": 399,
+        "startChar": 4,
+        "endLine": 400,
+        "endChar": 35
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d15642be_17d6422a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Yes, done.",
+      "parentUuid": "30ee8887_b3ede8e3",
       "range": {
         "startLine": 399,
         "startChar": 4,
@@ -504,6 +930,30 @@
     },
     {
       "key": {
+        "uuid": "ea3e76b4_a4d05bdd",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76660c35_ddf5978d",
+      "range": {
+        "startLine": 405,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 35
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e6f8f27_6402565f",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -515,6 +965,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Or we could just copy all the vregs to the stack slots in a simple loop (or REP MOVSD) without looking at the shorty at all. (We could also drop the \"stack_index\" from the macros for loading registers.) We could also do that conditionally if argument word count \u003e 6; otherwise we know that all args fit into registers.",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 43
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd8bf1f3_89b51d0f",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added that as TODO.",
+      "parentUuid": "8e6f8f27_6402565f",
       "range": {
         "startLine": 412,
         "startChar": 0,
@@ -550,6 +1024,30 @@
     },
     {
       "key": {
+        "uuid": "7ff1f97d_60af31ca",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Right, making this an index. I cannot use VREG_ADDRESS, as that uses rFP, and in this macro we want to use the given \u0027fp\u0027.",
+      "parentUuid": "0737da43_cedfcb9a",
+      "range": {
+        "startLine": 531,
+        "startChar": 23,
+        "endLine": 531,
+        "endChar": 24
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5bdff8e5_216f5e87",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -561,6 +1059,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Or we could just spill regs to the reserved slots in the caller\u0027s frame and copy all regs in a simple loop. This time, however, we would need to look at the shorty anyway to look for the references. (The trade-off is different for passing arguments and receiving them.)",
+      "range": {
+        "startLine": 583,
+        "startChar": 3,
+        "endLine": 584,
+        "endChar": 44
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57ab0f22_cccf7641",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added that as a TODO.",
+      "parentUuid": "5bdff8e5_216f5e87",
       "range": {
         "startLine": 583,
         "startChar": 3,
@@ -590,6 +1112,24 @@
     },
     {
       "key": {
+        "uuid": "665a2d77_ad4f6c0b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea2a29fc_8a482151",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dc6e578_56fe794b",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -613,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "2719352f_2a8cc873",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc6e578_56fe794b",
+      "range": {
+        "startLine": 675,
+        "startChar": 15,
+        "endLine": 675,
+        "endChar": 51
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16bdba6f_ae840ff3",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -624,6 +1188,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "This spills xmm12-xmm15 which is unnecessary for nterp to nterp transition as they are not callee-saves in native ABI. Maybe rIBASE doesn\u0027t need spilling either.\n\nNit: Using macro before its definition.",
+      "range": {
+        "startLine": 676,
+        "startChar": 3,
+        "endLine": 676,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "422bafcb_fa1e8e29",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Yes, but I need the same stack layout whether we\u0027re coming from compiler or coming from nterp. I\u0027ve added a comment.",
+      "parentUuid": "16bdba6f_ae840ff3",
       "range": {
         "startLine": 676,
         "startChar": 3,
@@ -659,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "87a049ee_00814a10",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7473e6_56454bd9",
+      "range": {
+        "startLine": 688,
+        "startChar": 8,
+        "endLine": 688,
+        "endChar": 11
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f41feec_332ab41c",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -682,6 +1294,30 @@
     },
     {
       "key": {
+        "uuid": "38d0d507_074f3f9a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f41feec_332ab41c",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 12
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "910a2330_ae418126",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -693,6 +1329,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "You could get rid of this if you preserve r11 until you copy rNEW_REFS to rREFS. (You currently do because you use it for copying parameters. I suggest that you move the alignment and rewrite the parameter copy so that you do not need r11 for that and still preserve r11.)",
+      "range": {
+        "startLine": 709,
+        "startChar": 3,
+        "endLine": 709,
+        "endChar": 58
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afc00373_7ec3ef73",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added a TODO.",
+      "parentUuid": "910a2330_ae418126",
       "range": {
         "startLine": 709,
         "startChar": 3,
@@ -728,6 +1388,30 @@
     },
     {
       "key": {
+        "uuid": "1a6fa02b_2357d2b4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d0ae306_8c82071e",
+      "range": {
+        "startLine": 727,
+        "startChar": 3,
+        "endLine": 728,
+        "endChar": 17
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8906579_0401cfe2",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -751,6 +1435,30 @@
     },
     {
       "key": {
+        "uuid": "5f90894d_7851c444",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8906579_0401cfe2",
+      "range": {
+        "startLine": 740,
+        "startChar": 3,
+        "endLine": 740,
+        "endChar": 19
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bf1e375_36f31cfb",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -762,6 +1470,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "This is quite unreadable, copying to rNEW_FP/rNEW_REFS but using rNEW_REFS/r11 as the base and using negative r10...\n\nYou should set up r10 as the number of registers (this can be an additional output from SETUP_STACK_FOR_INVOKE) and then just decrement it by one before copying each arg to (rNEW_FP, r10, 4) and (rNEW_REFS, r10, 4). Maybe even introduce macros NEW_VREG_ADDRESS/NEW_VREG_REF_ADDRESS.",
+      "range": {
+        "startLine": 752,
+        "startChar": 3,
+        "endLine": 755,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daaad933_1e763615",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added a TODO for this and some comments about rNEW_FP and r11.",
+      "parentUuid": "8bf1e375_36f31cfb",
       "range": {
         "startLine": 752,
         "startChar": 3,
@@ -797,6 +1529,30 @@
     },
     {
       "key": {
+        "uuid": "2a820137_ebd5e9ed",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86d29da6_d6e3d8f4",
+      "range": {
+        "startLine": 760,
+        "startChar": 3,
+        "endLine": 760,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e953425_392d5769",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -817,6 +1573,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e1436a9_b707140e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e953425_392d5769",
+      "range": {
+        "startLine": 768,
+        "startChar": 3,
+        "endLine": 769,
+        "endChar": 24
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -843,6 +1623,30 @@
     },
     {
       "key": {
+        "uuid": "d534d72e_ec6be0c4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb915cc_a12ba4a9",
+      "range": {
+        "startLine": 795,
+        "startChar": 16,
+        "endLine": 795,
+        "endChar": 19
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666b567a_84928368",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -854,6 +1658,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Does bregx take a signed 7-bit value?",
+      "range": {
+        "startLine": 803,
+        "startChar": 34,
+        "endLine": 803,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d0f7ad9_b0e2706e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Yes, sleb actually.",
+      "parentUuid": "666b567a_84928368",
       "range": {
         "startLine": 803,
         "startChar": 34,
@@ -883,6 +1711,24 @@
     },
     {
       "key": {
+        "uuid": "af517672_957f3f96",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "There is a int3 in invoke.S. I\u0027ve added a comment here too.",
+      "parentUuid": "aabd2fab_9fddd964",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88a405f2_ab091185",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -894,6 +1740,30 @@
       "writtenOn": "2019-12-10T18:12:44Z",
       "side": 1,
       "message": "Unreadable, same as above.",
+      "range": {
+        "startLine": 825,
+        "startChar": 3,
+        "endLine": 828,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46d3091a_7b21de26",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Added a TODO.",
+      "parentUuid": "88a405f2_ab091185",
       "range": {
         "startLine": 825,
         "startChar": 3,
@@ -929,6 +1799,30 @@
     },
     {
       "key": {
+        "uuid": "b0ba714d_58d745a5",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "767c7003_4c603abd",
+      "range": {
+        "startLine": 855,
+        "startChar": 3,
+        "endLine": 855,
+        "endChar": 51
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c330c5e8_9c1a60fb",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -949,6 +1843,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef15a78c_799b9a93",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c330c5e8_9c1a60fb",
+      "range": {
+        "startLine": 859,
+        "startChar": 3,
+        "endLine": 859,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -975,6 +1893,30 @@
     },
     {
       "key": {
+        "uuid": "9791a6e0_531bc427",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af744a7_f587bd2c",
+      "range": {
+        "startLine": 951,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 20
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb6f2c20_0de84104",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -989,6 +1931,24 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ec31be_810c0192",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6f2c20_0de84104",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1015,6 +1975,30 @@
     },
     {
       "key": {
+        "uuid": "42e40845_283f5dd3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe107d_4961279b",
+      "range": {
+        "startLine": 998,
+        "startChar": 3,
+        "endLine": 998,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56492fc6_e168787c",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -1029,6 +2013,24 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d644a28_d3190ce8",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56492fc6_e168787c",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1052,6 +2054,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a850c028_9bb6efb5",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4de64b4_8172a32b",
+      "range": {
+        "startLine": 1035,
+        "startChar": 14,
+        "endLine": 1035,
+        "endChar": 18
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1146,6 +2172,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ee8c661_bb2a7ad4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1621,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-11T13:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61a8389d_870a1c5d",
+      "range": {
+        "startLine": 1621,
+        "startChar": 4,
+        "endLine": 1621,
+        "endChar": 11
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
