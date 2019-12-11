@@ -368,6 +368,30 @@
     },
     {
       "key": {
+        "uuid": "ed06b5b6_71d86468",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-11T15:48:07Z",
+      "side": 1,
+      "message": "It\u0027s OK to rewrite in a follow-up. Just do that before you write Nterp for another architecture, please.\n\n(Maybe you need rREFS but the other registers are still available.)",
+      "parentUuid": "da11975b_81073d05",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 18
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9ec8dce_0d9b6c7d",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
