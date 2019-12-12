@@ -683,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "8698eeff_00fd61d9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-12T10:53:50Z",
+      "side": 1,
+      "message": "Actually, the _32/_64 suffix is unnecessary, we generate separate asm_defines.h for each architecture.",
+      "parentUuid": "e732e081_88aeaca8",
+      "range": {
+        "startLine": 1129,
+        "startChar": 10,
+        "endLine": 1129,
+        "endChar": 11
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa2b6abb_fbafb0b1",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 6
