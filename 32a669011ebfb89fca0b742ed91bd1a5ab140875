@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98efc53f_e52ef309",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2019-12-12T15:21:11Z",
+      "side": 1,
+      "message": "It is unclear what is merged -- from the code it seems that you have  changed one test case with a different one; it\u0027s not clear why the old tests case is no longer needed.\n\nAlso, thanks for writing inline comments. Since there are so many different modes in which boot images are used, I think there is a need to extend the comments even more --- it is difficult to relate different parts of the test to dex2oat options that would be used for this cases.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "32a669011ebfb89fca0b742ed91bd1a5ab140875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
