@@ -46,6 +46,30 @@
       "revId": "32a669011ebfb89fca0b742ed91bd1a5ab140875",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c43f171_e3e5e85e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-12T15:28:54Z",
+      "side": 1,
+      "message": "Clarified offline.\n\n(FTR, TestExtensionSingleImage is merged into TestExtension; some variables had to be renamed to avoid clashes. Non-default dex2oat options can be gleaned from \"extra_args\" manipulation.)",
+      "parentUuid": "98efc53f_e52ef309",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "32a669011ebfb89fca0b742ed91bd1a5ab140875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
