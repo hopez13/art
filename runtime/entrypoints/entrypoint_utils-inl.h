@@ -358,6 +358,10 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
       DCHECK(self->IsExceptionPending());  // Throw exception and unwind.
       return nullptr;  // Failure.
     }
+    // We are only ever allowed to set our own final fields. We do need to be careful since if a
+    // structural redefinition occurs during <clinit> we can end up trying to set the non-obsolete
+    // class's fields from the obsolete class. This is something we want to allow. This is tested
+    // by run-test 2002-virtual-structural-initializing.
     if (UNLIKELY(is_set && resolved_field->IsFinal() && (fields_class != referring_class) &&
                  !referring_class->IsObsoleteVersionOf(fields_class))) {
       ThrowIllegalAccessErrorFinalField(referrer, resolved_field);
