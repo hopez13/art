@@ -9,9 +9,8 @@
 
 [
 {
-  description: "Os.memfd_create() only supports bionic-based platforms.",
+  description: "Needs kernel version >= 3.17 (not fugu) and bionic C library",
   result: EXEC_FAILED,
-  modes: [host],
   names: ["libcore.android.system.OsTest#testMemfdCreate",
           "libcore.android.system.OsTest#testMemfdCreateErrno",
           "libcore.android.system.OsTest#testMemfdCreateFlags"]
