@@ -40,6 +40,13 @@ inline bool ArtField::IsProxyField() {
   return GetDeclaringClass<kWithoutReadBarrier>()->IsProxyClass<kVerifyNone>();
 }
 
+inline bool ArtField::CanBeChangedBy(ArtMethod* method) {
+  ObjPtr<mirror::Class> declaring_class(GetDeclaringClass());
+  ObjPtr<mirror::Class> referring_class(method->GetDeclaringClass());
+  return !IsFinal() || (declaring_class == referring_class) ||
+         UNLIKELY(referring_class->IsObsoleteVersionOf(declaring_class));
+}
+
 template<ReadBarrierOption kReadBarrierOption>
 inline ObjPtr<mirror::Class> ArtField::GetDeclaringClass() {
   GcRootSource gc_root_source(this);

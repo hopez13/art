@@ -358,8 +358,11 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
       DCHECK(self->IsExceptionPending());  // Throw exception and unwind.
       return nullptr;  // Failure.
     }
-    if (UNLIKELY(is_set && resolved_field->IsFinal() && (fields_class != referring_class) &&
-                 !referring_class->IsObsoleteVersionOf(fields_class))) {
+    // We are only ever allowed to set our own final fields. We do need to be careful since if a
+    // structural redefinition occurs during <clinit> we can end up trying to set the non-obsolete
+    // class's fields from the obsolete class. This is something we want to allow. This is tested
+    // by run-test 2002-virtual-structural-initializing.
+    if (UNLIKELY(is_set && !resolved_field->CanBeChangedBy(referrer))) {
       ThrowIllegalAccessErrorFinalField(referrer, resolved_field);
       return nullptr;  // Failure.
     } else {
@@ -630,7 +633,7 @@ inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFiel
   ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
   if (UNLIKELY(!referring_class->CanAccess(fields_class) ||
                !referring_class->CanAccessMember(fields_class, resolved_field->GetAccessFlags()) ||
-               (is_set && resolved_field->IsFinal() && (fields_class != referring_class)))) {
+               (is_set && !resolved_field->CanBeChangedBy(referrer)))) {
     // Illegal access.
     return nullptr;
   }
