@@ -22,6 +22,30 @@
       "revId": "270db1ce48377e3d9ca0c3dcec834ac807ca885b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39284aa2_c46d2f21",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-12T17:56:13Z",
+      "side": 1,
+      "message": "Done. go/aog/1188103\n\nIt is also checked in FindFieldFast but if that fails then it will always fall back to FindFieldFromCode. Since FindFieldFast is supposed to be fast and this is an unlikely path I just put it on this one path.",
+      "parentUuid": "2a9146d1_695fa202",
+      "range": {
+        "startLine": 362,
+        "startChar": 17,
+        "endLine": 362,
+        "endChar": 68
+      },
+      "revId": "270db1ce48377e3d9ca0c3dcec834ac807ca885b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
