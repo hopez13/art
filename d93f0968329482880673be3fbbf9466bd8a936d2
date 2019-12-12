@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4a3f19c_ecfc5e9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-12T10:24:31Z",
+      "side": 1,
+      "message": "That\u0027s not a good description. You want to avoid checking the shorty when returning from nterp frame 1 to nterp frame 2. This change allows OSR of the nterp frame 1 in that setup and returning back to the nterp frame 2 (missing shorty check would be a problem without the coping the return value).",
+      "range": {
+        "startLine": 12,
+        "startChar": 12,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "d93f0968329482880673be3fbbf9466bd8a936d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2208c30b_187615d3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-12T10:24:31Z",
+      "side": 1,
+      "message": "// If we have replaced an nterp frame and are returning to another nterp frame, nterp expects the result in EDX/EAX.\n\nAnd update other codegen comments, please.",
+      "range": {
+        "startLine": 2242,
+        "startChar": 8,
+        "endLine": 2242,
+        "endChar": 70
+      },
+      "revId": "d93f0968329482880673be3fbbf9466bd8a936d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "481416b6_ace71f22",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-12T10:24:31Z",
+      "side": 1,
+      "message": "This clobbers xmm0 and it would break Nterp OSR when called from a compiled method that expects the return value in xmm0. Use xmm1 as a temporary for this.",
+      "range": {
+        "startLine": 2244,
+        "startChar": 8,
+        "endLine": 2244,
+        "endChar": 38
+      },
+      "revId": "d93f0968329482880673be3fbbf9466bd8a936d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
