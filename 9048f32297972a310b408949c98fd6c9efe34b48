@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "372047e0_541f8ca9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-12-13T15:25:44Z",
+      "side": 1,
+      "message": "But did you verify where the code flows?\n\nDoes it go through artInvokeInterfaceTrampoline()? Do we need to update the conflict table? Do we potentially break https://android-review.googlesource.com/c/platform/art/+/1156004/3/runtime/entrypoints/quick/quick_trampoline_entrypoints.cc#2733 if calling on an object of boot image class?\n\nWhat if we pick a j.l.Object method that maps to IMT entry without a conflict? Would we just call the wrong method based on that entry?",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "9048f32297972a310b408949c98fd6c9efe34b48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
