@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a48efae5_a5a68550",
+        "filename": "test/912-classes/classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-13T18:17:15Z",
+      "side": 1,
+      "message": "Nit: you could CSE this and the GetMethodID call with the unconditional invocation stuff.  Your choice.",
+      "range": {
+        "startLine": 612,
+        "startChar": 8,
+        "endLine": 612,
+        "endChar": 72
+      },
+      "revId": "081c8d683e95d366c48bf222a3b9eb0520b25ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e850c5e2_c34549d0",
+        "filename": "test/912-classes/src-art/art/Test912.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-13T18:17:15Z",
+      "side": 1,
+      "message": "Why is this an array when only element 0 is used?  Something to do with lambda capture semantics or something?",
+      "range": {
+        "startLine": 403,
+        "startChar": 16,
+        "endLine": 403,
+        "endChar": 22
+      },
+      "revId": "081c8d683e95d366c48bf222a3b9eb0520b25ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
