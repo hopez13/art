@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "099d3daf_4ee03fba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-13T18:27:13Z",
+      "side": 1,
+      "message": "Suggestion: this would be better as a small method that with a name like\nSafelyDeleteJpeer().",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 50
+      },
+      "revId": "4f5abeea329c77348b0d5766ae5d089033850866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6db835_d8c6ea84",
+        "filename": "test/928-jni-table/jni_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-13T18:27:13Z",
+      "side": 1,
+      "message": "unnecessary here.",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 8
+      },
+      "revId": "4f5abeea329c77348b0d5766ae5d089033850866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2447046e_d270e353",
+        "filename": "test/928-jni-table/jni_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-13T18:27:13Z",
+      "side": 1,
+      "message": "It seems like there\u0027s some implicit knowledge here I don\u0027t understand.  You expected that it would be at least 1 before doing the test, or should this be CHECK_LE?",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 32
+      },
+      "revId": "4f5abeea329c77348b0d5766ae5d089033850866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
