@@ -45,6 +45,30 @@
       "revId": "d38ec326b128581c68bd6fb8f1c959e99354c1ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b943f14_a2afd812",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2054,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-13T10:26:33Z",
+      "side": 1,
+      "message": "It\u0027s in the \"macro\" instruction_end, which mterp.py will place just after all opcode implementations, so it\u0027s within the [ExecuteNterpImpl, EndExecuteNterpImpl) range. I\u0027ve added a comment.",
+      "parentUuid": "8e209aea_a6e13777",
+      "range": {
+        "startLine": 2052,
+        "startChar": 4,
+        "endLine": 2054,
+        "endChar": 13
+      },
+      "revId": "d38ec326b128581c68bd6fb8f1c959e99354c1ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
