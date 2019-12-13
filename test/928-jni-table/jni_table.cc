@@ -39,6 +39,26 @@ static jobject CountNewGlobalRef(JNIEnv* env, jobject o) {
   return gOriginalEnv->NewGlobalRef(env, o);
 }
 
+static void DoDeleteGlobalRef(JNIEnv* env, jobject o) {
+  jclass thr = env->FindClass("java/lang/Thread");
+  CHECK(thr != nullptr);
+  if (env->IsInstanceOf(o, thr)) {
+    jvmtiThreadInfo jti;
+    // b/146170834: This could cause DCHECK failures.
+    CHECK_EQ(jvmti_env->GetThreadInfo(reinterpret_cast<jthread>(o), &jti), JVMTI_ERROR_NONE);
+  }
+  gOriginalEnv->DeleteGlobalRef(env, o);
+  return;
+}
+
+extern "C" JNIEXPORT void JNICALL Java_art_Test928_doOtherThreadTest(JNIEnv* env, jclass klass) {
+  size_t start_other_thread_count = gGlobalRefCount;
+  // Make sure it still works even on another thread.
+  jobject global = env->NewGlobalRef(klass);
+  CHECK_EQ(start_other_thread_count + 1, gGlobalRefCount);
+  env->DeleteGlobalRef(global);
+}
+
 extern "C" JNIEXPORT void JNICALL Java_art_Test928_doJNITableTest(
     JNIEnv* env, jclass klass) {
   // Get the current table, as the delegate.
@@ -55,6 +75,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test928_doJNITableTest(
   }
 
   env_override->NewGlobalRef = CountNewGlobalRef;
+  env_override->DeleteGlobalRef = DoDeleteGlobalRef;
   gGlobalRefCount = 0;
 
   // Install the override.
@@ -67,14 +88,20 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test928_doJNITableTest(
   CHECK_EQ(1u, gGlobalRefCount);
   env->DeleteGlobalRef(global);
 
+  // Try and create and destroy a thread.
+  env->CallStaticVoidMethod(klass, env->GetStaticMethodID(klass, "runThreadTest", "()V"));
+  // Make sure something got ref'd.
+  CHECK_LT(1u, gGlobalRefCount);
+
   // Install the "original." There is no real reset.
+  size_t final_global_ref_count = gGlobalRefCount;
   jvmtiError setoverride2_result = jvmti_env->SetJNIFunctionTable(gOriginalEnv);
   if (JvmtiErrorToException(env, jvmti_env, setoverride2_result)) {
     return;
   }
 
   jobject global2 = env->NewGlobalRef(klass);
-  CHECK_EQ(1u, gGlobalRefCount);
+  CHECK_EQ(final_global_ref_count, gGlobalRefCount);
   env->DeleteGlobalRef(global2);
 
   // Try to install null. Should return NULL_POINTER error.
