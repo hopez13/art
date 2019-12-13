@@ -16,6 +16,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d49cd72_97237ca8",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-13T23:17:13Z",
+      "side": 1,
+      "message": "It also calls this. https://cs.android.com/android/platform/superproject/+/master:art/runtime/interpreter/interpreter_common.h;l\u003d660?q\u003dinterpreter_common.h:660\u0026ss\u003dandroid%2Fplatform%2Fsuperproject",
+      "parentUuid": "8e8282a8_fd428036",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
