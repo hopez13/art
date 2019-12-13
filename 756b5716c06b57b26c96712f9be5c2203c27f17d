@@ -22,6 +22,30 @@
       "revId": "756b5716c06b57b26c96712f9be5c2203c27f17d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "017f05a5_2a0ccec5",
+        "filename": "tools/libcore_fugu_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-13T10:27:19Z",
+      "side": 1,
+      "message": "I\u0027m not seeing vogar complaining here, but you\u0027re right that it can. Limited modes to device tests here.",
+      "parentUuid": "8361537a_b583c2ff",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "756b5716c06b57b26c96712f9be5c2203c27f17d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
