@@ -935,6 +935,7 @@ bool Runtime::Start() {
         : NativeBridgeAction::kUnload;
     InitNonZygoteOrPostFork(self->GetJniEnv(),
                             /* is_system_server= */ false,
+                            /* is_zygote= */ false,
                             action,
                             GetInstructionSetString(kRuntimeISA));
   }
@@ -999,11 +1000,10 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env,
     bool is_system_server,
+    bool is_zygote,
     NativeBridgeAction action,
     const char* isa,
     bool profile_system_server) {
-  DCHECK(!IsZygote());
-
   if (is_native_bridge_loaded_) {
     switch (action) {
       case NativeBridgeAction::kUnload:
@@ -1015,6 +1015,13 @@ void Runtime::InitNonZygoteOrPostFork(
         break;
     }
   }
+
+  if (is_zygote) {
+    // App-zygote only gets native bridge initialized.
+    return;
+  }
+
+  DCHECK(!IsZygote());
 
   if (is_system_server && profile_system_server) {
     // Set the system server package name to "android".
