@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f74b4c2_427209e2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-13T17:30:27Z",
+      "side": 1,
+      "message": "Not being familiar here with this code, I\u0027m interpreting the append pattern to cover constructing a Stringbuilder, invoking various overloads of append(), and then calling toString() exactly once.",
+      "range": {
+        "startLine": 2492,
+        "startChar": 7,
+        "endLine": 2492,
+        "endChar": 76
+      },
+      "revId": "72d2e965750f71871120194020f67f8a7378c38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7079893a_da8d36eb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2511,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-13T17:30:27Z",
+      "side": 1,
+      "message": "// Instructions of interest apply to sb, skip those that do not involve sb.",
+      "range": {
+        "startLine": 2509,
+        "startChar": 0,
+        "endLine": 2511,
+        "endChar": 5
+      },
+      "revId": "72d2e965750f71871120194020f67f8a7378c38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07da2ed1_6afbbff9",
+        "filename": "test/699-checker-string-append2/smali/B146014745.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-13T17:30:27Z",
+      "side": 1,
+      "message": "Is this useful? Potential path to unblock knownfailures.json change? Other?",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 36
+      },
+      "revId": "72d2e965750f71871120194020f67f8a7378c38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
