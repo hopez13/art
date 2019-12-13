@@ -97,10 +97,11 @@ void ThreadPoolWorker::Run() {
 void* ThreadPoolWorker::Callback(void* arg) {
   ThreadPoolWorker* worker = reinterpret_cast<ThreadPoolWorker*>(arg);
   Runtime* runtime = Runtime::Current();
-  CHECK(runtime->AttachCurrentThread(worker->name_.c_str(),
-                                     true,
-                                     nullptr,
-                                     worker->thread_pool_->create_peers_));
+  CHECK(runtime->AttachCurrentThread(
+      worker->name_.c_str(),
+      true,
+      worker->thread_pool_->create_peers_ ? runtime->GetSystemThreadGroup() : nullptr,
+      worker->thread_pool_->create_peers_));
   worker->thread_ = Thread::Current();
   // Mark thread pool workers as runtime-threads.
   worker->thread_->SetIsRuntimeThread(true);
