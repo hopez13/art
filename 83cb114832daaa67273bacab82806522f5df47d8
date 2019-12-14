@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5752e85_10be46d9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-14T01:38:26Z",
+      "side": 1,
+      "message": "Frankly, I wasn\u0027t sure in the beginning what level (runtime/base/locks.h line:134) should I choose. So, I chose the default level. But unfortunately that crashed ThreadStress test. And given that this lock is acquired when mutator_lock_ is not held, I thought this level was right.\n\nPlease suggest, if I should set it to something else, or introduce a new level for this mutex.",
+      "parentUuid": "f8875eb8_16895cda",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-14T01:14:29Z",
       "side": 1,
       "message": "Since everything is really relative to this, I would consider just making this 1.0 and losing the constant definition. I don\u0027t think it makes sense to change it to something other than 1, right?",
+      "range": {
+        "startLine": 3507,
+        "startChar": 11,
+        "endLine": 3507,
+        "endChar": 50
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3bcbcb4_2a081182",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-14T01:38:26Z",
+      "side": 1,
+      "message": "The only reason I introduced this constant was because with this CL it is now being used at more than one place. I\u0027m concerned that without it, in future, if someone decides to change it, then we\u0027ll have inconsistency in the code.",
+      "parentUuid": "a2070e4a_f17ad243",
       "range": {
         "startLine": 3507,
         "startChar": 11,
