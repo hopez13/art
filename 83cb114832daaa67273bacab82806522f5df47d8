@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "810773d7_185530c0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-14T03:07:09Z",
+      "side": 1,
+      "message": "My a priori guess would have been kGenericBottomLock. But I have little confidence that works.",
+      "parentUuid": "d5752e85_10be46d9",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The only reason I introduced this constant was because with this CL it is now being used at more than one place. I\u0027m concerned that without it, in future, if someone decides to change it, then we\u0027ll have inconsistency in the code.",
       "parentUuid": "a2070e4a_f17ad243",
+      "range": {
+        "startLine": 3507,
+        "startChar": 11,
+        "endLine": 3507,
+        "endChar": 50
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f66d222f_228d4430",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-14T03:07:09Z",
+      "side": 1,
+      "message": "I guess I\u0027m arguing that we don\u0027t want people to change it ever. The forground multiplier is relative to this. We\u0027re arbitraarily calling something 1, and then specifying a ratio relative to that. If you also get to change the value of 1, you just end up with a redundant knob.",
+      "parentUuid": "c3bcbcb4_2a081182",
       "range": {
         "startLine": 3507,
         "startChar": 11,
