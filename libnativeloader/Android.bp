@@ -42,6 +42,9 @@ cc_library {
             shared_libs: [
                 "libdl_android",
             ],
+            static_libs: [
+                "PlatformProperties",
+            ],
         },
     },
     required: [
