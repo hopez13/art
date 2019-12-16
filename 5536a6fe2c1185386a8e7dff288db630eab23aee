@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33987ae4_7ec814ad",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:18:25Z",
+      "side": 1,
+      "message": "nit: can you add a comment about the rationale here? eg \"For threads that have Java peers, they need to be in the system group because... For threads that don\u0027t have Java peers, they don\u0027t need to be in a group because...\"",
+      "range": {
+        "startLine": 103,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "5536a6fe2c1185386a8e7dff288db630eab23aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
