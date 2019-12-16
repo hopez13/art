@@ -45,6 +45,30 @@
       "revId": "34cb683b2893386fb7d6c24ff962aae8814c8693",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5738a1e2_f491d8c9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-16T22:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc31c97_bd5cea32",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 56
+      },
+      "revId": "34cb683b2893386fb7d6c24ff962aae8814c8693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
