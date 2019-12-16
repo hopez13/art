@@ -34,6 +34,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5b289c6_f5896ec9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T14:54:18Z",
+      "side": 1,
+      "message": "I see. Could you refactor it so that it ends up in a helper (and then share the check with method_verifier.cc::VerifyISFieldAccess):\n\nbool ArtField::CanBeChangedBy(ArtMethod* setter) {\n  return !IsFinal() || (setter-\u003eGetDeclaringClass() \u003d\u003d GetDeclaringClass()) || setter-\u003eGetDeclaringClass()-\u003eIsObsoleteVersionOf(GetDeclaringClass());\n}",
+      "parentUuid": "8d49cd72_97237ca8",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
