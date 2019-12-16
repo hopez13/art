@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d5d2ea9_9de1c2a9",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T14:59:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you do this only for threads that have peers?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "2a137b20f337bcc42f268dc1a35e6baf064fc6d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a607dfe_51120cfb",
+        "filename": "test/2005-pause-all-redefine-multithreaded/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T14:59:46Z",
+      "side": 1,
+      "message": "Is that unrelated? Or can you point to the argument in the invocation below that it relates to?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "2a137b20f337bcc42f268dc1a35e6baf064fc6d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
