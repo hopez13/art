@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad5a0c4e_79ed0d17",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T09:53:54Z",
+      "side": 1,
+      "message": "This line moved from L22. The redirection goes back to 08e3397 in 2017.\n\nThe CLs here are trying not to change behaviour too much. Happy to discuss in person.",
+      "parentUuid": "671974c7_9e12bc85",
+      "range": {
+        "startLine": 142,
+        "startChar": 26,
+        "endLine": 142,
+        "endChar": 27
+      },
+      "revId": "6259d04d7ec6256ffba86d09c3bfb2bdf98add9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36a6757d_c565d93e",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "6259d04d7ec6256ffba86d09c3bfb2bdf98add9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79a7d5d8_94843f69",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T09:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36a6757d_c565d93e",
+      "revId": "6259d04d7ec6256ffba86d09c3bfb2bdf98add9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
