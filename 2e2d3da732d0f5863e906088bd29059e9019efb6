@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86ca35e4_1c45bc7a",
+        "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-12-16T18:24:42Z",
+      "side": 1,
+      "message": "It looks like \"arr\" is an array of Thread objects.  If so, it should have a better name.",
+      "range": {
+        "startLine": 39,
+        "startChar": 52,
+        "endLine": 39,
+        "endChar": 68
+      },
+      "revId": "2e2d3da732d0f5863e906088bd29059e9019efb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
