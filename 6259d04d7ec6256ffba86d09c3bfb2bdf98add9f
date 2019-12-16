@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "671974c7_9e12bc85",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T00:58:25Z",
+      "side": 1,
+      "message": "Is stderr noisy here? Otherwise it might be better to leave it in.",
+      "range": {
+        "startLine": 142,
+        "startChar": 26,
+        "endLine": 142,
+        "endChar": 27
+      },
+      "revId": "6259d04d7ec6256ffba86d09c3bfb2bdf98add9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36a6757d_c565d93e",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T00:58:25Z",
+      "side": 1,
+      "message": "Nit: Empty line might be better here since it makes it clear the comment above only applies to BOOT_CLASSPATH_JARS.",
+      "revId": "6259d04d7ec6256ffba86d09c3bfb2bdf98add9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
