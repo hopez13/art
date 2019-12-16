@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f1f2087_7aef31b1",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T20:51:29Z",
+      "side": 1,
+      "message": "I\u0027d prefer to put this in art_defaults instead to cut down on the boilerplate. It does mean a bit less fine-grained checks on what goes into the release and debug APEXes, but since we\u0027ve got art_apex_test.py there\u0027s good testing on that anyway. +rpl for opinion.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a42a1d5_a7493bbf",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T20:51:29Z",
+      "side": 1,
+      "message": "Nit: This rather belongs in the change description.",
+      "range": {
+        "startLine": 114,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 58
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54593e8_1f75329d",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T20:51:29Z",
+      "side": 1,
+      "message": "Since this is specifically listing the libs in the debug APEX, it\u0027d be more clear to rename it to something like ART_DEBUG_TARGET_SHARED_LIBRARY_DEPENDENCIES.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 38
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "377b4482_16c79d16",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T20:51:29Z",
+      "side": 1,
+      "message": "Dito.",
+      "range": {
+        "startLine": 503,
+        "startChar": 78,
+        "endLine": 505,
+        "endChar": 60
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03770417_7f83e985",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-16T20:51:29Z",
+      "side": 1,
+      "message": "Please point to b/142944931 instead. Also suggest using the TODO(b/xxx) syntax. (Same goes for the other places where this comment occurs.)",
+      "range": {
+        "startLine": 176,
+        "startChar": 11,
+        "endLine": 176,
+        "endChar": 22
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
