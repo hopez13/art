@@ -88,6 +88,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766fb757_4b545d5c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-16T22:18:46Z",
+      "side": 1,
+      "message": "You don\u0027t have an ArtMethod necessarily.",
+      "parentUuid": "c7b6ddbe_65152aff",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
