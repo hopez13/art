@@ -94,6 +94,30 @@
       "revId": "5536a6fe2c1185386a8e7dff288db630eab23aee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c632d9ce_bc238ec8",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:36:42Z",
+      "side": 1,
+      "message": "Oh, my question then was about correctness: it looked like only if you have a peer should you be in a thread group. Isn\u0027t that the case?",
+      "parentUuid": "f24cf771_87b25750",
+      "range": {
+        "startLine": 103,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "5536a6fe2c1185386a8e7dff288db630eab23aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
