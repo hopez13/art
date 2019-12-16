@@ -106,6 +106,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0c7aba_a472a2d1",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:30:03Z",
+      "side": 1,
+      "message": "Yikes you\u0027re right - wonder whether this still buys us anything.",
+      "parentUuid": "766fb757_4b545d5c",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
