@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1479039e_e998a343",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2019-12-16T08:03:09Z",
+      "side": 1,
+      "message": "If this will be used frequently how about define sysprop for this?",
+      "range": {
+        "startLine": 176,
+        "startChar": 35,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
