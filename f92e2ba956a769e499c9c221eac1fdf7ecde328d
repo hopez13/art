@@ -52,6 +52,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2d80977_c47e28da",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-16T19:17:46Z",
+      "side": 1,
+      "message": "Done.\n\nThe MethodVerifier needs to work on unloaded classes and methods as far as I can tell so instead just did the first.",
+      "parentUuid": "b5b289c6_f5896ec9",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
