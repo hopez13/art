@@ -118,6 +118,30 @@
       "revId": "5536a6fe2c1185386a8e7dff288db630eab23aee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdee9ce8_c2f69c98",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-16T23:15:09Z",
+      "side": 1,
+      "message": "well yeah but the actual attach code just ignores the peer argument if create_peer \u003d\u003d false.",
+      "parentUuid": "c632d9ce_bc238ec8",
+      "range": {
+        "startLine": 103,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "5536a6fe2c1185386a8e7dff288db630eab23aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
