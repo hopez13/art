@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1af4ffde_648021cb",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T14:34:02Z",
+      "side": 1,
+      "message": "Is there a canonical reference on dwarf call frame infro that could go in the comment above?",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 30
+      },
+      "revId": "33af4c9c78cb2a36199461a2afbde53d4241c39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bc09d3f_3a97a9b3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T14:34:02Z",
+      "side": 1,
+      "message": "tabs in this file.",
+      "range": {
+        "startLine": 273,
+        "startChar": 34,
+        "endLine": 273,
+        "endChar": 35
+      },
+      "revId": "33af4c9c78cb2a36199461a2afbde53d4241c39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766500f2_94e84123",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1804,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T14:34:02Z",
+      "side": 1,
+      "message": "These seems a little magic: the C/C++ code and asm could use a similarly named macro / identifier as a hint.",
+      "range": {
+        "startLine": 1804,
+        "startChar": 8,
+        "endLine": 1804,
+        "endChar": 12
+      },
+      "revId": "33af4c9c78cb2a36199461a2afbde53d4241c39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b36a605c_727bcac9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T14:34:02Z",
+      "side": 1,
+      "message": "The changes in this file look useful, but potentially separable.",
+      "range": {
+        "startLine": 1618,
+        "startChar": 0,
+        "endLine": 1623,
+        "endChar": 5
+      },
+      "revId": "33af4c9c78cb2a36199461a2afbde53d4241c39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5f52641_70c6ac5e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-12-16T14:34:02Z",
+      "side": 1,
+      "message": "Stale?",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 79
+      },
+      "revId": "33af4c9c78cb2a36199461a2afbde53d4241c39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
