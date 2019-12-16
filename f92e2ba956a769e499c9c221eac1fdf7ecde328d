@@ -70,6 +70,24 @@
       "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7b6ddbe_65152aff",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:15:56Z",
+      "side": 1,
+      "message": "You can still use it for the check line method_verifier.cc:4836:\nif (field-\u003eIsFinal() \u0026\u0026 field-\u003eGetDeclaringClass() !\u003d GetDeclaringClass().GetClass()) {",
+      "parentUuid": "b2d80977_c47e28da",
+      "revId": "f92e2ba956a769e499c9c221eac1fdf7ecde328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

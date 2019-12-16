@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8052ed43_67276a73",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:15:56Z",
+      "side": 1,
+      "message": "allowed?",
+      "range": {
+        "startLine": 236,
+        "startChar": 64,
+        "endLine": 236,
+        "endChar": 73
+      },
+      "revId": "34cb683b2893386fb7d6c24ff962aae8814c8693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edc31c97_bd5cea32",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-16T22:15:56Z",
+      "side": 1,
+      "message": "Move this to the helper method.",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 56
+      },
+      "revId": "34cb683b2893386fb7d6c24ff962aae8814c8693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
