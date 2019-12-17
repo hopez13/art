@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b880d70f_a5e8d516",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-17T01:15:56Z",
+      "side": 1,
+      "message": "OK. I\u0027m a bit surprised that we never hold other locks while acquiring this. My pending CL will change things so that we hold a kMonitorLock mutex while inside a Java synchronized block. Any danger of that interfering here? If so, we should probably put it between kMonitorLock and kDefaultMutexLevel.",
+      "parentUuid": "5db6ea67_09f289a0",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
