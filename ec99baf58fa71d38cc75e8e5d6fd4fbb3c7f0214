@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4752e421_1045ee96",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T23:03:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db475bd6_e57ad9ef",
+      "range": {
+        "startLine": 110,
+        "startChar": 77,
+        "endLine": 110,
+        "endChar": 80
+      },
+      "revId": "ec99baf58fa71d38cc75e8e5d6fd4fbb3c7f0214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf687e7b_47ce926c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "ec99baf58fa71d38cc75e8e5d6fd4fbb3c7f0214",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da1b54f6_2876fca2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T23:03:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf687e7b_47ce926c",
+      "range": {
+        "startLine": 285,
+        "startChar": 15,
+        "endLine": 285,
+        "endChar": 28
+      },
+      "revId": "ec99baf58fa71d38cc75e8e5d6fd4fbb3c7f0214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
