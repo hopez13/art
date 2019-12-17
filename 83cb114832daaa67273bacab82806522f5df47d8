@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "445e9c2c_1ff54235",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-17T19:08:55Z",
+      "side": 1,
+      "message": "Sounds good to me. kRuntimeTopLockLevel?\n\nI don\u0027t know the history here. I\u0027m not sure why we have such a proliferation of distinct lock levels for individual locks. I think it\u0027s costing us significant performance in debug builds, though we could probably compensate by improving the checking code.",
+      "parentUuid": "3895acdb_ef8a8767",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
