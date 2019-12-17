@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0c7723df_65a7de13",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-17T17:31:44Z",
+      "side": 1,
+      "message": "Sorry, still have a couple of questions:\n\n- Is that the kind of error one gets when there\u0027s a missing //apex_available:platform directive? What\u0027s the \"\" variation and why/how do apex_available affect the variations?\n\n- Even when we got a module SDK fully set up with sdk{} modules, we\u0027ll still need //apex_available:platform on the libs that constitute the SDK, right?\n\n\u003e I had to add \u0027apex_available: [\"//apex_available:platform\"]\u0027 to many of the places, which I don\u0027t think should be the preferred path.\n\nWhy not? ART APEX availability is more restrictive so I\u0027d rather have that as the default in the art/ tree, and //apex_available:platform explicitly on the libs that need to go into the SDK.",
+      "parentUuid": "0416c1b6_88ece624",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a42a1d5_a7493bbf",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 5

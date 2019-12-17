@@ -144,6 +144,29 @@
     },
     {
       "key": {
+        "uuid": "ff55fce6_968b60ac",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-17T17:31:44Z",
+      "side": 1,
+      "message": "This is included in all ART APEXes. Why doesn\u0027t it require apex_available?",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d86c1098_54e556b7",
         "filename": "dexdump/Android.bp",
         "patchSetId": 8
