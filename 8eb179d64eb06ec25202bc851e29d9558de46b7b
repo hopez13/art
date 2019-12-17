@@ -34,6 +34,24 @@
       "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9311fbd9_af7be8f9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-12-17T09:36:16Z",
+      "side": 1,
+      "message": "Not sure I understand (what\u0027s \"backup\"?). My question is whether the obsolete check was needed for this line (because it wasn\u0027t in your previous patch sets, so wondering if that is something that was missed in previous patch sets).",
+      "parentUuid": "b57f73db_7018fe32",
+      "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
