@@ -66,7 +66,7 @@ class CompilerOptions final {
   static constexpr double kDefaultTopKProfileThreshold = 90.0;
   static const bool kDefaultGenerateDebugInfo = false;
   static const bool kDefaultGenerateMiniDebugInfo = false;
-  static const size_t kDefaultInlineMaxCodeUnits = 32;
+  static const size_t kDefaultInlineMaxCodeUnits = 30;
   static constexpr size_t kUnsetInlineMaxCodeUnits = -1;
 
   enum class ImageType : uint8_t {

@@ -50,7 +50,7 @@
 namespace art {
 
 // Instruction limit to control memory.
-static constexpr size_t kMaximumNumberOfTotalInstructions = 1024;
+static constexpr size_t kMaximumNumberOfTotalInstructions = 900;
 
 // Maximum number of instructions for considering a method small,
 // which we will always try to inline if the other non-instruction limits
@@ -59,11 +59,11 @@ static constexpr size_t kMaximumNumberOfInstructionsForSmallMethod = 3;
 
 // Limit the number of dex registers that we accumulate while inlining
 // to avoid creating large amount of nested environments.
-static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 32;
+static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 65536;
 
 // Limit recursive call inlining, which do not benefit from too
 // much inlining compared to code locality.
-static constexpr size_t kMaximumNumberOfRecursiveCalls = 4;
+static constexpr size_t kMaximumNumberOfRecursiveCalls = 24;
 
 // Controls the use of inline caches in AOT mode.
 static constexpr bool kUseAOTInlineCaches = true;
