@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6327a712_a7ef8871",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T10:53:09Z",
+      "side": 1,
+      "message": "Should we try to get rid of this phony module altogether (in another CL)?",
+      "range": {
+        "startLine": 406,
+        "startChar": 15,
+        "endLine": 406,
+        "endChar": 27
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af5e7928_7dda1fda",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T10:53:09Z",
+      "side": 1,
+      "message": "Should we also add \"com.android.art.testing\" for every module listing \"com.android.art.debug\" in its `apex_available` property? (Or is it irrelevant because the Testing ART APEX is never installed?)",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86c1098_54e556b7",
+        "filename": "dexdump/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T10:53:09Z",
+      "side": 1,
+      "message": "Out of curiosity, why is this not just \"platform\"? (Is this because this check is not enforced yet, and this value acts as a placeholder/reminder?)",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8032910f_717600c2",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T10:53:09Z",
+      "side": 1,
+      "message": "Nit: Long line (likewise with other instances below).",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 102
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
