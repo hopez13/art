@@ -127,6 +127,17 @@ static constexpr bool kUseRosAlloc = true;
 // If true, use thread-local allocation stack.
 static constexpr bool kUseThreadLocalAllocationStack = true;
 
+// A helper that can be used to track where allocation actually occurred.
+enum class AllocationPath {
+  kUnknown,
+  kLargeObj,
+  kTLAB,
+  kRosAlloc,
+  kOther,
+  kOtherInternal,
+};
+std::ostream& operator<<(std::ostream& os, const AllocationPath& p);
+
 class Heap {
  public:
   static constexpr size_t kDefaultStartingSize = kPageSize;
@@ -1036,6 +1047,7 @@ class Heap {
                                               size_t* bytes_allocated,
                                               size_t* usable_size,
                                               size_t* bytes_tl_bulk_allocated)
+      REQUIRES(Roles::uninterruptible_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::Object* AllocWithNewTLAB(Thread* self,

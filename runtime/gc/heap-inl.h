@@ -73,6 +73,10 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
         StackHandleScope<1> hs(self);
         HandleWrapperObjPtr<mirror::Class> h_klass(hs.NewHandleWrapper(&klass));
         l->PreObjectAllocated(self, h_klass, &byte_count);
+        DCHECK(h_klass->IsVariableSize() || h_klass->GetObjectSize() >= byte_count)
+            << "variable_size: " << std::boolalpha << h_klass->IsVariableSize()
+            << " byte_count: " << std::dec << byte_count
+            << "obj_size: " << (h_klass->IsVariableSize() ? -1 : h_klass->GetObjectSize());
       }
     }
   };
@@ -80,6 +84,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
   // bytes allocated for the (individual) object.
   size_t bytes_allocated;
   size_t usable_size;
+  AllocationPath path;
   size_t new_num_bytes_allocated = 0;
   {
     // Do the initial pre-alloc
@@ -90,6 +95,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     // code path includes this function. If we didn't check we would have an infinite loop.
     if (kCheckLargeObject && UNLIKELY(ShouldAllocLargeObject(klass, byte_count))) {
       // AllocLargeObject can suspend and will recall PreObjectAllocated if needed.
+      path = AllocationPath::kLargeObj;
       ScopedAllowThreadSuspension ats;
       obj = AllocLargeObject<kInstrumented, PreFenceVisitor>(self, &klass, byte_count,
                                                              pre_fence_visitor);
@@ -109,6 +115,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     }
     // If we have a thread local allocation we don't need to update bytes allocated.
     if (IsTLABAllocator(allocator) && byte_count <= self->TlabSize()) {
+      path = AllocationPath::kTLAB;
       obj = self->AllocTlab(byte_count);
       DCHECK(obj != nullptr) << "AllocTlab can't fail";
       obj->SetClass(klass);
@@ -123,6 +130,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
         !kInstrumented && allocator == kAllocatorTypeRosAlloc &&
         (obj = rosalloc_space_->AllocThreadLocal(self, byte_count, &bytes_allocated)) != nullptr &&
         LIKELY(obj != nullptr)) {
+      path = AllocationPath::kRosAlloc;
       DCHECK(!is_running_on_memory_tool_);
       obj->SetClass(klass);
       if (kUseBakerReadBarrier) {
@@ -135,12 +143,14 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
       // Bytes allocated that includes bulk thread-local buffer allocations in addition to direct
       // non-TLAB object allocations.
       size_t bytes_tl_bulk_allocated = 0u;
+      path = AllocationPath::kOther;
       obj = TryToAllocate<kInstrumented, false>(self, allocator, byte_count, &bytes_allocated,
                                                 &usable_size, &bytes_tl_bulk_allocated);
       if (UNLIKELY(obj == nullptr)) {
         // AllocateInternalWithGc can cause thread suspension, if someone instruments the
         // entrypoints or changes the allocator in a suspend point here, we need to retry the
         // allocation. It will send the pre-alloc event again.
+        path = AllocationPath::kOtherInternal;
         obj = AllocateInternalWithGc(self,
                                      allocator,
                                      kInstrumented,
@@ -199,7 +209,12 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     }
   }
   if (kIsDebugBuild && Runtime::Current()->IsStarted()) {
-    CHECK_LE(obj->SizeOf(), usable_size);
+    CHECK_LE(obj->SizeOf(), byte_count)
+        << "klass: " << obj->GetClass()->PrettyClass() << " path: " << path
+        << " usable: " << usable_size;
+    CHECK_LE(obj->SizeOf(), usable_size)
+        << "klass: " << obj->GetClass()->PrettyClass() << " path: " << path
+        << " byte_count: " << byte_count;
   }
   // TODO: Deprecate.
   if (kInstrumented) {
