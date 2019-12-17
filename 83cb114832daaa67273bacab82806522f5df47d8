@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "ff03a2e4_03c9a3c2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T19:26:27Z",
+      "side": 1,
+      "message": "I believe there are runtime locks that are acquired before kMonitorLock, for instance kMonitorListLock, kHeapBitmapLock etc. So I think naming the new level as kRuntimeTopLockLevel won\u0027t be appropriate. How about kPostMonitorLock?",
+      "parentUuid": "445e9c2c_1ff54235",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
