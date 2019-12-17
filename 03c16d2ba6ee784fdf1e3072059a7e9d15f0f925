@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0416c1b6_88ece624",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T03:13:26Z",
+      "side": 1,
+      "message": "There are several modules using art_defaults that actually should be available to platform. When I actually moved this to art_defaults, following errors occurred.\n\nerror: art/tools/cpp-define-generator/Android.bp:37:1: failed to find variation \"\" for module \"asm_defines.s\" needed by \"cpp-define-generator-asm-support\"\nerror: system/core/adb/Android.bp:340:1: failed to find variation \"\" for module \"libadbconnection_server\" needed by \"libadbd_core\"\nerror: frameworks/native/vulkan/libvulkan/Android.bp:31:1: failed to find variation \"\" for module \"libnativebridge_lazy\" needed by \"libvulkan\"\n\n...\n\nI had to add \u0027apex_available: [\"//apex_available:platform\"]\u0027 to many of the places, which I don\u0027t think should be the preferred path.",
+      "parentUuid": "4f1f2087_7aef31b1",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a42a1d5_a7493bbf",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 5
