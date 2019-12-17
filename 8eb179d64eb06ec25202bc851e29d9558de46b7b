@@ -16,6 +16,24 @@
       "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b57f73db_7018fe32",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-17T01:35:33Z",
+      "side": 1,
+      "message": "it means that we don\u0027t need to go to the backup in some cases.",
+      "parentUuid": "ed0f5467_199e4afd",
+      "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
