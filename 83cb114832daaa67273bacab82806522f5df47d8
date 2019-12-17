@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5db6ea67_09f289a0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T00:07:11Z",
+      "side": 1,
+      "message": "The problem is that in GrowForUtilization() there is a call to NumberOfIterations(), which eventually acquires CumulativeLogger\u0027s lock_, which is at kDefaultMutexLevel.\n\nI\u0027ve added a comment in latest patch. PTAL.",
+      "parentUuid": "810773d7_185530c0",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -141,6 +165,30 @@
       "revId": "83cb114832daaa67273bacab82806522f5df47d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d22e93f_8b7c95b2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T00:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f66d222f_228d4430",
+      "range": {
+        "startLine": 3507,
+        "startChar": 11,
+        "endLine": 3507,
+        "endChar": 50
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
