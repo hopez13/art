@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db475bd6_e57ad9ef",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-17T22:59:28Z",
+      "side": 1,
+      "message": "the \u003d\u003d\u003e a. You can have more than one mutex at monitor level. It\u0027s special. I think that\u0027s oddly already the case before my CL.",
+      "range": {
+        "startLine": 110,
+        "startChar": 77,
+        "endLine": 110,
+        "endChar": 80
+      },
+      "revId": "ec99baf58fa71d38cc75e8e5d6fd4fbb3c7f0214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf687e7b_47ce926c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-17T22:59:28Z",
+      "side": 1,
+      "message": "kPostMonitorLock",
+      "range": {
+        "startLine": 285,
+        "startChar": 15,
+        "endLine": 285,
+        "endChar": 28
+      },
+      "revId": "ec99baf58fa71d38cc75e8e5d6fd4fbb3c7f0214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
