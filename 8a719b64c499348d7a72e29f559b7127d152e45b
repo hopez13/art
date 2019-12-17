@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a103cfbc_721b01a1",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T12:24:15Z",
+      "side": 1,
+      "message": "It would be useful, but I am not sure if that is feasible. This phony module is referenced from several places.",
+      "parentUuid": "6327a712_a7ef8871",
+      "range": {
+        "startLine": 406,
+        "startChar": 15,
+        "endLine": 406,
+        "endChar": 27
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af5e7928_7dda1fda",
         "filename": "adbconnection/Android.bp",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd61309_32673a9c",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T12:24:15Z",
+      "side": 1,
+      "message": "no. testing apexes are automatically exempted.  See https://source.corp.google.com/android/build/soong/apex/apex.go;cl\u003dmaster;l\u003d1181?q\u003df:apex.go\u0026sq\u003dpackage:%5Eandroid$\u0026ct\u003dos",
+      "parentUuid": "af5e7928_7dda1fda",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8894a0e4_be4b6eff",
+        "filename": "dexdump/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T12:24:15Z",
+      "side": 1,
+      "message": "\"//\" here is not for commenting. \"//apex_available:\" is a magic prefix for distinguishing meta module names like platform and anyapex from ordinary module names.",
+      "parentUuid": "d86c1098_54e556b7",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8032910f_717600c2",
         "filename": "libartbase/Android.bp",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60203216_fee4cee6",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T12:24:15Z",
+      "side": 1,
+      "message": "I thought we don\u0027t have any column limit for Android.bp files. Furthermore, since this comment will anyway be removed when\nthe issue is fixed, I think we can leave this as it is for now.",
+      "parentUuid": "8032910f_717600c2",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 102
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
