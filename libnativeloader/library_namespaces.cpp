@@ -76,6 +76,8 @@ constexpr const char* kProductLibPath = "/product/" LIB ":/system/product/" LIB;
 const std::regex kVendorDexPathRegex("(^|:)/vendor/");
 const std::regex kProductDexPathRegex("(^|:)(/system)?/product/");
 
+constexpr const char* kCronetLibPath = "/apex/com.android.cronet/" LIB;
+
 // Define origin of APK if it is from vendor partition or product partition
 using ApkOrigin = enum {
   APK_ORIGIN_DEFAULT = 0,
@@ -217,6 +219,9 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     // purposes.
     namespace_name = namespace_name + kSharedNamespaceSuffix;
   }
+
+  // STOPSHIP(b/145474221): Remove it after library path of apex module is supported.
+  library_path = library_path + ":" + kCronetLibPath;
 
   // Create the app namespace
   NativeLoaderNamespace* parent_ns = FindParentNamespaceByClassLoader(env, class_loader);
