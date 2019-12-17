@@ -52,6 +52,24 @@
       "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9120176c_216bfc7a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-12-17T20:28:53Z",
+      "side": 1,
+      "message": "If this function fails it calls the top one.\n\nIt doesn\u0027t matter that the one lacked the extra check since it would call the version that had the extra check.",
+      "parentUuid": "9311fbd9_af7be8f9",
+      "revId": "8eb179d64eb06ec25202bc851e29d9558de46b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
