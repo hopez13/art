@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecd0b40_aea8626e",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-17T03:28:52Z",
+      "side": 1,
+      "message": "no, you shouldn\u0027t direct add the cronet lib path to library_path here. this make libraries from cronet and system libraries to be in the same linker namespace.\n\nYou need to create a separate namespace for cronet, and link to it. Use kNeuralNetworkNamespace as an example.",
+      "revId": "5a8c86737a9d84bb5604534d1821de91075a9395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
