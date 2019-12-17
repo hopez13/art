@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "3895acdb_ef8a8767",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-12-17T18:38:48Z",
+      "side": 1,
+      "message": "Thanks for bringing this up. The call to UpdateProcessState() takes place in a Java synchronized block. Also, we can always have a scenario where a java thread is blocked on allocation within a synchronized block. In that case if that thread runs the GC, and eventually GrowForUtilization(), then also we\u0027ll be in same situation. So this will definitely be a problem.\n\nFollowing is the list of lock-levels between DefaultMutex and MonitorLock.\n\n  kDefaultMutexLevel,\n  kDexLock,\n  kMarkSweepLargeObjectLock,\n  kJdwpObjectRegistryLock,\n  kModifyLdtLock,\n  kAllocatedThreadIdsLock,\n  kMonitorPoolLock,\n  kClassLinkerClassesLock,  // TODO rename.\n  kDexToDexCompilerLock,\n  kSubtypeCheckLock,\n  kBreakpointLock,\n  kMonitorLock,\n\nPlease suggest if I can reuse any of the locks in between or if I should add a new one? I guess we should add a generic lock-level right before MonitorLock to be used in all cases like this one?",
+      "parentUuid": "b880d70f_a5e8d516",
+      "range": {
+        "startLine": 287,
+        "startChar": 62,
+        "endLine": 287,
+        "endChar": 75
+      },
+      "revId": "83cb114832daaa67273bacab82806522f5df47d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2070e4a_f17ad243",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
