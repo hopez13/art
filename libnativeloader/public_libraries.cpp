@@ -57,6 +57,7 @@ const std::vector<const std::string> kArtApexPublicLibraries = {
 constexpr const char* kArtApexLibPath = "/apex/com.android.art/" LIB;
 
 constexpr const char* kNeuralNetworksApexPublicLibrary = "libneuralnetworks.so";
+constexpr const char* kCronetApexPublicLibrary = "libcronet.80.0.3986.0.so";
 
 // TODO(b/130388701): do we need this?
 std::string root_dir() {
@@ -271,6 +272,10 @@ static std::string InitNeuralNetworksPublicLibraries() {
   return kNeuralNetworksApexPublicLibrary;
 }
 
+static std::string InitCronetPublicLibraries() {
+  return kCronetApexPublicLibrary;
+}
+
 }  // namespace
 
 const std::string& preloadable_public_libraries() {
@@ -300,6 +305,11 @@ const std::string& extended_public_libraries() {
 
 const std::string& neuralnetworks_public_libraries() {
   static std::string list = InitNeuralNetworksPublicLibraries();
+  return list;
+}
+
+const std::string& cronet_public_libraries() {
+  static std::string list = InitCronetPublicLibraries();
   return list;
 }
 
