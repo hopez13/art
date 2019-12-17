@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "539aa2da_a1113f98",
+        "filename": "Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T13:25:57Z",
+      "side": 1,
+      "message": "From a quick search, it seems to only be referenced from two locations now:\n\n1. in this file (line 655); and\n2. in Fuchsia\u0027s configuration: https://android.git.corp.google.com/device/google/fuchsia/+/eba611b974ea52ff1bcff9065da08dcbaf4ffc9e/fuchsia.mk#32\n\nMaybe we could think about removing this later.",
+      "parentUuid": "a103cfbc_721b01a1",
+      "range": {
+        "startLine": 406,
+        "startChar": 15,
+        "endLine": 406,
+        "endChar": 27
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af5e7928_7dda1fda",
         "filename": "adbconnection/Android.bp",
         "patchSetId": 8
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "no. testing apexes are automatically exempted.  See https://source.corp.google.com/android/build/soong/apex/apex.go;cl\u003dmaster;l\u003d1181?q\u003df:apex.go\u0026sq\u003dpackage:%5Eandroid$\u0026ct\u003dos",
       "parentUuid": "af5e7928_7dda1fda",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f42d5e6d_e0e05608",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T13:25:57Z",
+      "side": 1,
+      "message": "I see; thanks for the information.",
+      "parentUuid": "9cd61309_32673a9c",
       "range": {
         "startLine": 58,
         "startChar": 8,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "059778e7_9e9e17eb",
+        "filename": "dexdump/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T13:25:57Z",
+      "side": 1,
+      "message": "I see; thanks for educating me.",
+      "parentUuid": "8894a0e4_be4b6eff",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8032910f_717600c2",
         "filename": "libartbase/Android.bp",
         "patchSetId": 8
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "I thought we don\u0027t have any column limit for Android.bp files. Furthermore, since this comment will anyway be removed when\nthe issue is fixed, I think we can leave this as it is for now.",
       "parentUuid": "8032910f_717600c2",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 102
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d26607a_c4a72970",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-12-17T13:25:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60203216_fee4cee6",
       "range": {
         "startLine": 176,
         "startChar": 0,
