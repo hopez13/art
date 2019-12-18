@@ -596,6 +596,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test912_enableClassLoadPrepareEqualit
   }
 }
 
+// Global to pass informatoin to the ClassPrepare event.
 static jobject gRunnableGlobal = nullptr;
 extern "C" JNIEXPORT void JNICALL Java_art_Test912_runRecursiveClassPrepareEvents(
     JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jobject runnable) {
