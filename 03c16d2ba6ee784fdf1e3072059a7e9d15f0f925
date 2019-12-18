@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a941b25d_1476c1cb",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-18T05:10:32Z",
+      "side": 1,
+      "message": "\u003e Is that the kind of error one gets when there\u0027s a missing //apex_available:platform directive? What\u0027s the \"\" variation and why/how do apex_available affect the variations?\n\nThe \"\" variation is for the platform (the non-updatable part). The default value for apex_available is [\"//apex_available:platform\", \"//apex_available:any_apex\"], which means the module is by default available for the platform as well as any apex. In that case, the platform and apex variants are created whenever there is a need. However, when apex_available is set to a certain set of apexes like here, only the apex variants for the specified apexes are created. Since \"//apex_available:platform\" is missing here, the platform variant is not created and it fails to satisfy the dependency from other platform libraries.\n\n\u003e Even when we got a module SDK fully set up with sdk{} modules, we\u0027ll still need //apex_available:platform on the libs that constitute the SDK, right?\n\nEven with sdk modules, this is needed. This could be unnecessary only after we unbundle the entire ART source tree. Then these modules won\u0027t be available to anywhere other than ART because the source code itself isn\u0027t exported.\n\n\u003e Why not? ART APEX availability is more restrictive so I\u0027d rather have that as the default in the art/ tree, and //apex_available:platform explicitly on the libs that need to go into the SDK.\n\nI think both whitelist-based or blacklist-based approaches would work. I just have chosen the blacklist-based approach because I thought it is the easier path. In the future, if the team wants a stronger restriction, it\u0027d be fine to switch to the whitelist-based approach.",
+      "parentUuid": "0c7723df_65a7de13",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "03c16d2ba6ee784fdf1e3072059a7e9d15f0f925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a42a1d5_a7493bbf",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 5
