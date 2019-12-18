@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebb9722e_e2612202",
+        "filename": "openjdkjvmti/alloc_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-12-18T04:56:10Z",
+      "side": 1,
+      "message": "Why is the std::max necessary?",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 17
+      },
+      "revId": "03745b8707813c8f1042f85d5c3bc82ef013ba88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
