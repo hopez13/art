@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "9b71ee4f_62050838",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-12-18T12:20:32Z",
+      "side": 1,
+      "message": "I presume this is due to the permissive default, which as you mentioned is [\"//apex_available:platform\", \"//apex_available:any_apex\"]. Really, all apex_available declarations here are optional, aren\u0027t they?\n\nConsidering this it makes even more sense to have a restrictive setting in art_defaults. We could perhaps discuss whether it should be the two ART APEXes or [] (i.e. nothing).\n\nSo I still see more value in the whitelisting approach rather than blacklisting, but if you don\u0027t want to address that here then I think it\u0027s perfectly fine to descope that and leave it to us.\n\nIf so, would it work for you to just drop all the blacklisting clauses in this CL, so we\u0027ll avoid some churn? I\u0027ll follow up with a CL that uses the defaults then. If not I\u0027ll +2 and revert them in a follow up.",
+      "parentUuid": "ff55fce6_968b60ac",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d86c1098_54e556b7",
         "filename": "dexdump/Android.bp",
         "patchSetId": 8
