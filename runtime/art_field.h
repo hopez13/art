@@ -96,12 +96,8 @@ class ArtField final {
     return MemberOffset(offset_);
   }
 
-  static constexpr MemberOffset OffsetOffset() {
+  static MemberOffset OffsetOffset() {
     return MemberOffset(OFFSETOF_MEMBER(ArtField, offset_));
-  }
-
-  static constexpr MemberOffset DeclaringClassOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(ArtField, declaring_class_));
   }
 
   MemberOffset GetOffsetDuringLinking() REQUIRES_SHARED(Locks::mutator_lock_);

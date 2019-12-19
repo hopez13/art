@@ -843,15 +843,13 @@ const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
       std::string error_msg;
       if (use_fd_) {
         if (oat_fd_ >= 0 && vdex_fd_ >= 0) {
-          ArrayRef<const std::string> dex_locations(&oat_file_assistant_->dex_location_,
-                                                    /*size=*/ 1u);
           file_.reset(OatFile::Open(zip_fd_,
                                     vdex_fd_,
                                     oat_fd_,
                                     filename_.c_str(),
                                     executable,
                                     /*low_4gb=*/ false,
-                                    dex_locations,
+                                    oat_file_assistant_->dex_location_.c_str(),
                                     /*reservation=*/ nullptr,
                                     &error_msg));
         }
@@ -861,7 +859,8 @@ const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
                                   filename_.c_str(),
                                   executable,
                                   /*low_4gb=*/ false,
-                                  oat_file_assistant_->dex_location_,
+                                  oat_file_assistant_->dex_location_.c_str(),
+                                  /*reservation=*/ nullptr,
                                   &error_msg));
       }
       if (file_.get() == nullptr) {

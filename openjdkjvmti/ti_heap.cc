@@ -58,7 +58,6 @@
 #include "object_callbacks.h"
 #include "object_tagging.h"
 #include "offsets.h"
-#include "read_barrier.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
@@ -1626,8 +1625,7 @@ static void ReplaceObjectReferences(const ObjectMap& map)
         class ResizeReferenceVisitor {
          public:
           using CompressedObj = art::mirror::CompressedReference<art::mirror::Object>;
-          explicit ResizeReferenceVisitor(const ObjectMap& map, ObjectPtr ref)
-              : map_(map), ref_(ref) {}
+          explicit ResizeReferenceVisitor(const ObjectMap& map) : map_(map) {}
 
           // Ignore class roots.
           void VisitRootIfNonNull(CompressedObj* root) const
@@ -1640,7 +1638,7 @@ static void ReplaceObjectReferences(const ObjectMap& map)
             auto it = map_.find(root->AsMirrorPtr());
             if (it != map_.end()) {
               root->Assign(it->second);
-              art::WriteBarrier::ForEveryFieldWrite(ref_);
+              art::WriteBarrier::ForEveryFieldWrite(it->second);
             }
           }
 
@@ -1654,10 +1652,6 @@ static void ReplaceObjectReferences(const ObjectMap& map)
               if (UNLIKELY(!is_static && off == art::mirror::Object::ClassOffset())) {
                 // We don't want to update the declaring class of any objects. They will be replaced
                 // in the heap and we need the declaring class to know its size.
-                return;
-              } else if (UNLIKELY(!is_static && off == art::mirror::Class::SuperClassOffset() &&
-                                  obj->IsClass())) {
-                // We don't want to be messing with the class hierarcy either.
                 return;
               }
               VLOG(plugin) << "Updating field at offset " << off.Uint32Value() << " of type "
@@ -1676,10 +1670,9 @@ static void ReplaceObjectReferences(const ObjectMap& map)
 
          private:
           const ObjectMap& map_;
-          ObjectPtr ref_;
         };
 
-        ResizeReferenceVisitor rrv(map, ref);
+        ResizeReferenceVisitor rrv(map);
         if (ref->IsClass()) {
           // Class object native roots are the ArtField and ArtMethod 'declaring_class_' fields
           // which we don't want to be messing with as it would break ref-visitor assumptions about

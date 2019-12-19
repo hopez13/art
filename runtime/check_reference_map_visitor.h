@@ -40,12 +40,7 @@ class CheckReferenceMapVisitor : public StackVisitor {
       CHECK_EQ(GetDexPc(), dex::kDexNoIndex);
     }
 
-    // If the method is not compiled, continue the stack walk.
-    if (m == nullptr ||
-        m->IsNative() ||
-        m->IsRuntimeMethod() ||
-        IsShadowFrame() ||
-        !GetCurrentOatQuickMethodHeader()->IsOptimized()) {
+    if (m == nullptr || m->IsNative() || m->IsRuntimeMethod() || IsShadowFrame()) {
       return true;
     }
 

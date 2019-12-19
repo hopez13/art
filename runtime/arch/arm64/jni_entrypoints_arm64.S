@@ -20,7 +20,6 @@
      * Jni dlsym lookup stub.
      */
     .extern artFindNativeMethod
-    .extern artFindNativeMethodRunnable
 
 ENTRY art_jni_dlsym_lookup_stub
   // spill regs.
@@ -47,18 +46,7 @@ ENTRY art_jni_dlsym_lookup_stub
   .cfi_adjust_cfa_offset 16
 
   mov x0, xSELF   // pass Thread::Current()
-  // Call artFindNativeMethod() for normal native and artFindNativeMethodRunnable for @FastNative.
-  ldr   xIP0, [x0, #THREAD_TOP_QUICK_FRAME_OFFSET]      // uintptr_t tagged_quick_frame
-  bic   xIP0, xIP0, #1                                  // ArtMethod** sp
-  ldr   xIP0, [xIP0]                                    // ArtMethod* method
-  ldr   xIP0, [xIP0, #ART_METHOD_ACCESS_FLAGS_OFFSET]   // uint32_t access_flags
-  tst   xIP0, #ACCESS_FLAGS_METHOD_IS_FAST_NATIVE
-  b.ne  .Llookup_stub_fast_native
-  bl    artFindNativeMethod
-  b     .Llookup_stub_continue
-.Llookup_stub_fast_native:
-  bl    artFindNativeMethodRunnable
-.Llookup_stub_continue:
+  bl  artFindNativeMethod
   mov  x17, x0    // store result in scratch reg.
 
   // load spill regs.

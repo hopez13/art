@@ -48,7 +48,6 @@
 #include "nth_caller_visitor.h"
 #include "obj_ptr-inl.h"
 #include "reflection.h"
-#include "reflective_handle_scope-inl.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "well_known_classes.h"
@@ -901,10 +900,11 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
       return nullptr;
     }
   }
-  StackArtMethodHandleScope<1> mhs(soa.Self());
-  ReflectiveHandle<ArtMethod> constructor(mhs.NewMethodHandle(klass->GetDeclaredConstructor(
-      soa.Self(), ScopedNullHandle<mirror::ObjectArray<mirror::Class>>(), kRuntimePointerSize)));
-  if (UNLIKELY(constructor == nullptr) || ShouldDenyAccessToMember(constructor.Get(), soa.Self())) {
+  ArtMethod* constructor = klass->GetDeclaredConstructor(
+      soa.Self(),
+      ScopedNullHandle<mirror::ObjectArray<mirror::Class>>(),
+      kRuntimePointerSize);
+  if (UNLIKELY(constructor == nullptr) || ShouldDenyAccessToMember(constructor, soa.Self())) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/InstantiationException;",
                                    "%s has no zero argument constructor",
                                    klass->PrettyClass().c_str());

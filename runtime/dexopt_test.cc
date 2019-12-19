@@ -111,7 +111,8 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
                                                    oat_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex_location,
+                                                   dex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
   EXPECT_EQ(filter, odex_file->GetCompilerFilter());

@@ -31,14 +31,6 @@ using HEdgeSet = SuperblockCloner::HEdgeSet;
 // This class provides methods and helpers for testing various cloning and copying routines:
 // individual instruction cloning and cloning of the more coarse-grain structures.
 class SuperblockClonerTest : public ImprovedOptimizingUnitTest {
- private:
-  void CreateParameters() override {
-    parameters_.push_back(new (GetAllocator()) HParameterValue(graph_->GetDexFile(),
-                                                               dex::TypeIndex(0),
-                                                               0,
-                                                               DataType::Type::kInt32));
-  }
-
  public:
   void CreateBasicLoopControlFlow(HBasicBlock* position,
                                   HBasicBlock* successor,
@@ -83,7 +75,7 @@ class SuperblockClonerTest : public ImprovedOptimizingUnitTest {
     loop_header->AddInstruction(new (GetAllocator()) HIf(loop_check));
 
     // Loop body block.
-    HInstruction* null_check = new (GetAllocator()) HNullCheck(parameters_[0], dex_pc);
+    HInstruction* null_check = new (GetAllocator()) HNullCheck(parameter_, dex_pc);
     HInstruction* array_length = new (GetAllocator()) HArrayLength(null_check, dex_pc);
     HInstruction* bounds_check = new (GetAllocator()) HBoundsCheck(phi, array_length, dex_pc);
     HInstruction* array_get =
@@ -108,7 +100,7 @@ class SuperblockClonerTest : public ImprovedOptimizingUnitTest {
     graph_->SetHasBoundsChecks(true);
 
     // Adjust HEnvironment for each instruction which require that.
-    ArenaVector<HInstruction*> current_locals({phi, const_128, parameters_[0]},
+    ArenaVector<HInstruction*> current_locals({phi, const_128, parameter_},
                                               GetAllocator()->Adapter(kArenaAllocInstruction));
 
     HEnvironment* env = ManuallyBuildEnvFor(suspend_check, &current_locals);
@@ -429,7 +421,7 @@ TEST_F(SuperblockClonerTest, LoopPeelingMultipleBackEdges) {
   if_block->AddSuccessor(temp1);
   temp1->AddSuccessor(header);
 
-  if_block->AddInstruction(new (GetAllocator()) HIf(parameters_[0]));
+  if_block->AddInstruction(new (GetAllocator()) HIf(parameter_));
 
   HInstructionIterator it(header->GetPhis());
   DCHECK(!it.Done());
@@ -594,7 +586,7 @@ TEST_F(SuperblockClonerTest, NestedCaseExitToOutermost) {
   // Change the loop3 - insert an exit which leads to loop1.
   HBasicBlock* loop3_extra_if_block = new (GetAllocator()) HBasicBlock(graph_);
   graph_->AddBlock(loop3_extra_if_block);
-  loop3_extra_if_block->AddInstruction(new (GetAllocator()) HIf(parameters_[0]));
+  loop3_extra_if_block->AddInstruction(new (GetAllocator()) HIf(parameter_));
 
   loop3_header->ReplaceSuccessor(loop_body3, loop3_extra_if_block);
   loop3_extra_if_block->AddSuccessor(loop_body1);  // Long exit.

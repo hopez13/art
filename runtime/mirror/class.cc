@@ -188,57 +188,28 @@ ObjPtr<ClassExt> Class::EnsureExtDataPresent(Handle<Class> h_this, Thread* self)
   }
 }
 
-template <typename T>
-static void CheckSetStatus(Thread* self, T thiz, ClassStatus new_status, ClassStatus old_status)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (UNLIKELY(new_status <= old_status && new_status != ClassStatus::kErrorUnresolved &&
-               new_status != ClassStatus::kErrorResolved && new_status != ClassStatus::kRetired)) {
-    LOG(FATAL) << "Unexpected change back of class status for " << thiz->PrettyClass() << " "
-               << old_status << " -> " << new_status;
-  }
-  if (old_status == ClassStatus::kInitialized) {
-    // We do not hold the lock for making the class visibly initialized
-    // as this is unnecessary and could lead to deadlocks.
-    CHECK_EQ(new_status, ClassStatus::kVisiblyInitialized);
-  } else if ((new_status >= ClassStatus::kResolved || old_status >= ClassStatus::kResolved) &&
-             !Locks::mutator_lock_->IsExclusiveHeld(self)) {
-    // When classes are being resolved the resolution code should hold the
-    // lock or have everything else suspended
-    CHECK_EQ(thiz->GetLockOwnerThreadId(), self->GetThreadId())
-        << "Attempt to change status of class while not holding its lock: " << thiz->PrettyClass()
-        << " " << old_status << " -> " << new_status;
-  }
-  if (UNLIKELY(Locks::mutator_lock_->IsExclusiveHeld(self))) {
-    CHECK(!Class::IsErroneous(new_status))
-        << "status " << new_status
-        << " cannot be set while suspend-all is active. Would require allocations.";
-    CHECK(thiz->IsResolved())
-        << thiz->PrettyClass()
-        << " not resolved during suspend-all status change. Waiters might be missed!";
-  }
-}
-
-void Class::SetStatusLocked(ClassStatus new_status) {
-  ClassStatus old_status = GetStatus();
-  CheckSetStatus(Thread::Current(), this, new_status, old_status);
-  if (kBitstringSubtypeCheckEnabled) {
-    // FIXME: This looks broken with respect to aborted transactions.
-    SubtypeCheck<ObjPtr<mirror::Class>>::WriteStatus(this, new_status);
-  } else {
-    // The ClassStatus is always in the 4 most-significant bits of status_.
-    static_assert(sizeof(status_) == sizeof(uint32_t), "Size of status_ not equal to uint32");
-    uint32_t new_status_value = static_cast<uint32_t>(new_status) << (32 - kClassStatusBitSize);
-    DCHECK(!Runtime::Current()->IsActiveTransaction());
-    SetField32Volatile<false>(StatusOffset(), new_status_value);
-  }
-}
-
 void Class::SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self) {
   ClassStatus old_status = h_this->GetStatus();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   bool class_linker_initialized = class_linker != nullptr && class_linker->IsInitialized();
   if (LIKELY(class_linker_initialized)) {
-    CheckSetStatus(self, h_this, new_status, old_status);
+    if (UNLIKELY(new_status <= old_status &&
+                 new_status != ClassStatus::kErrorUnresolved &&
+                 new_status != ClassStatus::kErrorResolved &&
+                 new_status != ClassStatus::kRetired)) {
+      LOG(FATAL) << "Unexpected change back of class status for " << h_this->PrettyClass()
+                 << " " << old_status << " -> " << new_status;
+    }
+    if (old_status == ClassStatus::kInitialized) {
+      // We do not hold the lock for making the class visibly initialized
+      // as this is unnecessary and could lead to deadlocks.
+      CHECK_EQ(new_status, ClassStatus::kVisiblyInitialized);
+    } else if (new_status >= ClassStatus::kResolved || old_status >= ClassStatus::kResolved) {
+      // When classes are being resolved the resolution code should hold the lock.
+      CHECK_EQ(h_this->GetLockOwnerThreadId(), self->GetThreadId())
+            << "Attempt to change status of class while not holding its lock: "
+            << h_this->PrettyClass() << " " << old_status << " -> " << new_status;
+    }
   }
   if (UNLIKELY(IsErroneous(new_status))) {
     CHECK(!h_this->IsErroneous())
@@ -363,15 +334,6 @@ void Class::SetClassSize(uint32_t new_class_size) {
     LOG(FATAL) << "class=" << PrettyTypeOf();
   }
   SetField32Transaction(OFFSET_OF_OBJECT_MEMBER(Class, class_size_), new_class_size);
-}
-
-ObjPtr<Class> Class::GetObsoleteClass() {
-  ObjPtr<ClassExt> ext(GetExtData());
-  if (ext.IsNull()) {
-    return nullptr;
-  } else {
-    return ext->GetObsoleteClass();
-  }
 }
 
 // Return the class' name. The exact format is bizarre, but it's the specified behavior for
@@ -1708,7 +1670,7 @@ void Class::SetAccessFlagsDCheck(uint32_t new_access_flags) {
         (new_access_flags & kAccVerificationAttempted) != 0);
 }
 
-ObjPtr<Object> Class::GetMethodIds() {
+ObjPtr<PointerArray> Class::GetMethodIds() {
   ObjPtr<ClassExt> ext(GetExtData());
   if (ext.IsNull()) {
     return nullptr;
@@ -1716,18 +1678,18 @@ ObjPtr<Object> Class::GetMethodIds() {
     return ext->GetJMethodIDs();
   }
 }
-bool Class::EnsureMethodIds(Handle<Class> h_this) {
+ObjPtr<PointerArray> Class::GetOrCreateMethodIds(Handle<Class> h_this) {
   DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
     self->AssertPendingOOMException();
-    return false;
+    return nullptr;
   }
   return ext->EnsureJMethodIDsArrayPresent(h_this->NumMethods());
 }
 
-ObjPtr<Object> Class::GetStaticFieldIds() {
+ObjPtr<PointerArray> Class::GetStaticFieldIds() {
   ObjPtr<ClassExt> ext(GetExtData());
   if (ext.IsNull()) {
     return nullptr;
@@ -1735,17 +1697,17 @@ ObjPtr<Object> Class::GetStaticFieldIds() {
     return ext->GetStaticJFieldIDs();
   }
 }
-bool Class::EnsureStaticFieldIds(Handle<Class> h_this) {
+ObjPtr<PointerArray> Class::GetOrCreateStaticFieldIds(Handle<Class> h_this) {
   DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
     self->AssertPendingOOMException();
-    return false;
+    return nullptr;
   }
   return ext->EnsureStaticJFieldIDsArrayPresent(h_this->NumStaticFields());
 }
-ObjPtr<Object> Class::GetInstanceFieldIds() {
+ObjPtr<PointerArray> Class::GetInstanceFieldIds() {
   ObjPtr<ClassExt> ext(GetExtData());
   if (ext.IsNull()) {
     return nullptr;
@@ -1753,13 +1715,13 @@ ObjPtr<Object> Class::GetInstanceFieldIds() {
     return ext->GetInstanceJFieldIDs();
   }
 }
-bool Class::EnsureInstanceFieldIds(Handle<Class> h_this) {
+ObjPtr<PointerArray> Class::GetOrCreateInstanceFieldIds(Handle<Class> h_this) {
   DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
     self->AssertPendingOOMException();
-    return false;
+    return nullptr;
   }
   return ext->EnsureInstanceJFieldIDsArrayPresent(h_this->NumInstanceFields());
 }

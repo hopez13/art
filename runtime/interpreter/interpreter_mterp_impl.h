@@ -36,9 +36,6 @@ extern "C" bool ExecuteMterpImpl(Thread* self,
                                  ShadowFrame* shadow_frame,
                                  JValue* result_register) REQUIRES_SHARED(Locks::mutator_lock_);
 
-// The entrypoint for nterp, which ArtMethods can directly point to.
-extern "C" void ExecuteNterpImpl() REQUIRES_SHARED(Locks::mutator_lock_);
-
 }  // namespace interpreter
 }  // namespace art
 

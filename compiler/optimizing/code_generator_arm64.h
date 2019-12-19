@@ -786,9 +786,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
     CodeGenerator::MaybeRecordImplicitNullCheck(instr);
   }
 
-  void MaybeGenerateInlineCacheCheck(HInstruction* instruction, vixl::aarch64::Register klass);
-  void MaybeIncrementHotness(bool is_frame_entry);
-
  private:
   // Encoding of thunk type and data for link-time generated thunks for Baker read barriers.
 

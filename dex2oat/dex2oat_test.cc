@@ -168,7 +168,8 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
                                                        odex_location.c_str(),
                                                        /*executable=*/ false,
                                                        /*low_4gb=*/ false,
-                                                       dex_location,
+                                                       dex_location.c_str(),
+                                                       /*reservation=*/ nullptr,
                                                        &error_msg));
       if (odex_file == nullptr) {
         return ::testing::AssertionFailure() << "Could not open odex file: " << error_msg;
@@ -190,7 +191,8 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
                                                          odex_location.c_str(),
                                                          /*executable=*/ false,
                                                          /*low_4gb=*/ false,
-                                                         dex_location,
+                                                         dex_location.c_str(),
+                                                         /*reservation=*/ nullptr,
                                                          &error_msg));
         if (odex_file != nullptr) {
           return ::testing::AssertionFailure() << "Could open odex file: " << error_msg;
@@ -531,7 +533,8 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
                                                      odex_location.c_str(),
                                                      /*executable=*/ false,
                                                      /*low_4gb=*/ false,
-                                                     dex_location,
+                                                     dex_location.c_str(),
+                                                     /*reservation=*/ nullptr,
                                                      &error_msg));
     ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
     EXPECT_GT(app_image_file.length(), 0u);
@@ -800,7 +803,8 @@ class Dex2oatLayoutTest : public Dex2oatTest {
                                                      odex_location.c_str(),
                                                      /*executable=*/ false,
                                                      /*low_4gb=*/ false,
-                                                     dex_location,
+                                                     dex_location.c_str(),
+                                                     /*reservation=*/ nullptr,
                                                      &error_msg));
     ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
 
@@ -960,7 +964,8 @@ class Dex2oatUnquickenTest : public Dex2oatTest {
                                                      odex_location.c_str(),
                                                      /*executable=*/ false,
                                                      /*low_4gb=*/ false,
-                                                     dex_location,
+                                                     dex_location.c_str(),
+                                                     /*reservation=*/ nullptr,
                                                      &error_msg));
     ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
     ASSERT_GE(odex_file->GetOatDexFiles().size(), 1u);
@@ -1405,7 +1410,8 @@ TEST_F(Dex2oatTest, LayoutSections) {
                                                    oat_filename.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex->GetLocation(),
+                                                   dex->GetLocation().c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   std::vector<const OatDexFile*> oat_dex_files = odex_file->GetOatDexFiles();
@@ -1513,7 +1519,8 @@ TEST_F(Dex2oatTest, GenerateCompactDex) {
                                                    oat_filename.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex_location,
+                                                   dex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   std::vector<const OatDexFile*> oat_dex_files = odex_file->GetOatDexFiles();
@@ -1776,7 +1783,8 @@ TEST_F(Dex2oatTest, CompactDexGenerationFailure) {
                                                    oat_filename.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   temp_dex.GetFilename(),
+                                                   temp_dex.GetFilename().c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   std::vector<const OatDexFile*> oat_dex_files = odex_file->GetOatDexFiles();
@@ -1852,7 +1860,8 @@ TEST_F(Dex2oatTest, VerifyCompilationReason) {
                                                    odex_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex_location,
+                                                   dex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   ASSERT_STREQ("install", odex_file->GetCompilationReason());
@@ -1876,7 +1885,8 @@ TEST_F(Dex2oatTest, VerifyNoCompilationReason) {
                                                    odex_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex_location,
+                                                   dex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   ASSERT_EQ(nullptr, odex_file->GetCompilationReason());
@@ -1912,7 +1922,8 @@ TEST_F(Dex2oatTest, DontExtract) {
                                                    odex_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
-                                                   dex_location,
+                                                   dex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr) << dex_location;
   std::vector<const OatDexFile*> oat_dex_files = odex_file->GetOatDexFiles();
@@ -2154,6 +2165,8 @@ TEST_F(Dex2oatTest, AppImageNoProfile) {
                                                    odex_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
+                                                   odex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   ImageHeader header = {};
@@ -2265,6 +2278,8 @@ TEST_F(Dex2oatTest, AppImageResolveStrings) {
                                                    odex_location.c_str(),
                                                    /*executable=*/ false,
                                                    /*low_4gb=*/ false,
+                                                   odex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
   // Check the strings in the app image intern table only contain the "startup" strigs.

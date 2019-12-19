@@ -612,11 +612,6 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
     }
   }
 
-  if (OatQuickMethodHeader::NterpMethodHeader != nullptr &&
-      OatQuickMethodHeader::NterpMethodHeader->Contains(pc)) {
-    return OatQuickMethodHeader::NterpMethodHeader;
-  }
-
   // Check whether the pc is in the JIT code cache.
   jit::Jit* jit = runtime->GetJit();
   if (jit != nullptr) {

@@ -97,10 +97,12 @@ cc_defaults {
 
 art_cc_library {
     name: "libprofile",
-    defaults: [
-        "libprofile_defaults",
-        "libart_nativeunwind_defaults",
-    ],
+    defaults: ["libprofile_defaults"],
+    // Leave the symbols in the shared library so that stack unwinders can
+    // produce meaningful name resolution.
+    strip: {
+        keep_symbols: true,
+    },
     shared_libs: [
         "libbase",
         "libziparchive",

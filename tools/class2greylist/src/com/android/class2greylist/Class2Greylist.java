@@ -49,7 +49,6 @@ public class Class2Greylist {
     private static final Set<String> GREYLIST_ANNOTATIONS =
             ImmutableSet.of(
                     "android.annotation.UnsupportedAppUsage",
-                    "android.compat.annotation.UnsupportedAppUsage",
                     "dalvik.annotation.compat.UnsupportedAppUsage");
     private static final Set<String> WHITELIST_ANNOTATIONS = ImmutableSet.of();
 

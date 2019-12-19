@@ -15,8 +15,6 @@
  */
 
 #include "callee_save_frame.h"
-#include "jit/jit.h"
-#include "runtime.h"
 #include "thread-inl.h"
 
 namespace art {
@@ -25,13 +23,6 @@ extern "C" void artTestSuspendFromCode(Thread* self) REQUIRES_SHARED(Locks::muta
   // Called when suspend count check value is 0 and thread->suspend_count_ != 0
   ScopedQuickEntrypointChecks sqec(self);
   self->CheckSuspend();
-}
-
-extern "C" void artCompileOptimized(ArtMethod* method, Thread* self)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  ScopedQuickEntrypointChecks sqec(self);
-  ScopedAssertNoThreadSuspension sants("Enqueuing optimized compilation");
-  Runtime::Current()->GetJit()->EnqueueOptimizedCompilation(method, self);
 }
 
 }  // namespace art

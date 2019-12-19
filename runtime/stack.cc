@@ -38,7 +38,6 @@
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
-#include "nterp_helpers.h"
 #include "oat_quick_method_header.h"
 #include "obj_ptr-inl.h"
 #include "quick/quick_method_frame_info.h"
@@ -123,16 +122,13 @@ uint32_t StackVisitor::GetDexPc(bool abort_on_failure) const {
       return current_inline_frames_.back().GetDexPc();
     } else if (cur_oat_quick_method_header_ == nullptr) {
       return dex::kDexNoIndex;
-    } else if ((*GetCurrentQuickFrame())->IsNative()) {
-      return cur_oat_quick_method_header_->ToDexPc(
-          GetCurrentQuickFrame(), cur_quick_frame_pc_, abort_on_failure);
-    } else if (cur_oat_quick_method_header_->IsOptimized()) {
+    } else if (!(*GetCurrentQuickFrame())->IsNative()) {
       StackMap* stack_map = GetCurrentStackMap();
       DCHECK(stack_map->IsValid());
       return stack_map->GetDexPc();
     } else {
-      DCHECK(cur_oat_quick_method_header_->IsNterpMethodHeader());
-      return NterpGetDexPC(cur_quick_frame_);
+      return cur_oat_quick_method_header_->ToDexPc(
+          GetMethod(), cur_quick_frame_pc_, abort_on_failure);
     }
   } else {
     return 0;
@@ -216,10 +212,6 @@ bool StackVisitor::GetVReg(ArtMethod* m,
     DCHECK(m == GetMethod());
     // Check if there is value set by the debugger.
     if (GetVRegFromDebuggerShadowFrame(vreg, kind, val)) {
-      return true;
-    }
-    if (cur_oat_quick_method_header_->IsNterpMethodHeader()) {
-      *val = NterpGetVReg(cur_quick_frame_, vreg);
       return true;
     }
     DCHECK(cur_oat_quick_method_header_->IsOptimized());
@@ -718,8 +710,7 @@ void StackVisitor::SanityCheckFrame() const {
       // Check class linker linear allocs.
       // We get the canonical method as copied methods may have their declaring
       // class from another class loader.
-      const PointerSize ptrSize = runtime->GetClassLinker()->GetImagePointerSize();
-      ArtMethod* canonical = method->GetCanonicalMethod(ptrSize);
+      ArtMethod* canonical = method->GetCanonicalMethod();
       ObjPtr<mirror::Class> klass = canonical->GetDeclaringClass();
       LinearAlloc* const class_linear_alloc = (klass != nullptr)
           ? runtime->GetClassLinker()->GetAllocatorForClassLoader(klass->GetClassLoader())
@@ -780,12 +771,7 @@ static uint32_t GetNumberOfReferenceArgsWithoutReceiver(ArtMethod* method)
 
 QuickMethodFrameInfo StackVisitor::GetCurrentQuickFrameInfo() const {
   if (cur_oat_quick_method_header_ != nullptr) {
-    if (cur_oat_quick_method_header_->IsOptimized()) {
-      return cur_oat_quick_method_header_->GetFrameInfo();
-    } else {
-      DCHECK(cur_oat_quick_method_header_->IsNterpMethodHeader());
-      return NterpFrameInfo(cur_quick_frame_);
-    }
+    return cur_oat_quick_method_header_->GetFrameInfo();
   }
 
   ArtMethod* method = GetMethod();

@@ -26,30 +26,23 @@
 namespace art {
 
 // Used by the JNI dlsym stub to find the native method to invoke if none is registered.
-extern "C" const void* artFindNativeMethodRunnable(Thread* self)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  Locks::mutator_lock_->AssertSharedHeld(self);  // We come here as Runnable.
+extern "C" const void* artFindNativeMethod(Thread* self) {
+  DCHECK_EQ(self, Thread::Current());
+  Locks::mutator_lock_->AssertNotHeld(self);  // We come here as Native.
+  ScopedObjectAccess soa(self);
+
   ArtMethod* method = self->GetCurrentMethod(nullptr);
   DCHECK(method != nullptr);
 
   // Lookup symbol address for method, on failure we'll return null with an exception set,
   // otherwise we return the address of the method we found.
-  JavaVMExt* vm = down_cast<JNIEnvExt*>(self->GetJniEnv())->GetVm();
-  void* native_code = vm->FindCodeForNativeMethod(method);
+  void* native_code = soa.Vm()->FindCodeForNativeMethod(method);
   if (native_code == nullptr) {
     self->AssertPendingException();
     return nullptr;
   }
   // Register so that future calls don't come here
   return method->RegisterNative(native_code);
-}
-
-// Used by the JNI dlsym stub to find the native method to invoke if none is registered.
-extern "C" const void* artFindNativeMethod(Thread* self) {
-  DCHECK_EQ(self, Thread::Current());
-  Locks::mutator_lock_->AssertNotHeld(self);  // We come here as Native.
-  ScopedObjectAccess soa(self);
-  return artFindNativeMethodRunnable(self);
 }
 
 }  // namespace art

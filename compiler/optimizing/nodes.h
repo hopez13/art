@@ -322,7 +322,6 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
          bool debuggable = false,
          bool osr = false,
          bool is_shared_jit_code = false,
-         bool baseline = false,
          int start_instruction_id = 0)
       : allocator_(allocator),
         arena_stack_(arena_stack),
@@ -359,7 +358,6 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         art_method_(nullptr),
         inexact_object_rti_(ReferenceTypeInfo::CreateInvalid()),
         osr_(osr),
-        baseline_(baseline),
         cha_single_implementation_list_(allocator->Adapter(kArenaAllocCHA)),
         is_shared_jit_code_(is_shared_jit_code) {
     blocks_.reserve(kDefaultNumberOfBlocks);
@@ -591,8 +589,6 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   bool IsCompilingOsr() const { return osr_; }
 
-  bool IsCompilingBaseline() const { return baseline_; }
-
   bool IsCompilingForSharedJitCode() const {
     return is_shared_jit_code_;
   }
@@ -789,10 +785,6 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // make all loops seen as irreducible and emit special stack maps to mark
   // compiled code entries which the interpreter can directly jump to.
   const bool osr_;
-
-  // Whether we are compiling baseline (not running optimizations). This affects
-  // the code being generated.
-  const bool baseline_;
 
   // List of methods that are assumed to have single implementation.
   ArenaSet<ArtMethod*> cha_single_implementation_list_;

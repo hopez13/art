@@ -47,7 +47,6 @@ inline void Executable::VisitTarget(ReflectiveValueVisitor* v) {
     SetArtMethod(new_target);
     SetDexMethodIndex(new_target->GetDexMethodIndex());
     SetDeclaringClass(new_target->GetDeclaringClass());
-    WriteBarrier::ForEveryFieldWrite(this);
   }
 }
 

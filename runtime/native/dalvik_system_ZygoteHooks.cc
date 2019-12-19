@@ -264,8 +264,7 @@ static void ZygoteHooks_nativePostZygoteFork(JNIEnv*, jclass) {
 }
 
 static void ZygoteHooks_nativePostForkSystemServer(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                   jclass klass ATTRIBUTE_UNUSED,
-                                                   jint runtime_flags) {
+                                                   jclass klass ATTRIBUTE_UNUSED) {
   // Set the runtime state as the first thing, in case JIT and other services
   // start querying it.
   Runtime::Current()->SetAsSystemServer();
@@ -282,12 +281,6 @@ static void ZygoteHooks_nativePostForkSystemServer(JNIEnv* env ATTRIBUTE_UNUSED,
   // be closed in the common nativePostForkChild below.
   Runtime::Current()->GetOatFileManager().SetOnlyUseSystemOatFiles(
       /*enforce=*/false, /*assert_no_files_loaded=*/false);
-
-  // Enable profiling if required based on the flags. This is done here instead of in
-  // nativePostForkChild since nativePostForkChild is called after loading the system server oat
-  // files.
-  bool profile_system_server = (runtime_flags & PROFILE_SYSTEM_SERVER) == PROFILE_SYSTEM_SERVER;
-  Runtime::Current()->GetJITOptions()->SetSaveProfilingInfo(profile_system_server);
 }
 
 static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
@@ -451,7 +444,7 @@ static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
   NATIVE_METHOD(ZygoteHooks, nativePostZygoteFork, "()V"),
-  NATIVE_METHOD(ZygoteHooks, nativePostForkSystemServer, "(I)V"),
+  NATIVE_METHOD(ZygoteHooks, nativePostForkSystemServer, "()V"),
   NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZZLjava/lang/String;)V"),
   NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
   NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),

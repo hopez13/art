@@ -194,7 +194,8 @@ class ImprovedOptimizingUnitTest : public OptimizingUnitTest {
   ImprovedOptimizingUnitTest() : graph_(CreateGraph()),
                                  entry_block_(nullptr),
                                  return_block_(nullptr),
-                                 exit_block_(nullptr) {}
+                                 exit_block_(nullptr),
+                                 parameter_(nullptr) {}
 
   virtual ~ImprovedOptimizingUnitTest() {}
 
@@ -213,11 +214,11 @@ class ImprovedOptimizingUnitTest : public OptimizingUnitTest {
     entry_block_->AddSuccessor(return_block_);
     return_block_->AddSuccessor(exit_block_);
 
-    CreateParameters();
-    for (HInstruction* parameter : parameters_) {
-      entry_block_->AddInstruction(parameter);
-    }
-
+    parameter_ = new (GetAllocator()) HParameterValue(graph_->GetDexFile(),
+                                                      dex::TypeIndex(0),
+                                                      0,
+                                                      DataType::Type::kInt32);
+    entry_block_->AddInstruction(parameter_);
     return_block_->AddInstruction(new (GetAllocator()) HReturnVoid());
     exit_block_->AddInstruction(new (GetAllocator()) HExit());
   }
@@ -249,17 +250,13 @@ class ImprovedOptimizingUnitTest : public OptimizingUnitTest {
   }
 
  protected:
-  // Create parameters to be added to the graph entry block.
-  // Subclasses can override it to create parameters they need.
-  virtual void CreateParameters() { /* do nothing */ }
-
   HGraph* graph_;
 
   HBasicBlock* entry_block_;
   HBasicBlock* return_block_;
   HBasicBlock* exit_block_;
 
-  std::vector<HInstruction*> parameters_;
+  HInstruction* parameter_;
 };
 
 // Naive string diff data type.

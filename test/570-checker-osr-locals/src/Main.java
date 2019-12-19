@@ -19,7 +19,6 @@ public class Main {
     System.loadLibrary(args[0]);
     while (runTests(true));
     runTests(false);
-    runSmaliTest();
   }
 
   public static boolean runTests(boolean warmup) {
@@ -64,18 +63,6 @@ public class Main {
       throw new Error("Corrupted double local variable in caller");
     }
     return true;
-  }
-
-  public static void runSmaliTest() {
-    try {
-      Class<?> c = Class.forName("WeirdLoop");
-      int result = (int) c.getDeclaredMethod("weirdLoop").invoke(null);
-      if (result != 42) {
-        throw new Error("Unexpected result: " + result);
-      }
-    } catch (Throwable t) {
-      t.printStackTrace();
-    }
   }
 
   public static int $noinline$magicValue() {

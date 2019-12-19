@@ -611,7 +611,6 @@ ClassLinker::ClassLinker(InternTable* intern_table, bool fast_class_not_found_ex
       log_new_roots_(false),
       intern_table_(intern_table),
       fast_class_not_found_exceptions_(fast_class_not_found_exceptions),
-      jni_dlsym_lookup_trampoline_(nullptr),
       quick_resolution_trampoline_(nullptr),
       quick_imt_conflict_trampoline_(nullptr),
       quick_generic_jni_trampoline_(nullptr),
@@ -820,11 +819,11 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
     return false;
   }
   for (auto& dex_file : boot_class_path) {
-    if (dex_file == nullptr) {
+    if (dex_file.get() == nullptr) {
       *error_msg = "Null dex file.";
       return false;
     }
-    AppendToBootClassPath(self, dex_file.get());
+    AppendToBootClassPath(self, *dex_file);
     boot_dex_files_.push_back(std::move(dex_file));
   }
 
@@ -835,10 +834,8 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
   quick_generic_jni_trampoline_ = GetQuickGenericJniStub();
   if (!runtime->IsAotCompiler()) {
     // We need to set up the generic trampolines since we don't have an image.
-    jni_dlsym_lookup_trampoline_ = GetJniDlsymLookupStub();
     quick_resolution_trampoline_ = GetQuickResolutionStub();
     quick_imt_conflict_trampoline_ = GetQuickImtConflictStub();
-    quick_generic_jni_trampoline_ = GetQuickGenericJniStub();
     quick_to_interpreter_bridge_trampoline_ = GetQuickToInterpreterBridge();
   }
 
@@ -1186,7 +1183,6 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
       runtime->GetOatFileManager().RegisterImageOatFiles(spaces);
   DCHECK(!oat_files.empty());
   const OatHeader& default_oat_header = oat_files[0]->GetOatHeader();
-  jni_dlsym_lookup_trampoline_ = default_oat_header.GetJniDlsymLookupTrampoline();
   quick_resolution_trampoline_ = default_oat_header.GetQuickResolutionTrampoline();
   quick_imt_conflict_trampoline_ = default_oat_header.GetQuickImtConflictTrampoline();
   quick_generic_jni_trampoline_ = default_oat_header.GetQuickGenericJniTrampoline();
@@ -1195,8 +1191,6 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
     // Check that the other images use the same trampoline.
     for (size_t i = 1; i < oat_files.size(); ++i) {
       const OatHeader& ith_oat_header = oat_files[i]->GetOatHeader();
-      const void* ith_jni_dlsym_lookup_trampoline_ =
-          ith_oat_header.GetJniDlsymLookupTrampoline();
       const void* ith_quick_resolution_trampoline =
           ith_oat_header.GetQuickResolutionTrampoline();
       const void* ith_quick_imt_conflict_trampoline =
@@ -1205,8 +1199,7 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
           ith_oat_header.GetQuickGenericJniTrampoline();
       const void* ith_quick_to_interpreter_bridge_trampoline =
           ith_oat_header.GetQuickToInterpreterBridge();
-      if (ith_jni_dlsym_lookup_trampoline_ != jni_dlsym_lookup_trampoline_ ||
-          ith_quick_resolution_trampoline != quick_resolution_trampoline_ ||
+      if (ith_quick_resolution_trampoline != quick_resolution_trampoline_ ||
           ith_quick_imt_conflict_trampoline != quick_imt_conflict_trampoline_ ||
           ith_quick_generic_jni_trampoline != quick_generic_jni_trampoline_ ||
           ith_quick_to_interpreter_bridge_trampoline != quick_to_interpreter_bridge_trampoline_) {
@@ -1299,7 +1292,7 @@ void ClassLinker::AddExtraBootDexFiles(
     Thread* self,
     std::vector<std::unique_ptr<const DexFile>>&& additional_dex_files) {
   for (std::unique_ptr<const DexFile>& dex_file : additional_dex_files) {
-    AppendToBootClassPath(self, dex_file.get());
+    AppendToBootClassPath(self, *dex_file);
     boot_dex_files_.push_back(std::move(dex_file));
   }
 }
@@ -2269,7 +2262,7 @@ bool ClassLinker::AddImageSpace(
                                                        dex_cache->NumResolvedMethods());
       }
       // Register dex files, keep track of existing ones that are conflicts.
-      AppendToBootClassPath(dex_file.get(), dex_cache);
+      AppendToBootClassPath(*dex_file.get(), dex_cache);
     }
     out_dex_files->push_back(std::move(dex_file));
   }
@@ -2959,7 +2952,6 @@ using ClassPathEntry = std::pair<const DexFile*, const dex::ClassDef*>;
 ClassPathEntry FindInClassPath(const char* descriptor,
                                size_t hash, const std::vector<const DexFile*>& class_path) {
   for (const DexFile* dex_file : class_path) {
-    DCHECK(dex_file != nullptr);
     const dex::ClassDef* dex_class_def = OatDexFile::FindClassDef(*dex_file, descriptor, hash);
     if (dex_class_def != nullptr) {
       return ClassPathEntry(dex_file, dex_class_def);
@@ -3367,57 +3359,12 @@ static bool IsReservedBootClassPathDescriptor(const char* descriptor) {
       StartsWith(descriptor_sv, "Landroid/media/");
 }
 
-// Helper for maintaining DefineClass counting. We need to notify callbacks when we start/end a
-// define-class and how many recursive DefineClasses we are at in order to allow for doing  things
-// like pausing class definition.
-struct ScopedDefiningClass {
- public:
-  explicit ScopedDefiningClass(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
-      : self_(self), returned_(false) {
-    Locks::mutator_lock_->AssertSharedHeld(self_);
-    Runtime::Current()->GetRuntimeCallbacks()->BeginDefineClass();
-    self_->IncrDefineClassCount();
-  }
-  ~ScopedDefiningClass() REQUIRES_SHARED(Locks::mutator_lock_) {
-    Locks::mutator_lock_->AssertSharedHeld(self_);
-    CHECK(returned_);
-  }
-
-  ObjPtr<mirror::Class> Finish(Handle<mirror::Class> h_klass)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    CHECK(!returned_);
-    self_->DecrDefineClassCount();
-    Runtime::Current()->GetRuntimeCallbacks()->EndDefineClass();
-    Thread::PoisonObjectPointersIfDebug();
-    returned_ = true;
-    return h_klass.Get();
-  }
-
-  ObjPtr<mirror::Class> Finish(ObjPtr<mirror::Class> klass)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    StackHandleScope<1> hs(self_);
-    Handle<mirror::Class> h_klass(hs.NewHandle(klass));
-    return Finish(h_klass);
-  }
-
-  ObjPtr<mirror::Class> Finish(nullptr_t np ATTRIBUTE_UNUSED)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    ScopedNullHandle<mirror::Class> snh;
-    return Finish(snh);
-  }
-
- private:
-  Thread* self_;
-  bool returned_;
-};
-
 ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
                                                const char* descriptor,
                                                size_t hash,
                                                Handle<mirror::ClassLoader> class_loader,
                                                const DexFile& dex_file,
                                                const dex::ClassDef& dex_class_def) {
-  ScopedDefiningClass sdc(self);
   StackHandleScope<3> hs(self);
   auto klass = hs.NewHandle<mirror::Class>(nullptr);
 
@@ -3448,7 +3395,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     ObjPtr<mirror::Throwable> pre_allocated =
         Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
     self->SetException(pre_allocated);
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
 
   // This is to prevent the calls to ClassLoad and ClassPrepare which can cause java/user-supplied
@@ -3459,7 +3406,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     ObjPtr<mirror::Throwable> pre_allocated =
         Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
     self->SetException(pre_allocated);
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
 
   if (klass == nullptr) {
@@ -3470,12 +3417,12 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     if (CanAllocClass()) {
       klass.Assign(AllocClass(self, SizeOfClassWithoutEmbeddedTables(dex_file, dex_class_def)));
     } else {
-      return sdc.Finish(nullptr);
+      return nullptr;
     }
   }
   if (UNLIKELY(klass == nullptr)) {
     self->AssertPendingOOMException();
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
   // Get the real dex file. This will return the input if there aren't any callbacks or they do
   // nothing.
@@ -3492,12 +3439,12 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
                                                             &new_class_def);
   // Check to see if an exception happened during runtime callbacks. Return if so.
   if (self->IsExceptionPending()) {
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
   ObjPtr<mirror::DexCache> dex_cache = RegisterDexFile(*new_dex_file, class_loader.Get());
   if (dex_cache == nullptr) {
     self->AssertPendingException();
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
   klass->SetDexCache(dex_cache);
   SetupClass(*new_dex_file, *new_class_def, klass, class_loader.Get());
@@ -3519,7 +3466,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
   if (existing != nullptr) {
     // We failed to insert because we raced with another thread. Calling EnsureResolved may cause
     // this thread to block.
-    return sdc.Finish(EnsureResolved(self, descriptor, existing));
+    return EnsureResolved(self, descriptor, existing);
   }
 
   // Load the fields and other things after we are inserted in the table. This is so that we don't
@@ -3534,7 +3481,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     if (!klass->IsErroneous()) {
       mirror::Class::SetStatus(klass, ClassStatus::kErrorUnresolved, self);
     }
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
 
   // Finish loading (if necessary) by finding parents
@@ -3544,7 +3491,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     if (!klass->IsErroneous()) {
       mirror::Class::SetStatus(klass, ClassStatus::kErrorUnresolved, self);
     }
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
   CHECK(klass->IsLoaded());
 
@@ -3563,7 +3510,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
     if (!klass->IsErroneous()) {
       mirror::Class::SetStatus(klass, ClassStatus::kErrorUnresolved, self);
     }
-    return sdc.Finish(nullptr);
+    return nullptr;
   }
   self->AssertNoPendingException();
   CHECK(h_new_class != nullptr) << descriptor;
@@ -3597,7 +3544,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
   // Notify native debugger of the new class and its layout.
   jit::Jit::NewTypeLoadedIfUsingJit(h_new_class.Get());
 
-  return sdc.Finish(h_new_class);
+  return h_new_class.Get();
 }
 
 uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
@@ -4140,22 +4087,21 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   }
 }
 
-void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile* dex_file) {
+void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile& dex_file) {
   ObjPtr<mirror::DexCache> dex_cache = AllocAndInitializeDexCache(
       self,
-      *dex_file,
+      dex_file,
       Runtime::Current()->GetLinearAlloc());
-  CHECK(dex_cache != nullptr) << "Failed to allocate dex cache for " << dex_file->GetLocation();
+  CHECK(dex_cache != nullptr) << "Failed to allocate dex cache for " << dex_file.GetLocation();
   AppendToBootClassPath(dex_file, dex_cache);
 }
 
-void ClassLinker::AppendToBootClassPath(const DexFile* dex_file,
+void ClassLinker::AppendToBootClassPath(const DexFile& dex_file,
                                         ObjPtr<mirror::DexCache> dex_cache) {
-  CHECK(dex_file != nullptr);
-  CHECK(dex_cache != nullptr) << dex_file->GetLocation();
-  boot_class_path_.push_back(dex_file);
+  CHECK(dex_cache != nullptr) << dex_file.GetLocation();
+  boot_class_path_.push_back(&dex_file);
   WriterMutexLock mu(Thread::Current(), *Locks::dex_lock_);
-  RegisterDexFileLocked(*dex_file, dex_cache, /* class_loader= */ nullptr);
+  RegisterDexFileLocked(dex_file, dex_cache, /* class_loader= */ nullptr);
 }
 
 void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
@@ -9560,8 +9506,7 @@ bool ClassLinker::IsQuickGenericJniStub(const void* entry_point) const {
 }
 
 bool ClassLinker::IsJniDlsymLookupStub(const void* entry_point) const {
-  return entry_point == GetJniDlsymLookupStub() ||
-      (jni_dlsym_lookup_trampoline_ == entry_point);
+  return entry_point == GetJniDlsymLookupStub();
 }
 
 const void* ClassLinker::GetRuntimeQuickGenericJniStub() const {
