@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "d07abc3e_0205bf98",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-12-19T03:09:19Z",
+      "side": 1,
+      "message": "Yes, that is due to the permissive default, which I will change to [\"//apex_available:platform\"] in the future.\n\nWhat I actually want is the removal of the check in Make. https://source.corp.google.com/android/build/make/core/main.mk;cl\u003dmaster;l\u003d1244\nTo do so, I needed to do this, which is equivalent to the check.\n\nThat is preventing me from doing https://android-review.googlesource.com/q/topic:%22apex_symlink%22+(status:open%20OR%20status:merged)",
+      "parentUuid": "9b71ee4f_62050838",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "8a719b64c499348d7a72e29f559b7127d152e45b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d86c1098_54e556b7",
         "filename": "dexdump/Android.bp",
         "patchSetId": 8
