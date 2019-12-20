@@ -1131,10 +1131,6 @@ bool Redefiner::ClassRedefinition::CheckRedefinable() {
   jvmtiError res;
   if (driver_->type_ == RedefinitionType::kStructural && this->IsStructuralRedefinition()) {
     res = Redefiner::GetClassRedefinitionError<RedefinitionType::kStructural>(h_klass, &err);
-    if (res == OK && HasVirtualMembers() && h_klass->IsFinalizable()) {
-      res = ERR(INTERNAL);
-      err = "Cannot redefine finalizable objects at this time.";
-    }
   } else {
     res = Redefiner::GetClassRedefinitionError<RedefinitionType::kNormal>(h_klass, &err);
   }
@@ -1750,7 +1746,14 @@ bool Redefiner::ClassRedefinition::CollectAndCreateNewInstances(
                        [&](auto class_pair) REQUIRES_SHARED(art::Locks::mutator_lock_) {
                          return class_pair.first == hinstance->GetClass();
                        }));
-    art::ObjPtr<art::mirror::Object> new_instance(new_type->AllocObject(driver_->self_));
+    // Make sure when allocating the new instance we don't add it's finalizer since we will directly
+    // replace the old object in the finalizer reference. If we added it here to we would call
+    // finalize twice.
+    art::ObjPtr<art::mirror::Object> new_instance(
+        new_type->Alloc</*kIsInstrumented=*/true,
+                        art::mirror::Class::AddFinalizer::kNoAddFinalizer,
+                        /*kCheckAddFinalizer=*/false>(
+            driver_->self_, driver_->runtime_->GetHeap()->GetCurrentAllocator()));
     if (new_instance.IsNull()) {
       driver_->self_->AssertPendingOOMException();
       driver_->self_->ClearException();
