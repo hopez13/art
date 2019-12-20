@@ -498,8 +498,15 @@ class MANAGED Class final : public Object {
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsPrimitiveArray() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  enum class AddFinalizer {
+    kNoAddFinalizer,
+    kUseClassTag,
+  };
+
   // Creates a raw object instance but does not invoke the default constructor.
-  template<bool kIsInstrumented = true, bool kCheckAddFinalizer = true>
+  template <bool kIsInstrumented = true,
+            AddFinalizer kAddFinalizer = AddFinalizer::kUseClassTag,
+            bool kCheckAddFinalizer = true>
   ALWAYS_INLINE ObjPtr<Object> Alloc(Thread* self, gc::AllocatorType allocator_type)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
