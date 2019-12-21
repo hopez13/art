@@ -46,6 +46,10 @@
 
 #include <sys/resource.h>
 
+#ifdef __ANDROID__
+#include <bionic/malloc.h>
+#endif
+
 namespace art {
 
 // Set to true to always determine the non-debuggable classes even if we would not allow a debugger
@@ -153,6 +157,8 @@ enum {
   USE_APP_IMAGE_STARTUP_CACHE         = 1 << 16,
   DEBUG_IGNORE_APP_SIGNAL_HANDLER     = 1 << 17,
   DISABLE_TEST_API_ENFORCEMENT_POLICY = 1 << 18,
+  MEMORY_TAG_LEVEL_ASYNC              = 1 << 19,
+  MEMORY_TAG_LEVEL_SYNC               = 1 << 20,
 
   // bits to shift (flags & HIDDEN_API_ENFORCEMENT_POLICY_MASK) by to get a value
   // corresponding to hiddenapi::EnforcementPolicy
@@ -340,6 +346,19 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   runtime->SetLoadAppImageStartupCacheEnabled(
       (runtime_flags & USE_APP_IMAGE_STARTUP_CACHE) != 0u);
   runtime_flags &= ~USE_APP_IMAGE_STARTUP_CACHE;
+
+#ifdef __ANDROID__
+  int tag_level;
+  if (runtime_flags & MEMORY_TAG_LEVEL_ASYNC) {
+    tag_level = M_MEMORY_TAG_LEVEL_ASYNC;
+  } else if (runtime_flags & MEMORY_TAG_LEVEL_SYNC) {
+    tag_level = M_MEMORY_TAG_LEVEL_SYNC;
+  } else {
+    tag_level = M_MEMORY_TAG_LEVEL_NONE;
+  }
+  android_mallopt(M_SET_MEMORY_TAG_LEVEL, &tag_level, sizeof(int));
+#endif
+  runtime_flags &= ~(MEMORY_TAG_LEVEL_ASYNC | MEMORY_TAG_LEVEL_SYNC);
 
   if (runtime_flags != 0) {
     LOG(ERROR) << StringPrintf("Unknown bits set in runtime_flags: %#x", runtime_flags);
