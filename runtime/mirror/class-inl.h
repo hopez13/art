@@ -920,7 +920,7 @@ inline void Class::InitializeClassVisitor::operator()(ObjPtr<Object> obj,
   klass->SetDexTypeIndex(dex::TypeIndex(DexFile::kDexNoIndex16));  // Default to no valid type
                                                                    // index.
   // Default to force slow path until initialized.
-  klass->SetObjectSizeAllocFastPath(std::numeric_limits<uint32_t>::max());
+  klass->SetObjectSizeAllocFastPath(0xFFFFFF);
 }
 
 inline void Class::SetAccessFlags(uint32_t new_access_flags) {
