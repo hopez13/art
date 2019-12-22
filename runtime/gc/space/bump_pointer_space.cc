@@ -18,6 +18,7 @@
 #include "bump_pointer_space-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
+#include "thread-inl.h"
 #include "thread_list.h"
 
 namespace art {

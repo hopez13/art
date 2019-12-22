@@ -39,6 +39,8 @@
 // collector, with the Baker read barrier configuration.
 #define wMR w20
 #endif
+#define xTLAB x21
+#define wTLAB w21
 
 .macro ENTRY_ALIGNED name, alignment
     .type \name, #function
@@ -132,15 +134,20 @@
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 .endm
 
-// Macro to refresh the Marking Register (W20).
+// Macro to refresh the reserved registers.
 //
 // This macro must be called at the end of functions implementing
 // entrypoints that possibly (directly or indirectly) perform a
 // suspend check (before they return).
-.macro REFRESH_MARKING_REGISTER
+.macro LOAD_RESERVED_REGISTERS
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     ldr wMR, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
 #endif
+    ldr xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
+.endm
+
+.macro SAVE_RESERVED_REGISTERS
+    str xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
 .endm
 
     /*
@@ -169,6 +176,8 @@
     SAVE_TWO_REGS x25, x26, 48
     SAVE_TWO_REGS x27, x28, 64
     SAVE_TWO_REGS x29, xLR, 80
+
+    SAVE_RESERVED_REGISTERS
 
     // Store ArtMethod* Runtime::callee_save_methods_[kSaveRefsOnly].
     // Note: We could avoid saving X20 in the case of Baker read
@@ -228,6 +237,8 @@
 
     // x29(callee-save) and LR.
     SAVE_TWO_REGS_BASE \base, x29, xLR, 208
+
+    SAVE_RESERVED_REGISTERS
 .endm
 
 // TODO: Probably no need to restore registers preserved by aapcs64. (That would require
@@ -297,6 +308,8 @@
     SAVE_TWO_REGS x27, x28, 144
     SAVE_TWO_REGS x29, xLR, 160
 
+    SAVE_RESERVED_REGISTERS
+
     // Store ArtMethod* Runtime::callee_save_methods_[kSaveAllCalleeSaves].
     str xIP0, [sp]
     // Place sp in Thread::Current()->top_quick_frame.
@@ -310,6 +323,7 @@
      */
 .macro DELIVER_PENDING_EXCEPTION_FRAME_READY
     mov x0, xSELF
+    SAVE_RESERVED_REGISTERS
 
     // Point of no return.
     bl artDeliverPendingExceptionFromCode  // artDeliverPendingExceptionFromCode(Thread*)

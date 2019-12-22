@@ -133,7 +133,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     .cfi_remember_state
     RESTORE_TWO_REGS x15, x0, 0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    REFRESH_MARKING_REGISTER
+    LOAD_RESERVED_REGISTERS
 
     // Check for exception.
     cbz   xIP0, .Lcritical_deliver_exception
@@ -189,7 +189,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     .cfi_def_cfa_register x9
     RESTORE_TWO_REGS_BASE x9, x15, x0, 0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME_INTERNAL x9
-    REFRESH_MARKING_REGISTER
+    LOAD_RESERVED_REGISTERS
 
     // Check for exception.
     cbz   xIP0, 3f
