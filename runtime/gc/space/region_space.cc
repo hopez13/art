@@ -22,6 +22,7 @@
 #include "gc/accounting/read_barrier_table.h"
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
+#include "thread-inl.h"
 #include "thread_list.h"
 
 namespace art {
@@ -500,7 +501,12 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
 
   // Madvise the memory ranges.
   for (const auto &iter : madvise_list) {
-    ZeroAndProtectRegion(iter.first, iter.second);
+    static constexpr bool kUseMadvise = false;
+    if (kUseMadvise) {
+      ZeroAndProtectRegion(iter.first, iter.second);
+    } else {
+      memset(iter.first, 0, iter.second - iter.first);
+    }
     if (clear_bitmap) {
       GetLiveBitmap()->ClearRange(
           reinterpret_cast<mirror::Object*>(iter.first),

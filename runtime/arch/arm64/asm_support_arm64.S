@@ -39,6 +39,8 @@
 // collector, with the Baker read barrier configuration.
 #define wMR w20
 #endif
+#define xTLAB x21
+#define wTLAB w21
 
 .macro ENTRY_ALIGNED name, alignment
     .type \name, #function
@@ -124,15 +126,20 @@
     ldr xIP0, [xIP0, #:lo12:_ZN3art7Runtime9instance_E]
 .endm
 
-// Macro to refresh the Marking Register (W20).
+// Macro to refresh the reserved registers.
 //
 // This macro must be called at the end of functions implementing
 // entrypoints that possibly (directly or indirectly) perform a
 // suspend check (before they return).
-.macro REFRESH_MARKING_REGISTER
+.macro LOAD_RESERVED_REGISTERS
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     ldr wMR, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
 #endif
+    ldr xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
+.endm
+
+.macro SAVE_RESERVED_REGISTERS
+    str xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
 .endm
 
     /*
