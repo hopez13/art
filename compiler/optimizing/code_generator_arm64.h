@@ -82,6 +82,8 @@ static constexpr size_t kParameterFPRegistersLength = arraysize(kParameterFPRegi
 const vixl::aarch64::Register tr = vixl::aarch64::x19;
 // Marking Register.
 const vixl::aarch64::Register mr = vixl::aarch64::x20;
+// TLAB register
+const vixl::aarch64::Register tlab = vixl::aarch64::x21;
 // Method register on invoke.
 static const vixl::aarch64::Register kArtMethodRegister = vixl::aarch64::x0;
 const vixl::aarch64::CPURegList vixl_reserved_core_registers(vixl::aarch64::ip0,
@@ -93,6 +95,7 @@ const vixl::aarch64::CPURegList runtime_reserved_core_registers =
         tr,
         // Reserve X20 as Marking Register when emitting Baker read barriers.
         ((kEmitCompilerReadBarrier && kUseBakerReadBarrier) ? mr : vixl::aarch64::NoCPUReg),
+        tlab,
         vixl::aarch64::lr);
 
 // Some instructions have special requirements for a temporary, for example
@@ -111,7 +114,7 @@ const vixl::aarch64::CPURegList callee_saved_core_registers(
     vixl::aarch64::CPURegister::kRegister,
     vixl::aarch64::kXRegSize,
     ((kEmitCompilerReadBarrier && kUseBakerReadBarrier)
-         ? vixl::aarch64::x21.GetCode()
+         ? vixl::aarch64::x22.GetCode()
          : vixl::aarch64::x20.GetCode()),
      vixl::aarch64::x30.GetCode());
 const vixl::aarch64::CPURegList callee_saved_fp_registers(vixl::aarch64::CPURegister::kVRegister,

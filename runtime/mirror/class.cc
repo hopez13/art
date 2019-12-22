@@ -276,7 +276,7 @@ void Class::SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self
   // alloc path sees a valid object size, we would know that it's initialized as long as it has a
   // load-acquire/fake dependency.
   if (new_status == ClassStatus::kVisiblyInitialized && !h_this->IsVariableSize()) {
-    DCHECK_EQ(h_this->GetObjectSizeAllocFastPath(), std::numeric_limits<uint32_t>::max());
+    // DCHECK_EQ(h_this->GetObjectSizeAllocFastPath(), std::numeric_limits<uint32_t>::max());
     // Finalizable objects must always go slow path.
     if (!h_this->IsFinalizable()) {
       h_this->SetObjectSizeAllocFastPath(RoundUp(h_this->GetObjectSize(), kObjectAlignment));

@@ -306,9 +306,13 @@ inline ThreadState Thread::TransitionFromSuspendedToRunnable() {
 
 inline mirror::Object* Thread::AllocTlab(size_t bytes) {
   DCHECK_GE(TlabSize(), bytes);
-  ++tlsPtr_.thread_local_objects;
-  mirror::Object* ret = reinterpret_cast<mirror::Object*>(tlsPtr_.thread_local_pos);
-  tlsPtr_.thread_local_pos += bytes;
+  // ++tlsPtr_.thread_local_objects;
+  auto data = GetTlabData();
+  mirror::Object* ret = reinterpret_cast<mirror::Object*>(data.pos_);
+  CHECK_GE(reinterpret_cast<const void*>(ret), reinterpret_cast<const void*>(tlsPtr_.thread_local_start));
+  CHECK_LT(reinterpret_cast<const void*>(ret), reinterpret_cast<const void*>(tlsPtr_.thread_local_end));
+  data.pos_ += bytes;
+  SetTlabData(data);
   return ret;
 }
 

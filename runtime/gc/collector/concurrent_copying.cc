@@ -2677,10 +2677,8 @@ void ConcurrentCopying::ReclaimPhase() {
     uint64_t to_objects = objects_moved_.load(std::memory_order_relaxed) + objects_moved_gc_thread_;
     cumulative_objects_moved_.fetch_add(to_objects, std::memory_order_relaxed);
     if (kEnableFromSpaceAccountingCheck) {
-      CHECK_EQ(from_space_num_objects_at_first_pause_, from_objects + unevac_from_objects);
       CHECK_EQ(from_space_num_bytes_at_first_pause_, from_bytes + unevac_from_bytes);
     }
-    CHECK_LE(to_objects, from_objects);
     // to_bytes <= from_bytes is only approximately true, because objects expand a little when
     // copying to non-moving space in near-OOM situations.
     if (from_bytes > 0) {
@@ -2716,7 +2714,7 @@ void ConcurrentCopying::ReclaimPhase() {
       LOG(INFO) << "(before) num_bytes_allocated="
                 << heap_->num_bytes_allocated_.load();
     }
-    RecordFree(ObjectBytePair(freed_objects, freed_bytes));
+    RecordFree(ObjectBytePair(0u, freed_bytes));
     if (kVerboseMode) {
       LOG(INFO) << "(after) num_bytes_allocated="
                 << heap_->num_bytes_allocated_.load();

@@ -27,6 +27,7 @@ import dalvik.annotation.optimization.FastNative;
 
 public class Main {
     public static void main(String[] args) {
+      /*
         System.loadLibrary(args[0]);
 
         if (!isSlowDebug()) {
@@ -57,14 +58,14 @@ public class Main {
         testInvokeLambdaMethod(() -> { System.out.println("hi-lambda: " + lambda); });
         String def = "δ";
         testInvokeLambdaDefaultMethod(() -> { System.out.println("hi-default " + def + lambda); });
+*/
+        // registerNativesJniTest();
+        // testFastNativeMethods();
+        // testCriticalNativeMethods();
 
-        registerNativesJniTest();
-        testFastNativeMethods();
-        testCriticalNativeMethods();
+        // testClinitMethodLookup();
 
-        testClinitMethodLookup();
-
-        testDoubleLoad(args[0]);
+        // testDoubleLoad(args[0]);
     }
 
     static class ABC { public static int XYZ = 12; }

@@ -943,6 +943,34 @@ class ReadBarrierForRootSlowPathX86_64 : public SlowPathCode {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathX86_64);
 };
 
+class NewInstanceSlowPathX86_64 : public SlowPathCode {
+ public:
+  explicit NewInstanceSlowPathX86_64(HInstruction* instruction) : SlowPathCode(instruction) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    CodeGeneratorX86_64* x86_64_codegen = down_cast<CodeGeneratorX86_64*>(codegen);
+    __ Bind(GetEntryLabel());
+
+    LocationSummary* locations = instruction_->GetLocations();
+    SaveLiveRegisters(codegen, locations);
+
+    HNewInstance* instruction = down_cast<HNewInstance*>(GetInstruction());
+    x86_64_codegen->InvokeRuntime(instruction->GetEntrypoint(),
+                                  instruction,
+                                  instruction->GetDexPc(),
+                                  this);
+    CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
+    RestoreLiveRegisters(codegen, locations);
+
+    __ jmp(GetExitLabel());
+  }
+
+  const char* GetDescription() const override { return "NewInstanceSlowPathX86_64"; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(NewInstanceSlowPathX86_64);
+};
+
 #undef __
 // NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
 #define __ down_cast<X86_64Assembler*>(GetAssembler())->  // NOLINT
@@ -4602,16 +4630,59 @@ void InstructionCodeGeneratorX86_64::VisitUShr(HUShr* ushr) {
 
 void LocationsBuilderX86_64::VisitNewInstance(HNewInstance* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
-      instruction, LocationSummary::kCallOnMainOnly);
+      instruction, LocationSummary::kCallOnSlowPath);
   InvokeRuntimeCallingConvention calling_convention;
   locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
   locations->SetOut(Location::RegisterLocation(RAX));
+  locations->AddRegisterTemps(2);
 }
 
 void InstructionCodeGeneratorX86_64::VisitNewInstance(HNewInstance* instruction) {
-  codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());
-  CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
-  DCHECK(!codegen_->IsLeafMethod());
+  SlowPathCode* slow_path =
+    new (codegen_->GetScopedAllocator()) NewInstanceSlowPathX86_64(instruction);
+  codegen_->AddSlowPath(slow_path);
+
+  LocationSummary* locations = instruction->GetLocations();
+  CpuRegister temp1 = locations->GetTemp(0).AsRegister<CpuRegister>();
+  CpuRegister temp2 = locations->GetTemp(1).AsRegister<CpuRegister>();
+  Location out_loc = locations->Out();
+  CpuRegister out_reg = out_loc.AsRegister<CpuRegister>();
+  Location klass_loc = locations->InAt(0);
+  CpuRegister klass_reg = klass_loc.AsRegister<CpuRegister>();
+
+  // Store thread into temp1.
+  auto offset = Thread::ThreadLocalPosOffset<kX86_64PointerSize>();
+  __ gs()->movq(temp1, Address::Absolute(offset, true));
+  // Store object size into temp 2.
+  HLoadClass* load_class = instruction->GetLoadClass();
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    auto klass = load_class->GetClass();
+    if (!codegen_->GetCompilerOptions().IsBootImage() &&
+        klass != nullptr &&
+        !klass->IsVariableSize() &&
+        klass->GetObjectSizeAllocFastPath() < 4096) {
+      // Initialization check is handled by the load class.
+      CHECK(klass->IsInitialized());
+      __ movl(temp2, Immediate(klass->GetObjectSizeAllocFastPath()));
+    } else {
+      __ movl(temp2, Address(klass_reg, mirror::Class::ObjectSizeAllocFastPathOffset()));
+    }
+  }
+  __ movq(out_reg, temp1);
+  // Load thread local pos into out_reg
+  __ addq(temp2, out_reg);
+  // Add size to pos, note that these are both 32 bit ints, overflow will cause the add to be past
+  // the end of the thread local region.
+  __ gs()->cmpq(temp2, Address::Absolute(Thread::ThreadLocalEndOffset<kX86_64PointerSize>(), true));
+  __ j(kGreaterEqual, slow_path->GetEntryLabel());
+
+  __ gs()->movq(Address::Absolute(offset, true), temp2);
+  // Store the class pointer in the header.
+  // No fence needed for x86.
+  __ movl(Address(out_reg, mirror::Object::ClassOffset()), klass_reg);
+
+  __ Bind(slow_path->GetExitLabel());
 }
 
 void LocationsBuilderX86_64::VisitNewArray(HNewArray* instruction) {

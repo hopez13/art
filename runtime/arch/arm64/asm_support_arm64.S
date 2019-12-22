@@ -40,6 +40,8 @@
 // collector, with the Baker read barrier configuration.
 #define wMR w20
 #endif
+#define xTLAB x21
+#define wTLAB w21
 
 .macro CFI_EXPRESSION_BREG n, b, offset
     .if (-0x40 <= (\offset)) && ((\offset) < 0x40)
@@ -147,15 +149,20 @@
     ldr \reg, [\reg, #:lo12:_ZN3art7Runtime9instance_E]
 .endm
 
-// Macro to refresh the Marking Register (W20).
+// Macro to refresh the reserved registers.
 //
 // This macro must be called at the end of functions implementing
 // entrypoints that possibly (directly or indirectly) perform a
 // suspend check (before they return).
-.macro REFRESH_MARKING_REGISTER
+.macro RESTORE_RESERVED_REGISTERS
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     ldr wMR, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
 #endif
+    ldr xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
+.endm
+
+.macro SAVE_RESERVED_REGISTERS
+    str xTLAB, [xSELF, #THREAD_LOCAL_POS_OFFSET]
 .endm
 
     /*
@@ -163,6 +170,8 @@
      * Runtime::CreateCalleeSaveMethod(kSaveRefsOnly).
      */
 .macro SETUP_SAVE_REFS_ONLY_FRAME
+    SAVE_RESERVED_REGISTERS
+
     // art::Runtime* xIP0 = art::Runtime::instance_;
     // Our registers aren't intermixed - just spill in order.
     LOAD_RUNTIME_INSTANCE xIP0
@@ -210,6 +219,8 @@
     RESTORE_TWO_REGS x27, x28, 64
     RESTORE_TWO_REGS x29, xLR, 80
 
+    RESTORE_RESERVED_REGISTERS
+
     DECREASE_FRAME 96
 .endm
 
@@ -218,6 +229,7 @@
 #if (FRAME_SIZE_SAVE_REFS_AND_ARGS != 224)
 #error "FRAME_SIZE_SAVE_REFS_AND_ARGS(ARM64) size not as expected."
 #endif
+    SAVE_RESERVED_REGISTERS
 
     // Stack alignment filler [\base, #8].
     // FP args.
@@ -271,6 +283,8 @@
 
     // x29(callee-save) and LR.
     RESTORE_TWO_REGS_BASE \base, x29, xLR, 208
+
+    RESTORE_RESERVED_REGISTERS
 .endm
 
 .macro RESTORE_SAVE_REFS_AND_ARGS_FRAME
@@ -299,6 +313,8 @@
      * Runtime::CreateCalleeSaveMethod(kSaveAllCalleeSaves)
      */
 .macro SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
+    SAVE_RESERVED_REGISTERS
+
     // art::Runtime* xIP0 = art::Runtime::instance_;
     // Our registers aren't intermixed - just spill in order.
     LOAD_RUNTIME_INSTANCE xIP0
@@ -329,7 +345,6 @@
      */
 .macro DELIVER_PENDING_EXCEPTION_FRAME_READY
     mov x0, xSELF
-
     // Point of no return.
     bl artDeliverPendingExceptionFromCode  // artDeliverPendingExceptionFromCode(Thread*)
     brk 0  // Unreached

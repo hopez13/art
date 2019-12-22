@@ -4139,10 +4139,9 @@ void Thread::SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit) {
   DCHECK_LE(start, end);
   DCHECK_LE(end, limit);
   tlsPtr_.thread_local_start = start;
-  tlsPtr_.thread_local_pos  = tlsPtr_.thread_local_start;
-  tlsPtr_.thread_local_end = end;
   tlsPtr_.thread_local_limit = limit;
   tlsPtr_.thread_local_objects = 0;
+  SetTlabData({tlsPtr_.thread_local_start, end});
 }
 
 void Thread::ResetTlab() {
@@ -4150,11 +4149,11 @@ void Thread::ResetTlab() {
 }
 
 bool Thread::HasTlab() const {
-  const bool has_tlab = tlsPtr_.thread_local_pos != nullptr;
+  const bool has_tlab = GetTlabStart() != tlsPtr_.thread_local_limit;
   if (has_tlab) {
-    DCHECK(tlsPtr_.thread_local_start != nullptr && tlsPtr_.thread_local_end != nullptr);
+    DCHECK(GetTlabStart() != nullptr && GetTlabEnd() != nullptr);
   } else {
-    DCHECK(tlsPtr_.thread_local_start == nullptr && tlsPtr_.thread_local_end == nullptr);
+    DCHECK(GetTlabStart() == nullptr && GetTlabEnd() == nullptr);
   }
   return has_tlab;
 }
@@ -4342,6 +4341,31 @@ ScopedExceptionStorage::~ScopedExceptionStorage() {
   CHECK(!self_->IsExceptionPending()) << *self_;
   if (!excp_.IsNull()) {
     self_->SetException(excp_.Get());
+  }
+}
+
+Thread::CombinedTLAB Thread::GetTlabData() const {
+  if (kRuntimeISA == InstructionSet::kArm64) {
+    uintptr_t data = reinterpret_cast<uintptr_t>(tlsPtr_.thread_local_pos);
+    return {
+      reinterpret_cast<uint8_t*>(data & 0xFFFFFFFF),
+      reinterpret_cast<uint8_t*>(data >> 32) };
+  } else {
+    return { tlsPtr_.thread_local_pos, tlsPtr_.thread_local_end };
+  }
+}
+
+void Thread::SetTlabData(const CombinedTLAB& data) {
+  DCHECK_LE(data.end_, tlsPtr_.thread_local_limit);
+  if (kRuntimeISA == InstructionSet::kArm64) {
+    uintptr_t tmp =
+      reinterpret_cast<uintptr_t>(data.pos_) |
+      (reinterpret_cast<uintptr_t>(data.end_) << 32);
+    tlsPtr_.thread_local_pos = reinterpret_cast<uint8_t*>(tmp);
+    tlsPtr_.thread_local_end = data.end_;
+  } else {
+    tlsPtr_.thread_local_pos = data.pos_;
+    tlsPtr_.thread_local_end = data.end_;
   }
 }
 

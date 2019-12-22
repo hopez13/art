@@ -1144,20 +1144,33 @@ class Thread {
 
   void ResetQuickAllocEntryPointsForThread();
 
+  struct CombinedTLAB {
+    uint8_t* pos_;
+    uint8_t* end_;
+
+    size_t Size() const {
+      return end_ - pos_;
+    }
+  };
+
+  CombinedTLAB GetTlabData() const;
+  void SetTlabData(const CombinedTLAB& data);
+
   // Returns the remaining space in the TLAB.
   size_t TlabSize() const {
-    return tlsPtr_.thread_local_end - tlsPtr_.thread_local_pos;
+    return GetTlabData().Size();
   }
 
   // Returns the remaining space in the TLAB if we were to expand it to maximum capacity.
   size_t TlabRemainingCapacity() const {
-    return tlsPtr_.thread_local_limit - tlsPtr_.thread_local_pos;
+    return tlsPtr_.thread_local_limit - GetTlabData().pos_;
   }
 
   // Expand the TLAB by a fixed number of bytes. There must be enough capacity to do so.
   void ExpandTlab(size_t bytes) {
-    tlsPtr_.thread_local_end += bytes;
-    DCHECK_LE(tlsPtr_.thread_local_end, tlsPtr_.thread_local_limit);
+    auto data = GetTlabData();
+    data.end_  += bytes;
+    SetTlabData(data);
   }
 
   // Doesn't check that there is room.
@@ -1165,14 +1178,14 @@ class Thread {
   void SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit);
   bool HasTlab() const;
   void ResetTlab();
-  uint8_t* GetTlabStart() {
+  uint8_t* GetTlabStart() const {
     return tlsPtr_.thread_local_start;
   }
-  uint8_t* GetTlabPos() {
-    return tlsPtr_.thread_local_pos;
+  uint8_t* GetTlabPos() const {
+    return GetTlabData().pos_;
   }
-  uint8_t* GetTlabEnd() {
-    return tlsPtr_.thread_local_end;
+  uint8_t* GetTlabEnd() const {
+    return GetTlabData().end_;
   }
   // Remove the suspend trigger for this thread by making the suspend_trigger_ TLS value
   // equal to a valid pointer.
@@ -1201,7 +1214,7 @@ class Thread {
   void RevokeThreadLocalAllocationStack();
 
   size_t GetThreadLocalBytesAllocated() const {
-    return tlsPtr_.thread_local_end - tlsPtr_.thread_local_start;
+    return GetTlabData().end_ - tlsPtr_.thread_local_start;
   }
 
   size_t GetThreadLocalObjectsAllocated() const {

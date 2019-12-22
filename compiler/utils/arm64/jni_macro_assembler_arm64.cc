@@ -807,6 +807,10 @@ void Arm64JNIMacroAssembler::BuildFrame(size_t frame_size,
   asm_.SpillRegisters(core_reg_list, frame_size - core_reg_size);
   asm_.SpillRegisters(fp_reg_list, frame_size - core_reg_size - fp_reg_size);
 
+  vixl::aarch64::Register tlab = reg_x(TLAB);  // TLAB Register.
+  vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
+  ___ Str(tlab.X(), MemOperand(tr, Thread::ThreadLocalPosOffset<kArm64PointerSize>().Int32Value()));
+
   if (method_reg.IsRegister()) {
     // Write ArtMethod*
     DCHECK(X0 == method_reg.AsArm64().AsXRegister());
@@ -845,11 +849,12 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
     vixl::aarch64::Register mr = reg_x(MR);  // Marking Register.
+    vixl::aarch64::Register tlab = reg_x(TLAB);  // TLAB Register.
     vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
-
     if (may_suspend) {
-      // The method may be suspended; refresh the Marking Register.
+      // The method may be suspended; refresh the saved registers.
       ___ Ldr(mr.W(), MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+      ___ Ldr(tlab.X(), MemOperand(tr, Thread::ThreadLocalPosOffset<kArm64PointerSize>().Int32Value()));
     } else {
       // The method shall not be suspended; no need to refresh the Marking Register.
 

@@ -23,6 +23,8 @@
     .extern artFindNativeMethodRunnable
 
 ENTRY art_jni_dlsym_lookup_stub
+    SAVE_RESERVED_REGISTERS
+
     // spill regs.
     stp   x29, x30, [sp, #-16]!
     .cfi_adjust_cfa_offset 16
@@ -93,6 +95,8 @@ ENTRY art_jni_dlsym_lookup_stub
 END art_jni_dlsym_lookup_stub
 
 ENTRY art_jni_dlsym_lookup_critical_stub
+    SAVE_RESERVED_REGISTERS
+
     // The hidden arg holding the tagged method (bit 0 set means GenericJNI) is x15.
     // For Generic JNI we already have a managed frame, so we reuse the art_jni_dlsym_lookup_stub.
     tbnz  x15, #0, art_jni_dlsym_lookup_stub
@@ -250,7 +254,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     RESTORE_TWO_REGS_BASE x29, x27, x28, 192
     RESTORE_REG_BASE x29, x29, 208
 
-    REFRESH_MARKING_REGISTER
+    // REFRESH_MARKING_REGISTER
 
     // Check for exception before moving args back to keep the return PC for managed stack walk.
     cbz   x13, .Lcritical_deliver_exception

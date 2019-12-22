@@ -111,6 +111,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     if (IsTLABAllocator(allocator) && byte_count <= self->TlabSize()) {
       obj = self->AllocTlab(byte_count);
       DCHECK(obj != nullptr) << "AllocTlab can't fail";
+      DCHECK((obj->GetClass<kVerifyNone, kWithoutReadBarrier>()) == nullptr);
       obj->SetClass(klass);
       if (kUseBakerReadBarrier) {
         obj->AssertReadBarrierState();
@@ -124,6 +125,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
         (obj = rosalloc_space_->AllocThreadLocal(self, byte_count, &bytes_allocated)) != nullptr &&
         LIKELY(obj != nullptr)) {
       DCHECK(!is_running_on_memory_tool_);
+      DCHECK((obj->GetClass<kVerifyNone, kWithoutReadBarrier>()) == nullptr);
       obj->SetClass(klass);
       if (kUseBakerReadBarrier) {
         obj->AssertReadBarrierState();
@@ -167,6 +169,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
       }
       DCHECK_GT(bytes_allocated, 0u);
       DCHECK_GT(usable_size, 0u);
+      DCHECK((obj->GetClass<kVerifyNone, kWithoutReadBarrier>()) == nullptr);
       obj->SetClass(klass);
       if (kUseBakerReadBarrier) {
         obj->AssertReadBarrierState();
