@@ -1864,9 +1864,6 @@ ART_QUICK_ALLOC_OBJECT_ROSALLOC art_quick_alloc_object_initialized_rosalloc, art
                                                        # delay slot).
     # "Point of no slow path". Won't go to the slow path from here on.
     sw    $t1, THREAD_LOCAL_POS_OFFSET(rSELF)          # Store new thread_local_pos.
-    lw    $a2, THREAD_LOCAL_OBJECTS_OFFSET(rSELF)      # Increment thread_local_objects.
-    addiu $a2, $a2, 1
-    sw    $a2, THREAD_LOCAL_OBJECTS_OFFSET(rSELF)
     POISON_HEAP_REF $a0
     sw    $a0, MIRROR_OBJECT_CLASS_OFFSET($v0)         # Store the class pointer.
 
@@ -1922,9 +1919,6 @@ GENERATE_ALLOC_OBJECT_TLAB art_quick_alloc_object_initialized_tlab, artAllocObje
 
     # "Point of no slow path". Won't go to the slow path from here on.
     sw    $a2, THREAD_LOCAL_POS_OFFSET(rSELF)          # Store new thread_local_pos.
-    lw    $a2, THREAD_LOCAL_OBJECTS_OFFSET(rSELF)      # Increment thread_local_objects.
-    addiu $a2, $a2, 1
-    sw    $a2, THREAD_LOCAL_OBJECTS_OFFSET(rSELF)
     POISON_HEAP_REF $a0
     sw    $a0, MIRROR_OBJECT_CLASS_OFFSET($v0)         # Store the class pointer.
     jalr  $zero, $ra

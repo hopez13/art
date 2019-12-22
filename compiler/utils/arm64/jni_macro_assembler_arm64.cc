@@ -790,8 +790,9 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
     vixl::aarch64::Register mr = reg_x(MR);  // Marking Register.
+    vixl::aarch64::Register tlab = reg_x(TLAB);  // TLAB Register.
     vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
-
+    ___ Ldr(tlab.X(), MemOperand(tr, Thread::ThreadLocalPosOffset<kArm64PointerSize>().Int32Value()));
     if (may_suspend) {
       // The method may be suspended; refresh the Marking Register.
       ___ Ldr(mr.W(), MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
