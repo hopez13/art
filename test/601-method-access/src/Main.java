@@ -22,6 +22,11 @@ import java.lang.reflect.InvocationTargetException;
 public class Main {
   public static void main(String[] args) {
     try {
+      // Class.forName("SubClassUsingInaccessibleMethod");
+      System.identityHashCode("Test");
+    } catch (Exception a) {}
+    /*
+    try {
       Class<?> c = Class.forName("SubClassUsingInaccessibleMethod");
       Object o = c.newInstance();
       c.getMethod("test").invoke(o, null);
@@ -33,6 +38,6 @@ public class Main {
       }
     } catch (Exception e) {
       System.out.println("Got unexpected failure " + e);
-    }
+    }*/
   }
 }

@@ -64,6 +64,7 @@ public class Main {
 
   public static void main(String[] args) {
     int[] a = new int[4];
+    a[0] = 43;
 
     int fail = 0;
     try {

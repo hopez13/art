@@ -23,6 +23,8 @@
     .extern artFindNativeMethodRunnable
 
 ENTRY art_jni_dlsym_lookup_stub
+    SAVE_RESERVED_REGISTERS
+
     // spill regs.
     stp   x29, x30, [sp, #-16]!
     .cfi_adjust_cfa_offset 16
@@ -93,6 +95,8 @@ ENTRY art_jni_dlsym_lookup_stub
 END art_jni_dlsym_lookup_stub
 
 ENTRY art_jni_dlsym_lookup_critical_stub
+    SAVE_RESERVED_REGISTERS
+
     // The hidden arg holding the tagged method (bit 0 set means GenericJNI) is x15.
     // For Generic JNI we already have a managed frame, so we reuse the art_jni_dlsym_lookup_stub.
     tbnz  x15, #0, art_jni_dlsym_lookup_stub
@@ -133,7 +137,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     .cfi_remember_state
     RESTORE_TWO_REGS x15, x0, 0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    REFRESH_MARKING_REGISTER
+    RESTORE_RESERVED_REGISTERS
 
     // Check for exception.
     cbz   xIP0, .Lcritical_deliver_exception
@@ -189,7 +193,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     .cfi_def_cfa_register x9
     RESTORE_TWO_REGS_BASE x9, x15, x0, 0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME_INTERNAL x9
-    REFRESH_MARKING_REGISTER
+    RESTORE_RESERVED_REGISTERS
 
     // Check for exception.
     cbz   xIP0, 3f
@@ -226,6 +230,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     .cfi_def_cfa sp, 0
 
 .Lcritical_deliver_exception:
+    RESTORE_RESERVED_REGISTERS
     // When delivering exception, we check that xSELF was saved but the SaveRefsAndArgs frame does
     // not save it, so we cannot use DELIVER_PENDING_EXCEPTION_FRAME_READY with the above frames.
     DELIVER_PENDING_EXCEPTION
