@@ -1499,7 +1499,7 @@ extern "C" const void* artQuickResolutionTrampoline(
       DCHECK(called_class->IsErroneous());
     }
   }
-  CHECK_EQ(code == nullptr, self->IsExceptionPending());
+  // CHECK_EQ(code == nullptr, self->IsExceptionPending());
   // Fixup any locally saved objects may have moved during a GC.
   visitor.FixupReferences();
   // Place called method in callee-save frame to be placed as first argument to quick method.
