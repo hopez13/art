@@ -39,6 +39,7 @@
 // collector, with the Baker read barrier configuration.
 #define wMR w20
 #endif
+#define xTLAB x21
 
 .macro ENTRY_ALIGNED name, alignment
     .type \name, #function

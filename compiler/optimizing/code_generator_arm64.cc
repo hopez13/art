@@ -513,6 +513,38 @@ class TypeCheckSlowPathARM64 : public SlowPathCodeARM64 {
   DISALLOW_COPY_AND_ASSIGN(TypeCheckSlowPathARM64);
 };
 
+class NewInstanceSlowPathARM64 : public SlowPathCodeARM64 {
+ public:
+  explicit NewInstanceSlowPathARM64(HInstruction* instruction) : SlowPathCodeARM64(instruction) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    LocationSummary* locations = instruction_->GetLocations();
+    CodeGeneratorARM64* arm64_codegen = down_cast<CodeGeneratorARM64*>(codegen);
+
+    __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);
+
+    InvokeRuntimeCallingConvention calling_convention;
+    arm64_codegen->MoveLocation(LocationFrom(calling_convention.GetRegisterAt(0)),
+                                locations->InAt(0),
+                                DataType::Type::kReference);
+    HNewInstance* instruction = down_cast<HNewInstance*>(GetInstruction());
+    codegen->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc(), this);
+    CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
+    arm64_codegen->MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
+    Location ret_loc = calling_convention.GetReturnLocation(DataType::Type::kReference);
+    arm64_codegen->MoveLocation(locations->Out(), ret_loc, DataType::Type::kReference);
+
+    RestoreLiveRegisters(codegen, locations);
+    __ B(GetExitLabel());
+  }
+
+  const char* GetDescription() const override { return "NewInstanceSlowPathARM64"; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(NewInstanceSlowPathARM64);
+};
+
 class DeoptimizationSlowPathARM64 : public SlowPathCodeARM64 {
  public:
   explicit DeoptimizationSlowPathARM64(HDeoptimize* instruction)
@@ -5199,17 +5231,60 @@ void InstructionCodeGeneratorARM64::VisitNewArray(HNewArray* instruction) {
 }
 
 void LocationsBuilderARM64::VisitNewInstance(HNewInstance* instruction) {
+  DCHECK(!instruction->IsStringAlloc());
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
-      instruction, LocationSummary::kCallOnMainOnly);
-  InvokeRuntimeCallingConvention calling_convention;
-  locations->SetInAt(0, LocationFrom(calling_convention.GetRegisterAt(0)));
-  locations->SetOut(calling_convention.GetReturnLocation(DataType::Type::kReference));
+      instruction,
+      LocationSummary::kCallOnSlowPath);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
 }
 
 void InstructionCodeGeneratorARM64::VisitNewInstance(HNewInstance* instruction) {
-  codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());
-  CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
-  codegen_->MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
+  DCHECK(!instruction->IsStringAlloc());
+  LocationSummary* locations = instruction->GetLocations();
+  UseScratchRegisterScope temps(GetVIXLAssembler());
+  auto pos_offset = Thread::ThreadLocalPosOffset<kArm64PointerSize>();
+  auto end_offset = Thread::ThreadLocalEndOffset<kArm64PointerSize>();
+  Location temp1_loc = LocationFrom(temps.AcquireX());
+  Location temp2_loc = LocationFrom(temps.AcquireX());
+  Location out_loc = locations->Out();
+  Location klass_loc = locations->InAt(0);
+  Register klass_reg = WRegisterFrom(klass_loc);
+  CHECK_NE(out_loc.reg(), klass_loc.reg());
+
+  SlowPathCodeARM64* slow_path =
+      new (codegen_->GetScopedAllocator()) NewInstanceSlowPathARM64(instruction);
+  codegen_->AddSlowPath(slow_path);
+
+  __ Ldr(XRegisterFrom(out_loc), MemOperand(tr, pos_offset.Uint32Value()));
+  __ Ldr(XRegisterFrom(temp1_loc), MemOperand(tr, end_offset.Uint32Value()));
+  HLoadClass* load_class = instruction->GetLoadClass();
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    auto klass = load_class->GetClass();
+    if (!codegen_->GetCompilerOptions().IsBootImage() &&
+        klass != nullptr &&
+        !klass->IsVariableSize() &&
+        instruction->GetEntrypoint() == kQuickAllocObjectInitialized &&
+        klass->GetObjectSizeAllocFastPath() < 4096) {
+      // Initialization check is handled by the load class.
+      CHECK(klass->IsInitialized());
+      // Compute the new TLAB pointer.
+      __ Add(XRegisterFrom(temp2_loc), XRegisterFrom(out_loc), klass->GetObjectSizeAllocFastPath());
+    } else {
+      __ Ldr(WRegisterFrom(temp2_loc),
+             HeapOperand(klass_reg, mirror::Class::ObjectSizeAllocFastPathOffset().Uint32Value()));
+      // Compute the new TLAB pointer.
+      __ Add(XRegisterFrom(temp2_loc), XRegisterFrom(temp2_loc), XRegisterFrom(out_loc));
+    }
+  }
+  // Go to the slow path if the allocation doesn't fit.
+  __ Cmp(XRegisterFrom(temp2_loc), XRegisterFrom(temp1_loc));
+  __ B(gt, slow_path->GetEntryLabel());
+  __ Str(XRegisterFrom(temp2_loc), MemOperand(tr, pos_offset.Uint32Value()));
+  // Store class
+  __ Str(klass_reg, HeapOperand(WRegisterFrom(out_loc), mirror::Class::ClassOffset().Uint32Value()));
+  __ Bind(slow_path->GetExitLabel());
 }
 
 void LocationsBuilderARM64::VisitNot(HNot* instruction) {
