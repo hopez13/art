@@ -569,6 +569,37 @@ std::string ClassLoaderContext::EncodeContextForOatFile(const std::string& base_
   return EncodeContext(base_dir, /*for_dex2oat=*/ false, stored_context);
 }
 
+std::map<std::string, std::string>
+ClassLoaderContext::EncodeClassPathContexts(const std::string& base_dir) const {
+  if (class_loader_chain_ == nullptr) {
+    return std::map<std::string, std::string>{};
+  }
+
+  std::map<std::string, std::string> results;
+  std::vector<std::string> dex_locations;
+  std::vector<uint32_t> checksums;
+  dex_locations.reserve(class_loader_chain_->original_classpath.size());
+
+  std::ostringstream encoded_libs_and_parent_stream;
+  EncodeSharedLibAndParent(*class_loader_chain_,
+                           base_dir,
+                           /*for_dex2oat=*/true,
+                           /*stored_info=*/nullptr,
+                           encoded_libs_and_parent_stream);
+  std::string encoded_libs_and_parent(encoded_libs_and_parent_stream.str());
+
+  for (const std::string& path : class_loader_chain_->original_classpath) {
+    std::ostringstream out;
+    EncodeClassPath(base_dir, dex_locations, checksums, class_loader_chain_->type, out);
+    out << encoded_libs_and_parent;
+    results.emplace(path, out.str());
+
+    dex_locations.push_back(path);
+  }
+
+  return results;
+}
+
 std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
                                               bool for_dex2oat,
                                               ClassLoaderContext* stored_context) const {
@@ -937,9 +968,7 @@ static bool CollectDexFilesFromSupportedClassLoader(ScopedObjectAccessAlreadyRun
                                                     Handle<mirror::ClassLoader> class_loader,
                                                     std::vector<const DexFile*>* out_dex_files)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-  CHECK(IsPathOrDexClassLoader(soa, class_loader) ||
-        IsDelegateLastClassLoader(soa, class_loader) ||
-        IsInMemoryDexClassLoader(soa, class_loader));
+  CHECK(IsBaseDexClassLoader(soa, class_loader));
 
   // All supported class loaders inherit from BaseDexClassLoader.
   // We need to get the DexPathList and loop through it.
@@ -1092,6 +1121,7 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
   }
 
   // Now that `info` is in the chain, populate dex files.
+  std::set<std::string> seen_locations;
   for (const DexFile* dex_file : dex_files_loaded) {
     // Dex location of dex files loaded with InMemoryDexClassLoader is always bogus.
     // Use a magic value for the classpath instead.
@@ -1100,6 +1130,14 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
         : dex_file->GetLocation());
     info->checksums.push_back(dex_file->GetLocationChecksum());
     info->opened_dex_files.emplace_back(dex_file);
+
+    // Reconstruct the original classpath (free of multidex). Needed for
+    // EncodeClassPathContexts to know which classpaths to encode contexts for.
+    bool new_insert = seen_locations.insert(
+        DexFileLoader::GetBaseLocation(dex_file->GetLocation())).second;
+    if (new_insert) {
+      info->original_classpath.push_back(dex_file->GetLocation());
+    }
   }
 
   // Note that dex_elements array is null here. The elements are considered to be part of the
@@ -1150,6 +1188,33 @@ std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoa
     return nullptr;
   }
   return result;
+}
+
+std::map<std::string, std::string>
+ClassLoaderContext::EncodeClassPathContextsForClassLoader(jobject class_loader) {
+  std::unique_ptr<ClassLoaderContext> clc =
+      ClassLoaderContext::CreateContextForClassLoader(class_loader, nullptr);
+  if (clc != nullptr) {
+    return clc->EncodeClassPathContexts("");
+  }
+
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScope<1> hs(soa.Self());
+  Handle<mirror::ClassLoader> h_class_loader =
+      hs.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader));
+  if (!IsBaseDexClassLoader(soa, h_class_loader)) {
+    return std::map<std::string, std::string>{};
+  }
+
+  std::vector<const DexFile*> dex_files_loaded;
+  CollectDexFilesFromSupportedClassLoader(soa, h_class_loader, &dex_files_loaded);
+
+  std::map<std::string, std::string> results;
+  for (const DexFile* dex_file : dex_files_loaded) {
+    results.emplace(DexFileLoader::GetBaseLocation(dex_file->GetLocation()),
+                    ClassLoaderContext::kUnsupportedClassLoaderContextEncoding);
+  }
+  return results;
 }
 
 ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderContextMatch(

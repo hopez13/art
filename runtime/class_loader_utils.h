@@ -30,6 +30,15 @@
 
 namespace art {
 
+// Returns true if the given class loader derives from BaseDexClassLoader. This doesn't
+// give any guarantees about e.g. class lookup order of `class_loader`.
+inline bool IsBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                 Handle<mirror::ClassLoader> class_loader)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return class_loader->InstanceOf(
+      soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_BaseDexClassLoader));
+}
+
 // Returns true if the given class loader is either a PathClassLoader or a DexClassLoader.
 // (they both have the same behaviour with respect to class lookup order)
 inline bool IsPathOrDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
