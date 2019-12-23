@@ -266,6 +266,20 @@ class ClassLoaderContext {
                              ClassLoaderInfo* stored_info,
                              std::ostringstream& out) const;
 
+  // Encodes e.g. PCL[foo.dex:bar.dex]
+  void EncodeClassPath(const std::string& base_dir,
+                       const std::vector<std::string>& locs,
+                       const std::vector<uint32_t>& checksums,
+                       ClassLoaderType type,
+                       std::ostringstream& out) const;
+
+  // Encodes e.g. {PCL[foo.dex]#PCL[bar.dex]};PCL[baz.dex]
+  void EncodeSharedLibParent(const ClassLoaderInfo& info,
+                             const std::string& base_dir,
+                             bool for_dex2oat,
+                             ClassLoaderInfo* stored_info,
+                             std::ostringstream& out) const;
+
   bool ClassLoaderInfoMatch(const ClassLoaderInfo& info,
                             const ClassLoaderInfo& expected_info,
                             const std::string& context_spec,
