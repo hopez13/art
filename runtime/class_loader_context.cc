@@ -569,6 +569,38 @@ std::string ClassLoaderContext::EncodeContextForOatFile(const std::string& base_
   return EncodeContext(base_dir, /*for_dex2oat=*/ false, stored_context);
 }
 
+std::vector<std::string>
+ClassLoaderContext::EncodeClassPathContexts(const std::string& base_dir) const {
+  if (class_loader_chain_ == nullptr) {
+    return std::vector<std::string>{};
+  }
+
+  const std::vector<std::string>& original_classpath =
+      class_loader_chain_->original_classpath;
+  const ClassLoaderType type = class_loader_chain_->type;
+  size_t classpath_size = original_classpath.size();
+  std::vector<std::string> results;
+  std::vector<std::string> locations;
+  std::vector<uint32_t> checksums;
+  results.reserve(classpath_size);
+  locations.reserve(classpath_size);
+
+  std::ostringstream suffix;
+  EncodeSharedLibParent(*class_loader_chain_, base_dir, true, nullptr, suffix);
+  std::string suffixStr(suffix.str());
+
+  for (const auto& path : original_classpath) {
+    std::ostringstream out;
+    EncodeClassPath(base_dir, locations, checksums, type, out);
+    out << suffixStr;
+    results.emplace_back(out.str());
+
+    locations.push_back(path);
+  }
+
+  return results;
+}
+
 std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
                                               bool for_dex2oat,
                                               ClassLoaderContext* stored_context) const {
@@ -1092,6 +1124,7 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
   }
 
   // Now that `info` is in the chain, populate dex files.
+  std::set<std::string> seen_locations;
   for (const DexFile* dex_file : dex_files_loaded) {
     // Dex location of dex files loaded with InMemoryDexClassLoader is always bogus.
     // Use a magic value for the classpath instead.
@@ -1100,6 +1133,11 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
         : dex_file->GetLocation());
     info->checksums.push_back(dex_file->GetLocationChecksum());
     info->opened_dex_files.emplace_back(dex_file);
+    bool new_insert = seen_locations.insert(
+        DexFileLoader::GetBaseLocation(dex_file->GetLocation())).second;
+    if (new_insert) {
+      info->original_classpath.push_back(dex_file->GetLocation());
+    }
   }
 
   // Note that dex_elements array is null here. The elements are considered to be part of the
