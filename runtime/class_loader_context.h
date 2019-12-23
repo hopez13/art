@@ -121,6 +121,24 @@ class ClassLoaderContext {
   // Should only be called if OpenDexFiles() returned true.
   std::string EncodeContextForDex2oat(const std::string& base_dir) const;
 
+  // Encodes the contexts for each of the classpath elements in the child-most
+  // classloader. Under the hood EncodeContextForDex2oat is used, so no checksums
+  // will be encoded.
+  // Should only be called if OpenDexFiles() returned true.
+  // One context will be returned for each classpath element. Notably, for each
+  // classpath element the encoded classloader context will contain only the
+  // elements that appear before it in the containing classloader. E.g. if `this`
+  // contains (from child to parent):
+  //
+  // PathClassLoader { multidex.apk!classes.dex, multidex.apk!classes2.dex, foo.dex, bar.dex } ->
+  //    PathClassLoader { baz.dex } -> BootClassLoader
+  //
+  // then the return value will look like:
+  //
+  // `{ "PCL[];PCL[baz.dex]", "PCL[multidex.apk];PCL[baz.dex]",
+  //    "PCL[multidex.apk:foo.dex];PCL[baz.dex]" }`
+  std::vector<std::string> EncodeClassPathContexts(const std::string& base_dir) const;
+
   // Flattens the opened dex files into the given vector.
   // Should only be called if OpenDexFiles() returned true.
   std::vector<const DexFile*> FlattenOpenedDexFiles() const;
