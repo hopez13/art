@@ -121,6 +121,13 @@ class ClassLoaderContext {
   // Should only be called if OpenDexFiles() returned true.
   std::string EncodeContextForDex2oat(const std::string& base_dir) const;
 
+  // Encodes the contexts for each of the classpath elements in the child-most
+  // classloader. Under the hood EncodeContextForDex2oat is used, so no checksums
+  // will be encoded.
+  // Should only be called if OpenDexFiles() returned true.
+  // One context will be returned for each classpath element.
+  std::vector<std::string> EncodeClassPathContexts(const std::string& base_dir) const;
+
   // Flattens the opened dex files into the given vector.
   // Should only be called if OpenDexFiles() returned true.
   std::vector<const DexFile*> FlattenOpenedDexFiles() const;
