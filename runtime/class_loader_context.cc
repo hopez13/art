@@ -569,6 +569,38 @@ std::string ClassLoaderContext::EncodeContextForOatFile(const std::string& base_
   return EncodeContext(base_dir, /*for_dex2oat=*/ false, stored_context);
 }
 
+std::vector<std::string>
+ClassLoaderContext::EncodeClassPathContexts(const std::string& base_dir) const {
+  if (class_loader_chain_ == nullptr) {
+    return std::vector<std::string>{};
+  }
+
+  std::vector<std::string> results;
+  std::vector<std::string> dex_locations;
+  std::vector<uint32_t> checksums;
+  results.reserve(class_loader_chain_->original_classpath.size());
+  dex_locations.reserve(class_loader_chain_->original_classpath.size());
+
+  std::ostringstream encoded_libs_and_parent_stream;
+  EncodeSharedLibAndParent(*class_loader_chain_,
+                           base_dir,
+                           /*for_dex2oat=*/true,
+                           /*stored_info=*/nullptr,
+                           encoded_libs_and_parent_stream);
+  std::string encoded_libs_and_parent(encoded_libs_and_parent_stream.str());
+
+  for (const std::string& path : class_loader_chain_->original_classpath) {
+    std::ostringstream out;
+    EncodeClassPath(base_dir, dex_locations, checksums, class_loader_chain_->type, out);
+    out << encoded_libs_and_parent;
+    results.emplace_back(out.str());
+
+    dex_locations.push_back(path);
+  }
+
+  return results;
+}
+
 std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
                                               bool for_dex2oat,
                                               ClassLoaderContext* stored_context) const {
@@ -1092,6 +1124,7 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
   }
 
   // Now that `info` is in the chain, populate dex files.
+  std::set<std::string> seen_locations;
   for (const DexFile* dex_file : dex_files_loaded) {
     // Dex location of dex files loaded with InMemoryDexClassLoader is always bogus.
     // Use a magic value for the classpath instead.
@@ -1100,6 +1133,14 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
         : dex_file->GetLocation());
     info->checksums.push_back(dex_file->GetLocationChecksum());
     info->opened_dex_files.emplace_back(dex_file);
+
+    // Reconstruct the original classpath (free of multidex). Needed for
+    // EncodeClassPathContexts to know which classpaths to encode contexts for.
+    bool new_insert = seen_locations.insert(
+        DexFileLoader::GetBaseLocation(dex_file->GetLocation())).second;
+    if (new_insert) {
+      info->original_classpath.push_back(dex_file->GetLocation());
+    }
   }
 
   // Note that dex_elements array is null here. The elements are considered to be part of the
@@ -1148,6 +1189,39 @@ std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoa
   if (!result->CreateInfoFromClassLoader(
           soa, h_class_loader, h_dex_elements, nullptr, /*is_shared_library=*/ false)) {
     return nullptr;
+  }
+  return result;
+}
+
+std::vector<std::string>
+ClassLoaderContext::EncodeClassPathContextsForClassLoader(jobject class_loader) {
+  std::unique_ptr<ClassLoaderContext> clc =
+      ClassLoaderContext::CreateContextForClassLoader(class_loader, nullptr);
+  if (clc != nullptr) {
+    return clc->EncodeClassPathContexts("");
+  }
+
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScope<1> hs(soa.Self());
+  Handle<mirror::ClassLoader> h_class_loader =
+      hs.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader));
+  if (!IsPathOrDexClassLoader(soa, h_class_loader)
+      && !IsDelegateLastClassLoader(soa, h_class_loader)
+      && !IsInMemoryDexClassLoader(soa, h_class_loader)) {
+    return std::vector<std::string>{};
+  }
+
+  std::vector<const DexFile*> dex_files_loaded;
+  CollectDexFilesFromSupportedClassLoader(soa, h_class_loader, &dex_files_loaded);
+
+  std::vector<std::string> result;
+  std::set<std::string> seen_locations;
+  for (const DexFile* dex_file : dex_files_loaded) {
+    bool new_insert = seen_locations.insert(
+        DexFileLoader::GetBaseLocation(dex_file->GetLocation())).second;
+    if (new_insert) {
+      result.push_back(ClassLoaderContext::EncodedUnsupportedClassLoaderContext);
+    }
   }
   return result;
 }
