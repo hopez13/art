@@ -585,7 +585,6 @@ class ReleaseTargetChecker:
     self._checker.check_native_library('libicuuc')
     self._checker.check_native_library('libicu_jni')
     self._checker.check_native_library('libpac')
-    self._checker.check_native_library('libz')
 
     # TODO(b/139046641): Fix proper 2nd arch checks. For now, just ignore these
     # directories.
