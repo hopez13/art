@@ -142,6 +142,30 @@
       "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "367eaa24_3dcceaed",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-01-02T07:23:43Z",
+      "side": 1,
+      "message": "I think it\u0027s not a correct way to ignore already schematized sysprop. For the conditions, we can extract those sysprop codes into utility function in which we can hide all the dirty codes, can\u0027t we?\n\nAnd I can\u0027t understand why we should use android::base::GetProperty even when it has no meaning on host. Just a syntactic sugar or shortcut?",
+      "parentUuid": "45292f56_849863c3",
+      "range": {
+        "startLine": 176,
+        "startChar": 35,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
