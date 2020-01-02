@@ -1369,7 +1369,7 @@ static bool GetDexFileNames(ScopedObjectAccessUnchecked& soa,
       return false;    // Stop the visit.
     }
     if (name != nullptr) {
-      dex_files->push_front(name);
+      dex_files->push_back(name);
     }
     return true;  // Continue with the next Element.
   };
@@ -2304,21 +2304,26 @@ bool ClassLinker::AddImageSpace(
     // of `class_loader` and `image_class_loader` in `CompareClassLoaders`. Therefore, we
     // special case the comparison of dex files of the two class loaders, but then do full
     // comparisons for their shared libraries and parent.
-    auto elements = soa.Decode<mirror::ObjectArray<mirror::Object>>(dex_elements);
     std::list<ObjPtr<mirror::String>> loader_dex_file_names;
-    for (auto element : elements->Iterate()) {
-      if (element != nullptr) {
-        // If we are somewhere in the middle of the array, there may be nulls at the end.
-        ObjPtr<mirror::String> name;
-        if (GetDexPathListElementName(element, &name) && name != nullptr) {
-          loader_dex_file_names.push_back(name);
+    std::list<ObjPtr<mirror::String>> image_dex_file_names;
+    std::string temp_err_msg;
+    bool success = GetDexFileNames(
+        soa, class_loader.Get(), &loader_dex_file_names, &temp_err_msg);
+
+    if (success) {
+      auto elements = soa.Decode<mirror::ObjectArray<mirror::Object>>(dex_elements);
+      for (auto element : elements->Iterate()) {
+        if (element != nullptr) {
+          // If we are somewhere in the middle of the array, there may be nulls at the end.
+          ObjPtr<mirror::String> name;
+          if (GetDexPathListElementName(element, &name) && name != nullptr) {
+            loader_dex_file_names.push_back(name);
+          }
         }
       }
     }
-    std::string temp_error_msg;
-    std::list<ObjPtr<mirror::String>> image_dex_file_names;
-    bool success = GetDexFileNames(
-        soa, image_class_loader.Get(), &image_dex_file_names, &temp_error_msg);
+    success = success && GetDexFileNames(
+        soa, image_class_loader.Get(), &image_dex_file_names, &temp_err_msg);
     if (success) {
       // Ignore the number of image dex files since we are adding those to the class loader anyways.
       CHECK_GE(static_cast<size_t>(image_dex_file_names.size()),
@@ -2327,16 +2332,16 @@ bool ClassLinker::AddImageSpace(
       image_dex_file_names.resize(image_count);
       success = success && CompareDexFiles(image_dex_file_names,
                                            loader_dex_file_names,
-                                           &temp_error_msg);
+                                           &temp_err_msg);
       success = success && CompareClassLoaders(soa,
                                                image_class_loader.Get(),
                                                class_loader.Get(),
                                                /*check_dex_file_names=*/ false,
-                                               &temp_error_msg);
+                                               &temp_err_msg);
     }
     if (!success) {
       *error_msg = StringPrintf("Rejecting application image due to class loader mismatch: '%s'",
-                               temp_error_msg.c_str());
+                               temp_err_msg.c_str());
       return false;
     }
   }
