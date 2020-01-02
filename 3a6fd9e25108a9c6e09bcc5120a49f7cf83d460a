@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76b056e_c602b182",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-02T17:23:26Z",
+      "side": 1,
+      "message": "Generates separator error without this (tbd).\n\nFails to correctly add DEX dependencies, e.g. XandY, as-is.",
+      "range": {
+        "startLine": 743,
+        "startChar": 29,
+        "endLine": 743,
+        "endChar": 30
+      },
+      "revId": "3a6fd9e25108a9c6e09bcc5120a49f7cf83d460a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
