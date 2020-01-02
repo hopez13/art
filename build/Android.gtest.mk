@@ -745,11 +745,7 @@ define define-art-gtest-target
   # on the module name.
   gtest_deps := \
     $$(ART_GTEST_$(1)_TARGET_DEPS) \
-    $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_TARGET_GTEST_$(file)_DEX)) \
-    libicu_jni.com.android.art.debug \
-    libjavacore.com.android.art.debug \
-    libopenjdkd.com.android.art.debug \
-    $$(foreach jar,$$(TARGET_TEST_CORE_JARS),$$(TARGET_OUT_JAVA_LIBRARIES)/$$(jar).jar)
+    $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_TARGET_GTEST_$(file)_DEX))
 
   ART_TEST_TARGET_GTEST_DEPENDENCIES += $$(gtest_deps)
 
@@ -790,6 +786,10 @@ endef  # define-art-gtest-host-both
 
 ifeq ($(ART_BUILD_TARGET),true)
   $(foreach file,$(ART_TARGET_GTEST_FILES), $(eval $(call define-art-gtest-target,$(file),)))
+  ART_TEST_TARGET_GTEST_DEPENDENCIES += libicu_jni.com.android.art.debug \
+    libjavacore.com.android.art.debug \
+    libopenjdkd.com.android.art.debug \
+    $(foreach jar,$(TARGET_TEST_CORE_JARS),$(TARGET_OUT_JAVA_LIBRARIES)/$(jar).jar)
 endif
 ifeq ($(ART_BUILD_HOST),true)
   $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),)))
