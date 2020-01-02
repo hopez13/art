@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de68657a_e4d38cb3",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-02T03:08:33Z",
+      "side": 1,
+      "message": "This macro does no longer defines a build rule, but just updates ART_TEST_TARGET_GTEST_DEPENDENCIES. How about changing the macro name to something like \u0027art-gtest-target-deps\u0027 and let it to return the dependencies? (and update ART_TEST_TARGET_GTEST_DEPENDENCIES at the call site (#792))",
+      "range": {
+        "startLine": 743,
+        "startChar": 7,
+        "endLine": 743,
+        "endChar": 13
+      },
+      "revId": "2cf3e7090c32826287adbe2aa55f2fdf908b3734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "776e75c2_a091db56",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-02T03:08:33Z",
+      "side": 1,
+      "message": "These are not from $(1). So, perhaps we could move this part to just after line 792?",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 752,
+        "endChar": 87
+      },
+      "revId": "2cf3e7090c32826287adbe2aa55f2fdf908b3734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
