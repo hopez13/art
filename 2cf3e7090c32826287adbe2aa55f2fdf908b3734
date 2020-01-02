@@ -93,6 +93,30 @@
       "revId": "2cf3e7090c32826287adbe2aa55f2fdf908b3734",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d1c980c_a6d2e146",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-02T16:46:40Z",
+      "side": 1,
+      "message": "Step 1 in https://android-review.googlesource.com/c/platform/art/+/1199813/1/build/Android.gtest.mk",
+      "parentUuid": "d00a032a_e68f6417",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 752,
+        "endChar": 87
+      },
+      "revId": "2cf3e7090c32826287adbe2aa55f2fdf908b3734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
