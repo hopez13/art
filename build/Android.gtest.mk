@@ -738,24 +738,12 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-# Define the rules to build target gtests.
+# Define the dependencies for target gtests.
 # $(1): test name
-define define-art-gtest-target
-  # Note that, both the primary and the secondary arches of the libs are built by depending
-  # on the module name.
-  gtest_deps := \
-    $$(ART_GTEST_$(1)_TARGET_DEPS) \
-    $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_TARGET_GTEST_$(file)_DEX)) \
-    libicu_jni.com.android.art.debug \
-    libjavacore.com.android.art.debug \
-    libopenjdkd.com.android.art.debug \
-    $$(foreach jar,$$(TARGET_TEST_CORE_JARS),$$(TARGET_OUT_JAVA_LIBRARIES)/$$(jar).jar)
-
-  ART_TEST_TARGET_GTEST_DEPENDENCIES += $$(gtest_deps)
-
-  # Clear locally defined variables.
-  gtest_deps :=
-endef  # define-art-gtest-target
+define art-gtest-target-deps =
+  $$(ART_GTEST_$(1)_TARGET_DEPS) \
+  $(foreach file,$(ART_GTEST_$(1)_DEX_DEPS),$(ART_TEST_TARGET_GTEST_$(file)_DEX))
+endef  # define-art-gtest-deps
 
 # $(1): file name
 # $(2): 2ND_ or undefined - used to differentiate between the primary and secondary architecture.
@@ -789,7 +777,12 @@ test-art-host-gtest-$$(art_gtest_name): $$(ART_TEST_HOST_GTEST_$$(art_gtest_name
 endef  # define-art-gtest-host-both
 
 ifeq ($(ART_BUILD_TARGET),true)
-  $(foreach file,$(ART_TARGET_GTEST_FILES), $(eval $(call define-art-gtest-target,$(file),)))
+  ART_TEST_TARGET_GTEST_DEPENDENCIES = \
+    $(foreach file,$(ART_TARGET_GTEST_FILES),$(eval $(call art-gtest-target-deps,$(file)))) \
+    libicu_jni.com.android.art.debug \
+    libjavacore.com.android.art.debug \
+    libopenjdkd.com.android.art.debug \
+    $(foreach jar,$(TARGET_TEST_CORE_JARS),$(TARGET_OUT_JAVA_LIBRARIES)/$(jar).jar)
 endif
 ifeq ($(ART_BUILD_HOST),true)
   $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),)))
