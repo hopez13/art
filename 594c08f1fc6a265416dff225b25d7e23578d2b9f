@@ -94,6 +94,30 @@
       "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589c3a97_e6803e84",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2020-01-02T05:53:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure. Host version of libbase mocks system property functions internally, and they only can be accessed with libbase functions. Also using libbase from sysprop_library is a little tricky due to dependency problems. That said, sysprop_library should be split into device version and host version, which doesn\u0027t seem trivial. In addition, currently ADDITIONAL_PRODUCT_PROPERTIES sets ro.product.vndk.version, but then android::base::GetProperty(\"ro.product.vndk.version\") will always return empty string on host.\n\nHow about conditionally using sysprop_library? e.g.,\n\n// Android.bp\ntarget: {\n    android: {\n        static_libs: [\"PlatformProperties\"],\n    },\n},\n\n// C++\n#if !defined(__BIONIC__) // or anything to distinguish whether we\u0027re in host or device\nstd::string GetProductVndkVersion() { return \"\"; }\n#else\n#include \u003candroid/sysprop/VndkProperties.sysprop.h\u003e\nstd::string GetProductVndkVersion() {\n    return android::sysprop::VndkProperties::product_vndk_version().value_or(\"\");\n}\n#endif",
+      "parentUuid": "b4d63f3b_160944c2",
+      "range": {
+        "startLine": 176,
+        "startChar": 35,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
