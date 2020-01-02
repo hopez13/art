@@ -118,6 +118,30 @@
       "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45292f56_849863c3",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-01-02T06:32:56Z",
+      "side": 1,
+      "message": "I also thought about this way (__ANDROID__ instead of __BIONIC anyway), but in this case we should consider \u0027what would be the benefit of sysprop with sacrifice of this long conditional code?\u0027.",
+      "parentUuid": "589c3a97_e6803e84",
+      "range": {
+        "startLine": 176,
+        "startChar": 35,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "594c08f1fc6a265416dff225b25d7e23578d2b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
