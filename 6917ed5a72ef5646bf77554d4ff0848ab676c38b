@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d424183_adb79062",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "correct.",
+      "parentUuid": "ed96f54d_eac17047",
+      "range": {
+        "startLine": 1750,
+        "startChar": 7,
+        "endLine": 1750,
+        "endChar": 57
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d644458_82acebad",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a3058b5_11de4a6f",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "yes. As the comment says we might have suspended and now be instrumented. We just pass in \u0027true\u0027 since it\u0027s a safe default.",
+      "parentUuid": "6d644458_82acebad",
+      "range": {
+        "startLine": 205,
+        "startChar": 25,
+        "endLine": 205,
+        "endChar": 46
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2f51de84_dd7e3fa5",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b85fbf5_9ac90915",
+      "range": {
+        "startLine": 206,
+        "startChar": 24,
+        "endLine": 206,
+        "endChar": 42
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e4f614_1aaf9bb7",
         "filename": "runtime/mirror/class-alloc-inl.h",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3ce3504_91b1a5f1",
+        "filename": "runtime/mirror/class-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "The DCHECK is still valid. It\u0027s only in really exceptional circumstances that we want to allocate a finalizable object with creating a finalizer-reference. I think keeping the DCHECK is useful.\n\nI will admit that changing the meaning of kCheckAddFinalizer to mean \u0027perform a DCHECK\u0027 instead of \u0027assume-false\u0027 is a bit surprising but I think it\u0027s more sensible in the end.",
+      "parentUuid": "44e4f614_1aaf9bb7",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 90
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e6ddeb5b_1e62236d",
+        "filename": "test/2006-virtual-structural-finalizing/src-art/art/Test2006.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a479892_108b6c9e",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d6bdaed_ef9b4477",
         "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "843b2525_4c141c21",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "yeah this is the sort of thing where it\u0027s never really worth the time it would take to do.",
+      "parentUuid": "4d6bdaed_ef9b4477",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3328bfe5_8a8263c4",
         "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
         "patchSetId": 1
@@ -160,6 +304,30 @@
       "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b891d6_90e99057",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-03T18:31:58Z",
+      "side": 1,
+      "message": "this is mostly put in because initially we would do the finalizer twice.\n\nI couldn\u0027t think of any good way to test for that so I just had it sleep for 2 seconds while trying to exhaust memory to make it more likely to trigger.",
+      "parentUuid": "3328bfe5_8a8263c4",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
