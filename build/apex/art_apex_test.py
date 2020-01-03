@@ -462,12 +462,18 @@ class MultilibChecker(Checker):
     self.check_file('lib64/%s.so' % basename)
 
 
+def isCoverageBuild():
+  var = 'EMMA_INSTRUMENT_FRAMEWORK'
+  return var in os.environ and os.environ[var]
+
+
 class ReleaseChecker:
   def __init__(self, checker):
     self._checker = checker
 
   def __str__(self):
     return 'Release Checker'
+
 
   def run(self):
     # Check the Protocol Buffers APEX manifest.
@@ -509,6 +515,8 @@ class ReleaseChecker:
     self._checker.check_java_library('core-libart')
     self._checker.check_java_library('core-oj')
     self._checker.check_java_library('okhttp')
+    if isCoverageBuild():
+      self._checker.check_java_library('jacocoagent')
 
     # Check internal native libraries for Managed Core Library.
     self._checker.check_native_library('libjavacore')
@@ -542,17 +550,15 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
 
-    # Check dexpreopt files for libcore bootclasspath jars, unless this is a
-    # coverage build with EMMA_INSTRUMENT_FRAMEWORK=true (in that case we do not
-    # generate dexpreopt files because ART boot jars depend on framework and
-    # cannot be dexpreopted in isolation).
-    if 'EMMA_INSTRUMENT_FRAMEWORK' not in os.environ or not os.environ['EMMA_INSTRUMENT_FRAMEWORK']:
-      self._checker.check_dexpreopt('boot')
-      self._checker.check_dexpreopt('boot-apache-xml')
-      self._checker.check_dexpreopt('boot-bouncycastle')
-      self._checker.check_dexpreopt('boot-core-icu4j')
-      self._checker.check_dexpreopt('boot-core-libart')
-      self._checker.check_dexpreopt('boot-okhttp')
+    # Check dexpreopt files for libcore bootclasspath jars.
+    self._checker.check_dexpreopt('boot')
+    self._checker.check_dexpreopt('boot-apache-xml')
+    self._checker.check_dexpreopt('boot-bouncycastle')
+    self._checker.check_dexpreopt('boot-core-icu4j')
+    self._checker.check_dexpreopt('boot-core-libart')
+    self._checker.check_dexpreopt('boot-okhttp')
+    if isCoverageBuild():
+      self._checker.check_dexpreopt('boot-jacocoagent')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
