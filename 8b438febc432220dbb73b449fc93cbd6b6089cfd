@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5dd1f3d_6e5883e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-03T15:36:19Z",
+      "side": 1,
+      "message": "in order",
+      "range": {
+        "startLine": 32,
+        "startChar": 54,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "8b438febc432220dbb73b449fc93cbd6b6089cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5071e6c0_d598f1a6",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-03T15:36:19Z",
+      "side": 1,
+      "message": "deallocated",
+      "range": {
+        "startLine": 127,
+        "startChar": 70,
+        "endLine": 127,
+        "endChar": 80
+      },
+      "revId": "8b438febc432220dbb73b449fc93cbd6b6089cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
