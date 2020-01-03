@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed96f54d_eac17047",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "That\u0027s done in an existing separate heap traversal to update object references? All of that happens with the world stopped, so we don\u0027t have to worry about intermediate states where both exist?\n\nNot requesting a change here; just making sure I understand.",
+      "range": {
+        "startLine": 1750,
+        "startChar": 7,
+        "endLine": 1750,
+        "endChar": 57
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d644458_82acebad",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "Not your change, but does this make sense to you? The parameter is called kIsInstrumented. More importantly, why doesn\u0027t this just pass down kInstrumented?",
+      "range": {
+        "startLine": 205,
+        "startChar": 25,
+        "endLine": 205,
+        "endChar": 46
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b85fbf5_9ac90915",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "The comment now seems pointless.",
+      "range": {
+        "startLine": 206,
+        "startChar": 24,
+        "endLine": 206,
+        "endChar": 42
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44e4f614_1aaf9bb7",
+        "filename": "runtime/mirror/class-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "Is there a reason to change the interface here? kCheckAddFinalizer seems to now be used only in a DCHECK, and could possibly be dropped. kAddFinalizer now seems to do what kCheckAddFinalizer used to do. It\u0027s better typed, but the resulting code is messier. The only real change is that the original DCHECK is no longer valid? Unless I\u0027m missing something, I\u0027d be strongly inclined to just drop the DCHECK.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 90
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a479892_108b6c9e",
+        "filename": "test/2006-virtual-structural-finalizing/src-art/art/Test2006.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "Should probably do something. See b/71392225 .",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d6bdaed_ef9b4477",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "Longer term, is there some way we can arrange to build these as part of the tests? I know we do this in quite a few places, but it seems less than ideal, in several respects.",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3328bfe5_8a8263c4",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T00:31:51Z",
+      "side": 1,
+      "message": "Why is this needed? We waited for the finalizer we care about. The shutdown process should wait for the finalizer thread to exit.",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
