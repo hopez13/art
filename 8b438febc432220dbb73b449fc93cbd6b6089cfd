@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da9842e5_c6ae629a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T16:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5dd1f3d_6e5883e5",
+      "range": {
+        "startLine": 32,
+        "startChar": 54,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "8b438febc432220dbb73b449fc93cbd6b6089cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5071e6c0_d598f1a6",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 12
@@ -45,6 +69,30 @@
       "revId": "8b438febc432220dbb73b449fc93cbd6b6089cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4081bece_6390743a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T16:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5071e6c0_d598f1a6",
+      "range": {
+        "startLine": 127,
+        "startChar": 70,
+        "endLine": 127,
+        "endChar": 80
+      },
+      "revId": "8b438febc432220dbb73b449fc93cbd6b6089cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
