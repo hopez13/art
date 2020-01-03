@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "88eab792_7ae62493",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T21:39:50Z",
+      "side": 1,
+      "message": "OK. Thanks.",
+      "parentUuid": "8a3058b5_11de4a6f",
+      "range": {
+        "startLine": 205,
+        "startChar": 25,
+        "endLine": 205,
+        "endChar": 46
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b85fbf5_9ac90915",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "The DCHECK is still valid. It\u0027s only in really exceptional circumstances that we want to allocate a finalizable object with creating a finalizer-reference. I think keeping the DCHECK is useful.\n\nI will admit that changing the meaning of kCheckAddFinalizer to mean \u0027perform a DCHECK\u0027 instead of \u0027assume-false\u0027 is a bit surprising but I think it\u0027s more sensible in the end.",
       "parentUuid": "44e4f614_1aaf9bb7",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 90
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f78adf7_051bbeb1",
+        "filename": "runtime/mirror/class-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T21:39:50Z",
+      "side": 1,
+      "message": "I agree it\u0027s a trade-off between simpler code and the added DCHECK. I\u0027d lean the other way, but I\u0027m OK either way.",
+      "parentUuid": "f3ce3504_91b1a5f1",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -328,6 +376,30 @@
       "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dce4c03_04b1ab8d",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-03T21:39:50Z",
+      "side": 1,
+      "message": "The normal way to do that is\n\nRuntime.getRuntime().gc(); System.runFinalization()\n\nThat\u0027s probably worth fixing to speed up the test.",
+      "parentUuid": "51b891d6_90e99057",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
