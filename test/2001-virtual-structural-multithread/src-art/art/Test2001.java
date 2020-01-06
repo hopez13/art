@@ -174,7 +174,7 @@ public class Test2001 {
 
     public void run() {
       delay.countDown();
-      while (!finish) {
+      while (!finish && results.size() < 1000) {
         Supplier<String> t = mkTransform();
         results.add(t.get());
       }

@@ -115,7 +115,7 @@ public class Test2005 {
 
     public void run() {
       delay.countDown();
-      while (!finish) {
+      while (!finish && results.size() < 1000) {
         Transform t = new Transform();
         results.add(t.sayHi());
       }
