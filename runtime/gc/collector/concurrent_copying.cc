@@ -444,15 +444,17 @@ class ConcurrentCopying::ThreadFlipVisitor : public Closure, public RootVisitor 
         << thread->GetState() << " thread " << thread << " self " << self;
     thread->SetIsGcMarkingAndUpdateEntrypoints(true);
     if (use_tlab_ && thread->HasTlab()) {
+      // We should not reuse the partially utilized TLABs revoked here as they
+      // are going to be part of from-space.
       if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
         // This must come before the revoke.
         size_t thread_local_objects = thread->GetThreadLocalObjectsAllocated();
-        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread);
+        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread, /*reuse=*/ false);
         reinterpret_cast<Atomic<size_t>*>(
             &concurrent_copying_->from_space_num_objects_at_first_pause_)->
                 fetch_add(thread_local_objects, std::memory_order_relaxed);
       } else {
-        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread);
+        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread, /*reuse=*/ false);
       }
     }
     if (kUseThreadLocalAllocationStack) {
@@ -536,6 +538,7 @@ class ConcurrentCopying::FlipCallback : public Closure {
           evac_mode,
           /*clear_live_bytes=*/ !cc->use_generational_cc_);
     }
+    cc->region_space_->RevokePartialThreadLocalBuffers();
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
       cc->RecordLiveStackFreezeSize(self);
