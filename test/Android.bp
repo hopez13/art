@@ -598,11 +598,42 @@ cc_defaults {
     ],
 }
 
+// The filegroup containing all the initial versions of any classes being redefined.
 filegroup {
-    name: "art_cts_jvmti_test_library",
-    visibility: [
-        "//cts/hostsidetests/jvmti:__subpackages__",
+    name: "art_cts_jvmti_redefine_initial",
+    srcs: [
+        "902-hello-transformation/src/art/Transform902.java",
+        "914-hello-obsolescence/src/art/Transform914.java",
+        "915-obsolete-2/src/art/Transform915.java",
+        "917-fields-transformation/src/art/Transform917.java",
+        "919-obsolete-fields/src/art/Transform919.java",
     ],
+}
+
+// The filegroup containing all the final versions of any classes being redefined.
+filegroup {
+    name: "art_cts_jvmti_redefine_final",
+    srcs: [
+        "902-hello-transformation/redefine_targets/art/Transform902.java",
+        "914-hello-obsolescence/redefine_targets/art/Transform914.java",
+        "915-obsolete-2/redefine_targets/art/Transform915.java",
+        "917-fields-transformation/redefine_targets/art/Transform917.java",
+        "919-obsolete-fields/redefine_targets/art/Transform919.java",
+    ],
+}
+
+// The list of all files that should be generated for holding the DEX_DATA for tests.
+// NB This must be the entire package-hierarchy.
+art_cts_jvmti_redefine_data = [
+    "test_902_transforms/Transform902.java",
+    "test_914_transforms/Transform914.java",
+    "test_915_transforms/Transform915.java",
+    "test_917_transforms/Transform917.java",
+    "test_919_transforms/Transform919.java",
+]
+
+filegroup {
+    name: "art_cts_test_library_common",
     srcs: [
         // shim classes. We use one that exposes the common functionality.
         "jvmti-common/Redefinition.java",
@@ -728,6 +759,18 @@ filegroup {
     ],
 }
 
+filegroup {
+    name: "art_cts_jvmti_test_library",
+    visibility: [
+        "//cts/hostsidetests/jvmti:__subpackages__",
+    ],
+    srcs: [
+        ":art_cts_jvmti_redefine_initial",
+        ":art_cts_test_library_common",
+        ":art_cts_jvmti_transform_data_classes",
+    ],
+}
+
 // CTS test runner in cts/hostsidetests/jvmti looks for an expected test
 // result for the test NN in the file results.NN.expected.txt while in the
 // source tree each expected test result is in the NN-xxxx/expected.txt.
@@ -834,4 +877,91 @@ java_genrule {
         "for f in $(in); do x=$${f#art/test/}; " +
         "cp $$f $(genDir)/res/results.$${x%%-*}.expected.txt; done && " +
         "$(location soong_zip) -o $(out) -C $(genDir)/res -D $(genDir)/res",
+}
+
+// -------------------------------------------------------
+// GenRules for data classes for CTS JVMTI redefine tests.
+// -------------------------------------------------------
+
+// Rule to generate data-classes
+java_genrule {
+    name: "art_cts_jvmti_transform_data_classes",
+    tools: [
+        "redefine-gen",
+        "dexter",
+        "soong_to_java_name",
+        "java_name_to_source_class_name",
+    ],
+    srcs: [":art_cts_jvmti_test_dex_result"],
+    cmd: "set -e; " +
+        "for f in $(out); do " +
+        "  class_name=$$($(location soong_to_java_name) $${f}); " +
+        "  source_class_name=$$($(location java_name_to_source_class_name) $${class_name}); " +
+        "  tmp_classes_dex=$$(mktemp); " +
+        "  unzip -qc $(in) classes.dex > \"$${tmp_classes_dex}\"; " +
+        "  $(location redefine-gen) $${class_name} /dev/null <($(location dexter) -e $${source_class_name} -o /dev/stdout $${tmp_classes_dex}) -o $${f}; " +
+        "  rm -f $${tmp_classes_dex}; " +
+        "done; ",
+    out: art_cts_jvmti_redefine_data,
+}
+
+// Rule to generate empty data-classes for initial compilation
+java_genrule {
+    name: "art_cts_jvmti_transform_empty_data_classes",
+    tools: [
+        "redefine-gen",
+        "soong_to_java_name",
+    ],
+    cmd: "set -e; " +
+        "for f in $(out); do " +
+        "  x=$$($(location soong_to_java_name) $${f}); " +
+        "  $(location redefine-gen) $${x} /dev/null /dev/null -o $${f}; " +
+        "done; ",
+    out: art_cts_jvmti_redefine_data,
+}
+
+// Library used to provide the raw dex-code for the data-classes
+java_library {
+    name: "art_cts_jvmti_test_dex_result",
+    compile_dex: true,
+    srcs: [
+        ":art_cts_jvmti_redefine_final",
+        ":art_cts_test_library_common",
+        ":art_cts_jvmti_transform_empty_data_classes",
+    ],
+}
+
+// --------------------
+// Helper tools for CTS
+// --------------------
+
+// redefine-gen to generate the redefined-data class for redefinition tests.
+python_binary_host {
+    name: "redefine-gen",
+    srcs: ["jvmti-redefine-gen/redefine-gen.py"],
+    main: "jvmti-redefine-gen/redefine-gen.py",
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+        },
+    },
+}
+
+// Helper script to deal with the one-liner to extract the java class name from the soong output
+// name. This is around purely to get around soong's undocumented/annoying char-escape rules.
+sh_binary_host {
+    name: "soong_to_java_name",
+    src: "jvmti-redefine-gen/soong_to_java_name.sh",
+    installable: false,
+}
+
+// Helper script to deal with the one-liner to extract the transformed class's name from the data
+// class name. This is around purely to get around soong's undocumented/annoying char-escape rules.
+sh_binary_host {
+    name: "java_name_to_source_class_name",
+    src: "jvmti-redefine-gen/java_name_to_source_class_name.sh",
+    installable: false,
 }
