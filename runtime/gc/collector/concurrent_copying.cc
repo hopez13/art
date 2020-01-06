@@ -536,6 +536,7 @@ class ConcurrentCopying::FlipCallback : public Closure {
           evac_mode,
           /*clear_live_bytes=*/ !cc->use_generational_cc_);
     }
+    cc->region_space_->RevokePartialThreadLocalBuffers();
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
       cc->RecordLiveStackFreezeSize(self);

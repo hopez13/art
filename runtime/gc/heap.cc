@@ -147,10 +147,6 @@ static const char* kRegionSpaceName = "main space (region space)";
 // If true, we log all GCs in the both the foreground and background. Used for debugging.
 static constexpr bool kLogAllGCs = false;
 
-// How much we grow the TLAB if we can do it.
-static constexpr size_t kPartialTlabSize = 16 * KB;
-static constexpr bool kUsePartialTlabs = true;
-
 // Use Max heap for 2 seconds, this is smaller than the usual 5s window since we don't want to leave
 // allocate with relaxed ergonomics for that long.
 static constexpr size_t kPostForkMaxHeapDurationMS = 2000;
@@ -1785,6 +1781,18 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     }
   }
 
+  {
+    std::string thread_name;
+    self->GetThreadName(thread_name);
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " tid: " << self->GetTid()
+                 << " name: " << thread_name
+                 << " bytes_allocated:" << PrettySize(GetBytesAllocated())
+                 << " target_footprint:"
+                 << PrettySize(target_footprint_.load(std::memory_order_relaxed))
+                 << " allocator_type: " << allocator
+                 << " alloc_size: " << PrettySize(alloc_size);
+  }
   collector::GcType tried_type = next_gc_type_;
   const bool gc_ran = PERFORM_SUSPENDING_OPERATION(
       CollectGarbageInternal(tried_type, kGcCauseForAlloc, false) != collector::kGcTypeNone);
@@ -2308,6 +2316,13 @@ void Heap::IncrementFreedEver() {
 }
 
 void Heap::PreZygoteFork() {
+  if (region_space_ != nullptr) {
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " bytes_allocated: " << PrettySize(GetBytesAllocated()) << " target_footprint: "
+                 << PrettySize(target_footprint_.load(std::memory_order_relaxed))
+                 << " num_regions: " << region_space_->GetNumRegions()
+                 << " num_non_free_regions: " << region_space_->GetNumNonFreeRegions();
+  }
   if (!HasZygoteSpace()) {
     // We still want to GC in case there is some unreachable non moving objects that could cause a
     // suboptimal bin packing when we compact the zygote space.
@@ -4208,14 +4223,13 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
             ? std::max(alloc_size, kPartialTlabSize)
             : gc::space::RegionSpace::kRegionSize;
         // Try to allocate a tlab.
-        if (!region_space_->AllocNewTlab(self, new_tlab_size)) {
+        if (!region_space_->AllocNewTlab(self, new_tlab_size, bytes_tl_bulk_allocated)) {
           // Failed to allocate a tlab. Try non-tlab.
           return region_space_->AllocNonvirtual<false>(alloc_size,
                                                        bytes_allocated,
                                                        usable_size,
                                                        bytes_tl_bulk_allocated);
         }
-        *bytes_tl_bulk_allocated = new_tlab_size;
         // Fall-through to using the TLAB below.
       } else {
         // Check OOME for a non-tlab allocation.
