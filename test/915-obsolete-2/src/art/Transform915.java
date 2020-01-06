@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,22 @@
 
 package art;
 
-import java.util.Base64;
-
-import static test_902_transforms.Transform902.DEX_BYTES;
-import static test_902_transforms.Transform902.CLASS_BYTES;
-
-public class Test902 {
-  public static void run() {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
-    doTest(new Transform902());
+public class Transform915 {
+  private void Start() {
+    System.out.println("hello - private");
   }
 
-  public static void doTest(Transform902 t) {
-    t.sayHi();
-    Redefinition.doCommonClassRedefinition(Transform902.class, CLASS_BYTES, DEX_BYTES);
-    t.sayHi();
+  private void Finish() {
+    System.out.println("goodbye - private");
+  }
+
+  public void sayHi(Runnable r) {
+    System.out.println("Pre Start private method call");
+    Start();
+    System.out.println("Post Start private method call");
+    r.run();
+    System.out.println("Pre Finish private method call");
+    Finish();
+    System.out.println("Post Finish private method call");
   }
 }

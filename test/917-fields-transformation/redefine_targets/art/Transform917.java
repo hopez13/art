@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,21 +15,16 @@
  */
 
 package art;
+public class Transform917 {
+  public String take1;
+  public String take2;
 
-import java.util.Base64;
-
-import static test_902_transforms.Transform902.DEX_BYTES;
-import static test_902_transforms.Transform902.CLASS_BYTES;
-
-public class Test902 {
-  public static void run() {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
-    doTest(new Transform902());
+  public Transform917(String a, String b) {
+    take1 = a;
+    take2 = b;
   }
 
-  public static void doTest(Transform902 t) {
-    t.sayHi();
-    Redefinition.doCommonClassRedefinition(Transform902.class, CLASS_BYTES, DEX_BYTES);
-    t.sayHi();
+  public String getResult() {
+    return take2;
   }
 }
