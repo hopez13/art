@@ -546,13 +546,16 @@ class ReleaseChecker:
     # coverage build with EMMA_INSTRUMENT_FRAMEWORK=true (in that case we do not
     # generate dexpreopt files because ART boot jars depend on framework and
     # cannot be dexpreopted in isolation).
-    if 'EMMA_INSTRUMENT_FRAMEWORK' not in os.environ or not os.environ['EMMA_INSTRUMENT_FRAMEWORK']:
-      self._checker.check_dexpreopt('boot')
-      self._checker.check_dexpreopt('boot-apache-xml')
-      self._checker.check_dexpreopt('boot-bouncycastle')
-      self._checker.check_dexpreopt('boot-core-icu4j')
-      self._checker.check_dexpreopt('boot-core-libart')
-      self._checker.check_dexpreopt('boot-okhttp')
+    #
+    # Checks temporarily disabled as they break coverage builds (b/147197813).
+    # TODO(rpl/skvadrik): Work to reenable these checks.
+    #if 'EMMA_INSTRUMENT_FRAMEWORK' not in os.environ or not os.environ['EMMA_INSTRUMENT_FRAMEWORK']:
+    #  self._checker.check_dexpreopt('boot')
+    #  self._checker.check_dexpreopt('boot-apache-xml')
+    #  self._checker.check_dexpreopt('boot-bouncycastle')
+    #  self._checker.check_dexpreopt('boot-core-icu4j')
+    #  self._checker.check_dexpreopt('boot-core-libart')
+    #  self._checker.check_dexpreopt('boot-okhttp')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
