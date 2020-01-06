@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84015fb4_36679830",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-06T15:12:41Z",
+      "side": 1,
+      "message": "While I believe this works right now, what if we have target specific tests? Or what if there is a build flag that disables generating rules for host gtests (for faster builds)?",
+      "range": {
+        "startLine": 436,
+        "startChar": 33,
+        "endLine": 436,
+        "endChar": 37
+      },
+      "revId": "1333f0bc38c3d03acc3425b0b0040e91d3826f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
