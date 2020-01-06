@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f55aabd4_79cf8193",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-06T12:57:36Z",
+      "side": 1,
+      "message": "Suggestion: you could replace these two lines with:\n\n  bool check_reference_type_info_ \u003d true;\n\n(and avoid the constructor change line 38).",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 0
+      },
+      "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2ba1ec4_2dfafeda",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-06T12:57:36Z",
+      "side": 1,
+      "message": "Could we simplify this by passing an (optional) Boolean instead of introducing an interface? E.g. something like this:\n\n  bool CheckGraph(check_ref_type_info \u003d true) {\n    GraphChecker checker(graph_, check_ref_type_info);\n    checker.Run();\n    if (!checker.IsValid()) {\n      for (const std::string\u0026 error : checker.GetErrors()) {\n        std::cout \u003c\u003c error \u003c\u003c std::endl;\n      }\n      return false;\n    }\n    return true;\n  }\n\n?",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 3
+      },
+      "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
