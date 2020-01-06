@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "4c2e0e35_b432ce3a",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-06T21:33:34Z",
+      "side": 1,
+      "message": "WIP version at go/aog/1201818\n\nStill need to convert all the other tests though and do some cleanup/other stuff.",
+      "parentUuid": "843b2525_4c141c21",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3328bfe5_8a8263c4",
         "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
         "patchSetId": 1
@@ -400,6 +424,30 @@
       "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "239ae11d_b8dc11fa",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-06T21:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dce4c03_04b1ab8d",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "6917ed5a72ef5646bf77554d4ff0848ab676c38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
