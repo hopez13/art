@@ -22,6 +22,30 @@
       "revId": "1333f0bc38c3d03acc3425b0b0040e91d3826f9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f19b2596_4bc97311",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-06T15:50:47Z",
+      "side": 1,
+      "message": "I think this should be ART_TEST_LIST_device_$(TARGET_ARCH)_$(tm). But what you did in aosp/1199415 seems to be changing it to host_$(HOST_ARCH). I don\u0027t know why (i.e. where the names came from), but I just tried not to change that in this change. \n\nI actually don\u0027t know the meanings of the different flavors of the tests. :(",
+      "parentUuid": "84015fb4_36679830",
+      "range": {
+        "startLine": 436,
+        "startChar": 33,
+        "endLine": 436,
+        "endChar": 37
+      },
+      "revId": "1333f0bc38c3d03acc3425b0b0040e91d3826f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
