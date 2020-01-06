@@ -833,40 +833,79 @@ void RegionSpace::RecordAlloc(mirror::Object* ref) {
   r->objects_allocated_.fetch_add(1, std::memory_order_relaxed);
 }
 
-bool RegionSpace::AllocNewTlab(Thread* self, size_t min_bytes) {
+bool RegionSpace::AllocNewTlab(Thread* self, const size_t min_bytes, size_t* bytes_tl_bulk_allocated) {
   MutexLock mu(self, region_lock_);
-  RevokeThreadLocalBuffersLocked(self);
+  RevokeThreadLocalBuffersLocked(self, /*reuse=*/ gc::Heap::kUsePartialTlabs);
+  *bytes_tl_bulk_allocated = min_bytes;
   // Retain sufficient free regions for full evacuation.
-
-  Region* r = AllocateRegion(/*for_evac=*/ false);
+  Region* r = nullptr;
+  bool use_top_as_start = false;
+  uint8_t* pos = nullptr;
+  // First attempt to get a partially used TLAB, if available.
+  if (min_bytes < kRegionSize) {
+    // Fetch the largest partial TLAB.
+    auto largest_partial_tlab = partial_tlabs_.begin();
+    if (largest_partial_tlab != partial_tlabs_.end()) {
+      r = largest_partial_tlab->second;
+      pos = largest_partial_tlab->first;
+      DCHECK_GT(r->End(), pos);
+      DCHECK_LE(r->Begin(), pos);
+      if (static_cast<size_t>(r->End() - pos) >= min_bytes) {
+        // partial_tlab_size = r->End() - pos;
+        // r = largest_partial_tlab->second;
+        use_top_as_start = true;
+        partial_tlabs_.erase(largest_partial_tlab);
+        DCHECK_GE(r->Top(), pos);
+        *bytes_tl_bulk_allocated -= r->Top() - pos;
+      } else {
+        r = nullptr;
+      }
+    }
+  }
+  if (r == nullptr) {
+    // Fallback to allocating an entire region as TLAB.
+    r = AllocateRegion(/*for_evac=*/ false);
+  }
   if (r != nullptr) {
+    uint8_t* start = use_top_as_start ? pos : r->Begin();
+    DCHECK_ALIGNED(start, kObjectAlignment);
     r->is_a_tlab_ = true;
     r->thread_ = self;
     r->SetTop(r->End());
-    self->SetTlab(r->Begin(), r->Begin() + min_bytes, r->End());
+    self->SetTlab(start, start + min_bytes, r->End());
     return true;
   }
   return false;
 }
 
+void RegionSpace::RevokePartialThreadLocalBuffers() {
+  MutexLock mu(Thread::Current(), region_lock_);
+  partial_tlabs_.clear();
+}
+
 size_t RegionSpace::RevokeThreadLocalBuffers(Thread* thread) {
   MutexLock mu(Thread::Current(), region_lock_);
-  RevokeThreadLocalBuffersLocked(thread);
+  RevokeThreadLocalBuffersLocked(thread, /*reuse=*/ false);
   return 0U;
 }
 
-void RegionSpace::RevokeThreadLocalBuffersLocked(Thread* thread) {
+void RegionSpace::RevokeThreadLocalBuffersLocked(Thread* thread, bool reuse) {
   uint8_t* tlab_start = thread->GetTlabStart();
   DCHECK_EQ(thread->HasTlab(), tlab_start != nullptr);
   if (tlab_start != nullptr) {
-    DCHECK_ALIGNED(tlab_start, kRegionSize);
+    // DCHECK_ALIGNED(tlab_start, kRegionSize);
     Region* r = RefToRegionLocked(reinterpret_cast<mirror::Object*>(tlab_start));
+    r->is_a_tlab_ = false;
+    r->thread_ = nullptr;
     DCHECK(r->IsAllocated());
     DCHECK_LE(thread->GetThreadLocalBytesAllocated(), kRegionSize);
     r->RecordThreadLocalAllocations(thread->GetThreadLocalObjectsAllocated(),
-                                    thread->GetThreadLocalBytesAllocated());
-    r->is_a_tlab_ = false;
-    r->thread_ = nullptr;
+                                    thread->GetTlabEnd() - r->Begin());
+                                   // thread->GetThreadLocalBytesAllocated());
+    size_t remaining_bytes = r->End() - thread->GetTlabPos();
+    if (reuse && remaining_bytes >= gc::Heap::kPartialTlabSize) {
+      partial_tlabs_.insert(std::make_pair(thread->GetTlabPos(), r));
+    }
   }
   thread->SetTlab(nullptr, nullptr, nullptr);
 }
@@ -984,6 +1023,9 @@ void RegionSpace::TraceHeapSize() {
 
 RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
   if (!for_evac && (num_non_free_regions_ + 1) * 2 > num_regions_) {
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " num_non_free_regions: " << num_non_free_regions_
+                 << " num_regions: " << num_regions_;
     return nullptr;
   }
   for (size_t i = 0; i < num_regions_; ++i) {
