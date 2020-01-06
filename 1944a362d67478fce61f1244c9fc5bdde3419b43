@@ -69,6 +69,30 @@
       "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5db2ff4a_60d781df",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-06T15:00:51Z",
+      "side": 1,
+      "message": "To be honest, the Boolean flag + comment (checked by clang-tidy, see https://clang.llvm.org/extra/clang-tidy/checks/bugprone-argument-comment.html) seems like the best tradeoff to me:\n\n  CheckGraph(/*check_ref_type_info\u003d*/ false)\n\nI think introducing an interface for just one Boolean is overkill here.",
+      "parentUuid": "da7e0b56_b86f5d75",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 3
+      },
+      "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
