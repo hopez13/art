@@ -93,6 +93,9 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
       return obj;
     }
   }
+  LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+               << " num_bytes: " << PrettySize(num_bytes)
+               << " current_region: " << current_region_;
   return nullptr;
 }
 
