@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1231d7a4_8fbec57a",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1611842
+      },
+      "writtenOn": "2020-01-06T17:39:30Z",
+      "side": 1,
+      "message": "This is a bit unintuitive and deserves a comment or a change?\n\n(As far as I understand Python, this is a *string* check, so any nonempty string, including \"false\" will make this true)",
+      "range": {
+        "startLine": 467,
+        "startChar": 31,
+        "endLine": 467,
+        "endChar": 46
+      },
+      "revId": "70a8d811097a956249675eaf24a6d0884507f8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
