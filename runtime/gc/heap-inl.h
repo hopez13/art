@@ -138,6 +138,7 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
       obj = TryToAllocate<kInstrumented, false>(self, allocator, byte_count, &bytes_allocated,
                                                 &usable_size, &bytes_tl_bulk_allocated);
       if (UNLIKELY(obj == nullptr)) {
+        LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__ << "first attempt to allocate failed";
         // AllocateInternalWithGc can cause thread suspension, if someone instruments the
         // entrypoints or changes the allocator in a suspend point here, we need to retry the
         // allocation. It will send the pre-alloc event again.
@@ -291,6 +292,7 @@ inline mirror::Object* Heap::TryToAllocate(Thread* self,
       allocator_type != kAllocatorTypeTLAB &&
       allocator_type != kAllocatorTypeRosAlloc &&
       UNLIKELY(IsOutOfMemoryOnAllocation(allocator_type, alloc_size, kGrow))) {
+    LOG(WARNING) << "Lokesh:" << __PRETTY_FUNCTION__ << "allocator: " << allocator_type;
     return nullptr;
   }
   mirror::Object* ret;
@@ -438,6 +440,9 @@ inline bool Heap::IsOutOfMemoryOnAllocation(AllocatorType allocator_type,
     if (UNLIKELY(new_footprint <= old_target)) {
       return false;
     } else if (UNLIKELY(new_footprint > growth_limit_)) {
+      LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__ << " new_footprint: "
+                   << new_footprint << " growth_limit: " << growth_limit_
+                   << " old_target: " << old_target;
       return true;
     }
     // We are between target_footprint_ and growth_limit_ .
@@ -451,6 +456,11 @@ inline bool Heap::IsOutOfMemoryOnAllocation(AllocatorType allocator_type,
           return false;
         }  // else try again.
       } else {
+        LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                     << " allocator doesn't have concurrent GC "
+                     << " new_footprint: " << new_footprint
+                     << " growth_limit: " << growth_limit_
+                     << " old_target: " << old_target;
         return true;
       }
     }

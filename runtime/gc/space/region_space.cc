@@ -846,6 +846,7 @@ bool RegionSpace::AllocNewTlab(Thread* self, size_t min_bytes) {
     self->SetTlab(r->Begin(), r->Begin() + min_bytes, r->End());
     return true;
   }
+  LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__;
   return false;
 }
 
@@ -984,6 +985,9 @@ void RegionSpace::TraceHeapSize() {
 
 RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
   if (!for_evac && (num_non_free_regions_ + 1) * 2 > num_regions_) {
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " num_non_free_regions: " << num_non_free_regions_
+                 << " num_regions: " << num_regions_;
     return nullptr;
   }
   for (size_t i = 0; i < num_regions_; ++i) {
@@ -1017,6 +1021,12 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
       return r;
     }
   }
+  LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+               << " Didn't find any free region"
+               << " num_non_free_regions: " << num_non_free_regions_
+               << " num_regions: " << num_regions_
+               << " kCyclicRegionAllocation: " << kCyclicRegionAllocation
+               << " cyclic_alloc_region_index: " << cyclic_alloc_region_index_;
   return nullptr;
 }
 
