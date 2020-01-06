@@ -93,6 +93,9 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
       return obj;
     }
   }
+  LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+               << " num_bytes: " << PrettySize(num_bytes)
+               << " current_region: " << current_region_;
   return nullptr;
 }
 
@@ -498,7 +501,8 @@ inline size_t RegionSpace::Region::BytesAllocated() const {
     DCHECK_LE(begin_, Top());
     size_t bytes;
     if (is_a_tlab_) {
-      bytes = thread_->GetThreadLocalBytesAllocated();
+      // bytes = thread_->GetThreadLocalBytesAllocated();
+      bytes = thread_->GetTlabEnd() - begin_;
     } else {
       bytes = static_cast<size_t>(Top() - begin_);
     }
