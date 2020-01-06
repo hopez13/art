@@ -45,6 +45,30 @@
       "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da7e0b56_b86f5d75",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-01-06T13:42:32Z",
+      "side": 1,
+      "message": "A problem with this approach is that \u0027CheckGraph(false)\u0027 looks very unclear. It will require code readers to go to the declaration to check what \u0027false\u0027 means. So we need to embed its meaning either using a comment \u0027CheckGraph(/* check_ref_type_info */ false)\u0027 or introducing a bool variable \u0027bool check_ref_type_info \u003d false; CheckGraph(check_ref_type_info)\u0027.\nAnother approach, which I prefer more, is to use an enum:\nenum class GraphSkipCheck {\n  kRefTypeInfo\n};\n\nbool CheckGraph(GraphSkipCheck check);\n\nA use:\n\nCheckGraph(GraphSkipCheck::kRefTypeInfo);\n\n\nAll these approaches have an issue with when additional checks need to be skipped. All existing code will need to be modified.",
+      "parentUuid": "a2ba1ec4_2dfafeda",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 3
+      },
+      "revId": "1944a362d67478fce61f1244c9fc5bdde3419b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
