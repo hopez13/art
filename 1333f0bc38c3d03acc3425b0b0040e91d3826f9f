@@ -46,6 +46,30 @@
       "revId": "1333f0bc38c3d03acc3425b0b0040e91d3826f9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dad2ddd8_5dda1c64",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-06T15:57:42Z",
+      "side": 1,
+      "message": "_device_ disappeared because your change seems to make gtest part of an APEX not installable. aosp/1199415 just workarounds this :)",
+      "parentUuid": "f19b2596_4bc97311",
+      "range": {
+        "startLine": 436,
+        "startChar": 33,
+        "endLine": 436,
+        "endChar": 37
+      },
+      "revId": "1333f0bc38c3d03acc3425b0b0040e91d3826f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
