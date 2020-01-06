@@ -22,6 +22,30 @@
       "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a88553a_2533f1d7",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2020-01-06T21:13:41Z",
+      "side": 1,
+      "message": "Do you have somewhere in mind? This needs to happen before the process becomes multi-threaded, so this seems like the most natural place to me.",
+      "parentUuid": "90b5f3b3_a8126446",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 17
+      },
+      "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
