@@ -1785,6 +1785,18 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     }
   }
 
+  {
+    std::string thread_name;
+    self->GetThreadName(thread_name);
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " tid: " << self->GetTid()
+                 << " name: " << thread_name
+                 << " bytes_allocated:" << PrettySize(GetBytesAllocated())
+                 << " target_footprint:"
+                 << PrettySize(target_footprint_.load(std::memory_order_relaxed))
+                 << " allocator_type: " << allocator
+                 << " alloc_size: " << PrettySize(alloc_size);
+  }
   collector::GcType tried_type = next_gc_type_;
   const bool gc_ran = PERFORM_SUSPENDING_OPERATION(
       CollectGarbageInternal(tried_type, kGcCauseForAlloc, false) != collector::kGcTypeNone);
