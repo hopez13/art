@@ -189,6 +189,9 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   size_t GetNumRegions() const {
     return num_regions_;
   }
+  size_t GetNumNonFreeRegions() const {
+    return num_non_free_regions_;
+  }
 
   bool CanMoveObjects() const override {
     return true;

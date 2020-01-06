@@ -1785,6 +1785,18 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     }
   }
 
+  {
+    std::string thread_name;
+    self->GetThreadName(thread_name);
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " tid: " << self->GetTid()
+                 << " name: " << thread_name
+                 << " bytes_allocated:" << PrettySize(GetBytesAllocated())
+                 << " target_footprint:"
+                 << PrettySize(target_footprint_.load(std::memory_order_relaxed))
+                 << " allocator_type: " << allocator
+                 << " alloc_size: " << PrettySize(alloc_size);
+  }
   collector::GcType tried_type = next_gc_type_;
   const bool gc_ran = PERFORM_SUSPENDING_OPERATION(
       CollectGarbageInternal(tried_type, kGcCauseForAlloc, false) != collector::kGcTypeNone);
@@ -2308,6 +2320,13 @@ void Heap::IncrementFreedEver() {
 }
 
 void Heap::PreZygoteFork() {
+  if (region_space_ != nullptr) {
+    LOG(WARNING) << "Lokesh: " << __PRETTY_FUNCTION__
+                 << " bytes_allocated: " << GetBytesAllocated()
+                 << " target_footprint: " << target_footprint_.load(std::memory_order_relaxed)
+                 << " num_regions: " << region_space_->GetNumRegions()
+                 << " num_non_free_regions: " << region_space_->GetNumNonFreeRegions();
+  }
   if (!HasZygoteSpace()) {
     // We still want to GC in case there is some unreachable non moving objects that could cause a
     // suboptimal bin packing when we compact the zygote space.
