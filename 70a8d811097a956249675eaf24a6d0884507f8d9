@@ -22,6 +22,30 @@
       "revId": "70a8d811097a956249675eaf24a6d0884507f8d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60a73a52_cb9100d5",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-07T15:08:27Z",
+      "side": 1,
+      "message": "Indeed, thanks for spotting this! In PS5 I added a function isEnvTrue() that does a string comparison with \u0027true\u0027.",
+      "parentUuid": "1231d7a4_8fbec57a",
+      "range": {
+        "startLine": 467,
+        "startChar": 31,
+        "endLine": 467,
+        "endChar": 46
+      },
+      "revId": "70a8d811097a956249675eaf24a6d0884507f8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
