@@ -48,8 +48,6 @@ namespace openjdkjvmti {
 // NB Uses implementation details of android-base/logging.h.
 #define JVMTI_LOG(severity, env)                             \
   ::openjdkjvmti::JvmtiLogMessage((env),                     \
-                                  __FILE__,                  \
-                                  __LINE__,                  \
                                   ::android::base::DEFAULT,  \
                                   SEVERITY_LAMBDA(severity), \
                                   _LOG_TAG_INTERNAL,         \
@@ -58,14 +56,12 @@ namespace openjdkjvmti {
 class JvmtiLogMessage {
  public:
   JvmtiLogMessage(jvmtiEnv* env,
-                  const char* file,
-                  unsigned int line,
                   android::base::LogId id,
                   android::base::LogSeverity severity,
                   const char* tag,
                   int error)
       : env_(ArtJvmTiEnv::AsArtJvmTiEnv(env)),
-        real_log_(file, line, id, severity, tag, error),
+        real_log_(id, severity, tag, error),
         real_log_stream_(real_log_.stream()) {
     DCHECK(env_ != nullptr);
   }
