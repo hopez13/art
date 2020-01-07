@@ -93,6 +93,30 @@
       "revId": "0ca33d8ba066f48e2722b0ac35d2bc3445ace817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "717e2578_140a1fb2",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-07T15:47:39Z",
+      "side": 1,
+      "message": "Thx, TARGET_FLATTEN_APEX was a transient local bogon. go/lem tests sampled run on local device with and without building with TARGET_FLATTEN_APEX. Submitted PS5 for go/lem to run full sweep.",
+      "parentUuid": "4aa3cdd6_8d11fccc",
+      "range": {
+        "startLine": 701,
+        "startChar": 27,
+        "endLine": 701,
+        "endChar": 63
+      },
+      "revId": "0ca33d8ba066f48e2722b0ac35d2bc3445ace817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
