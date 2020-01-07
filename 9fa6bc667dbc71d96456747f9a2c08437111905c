@@ -70,6 +70,30 @@
       "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54982551_62852129",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2020-01-07T20:54:56Z",
+      "side": 1,
+      "message": "I would recommend SpecializeCommon in com_android_internal_os_Zygote.cpp after the fork call.",
+      "parentUuid": "c05d1e0e_e175cfcb",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 17
+      },
+      "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
