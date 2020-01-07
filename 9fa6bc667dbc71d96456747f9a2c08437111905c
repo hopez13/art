@@ -46,6 +46,30 @@
       "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05d1e0e_e175cfcb",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-07T09:51:15Z",
+      "side": 1,
+      "message": "In Zygote code (Zygote.java or com_android_internal_os_Zygote.cpp). The code you\u0027ve added isn\u0027t ART related, is it?",
+      "parentUuid": "9a88553a_2533f1d7",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 17
+      },
+      "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
