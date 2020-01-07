@@ -41,8 +41,6 @@ class DexAnalyze {
   static void StdoutLogger(android::base::LogId,
                            android::base::LogSeverity,
                            const char*,
-                           const char*,
-                           unsigned int,
                            const char* message) {
     std::cout << message << std::endl;
   }
@@ -242,4 +240,3 @@ class DexAnalyze {
 int main(int argc, char** argv) {
   return art::dexanalyze::DexAnalyze::Run(argc, argv);
 }
-
