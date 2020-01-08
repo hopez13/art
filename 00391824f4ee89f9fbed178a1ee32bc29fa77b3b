@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48c0d785_2c9bebd5",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 1518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-08T11:24:02Z",
+      "side": 1,
+      "message": "Maybe we should prefix these with \".L\" for both mterp and nterp.",
+      "revId": "00391824f4ee89f9fbed178a1ee32bc29fa77b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
