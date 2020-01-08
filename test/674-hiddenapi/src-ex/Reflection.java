@@ -16,6 +16,7 @@
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
@@ -182,6 +183,16 @@ public class Reflection {
       klass.newInstance();
       return true;
     } catch (InstantiationException ex) {
+      return false;
+    }
+  }
+
+  public static boolean canDiscoverWithIndirectReflection(Class<?> klass, String name) {
+    try {
+      Method getDeclaredMethodIndirect = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+      // Assumes method without parameters.
+      return ((Method)getDeclaredMethodIndirect.invoke(klass, name,  null)) != null;
+    } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException ex) {
       return false;
     }
   }

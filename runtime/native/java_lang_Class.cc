@@ -59,8 +59,9 @@ namespace art {
 // a hiddenapi AccessContext formed from its declaring class.
 static hiddenapi::AccessContext GetReflectionCaller(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  // Walk the stack and find the first frame not from java.lang.Class and not
-  // from java.lang.invoke. This is very expensive. Save this till the last.
+  // Walk the stack and find the first frame not from java.lang.Class,
+  // java.lang.invoke or java.lang.reflect. This is very expensive.
+  // Save this till the last.
   struct FirstExternalCallerVisitor : public StackVisitor {
     explicit FirstExternalCallerVisitor(Thread* thread)
         : StackVisitor(thread, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
@@ -91,6 +92,11 @@ static hiddenapi::AccessContext GetReflectionCaller(Thread* self)
         ObjPtr<mirror::Class> lookup_class = GetClassRoot<mirror::MethodHandlesLookup>();
         if ((declaring_class == lookup_class || declaring_class->IsInSamePackage(lookup_class))
             && !m->IsClassInitializer()) {
+          return true;
+        }
+        // Check for classes in the java.lang.reflect package.
+        ObjPtr<mirror::Class> method_class = GetClassRoot<mirror::Method>();
+        if (declaring_class->IsInSamePackage(method_class)) {
           return true;
         }
       }

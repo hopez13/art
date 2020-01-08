@@ -140,7 +140,7 @@ public class ChildClass {
             checkField(klass, "field" + baseName, isStatic, visibility, expected,
                 invokesMemberCallback);
             checkMethod(klass, "method" + baseName, isStatic, visibility, expected,
-                invokesMemberCallback);
+                invokesMemberCallback, childDomain);
           }
 
           // Check whether one can use a class constructor.
@@ -149,7 +149,7 @@ public class ChildClass {
           // Check whether one can use an interface default method.
           String name = "method" + visibility.name() + "Default" + hiddenness.name();
           checkMethod(ParentInterface.class, name, /*isStatic*/ false, visibility, expected,
-              invokesMemberCallback);
+              invokesMemberCallback, childDomain);
         }
 
         // Test whether static linking succeeds.
@@ -305,7 +305,8 @@ public class ChildClass {
   }
 
   private static void checkMethod(Class<?> klass, String name, boolean isStatic,
-      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback) throws Exception {
+      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback,
+      DexDomain childDomain) throws Exception {
 
     boolean isPublic = (visibility == Visibility.Public);
     if (klass.isInterface() && !isPublic) {
@@ -351,6 +352,13 @@ public class ChildClass {
     if (JLI.canDiscoverWithLookupFindStatic(lookup, klass, name, methodType) != canDiscover) {
       throwDiscoveryException(klass, name, false, "MethodHandles.lookup().findStatic()",
                               canDiscover);
+    }
+
+    // Check for indirect reflection.
+    if (childDomain == DexDomain.Application) {
+      if (Reflection.canDiscoverWithIndirectReflection(klass, name) != canDiscover) {
+        throwDiscoveryException(klass, name, false, "Indirect reflection", canDiscover);
+      }
     }
 
     // Finish here if we could not discover the method.
