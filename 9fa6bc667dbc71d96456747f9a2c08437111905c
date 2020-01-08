@@ -94,6 +94,30 @@
       "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c257c3d7_09bf8d00",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2020-01-08T02:30:10Z",
+      "side": 1,
+      "message": "Yes, that place looks good. Done in the other review and I\u0027ll abandon this one.",
+      "parentUuid": "54982551_62852129",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 17
+      },
+      "revId": "9fa6bc667dbc71d96456747f9a2c08437111905c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
