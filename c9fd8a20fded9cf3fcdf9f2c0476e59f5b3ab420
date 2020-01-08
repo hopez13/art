@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dbb84e6d_d5413663",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-08T19:01:03Z",
+      "side": 1,
+      "message": "comment about how art script decides paths and how that last fix broke the decision about picking 32 or 64 bit.",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "c9fd8a20fded9cf3fcdf9f2c0476e59f5b3ab420",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62eeafa3_367521e7",
         "filename": "Android.mk",
         "patchSetId": 2
