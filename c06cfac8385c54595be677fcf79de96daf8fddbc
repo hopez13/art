@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e69c57af_023ef6cf",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-08T00:26:49Z",
+      "side": 1,
+      "message": "The finished flag needs to be volatile. Otherwise the load can be moved out of the loop. That means the array hack here won\u0027t work.",
+      "range": {
+        "startLine": 94,
+        "startChar": 13,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "c06cfac8385c54595be677fcf79de96daf8fddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
