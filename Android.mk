@@ -701,12 +701,12 @@ standalone-apex-files: libc.bootstrap \
 	art_apex_orig_dir=$$apex_orig_dir/$(DEBUG_ART_APEX); \
 	for f in $(PRIVATE_ART_APEX_DEPENDENCY_LIBS) $(PRIVATE_ART_APEX_DEPENDENCY_FILES); do \
 	  tf="$$art_apex_orig_dir/$$f"; \
-	  if [ -f $$tf ]; then cp -fH $$tf $(TARGET_OUT)/$$f; fi; \
+	  if [ -f $$tf ]; then cp -Fd $$tf $(TARGET_OUT)/$$f; fi; \
 	done; \
 	conscrypt_apex_orig_dir=$$apex_orig_dir/$(CONSCRYPT_APEX); \
 	for f in $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS); do \
 	  tf="$$conscrypt_apex_orig_dir/$$f"; \
-	  if [ -f $$tf ]; then cp -fH $$tf $(TARGET_OUT)/$$f; fi; \
+	  if [ -f $$tf ]; then cp -f $$tf $(TARGET_OUT)/$$f; fi; \
 	done; \
 
 ########################################################################
