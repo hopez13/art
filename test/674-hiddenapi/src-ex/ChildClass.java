@@ -105,6 +105,10 @@ public class ChildClass {
     boolean isSameBoot = (isParentInBoot == isChildInBoot);
     boolean isDebuggable = VMRuntime.getRuntime().isJavaDebuggable();
 
+    // For compat reasons, meta-reflection should still be usable if hidden api check hardening is not enabled.
+    boolean hiddenApiCheckHardeningDisabled =
+        (childDomain == DexDomain.Application) && (parentDomain == DexDomain.Platform);
+
     // Run meaningful combinations of access flags.
     for (Hiddenness hiddenness : Hiddenness.values()) {
       final Behaviour expected;
@@ -138,18 +142,19 @@ public class ChildClass {
           for (Class klass : new Class<?>[] { ParentClass.class, ParentInterface.class }) {
             String baseName = visibility.name() + suffix;
             checkField(klass, "field" + baseName, isStatic, visibility, expected,
-                invokesMemberCallback);
+                invokesMemberCallback, hiddenApiCheckHardeningDisabled);
             checkMethod(klass, "method" + baseName, isStatic, visibility, expected,
-                invokesMemberCallback);
+                invokesMemberCallback, hiddenApiCheckHardeningDisabled);
           }
 
           // Check whether one can use a class constructor.
-          checkConstructor(ParentClass.class, visibility, hiddenness, expected);
+          checkConstructor(ParentClass.class, visibility, hiddenness, expected,
+                hiddenApiCheckHardeningDisabled);
 
           // Check whether one can use an interface default method.
           String name = "method" + visibility.name() + "Default" + hiddenness.name();
           checkMethod(ParentInterface.class, name, /*isStatic*/ false, visibility, expected,
-              invokesMemberCallback);
+              invokesMemberCallback, hiddenApiCheckHardeningDisabled);
         }
 
         // Test whether static linking succeeds.
@@ -212,7 +217,8 @@ public class ChildClass {
   }
 
   private static void checkField(Class<?> klass, String name, boolean isStatic,
-      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback) throws Exception {
+      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback,
+      boolean hiddenApiCheckHardeningDisabled) throws Exception {
 
     boolean isPublic = (visibility == Visibility.Public);
     boolean canDiscover = (behaviour != Behaviour.Denied);
@@ -277,6 +283,23 @@ public class ChildClass {
                               canDiscover);
     }
 
+    // Check for meta reflection.
+
+    // With hidden api check hardening enabled, only white and light greylisted fields should be
+    // discoverable.
+    if (Reflection.canDiscoverFieldWithMetaReflection(klass, name, true) != canDiscover) {
+      throwDiscoveryException(klass, name, false,
+          "Meta reflection with hidden api hardening enabled", canDiscover);
+    }
+
+    if (hiddenApiCheckHardeningDisabled) {
+      // With hidden api check hardening disabled, all fields should be discoverable.
+      if (Reflection.canDiscoverFieldWithMetaReflection(klass, name, false) != true) {
+        throwDiscoveryException(klass, name, false,
+            "Meta reflection with hidden api hardening enabled", canDiscover);
+      }
+    }
+
     if (canDiscover) {
       // Test that modifiers are unaffected.
 
@@ -305,7 +328,8 @@ public class ChildClass {
   }
 
   private static void checkMethod(Class<?> klass, String name, boolean isStatic,
-      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback) throws Exception {
+      Visibility visibility, Behaviour behaviour, boolean invokesMemberCallback,
+      boolean hiddenApiCheckHardeningDisabled) throws Exception {
 
     boolean isPublic = (visibility == Visibility.Public);
     if (klass.isInterface() && !isPublic) {
@@ -353,6 +377,23 @@ public class ChildClass {
                               canDiscover);
     }
 
+    // Check for meta reflection.
+
+    // With hidden api check hardening enabled, only white and light greylisted methods should be
+    // discoverable.
+    if (Reflection.canDiscoverMethodWithMetaReflection(klass, name, true) != canDiscover) {
+      throwDiscoveryException(klass, name, false,
+          "Meta reflection with hidden api hardening enabled", canDiscover);
+    }
+
+    if (hiddenApiCheckHardeningDisabled) {
+      // With hidden api check hardening disabled, all methods should be discoverable.
+      if (Reflection.canDiscoverMethodWithMetaReflection(klass, name, false) != true) {
+        throwDiscoveryException(klass, name, false,
+            "Meta reflection with hidden api hardening enabled", canDiscover);
+      }
+    }
+
     // Finish here if we could not discover the method.
 
     if (canDiscover) {
@@ -381,7 +422,7 @@ public class ChildClass {
   }
 
   private static void checkConstructor(Class<?> klass, Visibility visibility, Hiddenness hiddenness,
-      Behaviour behaviour) throws Exception {
+      Behaviour behaviour, boolean hiddenApiCheckHardeningDisabled) throws Exception {
 
     boolean isPublic = (visibility == Visibility.Public);
     String signature = "(" + visibility.mAssociatedType.mShorty +
@@ -434,6 +475,23 @@ public class ChildClass {
       throwDiscoveryException(klass, fullName, false,
                               "MethodHandles.publicLookup().findConstructor",
                               canDiscover);
+    }
+
+    // Check for meta reflection.
+
+    // With hidden api check hardening enabled, only white and light greylisted constructors should
+    // be discoverable.
+    if (Reflection.canDiscoverConstructorWithMetaReflection(klass, args, true) != canDiscover) {
+      throwDiscoveryException(klass, fullName, false,
+          "Meta reflection with hidden api hardening enabled", canDiscover);
+    }
+
+    if (hiddenApiCheckHardeningDisabled) {
+      // With hidden api check hardening disabled, all constructors should be discoverable.
+      if (Reflection.canDiscoverConstructorWithMetaReflection(klass, args, false) != true) {
+        throwDiscoveryException(klass, fullName, false,
+            "Meta reflection with hidden api hardening enabled", canDiscover);
+      }
     }
 
     if (canDiscover) {
