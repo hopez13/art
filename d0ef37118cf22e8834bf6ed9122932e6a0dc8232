@@ -93,6 +93,30 @@
       "revId": "d0ef37118cf22e8834bf6ed9122932e6a0dc8232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3e8d320_919750c9",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-08T11:03:29Z",
+      "side": 1,
+      "message": "Naming: \"entry point\" contains the thumb mode tag, \"code pointer\" does not.",
+      "parentUuid": "5e6fb4ea_8e402915",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 72
+      },
+      "revId": "d0ef37118cf22e8834bf6ed9122932e6a0dc8232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
