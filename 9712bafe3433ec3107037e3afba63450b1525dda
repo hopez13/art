@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4cb3952_23614026",
+        "filename": "test/2006-virtual-structural-finalizing/src-art/art/Test2006.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-08T01:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddf6d885_5613d2f0",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 49
+      },
+      "revId": "9712bafe3433ec3107037e3afba63450b1525dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb8755e3_8a1facf2",
         "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "9712bafe3433ec3107037e3afba63450b1525dda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f89e6d18_028a9a43",
+        "filename": "test/2007-virtual-structural-finalizable/src-art/art/Test2007.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-08T01:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb8755e3_8a1facf2",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 49
+      },
+      "revId": "9712bafe3433ec3107037e3afba63450b1525dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
