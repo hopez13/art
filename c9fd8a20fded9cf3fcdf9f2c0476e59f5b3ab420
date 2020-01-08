@@ -22,6 +22,30 @@
       "revId": "c9fd8a20fded9cf3fcdf9f2c0476e59f5b3ab420",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff938bcd_f1635f85",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-08T18:55:03Z",
+      "side": 1,
+      "message": "Yes, for prebuilts/build-tools/path/linux-x86/cp. I invested a little more time than intended trying flags that work with /bin/cp and not the prebuilt :-)",
+      "parentUuid": "62eeafa3_367521e7",
+      "range": {
+        "startLine": 704,
+        "startChar": 28,
+        "endLine": 704,
+        "endChar": 29
+      },
+      "revId": "c9fd8a20fded9cf3fcdf9f2c0476e59f5b3ab420",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
