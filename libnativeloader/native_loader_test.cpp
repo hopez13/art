@@ -18,6 +18,7 @@
 #include <memory>
 #include <unordered_map>
 
+#include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -98,7 +99,6 @@ static std::unordered_map<std::string, Platform::mock_namespace_handle> namespac
     {"sphal", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("sphal"))},
     {"vndk", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("vndk"))},
     {"neuralnetworks", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("neuralnetworks"))},
-    {"cronet", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("cronet"))},
 };
 
 // The actual gmock object
@@ -355,14 +355,13 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
   bool expected_link_with_vndk_ns = false;
   bool expected_link_with_default_ns = false;
   bool expected_link_with_neuralnetworks_ns = true;
-  bool expected_link_with_cronet_ns = true;
+  bool expected_link_with_apex_module_ns = true;
   std::string expected_shared_libs_to_platform_ns = default_public_libraries();
   std::string expected_shared_libs_to_art_ns = art_public_libraries();
   std::string expected_shared_libs_to_sphal_ns = vendor_public_libraries();
   std::string expected_shared_libs_to_vndk_ns = vndksp_libraries();
   std::string expected_shared_libs_to_default_ns = default_public_libraries();
   std::string expected_shared_libs_to_neuralnetworks_ns = neuralnetworks_public_libraries();
-  std::string expected_shared_libs_to_cronet_ns = cronet_public_libraries();
 
   void SetExpectations() {
     NativeLoaderTest::SetExpectations();
@@ -407,9 +406,13 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
                                               StrEq(expected_shared_libs_to_neuralnetworks_ns)))
           .WillOnce(Return(true));
     }
-    if (expected_link_with_cronet_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("cronet"),
-                                              StrEq(expected_shared_libs_to_cronet_ns)))
+  }
+
+  void SetApexLinkExpectations(std::vector<std::string>& apex_names) {
+    if (!expected_link_with_apex_module_ns) return;
+    for (const auto& apex_name : apex_names) {
+      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq(apex_name.c_str()),
+                                              StrEq(get_public_libraries_by_name(apex_name))))
           .WillOnce(Return(true));
     }
   }
@@ -508,6 +511,24 @@ TEST_P(NativeLoaderTest_Create, UnbundledProductApp) {
   }
   SetExpectations();
   RunTest();
+}
+
+TEST_P(NativeLoaderTest_Create, DexPathInApexModule) {
+  std::vector<std::string> apex_names = {"com.android.foo", "com.android.bar"};
+  dex_path = "/data/app/com.org.baz/base.apk:/system/framework/qux.jar";
+
+  std::unordered_map cache_namespaces = namespaces;
+  for (const auto& apex_name : apex_names) {
+    dex_path += android::base::StringPrintf(":/apex/%s/javalib/foo.jar", apex_name.c_str());
+    const auto [it, success] = namespaces.insert(
+        {apex_name, TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE(apex_name.c_str()))});
+    ASSERT_TRUE(success);
+  }
+
+  SetExpectations();
+  SetApexLinkExpectations(apex_names);
+  RunTest();
+  namespaces = cache_namespaces;
 }
 
 TEST_P(NativeLoaderTest_Create, NamespaceForSharedLibIsNotUsedAsAnonymousNamespace) {
