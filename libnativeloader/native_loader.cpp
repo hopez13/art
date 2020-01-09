@@ -44,8 +44,6 @@ namespace {
 #if defined(__ANDROID__)
 using android::nativeloader::LibraryNamespaces;
 
-constexpr const char* kApexPath = "/apex/";
-
 std::mutex g_namespaces_mutex;
 LibraryNamespaces* g_namespaces = new LibraryNamespaces;
 
@@ -55,8 +53,8 @@ android_namespace_t* FindExportedNamespace(const char* caller_location) {
   // /apex/com.android...modulename/...
   //
   // And we extract from it 'modulename', which is the name of the linker namespace.
-  if (android::base::StartsWith(location, kApexPath)) {
-    size_t slash_index = location.find_first_of('/', strlen(kApexPath));
+  if (android::base::StartsWith(location, nativeloader::kApexPath)) {
+    size_t slash_index = location.find_first_of('/', strlen(nativeloader::kApexPath));
     LOG_ALWAYS_FATAL_IF((slash_index == std::string::npos),
                         "Error finding namespace of apex: no slash in path %s", caller_location);
     size_t dot_index = location.find_last_of('.', slash_index);
