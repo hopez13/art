@@ -38,8 +38,8 @@
 
 namespace android::nativeloader {
 
-using namespace internal;
-using namespace ::std::string_literals;
+using namespace internal;  // NOLINT(build/namespaces)
+using namespace ::std::string_literals;  // NOLINT(build/namespaces)
 using android::base::ErrnoError;
 using android::base::Errorf;
 using android::base::Result;
@@ -219,7 +219,7 @@ static std::string InitDefaultPublicLibraries(bool for_preload) {
 }
 
 static std::string InitArtPublicLibraries() {
-  CHECK(sizeof(kArtApexPublicLibraries) > 0);
+  CHECK_GT(sizeof(kArtApexPublicLibraries), 0U);
   std::string list = android::base::Join(kArtApexPublicLibraries, ":");
 
   std::string additional_libs = additional_public_libraries();
@@ -316,6 +316,14 @@ const std::string& neuralnetworks_public_libraries() {
 const std::string& cronet_public_libraries() {
   static std::string list = InitCronetPublicLibraries();
   return list;
+}
+
+// TODO: Use some solid way for the mapping between namespace and public_libraries.
+const std::string& get_public_libraries_by_name(const std::string& name) {
+  if (name == "com.android.cronet") {
+    return cronet_public_libraries();
+  }
+  return default_public_libraries();
 }
 
 const std::string& llndk_libraries() {
