@@ -33,6 +33,10 @@
 
 namespace android::nativeloader {
 
+// Note that this constant should not contain any ECMAScript regex special characters
+// since it would be used with regex matching.
+static constexpr const char* kApexPath = "/apex/";
+
 using android::base::Result;
 
 // LibraryNamespaces is a singleton object that manages NativeLoaderNamespace
