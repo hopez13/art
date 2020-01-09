@@ -38,6 +38,7 @@ const std::string& extended_public_libraries();
 const std::string& neuralnetworks_public_libraries();
 const std::string& llndk_libraries();
 const std::string& vndksp_libraries();
+const std::string& get_public_libraries_by_name(const std::string& name);
 
 // Returns true if libnativeloader is running on devices and the device has
 // ro.product.vndk.version property. It returns falso for host.
