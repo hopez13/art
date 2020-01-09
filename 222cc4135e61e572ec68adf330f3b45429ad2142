@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62d3e6eb_2603f4f9",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "We\u0027re trying to cut down on our dependencies. What are you using from this, and can you avoid it?",
+      "range": {
+        "startLine": 422,
+        "startChar": 9,
+        "endLine": 422,
+        "endChar": 20
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7205cdbc_59feac3c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "Why do you need this?",
+      "range": {
+        "startLine": 440,
+        "startChar": 9,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d76ea07_3933572b",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "Add a comment why this means it\u0027s not going to be unregistered.",
+      "range": {
+        "startLine": 431,
+        "startChar": 42,
+        "endLine": 431,
+        "endChar": 85
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ba2195_d2f2d524",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "not needed.",
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89ca83de_b0026059",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "not needed",
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f254abec_d4716177",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "false by default.",
+      "range": {
+        "startLine": 298,
+        "startChar": 24,
+        "endLine": 298,
+        "endChar": 28
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e586a8_14c4457b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-09T13:53:27Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 44
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
