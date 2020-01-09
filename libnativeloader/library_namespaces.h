@@ -33,6 +33,8 @@
 
 namespace android::nativeloader {
 
+static constexpr const char* kApexPath = "/apex/";
+
 using android::base::Result;
 
 // LibraryNamespaces is a singleton object that manages NativeLoaderNamespace

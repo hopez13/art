@@ -18,14 +18,17 @@
 #include <dirent.h>
 #include <dlfcn.h>
 
+#include <iterator>
 #include <regex>
 #include <string>
+#include <unordered_set>
 #include <vector>
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/macros.h>
 #include <android-base/properties.h>
+#include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 #include <nativehelper/ScopedUtfChars.h>
 
@@ -43,8 +46,6 @@ namespace {
 constexpr const char* kVendorNamespaceName = "sphal";
 constexpr const char* kVndkNamespaceName = "vndk";
 constexpr const char* kArtNamespaceName = "art";
-constexpr const char* kNeuralNetworksNamespaceName = "neuralnetworks";
-constexpr const char* kCronetNamespaceName = "cronet";
 
 // classloader-namespace is a linker namespace that is created for the loaded
 // app. To be specific, it is created for the app classloader. When
@@ -76,6 +77,7 @@ constexpr const char* kProductLibPath = "/product/" LIB ":/system/product/" LIB;
 
 const std::regex kVendorDexPathRegex("(^|:)/vendor/");
 const std::regex kProductDexPathRegex("(^|:)(/system)?/product/");
+const std::regex kApexDexPathRegex(android::base::StringPrintf("(^|:)(%s)[^/]*", kApexPath));
 
 // Define origin of APK if it is from vendor partition or product partition
 using ApkOrigin = enum {
@@ -111,6 +113,21 @@ ApkOrigin GetApkOriginFromDexPath(JNIEnv* env, jstring dex_path) {
     }
   }
   return apk_origin;
+}
+
+std::unordered_set<std::string> GetApexNamespacesFromDexPath(JNIEnv* env, jstring java_dex_path) {
+  if (java_dex_path == nullptr) return {};
+
+  ScopedUtfChars dex_path_utf_chars(env, java_dex_path);
+  std::string dex_path = dex_path_utf_chars.c_str();
+
+  std::sregex_iterator iter(dex_path.begin(), dex_path.end(), kApexDexPathRegex);
+  std::sregex_iterator end;
+  std::unordered_set<std::string> apex_namespaces;
+  for (auto i = iter; i != end; ++i) {
+    apex_namespaces.emplace((*i).str().substr((*i).str().find(kApexPath) + strlen(kApexPath)));
+  }
+  return apex_namespaces;
 }
 
 }  // namespace
@@ -260,16 +277,6 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     }
   }
 
-  // Give access to NNAPI libraries (apex-updated LLNDK library).
-  auto nnapi_ns =
-      NativeLoaderNamespace::GetExportedNamespace(kNeuralNetworksNamespaceName, is_bridged);
-  if (nnapi_ns) {
-    linked = app_ns->Link(*nnapi_ns, neuralnetworks_public_libraries());
-    if (!linked) {
-      return linked.error();
-    }
-  }
-
   // Give access to VNDK-SP libraries from the 'vndk' namespace.
   if (unbundled_vendor_or_product_app && !vndksp_libraries().empty()) {
     auto vndk_ns = NativeLoaderNamespace::GetExportedNamespace(kVndkNamespaceName, is_bridged);
@@ -278,16 +285,6 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
       if (!linked) {
         return linked.error();
       }
-    }
-  }
-
-  // TODO(b/143733063): Remove it after library path of apex module is supported.
-  auto cronet_ns =
-      NativeLoaderNamespace::GetExportedNamespace(kCronetNamespaceName, is_bridged);
-  if (cronet_ns) {
-    linked = app_ns->Link(*cronet_ns, cronet_public_libraries());
-    if (!linked) {
-      return linked.error();
     }
   }
 
@@ -302,6 +299,18 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
       }
     }
   }
+
+  // Link apex namespace if dex_path is related to apex.
+  for (const auto& ns_name : GetApexNamespacesFromDexPath(env, dex_path)) {
+    auto apex_ns = NativeLoaderNamespace::GetExportedNamespace(ns_name, is_bridged);
+    if (apex_ns) {
+      linked = app_ns->Link(*apex_ns, get_public_libraries_by_name(ns_name));
+      if (!linked) {
+        return linked.error();
+      }
+    }
+  }
+
 
   namespaces_.push_back(std::make_pair(env->NewWeakGlobalRef(class_loader), *app_ns));
   if (is_main_classloader) {
