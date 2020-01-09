@@ -2369,6 +2369,17 @@ bool ClassLinker::AddImageSpace(
     }, space->Begin(), image_pointer_size_);
   }
 
+  if (interpreter::CanRuntimeUseNterp()) {
+    // Set image methods' entry point that point to the interpreter bridge to the nterp entry point.
+    header.VisitPackedArtMethods([&](ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
+      if (IsQuickToInterpreterBridge(method.GetEntryPointFromQuickCompiledCode()) &&
+          interpreter::CanMethodUseNterp(&method)) {
+        method.SetEntryPointFromQuickCompiledCodePtrSize(interpreter::GetNterpEntryPoint(),
+                                                         image_pointer_size_);
+      }
+    }, space->Begin(), image_pointer_size_);
+  }
+
   ClassTable* class_table = nullptr;
   {
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
