@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0a64802_a8f762f5",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-09T10:19:57Z",
+      "side": 1,
+      "message": "can you make this more generic? e.g. InitPublicLibrariesFromApex(std::string apex_name)",
+      "range": {
+        "startLine": 282,
+        "startChar": 19,
+        "endLine": 282,
+        "endChar": 44
+      },
+      "revId": "446ef9005fd32e25ca109800daf757a77c253c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
