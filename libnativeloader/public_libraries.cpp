@@ -27,6 +27,7 @@
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/result.h>
+#include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 #include <log/log.h>
 
@@ -34,6 +35,7 @@
 #include <android/sysprop/VndkProperties.sysprop.h>
 #endif
 
+#include "library_namespaces.h"  // kApexPath
 #include "utils.h"
 
 namespace android::nativeloader {
@@ -61,8 +63,8 @@ const std::vector<const std::string> kArtApexPublicLibraries = {
 constexpr const char* kArtApexLibPath = "/apex/com.android.art/" LIB;
 
 constexpr const char* kNeuralNetworksApexPublicLibrary = "libneuralnetworks.so";
-// STOPSHIP(b/146420818): Figure out how to use stub or non-specific lib name for libcronet.
-constexpr const char* kCronetApexPublicLibrary = "libcronet.80.0.3986.0.so";
+
+constexpr const char* kCronetApexName = "com.android.cronet";
 
 // TODO(b/130388701): do we need this?
 std::string root_dir() {
@@ -277,8 +279,16 @@ static std::string InitNeuralNetworksPublicLibraries() {
   return kNeuralNetworksApexPublicLibrary;
 }
 
-static std::string InitCronetPublicLibraries() {
-  return kCronetApexPublicLibrary;
+static std::string InitPublicLibrariesFromApex(const char* apex_name) {
+  const std::string config_file =
+      android::base::StringPrintf(
+          "%s%s%s", kApexPath, apex_name, kDefaultPublicLibrariesFile);
+  auto sonames = ReadConfig(config_file, always_true);
+  if (!sonames) {
+    LOG_ALWAYS_FATAL("%s", sonames.error().message().c_str());
+    return "";
+  }
+  return android::base::Join(*sonames, ':');
 }
 
 }  // namespace
@@ -314,13 +324,13 @@ const std::string& neuralnetworks_public_libraries() {
 }
 
 const std::string& cronet_public_libraries() {
-  static std::string list = InitCronetPublicLibraries();
+  static std::string list = InitPublicLibrariesFromApex(kCronetApexName);
   return list;
 }
 
 // TODO(b/147412110): Use some solid way for the mapping between namespace and public_libraries.
 const std::string& get_public_libraries_by_name(const std::string& name) {
-  if (name == "com.android.cronet") {
+  if (name == kCronetApexName) {
     return cronet_public_libraries();
   }
   if (name == "com.android.neuralnetworks") {
