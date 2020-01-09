@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e471b1ea_f0e87160",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-09T10:18:01Z",
+      "side": 1,
+      "message": "why is this a set instead of just std::string?",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 31
+      },
+      "revId": "fc56167738c6a6dc219f596c2057968eb94fe0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53c04182_435c4576",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-09T10:18:01Z",
+      "side": 1,
+      "message": "Please handle this as well",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 3
+      },
+      "revId": "fc56167738c6a6dc219f596c2057968eb94fe0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185ec761_c78e4d43",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-09T10:18:01Z",
+      "side": 1,
+      "message": "I think this should trigger an error. For the apex module that doesn\u0027t have associated linker namespace, GetExportedNamespace should have returned nothing.",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 83
+      },
+      "revId": "fc56167738c6a6dc219f596c2057968eb94fe0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261dd7ad_d61585f9",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-09T10:18:01Z",
+      "side": 1,
+      "message": "please file a bug for this and put the bug number here",
+      "range": {
+        "startLine": 321,
+        "startChar": 3,
+        "endLine": 321,
+        "endChar": 7
+      },
+      "revId": "fc56167738c6a6dc219f596c2057968eb94fe0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
