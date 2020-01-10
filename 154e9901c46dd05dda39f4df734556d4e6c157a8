@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "515ebe89_1dcf043a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "To reiterate the question I asked on the ticket: What\u0027s the problem this is addressing? (I can make an educated guess, but it\u0027d still only be a guess.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f7c299f_da2c56bb",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "This can be avoided by picking out a submatch in kApexDexPathRegex. I suggest making all subexpressions in it non-marking (\"(?:xxx)\") except the one that you want to pick out.",
+      "range": {
+        "startLine": 129,
+        "startChar": 46,
+        "endLine": 129,
+        "endChar": 92
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5973d12_d74de376",
+        "filename": "libnativeloader/library_namespaces.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "Worth a comment that this cannot contain any ECMAScript regex special characters.",
+      "range": {
+        "startLine": 36,
+        "startChar": 42,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d82d41d_8acf0201",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "As mentioned above there should also be tests with \":\"-separated paths, both with /apex and non-/apex paths.",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 10
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a48c139_ba6bb4f5",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "I think it\u0027s better to make this literal, in case the constant is jumbled somehow.",
+      "range": {
+        "startLine": 518,
+        "startChar": 65,
+        "endLine": 518,
+        "endChar": 74
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d808839_919b596c",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-10T17:05:05Z",
+      "side": 1,
+      "message": "Why this fallback? Shouldn\u0027t it bypass the link if the name isn\u0027t recognised?",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 36
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
