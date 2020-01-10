@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9e40dc2c_c5c8ad86",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-10T10:54:24Z",
+      "side": 1,
+      "message": "Add kNeuralNetworksNamespaceName back since it is not a JNI library, which means could not be applied to this approach. We need to find another solution for it.\n\nFrom https://cs.corp.google.com/android/cts/tests/tests/jni/src/android/jni/cts/LinkerNamespacesHelper.java?g\u003d0\u0026l\u003d65, looks like libneuralnetworks.so is a system public library.\nDo we have any hint to know if apps want to use it?",
+      "parentUuid": "7eeaa4f1_d7864aba",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 3
+      },
+      "revId": "fc56167738c6a6dc219f596c2057968eb94fe0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "185ec761_c78e4d43",
         "filename": "libnativeloader/library_namespaces.cpp",
         "patchSetId": 4
