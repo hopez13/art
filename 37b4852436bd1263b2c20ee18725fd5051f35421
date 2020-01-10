@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b50fcde_e97b539c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-10T16:30:00Z",
+      "side": 1,
+      "message": "Load `outs_size` into \\refs, so that line 296 can simply update \\refs.\n\nWe could also load `registers_size` to \\fp and avoid clobbering RBX. (The TESTL on line 307 can be replaced with `cmp \\refs, \\fp`.) Though not the having `registers_size` as an output that can be clobbered would require one more instruction for argument setup (lines 1422-1423).",
+      "range": {
+        "startLine": 280,
+        "startChar": 51,
+        "endLine": 280,
+        "endChar": 54
+      },
+      "revId": "37b4852436bd1263b2c20ee18725fd5051f35421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96d08cc6_4aea607b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-10T16:30:00Z",
+      "side": 1,
+      "message": "LEAQ with scale 2.",
+      "range": {
+        "startLine": 284,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 19
+      },
+      "revId": "37b4852436bd1263b2c20ee18725fd5051f35421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d88bdfd1_7557a8ea",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-10T16:30:00Z",
+      "side": 1,
+      "message": "LEAQ -24(%rsp), %r10 (requires updating comments)",
+      "range": {
+        "startLine": 287,
+        "startChar": 4,
+        "endLine": 290,
+        "endChar": 19
+      },
+      "revId": "37b4852436bd1263b2c20ee18725fd5051f35421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
