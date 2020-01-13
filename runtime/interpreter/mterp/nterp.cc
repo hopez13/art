@@ -593,12 +593,14 @@ extern "C" jit::OsrData* NterpHotMethod(ArtMethod* method, uint16_t* dex_pc_ptr,
 extern "C" ssize_t MterpDoPackedSwitch(const uint16_t* switchData, int32_t testVal);
 extern "C" ssize_t NterpDoPackedSwitch(const uint16_t* switchData, int32_t testVal)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedAssertNoThreadSuspension sants("In nterp");
   return MterpDoPackedSwitch(switchData, testVal);
 }
 
 extern "C" ssize_t MterpDoSparseSwitch(const uint16_t* switchData, int32_t testVal);
 extern "C" ssize_t NterpDoSparseSwitch(const uint16_t* switchData, int32_t testVal)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedAssertNoThreadSuspension sants("In nterp");
   return MterpDoSparseSwitch(switchData, testVal);
 }
 
