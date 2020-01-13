@@ -16,6 +16,8 @@
 
 #include "oat_quick_method_header.h"
 
+#include <sys/mman.h>
+
 #include "art_method.h"
 #include "dex/dex_file_types.h"
 #include "interpreter/interpreter_mterp_impl.h"
@@ -88,12 +90,24 @@ uintptr_t OatQuickMethodHeader::ToNativeQuickPc(ArtMethod* method,
   return UINTPTR_MAX;
 }
 
-OatQuickMethodHeader* OatQuickMethodHeader::NterpMethodHeader =
-    (interpreter::IsNterpSupported()
-        ? reinterpret_cast<OatQuickMethodHeader*>(
-              reinterpret_cast<uintptr_t>(interpreter::GetNterpEntryPoint()) -
-                  sizeof(OatQuickMethodHeader))
-        : nullptr);
+static OatQuickMethodHeader* InitializeNterpMethodHeader() {
+  if (interpreter::IsNterpSupported()) {
+    // In case our library has been compiled execute-only, change it to
+    // read+execute: we need to be able to read the method header.
+    OatQuickMethodHeader* method_header = reinterpret_cast<OatQuickMethodHeader*>(
+        reinterpret_cast<uintptr_t>(interpreter::GetNterpEntryPoint()) -
+            sizeof(OatQuickMethodHeader));
+    if (mprotect(AlignDown(method_header, kPageSize), kPageSize, PROT_READ | PROT_EXEC) == -1) {
+      PLOG(FATAL) << "Cannot set nterp method header";
+      return nullptr;
+    }
+    return method_header;
+  } else {
+    return nullptr;
+  }
+}
+
+OatQuickMethodHeader* OatQuickMethodHeader::NterpMethodHeader = InitializeNterpMethodHeader();
 
 bool OatQuickMethodHeader::IsNterpMethodHeader() const {
   return interpreter::IsNterpSupported() ? (this == NterpMethodHeader) : false;
