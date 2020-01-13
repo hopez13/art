@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c3fa0ca_2132e92a",
+        "filename": "tools/compile-jar.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-13T17:29:05Z",
+      "side": 1,
+      "message": "This should be:\n\n  --boot-image\u003d${OUT}/apex/com.android.art/javalib/boot.art:${OUT}/system/framework/boot-framework.art",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "cf25dadd15ddf2d5a4be2abd756b08fdf4f0c636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a9746d5_bdaab7cd",
+        "filename": "tools/compile-jar.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-13T17:29:05Z",
+      "side": 1,
+      "message": "This should be:\n\n  $OUT/system/framework/oat/${ISA}/services.odex\n\nIt is no longer possible to get the full bootclasspath from boot image oat files, because after splitting the boot image into primary and extension the bootclasspath encoded in the primary does not include framework jars, and the bootclasspath encoded in the extension also does not include framework files (but for a different reason: in the extension bootclasspath has the same meaning as in apks, namely the *used* bootclasspath, not the *exported* bootclasspath).\n\nUsing services.odex is a quick hack to get it working again.",
+      "range": {
+        "startLine": 38,
+        "startChar": 49,
+        "endLine": 38,
+        "endChar": 75
+      },
+      "revId": "cf25dadd15ddf2d5a4be2abd756b08fdf4f0c636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
