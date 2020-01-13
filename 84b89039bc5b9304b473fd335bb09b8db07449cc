@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dfa22c2_112e4685",
+        "filename": "test/2009-structural-local-ref/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-01-13T19:23:59Z",
+      "side": 1,
+      "message": "Update?",
+      "revId": "84b89039bc5b9304b473fd335bb09b8db07449cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1194441_8c49ee39",
+        "filename": "test/2009-structural-local-ref/local-ref.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-01-13T19:23:59Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 104
+      },
+      "revId": "84b89039bc5b9304b473fd335bb09b8db07449cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2138934_97b9c3d1",
+        "filename": "test/2009-structural-local-ref/src-art/art/Test2009.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-01-13T19:23:59Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 98,
+        "startChar": 31,
+        "endLine": 98,
+        "endChar": 134
+      },
+      "revId": "84b89039bc5b9304b473fd335bb09b8db07449cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
