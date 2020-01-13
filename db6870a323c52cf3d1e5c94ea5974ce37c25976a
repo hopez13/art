@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f5649d3_c36b463a",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-13T12:57:18Z",
+      "side": 1,
+      "message": "Can you point to how this number was generated, for the non-app-compat aware reader of this code.",
+      "range": {
+        "startLine": 59,
+        "startChar": 55,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45da262f_3227348b",
+        "filename": "test/674-hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-13T12:57:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 111
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa13fc82_b419a01b",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-13T12:57:18Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 108,
+        "startChar": 103,
+        "endLine": 108,
+        "endChar": 110
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
