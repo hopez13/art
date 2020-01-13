@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ddc1d259_0ce2e573",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T12:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5346cb20_e9024679",
+      "revId": "8b8b651bae6b589111a0d05e2815a37e029e4048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c81daae_bdd8c1e8",
         "filename": "test/674-hiddenapi/src-ex/Reflection.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8b8b651bae6b589111a0d05e2815a37e029e4048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5759ce63_1303118b",
+        "filename": "test/674-hiddenapi/src-ex/Reflection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T12:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c81daae_bdd8c1e8",
+      "revId": "8b8b651bae6b589111a0d05e2815a37e029e4048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
