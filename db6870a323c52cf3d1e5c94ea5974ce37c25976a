@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6574c0e_f7f8a3d0",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T13:33:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f5649d3_c36b463a",
+      "range": {
+        "startLine": 59,
+        "startChar": 55,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45da262f_3227348b",
         "filename": "test/674-hiddenapi/hiddenapi.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11f9fb5b_088038eb",
+        "filename": "test/674-hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T13:33:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45da262f_3227348b",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 111
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3d11f5a7_08c5996e",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T13:33:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa13fc82_b419a01b",
+      "range": {
+        "startLine": 108,
+        "startChar": 103,
+        "endLine": 108,
+        "endChar": 110
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1dc29f_e84460df",
         "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07847c5e_f2155678",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-13T13:33:08Z",
+      "side": 1,
+      "message": "Thanks, done. Hopefully the explanation is satisfactory; I\u0027m 50% ¯\\_(ツ)_/¯ myself.",
+      "parentUuid": "4e1dc29f_e84460df",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 110,
+        "endChar": 86
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
