@@ -68,6 +68,29 @@
       "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e1dc29f_e84460df",
+        "filename": "test/674-hiddenapi/src-ex/ChildClass.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2020-01-13T13:08:53Z",
+      "side": 1,
+      "message": "Please document why only in this condition we test for the change being disabled.\n\nAlso hiddenApiCheckHardeningDisabled doesn\u0027t help with understanding the code as it doesn\u0027t explain how it\u0027s used (more like testHiddenApiCheckHardeningDisabled) or what its value is (this condition here).",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 110,
+        "endChar": 86
+      },
+      "revId": "db6870a323c52cf3d1e5c94ea5974ce37c25976a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
