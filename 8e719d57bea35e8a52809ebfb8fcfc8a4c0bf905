@@ -34,6 +34,24 @@
       "revId": "8e719d57bea35e8a52809ebfb8fcfc8a4c0bf905",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e469ea_a36b677e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-14T15:23:01Z",
+      "side": 1,
+      "message": "If you just want to patch topics for your own use then https://android.googlesource.com/platform/development/+/master/tools/repo_pull/ can help, although I\u0027m not sure it can do reverts out of the box.\n\nI also suggest removing all reviewers and CC\u0027s as soon as possible if you don\u0027t intend to get this reviewed for submit. Maybe also set the WIP state in Gerrit.",
+      "parentUuid": "668651af_0b541f0d",
+      "revId": "8e719d57bea35e8a52809ebfb8fcfc8a4c0bf905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
