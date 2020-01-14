@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a84641_863f54ac",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-01-14T18:06:40Z",
+      "side": 1,
+      "message": "Should this be \u003c\u003d?",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9436dee6_859a85c4",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-01-14T18:06:40Z",
+      "side": 1,
+      "message": "Do we ever build and run with DCHECK enabled? If not, would it make sense to have these be CHECK instead? Given that the are essentially constexpr, it\u0027s likely the compiler could remove the check entirely anyway.",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ce29eef_8d7fc1fc",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-01-14T18:06:40Z",
+      "side": 1,
+      "message": "Out of curiosity, would it be possible to extend tail calls to more things in the future?",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
