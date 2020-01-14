@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb6e7b8f_6cf2590a",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-14T08:42:41Z",
+      "side": 1,
+      "message": "This can be moved to the DCHECK_EQ() and all other uses of `this_index` replaced with `incoming_edge_index`.",
+      "range": {
+        "startLine": 247,
+        "startChar": 26,
+        "endLine": 247,
+        "endChar": 71
+      },
+      "revId": "ad2c51f3769217d3d3285605e128d8145380a389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79023087_ceb392e1",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-14T08:42:41Z",
+      "side": 1,
+      "message": "\"yet\" / \"so far\"",
+      "range": {
+        "startLine": 491,
+        "startChar": 36,
+        "endLine": 491,
+        "endChar": 37
+      },
+      "revId": "ad2c51f3769217d3d3285605e128d8145380a389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e018707_9c689395",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-14T08:42:41Z",
+      "side": 1,
+      "message": "style: I\u0027d expect the constant on the right hand side. (Same on the next line.)",
+      "range": {
+        "startLine": 1178,
+        "startChar": 6,
+        "endLine": 1178,
+        "endChar": 55
+      },
+      "revId": "ad2c51f3769217d3d3285605e128d8145380a389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcf1019_f7981301",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-14T08:42:41Z",
+      "side": 1,
+      "message": "Can this be protected?",
+      "range": {
+        "startLine": 383,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 4
+      },
+      "revId": "ad2c51f3769217d3d3285605e128d8145380a389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b20d48b7_d7c4d1f8",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-14T08:42:41Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 495,
+        "startChar": 5,
+        "endLine": 495,
+        "endChar": 86
+      },
+      "revId": "ad2c51f3769217d3d3285605e128d8145380a389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
