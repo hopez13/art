@@ -1033,6 +1033,7 @@ void Runtime::InitNonZygoteOrPostFork(
 
   if (Dbg::IsJdwpAllowed() || IsProfileableFromShell() || IsJavaDebuggable()) {
     std::string err;
+    ScopedTrace tr("perfetto_hprof init.");
     ScopedThreadSuspension sts(Thread::Current(), ThreadState::kNative);
     if (!EnsurePerfettoPlugin(&err)) {
       LOG(WARNING) << "Failed to load perfetto_hprof: " << err;
