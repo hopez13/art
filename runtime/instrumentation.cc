@@ -298,6 +298,12 @@ void InstrumentationInstallStack(Thread* thread, void* arg)
           last_return_pc_(0),
           force_deopt_id_(force_deopt_id) {}
 
+   protected:
+    bool IsStackInstrumentWalk() const override {
+      return true;
+    }
+
+   public:
     bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
       ArtMethod* m = GetMethod();
       if (m == nullptr) {
@@ -396,8 +402,13 @@ void InstrumentationInstallStack(Thread* thread, void* arg)
             break;
           }
         }
-        instrumentation_stack_->insert(it, instrumentation_frame);
-        SetReturnPc(instrumentation_exit_pc_);
+        {
+          // Increment the version count of the instrumentation stack so other threads can see it.
+          MutexLock mu2(Thread::Current(), *GetThread()->GetInstrumentationInstallIdMutex());
+          instrumentation_stack_->insert(it, instrumentation_frame);
+          SetReturnPc(instrumentation_exit_pc_);
+          GetThread()->IncrementInstrumentationInstallId();
+        }
       }
       uint32_t dex_pc = dex::kDexNoIndex;
       if (last_return_pc_ != 0 && GetCurrentOatQuickMethodHeader() != nullptr) {
@@ -417,6 +428,7 @@ void InstrumentationInstallStack(Thread* thread, void* arg)
     uintptr_t last_return_pc_;
     uint64_t force_deopt_id_;
   };
+  MutexLock mu(Thread::Current(), *thread->GetInstrumentationInstallMutex());
   if (kVerboseInstrumentation) {
     std::string thread_name;
     thread->GetThreadName(thread_name);
