@@ -42,6 +42,8 @@ namespace.art.permitted.paths = /data
 # dalvikvm has to be able to dlopen the files for CTS.
 namespace.art.permitted.paths += /system/framework
 namespace.art.permitted.paths += /apex/com.android.art/javalib
+# b/144533348: to allow symlinks pointing the libs under /system/lib
+namespace.art.permitted.paths += /system/${LIB}
 namespace.art.links = platform,neuralnetworks
 # Need allow_all_shared_libs because libart.so can dlopen oat files in
 # /system/framework and /data.
@@ -113,6 +115,8 @@ namespace.conscrypt.visible = true
 
 namespace.conscrypt.search.paths = /apex/com.android.conscrypt/${LIB}
 namespace.conscrypt.asan.search.paths = /apex/com.android.conscrypt/${LIB}
+# b/144533348: to allow symlinks pointing the libs under /system/lib
+namespace.conscrypt.permitted.paths = /system/${LIB}
 namespace.conscrypt.links = art,platform
 namespace.conscrypt.link.art.shared_libs = libandroidio.so
 namespace.conscrypt.link.platform.shared_libs  = libc.so
@@ -130,6 +134,8 @@ namespace.neuralnetworks.visible = true
 
 namespace.neuralnetworks.search.paths = /apex/com.android.neuralnetworks/${LIB}
 namespace.neuralnetworks.asan.search.paths = /apex/com.android.neuralnetworks/${LIB}
+# b/144533348: to allow symlinks pointing the libs under /system/lib
+namespace.neuralnetworks.permitted.paths = /system/${LIB}
 namespace.neuralnetworks.links = platform
 namespace.neuralnetworks.link.platform.shared_libs  = libc.so
 namespace.neuralnetworks.link.platform.shared_libs += libcgrouprc.so
