@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c732a19a_191aa435",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-14T10:37:06Z",
+      "side": 1,
+      "message": "Nit: missing dot.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "5b29ca7389d799b5f538d2fb593715616c76b3b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c154e296_57f9019f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-14T10:37:06Z",
+      "side": 1,
+      "message": "Now the description is incorrect, I suggest something like this:\n\n  Now the boot image is split into primary part in the ART apex\n  and the framework boot image extension in /system/framework.\n\n  It is no longer possible to get the full bootclasspath from the\n  boot image oat files, so we use services.odex instead.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "5b29ca7389d799b5f538d2fb593715616c76b3b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c21bd1df_216bf844",
+        "filename": "tools/compile-jar.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-14T10:37:06Z",
+      "side": 1,
+      "message": "This is no longer needed.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 45
+      },
+      "revId": "5b29ca7389d799b5f538d2fb593715616c76b3b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
