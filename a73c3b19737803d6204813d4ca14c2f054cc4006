@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "e1dd5cc0_48050b09",
+        "filename": "test/596-app-images/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-14T23:25:44Z",
+      "side": 1,
+      "message": "update all years in new file to the current one.",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "a73c3b19737803d6204813d4ca14c2f054cc4006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78dee2fb_ec8f653d",
+        "filename": "test/596-app-images/src-art/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-14T23:25:44Z",
+      "side": 1,
+      "message": "2 space indentation",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "a73c3b19737803d6204813d4ca14c2f054cc4006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f623fd55_c6e447a8",
         "filename": "test/596-app-images/src-art/Main.java",
         "patchSetId": 5
@@ -76,6 +122,29 @@
       "writtenOn": "2020-01-14T14:13:57Z",
       "side": 1,
       "message": "Please just implement the assert* method you use in the test.",
+      "revId": "a73c3b19737803d6204813d4ca14c2f054cc4006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35437824_1da9e406",
+        "filename": "test/596-app-images/src-art/junit/framework/Assert.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-14T23:25:44Z",
+      "side": 1,
+      "message": "no tabs. use 2 space indentation.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
       "revId": "a73c3b19737803d6204813d4ca14c2f054cc4006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
