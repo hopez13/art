@@ -52,6 +52,24 @@
       "revId": "8e719d57bea35e8a52809ebfb8fcfc8a4c0bf905",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d444343_068f15d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-14T15:30:33Z",
+      "side": 1,
+      "message": "Thanks Martin, it just never occurred to me that I can do it.\n\nI only create reverts if I need to cherry-pick between different trees or run on forrset (as in this case).",
+      "parentUuid": "21e469ea_a36b677e",
+      "revId": "8e719d57bea35e8a52809ebfb8fcfc8a4c0bf905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
