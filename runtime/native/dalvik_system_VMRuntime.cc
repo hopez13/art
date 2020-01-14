@@ -20,6 +20,7 @@
 #include <sys/resource.h>
 #include <sys/time.h>
 extern "C" void android_set_application_target_sdk_version(uint32_t version);
+extern "C" void android_set_application_disabled_changes(uint64_t* disabled_changes, uint32_t len);
 #endif
 #include <inttypes.h>
 #include <limits>
@@ -280,15 +281,23 @@ static void VMRuntime_setDisabledCompatChangesNative(JNIEnv* env, jobject,
   if (disabled_compat_changes == nullptr) {
     return;
   }
-  std::set<uint64_t> disabled_compat_changes_vec;
+  std::set<uint64_t> disabled_compat_changes_set;
   int length = env->GetArrayLength(disabled_compat_changes);
+  uint64_t* disabled_compat_changes_vec = new uint64_t[length];
   jlong* elements = env->GetLongArrayElements(disabled_compat_changes, /*isCopy*/nullptr);
   for (int i = 0; i < length; i++) {
-    disabled_compat_changes_vec.insert(static_cast<uint64_t>(elements[i]));
+    uint64_t change_id = static_cast<uint64_t>(elements[i]);
+    disabled_compat_changes_set.insert(change_id);
+    disabled_compat_changes_vec[i] = change_id;
   }
-  Runtime::Current()->SetDisabledCompatChanges(disabled_compat_changes_vec);
+  Runtime::Current()->SetDisabledCompatChanges(disabled_compat_changes_set);
 
   // TODO(145743810): pipe into libc as well.
+#ifdef ART_TARGET_ANDROID
+  // This part is letting libc/dynamic linker know about current app's
+  // disabled changes.
+  android_set_application_disabled_changes(disabled_compat_changes_vec, length);
+#endif
 }
 
 static inline size_t clamp_to_size_t(jlong n) {
