@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be9c4141_7fef118e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-15T23:44:46Z",
+      "side": 0,
+      "message": "All the changes in this file can be ignored once https://android-review.googlesource.com/c/platform/art/+/1208623 is merged. I think there might still be value landing this CL to expand the test coverage of secondary app images (after the merge I\u0027ll rebase and change the title of this CL)",
+      "revId": "2a2840439c585b1b51c263a729ed5687970609e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
