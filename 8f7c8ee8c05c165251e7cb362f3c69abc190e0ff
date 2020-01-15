@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9a2cc66_e66f27e9",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2020-01-15T20:29:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f054ed33_158b5ff5",
+      "range": {
+        "startLine": 271,
+        "startChar": 6,
+        "endLine": 271,
+        "endChar": 21
+      },
+      "revId": "8f7c8ee8c05c165251e7cb362f3c69abc190e0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dbd7215_927e1ec6",
         "filename": "libnativebridge/native_bridge.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "8f7c8ee8c05c165251e7cb362f3c69abc190e0ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f587989_bff7975e",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2020-01-15T20:29:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dbd7215_927e1ec6",
+      "range": {
+        "startLine": 416,
+        "startChar": 8,
+        "endLine": 416,
+        "endChar": 26
+      },
+      "revId": "8f7c8ee8c05c165251e7cb362f3c69abc190e0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
