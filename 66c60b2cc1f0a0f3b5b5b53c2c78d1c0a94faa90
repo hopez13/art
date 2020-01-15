@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa50601d_36a244b1",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-15T09:39:16Z",
+      "side": 1,
+      "message": "Unrelated?",
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9b755d0_f51894f1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-15T09:39:16Z",
+      "side": 1,
+      "message": "Can you try moving this stack walker in a ScopedSuspendAll block? This will remove the need for the other changes.",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
