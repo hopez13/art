@@ -120,6 +120,8 @@ art_cc_library_static {
     ],
     apex_available: [
         "com.android.art.release",
+        "com.android.art.debug",
+        "com.android.art.testing",
     ],
 }
 
@@ -152,6 +154,7 @@ art_cc_library_static {
     ],
     apex_available: [
         "com.android.art.debug",
+        "com.android.art.testing",
     ],
 }
 
@@ -292,6 +295,7 @@ art_cc_binary {
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
+        "com.android.art.testing",
     ],
 }
 
@@ -342,6 +346,7 @@ art_cc_binary {
     },
     apex_available: [
         "com.android.art.debug",
+        "com.android.art.testing",
     ],
 }
 

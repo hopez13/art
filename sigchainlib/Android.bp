@@ -46,6 +46,7 @@ cc_library {
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
+        "com.android.art.testing",
         // TODO(b/142944931) Clean this up. This is due to the dependency from
         // app_process
         "//apex_available:platform",

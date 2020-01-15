@@ -57,5 +57,6 @@ art_cc_binary {
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
+        "com.android.art.testing",
     ],
 }
