@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4424a257_12a8d478",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T09:22:04Z",
+      "side": 1,
+      "message": "No, this assertion is documenting that AAPCS has weaker requirements than our managed ABI. (In line with the comment above.)",
+      "parentUuid": "f9a84641_863f54ac",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9436dee6_859a85c4",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f3b70779_9fb9957d",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T09:22:04Z",
+      "side": 1,
+      "message": "Our tests cover debug mode. And it\u0027s possible to switch a device to actually use debug mode in some builds, though I don\u0027t know if anyone is actively using it.",
+      "parentUuid": "9436dee6_859a85c4",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ce29eef_8d7fc1fc",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2020-01-14T18:06:40Z",
       "side": 1,
       "message": "Out of curiosity, would it be possible to extend tail calls to more things in the future?",
+      "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbf00a07_2ed1f6ae",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T09:22:04Z",
+      "side": 1,
+      "message": "Only if we change managed ABI. I\u0027ve implemented the arm/arm64/x86 tail calls for all situations where the current ABI does not prevent them. Current x86-64 ABI does not allow tail call at all because of managed callee-saves that are not native callee-saves.",
+      "parentUuid": "2ce29eef_8d7fc1fc",
       "revId": "7124bce9ac1cc9b17592333d503ef20366242a26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
