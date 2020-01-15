@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d7c8f2a_5ba73b27",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T09:41:37Z",
+      "side": 1,
+      "message": "No, there is no positive variant at the moment.",
+      "parentUuid": "aa965f33_c1a3d30e",
+      "range": {
+        "startLine": 121,
+        "startChar": 18,
+        "endLine": 121,
+        "endChar": 30
+      },
+      "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae545edd_3de8605d",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 4
