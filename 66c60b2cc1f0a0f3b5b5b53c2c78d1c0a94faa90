@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ada63c1d_044abf98",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-15T17:33:24Z",
+      "side": 1,
+      "message": "It seems something about this change (probably making Thread* a bit larger) causes this test to fail. The linked bug basically says that nobody knows why it fails on x86 so I just added a skip for the rest too.",
+      "parentUuid": "aa50601d_36a244b1",
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9b755d0_f51894f1",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d962f8_913def2d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-15T17:33:24Z",
+      "side": 1,
+      "message": "Nope that won\u0027t work. Several of the other stack-walkers are run by suspended threads so the race is still present. Furthermore at least 2 stack-walkers can suspend during the stack walk (they both walk their own stack so this is safe enough assuming WalkStack is thread safe). This could lead to the exact type of interleaving that causes the bug.",
+      "parentUuid": "b9b755d0_f51894f1",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
