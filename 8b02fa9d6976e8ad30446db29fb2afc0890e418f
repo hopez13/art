@@ -46,6 +46,30 @@
       "revId": "8b02fa9d6976e8ad30446db29fb2afc0890e418f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7c762a3_ef00a180",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-15T13:42:47Z",
+      "side": 1,
+      "message": "in the future, when the apex_name is dynamically determined (or synthesized), std::string might be the better choice",
+      "parentUuid": "da6ac4a2_6b4cb406",
+      "range": {
+        "startLine": 282,
+        "startChar": 47,
+        "endLine": 282,
+        "endChar": 58
+      },
+      "revId": "8b02fa9d6976e8ad30446db29fb2afc0890e418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
