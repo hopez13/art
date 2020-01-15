@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "5710f212_a1d56fe0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-01-15T21:51:36Z",
+      "side": 1,
+      "message": "Chromium style is to not use a period for the first line. I\u0027m not sure whether Android follows this or not though.\n\nhttps://chromium.googlesource.com/chromium/src/+/master/docs/contributing.md#Chromium_specific-description-tips\n\nThe Chrome guide references https://chris.beams.io/posts/git-commit/ which specifically says not to use a period.\n\nNot that any of this is necessarily relevant here, but lately I\u0027ve tended to appeal to some random authority and quit using periods.",
+      "parentUuid": "65703fb7_d86d72cd",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "5b29ca7389d799b5f538d2fb593715616c76b3b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c154e296_57f9019f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
