@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c648a1b6_35a01671",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "Adjust the descriptions.",
+      "parentUuid": "515ebe89_1dcf043a",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f7c299f_da2c56bb",
         "filename": "libnativeloader/library_namespaces.cpp",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1055f554_4f4913c9",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7c299f_da2c56bb",
+      "range": {
+        "startLine": 129,
+        "startChar": 46,
+        "endLine": 129,
+        "endChar": 92
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5973d12_d74de376",
         "filename": "libnativeloader/library_namespaces.h",
         "patchSetId": 8
@@ -68,6 +116,30 @@
       "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acb59b55_2835f285",
+        "filename": "libnativeloader/library_namespaces.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5973d12_d74de376",
+      "range": {
+        "startLine": 36,
+        "startChar": 42,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "045b6b24_0e04818d",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a48c139_ba6bb4f5",
+      "range": {
+        "startLine": 518,
+        "startChar": 65,
+        "endLine": 518,
+        "endChar": 74
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc60d180_57c7dcbe",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d82d41d_8acf0201",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 10
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d808839_919b596c",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2020-01-10T17:05:05Z",
       "side": 1,
       "message": "Why this fallback? Shouldn\u0027t it bypass the link if the name isn\u0027t recognised?",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 36
+      },
+      "revId": "154e9901c46dd05dda39f4df734556d4e6c157a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "417bc888_8ec88fb7",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1337176
+      },
+      "writtenOn": "2020-01-15T09:43:36Z",
+      "side": 1,
+      "message": "I guess we don\u0027t have a good way to mock this method. \nThen, if we just bypass the unrecognised name, we need to use the real name in the test. Otherwise, something like com.android.foo will be just ignored.\nThe problem here is that we only have 1 real cases for now. But we want to test the multiple path cases.\nThoughts?\n\nISTM that it doesn\u0027t matter for now since we only have 1 namespace applied this apex naming rule \"com.android.modulename\"",
+      "parentUuid": "1d808839_919b596c",
       "range": {
         "startLine": 327,
         "startChar": 2,
