@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c05c94b3_389ca4bd",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T10:02:25Z",
+      "side": 1,
+      "message": "Done (added \"IsRegister()\")",
+      "parentUuid": "6d7c8f2a_5ba73b27",
+      "range": {
+        "startLine": 121,
+        "startChar": 18,
+        "endLine": 121,
+        "endChar": 30
+      },
+      "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae545edd_3de8605d",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 4
@@ -69,6 +93,30 @@
       "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b90f2c_afdc340b",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T10:02:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae545edd_3de8605d",
+      "range": {
+        "startLine": 733,
+        "startChar": 18,
+        "endLine": 733,
+        "endChar": 30
+      },
+      "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "69bc0441_7775f9f8",
+        "filename": "compiler/utils/x86/jni_macro_assembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T10:02:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a120a92d_db3ac23b",
+      "range": {
+        "startLine": 79,
+        "startChar": 18,
+        "endLine": 79,
+        "endChar": 30
+      },
+      "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66d7d2fb_e8fa9472",
         "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
         "patchSetId": 4
@@ -115,6 +187,30 @@
       "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "361c1aa8_592c9942",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-15T10:02:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66d7d2fb_e8fa9472",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 30
+      },
+      "revId": "30280410d6ce0ad2e057d4f571e819ad6d660633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
