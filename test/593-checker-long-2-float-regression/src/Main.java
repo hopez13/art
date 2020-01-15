@@ -18,6 +18,7 @@ public class Main {
 
   static boolean doThrow = false;
   static long longValue;
+  static boolean doAssignment;
 
   public static void assertEquals(float expected, float result) {
     if (expected != result) {
@@ -36,11 +37,19 @@ public class Main {
 
   static float $noinline$longToFloat() {
     if (doThrow) { throw new Error(); }
-    longValue = $inline$returnConst();
+    doAssignment = true;
     // This call prevents D8 from replacing the result of the sget instruction
-    // in line 43 by the result of the call to $inline$returnConst() in line 39.
+    // in line 45 by the constant true in line 40.
     $inline$preventRedundantFieldLoadEliminationInD8();
-    return (float) longValue;
+    long x = longValue;
+    // the if (doAssignment) condition gets removed by DCE, leaving the
+    // instruction pattern this test is looking for. DCE runs after the last
+    // constant propagation pass, which prevents the IntConstant from being
+    // folded into the TypeConversion instruction.
+    if (doAssignment) {
+      x = $inline$returnConst();
+    }
+    return (float) x;
   }
 
   static long $inline$returnConst() {
