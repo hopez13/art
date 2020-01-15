@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "497e44d8_3fb1ee51",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Why are they counted twice? There was a confusing comment that now goes away:\n\n  // XX: Why is the long/ordouble counted twice but not JNIEnv* ???",
+      "range": {
+        "startLine": 434,
+        "startChar": 54,
+        "endLine": 434,
+        "endChar": 77
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee02f8f8_88b4d8a0",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Is it obvious that IP0 (X16) can be used as a scratch register? (Why then X20 was used before with a long explanatory comment?)",
+      "range": {
+        "startLine": 153,
+        "startChar": 45,
+        "endLine": 153,
+        "endChar": 58
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4c9b357_39278816",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Could be const bool perhaps (just to help the compiler realize that all those branches are on the same condition without constness analysis).",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 6
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f16f6b_20d660fa",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Sometimes LIKELY(!is_critical_native) is used, and sometimes UNLIKELY(is_critical_native), it would be a bit easier to read if the same form was used consistently. Or is there any difference?",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 33
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "395d6e62_c780e9f4",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "This doesn\u0027t have UNLIKELY(...) like other places.",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 24
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25ff7bb3_ff549a15",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "If this is MMX size, maybe worth using a global constant?",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 268,
+        "endChar": 40
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d482138_5d0cbce1",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Why do you use DCHECK here, but CHECK in places like FrameSize()?",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 280,
+        "endChar": 26
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd0c87f1_1b354ec8",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-15T18:03:15Z",
+      "side": 1,
+      "message": "Just wondering, there is a comment about doing clobber analysis in jni_compiler.cc. Does it mean that when we do clobber analysis we will be able to optimize tail calls if xmm12-xmm15 are not clobbered?",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 0
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
