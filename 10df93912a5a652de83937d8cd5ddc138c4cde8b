@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0f4e5663_95d3b688",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-15T19:19:03Z",
+      "side": 1,
+      "message": "Gotcha, thanks for the tip!",
+      "parentUuid": "5750b76a_bf47e2fb",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "10df93912a5a652de83937d8cd5ddc138c4cde8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b5d93f0_3ac075cd",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "fb2403df_f431d6b8",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-15T19:19:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b5d93f0_3ac075cd",
+      "range": {
+        "startLine": 611,
+        "startChar": 8,
+        "endLine": 611,
+        "endChar": 12
+      },
+      "revId": "10df93912a5a652de83937d8cd5ddc138c4cde8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef1b485e_832f4753",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 4
@@ -91,6 +139,30 @@
       "revId": "10df93912a5a652de83937d8cd5ddc138c4cde8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "924ed51c_61016a14",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-15T19:19:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ef1b485e_832f4753",
+      "range": {
+        "startLine": 612,
+        "startChar": 7,
+        "endLine": 612,
+        "endChar": 15
+      },
+      "revId": "10df93912a5a652de83937d8cd5ddc138c4cde8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
