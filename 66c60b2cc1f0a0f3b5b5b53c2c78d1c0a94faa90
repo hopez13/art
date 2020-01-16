@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "391a7a0c_4f9bb7be",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-16T17:29:16Z",
+      "side": 1,
+      "message": "I don\u0027t believe that is really feasible at this time. \n\nThere are ~50 stack-visitors present in ART.\n\n```\n% git grep -E \u0027(public .*StackVisitor|StackVisitor::WalkStack)\u0027 | wc -l\n57\n```\n\nThe two that I found which contain potentially suspending code are the CatchBlockStackVisitor (rand the CollectFramesAndLocksStackVisitor. Neither of these are associated with Instrumentation directly (being part of exception handling and SIGQUIT logging respectively). Both of these are very large and complicated visitors that would be rather complicated to rewrite. Also these are just the 2 that our current tests happened to catch due to AssertThreadSuspensionIsAllowable being called (and yes I checked the assert is legitimate, the first needs to potentially resolve classes and the second needs to inflate locks). I am far from certain that these are the only visitors that do this, they are just the first 2 that I found when looking at test failures on go/aog/1206897. Once I determined that even fixing just those 2 would be a rather large undertaking I switched gears to making WalkStack actually thread-safe like it had been assumed to be.",
+      "parentUuid": "295a3d03_f5f6ae4f",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1033795_2427bb1d",
         "filename": "runtime/stack.h",
         "patchSetId": 1
