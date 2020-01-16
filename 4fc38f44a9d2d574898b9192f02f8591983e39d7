@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10c00232_5a6b79f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-16T00:24:04Z",
+      "side": 1,
+      "message": "Is this the agreed-upon approach to store the libraries that an APEX exports? http://go/linker-config-apex talks about getting it from the manifest, and b/138695532 has CLs to that effect. +jooyung",
+      "revId": "4fc38f44a9d2d574898b9192f02f8591983e39d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
