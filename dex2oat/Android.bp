@@ -246,6 +246,7 @@ cc_defaults {
 
 art_cc_binary {
     name: "dex2oat",
+    compile_multilib: "both",
     defaults: [
         "dex2oat-defaults",
         "dex2oat-pgo-defaults",
@@ -287,6 +288,14 @@ art_cc_binary {
             shared_libs: [
                 "libz",
             ],
+        },
+    },
+    multilib: {
+        lib32: {
+            suffix: "32",
+        },
+        lib64: {
+            suffix: "64",
         },
     },
     apex_available: [
