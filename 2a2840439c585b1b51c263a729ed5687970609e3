@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ceb7c167_d102a088",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-16T18:13:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "922921c4_431fbe3d",
+      "range": {
+        "startLine": 38,
+        "startChar": 49,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "2a2840439c585b1b51c263a729ed5687970609e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "178b2a91_52c7d444",
         "filename": "test/596-app-images/app_images.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "2a2840439c585b1b51c263a729ed5687970609e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31935e78_58c66ad0",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-16T18:13:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "178b2a91_52c7d444",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 14
+      },
+      "revId": "2a2840439c585b1b51c263a729ed5687970609e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
