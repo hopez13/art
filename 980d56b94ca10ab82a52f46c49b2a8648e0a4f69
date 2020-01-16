@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b13de104_646948a3",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-16T17:09:31Z",
+      "side": 1,
+      "message": "I have no idea if this should be a bug. The dependency chain is:\n\nlinker \nlibdebuggerd_handler_fallback\nlibdexfile_support_static\nlibdexfile\nlibartbasse\n\nThis is now shown in the bp file directly.",
+      "parentUuid": "5b9f88d3_070c0c4d",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 78
+      },
+      "revId": "980d56b94ca10ab82a52f46c49b2a8648e0a4f69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7526ad4_8b824cf2",
         "filename": "tools/cpp-define-generator/Android.bp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "980d56b94ca10ab82a52f46c49b2a8648e0a4f69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef15e61_ff530877",
+        "filename": "tools/cpp-define-generator/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-01-16T17:09:31Z",
+      "side": 1,
+      "message": "Hmm, I just found that this is not required for platform. I think this became temporarily needed during the multiple rounds of the build system change.\nRemoved.",
+      "parentUuid": "e7526ad4_8b824cf2",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "980d56b94ca10ab82a52f46c49b2a8648e0a4f69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
