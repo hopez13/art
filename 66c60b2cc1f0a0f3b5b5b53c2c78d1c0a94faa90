@@ -81,6 +81,30 @@
       "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89550f6d_bce2ec54",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T10:21:07Z",
+      "side": 1,
+      "message": "Is there no other way?\n\nDo those 2 stack-walkers really need to suspend during the stack walk, or could they just collect information during stack walk and do the rest of the work afterwards? (That would be a valuable rewrite on its own.)\n\nCould we have a reader-writer mutex for the instrumentation stack that normal stack walk would acquire as a reader?",
+      "parentUuid": "36d962f8_913def2d",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
