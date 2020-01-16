@@ -635,6 +635,25 @@ ALWAYS_INLINE bool DoIGetQuick(ShadowFrame& shadow_frame, const Instruction* ins
   return true;
 }
 
+static inline bool CheckWriteConstraint(Thread* self, ObjPtr<mirror::Object> obj, ArtField* field)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->GetTransaction()->WriteConstraint(self, obj, field)) {
+    if (field->IsStatic()) {
+      runtime->AbortTransactionAndThrowAbortError(
+          self, "Can't set fields of " + obj->PrettyTypeOf());
+    } else {
+      // This can happen only when compiling a boot image extension.
+      DCHECK(!runtime->GetTransaction()->IsStrict());
+      DCHECK(runtime->GetHeap()->ObjectIsInBootImageSpace(obj));
+      runtime->AbortTransactionAndThrowAbortError(
+          self, "Can't set fields of boot image objects");
+    }
+    return false;
+  }
+  return true;
+}
+
 static inline bool CheckWriteValueConstraint(Thread* self, ObjPtr<mirror::Object> value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime* runtime = Runtime::Current();
@@ -676,21 +695,8 @@ ALWAYS_INLINE bool DoFieldPut(Thread* self, const ShadowFrame& shadow_frame,
       return false;
     }
   }
-  if (transaction_active) {
-    Runtime* runtime = Runtime::Current();
-    if (runtime->GetTransaction()->WriteConstraint(self, obj, f)) {
-      if (is_static) {
-        runtime->AbortTransactionAndThrowAbortError(
-            self, "Can't set fields of " + obj->PrettyTypeOf());
-      } else {
-        // This can happen only when compiling a boot image extension.
-        DCHECK(!runtime->GetTransaction()->IsStrict());
-        DCHECK(runtime->GetHeap()->ObjectIsInBootImageSpace(obj));
-        runtime->AbortTransactionAndThrowAbortError(
-            self, "Can't set fields of boot image objects");
-      }
-      return false;
-    }
+  if (transaction_active && !CheckWriteConstraint(self, obj, f)) {
+    return false;
   }
 
   uint32_t vregA = is_static ? inst->VRegA_21c(inst_data) : inst->VRegA_22c(inst_data);

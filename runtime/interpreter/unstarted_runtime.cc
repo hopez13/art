@@ -88,6 +88,21 @@ static void AbortTransactionOrFail(Thread* self, const char* fmt, ...) {
   }
 }
 
+static inline ArtField* FindFieldByOffsetOrAbort(
+    Thread* self, ObjPtr<mirror::Object> obj, MemberOffset offset)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(Runtime::Current()->IsActiveTransaction());
+  DCHECK(obj != nullptr);
+  ArtField* field = obj->FindFieldByOffset(offset);
+  if (field == nullptr) {
+    AbortTransactionOrFail(self,
+                           "Could not find field with offset %zu in %s",
+                           offset.SizeValue(),
+                           mirror::Object::PrettyTypeOf(obj).c_str());
+  }
+  return field;
+}
+
 // Restricted support for character upper case / lower case. Only support ASCII, where
 // it's easy. Abort the transaction otherwise.
 static void CharacterLowerUpper(Thread* self,
@@ -839,6 +854,8 @@ void UnstartedRuntime::UnstartedSystemArraycopy(
     return;
   }
 
+  // FIXME: WriteConstraint() on `dst` if under transaction.
+
   // Type checking.
   ObjPtr<mirror::Class> src_type = shadow_frame->GetVRegReference(arg_offset)->GetClass()->
       GetComponentType();
@@ -1170,6 +1187,8 @@ void UnstartedRuntime::UnstartedMathPow(
 void UnstartedRuntime::UnstartedObjectHashCode(
     Thread* self ATTRIBUTE_UNUSED, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
   mirror::Object* obj = shadow_frame->GetVRegReference(arg_offset);
+  // FIXME: IdentityHashCode() should not be called when compiling a boot image extension;
+  // currently it gives extension objects the same IDs as primary boot image objects.
   result->SetI(obj->IdentityHashCode());
 }
 
@@ -1461,6 +1480,11 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapLong(
   bool success;
   // Check whether we're in a transaction, call accordingly.
   if (Runtime::Current()->IsActiveTransaction()) {
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr || !CheckWriteConstraint(self, obj, field)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
     success = obj->CasFieldStrongSequentiallyConsistent64<true>(MemberOffset(offset),
                                                                 expectedValue,
                                                                 newValue);
@@ -1482,7 +1506,7 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapObject(
   }
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
   mirror::Object* expected_value = shadow_frame->GetVRegReference(arg_offset + 4);
-  mirror::Object* newValue = shadow_frame->GetVRegReference(arg_offset + 5);
+  mirror::Object* new_value = shadow_frame->GetVRegReference(arg_offset + 5);
 
   // Must use non transactional mode.
   if (kUseReadBarrier) {
@@ -1503,15 +1527,22 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapObject(
   bool success;
   // Check whether we're in a transaction, call accordingly.
   if (Runtime::Current()->IsActiveTransaction()) {
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr ||
+        !CheckWriteConstraint(self, obj, field) ||
+        !CheckWriteValueConstraint(self, new_value)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
     success = obj->CasFieldObject<true>(MemberOffset(offset),
                                         expected_value,
-                                        newValue,
+                                        new_value,
                                         CASMode::kStrong,
                                         std::memory_order_seq_cst);
   } else {
     success = obj->CasFieldObject<false>(MemberOffset(offset),
                                          expected_value,
-                                         newValue,
+                                         new_value,
                                          CASMode::kStrong,
                                          std::memory_order_seq_cst);
   }
@@ -1544,6 +1575,13 @@ void UnstartedRuntime::UnstartedUnsafePutObjectVolatile(
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
   mirror::Object* value = shadow_frame->GetVRegReference(arg_offset + 4);
   if (Runtime::Current()->IsActiveTransaction()) {
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr ||
+        !CheckWriteConstraint(self, obj, field) ||
+        !CheckWriteValueConstraint(self, value)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
     obj->SetFieldObjectVolatile<true>(MemberOffset(offset), value);
   } else {
     obj->SetFieldObjectVolatile<false>(MemberOffset(offset), value);
@@ -1560,12 +1598,19 @@ void UnstartedRuntime::UnstartedUnsafePutOrderedObject(
     return;
   }
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
-  mirror::Object* newValue = shadow_frame->GetVRegReference(arg_offset + 4);
+  mirror::Object* new_value = shadow_frame->GetVRegReference(arg_offset + 4);
   std::atomic_thread_fence(std::memory_order_release);
   if (Runtime::Current()->IsActiveTransaction()) {
-    obj->SetFieldObject<true>(MemberOffset(offset), newValue);
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr ||
+        !CheckWriteConstraint(self, obj, field) ||
+        !CheckWriteValueConstraint(self, new_value)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
+    obj->SetFieldObject<true>(MemberOffset(offset), new_value);
   } else {
-    obj->SetFieldObject<false>(MemberOffset(offset), newValue);
+    obj->SetFieldObject<false>(MemberOffset(offset), new_value);
   }
 }
 
@@ -1690,6 +1735,8 @@ void UnstartedRuntime::UnstartedSystemIdentityHashCode(
     Thread* self ATTRIBUTE_UNUSED, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   mirror::Object* obj = shadow_frame->GetVRegReference(arg_offset);
+  // FIXME: IdentityHashCode() should not be called when compiling a boot image extension;
+  // currently it gives extension objects the same IDs as primary boot image objects.
   result->SetI((obj != nullptr) ? obj->IdentityHashCode() : 0);
 }
 
@@ -1893,6 +1940,11 @@ void UnstartedRuntime::UnstartedJNIUnsafeCompareAndSwapInt(
   jint newValue = args[4];
   bool success;
   if (Runtime::Current()->IsActiveTransaction()) {
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr || !CheckWriteConstraint(self, obj, field)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
     success = obj->CasField32<true>(MemberOffset(offset),
                                     expectedValue,
                                     newValue,
@@ -1934,11 +1986,18 @@ void UnstartedRuntime::UnstartedJNIUnsafePutObject(Thread* self,
     return;
   }
   jlong offset = (static_cast<uint64_t>(args[2]) << 32) | args[1];
-  ObjPtr<mirror::Object> newValue = reinterpret_cast32<mirror::Object*>(args[3]);
+  ObjPtr<mirror::Object> new_value = reinterpret_cast32<mirror::Object*>(args[3]);
   if (Runtime::Current()->IsActiveTransaction()) {
-    obj->SetFieldObject<true>(MemberOffset(offset), newValue);
+    ArtField* field = FindFieldByOffsetOrAbort(self, obj, MemberOffset(offset));
+    if (field == nullptr ||
+        !CheckWriteConstraint(self, obj, field) ||
+        !CheckWriteValueConstraint(self, new_value)) {
+      DCHECK(self->IsExceptionPending());
+      return;
+    }
+    obj->SetFieldObject<true>(MemberOffset(offset), new_value);
   } else {
-    obj->SetFieldObject<false>(MemberOffset(offset), newValue);
+    obj->SetFieldObject<false>(MemberOffset(offset), new_value);
   }
 }
 

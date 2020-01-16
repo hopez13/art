@@ -974,6 +974,7 @@ class InstructionHandler {
     ObjPtr<mirror::Object> val = GetVRegReference(A());
     ObjPtr<mirror::ObjectArray<mirror::Object>> array = a->AsObjectArray<mirror::Object>();
     if (array->CheckIsValidIndex(index) && array->CheckAssignable(val)) {
+      // FIXME: WriteConstraint.
       if (transaction_active && !CheckWriteValueConstraint(self, val)) {
         return false;
       }
