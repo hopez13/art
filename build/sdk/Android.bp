@@ -28,6 +28,9 @@ module_exports {
     java_libs: [
         "timezone-host",
     ],
+    native_binaries: [
+        "dex2oat",
+    ],
 }
 
 // Exported tests and supporting libraries
