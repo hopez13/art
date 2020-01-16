@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6b7162ef_086be5ca",
+        "filename": "test/130-hprof/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-16T18:09:30Z",
+      "side": 1,
+      "message": "The goal of this topic (secimg) is to expand test coverage of secondary app images to show that it\u0027s safe to load secondary app images.\n\nThis particular CL enables compilation of secondary dexes by default, including app image generation. In effect any test that doesn\u0027t explicitly have this flag, but has a secondary dex file will run with secondary app images.",
+      "parentUuid": "f7c818d0_1d5e26ae",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "bb3808c08c0973b08db99ddb5f1408db6846a4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec9e8979_4f0d3a14",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
