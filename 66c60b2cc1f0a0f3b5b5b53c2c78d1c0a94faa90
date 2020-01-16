@@ -105,6 +105,53 @@
       "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "295a3d03_f5f6ae4f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-16T16:18:18Z",
+      "side": 1,
+      "message": "+1 to that - If you can find a way that doesn\u0027t require that many changes to the stack walking code (it\u0027s ok to make anything related to instrumentation slow by the way), that would be much better. The stack walking code is already very fragile.",
+      "parentUuid": "89550f6d_bce2ec54",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1033795_2427bb1d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-16T16:18:18Z",
+      "side": 1,
+      "message": "initial",
+      "range": {
+        "startLine": 367,
+        "startChar": 31,
+        "endLine": 367,
+        "endChar": 38
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
