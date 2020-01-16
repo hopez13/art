@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6853da98_0eb87698",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-16T17:22:25Z",
+      "side": 1,
+      "message": "So does this mean libartbase is in the runtime (bionic) module ?",
+      "parentUuid": "b13de104_646948a3",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 78
+      },
+      "revId": "980d56b94ca10ab82a52f46c49b2a8648e0a4f69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7526ad4_8b824cf2",
         "filename": "tools/cpp-define-generator/Android.bp",
         "patchSetId": 3
