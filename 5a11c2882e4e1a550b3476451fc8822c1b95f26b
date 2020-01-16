@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "49a6ae60_b78d79e2",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "Because they are double the kFramePointerSize. (Unlike pointer arguments, such as JNIEnv*.)",
+      "parentUuid": "497e44d8_3fb1ee51",
+      "range": {
+        "startLine": 434,
+        "startChar": 54,
+        "endLine": 434,
+        "endChar": 77
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee02f8f8_88b4d8a0",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eb506f5_2427d6ca",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "I have no idea why x20 was used but being used for different purposes in different ABIs it did require extra comments. OTOH, x16 is the default platform interprocedural scratch register and does not need any extra comments in my opinion.",
+      "parentUuid": "ee02f8f8_88b4d8a0",
+      "range": {
+        "startLine": 153,
+        "startChar": 45,
+        "endLine": 153,
+        "endChar": 58
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9d357fcf_c62c43e9",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "Done (for consistency with is_fast_native)",
+      "parentUuid": "f4c9b357_39278816",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 6
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68f16f6b_20d660fa",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2020-01-15T18:03:15Z",
       "side": 1,
       "message": "Sometimes LIKELY(!is_critical_native) is used, and sometimes UNLIKELY(is_critical_native), it would be a bit easier to read if the same form was used consistently. Or is there any difference?",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 33
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cef02e5_848427f6",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "Would you prefer to replace `LIKELY(!is_critical_native)` -\u003e `!UNLIKELY(is_critical_native)`?",
+      "parentUuid": "68f16f6b_20d660fa",
       "range": {
         "startLine": 588,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f3e16922_8b99bc40",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "395d6e62_c780e9f4",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 24
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ff7bb3_ff549a15",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 6
@@ -137,6 +257,30 @@
       "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2123f9db_ef768f63",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ff7bb3_ff549a15",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 268,
+        "endChar": 40
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "81318a35_afc0bcad",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "It is here for documentation purposes (DCHECK() is better than a comment saying the same). On other architectures CalleeSaveRegisters() differentiates between tail calls and normal calls.\n\nFrameSize() for @CriticalNative does not care about CalleeSaveRegisters(), or tail call, it just returns 0.",
+      "parentUuid": "1d482138_5d0cbce1",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 280,
+        "endChar": 26
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd0c87f1_1b354ec8",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 6
@@ -183,6 +351,30 @@
       "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80892285_6a8754df",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-16T09:27:13Z",
+      "side": 1,
+      "message": "No, this is different. The comment in jni_compiler.cc is about shuffling parameters into the right registers. This here is about the differences in managed ABI and native ABI.",
+      "parentUuid": "bd0c87f1_1b354ec8",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 0
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
