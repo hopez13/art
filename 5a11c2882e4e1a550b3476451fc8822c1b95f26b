@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "59313a6e_70822eef",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-16T16:22:19Z",
+      "side": 1,
+      "message": "Eh, no. I confused if with !LIKELY(!is_critical_native), sorry.",
+      "parentUuid": "9cef02e5_848427f6",
+      "range": {
+        "startLine": 588,
+        "startChar": 6,
+        "endLine": 588,
+        "endChar": 33
+      },
+      "revId": "5a11c2882e4e1a550b3476451fc8822c1b95f26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "395d6e62_c780e9f4",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 6
