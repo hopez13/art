@@ -27,7 +27,6 @@
 #include "dex/bytecode_utils.h"
 #include "dex/dex_instruction-inl.h"
 #include "driver/dex_compilation_unit.h"
-#include "driver/compiler_options.h"
 #include "imtable-inl.h"
 #include "jit/jit.h"
 #include "mirror/dex_cache.h"
@@ -1249,8 +1248,7 @@ static bool HasTrivialClinit(ObjPtr<mirror::Class> klass, PointerSize pointer_si
   return true;
 }
 
-static bool HasTrivialInitialization(ObjPtr<mirror::Class> cls,
-                                     const CompilerOptions& compiler_options)
+bool HasTrivialInitialization(ObjPtr<mirror::Class> cls, const CompilerOptions& compiler_options)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime* runtime = Runtime::Current();
   PointerSize pointer_size = runtime->GetClassLinker()->GetImagePointerSize();

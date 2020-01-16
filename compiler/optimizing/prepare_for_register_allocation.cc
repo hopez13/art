@@ -18,8 +18,10 @@
 
 #include "dex/dex_file_types.h"
 #include "driver/compiler_options.h"
+#include "instruction_builder.h"
 #include "jni/jni_internal.h"
 #include "optimizing_compiler_stats.h"
+#include "scoped_thread_state_change-inl.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -172,6 +174,13 @@ void PrepareForRegisterAllocation::VisitClinitCheck(HClinitCheck* check) {
     DCHECK(load_class->HasEnvironment());
     load_class->SetMustGenerateClinitCheck(true);
     check->GetBlock()->RemoveInstruction(check);
+
+    // If no one is using this class and it has a trivial initializer, we don't need to load it.
+    ScopedObjectAccess soa(Thread::Current());
+    if (!load_class->HasUses() &&
+        HasTrivialInitialization(load_class->GetClass().Get(), compiler_options_)) {
+      load_class->GetBlock()->RemoveInstruction(load_class);
+    }
   }
 }
 

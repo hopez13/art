@@ -24,6 +24,7 @@
 #include "dex/code_item_accessors.h"
 #include "dex/dex_file.h"
 #include "dex/dex_file_types.h"
+#include "driver/compiler_options.h"
 #include "handle.h"
 #include "nodes.h"
 #include "quicken_info.h"
@@ -342,6 +343,9 @@ class HInstructionBuilder : public ValueObject {
 
   DISALLOW_COPY_AND_ASSIGN(HInstructionBuilder);
 };
+
+bool HasTrivialInitialization(ObjPtr<mirror::Class> cls, const CompilerOptions& compiler_options)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
 }  // namespace art
 
