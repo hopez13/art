@@ -202,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "ec772666_169d96dc",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-17T16:53:01Z",
+      "side": 1,
+      "message": "Alex and I talked. I had misunderstood the big picture here. LGTM.",
+      "parentUuid": "2d0207c8_8051a8de",
+      "range": {
+        "startLine": 990,
+        "startChar": 18,
+        "endLine": 990,
+        "endChar": 93
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caec9c59_11c22441",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -222,6 +246,30 @@
       "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e112bb_2e925f79",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-17T16:53:01Z",
+      "side": 1,
+      "message": "Missed the \"Id\" at the end.",
+      "parentUuid": "caec9c59_11c22441",
+      "range": {
+        "startLine": 999,
+        "startChar": 16,
+        "endLine": 999,
+        "endChar": 89
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
