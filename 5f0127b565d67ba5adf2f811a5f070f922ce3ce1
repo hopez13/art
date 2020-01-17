@@ -94,6 +94,30 @@
       "revId": "5f0127b565d67ba5adf2f811a5f070f922ce3ce1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be928ce4_bcf945cc",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-01-17T22:24:55Z",
+      "side": 1,
+      "message": "I tweaked the instruction builder a bit and was able to eliminate the LoadClass that way. I have a CL here that does the same thing: https://r.android.com/1212372 (it\u0027s probably not quite ready to land yet, but I like the approach much better)",
+      "parentUuid": "41412d7a_381f8f8f",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 60
+      },
+      "revId": "5f0127b565d67ba5adf2f811a5f070f922ce3ce1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
