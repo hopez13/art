@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b046852_adf130ad",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-17T03:11:20Z",
+      "side": 1,
+      "message": "dex_locations",
+      "range": {
+        "startLine": 604,
+        "startChar": 73,
+        "endLine": 604,
+        "endChar": 77
+      },
+      "revId": "f7fda29c2baf06bb420cf52ed3a05ec85701b510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd54f57_e367725b",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-17T03:11:20Z",
+      "side": 1,
+      "message": "dex_locations",
+      "range": {
+        "startLine": 271,
+        "startChar": 55,
+        "endLine": 271,
+        "endChar": 59
+      },
+      "revId": "f7fda29c2baf06bb420cf52ed3a05ec85701b510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c9bcb6c_dcf0b626",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-17T03:11:20Z",
+      "side": 1,
+      "message": "Needs more docs. In particular what \"Parent\" means in this context.",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 58
+      },
+      "revId": "f7fda29c2baf06bb420cf52ed3a05ec85701b510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
