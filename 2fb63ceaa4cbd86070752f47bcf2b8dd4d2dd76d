@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35e066af_6e0a8f51",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-17T15:28:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"if\" ?",
+      "range": {
+        "startLine": 646,
+        "startChar": 6,
+        "endLine": 646,
+        "endChar": 13
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
