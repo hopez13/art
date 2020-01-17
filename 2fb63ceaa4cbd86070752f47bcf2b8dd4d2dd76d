@@ -22,6 +22,30 @@
       "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37a5cf71_a592a95b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-17T15:46:33Z",
+      "side": 1,
+      "message": "No, see Transaction::WriteConstraint(). At least one of `obj-\u003eIsClass()` and `runtime-\u003eGetHeap()-\u003eObjectIsInBootImageSpace(obj)` has to be true. The question is which message to prefer if both are. (We could reorder this.)",
+      "parentUuid": "35e066af_6e0a8f51",
+      "range": {
+        "startLine": 646,
+        "startChar": 6,
+        "endLine": 646,
+        "endChar": 13
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
