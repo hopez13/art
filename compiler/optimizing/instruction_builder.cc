@@ -1054,7 +1054,9 @@ HNewInstance* HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, u
   HInstruction* cls = load_class;
   Handle<mirror::Class> klass = load_class->GetClass();
 
-  if (!IsInitialized(klass)) {
+  if (IsInitialized(klass)) {
+    load_class->SetIsInitialized(true);
+  } else {
     cls = new (allocator_) HClinitCheck(load_class, dex_pc);
     AppendInstruction(cls);
   }
@@ -1355,7 +1357,7 @@ bool HInstructionBuilder::IsInitialized(Handle<mirror::Class> cls) const {
     is_subclass = is_subclass ||
                   IsSubClass(dex_compilation_unit_->GetCompilingClass().Get(), cls.Get());
   }
-  if (is_subclass && HasTrivialInitialization(cls.Get(), code_generator_->GetCompilerOptions())) {
+  if (is_subclass || HasTrivialInitialization(cls.Get(), code_generator_->GetCompilerOptions())) {
     return true;
   }
 

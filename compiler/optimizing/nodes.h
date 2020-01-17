@@ -6384,7 +6384,8 @@ class HLoadClass final : public HInstruction {
            // If the class is in the boot image, the lookup in the runtime call cannot throw.
            ((GetLoadKind() == LoadKind::kRuntimeCall ||
              GetLoadKind() == LoadKind::kBssEntry) &&
-            !IsInBootImage());
+            !IsInBootImage() &&
+            !IsInitialized());
   }
 
   ReferenceTypeInfo GetLoadedClassRTI() {
@@ -6429,6 +6430,14 @@ class HLoadClass final : public HInstruction {
     SetPackedFlag<kFlagIsInBootImage>(true);
   }
 
+  void SetIsInitialized(bool init) {
+    SetPackedFlag<kIsInitialized>(init);
+  }
+
+  bool IsInitialized() const {
+    return GetPackedFlag<kIsInitialized>();
+  }
+
   void AddSpecialInput(HInstruction* special_input);
 
   using HInstruction::GetInputRecords;  // Keep the const version visible.
@@ -6456,7 +6465,8 @@ class HLoadClass final : public HInstruction {
   static constexpr size_t kFieldLoadKindSize =
       MinimumBitsToStore(static_cast<size_t>(LoadKind::kLast));
   static constexpr size_t kFlagValidLoadedClassRTI = kFieldLoadKind + kFieldLoadKindSize;
-  static constexpr size_t kNumberOfLoadClassPackedBits = kFlagValidLoadedClassRTI + 1;
+  static constexpr size_t kIsInitialized = kFlagValidLoadedClassRTI + 1;
+  static constexpr size_t kNumberOfLoadClassPackedBits = kIsInitialized + 1;
   static_assert(kNumberOfLoadClassPackedBits < kMaxNumberOfPackedBits, "Too many packed fields.");
   using LoadKindField = BitField<LoadKind, kFieldLoadKind, kFieldLoadKindSize>;
 
