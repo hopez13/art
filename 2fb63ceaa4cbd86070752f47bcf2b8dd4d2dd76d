@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c0ffaa3_b8e030c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-17T16:32:00Z",
+      "side": 1,
+      "message": "Ideally I would like to see filenames and short diffs here, like:\n\n  frameworks/base/config/boot-image-profile,txt:\n    + [Ljava/lang/locale;\n\n  art/dex2oat/driver/compiler_driver.cc (LoadImageClasses):\n    +  if (GetCompilerOptions().IsBootImage()) {\n    +    image_classes-\u003einsert(\"[Ljava/util/Locale;\");\n    +  }\n\n  $ m out/target/product/walleye/system/framework/arm64/boot-framework.art\n  ...\n  Image object without assigned bin slot: java.util.concurrent.ConcurrentHashMap$Node",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 45
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35e066af_6e0a8f51",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -42,6 +65,75 @@
         "startChar": 6,
         "endLine": 646,
         "endChar": 13
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f96abc9_c2a31884",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-17T16:32:00Z",
+      "side": 1,
+      "message": "Is it possible to print the details of obj here (PrettyTypeOf or something else)?",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 58
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0d7793_b2a56109",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-17T16:32:00Z",
+      "side": 1,
+      "message": "Should IsExceptionPending always be true in the case of unstarted runtime? Maybe it is possible to move the check inside of CheckWriteConstraint (conditional on started/unstarted runtime), or somehow else reduce the amount of checks and make it harder to miss one?",
+      "range": {
+        "startLine": 843,
+        "startChar": 4,
+        "endLine": 843,
+        "endChar": 39
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e1feacd_59288a02",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-17T16:32:00Z",
+      "side": 1,
+      "message": "Just wondering, why obj-\u003eIsClass() means that it is an array?",
+      "range": {
+        "startLine": 132,
+        "startChar": 9,
+        "endLine": 132,
+        "endChar": 73
       },
       "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
