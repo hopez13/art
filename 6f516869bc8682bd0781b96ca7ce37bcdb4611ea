@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac299027_f1bb0742",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-17T20:50:06Z",
+      "side": 1,
+      "message": "document what this represents and when is set to true or false. InitNonZygoteOrPostFork suggest that you are not zygote here, so things gets confusing.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 4,
+        "endLine": 1003,
+        "endChar": 19
+      },
+      "revId": "6f516869bc8682bd0781b96ca7ce37bcdb4611ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
