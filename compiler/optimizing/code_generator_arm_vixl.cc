@@ -2741,6 +2741,18 @@ void InstructionCodeGeneratorARMVIXL::VisitIf(HIf* if_instr) {
   GenerateTestAndBranch(if_instr, /* condition_input_index= */ 0, true_target, false_target);
 }
 
+void LocationsBuilderARMVIXL::VisitTestBitAndBranch(
+    HTestBitAndBranch* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Instruction not supported for 32 bit";
+  UNREACHABLE();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitTestBitAndBranch(
+    HTestBitAndBranch* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Instruction not supported for 32 bit";
+  UNREACHABLE();
+}
+
 void LocationsBuilderARMVIXL::VisitDeoptimize(HDeoptimize* deoptimize) {
   LocationSummary* locations = new (GetGraph()->GetAllocator())
       LocationSummary(deoptimize, LocationSummary::kCallOnSlowPath);

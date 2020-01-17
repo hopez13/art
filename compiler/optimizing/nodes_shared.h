@@ -253,6 +253,53 @@ class HDataProcWithShifterOp final : public HExpression<2> {
 
 std::ostream& operator<<(std::ostream& os, const HDataProcWithShifterOp::OpKind op);
 
+// This instruction tests if a bit is set and conditionally branches according to the
+// result
+class HTestBitAndBranch final : public HExpression<1> {
+ public:
+    explicit HTestBitAndBranch(HInstruction* input,
+                               uint8_t bit_to_test,
+                               bool branch_if_bit_set,
+                               uint32_t dex_pc = kNoDexPc)
+      : HExpression(kTestBitAndBranch, SideEffects::None(), dex_pc) {
+        SetPackedFlag<kBranchIfBitSet>(branch_if_bit_set);
+        SetPackedField<BitToTestField>(bit_to_test);
+        SetRawInputAt(0, input);
+    }
+
+    bool IsClonable() const override { return true; }
+    bool IsControlFlow() const override { return true; }
+
+    HBasicBlock* IfTrueSuccessor() const {
+      return GetBlock()->GetSuccessors()[0];
+    }
+
+    HBasicBlock* IfFalseSuccessor() const {
+      return GetBlock()->GetSuccessors()[1];
+    }
+
+    uint8_t GetBitToTest() const { return GetPackedField<BitToTestField>(); }
+
+    bool BranchIfBitSet() { return GetPackedFlag<kBranchIfBitSet>(); }
+
+    DECLARE_INSTRUCTION(TestBitAndBranch);
+
+ protected:
+    DEFAULT_COPY_CONSTRUCTOR(TestBitAndBranch);
+
+ private:
+    static constexpr size_t kBranchIfBitSet = HInstruction::kNumberOfGenericPackedBits;
+    static constexpr size_t kBitToTest = kBranchIfBitSet + 1;
+    static constexpr size_t kBitToTestSize =
+      MinimumBitsToStore(63u);
+    static constexpr size_t kNumberOfTestBitAndBranchPackedBits =
+        kBitToTest + kBitToTestSize;
+    static_assert(kNumberOfTestBitAndBranchPackedBits <= kMaxNumberOfPackedBits,
+                  "Too many packed fields.");
+    using BitToTestField =
+        BitField<uint8_t, kBitToTest, kBitToTestSize>;
+};
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_NODES_SHARED_H_

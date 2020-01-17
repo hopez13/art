@@ -185,6 +185,69 @@ bool TryCombineMultiplyAccumulate(HMul* mul, InstructionSet isa) {
   return false;
 }
 
+bool TryCombineAndCompare(HAnd* instruction) {
+  HConstant* input_cst = instruction->GetConstantRight();
+  HInstruction* input_other = instruction->GetLeastConstantLeft();
+
+  // Simplify
+  // HAnd
+  // HEqual => HTestBitAndBranch
+  // HIf
+  // in the case where the And is performed on a mask with only a single bit set and each
+  // instruction only has one use
+  // TODO: Allow the case where instructions have multiple uses
+
+  DCHECK(DataType::IsIntegralType(instruction->GetType())) << instruction->GetType();
+  if (input_cst == nullptr) {
+    return false;
+  }
+
+  int64_t mask = Int64FromConstant(input_cst);
+  // Tbz and Tbnz only test the value of one bit so check that value only
+  // has one bit set.
+  if (!IsPowerOfTwo(mask)) {
+    return false;
+  }
+
+  // We cannot combine the And if it is used elsewhere.
+  if (!instruction->HasOnlyOneNonEnvironmentUse()) {
+    return false;
+  }
+  HInstruction* cond_instr = instruction->GetUses().front().GetUser();
+  if (!(cond_instr->IsEqual() || cond_instr->IsNotEqual())) {
+    return false;
+  }
+  HConstant* cond_cst = cond_instr->AsCondition()->GetConstantRight();
+  if (cond_cst == nullptr) {
+    return false;
+  }
+  int64_t cond_value = Int64FromConstant(cond_cst);
+  if (cond_value != 0 && cond_value != mask) {
+    return false;
+  }
+  bool branch_if_bit_set = (cond_value == 0 && cond_instr->IsNotEqual()) ||
+                           (cond_value == mask && cond_instr->IsEqual());
+
+  // Again we cannot combine the Condition if it used elsewhere.
+  if (!cond_instr->HasOnlyOneNonEnvironmentUse()) {
+    return false;
+  }
+  HInstruction* if_instr = cond_instr->GetUses().front().GetUser();
+  if (!if_instr->IsIf() || if_instr->HasUses()) {
+    return false;
+  }
+
+  HTestBitAndBranch* test_bit_and_branch_instr =
+    new (if_instr->GetBlock()->GetGraph()->GetAllocator()) HTestBitAndBranch(input_other,
+                                                                             WhichPowerOf2(mask),
+                                                                             branch_if_bit_set,
+                                                                             if_instr->GetDexPc());
+  // Replace and remove instructions.
+  if_instr->GetBlock()->ReplaceAndRemoveInstructionWith(if_instr, test_bit_and_branch_instr);
+  cond_instr->GetBlock()->RemoveInstruction(cond_instr);
+  instruction->GetBlock()->RemoveInstruction(instruction);
+  return true;
+}
 
 bool TryMergeNegatedInput(HBinaryOperation* op) {
   DCHECK(op->IsAnd() || op->IsOr() || op->IsXor()) << op->DebugName();

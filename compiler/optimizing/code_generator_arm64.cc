@@ -3385,6 +3385,44 @@ void InstructionCodeGeneratorARM64::VisitIf(HIf* if_instr) {
   GenerateTestAndBranch(if_instr, /* condition_input_index= */ 0, true_target, false_target);
 }
 
+void LocationsBuilderARM64::VisitTestBitAndBranch(HTestBitAndBranch* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  if (IsBooleanValueOrMaterializedCondition(instruction->InputAt(0))) {
+    locations->SetInAt(0, Location::RequiresRegister());
+  }
+}
+
+void InstructionCodeGeneratorARM64::VisitTestBitAndBranch(HTestBitAndBranch* instruction) {
+  HBasicBlock* true_successor = instruction->IfTrueSuccessor();
+  HBasicBlock* false_successor = instruction->IfFalseSuccessor();
+  vixl::aarch64::Label* true_target = codegen_->GetLabelOf(true_successor);
+  if (codegen_->GoesToNextBlock(instruction->GetBlock(), true_successor)) {
+    true_target = nullptr;
+  }
+  vixl::aarch64::Label* false_target = codegen_->GetLabelOf(false_successor);
+  if (codegen_->GoesToNextBlock(instruction->GetBlock(), false_successor)) {
+    false_target = nullptr;
+  }
+  if (true_target == nullptr && false_target == nullptr) {
+    return;
+  }
+
+  bool branch_if_bit_set = instruction->BranchIfBitSet();
+  vixl::aarch64::Label* non_fallthrough_target = true_target;
+  if (true_target == nullptr) {
+    branch_if_bit_set = !branch_if_bit_set;
+    non_fallthrough_target = false_target;
+  }
+
+  uint8_t bit_to_test = instruction->GetBitToTest();
+  Register input = InputRegisterAt(instruction, 0);
+  if (branch_if_bit_set) {
+    __ Tbnz(input, bit_to_test, non_fallthrough_target);
+  } else {
+    __ Tbz(input, bit_to_test, non_fallthrough_target);
+  }
+}
+
 void LocationsBuilderARM64::VisitDeoptimize(HDeoptimize* deoptimize) {
   LocationSummary* locations = new (GetGraph()->GetAllocator())
       LocationSummary(deoptimize, LocationSummary::kCallOnSlowPath);

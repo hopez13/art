@@ -452,6 +452,12 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
                                      : (bias == ComparisonBias::kLtBias ? "lt" : "none"));
   }
 
+  void VisitTestBitAndBranch(HTestBitAndBranch* test_bit_and_branch) override {
+    StartAttributeStream("branch_if_bit_set") << (test_bit_and_branch->BranchIfBitSet()
+                                               ? "true" : "false");
+    StartAttributeStream("bit_to_test") << static_cast<int>(test_bit_and_branch->GetBitToTest());
+  }
+
   void VisitInvoke(HInvoke* invoke) override {
     StartAttributeStream("dex_file_index") << invoke->GetDexMethodIndex();
     ArtMethod* method = invoke->GetResolvedMethod();

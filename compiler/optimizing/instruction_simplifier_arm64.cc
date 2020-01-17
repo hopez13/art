@@ -189,6 +189,11 @@ bool InstructionSimplifierArm64Visitor::TryMergeIntoUsersShifterOperand(HInstruc
 }
 
 void InstructionSimplifierArm64Visitor::VisitAnd(HAnd* instruction) {
+  if (TryCombineAndCompare(instruction)) {
+    RecordSimplification();
+    // This will remove the And instruction so don't continue visiting
+    return;
+  }
   if (TryMergeNegatedInput(instruction)) {
     RecordSimplification();
   }
