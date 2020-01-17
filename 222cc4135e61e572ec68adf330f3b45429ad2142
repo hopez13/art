@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "35331a3b_10610dc2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-17T09:19:58Z",
+      "side": 1,
+      "message": "We already have a disassembly library, can we use that instead?",
+      "parentUuid": "e59a962b_41ca8d12",
+      "range": {
+        "startLine": 422,
+        "startChar": 9,
+        "endLine": 422,
+        "endChar": 20
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7205cdbc_59feac3c",
         "filename": "runtime/Android.bp",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "We have two options to set this auto fast jni flag set either via the runtime option or using the system  property option on the host. So for the system property related , we use the                                     property_get() function to check the flag in file \"runtime.cc\".This function is defined in the libcutils module.",
       "parentUuid": "7205cdbc_59feac3c",
+      "range": {
+        "startLine": 440,
+        "startChar": 9,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "013f7f6e_028be8ab",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-17T09:19:58Z",
+      "side": 1,
+      "message": "I see. Please use android::Base::GetProperty instead.",
+      "parentUuid": "2296640c_343c9ac3",
       "range": {
         "startLine": 440,
         "startChar": 9,
@@ -277,6 +325,30 @@
       "side": 1,
       "message": "In that case regardless of arm \u0026 x86 we will be making this call to fetch the runtime option by default. We can do that if that\u0027s okay to have this additional check at startup during runtime.",
       "parentUuid": "f2e586a8_14c4457b",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 44
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b23a499_71703d25",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-17T09:19:58Z",
+      "side": 1,
+      "message": "Yes, that\u0027s OK.",
+      "parentUuid": "80c3dad3_7b33df49",
       "range": {
         "startLine": 1253,
         "startChar": 0,
