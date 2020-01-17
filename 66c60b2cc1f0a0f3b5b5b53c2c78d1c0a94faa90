@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f3dc865_3103daa3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-17T18:52:44Z",
+      "side": 1,
+      "message": "Reworded. The walk itself restarts but \u0027VisitFrame\u0027 calls are not re-executed. As far as the subtypes of StackVisitor are concerned nothing has happened.\n\nAlso added some comments in the change itself.",
+      "parentUuid": "7a592956_ae8b53b4",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa50601d_36a244b1",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 1
@@ -273,6 +297,30 @@
     },
     {
       "key": {
+        "uuid": "acf74473_1ae31d6c",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-17T18:52:44Z",
+      "side": 1,
+      "message": "This is actually a different mutex. I\u0027ll change the name. Having 2 mutexs with the only difference being \u0027Id\u0027 in the name probably isn\u0027t the best.",
+      "parentUuid": "caec9c59_11c22441",
+      "range": {
+        "startLine": 999,
+        "startChar": 16,
+        "endLine": 999,
+        "endChar": 89
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1033795_2427bb1d",
         "filename": "runtime/stack.h",
         "patchSetId": 1
@@ -293,6 +341,30 @@
       "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d83c171_3208d0e7",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-17T18:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1033795_2427bb1d",
+      "range": {
+        "startLine": 367,
+        "startChar": 31,
+        "endLine": 367,
+        "endChar": 38
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
