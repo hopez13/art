@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e59a962b_41ca8d12",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "The capstone lib is the one that we use for doing the disassembling of the native functions.\nSo this lib is needed for this feature of binary analysis.",
+      "parentUuid": "62d3e6eb_2603f4f9",
+      "range": {
+        "startLine": 422,
+        "startChar": 9,
+        "endLine": 422,
+        "endChar": 20
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7205cdbc_59feac3c",
         "filename": "runtime/Android.bp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2296640c_343c9ac3",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "We have two options to set this auto fast jni flag set either via the runtime option or using the system  property option on the host. So for the system property related , we use the                                     property_get() function to check the flag in file \"runtime.cc\".This function is defined in the libcutils module.",
+      "parentUuid": "7205cdbc_59feac3c",
+      "range": {
+        "startLine": 440,
+        "startChar": 9,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d76ea07_3933572b",
         "filename": "runtime/art_method.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2020-01-09T13:53:27Z",
       "side": 1,
       "message": "Add a comment why this means it\u0027s not going to be unregistered.",
+      "range": {
+        "startLine": 431,
+        "startChar": 42,
+        "endLine": 431,
+        "endChar": 85
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "955fac6a_1c2249a9",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "We do the disassembling and the binary analysis during native method registration.We do not want to  do this analysis for methods being unregistered. Will add a comment as mentioned",
+      "parentUuid": "9d76ea07_3933572b",
       "range": {
         "startLine": 431,
         "startChar": 42,
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "d7ed95cb_fe4c72ab",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "This is the runtime option that we have added to enable the feature. This was in relation to the previous review comment on this patch where a runtime option was needed to enable/diable this auto fast jni",
+      "parentUuid": "89ca83de_b0026059",
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f254abec_d4716177",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "d517b36d_87cfef37",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "Ok we can change",
+      "parentUuid": "f254abec_d4716177",
+      "range": {
+        "startLine": 298,
+        "startChar": 24,
+        "endLine": 298,
+        "endChar": 28
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2e586a8_14c4457b",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -139,6 +253,30 @@
       "writtenOn": "2020-01-09T13:53:27Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 44
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c3dad3_7b33df49",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 1,
+      "message": "In that case regardless of arm \u0026 x86 we will be making this call to fetch the runtime option by default. We can do that if that\u0027s okay to have this additional check at startup during runtime.",
+      "parentUuid": "f2e586a8_14c4457b",
       "range": {
         "startLine": 1253,
         "startChar": 0,

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "82c5e5c9_603d74f1",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 0,
+      "message": "this is base code , not change related to patch.",
+      "parentUuid": "54116a9c_5dcb8a79",
+      "revId": "a6c9b78a3f2c7a7f39761427dcd32e0bf6c546f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f6917af_10e643f4",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-09T13:53:27Z",
       "side": 0,
       "message": "Not needed.",
+      "revId": "a6c9b78a3f2c7a7f39761427dcd32e0bf6c546f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d8f2dbf_ade68d24",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-01-17T09:01:16Z",
+      "side": 0,
+      "message": "Base code,not related to the patch change",
+      "parentUuid": "9f6917af_10e643f4",
       "revId": "a6c9b78a3f2c7a7f39761427dcd32e0bf6c546f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
