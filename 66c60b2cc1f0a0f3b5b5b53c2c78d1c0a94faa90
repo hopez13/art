@@ -156,6 +156,52 @@
     },
     {
       "key": {
+        "uuid": "2d0207c8_8051a8de",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-17T05:22:36Z",
+      "side": 1,
+      "message": "What exactly happens in this case? Presumably the above code read some data that changed in the meantime, and your now going to discard it? So there is still a data race between the two threads? If so, this is problematic, and we should talk.",
+      "range": {
+        "startLine": 990,
+        "startChar": 18,
+        "endLine": 990,
+        "endChar": 93
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caec9c59_11c22441",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-17T05:22:36Z",
+      "side": 1,
+      "message": "Is this doing more than asserting that MutexLock works correctly? If not, I\u0027d be strongly inclined to drop it.",
+      "range": {
+        "startLine": 999,
+        "startChar": 16,
+        "endLine": 999,
+        "endChar": 89
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1033795_2427bb1d",
         "filename": "runtime/stack.h",
         "patchSetId": 1
