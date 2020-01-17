@@ -16,6 +16,24 @@
       "revId": "5ed5242ad17e0065cefba8e5c87d2a9395b42c3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ba7d42_e8f10b6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-01-17T14:56:46Z",
+      "side": 1,
+      "message": "The ASAN failure was due to a nullpointer dereference in class_linker.cc, particularly http://cs/android/art/runtime/class_linker.cc?l\u003d7493 .\n\nI tried jumping over this nullpointer dereference, but that just kicked the problem further down the road (http://cs/android/art/runtime/class_linker.cc?l\u003d7430);",
+      "parentUuid": "63216720_8aae68f5",
+      "revId": "5ed5242ad17e0065cefba8e5c87d2a9395b42c3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
