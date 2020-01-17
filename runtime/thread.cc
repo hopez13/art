@@ -622,9 +622,6 @@ void* Thread::CreateCallback(void* arg) {
     self->DeleteJPeer(self->GetJniEnv());
     self->SetThreadName(self->GetThreadName()->ToModifiedUtf8().c_str());
 
-    ArtField* priorityField = jni::DecodeArtField(WellKnownClasses::java_lang_Thread_priority);
-    self->SetNativePriority(priorityField->GetInt(self->tlsPtr_.opeer));
-
     runtime->GetRuntimeCallbacks()->ThreadStart(self);
 
     // Unpark ourselves if the java peer was unparked before it started (see
@@ -643,10 +640,19 @@ void* Thread::CreateCallback(void* arg) {
     if (should_unpark) {
       self->Unpark();
     }
-    // Invoke the 'run' method of our java.lang.Thread.
+
     ObjPtr<mirror::Object> receiver = self->tlsPtr_.opeer;
-    jmethodID mid = WellKnownClasses::java_lang_Thread_run;
     ScopedLocalRef<jobject> ref(soa.Env(), soa.AddLocalReference<jobject>(receiver));
+
+    // Invoke the 'setPriority' method of our java.lang.Thread.
+    ArtField* priorityField = jni::DecodeArtField(WellKnownClasses::java_lang_Thread_priority);
+    soa.Env()->CallNonvirtualVoidMethod(ref.get(),
+                                WellKnownClasses::java_lang_Thread,
+                                WellKnownClasses::java_lang_Thread_setPriority,
+                                priorityField->GetInt(receiver));
+
+    // Invoke the 'run' method of our java.lang.Thread.
+    jmethodID mid = WellKnownClasses::java_lang_Thread_run;
     InvokeVirtualOrInterfaceWithJValues(soa, ref.get(), mid, nullptr);
   }
   // Detach and delete self.
