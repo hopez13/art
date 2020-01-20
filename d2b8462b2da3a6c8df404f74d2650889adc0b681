@@ -22,6 +22,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afa3479f_0b5ce28b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-20T20:27:37Z",
+      "side": 1,
+      "message": "Several important stack-visitors (including things like the CatchFinder and SIGQUIT stack-dumper) pass suspend-points (allocation, class-loading, etc) during their VisitFrame call. Many of these handlers are rather enormous and rather important making me hesitant to do the (rather drastic) modifications needed to remove this.\n\nSince these visitors can suspend during the WalkStack function it is not safe to hold any locks for the duration of WalkStack.\n\nI actually tried to do this approach at first. It is at go/aog/1206897. I also mentioned why the approach was not viable in a comment on go/aog/1206896.",
+      "parentUuid": "c039b5f9_fea5ab51",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "70d6121e_06a7863e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-20T20:27:37Z",
+      "side": 1,
+      "message": "This isn\u0027t a debugging feature. If a thread has its InstrumentationStack modified during stack-walk the walker will not be able to (reliably) figure out what the PC the next frame is at. This is needed to (among other things) determine the size of the frame and the mapping of all the registers.\n\nI am fairly certain that this is the simplest way we can fix this issue.\n\nAlso I don\u0027t believe it\u0027s a reasonable use of time to check and update all \u003e 50 stack-walkers to handle getting reset and avoid the \u0027skip\u0027 logic. The code is highly commented with what\u0027s going on and the basic logic of count how many visits we\u0027ve done and skip until we hit the same number is fairly straightforward.",
+      "parentUuid": "b7caf091_d79055bf",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa50601d_36a244b1",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 1
