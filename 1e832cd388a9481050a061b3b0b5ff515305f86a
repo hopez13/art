@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a350028_791b473c",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-20T08:50:59Z",
+      "side": 1,
+      "message": "base/memory_tool.h has a definition of __has_feature so this #if could be removed.",
+      "range": {
+        "startLine": 1407,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 26
+      },
+      "revId": "1e832cd388a9481050a061b3b0b5ff515305f86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
