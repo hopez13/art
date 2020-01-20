@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4dfc580_c4bfc92f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-20T10:16:09Z",
+      "side": 1,
+      "message": "If you\u0027re doing this change, then it seems more natural to do the HasTrivialInitialization check at the beginning of the method.",
+      "range": {
+        "startLine": 1360,
+        "startChar": 21,
+        "endLine": 1360,
+        "endChar": 45
+      },
+      "revId": "de51de69d7c3d7b3d1225aa2d43e01b13e9aab78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
