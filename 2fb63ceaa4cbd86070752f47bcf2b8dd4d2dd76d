@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "52d96b66_35cf58aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:12:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0ffaa3_b8e030c5",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 45
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e066af_6e0a8f51",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "58d7df5b_3c99c82b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:12:36Z",
+      "side": 1,
+      "message": "Rewritten after Ulya\u0027s comment.",
+      "parentUuid": "37a5cf71_a592a95b",
+      "range": {
+        "startLine": 646,
+        "startChar": 6,
+        "endLine": 646,
+        "endChar": 13
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f96abc9_c2a31884",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "0681bf38_7c9f8933",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:12:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f96abc9_c2a31884",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 58
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb0d7793_b2a56109",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 4
@@ -106,6 +178,30 @@
       "writtenOn": "2020-01-17T16:32:00Z",
       "side": 1,
       "message": "Should IsExceptionPending always be true in the case of unstarted runtime? Maybe it is possible to move the check inside of CheckWriteConstraint (conditional on started/unstarted runtime), or somehow else reduce the amount of checks and make it harder to miss one?",
+      "range": {
+        "startLine": 843,
+        "startChar": 4,
+        "endLine": 843,
+        "endChar": 39
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5404c02b_e0f8e34d",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:12:36Z",
+      "side": 1,
+      "message": "This DCHECK() is not very important but it\u0027s either here or not present at all. It checks that if CheckWriteConstraint() returned false, it also threw an exception. Having the DCHECK() right after throwing the exception is pointless.",
+      "parentUuid": "fb0d7793_b2a56109",
       "range": {
         "startLine": 843,
         "startChar": 4,
@@ -138,6 +234,30 @@
       "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b392a073_62b3e0ef",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:12:36Z",
+      "side": 1,
+      "message": "No, you\u0027re reading it the wrong way, obj-\u003eIsClass() being true means that obj is _not_ an array.\n\nReturning true means the transaction needs to be aborted and it took me some time to get used to it.",
+      "parentUuid": "9e1feacd_59288a02",
+      "range": {
+        "startLine": 132,
+        "startChar": 9,
+        "endLine": 132,
+        "endChar": 73
+      },
+      "revId": "2fb63ceaa4cbd86070752f47bcf2b8dd4d2dd76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
