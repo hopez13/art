@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c039b5f9_fea5ab51",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-20T10:25:54Z",
+      "side": 1,
+      "message": "Given we\u0027re taking locks _always_, why not taking the lock (multiple readers, one writer) at the very beginning of WalkStack, and then the instrumentation install stack visitor needs to take that writer lock to install the stubs?",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
