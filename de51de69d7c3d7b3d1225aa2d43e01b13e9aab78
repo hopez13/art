@@ -45,6 +45,29 @@
       "revId": "de51de69d7c3d7b3d1225aa2d43e01b13e9aab78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4d6c1c_9d6908bf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:49:01Z",
+      "side": 1,
+      "message": "Always true when reached. (If the class is not in the boot image, it\u0027s not initialized.)",
+      "range": {
+        "startLine": 6387,
+        "startChar": 29,
+        "endLine": 6388,
+        "endChar": 28
+      },
+      "revId": "de51de69d7c3d7b3d1225aa2d43e01b13e9aab78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
