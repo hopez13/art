@@ -22,6 +22,29 @@
       "revId": "de51de69d7c3d7b3d1225aa2d43e01b13e9aab78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf62e377_277e38f5",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-20T13:31:47Z",
+      "side": 1,
+      "message": "Do not change the condition. See comments above.\n\nDid you run the 174-escaping-instance-of-bad-class test? If it did not fail, we may need to extend it.",
+      "range": {
+        "startLine": 1360,
+        "startChar": 18,
+        "endLine": 1360,
+        "endChar": 20
+      },
+      "revId": "de51de69d7c3d7b3d1225aa2d43e01b13e9aab78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
