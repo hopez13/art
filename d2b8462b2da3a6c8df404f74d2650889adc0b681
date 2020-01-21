@@ -94,6 +94,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "190bbb88_eb3ff639",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-21T18:55:22Z",
+      "side": 1,
+      "message": "Where did I suggest a recursive stack walk? \n\nMy goal here is to avoid the skip_to_depth / increment_depth which I see as error-prone, and the retry logic unintuitive when it happens on code that shouldn\u0027t have to deal with instrumentation. The code that would be added to handle what I\u0027m suggesting should only be local to this \"if (reinterpret_cast\u003cuintptr_t\u003e(GetQuickInstrumentationExitPc()) \u003d\u003d return_pc):\n\nI will cook up a CL and make use of your test to check what I\u0027m suggesting makes sense. Maybe that will clarify my point.",
+      "parentUuid": "7780c999_03e294dc",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
