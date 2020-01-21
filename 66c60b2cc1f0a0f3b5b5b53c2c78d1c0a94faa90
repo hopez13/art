@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "24f0c80b_193215f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-21T17:08:48Z",
+      "side": 1,
+      "message": "resolved thread.",
+      "parentUuid": "1181e73a_c9bcaab6",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 7
+      },
+      "revId": "66c60b2cc1f0a0f3b5b5b53c2c78d1c0a94faa90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa50601d_36a244b1",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 1

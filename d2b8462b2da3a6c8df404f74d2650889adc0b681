@@ -70,6 +70,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7780c999_03e294dc",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-21T17:08:48Z",
+      "side": 1,
+      "message": "Having to perform a recursive stack-walk relying on a recursive mutex and a sequence-number to avoid infinite an loop frankly seems worse (complexity \u0026 understandability wise) than the fairly classic Seqlock approach we have here TBH.",
+      "parentUuid": "0443adbc_2a6db3d7",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
