@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a9d7f70_e960a6b4",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Could you add an explanation for this strategy? (My intuition was that we should try to reuse the smallest TLABs first, as this seems better against fragmentation.)",
+      "range": {
+        "startLine": 850,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 38
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b977d37d_4bca0da4",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Style: Add parentheses around expression.",
+      "range": {
+        "startLine": 868,
+        "startChar": 21,
+        "endLine": 868,
+        "endChar": 35
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2770e8cc_7e999679",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Style: Remove `const` before non-pointer/non-reference type argument.",
+      "range": {
+        "startLine": 885,
+        "startChar": 61,
+        "endLine": 885,
+        "endChar": 66
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfe5fedc_8fe51d00",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "I understand that we can no longer assert that:\n\n  DCHECK_ALIGNED(tlab_start, kRegionSize);\n\nnow that a TLAB can be allocated in the middle of a region; but maybe we could add:\n\n  DCHECK_ALIGNED(tlab_start, kObjectAlignment);\n\nhere instead?",
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a2f91d8_396c2ce0",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Style: We usually do not use `const` on non-pointer/non-reference type arguments.",
+      "range": {
+        "startLine": 147,
+        "startChar": 50,
+        "endLine": 147,
+        "endChar": 55
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c182c9ac_499a9eb9",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "This seems a bit dangerous; could we request the RegionLock here?",
+      "range": {
+        "startLine": 195,
+        "startChar": 38,
+        "endLine": 195,
+        "endChar": 63
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "065e7192_d66a6770",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Style:\n\n  /*out*/ size_t* bytes_tl_bulk_allocated",
+      "range": {
+        "startLine": 372,
+        "startChar": 58,
+        "endLine": 372,
+        "endChar": 89
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c80811f4_a5e0c287",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Style: Remove `const` before non-pointer/non-reference type argument.",
+      "range": {
+        "startLine": 372,
+        "startChar": 34,
+        "endLine": 372,
+        "endChar": 39
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b1f6c2_e7f8facf",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-21T15:51:59Z",
+      "side": 1,
+      "message": "Nit: unused",
+      "range": {
+        "startLine": 756,
+        "startChar": 19,
+        "endLine": 756,
+        "endChar": 26
+      },
+      "revId": "4f9d62b549ef755c5b77d09b1da2a8403f58b376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
