@@ -22,6 +22,30 @@
       "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37309471_5b1e9054",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-01-21T12:04:02Z",
+      "side": 1,
+      "message": "I don\u0027t expect you to take this over but would appreciate you taking a look at it to investigate how to address the issue.\n\nModule_exports has this as a requirement because it is essentially sdk and it forces compile_multilib: \"both\" because the generated snapshots have to work on both 32/64 bit. It may be that module_exports when built for host does not need that.\n\nMaybe the fix is to allow dex2oat to support both while still installing the preferred variant for use by the build.",
+      "parentUuid": "0c96dad2_9425d2ce",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
