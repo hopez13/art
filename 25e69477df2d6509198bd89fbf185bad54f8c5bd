@@ -94,6 +94,30 @@
       "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69863d90_bb501ac1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-21T17:52:01Z",
+      "side": 1,
+      "message": "It\u0027s true we\u0027d need to support 32 bit host if there are linux hosts we need to care about that aren\u0027t x64. I don\u0027t think that\u0027s the case though. Do you? (Is it even possible to get a non-64-bit x86 linux distro these days?)\n\nBtw, I played around a bit with disabling \"both\", and then it fails on missing \"os:windows, arch:x86_64\". We won\u0027t be providing dex2oat on Windows either, I believe. (Same goes for Darwin.)",
+      "parentUuid": "a778ae70_0f4f56a3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
