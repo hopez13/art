@@ -46,6 +46,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0443adbc_2a6db3d7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-21T13:01:30Z",
+      "side": 1,
+      "message": "Ack, I see why you\u0027d be hesitant.\n\nSo here\u0027s another suggestion: the instrumentation feature has always been fundamentally broken as multiple threads are manipulating the same data structure concurrently (nice work finding it btw!). I think we can fix this by having locks around the handling of that data structure, eg:\n\nif (reinterpret_cast\u003cuintptr_t\u003e(GetQuickInstrumentationExitPc()) \u003d\u003d *return_pc_addr) {\n MutexLock mu(self, instrumentation_lock);\n // Check if it\u0027s still the instrumentation_stub.\n if (*return_pc_addr \u003d\u003d GetQuickInstruementationExitPc()) {\n   // current_stack_depth is the actual stack depth.\n   InstrumentationFrame frame \u003d GetInstrumentationFrameAtDepth(current_stack_depth);\n   ...\n }\n}\n\nAnd then when installing the exit pc stubs on InstrumentInstallStack:\nMutexLock mu(self, instrumentation_lock);\nAddInstrumentationFrame(current_stack_depth, frame);",
+      "parentUuid": "afa3479f_0b5ce28b",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
