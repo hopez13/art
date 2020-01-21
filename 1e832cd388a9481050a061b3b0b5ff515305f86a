@@ -22,6 +22,30 @@
       "revId": "1e832cd388a9481050a061b3b0b5ff515305f86a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b9cb83b_52f339a9",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-01-21T19:11:24Z",
+      "side": 1,
+      "message": "Good to know. I\u0027m not sure that including it only for __has_feature makes things clearer. It defines other macros that appear useful, but it looks to me like they aren\u0027t quite defined correctly for us. Filed b/148084932 .\n\nI\u0027ll leave this as is for now, but b/148084932 includes a reminder to revisit.",
+      "parentUuid": "0a350028_791b473c",
+      "range": {
+        "startLine": 1407,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 26
+      },
+      "revId": "1e832cd388a9481050a061b3b0b5ff515305f86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
