@@ -46,6 +46,30 @@
       "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe939136_a84cffa9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-21T14:38:01Z",
+      "side": 1,
+      "message": "I don\u0027t it makes sense to force both on host, so I\u0027d try to change that on host without affecting target. But then it\u0027s not yet clear to me what complications that might lead to.\n\nI suppose it might be hard to combine in the same export module, but we\u0027ve already split it, so then it\u0027s a matter of making the logic look at host_supported and device_supported. If that\u0027s hard we might have to introduce module_export_hosts as a separate module type.\n\nHappy to dig into this; I\u0027m wrapping up my other work now.",
+      "parentUuid": "37309471_5b1e9054",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "25e69477df2d6509198bd89fbf185bad54f8c5bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
