@@ -118,6 +118,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed8f417_e2534f60",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-21T21:07:49Z",
+      "side": 1,
+      "message": "Just taking note of what was discussed over hangouts.\n\n\u003e Where did I suggest a recursive stack walk? \n\nA recursive stack walk is the only way to accomplish something like the API you suggest without entirely rewriting the instrumentation system. We need to keep track of how many instrumentation frames we have used since there is no mapping between java depth and instrumentation depth.\n\nIf you wish I can rewrite this to avoid the retry-loop by using a recursive stack-walk. I don\u0027t believe it will be much more elegant or shorter than this is though.\n\nDo you want me to do this or is what I have here basically sufficient?",
+      "parentUuid": "190bbb88_eb3ff639",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
