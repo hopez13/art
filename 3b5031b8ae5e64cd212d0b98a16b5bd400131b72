@@ -1,0 +1,441 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30a8f171_9e3ba3b3",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "you can remove these. The aliases don\u0027t save you a lot in this method and actually make it harder to read.",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 52
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15637516_8a669814",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "this needs a better naming",
+      "range": {
+        "startLine": 588,
+        "startChar": 21,
+        "endLine": 588,
+        "endChar": 27
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "102516fc_83f858fb",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "fits in one line.",
+      "range": {
+        "startLine": 590,
+        "startChar": 6,
+        "endLine": 590,
+        "endChar": 61
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f946afa_632f260d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "/*for_dex2oat\u003d/ true\nand similar for all the unnamed args",
+      "range": {
+        "startLine": 590,
+        "startChar": 38,
+        "endLine": 590,
+        "endChar": 42
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c65988e_a0320f40",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "std::string (for simple types, don\u0027t use the auto keyword)",
+      "range": {
+        "startLine": 593,
+        "startChar": 13,
+        "endLine": 593,
+        "endChar": 17
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0cbf93_f97c0fa2",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "dex_locations",
+      "range": {
+        "startLine": 595,
+        "startChar": 30,
+        "endLine": 595,
+        "endChar": 39
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a3fe04_9e40460e",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "What is this part trying to address?",
+      "range": {
+        "startLine": 1127,
+        "startChar": 0,
+        "endLine": 1141,
+        "endChar": 5
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb11386_5b5f2d6d",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "document the order in which the results are produced (preferably with an example)",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bad6892_31f8777a",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "Add a test case that loads a multi-dex file.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 0,
+        "endLine": 1139,
+        "endChar": 6
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6866fc_6638b9ff",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "fits on one line?",
+      "range": {
+        "startLine": 1166,
+        "startChar": 6,
+        "endLine": 1166,
+        "endChar": 33
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa4bde52_bdc218dd",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "dex_names",
+      "range": {
+        "startLine": 275,
+        "startChar": 93,
+        "endLine": 275,
+        "endChar": 98
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3426e4f_0273791a",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "dex_names",
+      "range": {
+        "startLine": 137,
+        "startChar": 67,
+        "endLine": 137,
+        "endChar": 72
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9655e07f_c52508ab",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "dex_names",
+      "range": {
+        "startLine": 142,
+        "startChar": 72,
+        "endLine": 142,
+        "endChar": 77
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28f52e9b_18871de6",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ed2226_0daeee08",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "class_loader",
+      "range": {
+        "startLine": 29,
+        "startChar": 74,
+        "endLine": 29,
+        "endChar": 76
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0470568b_c4ca04dd",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "add \n if (result \u003d\u003d nullptr) {\n    DCHECK(env-\u003eExceptionCheck());\n    return nullptr;\n  }",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25faacab_642ad031",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 12
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a788e855_52760c2a",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "std::string",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9ece644_4f70e039",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5ef5275_cbfdcd1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "break the topic: 1) art \u0026 libcore and 2) the framework change",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "a965e66f7c923b98bfe8a4ad31ab18e23d3a57de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1e89b3_6637d256",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "use class_loader_chain_-\u003eoriginal_classpath directly. local aliases are hard to read.",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 46
+      },
+      "revId": "a965e66f7c923b98bfe8a4ad31ab18e23d3a57de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b2a3bc2_a6c696d5",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "dex_locations",
+      "range": {
+        "startLine": 583,
+        "startChar": 27,
+        "endLine": 583,
+        "endChar": 36
+      },
+      "revId": "a965e66f7c923b98bfe8a4ad31ab18e23d3a57de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64b28b0c_cf46f48d",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "/*for_dex2oat\u003d*/",
+      "range": {
+        "startLine": 589,
+        "startChar": 56,
+        "endLine": 589,
+        "endChar": 60
+      },
+      "revId": "a965e66f7c923b98bfe8a4ad31ab18e23d3a57de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8693c3b_56b9c781",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-22T03:05:38Z",
+      "side": 1,
+      "message": "/*stored_info\u003d*/\n\nand similar for all arguments this don\u0027t have a name.",
+      "range": {
+        "startLine": 589,
+        "startChar": 62,
+        "endLine": 589,
+        "endChar": 69
+      },
+      "revId": "a965e66f7c923b98bfe8a4ad31ab18e23d3a57de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
