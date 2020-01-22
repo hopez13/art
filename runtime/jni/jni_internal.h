@@ -38,13 +38,6 @@ const JNINativeInterface* GetRuntimeShutdownNativeInterface();
 
 int ThrowNewException(JNIEnv* env, jclass exception_class, const char* msg, jobject cause);
 
-// Enables native stack checking for field and method resolutions via JNI. This should be called
-// during runtime initialization after libjavacore and libopenjdk have been dlopen()'ed.
-void JniInitializeNativeCallerCheck();
-
-// Removes native stack checking state.
-void JniShutdownNativeCallerCheck();
-
 // Finds the method using JNI semantics and initializes any classes. Does not encode the method in a
 // JNI id
 ArtMethod* FindMethodJNI(const ScopedObjectAccess& soa,

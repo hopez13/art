@@ -88,7 +88,6 @@
 #include "gc/task_processor.h"
 #include "handle_scope-inl.h"
 #include "hidden_api.h"
-#include "hidden_api_jni.h"
 #include "image-inl.h"
 #include "instrumentation.h"
 #include "intern_table-inl.h"
@@ -514,8 +513,6 @@ Runtime::~Runtime() {
   // instance. We rely on a small initialization order issue in Runtime::Start() that requires
   // elements of WellKnownClasses to be null, see b/65500943.
   WellKnownClasses::Clear();
-
-  hiddenapi::JniShutdownNativeCallerCheck();
 }
 
 struct AbortState {
@@ -1939,10 +1936,6 @@ void Runtime::InitNativeMethods() {
 
   // Initialize well known classes that may invoke runtime native methods.
   WellKnownClasses::LateInit(env);
-
-  // Having loaded native libraries for Managed Core library, enable field and
-  // method resolution checks via JNI from native code.
-  hiddenapi::JniInitializeNativeCallerCheck();
 
   VLOG(startup) << "Runtime::InitNativeMethods exiting";
 }
