@@ -142,6 +142,30 @@
       "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "934b163d_31380d4e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-22T18:15:17Z",
+      "side": 1,
+      "message": "Resolved.",
+      "parentUuid": "2ed8f417_e2534f60",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 87
+      },
+      "revId": "d2b8462b2da3a6c8df404f74d2650889adc0b681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
