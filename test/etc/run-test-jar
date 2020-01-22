@@ -1189,6 +1189,7 @@ else
     # Host run.
     export ANDROID_PRINTF_LOG=brief
 
+    export ANDROID_LOG_TAGS="*:e"
     export ANDROID_DATA="$DEX_LOCATION"
     export ANDROID_ROOT="${ANDROID_ROOT}"
     export ANDROID_I18N_ROOT="${ANDROID_I18N_ROOT}"
