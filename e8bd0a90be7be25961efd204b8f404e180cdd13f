@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8566a1e_af16266e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-22T09:43:26Z",
+      "side": 1,
+      "message": "Common initialization - common chained constructor or initialize in field declarations.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 35
+      },
+      "revId": "e8bd0a90be7be25961efd204b8f404e180cdd13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14dd781a_c2ba35ab",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-22T09:43:26Z",
+      "side": 1,
+      "message": "UNREACHABLE() - perhaps shouldn\u0027t be declared/implemented for 64-bit.",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 50
+      },
+      "revId": "e8bd0a90be7be25961efd204b8f404e180cdd13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
