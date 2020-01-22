@@ -47,10 +47,7 @@ import java.util.stream.Collectors;
 public class Class2Greylist {
 
     private static final Set<String> GREYLIST_ANNOTATIONS =
-            ImmutableSet.of(
-                    "android.annotation.UnsupportedAppUsage",
-                    "android.compat.annotation.UnsupportedAppUsage",
-                    "dalvik.annotation.compat.UnsupportedAppUsage");
+            ImmutableSet.of("android.compat.annotation.UnsupportedAppUsage");
     private static final Set<String> WHITELIST_ANNOTATIONS = ImmutableSet.of();
 
     public static final String FLAG_WHITELIST = "whitelist";
