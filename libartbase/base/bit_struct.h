@@ -160,8 +160,9 @@ struct BitStructField {
   }
 
   void Set(T value) {
-    ValueStorage value_as_storage;
-    value_as_storage.value_ = value;
+    ValueStorage value_as_storage{};  // zero-initialize
+    value_as_storage.value_ = value;  // write a more narrow 'value' into a wider storage
+                                      // wider-than-value bits are left zeroed out
 
     storage_.pod_.val_ = BitFieldInsert(storage_.pod_.val_,
                                         value_as_storage.pod_.val_,
