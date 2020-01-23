@@ -169,16 +169,17 @@ class InstrumentationStackPopper {
   explicit InstrumentationStackPopper(Thread* self);
   ~InstrumentationStackPopper() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Increase the number of frames being popped to 'desired_pops' return true if the frames were
-  // popped without any exceptions, false otherwise. The exception that caused the pop is
-  // 'exception'.
-  bool PopFramesTo(uint32_t desired_pops, /*in-out*/MutableHandle<mirror::Throwable>& exception)
+  // Increase the number of frames being popped up to `stack_pointer`. Return true if the
+  // frames were popped without any exceptions, false otherwise. The exception that caused
+  // the pop is 'exception'.
+  bool PopFramesTo(uint8_t* stack_pointer, /*in-out*/MutableHandle<mirror::Throwable>& exception)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
   Thread* self_;
   Instrumentation* instrumentation_;
-  uint32_t frames_to_remove_;
+  // The stack pointer limit for frames to pop.
+  uint8_t* pop_until_;
 };
 
 // Instrumentation is a catch-all for when extra information is required from the runtime. The
@@ -494,6 +495,7 @@ class Instrumentation {
   void PushInstrumentationStackFrame(Thread* self,
                                      ObjPtr<mirror::Object> this_object,
                                      ArtMethod* method,
+                                     uint8_t* stack_pointer,
                                      uintptr_t lr,
                                      bool interpreter_entry)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -507,13 +509,15 @@ class Instrumentation {
   // result values of the function are stored. Both pointers must always be valid but the values
   // held there will only be meaningful if interpreted as the appropriate type given the function
   // being returned from.
-  TwoWordReturn PopInstrumentationStackFrame(Thread* self, uintptr_t* return_pc,
-                                             uint64_t* gpr_result, uint64_t* fpr_result)
+  TwoWordReturn PopInstrumentationStackFrame(Thread* self,
+                                             uintptr_t* return_pc_addr,
+                                             uint64_t* gpr_result,
+                                             uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!GetDeoptimizedMethodsLock());
 
   // Pops nframes instrumentation frames from the current thread. Returns the return pc for the last
   // instrumentation frame that's popped.
-  uintptr_t PopFramesForDeoptimization(Thread* self, size_t nframes) const
+  uintptr_t PopFramesForDeoptimization(Thread* self, uint8_t* stack_pointer) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call back for configure stubs.
