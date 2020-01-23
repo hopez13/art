@@ -56,6 +56,31 @@ struct MinimumTypeHelper {
                               /* else */ type_unsigned>::type;
 };
 
+// Helper for converting to and from T to an integral type.
+template <typename T>
+union ConversionValueStorage {
+  using StorageType = typename MinimumTypeHelper<T, sizeof(T) * kBitsPerByte>::type;
+
+  // Underlying value must be wrapped in a separate standard-layout struct.
+  // See below for more details.
+  struct PodWrapper {
+    StorageType val_;
+  };
+
+  // Safely alias pod_ and value_ together.
+  //
+  // See C++ 9.5.1 [class.union]:
+  // If a standard-layout union contains several standard-layout structs that share a common
+  // initial sequence ... it is permitted to inspect the common initial sequence of any of
+  // standard-layout struct members.
+  PodWrapper pod_;
+  T value_;
+
+  // Future work: In theory almost non-standard layout can be supported here,
+  // assuming they don't rely on the address of (this).
+  // We just have to use memcpy since the union-aliasing would not work.
+};
+
 // Denotes the beginning of a bit struct.
 //
 // This marker is required by the C++ standard in order to
