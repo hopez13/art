@@ -1093,7 +1093,7 @@ class Thread {
   void RemoveDebuggerShadowFrameMapping(size_t frame_id)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  std::deque<instrumentation::InstrumentationStackFrame>* GetInstrumentationStack() {
+  std::map<uint8_t*, instrumentation::InstrumentationStackFrame>* GetInstrumentationStack() {
     return tlsPtr_.instrumentation_stack;
   }
 
@@ -1776,8 +1776,8 @@ class Thread {
     Context* long_jump_context;
 
     // Additional stack used by method instrumentation to store method and return pc values.
-    // Stored as a pointer since std::deque is not PACKED.
-    std::deque<instrumentation::InstrumentationStackFrame>* instrumentation_stack;
+    // Stored as a pointer since std::map is not PACKED.
+    std::map<uint8_t*, instrumentation::InstrumentationStackFrame>* instrumentation_stack;
 
     // JDWP invoke-during-breakpoint support.
     DebugInvokeReq* debug_invoke_req;
