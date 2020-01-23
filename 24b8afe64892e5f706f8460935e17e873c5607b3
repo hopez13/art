@@ -22,6 +22,30 @@
       "revId": "24b8afe64892e5f706f8460935e17e873c5607b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "243ed9df_c417c3e5",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-23T21:36:36Z",
+      "side": 1,
+      "message": "I think you might be right. Need to dig into the C++ standard some more.",
+      "parentUuid": "05ce7038_576c1983",
+      "range": {
+        "startLine": 168,
+        "startChar": 40,
+        "endLine": 168,
+        "endChar": 66
+      },
+      "revId": "24b8afe64892e5f706f8460935e17e873c5607b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
