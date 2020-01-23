@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05ce7038_576c1983",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-23T09:51:10Z",
+      "side": 1,
+      "message": "Relying on undefined behavior. The comments in lines 185-190 below do not apply because there\u0027s no common initial sequence. At least add a TODO to fix this properly.",
+      "range": {
+        "startLine": 168,
+        "startChar": 40,
+        "endLine": 168,
+        "endChar": 66
+      },
+      "revId": "24b8afe64892e5f706f8460935e17e873c5607b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
