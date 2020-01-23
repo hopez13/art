@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60e43e1d_568cf544",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-23T17:24:51Z",
+      "side": 1,
+      "message": "Nit: It seems like maybe adbconnection_server should have its own namespace?",
+      "range": {
+        "startLine": 11,
+        "startChar": 62,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "1051a711f58364ca50fd7800c6bf945e5d5aa3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
