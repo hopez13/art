@@ -2885,6 +2885,12 @@ JDWP::JdwpError Dbg::SetLocalValue(Thread* thread, StackVisitor& visitor, int sl
   // local variable(s). To achieve this, we install instrumentation exit stub on each method of the
   // thread's stack. The stub will cause the deoptimization to happen.
   if (!visitor.IsShadowFrame() && thread->HasDebuggerShadowFrames()) {
+    Thread* self = Thread::Current();
+    ScopedThreadSuspension sts(self, kSuspended);
+    gc::ScopedGCCriticalSection gcs(self,
+                                    gc::kGcCauseInstrumentation,
+                                    gc::kCollectorTypeInstrumentation);
+    ScopedSuspendAll ssa("Instrument thread stack");
     Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(thread);
   }
 
