@@ -182,7 +182,8 @@ static void VMRuntime_clampGrowthLimit(JNIEnv*, jobject) {
 }
 
 static jboolean VMRuntime_isDebuggerActive(JNIEnv*, jobject) {
-  return Dbg::IsDebuggerActive();
+  // This is replaced by the debugger when it is attached.
+  return false;
 }
 
 static jboolean VMRuntime_isNativeDebuggable(JNIEnv*, jobject) {
