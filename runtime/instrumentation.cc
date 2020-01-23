@@ -1602,8 +1602,7 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
                     visitor.caller->GetDeclaringClass()->IsObsoleteObject() ||
                     // Check if we forced all threads to deoptimize in the time between this frame
                     // being created and now.
-                    instrumentation_frame.force_deopt_id_ != current_force_deopt_id_ ||
-                    Dbg::IsForcedInterpreterNeededForUpcall(self, visitor.caller));
+                    instrumentation_frame.force_deopt_id_ != current_force_deopt_id_);
   if (is_ref) {
     // Restore the return value if it's a reference since it might have moved.
     *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
