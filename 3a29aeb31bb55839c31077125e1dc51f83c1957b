@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7220ca8e_ed0da70b",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-23T23:10:01Z",
+      "side": 1,
+      "message": "This is potentially u.b. at the BITSTRUCT_DEFINE_START layer, i.e. the unions the macros unfold will have different type sizes\n\n  union {\n    struct {int16_t a;}\n    struct {int32_t b;}\n  }\n\n(see the previous post for a possible explanation). Do we think a \u0027int16\u0027 and an \u0027int32\u0027 have a common initial sequence?",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e522aca5_dda6550d",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-23T23:10:01Z",
+      "side": 1,
+      "message": "Is it possible for there to be a pathological case that T\u003dnon-power of 2 is expanded to power of 2?\n\n\n   struct Chars {\n     char[3] hello;\n   };\n\nafter going through this, StorageType will become int32_t\n\nCan we assume that a \u0027char[3] and an int32_t\u0027 share a common initial sequence? If the answer is no, I think there needs to be either power-of-2 padding or an assert to prevent this.",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57cdb45c_61eabdea",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-23T23:10:01Z",
+      "side": 1,
+      "message": "Do these share a common initial subsequence?\n\n  T\u003d struct {int16_t x; int16_t y;}\n  PodWrapper \u003d struct {int32_t};\n\nIf the answer is \u0027no\u0027, then this implementation has undefined behavior.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
