@@ -63,6 +63,12 @@ class ImageSpace : public MemMapSpace {
   //     <ext-path>/<ext-name>
   //     <ext-name>
   // and must be listed in the order of their corresponding BCP components.
+  // The specification may have a suffix with profile specification, one of
+  //     !<ext-path>/<ext-name>
+  //     !<ext-name>
+  // and this profile will be used to compile the extension when loading the
+  // boot image if the on-disk version is not acceptable (either not present
+  // or present with wrong image checksums, i.e. out of date).
   //
   // Search paths for remaining extensions can be specified after named
   // components as one of

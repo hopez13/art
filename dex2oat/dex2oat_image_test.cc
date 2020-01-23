@@ -314,6 +314,21 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     }
     return file1->Compare(file2.get()) == 0;
   }
+
+  void AddAndroidRootToImageCompilerOptions() {
+    const char* android_root = getenv("ANDROID_ROOT");
+    CHECK(android_root != nullptr);
+    Runtime::Current()->image_compiler_options_.push_back(
+        "--android-root=" + std::string(android_root));
+  }
+
+  void EnableImageDex2Oat() {
+    Runtime::Current()->image_dex2oat_enabled_ = true;
+  }
+
+  void DisableImageDex2Oat() {
+    Runtime::Current()->image_dex2oat_enabled_ = false;
+  }
 };
 
 TEST_F(Dex2oatImageTest, TestModesAndFilters) {
@@ -635,6 +650,7 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     // Loading the primary image with just the name now succeeds.
     bool load_ok = load(base_name);
     ASSERT_TRUE(load_ok) << error_msg;
+    ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
 
     // Loading the primary image with a search path still fails.
     load_ok = silent_load("*");
@@ -709,6 +725,62 @@ TEST_F(Dex2oatImageTest, TestExtension) {
   EXPECT_TRUE(CompareFiles(single_ext_prefix + ".art", single_ext_prefix2 + ".art"));
   EXPECT_TRUE(CompareFiles(single_ext_prefix + ".vdex", single_ext_prefix2 + ".vdex"));
   EXPECT_TRUE(CompareFiles(single_ext_prefix + ".oat", single_ext_prefix2 + ".oat"));
+
+  // Test parsing profile specification and creating the boot image extension on-the-fly.
+  // We must set --android-root in the image compiler options.
+  AddAndroidRootToImageCompilerOptions();
+  std::string single_profile_filename = single_profile_file.GetFilename();
+  for (bool r : { false, true }) {
+    relocate = r;
+
+    // Try and fail to load everything as compiled extension.
+    bool load_ok = silent_load(base_location + "!" + single_profile_filename);
+    ASSERT_FALSE(load_ok);
+
+    // Try and fail to load with invalid spec, two profile name separators.
+    load_ok = silent_load(base_location + ":" + single_location + "!!arbitrary-profile-name");
+    ASSERT_FALSE(load_ok);
+
+    // Try and fail to load with invalid spec, missing profile name.
+    load_ok = silent_load(base_location + ":" + single_location + "!");
+    ASSERT_FALSE(load_ok);
+
+    // Try and fail to load with invalid spec, missing component name.
+    load_ok = silent_load(base_location + ":!" + single_profile_filename);
+    ASSERT_FALSE(load_ok);
+
+    // Load primary boot image, specifying invalid extension component and profile name.
+    load_ok = load(base_location + ":/non-existent/" + single_name + "!non-existent-profile-name");
+    ASSERT_TRUE(load_ok) << error_msg;
+    ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
+
+    // Load primary boot image and the single extension, specifying invalid profile name.
+    // (Load extension from file.)
+    load_ok = load(base_location + ":" + single_location + "!non-existent-profile-name");
+    ASSERT_TRUE(load_ok) << error_msg;
+    ASSERT_EQ(head_dex_files.size() + 1u, boot_image_spaces.size());
+    ASSERT_EQ(single_dex_files.size(),
+              boot_image_spaces.back()->GetImageHeader().GetComponentCount());
+
+    // Load primary boot image and fail to load the single extension, specifying
+    // invalid component name. (Running dex2oat to compile extension is disabled.)
+    ASSERT_FALSE(Runtime::Current()->IsImageDex2OatEnabled());
+    load_ok = load(base_location + ":/non-existent/" + single_name + "!" + single_profile_filename);
+    ASSERT_TRUE(load_ok) << error_msg;
+    ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
+
+    // Load primary boot image and the single extension, specifying invalid component name.
+    // (Compile extension by running dex2oat.)
+    EnableImageDex2Oat();
+    load_ok = load(base_location + ":/non-existent/" + single_name + "!" + single_profile_filename);
+    DisableImageDex2Oat();
+    ASSERT_TRUE(load_ok) << error_msg;
+    ASSERT_EQ(head_dex_files.size() + 1u, boot_image_spaces.size());
+    ASSERT_EQ(single_dex_files.size(),
+              boot_image_spaces.back()->GetImageHeader().GetComponentCount());
+
+    // TODO: More tests.
+  }
 
   ClearDirectory(scratch_dir.c_str());
   int rmdir_result = rmdir(scratch_dir.c_str());
