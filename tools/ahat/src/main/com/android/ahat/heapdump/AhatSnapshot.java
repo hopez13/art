@@ -37,7 +37,7 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
 
   private AhatSnapshot mBaseline = this;
 
-  AhatSnapshot(SuperRoot root,
+  public AhatSnapshot(SuperRoot root,
                Instances<AhatInstance> instances,
                List<AhatHeap> heaps,
                Site rootSite,

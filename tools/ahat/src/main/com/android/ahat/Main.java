@@ -21,6 +21,7 @@ import com.android.ahat.heapdump.Diff;
 import com.android.ahat.heapdump.HprofFormatException;
 import com.android.ahat.heapdump.Parser;
 import com.android.ahat.heapdump.Reachability;
+import com.android.ahat.heapgraph.HeapGraph;
 import com.android.ahat.progress.Progress;
 import com.android.ahat.proguard.ProguardMap;
 import com.sun.net.httpserver.HttpServer;
@@ -173,12 +174,19 @@ public class Main {
       System.exit(1);
     }
 
-    AhatSnapshot ahat = loadHeapDump(hprof, map, new AsciiProgress(), retained);
-    if (hprofbase != null) {
-      AhatSnapshot base = loadHeapDump(hprofbase, mapbase, new AsciiProgress(), retained);
+    AhatSnapshot ahat = null;
+    try {
+      ahat = HeapGraph.load(hprof, new AsciiProgress(), retained);
+      if (hprofbase != null) {
+        AhatSnapshot base = HeapGraph.load(hprofbase, new AsciiProgress(), retained);
 
-      System.out.println("Diffing heap dumps ...");
-      Diff.snapshots(ahat, base);
+        System.out.println("Diffing heap dumps ...");
+        Diff.snapshots(ahat, base);
+      }
+    } catch (Exception ex) {
+      System.err.println("Unable to read heap graph:");
+      ex.printStackTrace();
+      System.exit(1);
     }
 
     server.createContext("/",

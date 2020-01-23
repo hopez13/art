@@ -77,7 +77,7 @@ public abstract class AhatInstance implements Diffable<AhatInstance> {
   /**
    * Initialize this AhatInstance based on the the given info.
    */
-  void initialize(AhatHeap heap, Site site, AhatClassObj classObj) {
+  public void initialize(AhatHeap heap, Site site, AhatClassObj classObj) {
     mHeap = heap;
     mSite = site;
     mClassObj = classObj;
@@ -233,7 +233,7 @@ public abstract class AhatInstance implements Diffable<AhatInstance> {
   /**
    * Marks this instance as being a root of the given type.
    */
-  void addRootType(RootType type) {
+  public void addRootType(RootType type) {
     mRootTypes |= type.mask;
   }
 
@@ -647,7 +647,7 @@ public abstract class AhatInstance implements Diffable<AhatInstance> {
    * Returns null if the given instance has no next instance to the gc root.
    */
   private static PathElement getNextPathElementToGcRoot(AhatInstance inst) {
-    if (inst.isRoot()) {
+    if (inst.isRoot() || inst.mNextInstanceToGcRoot == null) {
       return null;
     }
     return new PathElement(inst.mNextInstanceToGcRoot, inst.mNextInstanceToGcRootField);

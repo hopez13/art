@@ -20,15 +20,15 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
-class SuperRoot extends AhatInstance {
+public class SuperRoot extends AhatInstance {
   private List<AhatInstance> mRoots = new ArrayList<AhatInstance>();
   private Object mDominatorsComputationState;
 
-  SuperRoot() {
+  public SuperRoot() {
     super(0);
   }
 
-  void addRoot(AhatInstance root) {
+  public void addRoot(AhatInstance root) {
     mRoots.add(root);
   }
 

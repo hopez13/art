@@ -51,8 +51,8 @@ class AsciiProgress implements Progress {
   @Override
   public void update(long current) {
     assert description != null;
-    long oldPercent = progress * 100 / duration;
-    long newPercent = current * 100 / duration;
+    long oldPercent = duration == 0 ? 100 : progress * 100 / duration;
+    long newPercent = duration == 0 ? 100 : current * 100 / duration;
     progress = current;
 
     if (newPercent > oldPercent) {

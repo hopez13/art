@@ -24,7 +24,7 @@ import java.util.function.Predicate;
 /**
  * A collection of instances that can be searched for by id.
  */
-class Instances<T extends AhatInstance> implements Iterable<T> {
+public class Instances<T extends AhatInstance> implements Iterable<T> {
 
   private final List<T> mInstances;
 

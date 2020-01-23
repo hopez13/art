@@ -35,18 +35,23 @@ public class AhatClassInstance extends AhatInstance {
   // followed by the super class, and so on. We store the values separate from
   // the field types and names to save memory.
   private Value[] mFields;
+  private long mExtraJavaSize = 0;
 
-  AhatClassInstance(long id) {
+  public AhatClassInstance(long id) {
     super(id);
   }
 
-  void initialize(Value[] fields) {
+  public void initialize(Value[] fields) {
     mFields = fields;
   }
 
   @Override
   long getExtraJavaSize() {
-    return 0;
+    return mExtraJavaSize;
+  }
+
+  public void setExtraJavaSize(long s) {
+    mExtraJavaSize = s;
   }
 
   @Override public Value getField(String fieldName) {
@@ -331,6 +336,9 @@ public class AhatClassInstance extends AhatInstance {
     }
 
     Value size = registry.getField("size");
+    if (size == null) {
+      return null;
+    }
     if (!size.isLong()) {
       return null;
     }
@@ -374,12 +382,12 @@ public class AhatClassInstance extends AhatInstance {
       // If we have reached the end of the fields in the current class,
       // continue walking up the class hierarchy to get superclass fields as
       // well.
-      while (mFieldIndex == mFields.length && mNextClassObj != null) {
+      while (mFields != null && mFieldIndex == mFields.length && mNextClassObj != null) {
         mFields = mNextClassObj.getInstanceFields();
         mFieldIndex = 0;
         mNextClassObj = mNextClassObj.getSuperClassObj();
       }
-      return mFieldIndex < mFields.length;
+      return mFieldIndex < (mFields == null ? 0 : mFields.length) && mValueIndex < mValues.length;
     }
 
     @Override
@@ -388,6 +396,9 @@ public class AhatClassInstance extends AhatInstance {
         throw new NoSuchElementException();
       }
       Field field = mFields[mFieldIndex++];
+      if (mValueIndex >= mValues.length) {
+        System.out.println("Index out of bounds mValueIndex=" + mValueIndex + " hasNext=" + hasNext() + " mFields.length=" + mFields.length + " mValues.length=" + mValues.length);
+      }
       Value value = mValues[mValueIndex++];
       return new FieldValue(field.name, field.type, value);
     }

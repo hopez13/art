@@ -35,13 +35,14 @@ public class AhatClassObj extends AhatInstance {
   private Field[] mInstanceFields;
   private long mStaticFieldsSize;
   private long mInstanceSize;
+  private long mExtraJavaSize = 0;
 
-  AhatClassObj(long id, String className) {
+  public AhatClassObj(long id, String className) {
     super(id);
     mClassName = className;
   }
 
-  void initialize(AhatClassObj superClass,
+  public void initialize(AhatClassObj superClass,
                   long instanceSize,
                   Field[] instanceFields,
                   long staticFieldsSize) {
@@ -51,14 +52,18 @@ public class AhatClassObj extends AhatInstance {
     mStaticFieldsSize = staticFieldsSize;
   }
 
-  void initialize(AhatInstance classLoader, FieldValue[] staticFields) {
+  public void initialize(AhatInstance classLoader, FieldValue[] staticFields) {
     mClassLoader = classLoader;
     mStaticFieldValues = staticFields;
   }
 
   @Override
   long getExtraJavaSize() {
-    return mStaticFieldsSize;
+    return mExtraJavaSize;
+  }
+
+  public void setExtraJavaSize(long s) {
+    mExtraJavaSize = s;
   }
 
   /**
@@ -129,7 +134,7 @@ public class AhatClassObj extends AhatInstance {
       @Override
       public Reference get(int index) {
         FieldValue field = mStaticFieldValues[index];
-        Value value = field.value;
+        Value value = field == null ? null : field.value;
         if (value != null && value.isAhatInstance()) {
           return new Reference(AhatClassObj.this,
                                "." + field.name,

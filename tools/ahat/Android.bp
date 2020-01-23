@@ -30,6 +30,17 @@ droiddoc_host {
     },
 }
 
+java_library {
+    name: "perfetto_trace-proto",
+    host_supported: true,
+    srcs: [
+        "protos/perfetto_trace.proto"
+    ],
+    proto: {
+        type: "lite"
+    }
+}
+
 // --- ahat.jar ----------------
 java_binary_host {
     name: "ahat",
@@ -39,6 +50,7 @@ java_binary_host {
     wrapper: "ahat",
     srcs: ["src/main/**/*.java"],
     manifest: "etc/ahat.mf",
+    static_libs: ["perfetto_trace-proto"],
     java_resources: ["etc/style.css"],
     javacflags: ["-Xdoclint:all/protected"],
 }

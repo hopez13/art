@@ -30,7 +30,7 @@ public class AhatHeap implements Diffable<AhatHeap> {
   private AhatHeap mBaseline;
   private boolean mIsPlaceHolder = false;
 
-  AhatHeap(String name, int index) {
+  public AhatHeap(String name, int index) {
     mName = name;
     mIndex = index;
     mBaseline = this;
