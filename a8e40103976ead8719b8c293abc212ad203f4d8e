@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca14622b_651f87ee",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-24T17:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c52d7f0f_6d1d1522",
+      "range": {
+        "startLine": 370,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "a8e40103976ead8719b8c293abc212ad203f4d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ababf02_e724c1e2",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "a8e40103976ead8719b8c293abc212ad203f4d8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c551a88_58240ce7",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-24T17:53:48Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "5ababf02_e724c1e2",
+      "range": {
+        "startLine": 374,
+        "startChar": 9,
+        "endLine": 374,
+        "endChar": 14
+      },
+      "revId": "a8e40103976ead8719b8c293abc212ad203f4d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
