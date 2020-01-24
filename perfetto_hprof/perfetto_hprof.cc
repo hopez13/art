@@ -25,6 +25,7 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <thread>
 
 #include "gc/heap-visit-objects-inl.h"
@@ -360,8 +361,34 @@ void DumpPerfetto(art::Thread* self) {
   art::ScopedSuspendAll ssa(__FUNCTION__, /* long_suspend=*/ true);
 
   pid_t pid = fork();
-  if (pid != 0) {
+  if (pid == -1) {
+    PLOG(ERROR) << "fork";
     return;
+  }
+  if (pid != 0) {
+    int stat_loc;
+    waitpid(pid, &stat_loc, 0);
+    return;
+  }
+  pid = fork();
+  if (pid == -1) {
+    PLOG(FATAL) << "fork";
+  }
+  if (pid != 0) {
+    _exit(0);
+  }
+  // We are now reparented to init.
+  if (setsid() == -1) {
+    PLOG(FATAL) << "setsid";
+  }
+  chdir("/");
+  int fd = open("/dev/null", O_RDWR, 0);
+  if (fd != -1) {
+    dup2(fd, STDIN_FILENO);
+    dup2(fd, STDOUT_FILENO);
+    dup2(fd, STDERR_FILENO);
+    if (fd > STDERR_FILENO)
+      close(fd);
   }
 
   // Make sure that this is the first thing we do after forking, so if anything
