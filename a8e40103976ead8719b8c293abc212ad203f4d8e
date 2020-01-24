@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c52d7f0f_6d1d1522",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-24T17:39:11Z",
+      "side": 1,
+      "message": "Some corner cases here (indefinite waits, unwaitable children, EINTR) to consider.\nPragmatically, let\u0027s:\n* retry on EINTR\n* continue ignoring other errors (since we do want to ignore ECHILD, I believe).",
+      "range": {
+        "startLine": 370,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "a8e40103976ead8719b8c293abc212ad203f4d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ababf02_e724c1e2",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-24T17:39:11Z",
+      "side": 1,
+      "message": "To confirm - this crashes the process, right?",
+      "range": {
+        "startLine": 374,
+        "startChar": 9,
+        "endLine": 374,
+        "endChar": 14
+      },
+      "revId": "a8e40103976ead8719b8c293abc212ad203f4d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
