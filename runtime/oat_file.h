@@ -166,23 +166,6 @@ class OatFile {
                        /*inout*/MemMap* reservation,  // Where to load if not null.
                        /*out*/std::string* error_msg);
 
-  // Open an oat file from an already opened File.
-  // Does not use dlopen underneath so cannot be used for runtime use
-  // where relocations may be required. Currently used from
-  // ImageWriter which wants to open a writable version from an existing
-  // file descriptor for patching.
-  static OatFile* OpenWritable(int zip_fd,
-                               File* file,
-                               const std::string& location,
-                               ArrayRef<const std::string> dex_filenames,
-                               std::string* error_msg);
-  // Open an oat file from an already opened File. Maps it PROT_READ, MAP_PRIVATE.
-  static OatFile* OpenReadable(int zip_fd,
-                               File* file,
-                               const std::string& location,
-                               ArrayRef<const std::string> dex_filenames,
-                               std::string* error_msg);
-
   // Initialize OatFile instance from an already loaded VdexFile. This assumes
   // the vdex does not have a dex section and accepts a vector of DexFiles separately.
   static OatFile* OpenFromVdex(const std::vector<const DexFile*>& dex_files,
