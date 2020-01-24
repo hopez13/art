@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8bae4516_0ea84349",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-24T09:34:55Z",
+      "side": 1,
+      "message": "No, the only safe option is to give all fields the same StorageType, preferably the same as the `_._` (excellent naming).\n\nAnd the only user types that are safe are those that contain a single data member of the same type or unions of such types. (This includes other bit structs.)\n\nThe CustomBitStruct in the test seems unsuitable as std::is_signed_v\u003cCustomBitStruct\u003e is false, so even with this CL we\u0027re essentially writing to one field and reading another from something like\n\n  union { int8_t i8; uint8_t u8; }\n\nMaybe we should drop the BitStructField\u0027s default argument for StorageType and have another macro for field definitions that takes the StorageType from a typedef (using) inside the union?",
+      "parentUuid": "7220ca8e_ed0da70b",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e522aca5_dda6550d",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "56f33fcc_a45072f4",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-24T09:34:55Z",
+      "side": 1,
+      "message": "Such type is unsuitable, see my comment in bit_struct.h .\n\nI\u0027m unaware of std::length_of_common_initial_sequence\u003cT,U\u003e that would allow the appropriate assert.",
+      "parentUuid": "e522aca5_dda6550d",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57cdb45c_61eabdea",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2020-01-23T23:10:01Z",
       "side": 1,
       "message": "Do these share a common initial subsequence?\n\n  T\u003d struct {int16_t x; int16_t y;}\n  PodWrapper \u003d struct {int32_t};\n\nIf the answer is \u0027no\u0027, then this implementation has undefined behavior.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d80fec_a4419334",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-24T09:34:55Z",
+      "side": 1,
+      "message": "Such T is unsuitable, see my comment in bit_struct.h .",
+      "parentUuid": "57cdb45c_61eabdea",
       "range": {
         "startLine": 76,
         "startChar": 0,
