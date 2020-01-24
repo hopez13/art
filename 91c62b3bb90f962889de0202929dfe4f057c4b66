@@ -22,6 +22,30 @@
       "revId": "91c62b3bb90f962889de0202929dfe4f057c4b66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74c661c8_e64bb803",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-24T13:20:28Z",
+      "side": 1,
+      "message": "Manually. I was looking at the OatFile, looking for Open() with file descriptors, and spotted references to ImageWriter doing \"patching\". This has been removed a long time ago, so I did `git grep OpenReadable` and saw no uses. Then I looked around for other stuff to remove.",
+      "parentUuid": "8259250c_aaa0062d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "91c62b3bb90f962889de0202929dfe4f057c4b66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
