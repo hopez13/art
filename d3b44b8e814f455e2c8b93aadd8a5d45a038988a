@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2cd45f6_08563d87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "This is the bug for changing the Gtest that started failing when the size of Thread changed.\n\nRemove.",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60a57995_ad2005ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "Test: ./art/test/run-test --host --dev --runtime-option -verbose:deopt,plugin --prebuild --compact-dex-level fast --jit --no-relocate --create-runner --runtime-option -Xcheck:jni 1965-get-set-local-primitive-no-tables\n      art/tools/parallel_run.py -j80 /tmp/path/to/runit.sh --out failure.txt\n\n?",
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94c2fa6b_de4cf460",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "If go/aog/1215778 isn\u0027t going to go in you should include the test here (or update my CL to only have the test and rebase onto it).",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86e9b8c6_d0bcc77c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "std::find_if or at least add braces.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 60
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfea25d9_d5ad7723",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \u003d\u003d?",
+      "range": {
+        "startLine": 145,
+        "startChar": 30,
+        "endLine": 145,
+        "endChar": 55
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f138beda_cd20f2b3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "I don\u0027t believe this is safe. It\u0027s possible that other threads have a reference to the iterators of the stack concurrently, leading to a possible UAF.",
+      "range": {
+        "startLine": 546,
+        "startChar": 2,
+        "endLine": 546,
+        "endChar": 19
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb78698_420f48b8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "Nit: Why not const?",
+      "range": {
+        "startLine": 828,
+        "startChar": 54,
+        "endLine": 828,
+        "endChar": 59
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4c65b0_3efbbd78",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "Nit: Since we never actually write to this it would be nice to make this a uintptr_t everywhere IMO.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 61,
+        "endLine": 1388,
+        "endChar": 70
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a917029_778ca000",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "We need a lock to ensure that there is no UAF here with concurrent instrumentation uninstall. See above.",
+      "range": {
+        "startLine": 944,
+        "startChar": 0,
+        "endLine": 944,
+        "endChar": 79
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3efebf7f_c1131ca2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-24T21:38:00Z",
+      "side": 1,
+      "message": "This relies hard on the (somewhat little-known and unintuitive) fact that std::map has a defined iteration order. Since the order is important we should mention it in the comment.",
+      "range": {
+        "startLine": 1780,
+        "startChar": 0,
+        "endLine": 1780,
+        "endChar": 90
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
