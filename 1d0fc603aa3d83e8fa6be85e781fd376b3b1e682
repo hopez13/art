@@ -22,6 +22,23 @@
       "revId": "1d0fc603aa3d83e8fa6be85e781fd376b3b1e682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2045280f_1fdddc8f",
+        "filename": "libartbase/base/bit_struct_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:38Z",
+      "side": 1,
+      "message": "nit: Maybe add a note that this must match the \u0027data\u0027 member field on L70 in order to be layout-compatible?",
+      "revId": "1d0fc603aa3d83e8fa6be85e781fd376b3b1e682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
