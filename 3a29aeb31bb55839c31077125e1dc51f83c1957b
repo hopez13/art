@@ -2,6 +2,103 @@
   "comments": [
     {
       "key": {
+        "uuid": "c3852595_9bb066a8",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "Can you elaborate on why this cast has to come first?",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0609b0a_a793b139",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "Can you elaborate on why this is necessary? The old requirement was that BitStructSizeOf must be \u003c\u003d sizeof(storage_)",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b892f57f_0980615a",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "Can you add a note what this adds that the BitFieldExtract fails to dcheck?",
+      "range": {
+        "startLine": 165,
+        "startChar": 33,
+        "endLine": 165,
+        "endChar": 55
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb9064c_e840d7a0",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "See above",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "133be41b_179e3622",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "nit: Naming is a bit confusing with \u0027Storage\u0027 being repeated several times for unrelated reasons",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 31
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7220ca8e_ed0da70b",
         "filename": "libartbase/base/bit_struct.h",
         "patchSetId": 2
@@ -113,6 +210,47 @@
         "endLine": 77,
         "endChar": 11
       },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6ec9000_c131787d",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "Where is the guard for this \"Such T is unsuitable\"?\n\nThere is only a static_assert that T is standard_layout currently, because that was the old requirement.",
+      "parentUuid": "08d80fec_a4419334",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cba3356_75d9b1a5",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-24T23:56:05Z",
+      "side": 1,
+      "message": "If we feed T\u003dstruct with multiple members, it seems like its still UB because the union\u0027s common initial sequence won\u0027t be the entire sequence.\n\nexample:\n\n union {\n   PodWrapper { int32 }\n   T\u003dstruct{int16, int16}\n }\n\nUnfortunately I couldn\u0027t find a type trait to detect this in C++17, I guess std::is_layout_compatible\u003cPodWrapper, T\u003e would do it but we can\u0027t use it yet.\n\n---\n\nMaybe not a real issue since I couldn\u0027t find any usages in ART where T\u003dmore than one member in the struct?\n\n--\n\nMaybe add this for the future, as a conditional or a comment?\n\n  #ifdef __cpp_lib_is_layout_compatible\n  static_assert(std::is_layout_compatible_v\u003cPodWrapper, T\u003e);\n  #endif",
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
