@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "222e2150_09d687fd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:40:23Z",
+      "side": 1,
+      "message": "That would sound like a bug if not. The page should have no longer any reference to it so should be dropped.",
+      "range": {
+        "startLine": 1061,
+        "startChar": 49,
+        "endLine": 1062,
+        "endChar": 32
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2b1e22d_855d7b5c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:40:23Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 1586,
+        "startChar": 4,
+        "endLine": 1586,
+        "endChar": 9
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "817c6942_d97bb604",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:40:23Z",
+      "side": 1,
+      "message": "Can you add a comment what the difference between the two is?",
+      "range": {
+        "startLine": 1666,
+        "startChar": 0,
+        "endLine": 1667,
+        "endChar": 57
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6db3f26b_fa7503a9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:40:23Z",
+      "side": 1,
+      "message": "given this tis the only difference with the call line 2930, just refactor and add a boolean:\nuse_in_memory_image \u003d vdex_fd-\u003eget() !\u003d -1\n\n?",
+      "range": {
+        "startLine": 2940,
+        "startChar": 0,
+        "endLine": 2941,
+        "endChar": 51
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
