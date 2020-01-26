@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d917ab10_88b3f3bb",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:55:02Z",
+      "side": 1,
+      "message": "What are those numbers? Add a comment.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfb7dee7_8d0f0c17",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:55:02Z",
+      "side": 1,
+      "message": "what\u0027s the maybe here? Can you expand?",
+      "range": {
+        "startLine": 220,
+        "startChar": 58,
+        "endLine": 220,
+        "endChar": 63
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33035d1_1c44e182",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:55:02Z",
+      "side": 1,
+      "message": "This \u003d the native implementation of VMDebug::isDebuggerConnected? Can you expand and point to where this happens?",
+      "range": {
+        "startLine": 175,
+        "startChar": 5,
+        "endLine": 175,
+        "endChar": 9
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109d80cb_289b2d3b",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:55:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 63
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88b6d718_aefcc2d0",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-26T14:55:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 58
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
