@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e7de0489_b4a61a01",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T13:57:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eff5e8e4_a415aca6",
+      "range": {
+        "startLine": 490,
+        "startChar": 2,
+        "endLine": 490,
+        "endChar": 75
+      },
+      "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a9e555b_9093fb82",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "344c9d9a_0def7f56",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T13:57:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6268f837_c999b6e7",
+      "range": {
+        "startLine": 58,
+        "startChar": 41,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -354,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "76cd45ca_87a4eba5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4076,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T13:57:09Z",
+      "side": 1,
+      "message": "Done in PS4.",
+      "parentUuid": "6987f1f6_fe010954",
+      "range": {
+        "startLine": 4076,
+        "startChar": 13,
+        "endLine": 4076,
+        "endChar": 15
+      },
+      "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbff0b54_9173af20",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -398,6 +470,30 @@
       "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c65e2dfd_4e0c3dc7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T13:57:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3e516b8_d370ef9a",
+      "range": {
+        "startLine": 1099,
+        "startChar": 59,
+        "endLine": 1099,
+        "endChar": 69
+      },
+      "revId": "4897bf1c36ff4a853bd5b4d59d99adb5cf7ceaa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
