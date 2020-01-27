@@ -204,6 +204,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     argv.push_back(runtime->GetCompilerExecutable());
     AddRuntimeArg(argv, "-Xms64m");
     AddRuntimeArg(argv, "-Xmx64m");
+    AddRuntimeArg(argv, "-verbose:image");
     for (const std::string& dex_file : dex_files) {
       argv.push_back("--dex-file=" + dex_file);
       argv.push_back("--dex-location=" + dex_file);
@@ -260,7 +261,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
 
   bool RunDex2Oat(const std::vector<std::string>& args, std::string* error_msg) {
     // We only want fatal logging for the error message.
-    auto post_fork_fn = []() { return setenv("ANDROID_LOG_TAGS", "*:f", 1) == 0; };
+    auto post_fork_fn = []() { return setenv("ANDROID_LOG_TAGS", "*:e", 1) == 0; };
     ForkAndExecResult res = ForkAndExec(args, post_fork_fn, error_msg);
     if (res.stage != ForkAndExecResult::kFinished) {
       *error_msg = strerror(errno);
