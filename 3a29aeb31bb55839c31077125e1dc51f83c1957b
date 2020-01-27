@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df5be7c7_ee268f8e",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "If StorageType and ExtractionStorageType differ in signedness, we need to ensure that BitFieldExtract() uses the latter. We could explicitly specify the template argument for BitFieldExtract() instead of relying on the deduction and let the code use an implicit conversion but I prefer explicit conversions.",
+      "parentUuid": "c3852595_9bb066a8",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0609b0a_a793b139",
         "filename": "libartbase/base/bit_struct.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65893f84_4aff2ca3",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Not necessary, removed. Added a test in the follow-up CL.",
+      "parentUuid": "e0609b0a_a793b139",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f85b8c01_a097280b",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "These checks are unrelated: BitFieldExtract is using ExtractionStorageType and this checks conversion to ConversionStorageType.",
+      "parentUuid": "b892f57f_0980615a",
+      "range": {
+        "startLine": 165,
+        "startChar": 33,
+        "endLine": 165,
+        "endChar": 55
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bb9064c_e840d7a0",
         "filename": "libartbase/base/bit_struct.h",
         "patchSetId": 2
@@ -73,6 +133,24 @@
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89637ad2_ab31c48e",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Done. This required the addition of dchecked_integral_cast\u003c\u003e() as we may now narrow the type.",
+      "parentUuid": "4bb9064c_e840d7a0",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -96,6 +174,30 @@
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37cb8e3a_e1355c1d",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Renamed ExtractionStorageType -\u003e ExtractionType. Feel free to suggest further renames.",
+      "parentUuid": "133be41b_179e3622",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 31
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +236,24 @@
     },
     {
       "key": {
+        "uuid": "1eb65e70_3c1cf266",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Resolved with the follow-up CL.",
+      "parentUuid": "8bae4516_0ea84349",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e522aca5_dda6550d",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 2
@@ -166,6 +286,24 @@
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95bae3da_7fed4db6",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Added forward-looking assertion undef `#if __cplusplus \u003e\u003d 202000L` below.",
+      "parentUuid": "56f33fcc_a45072f4",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "696c7890_63631779",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Added forward-looking assertion undef `#if __cplusplus \u003e\u003d 202000L`.",
+      "parentUuid": "a6ec9000_c131787d",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cba3356_75d9b1a5",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 2
@@ -254,6 +416,24 @@
       "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00244981_13e4f424",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:03:12Z",
+      "side": 1,
+      "message": "Done (with an extra #error message for whoever will do the upgrade to C++20)",
+      "parentUuid": "4cba3356_75d9b1a5",
+      "revId": "3a29aeb31bb55839c31077125e1dc51f83c1957b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
