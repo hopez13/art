@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e041af40_3588b484",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-27T22:30:09Z",
+      "side": 1,
+      "message": "nit: IIUC, this can be replaced/enhanced with a static_cast to make sure BitStructSizeof(ConversionStorageType) \u003e\u003d kBitWidth ?",
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f108e01_94caaa54",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-27T22:30:09Z",
+      "side": 1,
+      "message": "nit: If you move the accesses to data members of ConversionValueStorage into detail::ConversionValueStorage, we can get rid of ConversionStorageType and possibly simplify the code here\n\n\n  template \u003ctypename T\u003e\n  struct ConversionValueStorage {\n      ....\n    static constexpr StorageType ToUnderlyingStorage(T value) {\n       write into value_, read from pod_.val_\n    }\n\n    static constexpr T FromUnderlyingStorage(StorageType value) {\n       write to pod_.val_, read from value_\n    }\n  }\n\nnit: it might also be worth renaming ConversionValueStorage to something without the word \u0027Storage\u0027 to further disambiguate it from \u0027StorageType\u0027 in BitStructField (e.g. ConvertBetweenStructAndPrimitive)",
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcac9a1c_0f39de48",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-27T22:30:09Z",
+      "side": 1,
+      "message": "Do you think maybe this needs to be wrapped in a struct too? Upon re-reading the standard, I can only seem to find the definition of a \"common initial sequence\" w.r.t to structs, not w.r.t to primitives.\n\nhttps://timsong-cpp.github.io/cppwp/n4659/class.union#1\n\n\u003e One special guarantee is made in order to simplify the use of unions: If a standard-layout union contains several standard-layout structs that share a common initial sequence, and if a non-static data member of an object of this standard-layout union type is active and is one of the standard-layout structs, it is permitted to inspect the common initial sequence of any of the standard-layout struct members;",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
