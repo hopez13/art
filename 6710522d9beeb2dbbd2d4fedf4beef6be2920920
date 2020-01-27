@@ -235,6 +235,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd643234_b4c88240",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T22:20:47Z",
+      "side": 1,
+      "message": "Basically.\n\nAdding assertions is nice but if the code isn\u0027t exercised by our (in places quite limited) testing they will just provide false assurance.\n\nThis CL is fixing a bug that hid undetected for years in our mistaken ideas of what the mutator-lock prevented. Relying on having it right this time seems a little undesirable.",
+      "parentUuid": "7451c39f_2ac34b5c",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
