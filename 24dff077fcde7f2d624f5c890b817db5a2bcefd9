@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90cf61d1_0d0a3c4a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-27T13:37:21Z",
+      "side": 1,
+      "message": "Which configuration?",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "24dff077fcde7f2d624f5c890b817db5a2bcefd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ec1f54a_78f137c1",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-27T13:37:21Z",
+      "side": 1,
+      "message": "I think everything that depends on this is currently broken (the check is always false). This patch is probably correct, but it\u0027s impossible to test it with JIT-zygote config. I\u0027m working on a fix to re-enable kApexBootImageLocation.",
+      "range": {
+        "startLine": 1643,
+        "startChar": 29,
+        "endLine": 1643,
+        "endChar": 59
+      },
+      "revId": "24dff077fcde7f2d624f5c890b817db5a2bcefd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
