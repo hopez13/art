@@ -45,6 +45,29 @@
       "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f54fc86d_6dc2cd91",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-27T14:49:10Z",
+      "side": 1,
+      "message": "optional nit: logging now refers to the old thread name.",
+      "range": {
+        "startLine": 519,
+        "startChar": 49,
+        "endLine": 519,
+        "endChar": 63
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
