@@ -45,6 +45,30 @@
       "revId": "24dff077fcde7f2d624f5c890b817db5a2bcefd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9dd250_9c7ea225",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-27T14:34:40Z",
+      "side": 1,
+      "message": "No, I\u0027m wrong. kApexBootImageLocation is correct; it\u0027s the kApexBootImage that is broken (never gets set to true).",
+      "parentUuid": "0ec1f54a_78f137c1",
+      "range": {
+        "startLine": 1643,
+        "startChar": 29,
+        "endLine": 1643,
+        "endChar": 59
+      },
+      "revId": "24dff077fcde7f2d624f5c890b817db5a2bcefd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
