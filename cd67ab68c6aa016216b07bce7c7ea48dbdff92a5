@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1602b04_b534b19a",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-27T21:03:49Z",
+      "side": 1,
+      "message": "I think this topic is broken because this name doesn\u0027t match the name in the libcore CL.\n\nI\u0027ve updated this locally, but can\u0027t seem to test my fix as I\u0027m struggling to get a master build of AOSP to boot on my usual test device (Pixel 3a). Going to grab a serial debug cable \u0026 try to get AOSP booting on a Pixel 2 XL instead.",
+      "revId": "cd67ab68c6aa016216b07bce7c7ea48dbdff92a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
