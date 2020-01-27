@@ -248,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "a9382758_bc7a2252",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0032da27_178fe2d4",
+      "range": {
+        "startLine": 145,
+        "startChar": 30,
+        "endLine": 145,
+        "endChar": 55
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f138beda_cd20f2b3",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -283,6 +307,30 @@
       "side": 1,
       "message": "We agree this would be an existing problem right? The code I\u0027ve replaced is equivalently unsafe.\n\nThis has to be safe though, otherwise any manipulation of the data structure is broken. I\u0027ve added a few comments around Thread::GetInstrumentationStack to explain the guarantees. To be extra safe, we could add a lock, but I believe the guarantees offered by the mutator lock (being held exclusively here) are enough.",
       "parentUuid": "f138beda_cd20f2b3",
+      "range": {
+        "startLine": 546,
+        "startChar": 2,
+        "endLine": 546,
+        "endChar": 19
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cdeb9d9_78a73452",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "This code is equivalently unsafe to what we had before but it is also less safe than the CL I made to solve this bug.\n\nWe both agree that modifying this object while a thread is having it\u0027s stack walked is unsafe.\n\nFor this to work we need to require that any stack-walking be done with a shared/exclusive mutator-lock. Previously we had no such restriction on walking ones own stack and I am very suspicious that some of the 50+ stack-walkers in the runtime do not always have the mutator-lock. I think it would be much better to lock this explicitly when accessing it on what might be a remote thread or on the current thread without a shared mutator lock (I.e. in the instrumentation and stack-walking code).",
+      "parentUuid": "00a4febd_0d412de5",
       "range": {
         "startLine": 546,
         "startChar": 2,

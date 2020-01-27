@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e7f69e5_d7e6b34b",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed if we correctly implement locking like we did in my cl. See my comment in instrumentation.cc",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 55
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d0880b5_ec56d7cc",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2893,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 2893,
+        "startChar": 0,
+        "endLine": 2893,
+        "endChar": 52
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63dc3ddd_2ff5a6e2",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "Again see above.",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 54
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e055ad22_938659eb",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T19:11:00Z",
+      "side": 1,
+      "message": "As I said above the thread-safety of this CL relies on this assertion actually being correct and I\u0027m not sure that is a safe assumption (even if all of our tests pass).",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
