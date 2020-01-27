@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eda2fd50_58968dc1",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46ed08b2_f3916c51",
+      "range": {
+        "startLine": 35,
+        "startChar": 70,
+        "endLine": 35,
+        "endChar": 74
+      },
+      "revId": "1d0fc603aa3d83e8fa6be85e781fd376b3b1e682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2045280f_1fdddc8f",
         "filename": "libartbase/base/bit_struct_test.cc",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "1d0fc603aa3d83e8fa6be85e781fd376b3b1e682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f81ef0fe_71af1b52",
+        "filename": "libartbase/base/bit_struct_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T15:04:04Z",
+      "side": 1,
+      "message": "That\u0027s not actually required. The two-phase conversion in Get()/Set() allows different types.",
+      "parentUuid": "2045280f_1fdddc8f",
+      "revId": "1d0fc603aa3d83e8fa6be85e781fd376b3b1e682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
