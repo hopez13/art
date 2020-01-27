@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bdc6b3dc_59491aea",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T14:54:02Z",
+      "side": 1,
+      "message": "Can\u0027t hurt, I guess. Even though whoever does not handle EINTR is playing a dangerous game that they can\u0027t possibly win.",
+      "parentUuid": "1ad81091_53eb2d9b",
+      "range": {
+        "startLine": 500,
+        "startChar": 17,
+        "endLine": 500,
+        "endChar": 27
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d96e770_63c6abf7",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c79a071a_b2b23172",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T14:54:02Z",
+      "side": 1,
+      "message": "There\u0027s no deep reason.",
+      "parentUuid": "3d96e770_63c6abf7",
+      "range": {
+        "startLine": 501,
+        "startChar": 6,
+        "endLine": 501,
+        "endChar": 18
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f54fc86d_6dc2cd91",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16dc71b7_7c497e77",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T14:54:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f54fc86d_6dc2cd91",
+      "range": {
+        "startLine": 519,
+        "startChar": 49,
+        "endLine": 519,
+        "endChar": 63
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
