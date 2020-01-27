@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a823d8c5_3470282a",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T20:49:05Z",
+      "side": 1,
+      "message": "Ack I suppose. I tend to think we overuse the mutator-lock and should try to be a bit more explicit about what locks do. As is the mutator-lock both has explicit carve-outs and is used for a ton of random stuff, which seems like a bad combination.",
+      "parentUuid": "9ca70cf6_c354a77c",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 55
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d0880b5_ec56d7cc",
         "filename": "runtime/debugger.cc",
         "patchSetId": 6
@@ -92,6 +116,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab8d1644_bcd7674c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T20:49:05Z",
+      "side": 1,
+      "message": "Ack. Just worried.",
+      "parentUuid": "63dc3ddd_2ff5a6e2",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 54
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +187,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d3c1abf_c61fa3c9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T20:49:05Z",
+      "side": 1,
+      "message": "It\u0027s not that I think the mutator-lock is broken it\u0027s just I\u0027m not sure the REQUIRED_SHARED annotations are worth very much. I\u0027ve seen several bugs where the annotation was just wrong and I\u0027m worried this might be one of those times.",
+      "parentUuid": "d8b8441a_daa8816b",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
