@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ca70cf6_c354a77c",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T20:30:36Z",
+      "side": 1,
+      "message": "Yes, adding an extra lock dedicated for the instrumentation stack would also prevent races. Though the downsides of an extra lock is more risks of lock issues, and also a proliferation of such locks, while the mutator lock can sometimes be good enough for some cases.\n\nIn this particular case, given this is for debuggable and we suspend all in other debugging scenarios, I\u0027d favor re-using abstractions we already have (the mutator lock, assuming it works) instead of adding another one.",
+      "parentUuid": "5e7f69e5_d7e6b34b",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 55
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d0880b5_ec56d7cc",
         "filename": "runtime/debugger.cc",
         "patchSetId": 6
@@ -82,6 +106,30 @@
       "writtenOn": "2020-01-27T19:11:00Z",
       "side": 1,
       "message": "As I said above the thread-safety of this CL relies on this assertion actually being correct and I\u0027m not sure that is a safe assumption (even if all of our tests pass).",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8b8441a_daa8816b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T20:30:36Z",
+      "side": 1,
+      "message": "You mean the assertion that the lock is held when calling this method?\n\nWe\u0027d be in a pretty broken state in general if mutator locks weren\u0027t working. Which part makes you think here that they don\u0027t?",
+      "parentUuid": "e055ad22_938659eb",
       "range": {
         "startLine": 1108,
         "startChar": 6,

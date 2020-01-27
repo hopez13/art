@@ -343,6 +343,30 @@
     },
     {
       "key": {
+        "uuid": "169282a5_3a867efd",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T20:30:36Z",
+      "side": 1,
+      "message": "WalkStack requires the mutator lock, why are you saying some stack walkers don\u0027t hold it? Would an assertion help your confidence here?",
+      "parentUuid": "9cdeb9d9_78a73452",
+      "range": {
+        "startLine": 546,
+        "startChar": 2,
+        "endLine": 546,
+        "endChar": 19
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bb78698_420f48b8",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
