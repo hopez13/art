@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ad81091_53eb2d9b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-27T14:48:17Z",
+      "side": 1,
+      "message": "optional: consider adding SA_RESTART, which could be friendlier to host processes that don\u0027t handle all EINTRs correctly. (debuggerd and profiling sig handlers set it.)",
+      "range": {
+        "startLine": 500,
+        "startChar": 17,
+        "endLine": 500,
+        "endChar": 27
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d96e770_63c6abf7",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1128769
+      },
+      "writtenOn": "2020-01-27T14:48:17Z",
+      "side": 1,
+      "message": "non-actionable: was there a reason to choose sa_sigaction over sa_handler in the first place, if the parameters aren\u0027t used?",
+      "range": {
+        "startLine": 501,
+        "startChar": 6,
+        "endLine": 501,
+        "endChar": 18
+      },
+      "revId": "d8495708b1f9f0b9005c16e36acab2bf32505c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
