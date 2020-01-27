@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb7408f5_272e4ffd",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-27T14:58:47Z",
+      "side": 1,
+      "message": "This implies two fork()\u0027s? The reader is missing a fork() :-)\n\nLooking at this function in isolation, the reader sees both processes from the fork() as parent and child. Grandchild would need further explanation of what\u0027s going on as naively it\u0027s not obvious to the reader from comments in this file (comments at top explain threads and one fork).\n\n[ optional ]Normally ART does early return rather than \"else if\", but personally I\u0027d favor \"else if\" to make the separate process paths clearer.\n\nif (pid \u003e 0) {\n // Parent ...\n ...\n} else if (pid \u003d\u003d 0) {\n // Child ...\n ...\n} else if (UNLIKELY(pid \u003d\u003d -1)) {\n // Fork failure\n ...\n}",
+      "range": {
+        "startLine": 378,
+        "startChar": 48,
+        "endLine": 378,
+        "endChar": 59
+      },
+      "revId": "6492d68d9f560de17ad8433da8a27998a902b3d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
