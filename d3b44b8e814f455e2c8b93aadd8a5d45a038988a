@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "8454dc05_cfa5a1ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2cd45f6_08563d87",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60a57995_ad2005ab",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -65,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "396e8aad_f3951c62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60a57995_ad2005ab",
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94c2fa6b_de4cf460",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -76,6 +118,30 @@
       "writtenOn": "2020-01-24T21:38:00Z",
       "side": 1,
       "message": "If go/aog/1215778 isn\u0027t going to go in you should include the test here (or update my CL to only have the test and rebase onto it).",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76c023d_b2186e4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Ack - let\u0027s see where this goes, we can keep your other CL for the test.",
+      "parentUuid": "94c2fa6b_de4cf460",
       "range": {
         "startLine": 19,
         "startChar": 6,
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "24cdaf1e_641ae485",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86e9b8c6_d0bcc77c",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 60
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfea25d9_d5ad7723",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -122,6 +212,30 @@
       "writtenOn": "2020-01-24T21:38:00Z",
       "side": 1,
       "message": "Shouldn\u0027t this be \u003d\u003d?",
+      "range": {
+        "startLine": 145,
+        "startChar": 30,
+        "endLine": 145,
+        "endChar": 55
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0032da27_178fe2d4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "No, the exception handler passes the frames where the catch handler is. Which will include the frame just below it. I\u0027ve added a comment.",
+      "parentUuid": "dfea25d9_d5ad7723",
       "range": {
         "startLine": 145,
         "startChar": 30,
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "00a4febd_0d412de5",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "We agree this would be an existing problem right? The code I\u0027ve replaced is equivalently unsafe.\n\nThis has to be safe though, otherwise any manipulation of the data structure is broken. I\u0027ve added a few comments around Thread::GetInstrumentationStack to explain the guarantees. To be extra safe, we could add a lock, but I believe the guarantees offered by the mutator lock (being held exclusively here) are enough.",
+      "parentUuid": "f138beda_cd20f2b3",
+      "range": {
+        "startLine": 546,
+        "startChar": 2,
+        "endLine": 546,
+        "endChar": 19
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bb78698_420f48b8",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "9816c1be_4c768a3d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb78698_420f48b8",
+      "range": {
+        "startLine": 828,
+        "startChar": 54,
+        "endLine": 828,
+        "endChar": 59
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc4c65b0_3efbbd78",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -191,6 +353,30 @@
       "writtenOn": "2020-01-24T21:38:00Z",
       "side": 1,
       "message": "Nit: Since we never actually write to this it would be nice to make this a uintptr_t everywhere IMO.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 61,
+        "endLine": 1388,
+        "endChar": 70
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82334f21_24427582",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "bc4c65b0_3efbbd78",
       "range": {
         "startLine": 1388,
         "startChar": 61,
@@ -226,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "4ad3a41c_f812ed67",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "See my reply there - I believe reading with the shared mutator lock and writing with the exclusive mutator lock should give us the guarantees we need.",
+      "parentUuid": "0a917029_778ca000",
+      "range": {
+        "startLine": 944,
+        "startChar": 0,
+        "endLine": 944,
+        "endChar": 79
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3efebf7f_c1131ca2",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -237,6 +447,30 @@
       "writtenOn": "2020-01-24T21:38:00Z",
       "side": 1,
       "message": "This relies hard on the (somewhat little-known and unintuitive) fact that std::map has a defined iteration order. Since the order is important we should mention it in the comment.",
+      "range": {
+        "startLine": 1780,
+        "startChar": 0,
+        "endLine": 1780,
+        "endChar": 90
+      },
+      "revId": "d3b44b8e814f455e2c8b93aadd8a5d45a038988a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461aa078_800474bf",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T12:00:37Z",
+      "side": 1,
+      "message": "Yes, good point. Done.",
+      "parentUuid": "3efebf7f_c1131ca2",
       "range": {
         "startLine": 1780,
         "startChar": 0,
