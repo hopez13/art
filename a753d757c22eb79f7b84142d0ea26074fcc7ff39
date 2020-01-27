@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37f3d83c_4532d971",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-27T14:07:07Z",
+      "side": 1,
+      "message": "ART now waits for perfetto_hprof to exit before resuming execution.",
+      "revId": "a753d757c22eb79f7b84142d0ea26074fcc7ff39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ea4ead_8f2f7755",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-01-27T14:07:07Z",
+      "side": 1,
+      "message": "Suggest a line break and a comment that the following code is executed by the child.",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 51
+      },
+      "revId": "a753d757c22eb79f7b84142d0ea26074fcc7ff39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
