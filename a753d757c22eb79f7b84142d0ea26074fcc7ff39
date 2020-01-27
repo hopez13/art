@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6476100d_e2cd56b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T14:13:54Z",
+      "side": 1,
+      "message": "This is misleading. It only waits on the intermediary child which immediately exits.\n\nAdded some more detailed description.",
+      "parentUuid": "37f3d83c_4532d971",
+      "revId": "a753d757c22eb79f7b84142d0ea26074fcc7ff39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67ea4ead_8f2f7755",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 5
@@ -39,6 +57,30 @@
       "revId": "a753d757c22eb79f7b84142d0ea26074fcc7ff39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163fec23_c612f6b0",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T14:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67ea4ead_8f2f7755",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 51
+      },
+      "revId": "a753d757c22eb79f7b84142d0ea26074fcc7ff39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
