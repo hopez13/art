@@ -22,6 +22,30 @@
       "revId": "6492d68d9f560de17ad8433da8a27998a902b3d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a64a60f_30177b83",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-01-27T15:10:20Z",
+      "side": 1,
+      "message": "Oops, the comment should have gone after the daemon(...). Added both now.\n\nThe [optional] would leave everything intended by one level, which I am not sure aids readability.",
+      "parentUuid": "cb7408f5_272e4ffd",
+      "range": {
+        "startLine": 378,
+        "startChar": 48,
+        "endLine": 378,
+        "endChar": 59
+      },
+      "revId": "6492d68d9f560de17ad8433da8a27998a902b3d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
