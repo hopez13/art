@@ -211,6 +211,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7451c39f_2ac34b5c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T21:02:34Z",
+      "side": 1,
+      "message": "So it\u0027s mostly a problem of confidence? And you\u0027d favor an implementation where locking an explicit lock is right next to the use of the data structure being protected (so it\u0027s obvious from the reader it\u0027s protected)?\n\nDoes adding assertions instead would mitigate these concerns? (ie adding AssertHeld close to the data structures)",
+      "parentUuid": "7d3c1abf_c61fa3c9",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
