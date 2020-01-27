@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "840cd5b2_b20b8dc7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 1,
+      "message": "Sorry these were comments to make sure that I got the smallest diff possible. Removed.",
+      "parentUuid": "d917ab10_88b3f3bb",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb7dee7_8d0f0c17",
         "filename": "runtime/gc/allocation_record.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9d302c_0b7d4f85",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 1,
+      "message": "I just mean this is a feature that I (unintentionally) broke when we switched the default debugger. Nobody noticed though so it\u0027s unclear if the feature was necessary or desirable.\n\nDone.",
+      "parentUuid": "dfb7dee7_8d0f0c17",
+      "range": {
+        "startLine": 220,
+        "startChar": 58,
+        "endLine": 220,
+        "endChar": 63
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2650dab2_87ae9fd6",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d33035d1_1c44e182",
+      "range": {
+        "startLine": 175,
+        "startChar": 5,
+        "endLine": 175,
+        "endChar": 9
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "109d80cb_289b2d3b",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9da1869a_d43e86e8",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "109d80cb_289b2d3b",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 63
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88b6d718_aefcc2d0",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 4
@@ -114,6 +210,30 @@
       "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03bb13f_10034cfb",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 1,
+      "message": "Done. Although it actually seems we never replaced this function so would always return false. Filed b/148401311 and implemented a fix.",
+      "parentUuid": "88b6d718_aefcc2d0",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 58
+      },
+      "revId": "4c3c382a3831d9dc673767efe749035c1f148f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

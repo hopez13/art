@@ -22,6 +22,30 @@
       "revId": "f0e90bacbfcd36fed615dd82c689f872437fa5ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a75b92_c9510190",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-27T21:55:53Z",
+      "side": 0,
+      "message": "Jvmti handles deoptimization differently. There is no equivalent. This and the other IsForcedInterpreterNeededFor* functions are just required for the (frankly incredibly over-complicated) way the old debugger handled single-steps.\n\nThe closest equivalent is JVMTI uses a combination of thread-instrumentation, thread ForceInterpreter and changing the function entrypoint.",
+      "parentUuid": "0b087601_18825782",
+      "range": {
+        "startLine": 336,
+        "startChar": 20,
+        "endLine": 336,
+        "endChar": 55
+      },
+      "revId": "f0e90bacbfcd36fed615dd82c689f872437fa5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
