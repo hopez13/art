@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "454249c8_14a099ef",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T16:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2b1e22d_855d7b5c",
+      "range": {
+        "startLine": 1586,
+        "startChar": 4,
+        "endLine": 1586,
+        "endChar": 9
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817c6942_d97bb604",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b5b1d6a8_1034a70a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T16:37:19Z",
+      "side": 1,
+      "message": "This is surely not the right place to add documentation. We do have the following in parsed_options.cc :\n\n  UsageMessage(stream, \"  -Xbootclasspath-locations:bootclasspath\\n\"\n                       \"     (override the dex locations of the -Xbootclasspath files)\\n\");",
+      "parentUuid": "817c6942_d97bb604",
+      "range": {
+        "startLine": 1666,
+        "startChar": 0,
+        "endLine": 1667,
+        "endChar": 57
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6db3f26b_fa7503a9",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -91,6 +139,30 @@
       "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fdb63fd_982f7d8b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-27T16:37:19Z",
+      "side": 1,
+      "message": "This is calling a different overload of OatFile::Open().",
+      "parentUuid": "6db3f26b_fa7503a9",
+      "range": {
+        "startLine": 2940,
+        "startChar": 0,
+        "endLine": 2941,
+        "endChar": 51
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
