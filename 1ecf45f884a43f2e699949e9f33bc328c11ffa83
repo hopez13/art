@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3204f1_cc9efe50",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T21:13:49Z",
+      "side": 1,
+      "message": "Can you add an abstraction for this, ie GetValue ?",
+      "range": {
+        "startLine": 308,
+        "startChar": 45,
+        "endLine": 308,
+        "endChar": 55
+      },
+      "revId": "1ecf45f884a43f2e699949e9f33bc328c11ffa83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12723ca1_f6fd9608",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-27T21:13:49Z",
+      "side": 1,
+      "message": "For readability, I think I\u0027d favor something like:\n\nif () {\n  ...\n} else {\n  ...\n}\nreturn;",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 572,
+        "endChar": 37
+      },
+      "revId": "1ecf45f884a43f2e699949e9f33bc328c11ffa83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
