@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1831116c_9142e847",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-28T13:49:05Z",
+      "side": 1,
+      "message": "nit (and feel free to ignore): I\u0027d read this easier if it was \"map_directly\"",
+      "range": {
+        "startLine": 1055,
+        "startChar": 35,
+        "endLine": 1055,
+        "endChar": 55
+      },
+      "revId": "2bba827f1cfd3854bd13fcfdae477f0bd47bdda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
