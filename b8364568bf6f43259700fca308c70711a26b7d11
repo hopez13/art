@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0b9a29a_c5116b30",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T14:31:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you\u0027re saying.\n\n(The dchecked_integral_cast\u003c\u003e() is a static_cast\u003c\u003e() with extra checks that we\u0027re not losing relevant bits.)",
+      "parentUuid": "e041af40_3588b484",
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f108e01_94caaa54",
         "filename": "libartbase/base/bit_struct.h",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16e7585e_ca483b41",
+        "filename": "libartbase/base/bit_struct.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T14:31:29Z",
+      "side": 1,
+      "message": "Added helpers and renamed ConversionValueStorage. But I still need the ConversionType if I do not want to use `auto` and in this situation I strongly prefer being explicit.",
+      "parentUuid": "8f108e01_94caaa54",
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b6927a8_0e4b3b56",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T14:31:29Z",
+      "side": 1,
+      "message": "I would expect integral types to be standard layout. If they are not, the static assert below will trigger and we\u0027ll deal with it when upgrading to C++20.",
+      "parentUuid": "fcac9a1c_0f39de48",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
