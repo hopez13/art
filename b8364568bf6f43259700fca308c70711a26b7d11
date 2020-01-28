@@ -116,6 +116,30 @@
       "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4631b58b_b09d235c",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-28T21:54:57Z",
+      "side": 1,
+      "message": "Yes, integral types are *standard layout*.\n\nhttps://timsong-cpp.github.io/cppwp/n4659/basic.types#def:standard-layout_types\n\nThe standard says \u0027standard layout *structs*\u0027, I believe this makes it more specific than the broad jurisdiction of all \u0027standard layout\u0027?\n\nhttps://timsong-cpp.github.io/cppwp/n4659/class#8\n\n\u003e A standard-layout struct is a standard-layout class defined with the class-key struct or the class-key class. A standard-layout union is a standard-layout class defined with the class-key union.\n\nPrimitives are not defined with the class-key struct/class, so it seems like they can\u0027t fall under this definition?",
+      "parentUuid": "5b6927a8_0e4b3b56",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
