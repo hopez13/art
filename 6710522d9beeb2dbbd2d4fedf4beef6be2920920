@@ -283,6 +283,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67466b54_e53a0684",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-28T18:03:29Z",
+      "side": 1,
+      "message": "Just putting my reservations out in the open. There is no reason a thread shouldn\u0027t be able to walk it\u0027s own stack without the mutator lock held and the only evidence this doesn\u0027t happen right now is the REQUIRES_SHARED annotation. I somewhat worry that eventually somebody will decide that they need this ability, look at the code and see only an assertion stopping them and remove it.\n\nAnyway what\u0027s here is fine I guess.",
+      "parentUuid": "2fb0109f_cfd36d31",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
