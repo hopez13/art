@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b6a25fca_e7f2672a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T12:01:27Z",
+      "side": 1,
+      "message": "I checked on host:\n\n  - create memfd, write 16GiB, watch the memory usage go up.\n    - this is not reflected in /proc/\u003cpid\u003e/{stat,statm,status}\n  - mmap(MAP_PRIVATE) the 16GiB, memory usage stays the same.\n  - close the fd, memory usage stays the same.\n  - read the mmapped region, memory usage remains the same.\n    - minflt goes up by ~ 256Ki (one per 16 pages)\n  - overwrite to the mmaped region, memory usage goes up by another 1GiB\n    - minflt goes up by ~ 4Mi (one per page)\n\nSo, the kernel keeps the in-memory file separate from the mmaped memory when we copy-on-write and the contents are retained despite the pages being unreachable (fd is closed).\n\nI\u0027ll implement a force-copy approach so that the in-memory file completely disappears.",
+      "parentUuid": "b2616338_2ea10dbb",
+      "range": {
+        "startLine": 1061,
+        "startChar": 49,
+        "endLine": 1062,
+        "endChar": 32
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b1e22d_855d7b5c",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "83617b06_dec552d0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T12:01:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25741085_ba7e98f2",
+      "range": {
+        "startLine": 1724,
+        "startChar": 4,
+        "endLine": 1724,
+        "endChar": 10
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54894ec3_6b50fe84",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -209,6 +257,54 @@
       "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3b3e13e_5d08e950",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1796,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T12:01:27Z",
+      "side": 1,
+      "message": "Done (copy paste error; fixing at line 1724 exposed a missing check)",
+      "parentUuid": "54894ec3_6b50fe84",
+      "range": {
+        "startLine": 1796,
+        "startChar": 45,
+        "endLine": 1796,
+        "endChar": 50
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cdf5cde_8e24c07c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1796,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T12:01:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb61554d_b4991174",
+      "range": {
+        "startLine": 1796,
+        "startChar": 4,
+        "endLine": 1796,
+        "endChar": 10
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
