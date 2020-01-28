@@ -307,6 +307,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01d9fd1b_d05b9f41",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-28T21:20:37Z",
+      "side": 1,
+      "message": "Right, someone could change WalkStack to not require the mutator lock, and make the stack walking work without it. I agree with you that it\u0027s not technically required to own it for walking the stack (though does feel a lot safer to have it!).\n\nI\u0027m less worried about deciding to remove an assertion that \"goes in the way\". Lots of such assertions are in the way, and trip in rare cases. When working on ART that\u0027s a given, and contributors and reviewers should always be on the lookout when dealing with such annotations / assertions. CI does help here too with failures and flakes.",
+      "parentUuid": "67466b54_e53a0684",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
