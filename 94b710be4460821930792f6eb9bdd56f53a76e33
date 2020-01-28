@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42553610_e79f432d",
+        "filename": "libartbase/base/endian_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-28T18:21:50Z",
+      "side": 1,
+      "message": "Can these deprecated functions go away? Apparently they aren\u0027t very prevalent since you\u0027re changing the namespace here anyway.",
+      "revId": "94b710be4460821930792f6eb9bdd56f53a76e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
