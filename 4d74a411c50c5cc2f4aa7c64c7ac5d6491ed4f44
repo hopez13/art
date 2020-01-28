@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "9ef092c2_6dfff4b8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T12:53:27Z",
+      "side": 1,
+      "message": "(The backing storage is RAM, so dropping the page cache should not have any effect.)\n\nThe file is pure memory overhead. Even if we decided to relocate the contents in place (either in dex2oat or in zygote by using MAP_SHARED and remapping it MAP_PRIVATE after relocation), zygote is going to touch some pages and we do not want to keep the old useless pages around.",
+      "parentUuid": "297ff5b3_21a5286f",
+      "range": {
+        "startLine": 1061,
+        "startChar": 49,
+        "endLine": 1062,
+        "endChar": 32
+      },
+      "revId": "4d74a411c50c5cc2f4aa7c64c7ac5d6491ed4f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b1e22d_855d7b5c",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
