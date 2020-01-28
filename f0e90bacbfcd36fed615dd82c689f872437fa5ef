@@ -46,6 +46,30 @@
       "revId": "f0e90bacbfcd36fed615dd82c689f872437fa5ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab8d1aca_5ad04e76",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-28T01:08:24Z",
+      "side": 0,
+      "message": "And because nothing can be simple I didn\u0027t notice that for this and IsForcedInterpreterNeededForException we actually do need to keep them since they check for debugger-shadow-frames too and make sure we clear them. They can be simplified from what the old one was though.",
+      "parentUuid": "f3a75b92_c9510190",
+      "range": {
+        "startLine": 336,
+        "startChar": 20,
+        "endLine": 336,
+        "endChar": 55
+      },
+      "revId": "f0e90bacbfcd36fed615dd82c689f872437fa5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
