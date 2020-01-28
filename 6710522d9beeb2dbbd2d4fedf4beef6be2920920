@@ -259,6 +259,30 @@
       "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fb0109f_cfd36d31",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-28T09:35:10Z",
+      "side": 1,
+      "message": "The previous code was mistaken that it only needed to hold the reader lock to instrument the stack. That was the bug. Owning exclusively or adding a new lock solves it.\n\n(I\u0027ll also note that if we do indeed don\u0027t have coverage, then there\u0027s little confidence in any code we add)",
+      "parentUuid": "cd643234_b4c88240",
+      "range": {
+        "startLine": 1108,
+        "startChar": 6,
+        "endLine": 1108,
+        "endChar": 43
+      },
+      "revId": "6710522d9beeb2dbbd2d4fedf4beef6be2920920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
