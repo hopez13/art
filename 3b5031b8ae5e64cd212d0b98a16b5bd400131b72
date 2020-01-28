@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "04906c90_1744a3c6",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-28T02:56:38Z",
+      "side": 1,
+      "message": "I understand. Please add a comment here with the above. \"Reconstruct the original classpath (free of multidex). Needed for ...\"\n\nAlso, add a test in which the multi dex apk repeats itself twice, in different classloader. Something like PCL[muiltidex.apk];PCL[another.apk];PCL[multidex.apk]. This should not happen in practice but we should still handle it correctly, and it will test that the recursion works fine w.r.t the original classpath.",
+      "parentUuid": "1412d743_781fa5fa",
+      "range": {
+        "startLine": 1127,
+        "startChar": 0,
+        "endLine": 1141,
+        "endChar": 5
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6fb11386_5b5f2d6d",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 9
@@ -366,6 +390,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6fb11386_5b5f2d6d",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "3b5031b8ae5e64cd212d0b98a16b5bd400131b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e466464_0d163570",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-28T02:56:38Z",
+      "side": 1,
+      "message": "Fyi. Use \u0027Done\u0027 for the comments you addressed. And \u0027Ack\u0027 if you intend to acknowledge a comment but not necessary address it.",
+      "parentUuid": "adbddad7_964096fc",
       "range": {
         "startLine": 129,
         "startChar": 2,
