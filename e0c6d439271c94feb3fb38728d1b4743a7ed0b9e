@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c71fc9a_b9b21b57",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-01-28T17:47:24Z",
+      "side": 1,
+      "message": "Should the test be disabled for X86_64 as well?\nTEST_DISABLED_FOR_X86 is only for kX86. It does not include kX86_64.\nWe see the test failing on some our x86_64 systems.",
+      "range": {
+        "startLine": 463,
+        "startChar": 2,
+        "endLine": 463,
+        "endChar": 26
+      },
+      "revId": "e0c6d439271c94feb3fb38728d1b4743a7ed0b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
