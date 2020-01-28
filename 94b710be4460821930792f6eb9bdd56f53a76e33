@@ -34,6 +34,24 @@
       "revId": "94b710be4460821930792f6eb9bdd56f53a76e33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a01cf531_cdf3ebc8",
+        "filename": "libartbase/base/endian_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-28T18:46:49Z",
+      "side": 1,
+      "message": "Set4BE is the only one used outside of the Write counterparts below.\n\nBut very well, remove the @deprecated\u0027s then? Or is there some reason to keep these comments when we don\u0027t in fact intend to get rid of them?",
+      "parentUuid": "090dc12e_87a36922",
+      "revId": "94b710be4460821930792f6eb9bdd56f53a76e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
