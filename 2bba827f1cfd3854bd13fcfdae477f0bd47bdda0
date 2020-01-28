@@ -22,6 +22,30 @@
       "revId": "2bba827f1cfd3854bd13fcfdae477f0bd47bdda0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b178129_8aa96d8c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-28T14:23:49Z",
+      "side": 1,
+      "message": "That would be misleading as we would not use direct mapping for compressed images anyway.",
+      "parentUuid": "1831116c_9142e847",
+      "range": {
+        "startLine": 1055,
+        "startChar": 35,
+        "endLine": 1055,
+        "endChar": 55
+      },
+      "revId": "2bba827f1cfd3854bd13fcfdae477f0bd47bdda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
