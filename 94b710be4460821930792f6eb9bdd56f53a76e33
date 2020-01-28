@@ -16,6 +16,24 @@
       "revId": "94b710be4460821930792f6eb9bdd56f53a76e33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "090dc12e_87a36922",
+        "filename": "libartbase/base/endian_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-28T18:30:50Z",
+      "side": 1,
+      "message": "They are used. I just changed the call to remove the JDWP::.\n\nIDK. These functions all date back to dalvik and I think the // @deprecated comments do as well.",
+      "parentUuid": "42553610_e79f432d",
+      "revId": "94b710be4460821930792f6eb9bdd56f53a76e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
