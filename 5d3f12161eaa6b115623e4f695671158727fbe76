@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b8e6395_b5c850c3",
+        "filename": "test/596-app-images/src-art/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-29T16:02:27Z",
+      "side": 1,
+      "message": "Note for reviewers: in a previous revision of this CL I included a test to verify that the runtime didn\u0027t load an app image when the runtime and compile-time class loader contexts didn\u0027t match. I removed this test because as of I8f2a1ab1baa8f09e7a7d4913ff790927eb66cddf app images will still be loaded even if the class loader context mismatches, as long as there are no redefined / duplicate classes in the new app image (i.e. the test no longer made sense).",
+      "revId": "5d3f12161eaa6b115623e4f695671158727fbe76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
