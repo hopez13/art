@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c056ca1f_de327d53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-29T16:13:12Z",
+      "side": 1,
+      "message": "+2 pending a green TH run. It\u0027s not all fallout from the libadbconnection_client change.",
+      "revId": "bd8980b9d7bc5756bf99ffaabd7bb2e02fce6bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "885b5125_16746799",
+        "filename": "libartbase/base/endian_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-29T16:13:12Z",
+      "side": 1,
+      "message": "Since the implementation is changing not quite trivially it\u0027d be nice to see some unit tests. But it\u0027s not a regression there, so can perhaps be considered optional.",
+      "revId": "bd8980b9d7bc5756bf99ffaabd7bb2e02fce6bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
