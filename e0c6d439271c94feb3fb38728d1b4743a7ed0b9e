@@ -46,6 +46,30 @@
       "revId": "e0c6d439271c94feb3fb38728d1b4743a7ed0b9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6c0a010_3f211385",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-29T09:41:26Z",
+      "side": 1,
+      "message": "It\u0027s frequently failing for me on x86-64 and we do not know why. As Nicolas suggested, you should have disabled it in a separate CL instead of bundling it together with the stack walk fix.",
+      "parentUuid": "13bf4284_6e3ee3aa",
+      "range": {
+        "startLine": 463,
+        "startChar": 2,
+        "endLine": 463,
+        "endChar": 26
+      },
+      "revId": "e0c6d439271c94feb3fb38728d1b4743a7ed0b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
