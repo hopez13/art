@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fa5e29f_afe7c810",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-29T01:36:42Z",
+      "side": 1,
+      "message": "nit: move this to the previous line.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 4,
+        "endLine": 1139,
+        "endChar": 11
+      },
+      "revId": "46324f1838ac46d8c47b124fae8879c61c40d73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a2d319_fe2e34c3",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-29T01:36:42Z",
+      "side": 1,
+      "message": "nit: clarity what happens in the presence of multidex, cause the result will be a bit different.",
+      "range": {
+        "startLine": 132,
+        "startChar": 23,
+        "endLine": 132,
+        "endChar": 39
+      },
+      "revId": "46324f1838ac46d8c47b124fae8879c61c40d73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
