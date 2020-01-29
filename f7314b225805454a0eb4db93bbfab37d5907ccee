@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44ef5345_10061530",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-29T15:31:13Z",
+      "side": 1,
+      "message": "I see you have updated the commit message. That\u0027s good.\n\nYou should also add something like\n\n  This reverts commit a8fe58f0512a2147580b798e1cb8308420f8ae99\n  and updates another use of the old name to fix issues\n  with the original change.\n\nThe preferred approach is to create the revert in gerrit and then download it for fixing, so that it properly links the CLs. This also has the advantage that the reviewer can diff against PS1 to see what was fixed, rather than reviewing the whole CL from scratch.",
+      "revId": "f7314b225805454a0eb4db93bbfab37d5907ccee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
