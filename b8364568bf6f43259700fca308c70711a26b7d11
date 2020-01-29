@@ -164,6 +164,30 @@
       "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e64f437_03152ebd",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-01-29T21:28:10Z",
+      "side": 1,
+      "message": "What is a DR? Do you agree with the above interpretation? Without this last change it is still UB.",
+      "parentUuid": "edcd565f_17221ae0",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
