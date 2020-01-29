@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67b4a85f_9be8bfcb",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-01-29T21:37:53Z",
+      "side": 1,
+      "message": "Can you add an explicit multidex.apk!clases.dex, multidex.apk!classes2.dex\n\nSo that the reader clearly sees that the output will only use the multidex.apk and not the individual dex files.",
+      "range": {
+        "startLine": 133,
+        "startChar": 23,
+        "endLine": 133,
+        "endChar": 35
+      },
+      "revId": "ca68ead27f4669608e9a79f73319fd26a76793d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
