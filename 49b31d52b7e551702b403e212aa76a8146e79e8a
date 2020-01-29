@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec2f75ab_ff13adfd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-29T13:59:26Z",
+      "side": 1,
+      "message": "The \"why\" is explained in the rest of the sentence. The locking is done in the other path below (lines 2921-2935); added a comment.",
+      "parentUuid": "bc4b0eed_54d28871",
+      "range": {
+        "startLine": 2903,
+        "startChar": 6,
+        "endLine": 2903,
+        "endChar": 30
+      },
+      "revId": "49b31d52b7e551702b403e212aa76a8146e79e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bcacc19_b6c833fe",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "49b31d52b7e551702b403e212aa76a8146e79e8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50f36294_dbdb91ea",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-01-29T13:59:26Z",
+      "side": 1,
+      "message": "I really do not want two RAII objects to hold the same resource at the same time.\n\nI\u0027ve rewritten this by making the ImageChunk FD fields mutable.",
+      "parentUuid": "8bcacc19_b6c833fe",
+      "range": {
+        "startLine": 2908,
+        "startChar": 22,
+        "endLine": 2908,
+        "endChar": 32
+      },
+      "revId": "49b31d52b7e551702b403e212aa76a8146e79e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
