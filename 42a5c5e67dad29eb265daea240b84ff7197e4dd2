@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0f8f142_eecf987c",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2020-01-29T17:08:02Z",
+      "side": 1,
+      "message": "It is actually used by SCS, not HWASAN.",
+      "revId": "42a5c5e67dad29eb265daea240b84ff7197e4dd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
