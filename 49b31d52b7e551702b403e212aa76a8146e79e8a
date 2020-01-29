@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc4b0eed_54d28871",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2903,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-29T11:55:32Z",
+      "side": 1,
+      "message": "Why? (and where is that done?)",
+      "range": {
+        "startLine": 2903,
+        "startChar": 6,
+        "endLine": 2903,
+        "endChar": 30
+      },
+      "revId": "49b31d52b7e551702b403e212aa76a8146e79e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bcacc19_b6c833fe",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-29T11:55:32Z",
+      "side": 1,
+      "message": "Agree this isn\u0027t nice. Can we not fetch the fd instead?",
+      "range": {
+        "startLine": 2908,
+        "startChar": 22,
+        "endLine": 2908,
+        "endChar": 32
+      },
+      "revId": "49b31d52b7e551702b403e212aa76a8146e79e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
