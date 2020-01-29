@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f95fa2f9_fef530c4",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-29T13:35:46Z",
+      "side": 1,
+      "message": "Uh, thanks! Not sure how it disappeared when moving the code around.",
+      "parentUuid": "97e72eb8_cd63e3a7",
+      "revId": "7093d7d439035d900807dc654ccfdc7db4c0bcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66bc70e6_69f2a281",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-28T21:38:05Z",
       "side": 1,
       "message": "I\u0027m not sure that you can use x18 like this, it will likely cause a crash in bluetooth and other processes that use SCS.",
+      "revId": "7093d7d439035d900807dc654ccfdc7db4c0bcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "113554db_96806650",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-01-29T13:35:46Z",
+      "side": 1,
+      "message": "Thanks for spotting this. Forgot that x18 is reserved, changed to another register.",
+      "parentUuid": "66bc70e6_69f2a281",
       "revId": "7093d7d439035d900807dc654ccfdc7db4c0bcec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
