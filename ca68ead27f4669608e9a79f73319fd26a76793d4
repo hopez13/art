@@ -22,6 +22,30 @@
       "revId": "ca68ead27f4669608e9a79f73319fd26a76793d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89ad12c5_d32be3f3",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-01-30T11:37:06Z",
+      "side": 1,
+      "message": "Yep! Thanks for clarifying! Done.",
+      "parentUuid": "67b4a85f_9be8bfcb",
+      "range": {
+        "startLine": 133,
+        "startChar": 23,
+        "endLine": 133,
+        "endChar": 35
+      },
+      "revId": "ca68ead27f4669608e9a79f73319fd26a76793d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
