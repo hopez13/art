@@ -1113,8 +1113,6 @@ def main():
     build_targets = ''
     if 'host' in _user_input_variants['target']:
       build_targets += 'test-art-host-run-test-dependencies '
-    if 'target' in _user_input_variants['target']:
-      build_targets += 'test-art-target-run-test-dependencies '
     if 'jvm' in _user_input_variants['target']:
       build_targets += 'test-art-host-run-test-dependencies '
     build_command = env.ANDROID_BUILD_TOP + '/build/soong/soong_ui.bash --make-mode'
