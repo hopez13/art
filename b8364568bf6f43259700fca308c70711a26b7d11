@@ -188,6 +188,30 @@
       "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01ff2dba_7faf267e",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2020-01-30T04:36:14Z",
+      "side": 1,
+      "message": "DR is defect report (https://isocpp.org/std/submit-issue).\n\nhttps://timsong-cpp.github.io/cppwp/n4659/class.union#2\n\n\u003e Each non-static data member is allocated as if it were the sole member of a struct.\n\nThis may be sufficient to treat it as a struct, such that they could simplify wording elsewhere. Of course, it might be better for them to make it perfectly clear for future readers of the standard. In any case, I think that the code as written will be sufficient for now (and will either continue to work in C++20 or break more obviously due to the `static_assert`).",
+      "parentUuid": "6e64f437_03152ebd",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "b8364568bf6f43259700fca308c70711a26b7d11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
