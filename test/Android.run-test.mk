@@ -103,10 +103,6 @@ host_prereq_rules := $(ART_TEST_HOST_RUN_TEST_DEPENDENCIES)
 # Required for jasmin and smali.
 host_prereq_rules += $(TEST_ART_RUN_TEST_DEPENDENCIES)
 
-# Sync test files to the target, depends upon all things that must be pushed
-#to the target.
-target_prereq_rules += test-art-target-sync
-
 define core-image-dependencies
   image_suffix := $(3)
   ifeq ($(3),regalloc_gc)
