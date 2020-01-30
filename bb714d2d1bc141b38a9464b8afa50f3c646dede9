@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b206a17e_98cc1e01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-01-30T14:17:21Z",
+      "side": 1,
+      "message": "This is not entirely true, so I\u0027ve reverted that change in PS3. I\u0027d like to keep this CL small and limit its scope to addressing the remaining action item of Bug 111676396, so I\u0027ll implement the removal of `test-art-target-run-test-dependencies` and related build logic into another CL.",
+      "range": {
+        "startLine": 16,
+        "startChar": 66,
+        "endLine": 17,
+        "endChar": 49
+      },
+      "revId": "bb714d2d1bc141b38a9464b8afa50f3c646dede9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
