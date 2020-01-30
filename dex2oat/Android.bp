@@ -207,7 +207,7 @@ cc_defaults {
         "//external/vixl",
     ],
     pgo: {
-        instrumentation: true,
+        sampling: true,
         benchmarks: ["dex2oat"],
     },
     target: {
