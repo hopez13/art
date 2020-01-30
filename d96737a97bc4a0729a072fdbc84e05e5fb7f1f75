@@ -22,6 +22,30 @@
       "revId": "d96737a97bc4a0729a072fdbc84e05e5fb7f1f75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e4c28e7_07bb68eb",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-01-30T16:51:10Z",
+      "side": 1,
+      "message": "Because I\u0027d forgotten that we allow suspension during the handling of DdmPublishChunks and once I\u0027d removed the ScopedSuspendAll it was no longer needed.",
+      "parentUuid": "30f22d00_6dce0f90",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 55
+      },
+      "revId": "d96737a97bc4a0729a072fdbc84e05e5fb7f1f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
