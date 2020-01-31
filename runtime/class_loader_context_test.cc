@@ -1309,6 +1309,20 @@ TEST_F(ClassLoaderContextTest, EncodeClassPathContextsForClassLoaderUnsupportedC
   ASSERT_EQ(ClassLoaderContext::EncodedUnsupportedClassLoaderContext, encodings[0]);
 }
 
+TEST_F(ClassLoaderContextTest, IsValidEncoding) {
+  ASSERT_TRUE(ClassLoaderContext::IsValidEncoding("PCL[]"));
+  ASSERT_TRUE(ClassLoaderContext::IsValidEncoding("PCL[foo.dex]"));
+  ASSERT_TRUE(ClassLoaderContext::IsValidEncoding("PCL[foo.dex];PCL[bar.dex]"));
+  ASSERT_TRUE(ClassLoaderContext::IsValidEncoding("DLC[];PCL[bar.dex]"));
+  ASSERT_TRUE(
+      ClassLoaderContext::IsValidEncoding(
+        ClassLoaderContext::EncodedUnsupportedClassLoaderContext));
+  ASSERT_FALSE(ClassLoaderContext::IsValidEncoding("not_valid"));
+  ASSERT_FALSE(ClassLoaderContext::IsValidEncoding("[]"));
+  ASSERT_FALSE(ClassLoaderContext::IsValidEncoding("FCL[]"));
+  ASSERT_FALSE(ClassLoaderContext::IsValidEncoding("foo.dex:bar.dex"));
+}
+
 // TODO(calin) add a test which creates the context for a class loader together with dex_elements.
 TEST_F(ClassLoaderContextTest, CreateContextForClassLoader) {
   // The chain is
