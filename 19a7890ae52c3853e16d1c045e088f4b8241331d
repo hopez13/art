@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "902612ed_50ed453d",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-01-31T23:05:21Z",
+      "side": 1,
+      "message": "I did a test with HOST_PREFER_32_BIT without this change, and I saw plenty of linux_glibc_x86_64 directories in the out dir then too, so this might not add that much overhead.",
+      "revId": "19a7890ae52c3853e16d1c045e088f4b8241331d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
