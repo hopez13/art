@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb83f120_12aba8bf",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3323,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-01-31T11:10:20Z",
+      "side": 1,
+      "message": "nit: I\u0027d rewrite this to have one function call, something like:\n\n  const std::string \u0026fname \u003d (order \u003d\u003d ImageSpaceLoadingOrder::kSystemFirst)\n      ? (has_system ? system_filename : cache_filename)\n      : (has_cache ? cache_filename : system_filename);\n  image_header \u003d ReadSpecificImageHeader(fname.c_str(), \u0026error_msg);",
+      "range": {
+        "startLine": 3309,
+        "startChar": 0,
+        "endLine": 3323,
+        "endChar": 0
+      },
+      "revId": "5d51bbe9c6375713535070632bdc24184b7e024f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
