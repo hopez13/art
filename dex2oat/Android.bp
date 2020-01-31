@@ -193,6 +193,23 @@ cc_defaults {
             // Use the 32-bit version of dex2oat on devices.
             compile_multilib: "prefer32",
         },
+        host: {
+            // Override the prefer32 added by art_cc_binary when
+            // HOST_PREFER_32_BIT is in use. Necessary because the logic in
+            // Soong for setting ctx.Config().BuildOSTarget (used in
+            // dexpreopt.RegisterToolDeps) doesn't take host prefer32 into
+            // account.
+            compile_multilib: "both",
+        },
+        linux_glibc_x86: {
+            suffix: "32",
+        },
+        linux_glibc_x86_64: {
+            suffix: "64",
+        },
+        linux_bionic_x86_64: {
+            suffix: "64",
+        },
     },
     header_libs: [
         "dex2oat_headers",
@@ -333,17 +350,7 @@ art_cc_binary {
             shared_libs: [
                 "libz",
             ],
-            compile_multilib: "both",
             symlink_preferred_arch: true,
-        },
-        linux_glibc_x86: {
-            suffix: "32",
-        },
-        linux_glibc_x86_64: {
-            suffix: "64",
-        },
-        linux_bionic_x86_64: {
-            suffix: "64",
         },
     },
     apex_available: [
