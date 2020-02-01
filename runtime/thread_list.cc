@@ -1110,12 +1110,12 @@ Thread* ThreadList::FindThreadByThreadId(uint32_t thread_id) {
   return nullptr;
 }
 
-void ThreadList::WaitForOtherNonDaemonThreadsToExit() {
+void ThreadList::WaitForOtherNonDaemonThreadsToExit(bool check_no_birth) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   Thread* self = Thread::Current();
   Locks::mutator_lock_->AssertNotHeld(self);
   while (true) {
-    {
+    if (check_no_birth) {
       // No more threads can be born after we start to shutdown.
       MutexLock mu(self, *Locks::runtime_shutdown_lock_);
       CHECK(Runtime::Current()->IsShuttingDownLocked());
