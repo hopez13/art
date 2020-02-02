@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff4eec82_4f3993ee",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-02T13:56:35Z",
+      "side": 1,
+      "message": "Could it be possible to factor lines 253–255 and lines 307–309 into the definition of `dex2oat-defaults`?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 40
+      },
+      "revId": "e3f06251c14ca77e3faa5cce8159d96b57f2914e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
