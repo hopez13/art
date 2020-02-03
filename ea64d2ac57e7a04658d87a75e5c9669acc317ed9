@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f330d617_474ab53f",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-03T08:37:55Z",
+      "side": 1,
+      "message": "Can we avoid this by not creating threads when the runtime is shutting down (assuming at this point in the code, there\u0027s a flag we can put on thread list to disallow new threads?).",
+      "range": {
+        "startLine": 390,
+        "startChar": 66,
+        "endLine": 391,
+        "endChar": 54
+      },
+      "revId": "ea64d2ac57e7a04658d87a75e5c9669acc317ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
