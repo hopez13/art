@@ -22,6 +22,30 @@
       "revId": "ea64d2ac57e7a04658d87a75e5c9669acc317ed9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41d17db7_53290afe",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-02-03T18:59:32Z",
+      "side": 1,
+      "message": "I think that\u0027s kind of what we did before, but I don\u0027t think that\u0027s correct. The JNI spec says \"The VM waits until the current thread is the only non-daemon user thread before it actually unloads. User threads include both Java threads and attached native threads.\" I would read that to mean that the runtime should stay fully functional until this condition holds.\n\nThis is especially important because dalvikvm() invokes DestroyJavaVM (more or less) directly after InvokeMain(). The JLS says that programs only terminate when all non-daemon threads finish, but I believe InvokeMain() terminates when the main thread does. Thus it becomes DestroyJavaVMs job to wait for the rest. There\u0027s nothing in the JLS that allows us to give them reduced functionality after the main thread terminates.\n\nI do think the spec here is problematic, so my aim is to follow it well enough for sane programs to work. I don\u0027t think my code is correct if we have a bunch of mostly daemon threads that conspire to always have the one thread with the daemon bit off, where that thread rotates. The logic here can miss that. To fix it, we\u0027d probably have to suspend threads occasionally. I don\u0027t believe anybody cares, and I doubt the RI handles it \"correctly\". (If someone tells me it does, we should probably fix it , too.)",
+      "parentUuid": "f330d617_474ab53f",
+      "range": {
+        "startLine": 390,
+        "startChar": 66,
+        "endLine": 391,
+        "endChar": 54
+      },
+      "revId": "ea64d2ac57e7a04658d87a75e5c9669acc317ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
