@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a89d0bce_91f77464",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2020-02-03T14:30:55Z",
+      "side": 1,
+      "message": "Add the line:\n\nBug: 148494302\n\nbelow here",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "ca31d090641be5f4fc702286ce5675ce47e12434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d4550db_182cfb14",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 16
