@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "707c58a1_c947699f",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-03T15:30:20Z",
+      "side": 1,
+      "message": "Note: I didn\u0027t add e.g. PCL[foo.dex*123] or IMC[\u003cunknown\u003e*111] as test cases here because there\u0027s unaligned behavior:\n\n- PCL[foo.dex*123] will successfully parse, but later on the dex file will fail to be opened (the classpath for the ClassLoader will be { \"foo.dex*123\" })\n- IMC[\u003cunknown\u003e*111] will not successfully parse\n\nIf the reviewers think its a good idea then in a follow up CL I\u0027ll align the behavior by making the former case fail to parse.\n\nN.B. By fail/succeed to \"parse\" I mean ClassLoaderContext::Create returns null/non-null",
+      "revId": "ff90aa2fd9fd5610b7de8a189f772eb9154ece6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
