@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d4550db_182cfb14",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-03T14:15:37Z",
+      "side": 1,
+      "message": "It felt right to make this an API on ClassLoaderContext so that we can keep dex element / classpath processing centralized (introducing this API also allowed us to reuse CollectDexFilesFromSupportedClassLoader as well, which is a plus)",
+      "revId": "ca31d090641be5f4fc702286ce5675ce47e12434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
