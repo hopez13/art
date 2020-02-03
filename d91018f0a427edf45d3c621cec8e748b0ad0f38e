@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccf48f23_8134788b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-03T21:12:18Z",
+      "side": 1,
+      "message": "See my comment on https://android-review.googlesource.com/c/platform/libcore/+/1198668/11 about the consequence of returning an empty array. We should find a safe solution for this.",
+      "range": {
+        "startLine": 1208,
+        "startChar": 0,
+        "endLine": 1212,
+        "endChar": 3
+      },
+      "revId": "d91018f0a427edf45d3c621cec8e748b0ad0f38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bd1a50_44caf5a0",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-03T21:12:18Z",
+      "side": 1,
+      "message": "net: I put *Encoding at the end.",
+      "range": {
+        "startLine": 55,
+        "startChar": 31,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "d91018f0a427edf45d3c621cec8e748b0ad0f38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
