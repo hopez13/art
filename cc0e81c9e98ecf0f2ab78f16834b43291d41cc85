@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ead9543_c04306ec",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-04T16:56:11Z",
+      "side": 1,
+      "message": "WARNING (as-in, we will continue execution and know how to fallback).",
+      "range": {
+        "startLine": 189,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 13
+      },
+      "revId": "cc0e81c9e98ecf0f2ab78f16834b43291d41cc85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
