@@ -70,6 +70,30 @@
       "revId": "ea64d2ac57e7a04658d87a75e5c9669acc317ed9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6c4bee2_677fb2df",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-02-04T21:09:43Z",
+      "side": 1,
+      "message": "Actually, I missed two things initially. Threads can\u0027t change daemon status dynamically once the thread is running. And we have to deal with starting threads in addition to running threads, since they may be logically running, but not yet on the thread list. (The new test failed consistently without this, except of course when running under gdb.) I think the revised code may now actually be correct in the sense that it waits until a time point occurred at which there were no running non-daemon threads. No non-daemon-threads is still not a stable condition, since I don\u0027t think there\u0027s anything to prevent daemon\u0027s from forking non-daemons.\n\nWe currently effectively wait for a thread to exit and then recheck the \"all non-daemons gone\" condition. The number of daemons can still change dynamically as the user creates and destroys them, so I don\u0027t think we can wait for a specific number of threads. And we end up having to check things other than the thread list anyway. So I don\u0027t really see how to simplify the code. And I think performance here is a non-issue, which is the only reason I\u0027m OK with the millisecond sleep in the new code (though that\u0027s on an even less likely path.)",
+      "parentUuid": "844999a9_73b749bb",
+      "range": {
+        "startLine": 390,
+        "startChar": 66,
+        "endLine": 391,
+        "endChar": 54
+      },
+      "revId": "ea64d2ac57e7a04658d87a75e5c9669acc317ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
