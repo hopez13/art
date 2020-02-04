@@ -181,6 +181,15 @@ static bool GenerateImage(const std::string& image_filename,
     arg_vector.push_back("--host");
   }
 
+  // Check if there is a boot profile, and pass it to  takes precedence over the image and preloaded classes.
+  if (OS::FileExists("/system/etc/boot-image.prof")) {
+    arg_vector.push_back("--profile-file=/system/etc/boot-image.prof");
+  } else {
+    // We will compile the boot image with compiler filter "speed" unless overridden below.
+    LOG(ERROR) << "Missing boot-image.prof file, /system/etc/boot-image.prof not found: "
+               << strerror(errno);
+  }
+
   const std::vector<std::string>& compiler_options = Runtime::Current()->GetImageCompilerOptions();
   for (size_t i = 0; i < compiler_options.size(); ++i) {
     arg_vector.push_back(compiler_options[i].c_str());

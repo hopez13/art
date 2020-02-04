@@ -1316,6 +1316,14 @@ class Dex2Oat final {
             "--class-loader-context is also specified");
     }
 
+    // If we have a profile, change the default compiler filter to speed-profile
+    // before reading compiler options.
+    static_assert(CompilerFilter::kDefaultCompilerFilter == CompilerFilter::kSpeed);
+    DCHECK_EQ(compiler_options_->GetCompilerFilter(), CompilerFilter::kSpeed);
+    if (UseProfile()) {
+      compiler_options_->SetCompilerFilter(CompilerFilter::kSpeedProfile);
+    }
+
     if (!ReadCompilerOptions(args, compiler_options_.get(), &error_msg)) {
       Usage(error_msg.c_str());
     }
