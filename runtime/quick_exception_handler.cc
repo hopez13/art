@@ -53,8 +53,6 @@ QuickExceptionHandler::QuickExceptionHandler(Thread* self, bool is_deoptimizatio
       handler_quick_frame_pc_(0),
       handler_method_header_(nullptr),
       handler_quick_arg0_(0),
-      handler_method_(nullptr),
-      handler_dex_pc_(0),
       clear_exception_(false),
       handler_frame_depth_(kInvalidFrameDepth),
       full_fragment_done_(false) {}
@@ -83,19 +81,6 @@ class CatchBlockStackVisitor final : public StackVisitor {
       // This is the upcall, we remember the frame and last pc so that we may long jump to them.
       exception_handler_->SetHandlerQuickFramePc(GetCurrentQuickFramePc());
       exception_handler_->SetHandlerQuickFrame(GetCurrentQuickFrame());
-      exception_handler_->SetHandlerMethodHeader(GetCurrentOatQuickMethodHeader());
-      uint32_t next_dex_pc;
-      ArtMethod* next_art_method;
-      bool has_next = GetNextMethodAndDexPc(&next_art_method, &next_dex_pc);
-      // Report the method that did the down call as the handler.
-      exception_handler_->SetHandlerDexPc(next_dex_pc);
-      exception_handler_->SetHandlerMethod(next_art_method);
-      if (!has_next) {
-        // No next method? Check exception handler is set up for the unhandled exception handler
-        // case.
-        DCHECK_EQ(0U, exception_handler_->GetHandlerDexPc());
-        DCHECK(nullptr == exception_handler_->GetHandlerMethod());
-      }
       return false;  // End stack walk.
     }
     if (skip_frames_ != 0) {
@@ -191,11 +176,12 @@ void QuickExceptionHandler::FindCatch(ObjPtr<mirror::Throwable> exception) {
     if (kDebugExceptionDelivery) {
       if (*handler_quick_frame_ == nullptr) {
         LOG(INFO) << "Handler is upcall";
-      }
-      if (handler_method_ != nullptr) {
-        const DexFile* dex_file = handler_method_->GetDexFile();
-        int line_number = annotations::GetLineNumFromPC(dex_file, handler_method_, handler_dex_pc_);
-        LOG(INFO) << "Handler: " << handler_method_->PrettyMethod() << " (line: "
+      } else {
+        ArtMethod* handler_method = visitor.GetMethod();
+        const DexFile* dex_file = handler_method->GetDexFile();
+        int line_number = annotations::GetLineNumFromPC(
+            dex_file, visitor.GetMethod(), visitor.GetDexPc());
+        LOG(INFO) << "Handler: " << handler_method->PrettyMethod() << " (line: "
                   << line_number << ")";
       }
     }
@@ -251,13 +237,14 @@ static VRegKind ToVRegKind(DexRegisterLocation::Kind kind) {
 void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor* stack_visitor) {
   DCHECK(!is_deoptimization_);
   DCHECK(*handler_quick_frame_ != nullptr) << "Method should not be called on upcall exceptions";
-  DCHECK(handler_method_ != nullptr && handler_method_header_->IsOptimized());
+  ArtMethod* handler_method = *handler_quick_frame_;
+  DCHECK(handler_method != nullptr && handler_method_header_->IsOptimized());
 
   if (kDebugExceptionDelivery) {
     self_->DumpStack(LOG_STREAM(INFO) << "Setting catch phis: ");
   }
 
-  CodeItemDataAccessor accessor(handler_method_->DexInstructionData());
+  CodeItemDataAccessor accessor(handler_method->DexInstructionData());
   const size_t number_of_vregs = accessor.RegistersSize();
   CodeInfo code_info(handler_method_header_);
 
@@ -659,11 +646,10 @@ void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
   if (smash_caller_saves) {
     context_->SmashCallerSaves();
   }
-  if (handler_method_ != nullptr &&
-      handler_method_header_ != nullptr &&
+  if (handler_method_header_ != nullptr &&
       handler_method_header_->IsNterpMethodHeader()) {
     context_->SetNterpDexPC(reinterpret_cast<uintptr_t>(
-        handler_method_->DexInstructions().Insns() + handler_dex_pc_));
+        (*handler_quick_frame_)->DexInstructions().Insns() + handler_dex_pc_));
   }
   context_->DoLongJump();
   UNREACHABLE();
