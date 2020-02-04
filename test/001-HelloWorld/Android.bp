@@ -1,10 +1,5 @@
 java_test {
     name: "art-run-test-001-HelloWorld",
+    defaults: ["art-run-test-defaults"],
     srcs: ["src/*.java"],
-    sdk_version: "core_platform",
-    data: ["expected.txt"],
-    // TODO: Instead of using the default `test_config` property ("AndroidTest.xml"),
-    // try to use a template (look for `BluetoothTestConfigTemplate` for an example).
-    test_config_template: ":art-run-test-template",
-    test_suites: ["general-tests"],
 }
