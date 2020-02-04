@@ -46,6 +46,30 @@
       "revId": "101389e86c0bf1311557828c84316540f25fb4c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c69bd1cf_f5137b49",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-04T19:14:28Z",
+      "side": 1,
+      "message": "Yes – The platform linker configuration (which used to be in `/system/etc/ld.*.txt`, and is now in `/linkerconfig/ld.config.txt`) is the default linker configuration. But if the linker finds a binary located under `/apex/\u003cmodule\u003e/bin`, it will first try to pick `/apex/\u003cmodule\u003e/etc/ld.config.txt` as linker configuration.\n\nIn the case of ART, the former is used by the shell, toybox binaries, etc.",
+      "parentUuid": "7142247d_3ef95ace",
+      "range": {
+        "startLine": 119,
+        "startChar": 32,
+        "endLine": 119,
+        "endChar": 91
+      },
+      "revId": "101389e86c0bf1311557828c84316540f25fb4c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
