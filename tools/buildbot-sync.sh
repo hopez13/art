@@ -162,7 +162,9 @@ activate_apex() {
   # `/apex/com.android.art/bin/dex2oat`) to select the linker configuration.
   adb shell mkdir -p "$ART_TEST_CHROOT/apex"
   adb shell rm -rf "$ART_TEST_CHROOT/apex/${dst_apex}"
-  adb shell cp -a "$ART_TEST_CHROOT/system/apex/${src_apex}" "$ART_TEST_CHROOT/apex/${dst_apex}" \
+  # Use use mv instead of cp, as cp has a bug on fugu NRD90R where symbolic
+  # links get copied with odd names, eg: libcrypto.so -> /system/lib/libcrypto.soe.sort.so
+  adb shell mv "$ART_TEST_CHROOT/system/apex/${src_apex}" "$ART_TEST_CHROOT/apex/${dst_apex}" \
     || exit 1
 }
 
