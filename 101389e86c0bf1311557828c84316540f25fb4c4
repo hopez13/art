@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "826c9bb3_2d8f8885",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-04T19:00:31Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is correct in general, as the linker configuration file located in the ART APEX is supposed to be used only by binaries in the ART APEX; we should actually generate a new linker configuration file under `/linkerconfig` in the chroot dir for \"platform\" binaries (see Bug 147737840).\n\nThis is fine with me as a temporary measure if it unblocks ART\u0027s continuous testing; could you add a TODO here to remind us to fix this?",
+      "range": {
+        "startLine": 119,
+        "startChar": 32,
+        "endLine": 119,
+        "endChar": 91
+      },
+      "revId": "101389e86c0bf1311557828c84316540f25fb4c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
