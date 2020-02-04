@@ -116,7 +116,7 @@ get_ld_guest_system_config_file_path() {
       "did you forget to run \`lunch\`${nc}?" >&2
     exit 1
   fi
-  local ld_config_file_location="$ANDROID_PRODUCT_OUT/system/etc"
+  local ld_config_file_location="$ANDROID_PRODUCT_OUT/system/apex/com.android.art.testing/"
   local ld_config_file_paths=$(find "$ld_config_file_location" -name "ld.*.txt")
   local ld_config_file_path_number=$(wc -l <<< "$ld_config_file_paths")
   if [[ "$ld_config_file_path_number" -eq 0 ]]; then
