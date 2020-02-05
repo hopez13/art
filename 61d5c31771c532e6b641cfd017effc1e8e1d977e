@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f80148_160ed2fc",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-05T15:49:47Z",
+      "side": 1,
+      "message": "Can we get a eg Image::kPathSeparator for this?",
+      "range": {
+        "startLine": 1055,
+        "startChar": 61,
+        "endLine": 1055,
+        "endChar": 64
+      },
+      "revId": "61d5c31771c532e6b641cfd017effc1e8e1d977e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6e0887_e292d93f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-05T15:49:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1062,
+        "startChar": 52,
+        "endLine": 1062,
+        "endChar": 55
+      },
+      "revId": "61d5c31771c532e6b641cfd017effc1e8e1d977e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "071ede95_195dceb2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-05T15:49:47Z",
+      "side": 1,
+      "message": "Mention also why \"verify\" and not \"speed\" or \"speed-profile\" ?",
+      "revId": "61d5c31771c532e6b641cfd017effc1e8e1d977e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
