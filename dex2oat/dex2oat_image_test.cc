@@ -195,81 +195,6 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     return ret;
   }
 
-  bool CompileBootImage(const std::vector<std::string>& extra_args,
-                        const std::string& image_file_name_prefix,
-                        ArrayRef<const std::string> dex_files,
-                        std::string* error_msg,
-                        const std::string& use_fd_prefix = "") {
-    Runtime* const runtime = Runtime::Current();
-    std::vector<std::string> argv;
-    argv.push_back(runtime->GetCompilerExecutable());
-    AddRuntimeArg(argv, "-Xms64m");
-    AddRuntimeArg(argv, "-Xmx64m");
-    for (const std::string& dex_file : dex_files) {
-      argv.push_back("--dex-file=" + dex_file);
-      argv.push_back("--dex-location=" + dex_file);
-    }
-    if (runtime->IsJavaDebuggable()) {
-      argv.push_back("--debuggable");
-    }
-    runtime->AddCurrentRuntimeFeaturesAsDex2OatArguments(&argv);
-
-    AddRuntimeArg(argv, "-Xverify:softfail");
-
-    if (!kIsTargetBuild) {
-      argv.push_back("--host");
-    }
-
-    std::unique_ptr<File> art_file;
-    std::unique_ptr<File> vdex_file;
-    std::unique_ptr<File> oat_file;
-    if (!use_fd_prefix.empty()) {
-      art_file.reset(OS::CreateEmptyFile((use_fd_prefix + ".art").c_str()));
-      vdex_file.reset(OS::CreateEmptyFile((use_fd_prefix + ".vdex").c_str()));
-      oat_file.reset(OS::CreateEmptyFile((use_fd_prefix + ".oat").c_str()));
-      argv.push_back("--image-fd=" + std::to_string(art_file->Fd()));
-      argv.push_back("--output-vdex-fd=" + std::to_string(vdex_file->Fd()));
-      argv.push_back("--oat-fd=" + std::to_string(oat_file->Fd()));
-      argv.push_back("--oat-location=" + image_file_name_prefix + ".oat");
-    } else {
-      argv.push_back("--image=" + image_file_name_prefix + ".art");
-      argv.push_back("--oat-file=" + image_file_name_prefix + ".oat");
-      argv.push_back("--oat-location=" + image_file_name_prefix + ".oat");
-    }
-
-    std::vector<std::string> compiler_options = runtime->GetCompilerOptions();
-    argv.insert(argv.end(), compiler_options.begin(), compiler_options.end());
-
-    // We must set --android-root.
-    const char* android_root = getenv("ANDROID_ROOT");
-    CHECK(android_root != nullptr);
-    argv.push_back("--android-root=" + std::string(android_root));
-    argv.insert(argv.end(), extra_args.begin(), extra_args.end());
-
-    bool result = RunDex2Oat(argv, error_msg);
-    if (art_file != nullptr) {
-      CHECK_EQ(0, art_file->FlushClose());
-    }
-    if (vdex_file != nullptr) {
-      CHECK_EQ(0, vdex_file->FlushClose());
-    }
-    if (oat_file != nullptr) {
-      CHECK_EQ(0, oat_file->FlushClose());
-    }
-    return result;
-  }
-
-  bool RunDex2Oat(const std::vector<std::string>& args, std::string* error_msg) {
-    // We only want fatal logging for the error message.
-    auto post_fork_fn = []() { return setenv("ANDROID_LOG_TAGS", "*:f", 1) == 0; };
-    ForkAndExecResult res = ForkAndExec(args, post_fork_fn, error_msg);
-    if (res.stage != ForkAndExecResult::kFinished) {
-      *error_msg = strerror(errno);
-      return false;
-    }
-    return res.StandardSuccess();
-  }
-
   MemMap ReserveCoreImageAddressSpace(/*out*/std::string* error_msg) {
     constexpr size_t kReservationSize = 256 * MB;  // This should be enough for the compiled images.
     // Extend to both directions for maximum relocation difference.
@@ -293,6 +218,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     CHECK(EndsWith(dir, "/"));
     for (std::string& dex_file : *dex_files) {
       size_t slash_pos = dex_file.rfind('/');
+      CHECK(OS::FileExists(dex_file.c_str())) << dex_file;
       CHECK_NE(std::string::npos, slash_pos);
       std::string new_location = dir + dex_file.substr(slash_pos + 1u);
       std::ifstream src_stream(dex_file, std::ios::binary);
