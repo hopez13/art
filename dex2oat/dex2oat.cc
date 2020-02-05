@@ -1050,6 +1050,24 @@ class Dex2Oat final {
         Usage("Failed to read list of passes to run.");
       }
     }
+
+    // Trim the boot image location to the components that do not have any profile specified.
+    size_t profile_separator_pos = boot_image_filename_.find('!');
+    if (profile_separator_pos != std::string::npos) {
+      DCHECK(!IsBootImage());  // For primary boot image the boot_image_filename_ is empty.
+      if (IsBootImageExtension()) {
+        Usage("Unsupported profile specification in boot image location (%s) for extension.",
+              boot_image_filename_.c_str());
+      }
+      size_t colon_pos = boot_image_filename_.rfind(':', profile_separator_pos);
+      if (colon_pos != std::string::npos && colon_pos != 0u) {
+        VLOG(compiler) << "Truncating boot image location " << boot_image_filename_
+                       << " because it contains profile specification. Truncated: "
+                       << boot_image_filename_.substr(/*pos*/ 0u, /*length*/ colon_pos);
+        boot_image_filename_.resize(colon_pos);
+      }  // else let the full validation in ImageSpace reject the invalid location.
+    }
+
     compiler_options_->passes_to_run_ = passes_to_run_.get();
     compiler_options_->compiling_with_core_image_ =
         !boot_image_filename_.empty() &&

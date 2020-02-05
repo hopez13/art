@@ -2097,6 +2097,12 @@ bool ImageSpace::BootImageLayout::CompileExtension(const std::string& base_locat
   args.push_back("--single-image");
   args.push_back("--image-format=uncompressed");
 
+  // We currently cannot guarantee that the boot class path has no verification failures.
+  args.push_back("--compiler-filter=verify");
+
+  // Pass the profile.
+  args.push_back("--profile-file=" + profile_filename);
+
   // Do not let the file descriptor numbers change the compilation output.
   args.push_back("--avoid-storing-invocation");
 
@@ -2106,6 +2112,7 @@ bool ImageSpace::BootImageLayout::CompileExtension(const std::string& base_locat
     args.push_back("--host");
   }
 
+  // Image compiler options go last to allow overriding above args, such as --compiler-filter.
   for (const std::string& compiler_option : runtime->GetImageCompilerOptions()) {
     args.push_back(compiler_option);
   }
