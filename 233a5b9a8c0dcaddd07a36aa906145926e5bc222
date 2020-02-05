@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90674cb6_fd25a2fd",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-05T15:06:09Z",
+      "side": 1,
+      "message": "Would not \"We reached\" be a better description here? (This is right after the while loop.)",
+      "range": {
+        "startLine": 996,
+        "startChar": 9,
+        "endLine": 996,
+        "endChar": 16
+      },
+      "revId": "233a5b9a8c0dcaddd07a36aa906145926e5bc222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
