@@ -780,6 +780,11 @@ static jboolean VMRuntime_isValidClassLoaderContext(JNIEnv* env,
   return ClassLoaderContext::IsValidEncoding(encoded_class_loader_context.c_str());
 }
 
+static jstring VMRuntime_encodedUnsupportedClassLoaderContext(JNIEnv* env,
+                                                              jclass klass ATTRIBUTE_UNUSED) {
+  return env->NewStringUTF(ClassLoaderContext::kUnsupportedClassLoaderContextEncoding);
+}
+
 static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(VMRuntime, addressOf, "(Ljava/lang/Object;)J"),
   NATIVE_METHOD(VMRuntime, bootClassPath, "()Ljava/lang/String;"),
@@ -832,6 +837,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, bootCompleted, "()V"),
   NATIVE_METHOD(VMRuntime, resetJitCounters, "()V"),
   NATIVE_METHOD(VMRuntime, isValidClassLoaderContext, "(Ljava/lang/String;)Z"),
+  NATIVE_METHOD(VMRuntime, encodedUnsupportedClassLoaderContext, "()Ljava/lang/String;"),
 };
 
 void register_dalvik_system_VMRuntime(JNIEnv* env) {
