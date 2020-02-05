@@ -27,6 +27,7 @@
 #include "dex/method_reference.h"
 #include "dex/type_reference.h"
 #include "profile/profile_compilation_info.h"
+#include "runtime/common_runtime_test.h"
 #include "ziparchive/zip_writer.h"
 
 namespace art {
@@ -707,6 +708,9 @@ TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitRegular) {
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitBoot) {
+  TEST_DISABLED_FOR_ARM();  // Runs out of memory.
+  TEST_DISABLED_FOR_ARM64();  // Runs out of memory.
+
   FakeDexStorage local_storage;
   ProfileCompilationInfo info(/*for_boot_image=*/true);
   // Save a few methods.
