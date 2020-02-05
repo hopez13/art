@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "184895eb_57ca3095",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-02-05T19:52:10Z",
+      "side": 1,
+      "message": "I looked at the locks a bit and can\u0027t see a good way to avoid the overlap. Hopefully there are no deadlocks that can come from this.",
+      "range": {
+        "startLine": 1132,
+        "startChar": 4,
+        "endLine": 1133,
+        "endChar": 48
+      },
+      "revId": "3e0899fd4604af0d85761168b4631d7f754d1796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
