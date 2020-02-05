@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74663754_2ec3ae84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-05T14:05:34Z",
+      "side": 1,
+      "message": "I inspected dexpreopt commands to see if we\u0027re using the same profile as the one we ship on the device (answer: yes). But that\u0027s unrelated to testing.",
+      "parentUuid": "3a29fbad_ed2f96a9",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "88fd11a35fe905998e6f64695403fd91e114a9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e23afaa1_bdf33f2c",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "88fd11a35fe905998e6f64695403fd91e114a9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640b4b06_50137743",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-05T14:05:34Z",
+      "side": 1,
+      "message": "Updated the description of the default for --compiler-filter.",
+      "parentUuid": "e23afaa1_bdf33f2c",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 5
+      },
+      "revId": "88fd11a35fe905998e6f64695403fd91e114a9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
