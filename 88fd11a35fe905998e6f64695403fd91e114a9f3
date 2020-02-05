@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a29fbad_ed2f96a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-02-05T13:39:55Z",
+      "side": 1,
+      "message": "In case you tested this locally by inspecting the generated build rules for dexpreopting, it would be useful to see those grep lines here (with some output).",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "88fd11a35fe905998e6f64695403fd91e114a9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e23afaa1_bdf33f2c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-02-05T13:39:55Z",
+      "side": 1,
+      "message": "Should this be documented in dex2oat options? There seem to be a few non-obvious side effects that profile specifications have on dex2oat behaviour.",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 5
+      },
+      "revId": "88fd11a35fe905998e6f64695403fd91e114a9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
