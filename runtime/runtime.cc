@@ -1313,6 +1313,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   image_compiler_options_ = runtime_options.ReleaseOrDefault(Opt::ImageCompilerOptions);
 
   finalizer_timeout_ms_ = runtime_options.GetOrDefault(Opt::FinalizerTimeoutMs);
+  LOG(WARNING) << "b/143848108: finalizer_timeout_ms: " << finalizer_timeout_ms_;
   max_spins_before_thin_lock_inflation_ =
       runtime_options.GetOrDefault(Opt::MaxSpinsBeforeThinLockInflation);
 
