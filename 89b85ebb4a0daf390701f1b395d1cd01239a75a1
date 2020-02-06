@@ -22,6 +22,30 @@
       "revId": "89b85ebb4a0daf390701f1b395d1cd01239a75a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a45460c3_1f057ae8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-06T10:03:51Z",
+      "side": 1,
+      "message": "I\u0027d prefer that neither hard-codes it. It\u0027s been moved here with the hope that we actually remove this entire GenerateImage() function soon. (We have a primary boot image in the apex, why should we maintain a code path that generates a primary boot image...)",
+      "parentUuid": "c57b9b7e_70fbd5e7",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 71
+      },
+      "revId": "89b85ebb4a0daf390701f1b395d1cd01239a75a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
