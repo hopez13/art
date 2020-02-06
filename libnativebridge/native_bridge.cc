@@ -270,15 +270,15 @@ bool PreInitializeNativeBridge(const char* app_data_dir_in, const char* instruct
     return false;
   }
 
-  if (app_data_dir_in != nullptr) {
+  if (app_data_dir_in == nullptr) {
+    ALOGW("Application private directory isn't available.");
+    app_code_cache_dir = nullptr;
+  } else {
     // Create the path to the application code cache directory.
     // The memory will be release after Initialization or when the native bridge is closed.
     const size_t len = strlen(app_data_dir_in) + strlen(kCodeCacheDir) + 2;  // '\0' + '/'
     app_code_cache_dir = new char[len];
     snprintf(app_code_cache_dir, len, "%s/%s", app_data_dir_in, kCodeCacheDir);
-  } else {
-    ALOGW("Application private directory isn't available.");
-    app_code_cache_dir = nullptr;
   }
 
   // Bind-mount /system/lib{,64}/<isa>/cpuinfo to /proc/cpuinfo.
@@ -333,7 +333,7 @@ bool PreInitializeNativeBridge(const char* app_data_dir_in, const char* instruct
 void PreZygoteForkNativeBridge() {
   if (NativeBridgeInitialized()) {
     if (isCompatibleWith(PRE_ZYGOTE_FORK_VERSION)) {
-      return callbacks->preZygoteFork();
+      callbacks->preZygoteFork();
     } else {
       ALOGE("not compatible with version %d, preZygoteFork() isn't invoked",
             PRE_ZYGOTE_FORK_VERSION);
@@ -447,18 +447,15 @@ bool InitializeNativeBridge(JNIEnv* env, const char* instruction_set) {
       }
     }
 
-    // If we're still PreInitialized (didn't fail the code cache checks) try to initialize.
-    if (state == NativeBridgeState::kPreInitialized) {
-      if (callbacks->initialize(runtime_callbacks, app_code_cache_dir, instruction_set)) {
-        SetupEnvironment(callbacks, env, instruction_set);
-        state = NativeBridgeState::kInitialized;
-        // We no longer need the code cache path, release the memory.
-        ReleaseAppCodeCacheDir();
-      } else {
-        // Unload the library.
-        dlclose(native_bridge_handle);
-        CloseNativeBridge(true);
-      }
+    if (callbacks->initialize(runtime_callbacks, app_code_cache_dir, instruction_set)) {
+      SetupEnvironment(callbacks, env, instruction_set);
+      state = NativeBridgeState::kInitialized;
+      // We no longer need the code cache path, release the memory.
+      ReleaseAppCodeCacheDir();
+    } else {
+      // Unload the library.
+      dlclose(native_bridge_handle);
+      CloseNativeBridge(true);
     }
   } else {
     CloseNativeBridge(true);
