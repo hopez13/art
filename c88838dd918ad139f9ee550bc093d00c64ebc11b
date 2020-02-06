@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3305dfed_5a720458",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-06T20:01:21Z",
+      "side": 1,
+      "message": "I verified that this use case works since PS2.",
+      "parentUuid": "d18b4a85_9d1c4ff9",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 73
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efdfd98a_db4fde7a",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a04f46a2_6e9dd871",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-06T20:01:21Z",
+      "side": 1,
+      "message": "\u003e \u003e +jooyung \n\u003e \u003e\n\u003e \u003e These won\u0027t be necessary when we move these into the VNDK apex.\n\u003e \u003e\n\u003e \u003e For now, it\u0027s fine to have these here. But I wonder if these are needed to run ART. They are for vendor code.\n\n\u003e The references to llndk/vndksp/vndkcore/vndkprivate files are going to be switched to the ones in vndk apex while others (vndkcorevariant and sanitizer) are still in /system/etc. But until then, these look fine. but, what about com.android.vndk.current?\n\nThanks for the update. Let us know when you intend to make those changes, so that we can adjust our build rules.\n\n\u003e By the way, all of these must be in \"required\" of \"linkerconfig\" module. then we don\u0027t have to list them here. Kiyoung, what do you think?\n\nIs this already the case? I didn\u0027t see anything in linkerconfig\u0027s build rules (system/linkerconfig/Android.bp) about this.",
+      "parentUuid": "b2ba29a9_1fb395b6",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 100
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4009516f_36ccc2c9",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dc7c14c_9b0f65d0",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-06T20:01:21Z",
+      "side": 1,
+      "message": "This is actually needed when running on a \"host device\" running an OS older than Android R (which is one of our use cases).",
+      "parentUuid": "4009516f_36ccc2c9",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "92006007_6bddedd6",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-06T20:01:21Z",
+      "side": 1,
+      "message": "Maybe; but I think it is usually better not to have special cases just for testing.",
+      "parentUuid": "eacccc98_9d6ffc09",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 80
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d4e1b0f_f1eb0ce2",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
@@ -138,6 +234,30 @@
       "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21eb9a20_c2ff7d46",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-06T20:01:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "0d4e1b0f_f1eb0ce2",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 2
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
