@@ -22,6 +22,29 @@
       "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eacccc98_9d6ffc09",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-02-06T01:09:49Z",
+      "side": 1,
+      "message": "If ART test environment does not require any of these variables, we can update linkerconfig to generate linker configuration specific to this env (as a future work 😊 ).",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 80
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
