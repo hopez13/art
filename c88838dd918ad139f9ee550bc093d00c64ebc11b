@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b2ba29a9_1fb395b6",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-06T06:16:29Z",
+      "side": 1,
+      "message": "The references to llndk/vndksp/vndkcore/vndkprivate files are going to be switched to the ones in vndk apex while others (vndkcorevariant and sanitizer) are still in /system/etc. But until then, these look fine. but, what about com.android.vndk.current?\n\nBy the way, all of these must be in \"required\" of \"linkerconfig\" module. then we don\u0027t have to list them here. Kiyoung, what do you think?",
+      "parentUuid": "efdfd98a_db4fde7a",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 100
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4009516f_36ccc2c9",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
