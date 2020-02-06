@@ -22,6 +22,30 @@
       "revId": "3e0899fd4604af0d85761168b4631d7f754d1796",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1a23dd8_9d388758",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-02-06T00:00:24Z",
+      "side": 1,
+      "message": "It should be OK. We acquire them in the correct order. Think of it as releasing runtime_shutdown_lock_ early, once we\u0027ve established that NumberOfThreadsBeingBorn() was zero while the thread list already had its current state.",
+      "parentUuid": "184895eb_57ca3095",
+      "range": {
+        "startLine": 1132,
+        "startChar": 4,
+        "endLine": 1133,
+        "endChar": 48
+      },
+      "revId": "3e0899fd4604af0d85761168b4631d7f754d1796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
