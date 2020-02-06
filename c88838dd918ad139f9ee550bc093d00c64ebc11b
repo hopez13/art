@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "efdfd98a_db4fde7a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-02-06T05:04:56Z",
+      "side": 1,
+      "message": "+jooyung \n\nThese won\u0027t be necessary when we move these into the VNDK apex.\n\nFor now, it\u0027s fine to have these here. But I wonder if these are needed to run ART. They are for vendor code.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 100
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4009516f_36ccc2c9",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-02-06T05:04:56Z",
+      "side": 1,
+      "message": "I am not sure if this function is needed. We don\u0027t need to care about host anymore.\nAll ld.config.txt files needed for guest is created by linkerconfig.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eacccc98_9d6ffc09",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
@@ -41,6 +87,29 @@
         "startChar": 0,
         "endLine": 156,
         "endChar": 80
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d4e1b0f_f1eb0ce2",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-02-06T05:04:56Z",
+      "side": 1,
+      "message": "For the same reason, I don\u0027t think this adjustment step is required.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 2
       },
       "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
