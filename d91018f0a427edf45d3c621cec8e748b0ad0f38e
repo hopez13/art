@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "acd9934a_7116cb17",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-06T12:17:41Z",
+      "side": 1,
+      "message": "I have refactored this code quite a bit as of the newest patchset and I think this has been addressed. Let\u0027s discuss after I upload",
+      "parentUuid": "ccf48f23_8134788b",
+      "range": {
+        "startLine": 1208,
+        "startChar": 0,
+        "endLine": 1212,
+        "endChar": 3
+      },
+      "revId": "d91018f0a427edf45d3c621cec8e748b0ad0f38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82bd1a50_44caf5a0",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 17
@@ -45,6 +69,30 @@
       "revId": "d91018f0a427edf45d3c621cec8e748b0ad0f38e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af99929_f1db1a72",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-06T12:17:41Z",
+      "side": 1,
+      "message": "I also prepended k to denote this is a constant.\n\nDone",
+      "parentUuid": "82bd1a50_44caf5a0",
+      "range": {
+        "startLine": 55,
+        "startChar": 31,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "d91018f0a427edf45d3c621cec8e748b0ad0f38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
