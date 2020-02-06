@@ -91,7 +91,10 @@ static bool IsDebuggingPossible() {
 
 // Begin running the debugger.
 void AdbConnectionDebuggerController::StartDebugger() {
-  if (IsDebuggingPossible()) {
+  // The debugger thread is started for a debuggable or profileable-from-shell process.
+  // The pid will be send to adbd for adb's "track-jdwp" and "track-app" services.
+  // The thread will also set up the jdwp tunnel if the process is debuggable.
+  if (IsDebuggingPossible() || art::Runtime::Current()->IsProfileableFromShell()) {
     connection_->StartDebuggerThreads();
   } else {
     LOG(ERROR) << "Not starting debugger since process cannot load the jdwp agent.";
@@ -145,11 +148,6 @@ AdbConnectionState::AdbConnectionState(const std::string& agent_name)
     notified_ddm_active_(false),
     next_ddm_id_(1),
     started_debugger_threads_(false) {
-  // Setup the addr.
-  control_addr_.controlAddrUn.sun_family = AF_UNIX;
-  control_addr_len_ = sizeof(control_addr_.controlAddrUn.sun_family) + sizeof(kJdwpControlName) - 1;
-  memcpy(control_addr_.controlAddrUn.sun_path, kJdwpControlName, sizeof(kJdwpControlName) - 1);
-
   // Add the startup callback.
   art::ScopedObjectAccess soa(art::Thread::Current());
   art::Runtime::Current()->GetRuntimeCallbacks()->AddDebuggerControlCallback(&controller_);
@@ -465,10 +463,14 @@ bool AdbConnectionState::SetupAdbConnection() {
   const int sleep_max_ms = 2 * 1000;
 
   const AdbConnectionClientInfo infos[] = {
-    {.type = AdbConnectionClientInfoType::pid, .data.pid = static_cast<uint64_t>(getpid())},
-    {.type = AdbConnectionClientInfoType::debuggable, .data.debuggable = true},
+      {.type = AdbConnectionClientInfoType::pid,
+       .data.pid = static_cast<uint64_t>(getpid())},
+      {.type = AdbConnectionClientInfoType::debuggable,
+       .data.debuggable = IsDebuggingPossible()},
+      {.type = AdbConnectionClientInfoType::profileable,
+       .data.profileable = art::Runtime::Current()->IsProfileableFromShell()},
   };
-  const AdbConnectionClientInfo* info_ptrs[] = {&infos[0], &infos[1]};
+  const AdbConnectionClientInfo *info_ptrs[] = {&infos[0], &infos[1], &infos[2]};
 
   while (!shutting_down_) {
     // If adbd isn't running, because USB debugging was disabled or
@@ -509,6 +511,11 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
     // First, connect to adbd if we haven't already.
     if (!control_ctx_ && !SetupAdbConnection()) {
       LOG(ERROR) << "Failed to setup adb connection.";
+      return;
+    }
+    if (!IsDebuggingPossible()) {
+      // This function may be called for a profileable-but-non-debuggable process.
+      // A debugger shouldn't be allowed to connect to such a process.
       return;
     }
     while (!shutting_down_ && control_ctx_) {
