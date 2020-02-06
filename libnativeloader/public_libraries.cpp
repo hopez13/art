@@ -113,7 +113,7 @@ Result<std::vector<std::string>> ReadConfig(
     return ErrnoError();
   }
   Result<std::vector<std::string>> result = ParseConfig(file_content, filter_fn);
-  if (!result) {
+  if (!result.ok()) {
     return Errorf("Cannot parse {}: {}", configFile, result.error().message());
   }
   return result;
@@ -149,7 +149,7 @@ void ReadExtensionLibraries(const char* dirname, std::vector<std::string>* sonam
                               entry.soname, company_name);
               }
             });
-        if (ret) {
+        if (ret.ok()) {
           sonames->insert(sonames->end(), ret->begin(), ret->end());
         } else {
           LOG_ALWAYS_FATAL("Error reading public native library list from \"%s\": %s",
@@ -170,7 +170,7 @@ static std::string InitDefaultPublicLibraries(bool for_preload) {
           return true;
         }
       });
-  if (!sonames) {
+  if (!sonames.ok()) {
     LOG_ALWAYS_FATAL("Error reading public native library list from \"%s\": %s",
                      config_file.c_str(), sonames.error().message().c_str());
     return "";
@@ -232,7 +232,7 @@ static std::string InitArtPublicLibraries() {
 static std::string InitVendorPublicLibraries() {
   // This file is optional, quietly ignore if the file does not exist.
   auto sonames = ReadConfig(kVendorPublicLibrariesFile, always_true);
-  if (!sonames) {
+  if (!sonames.ok()) {
     return "";
   }
   return android::base::Join(*sonames, ':');
@@ -255,7 +255,7 @@ static std::string InitLlndkLibraries() {
   std::string config_file = kLlndkLibrariesFile;
   InsertVndkVersionStr(&config_file);
   auto sonames = ReadConfig(config_file, always_true);
-  if (!sonames) {
+  if (!sonames.ok()) {
     LOG_ALWAYS_FATAL("%s", sonames.error().message().c_str());
     return "";
   }
@@ -266,7 +266,7 @@ static std::string InitVndkspLibraries() {
   std::string config_file = kVndkLibrariesFile;
   InsertVndkVersionStr(&config_file);
   auto sonames = ReadConfig(config_file, always_true);
-  if (!sonames) {
+  if (!sonames.ok()) {
     LOG_ALWAYS_FATAL("%s", sonames.error().message().c_str());
     return "";
   }
@@ -380,7 +380,7 @@ Result<std::vector<std::string>> ParseConfig(
 #endif
 
     Result<bool> ret = filter_fn(entry);
-    if (!ret) {
+    if (!ret.ok()) {
       return ret.error();
     }
     if (*ret) {
