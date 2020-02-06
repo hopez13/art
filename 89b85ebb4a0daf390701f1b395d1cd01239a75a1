@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c57b9b7e_70fbd5e7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-06T01:41:42Z",
+      "side": 1,
+      "message": "My personal preference is to let AndroidRuntime pass this location.\n\nIs there any reason why ART should know about this hardcoded path?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 71
+      },
+      "revId": "89b85ebb4a0daf390701f1b395d1cd01239a75a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
