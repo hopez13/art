@@ -481,12 +481,6 @@ class OatDexFile final {
   // May return null if the OatDexFile only contains a type lookup table. This case only happens
   // for the compiler to speed up compilation, or in jitzygote.
   const OatFile* GetOatFile() const {
-    // Avoid pulling in runtime.h in the header file.
-    if (kIsDebugBuild && oat_file_ == nullptr) {
-      if (!Runtime::Current()->IsUsingApexBootImageLocation()) {
-        AssertAotCompiler();
-      }
-    }
     return oat_file_;
   }
 

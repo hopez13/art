@@ -27,6 +27,8 @@
 #include <memory>
 #include <vector>
 
+#include "android-base/strings.h"
+
 #include "base/locks.h"
 #include "base/macros.h"
 #include "base/mem_map.h"
@@ -211,10 +213,6 @@ class Runtime {
 
   const std::string& GetImageLocation() const {
     return image_location_;
-  }
-
-  bool IsUsingApexBootImageLocation() const {
-    return is_using_apex_boot_image_location_;
   }
 
   // Starts a runtime, which may cause threads to be started and code to run.
@@ -982,6 +980,11 @@ class Runtime {
   // Return true if we should load oat files as executable or not.
   bool GetOatFilesExecutable() const;
 
+  bool IsRunningJitZygote() const {
+    // TODO: This should be better specified.
+    return android::base::EndsWith(image_location_, "boot-image.prof");
+  }
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -1062,7 +1065,6 @@ class Runtime {
   std::vector<std::string> compiler_options_;
   std::vector<std::string> image_compiler_options_;
   std::string image_location_;
-  bool is_using_apex_boot_image_location_;
 
   std::vector<std::string> boot_class_path_;
   std::vector<std::string> boot_class_path_locations_;
