@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9b4f8bf6_b3d21c5f",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-07T04:53:41Z",
+      "side": 1,
+      "message": "\u003e Thanks for the update. Let us know when you intend to make those changes, so that we can adjust our build rules.\n\nSure!\n\n\u003e Is this already the case? I didn\u0027t see anything in linkerconfig\u0027s build rules (system/linkerconfig/Android.bp) about this.\n\nNot yet. need to fix it.",
+      "parentUuid": "a04f46a2_6e9dd871",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 100
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4009516f_36ccc2c9",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
