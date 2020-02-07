@@ -118,6 +118,30 @@
       "revId": "aeda36c0af596257768174a078ceed649f0f9bcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5777de0_7cde8273",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2020-02-07T03:50:38Z",
+      "side": 1,
+      "message": "As in b/148823287#comment3, it requires defining a new linker namespace for vndk-sp libs for the product vndk version.\nI filed a new bug b/149063221 to address this.\nLet me work on this in separate CLs.",
+      "parentUuid": "7b8cb057_9768d338",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 71
+      },
+      "revId": "aeda36c0af596257768174a078ceed649f0f9bcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
