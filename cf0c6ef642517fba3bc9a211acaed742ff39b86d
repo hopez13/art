@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145f67fb_1c2f9d50",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "Seems like the issue it they might throw?",
+      "parentUuid": "070e2bc9_4a2f5857",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef59a26d_eb3b4859",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b367570a_0f3bd199",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "Same?",
+      "parentUuid": "ef59a26d_eb3b4859",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0c319f13_8cbef25e",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "It is conscrypt vs anything else.  (i.e. conscrypt is an exception as it lives in other apex)",
+      "parentUuid": "04dccff2_7fc75cdf",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 97
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cc86918_5bd29c07",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b6776df_091ea6ce",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "Why?  This is a string constant, no?",
+      "parentUuid": "2cc86918_5bd29c07",
+      "range": {
+        "startLine": 531,
+        "startChar": 29,
+        "endLine": 531,
+        "endChar": 58
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2dc10c3f_1c774910",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "True... of course, unless we manage to kill core.art as planed...",
+      "parentUuid": "63ae04e7_82901b06",
+      "range": {
+        "startLine": 530,
+        "startChar": 31,
+        "endLine": 530,
+        "endChar": 69
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60f949af_04a719e8",
         "filename": "runtime/dexopt_test.cc",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cdb5a5c_71914e12",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T16:03:27Z",
+      "side": 1,
+      "message": "Isn\u0027t that overkill thought?\nWhat do you think of just returning the ScratchDir?",
+      "parentUuid": "60f949af_04a719e8",
+      "range": {
+        "startLine": 72,
+        "startChar": 24,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
