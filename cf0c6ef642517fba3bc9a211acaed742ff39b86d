@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5c43d47a_b7d45344",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T16:22:58Z",
+      "side": 1,
+      "message": "There\u0027s an overloading which takes an `std::error_code` and does not seem to throw.",
+      "parentUuid": "145f67fb_1c2f9d50",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef59a26d_eb3b4859",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Same?",
       "parentUuid": "ef59a26d_eb3b4859",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5315e6c9_9fa26ea6",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T16:22:58Z",
+      "side": 1,
+      "message": "Ditto. :)",
+      "parentUuid": "b367570a_0f3bd199",
       "range": {
         "startLine": 68,
         "startChar": 2,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "cbb13d00_856e10ca",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T16:22:58Z",
+      "side": 1,
+      "message": "Maybe we should add a comment about this. I thought at first that this routine could be used to get any Dex file under \"/system/framework/\" on device, but its use is limited to Dex files used in ART testing, so the current boot image + conscrypt image.",
+      "parentUuid": "0c319f13_8cbef25e",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 97
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cc86918_5bd29c07",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "Why?  This is a string constant, no?",
       "parentUuid": "2cc86918_5bd29c07",
+      "range": {
+        "startLine": 531,
+        "startChar": 29,
+        "endLine": 531,
+        "endChar": 58
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e35c1514_3d82be7f",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T16:22:58Z",
+      "side": 1,
+      "message": "I saw that this literal was used several times in this file, in `CommonArtTestImpl::GetCoreFileLocation` (here) and in `CommonRuntimeTestImpl::GetImageDirectory` (in runtime/common_runtime_test.cc) and thought we could introduce a constant; but actually we should probably refactor these two routines instead.",
+      "parentUuid": "9b6776df_091ea6ce",
       "range": {
         "startLine": 531,
         "startChar": 29,
@@ -272,6 +368,30 @@
       "side": 1,
       "message": "Isn\u0027t that overkill thought?\nWhat do you think of just returning the ScratchDir?",
       "parentUuid": "60f949af_04a719e8",
+      "range": {
+        "startLine": 72,
+        "startChar": 24,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2539ae69_3e404ce5",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T16:22:58Z",
+      "side": 1,
+      "message": "Right; I didn\u0027t realize the alternate image was generated in a scratch directory whose removal was already taken care of. :)",
+      "parentUuid": "4cdb5a5c_71914e12",
       "range": {
         "startLine": 72,
         "startChar": 24,
