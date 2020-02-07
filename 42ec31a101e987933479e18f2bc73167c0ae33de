@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9985fe93_90c19798",
+        "filename": "tools/compile-classes.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-02-07T17:53:12Z",
+      "side": 1,
+      "message": "Possible to reduce duplicated logic between this code and tools/compile-jar.sh?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "42ec31a101e987933479e18f2bc73167c0ae33de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
