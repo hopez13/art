@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fef62c5_8d0cec77",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "This method can be called without opening the dex files.",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6a5069_cd961641",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "if this fits on the same line, move the parameters to the next one",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 39
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd7406a4_d0da6efa",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "You can drop this to make the names shorter. Is pretty obvious in these tests.\nThe same comments for the other names.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 37,
+        "endLine": 1139,
+        "endChar": 46
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0278e1_7ebeeff5",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "you should not need this. Same in the other places.",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1143,
+        "endChar": 54
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0c7706_ef71d2ac",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "remove - it\u0027s obvious from test and it will make the name shorter. The same applies everywhere.",
+      "range": {
+        "startLine": 1285,
+        "startChar": 57,
+        "endLine": 1285,
+        "endChar": 68
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f86a4cc_a89cb1b2",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "debug leftover?",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1321,
+        "endChar": 3
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b80196d_7992b671",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "remove. Not needed on the method doc.",
+      "range": {
+        "startLine": 33,
+        "startChar": 75,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a77c331b_d9d52db2",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "IsInstanceOfBaseDexClassLoader(...)",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47410086_de445d3a",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T07:17:29Z",
+      "side": 1,
+      "message": "introduce local variables for increased readability.",
+      "range": {
+        "startLine": 52,
+        "startChar": 39,
+        "endLine": 52,
+        "endChar": 65
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
