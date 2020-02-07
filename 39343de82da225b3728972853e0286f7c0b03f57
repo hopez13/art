@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a366d637_59d36861",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T21:54:32Z",
+      "side": 1,
+      "message": "Ahhh ok, thank you for the explanation! I\u0027ll update the comment.\n\nI think I prefer this version so that EncodeClassPathContexts ignores dex files that can\u0027t be opened even if the ClassLoaderContext was initialized in \"offline\" mode.",
+      "parentUuid": "ea64222a_8edfc902",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6a5069_cd961641",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 18
@@ -235,6 +259,30 @@
       "revId": "39343de82da225b3728972853e0286f7c0b03f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60ba647_0608f040",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T21:54:32Z",
+      "side": 1,
+      "message": "Thank you for the thorough explanation in the other comment. Removing these now!\n\nDone",
+      "parentUuid": "9e664f1b_3a5c7240",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1143,
+        "endChar": 54
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
