@@ -22,6 +22,30 @@
       "revId": "377b58caba2cd173f4837ce6923a3d28d624a019",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c10f931_b6966a20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-07T00:34:31Z",
+      "side": 1,
+      "message": "I think there might be minor difference. For example, I think core.oat always has full DWARF debug data.  Not sure if there are other difference.  Maybe profiles affect boot.art?",
+      "parentUuid": "a9a005b6_120b1c37",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "377b58caba2cd173f4837ce6923a3d28d624a019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
