@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "073af6a5_8e19a6dd",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1074438
+      },
+      "writtenOn": "2020-02-07T11:21:15Z",
+      "side": 1,
+      "message": "I\u0027d suggest to refactor this function a bit, having short clauses first and returning known result when possible:\n\n  if (state !\u003d kPreInitialized) {\n    CloseNativeBridge();\n    return false;\n  }\n\n  if (app_code_cache...) { ... }\n\n  if (callbacks-\u003einitialize...) {\n    ...\n    return true;\n  }\n\n  dlclose\n  CloseNativeBridge\n  return false;",
+      "revId": "540e0e035d335970e2936c8eb114f886da9bb80f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
