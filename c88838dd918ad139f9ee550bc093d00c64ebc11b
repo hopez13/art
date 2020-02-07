@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "c1395578_526f31e5",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-02-07T05:15:11Z",
+      "side": 1,
+      "message": "hmm, is it? linkerconfig (built from R) will generate ld.config.txt that corresponds to the vendor.img (which might be pre-R) of the host device as long as ro.vndk.* sysprops are correctly set.\n\n+kiyoungkim to confirm.",
+      "parentUuid": "1dc7c14c_9b0f65d0",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eacccc98_9d6ffc09",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
