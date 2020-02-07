@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7eef5e8_c81ac9ea",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Ah good catch. I think we should change the implementation to depend on the \"resolved\" classpath. If we don\u0027t, then if a package adds new resource only dexes/apks (e.g. the package downloads a new resource only splits) then splits or secondary dexes that were being loaded will get marked as \"VARIABLE_CLASS_LOADER_CONTEXT\" in the PackageManager and become less optimized than they can be, in theory. I\u0027m going to preemptively make this change (since it should be small)- let me know what you think.\n\nIn theory I can see a few other routes for \"fixing\" the situation I described above:\n- Change the PackageManager to record a list of encoded class loader contexts, change dex2oat to accept multiple and make its own decision (i.e. dex2oat could see if each context is identical post resolution and use that class loader context then)\n- Change dex2oat to peek at the previous oat files\u0027 encoded class loader context and use that if its been told the dex file has been loaded with multiple class loader contexts (this is less ideal because it can cause correctness issues I think)\n- Change LoadedApk.java to not add splits to the base application ClassLoader if the split doesn\u0027t contain any code",
+      "parentUuid": "1fef62c5_8d0cec77",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e6a5069_cd961641",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 18
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2cce6939_ef9e086e",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e6a5069_cd961641",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 39
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd7406a4_d0da6efa",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 18
@@ -68,6 +116,30 @@
       "revId": "39343de82da225b3728972853e0286f7c0b03f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c27c05_64140b14",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd7406a4_d0da6efa",
+      "range": {
+        "startLine": 1139,
+        "startChar": 37,
+        "endLine": 1139,
+        "endChar": 46
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "53d276f3_0ba817e6",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0c7706_ef71d2ac",
+      "range": {
+        "startLine": 1285,
+        "startChar": 57,
+        "endLine": 1285,
+        "endChar": 68
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f86a4cc_a89cb1b2",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 18
@@ -137,6 +233,30 @@
       "revId": "39343de82da225b3728972853e0286f7c0b03f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ef78fd_1074c45a",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Yes, thanks for catching! Removed.\n\nDone",
+      "parentUuid": "9f86a4cc_a89cb1b2",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1321,
+        "endChar": 3
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "63fc33ff_f6da79e6",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b80196d_7992b671",
+      "range": {
+        "startLine": 33,
+        "startChar": 75,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77c331b_d9d52db2",
         "filename": "runtime/class_loader_utils.h",
         "patchSetId": 18
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "7dd68e4b_9af0d965",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a77c331b_d9d52db2",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47410086_de445d3a",
         "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
         "patchSetId": 18
@@ -206,6 +374,30 @@
       "revId": "39343de82da225b3728972853e0286f7c0b03f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fad224c_576f1835",
+        "filename": "runtime/native/dalvik_system_BaseDexClassLoader.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T12:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47410086_de445d3a",
+      "range": {
+        "startLine": 52,
+        "startChar": 39,
+        "endLine": 52,
+        "endChar": 65
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
