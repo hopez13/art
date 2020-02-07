@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b7c6434e_58dda72d",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1611822
+      },
+      "writtenOn": "2020-02-07T14:22:31Z",
+      "side": 1,
+      "message": "After the most recent revision we still need this call (well technically we don\u0027t because CreateContextForClassLoader will \"open\" the dex files, but I guess we shouldn\u0027t rely on that here)",
+      "parentUuid": "6c0278e1_7ebeeff5",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1143,
+        "endChar": 54
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0c7706_ef71d2ac",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 18
