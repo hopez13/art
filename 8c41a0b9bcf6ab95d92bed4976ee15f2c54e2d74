@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abdf5374_c5371e78",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-07T12:02:37Z",
+      "side": 0,
+      "message": "Was this a TODO? Should you remove the `#include \"runtime.h\"`?",
+      "range": {
+        "startLine": 484,
+        "startChar": 4,
+        "endLine": 484,
+        "endChar": 53
+      },
+      "revId": "8c41a0b9bcf6ab95d92bed4976ee15f2c54e2d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

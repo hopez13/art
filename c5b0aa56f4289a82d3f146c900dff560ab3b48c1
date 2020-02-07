@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0278ca5d_8be89d47",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-07T12:02:37Z",
+      "side": 1,
+      "message": "Move inside the then-block where it\u0027s used.",
+      "range": {
+        "startLine": 887,
+        "startChar": 6,
+        "endLine": 887,
+        "endChar": 66
+      },
+      "revId": "c5b0aa56f4289a82d3f146c900dff560ab3b48c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd6d0eff_8617556b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-07T12:02:37Z",
+      "side": 1,
+      "message": "I prefer the EndsWith() from string_view_cpp20.h (with implicit conversions to std::string_view).",
+      "range": {
+        "startLine": 985,
+        "startChar": 11,
+        "endLine": 985,
+        "endChar": 34
+      },
+      "revId": "c5b0aa56f4289a82d3f146c900dff560ab3b48c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
