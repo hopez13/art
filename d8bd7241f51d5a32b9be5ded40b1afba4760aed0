@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "077c28db_d80efbbc",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:58:22Z",
+      "side": 1,
+      "message": "Could you copy comments from build/Android.gtest.mk for those non-trivial cases?",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1227,
+        "endChar": 39
+      },
+      "revId": "d8bd7241f51d5a32b9be5ded40b1afba4760aed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0e51d4_89f80c01",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:58:22Z",
+      "side": 1,
+      "message": "Maybe capture this command line in a variable an use it here and below? E.g.:\n\n  zipalign \u003d \"$(location zipalign) 4 $(in) $(out)\"",
+      "range": {
+        "startLine": 1248,
+        "startChar": 10,
+        "endLine": 1248,
+        "endChar": 45
+      },
+      "revId": "d8bd7241f51d5a32b9be5ded40b1afba4760aed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50bf641_68137c57",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:58:22Z",
+      "side": 1,
+      "message": "Maybe capture this command line in a variable an use it here and below? E.g.:\n\n  uncompress \u003d \"$(location zip2zip) -i $(in) -o $(out) -0 \u0027classes*.dex\u0027\"",
+      "range": {
+        "startLine": 1256,
+        "startChar": 9,
+        "endLine": 1256,
+        "endChar": 67
+      },
+      "revId": "d8bd7241f51d5a32b9be5ded40b1afba4760aed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac2d9c92_bc3910a3",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:58:22Z",
+      "side": 1,
+      "message": "Out of curiosity, is this needed for multi-dex support?",
+      "range": {
+        "startLine": 1273,
+        "startChar": 4,
+        "endLine": 1273,
+        "endChar": 25
+      },
+      "revId": "d8bd7241f51d5a32b9be5ded40b1afba4760aed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec53604_17ab6824",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:58:22Z",
+      "side": 1,
+      "message": "Maybe capture this command line in a variable an use it here and below? E.g.:\n\n  smali \u003d \"$(location smali) assemble --output $(out) $(in)\"",
+      "range": {
+        "startLine": 1321,
+        "startChar": 9,
+        "endLine": 1321,
+        "endChar": 59
+      },
+      "revId": "d8bd7241f51d5a32b9be5ded40b1afba4760aed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
