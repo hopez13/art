@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "070e2bc9_4a2f5857",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "Should we start using `std::filesystem::temp_directory_path` instead of `mkdtemp` (see also b/130214123)?",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef59a26d_eb3b4859",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "Likewise, should we start using `std::filesystem::recursive_directory_iterator` instead of `nftw`?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04dccff2_7fc75cdf",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "Should we also support the case where `jar_prefix` is neither `conscrypt` nor `boot`? This looks like a regression.",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 97
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc86918_5bd29c07",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "I think this literal should be put in a string constant.",
+      "range": {
+        "startLine": 531,
+        "startChar": 29,
+        "endLine": 531,
+        "endChar": 58
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ae04e7_82901b06",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "I\u0027d capture this logic in its own function, so that it can be used in `CommonRuntimeTestImpl::GetImageLocation` (here), in `CommonRuntimeTestImpl::GetSystemImageFile` (below) and in `CommonArtTestImpl::GetCoreFileLocation` (line 523).",
+      "range": {
+        "startLine": 530,
+        "startChar": 31,
+        "endLine": 530,
+        "endChar": 69
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60f949af_04a719e8",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "Ideally, I think this method should return an object representing the generated image (able to provide the path to it), and that would delete the produced file(s) as part in its destructor.",
+      "range": {
+        "startLine": 72,
+        "startChar": 24,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf55b2cd_22472965",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-07T15:30:16Z",
+      "side": 1,
+      "message": "I would have copied and adjusted the comment that preceded the declaration of `GetImageLocation2` (in runtime/dex2oat_environment_test.h) here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 69
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
