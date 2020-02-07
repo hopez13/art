@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ea64222a_8edfc902",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T21:08:48Z",
+      "side": 1,
+      "message": "OpenDexFiles is designed to work in the \"offline\" context when you build the context from paths not from a class_loader. So let\u0027s keep them clearly separated and make things explictely. Add: \"only called if the dex files are opened (either via OpenDexFiles() or by creating the context from a live class loader\").\n\nAlso, the update is actually a no-op and I\u0027m ok with either versions. The reason for no-op is that the class loader context only looks at *dex files*. If you follow the opening and the encoding, we only process dex files and ignore anything we can\u0027t open: that\u0027s true for when we use a live class loader, and also offline, in dex2oat.",
+      "parentUuid": "d7eef5e8_c81ac9ea",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e6a5069_cd961641",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 18
@@ -187,6 +211,30 @@
       "revId": "39343de82da225b3728972853e0286f7c0b03f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e664f1b_3a5c7240",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-02-07T21:08:48Z",
+      "side": 1,
+      "message": "Actually you should rely on it :), Because the use of that code does not call OpenDexFiles() explicitely. See my other comment. You can ASSERT  if you want,  though that will be redundant.",
+      "parentUuid": "b7c6434e_58dda72d",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1143,
+        "endChar": 54
+      },
+      "revId": "39343de82da225b3728972853e0286f7c0b03f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
