@@ -22,6 +22,30 @@
       "revId": "2b491610b613e2199388dd8f7822ac5a8635fcba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5488a239_983fba35",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-02-07T14:28:19Z",
+      "side": 1,
+      "message": "Resolved after a local dicussion: boot-image.bprof is handled by ART in a special way, regardless of the boot image specified.",
+      "parentUuid": "cd66051e_a501d695",
+      "range": {
+        "startLine": 984,
+        "startChar": 37,
+        "endLine": 984,
+        "endChar": 54
+      },
+      "revId": "2b491610b613e2199388dd8f7822ac5a8635fcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
