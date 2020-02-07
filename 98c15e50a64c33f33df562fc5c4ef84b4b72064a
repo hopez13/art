@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000001550509",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1229604?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "73418c4b_a57e9b88",
+        "filename": "libnativeloader/native_loader_namespace.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-02-07T12:17:20Z",
+      "side": 1,
+      "message": "This file contains a set of conflict markers.If this is a false alarm, add IGNORE_MERGE_CONFLICT_CHECK\u003d\u003d\u003creason\u003e to your commit message.",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "98c15e50a64c33f33df562fc5c4ef84b4b72064a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
