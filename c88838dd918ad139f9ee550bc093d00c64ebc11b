@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "ac665d7f_76c7ceb4",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-02-08T03:23:25Z",
+      "side": 1,
+      "message": "Yep,  I know the meaning of host in this context. aosp/1229606 looks good to me. Thanks!",
+      "parentUuid": "29fe4d37_ff1dde2e",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "c88838dd918ad139f9ee550bc093d00c64ebc11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eacccc98_9d6ffc09",
         "filename": "tools/buildbot-sync.sh",
         "patchSetId": 1
