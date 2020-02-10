@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eae45ee2_6a238010",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-10T19:28:21Z",
+      "side": 1,
+      "message": "No goto please",
+      "range": {
+        "startLine": 509,
+        "startChar": 6,
+        "endLine": 509,
+        "endChar": 10
+      },
+      "revId": "80b25bccfae9896032e884153d1127e55e23270c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3af20ca9_042ccb3f",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-10T19:28:21Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 529,
+        "startChar": 8,
+        "endLine": 529,
+        "endChar": 12
+      },
+      "revId": "80b25bccfae9896032e884153d1127e55e23270c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b446e1_ae4d937e",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-10T19:28:21Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be needed since we never deallocate the gState.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 0
+      },
+      "revId": "80b25bccfae9896032e884153d1127e55e23270c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
