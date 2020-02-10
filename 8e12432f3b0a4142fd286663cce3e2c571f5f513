@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e1e1431_fa27b112",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-02-10T14:58:08Z",
+      "side": 1,
+      "message": "Is this at all related to the occasionally removed check? If no, maybe add this to the commit message (it looks like a functional change).",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 64
+      },
+      "revId": "8e12432f3b0a4142fd286663cce3e2c571f5f513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
