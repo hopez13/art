@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "63a2d550_63e4da6f",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-10T10:14:19Z",
+      "side": 1,
+      "message": "It not marked \"nothrow\" and the documentation says it \"may throw std::bad_alloc if memory allocation fails\"",
+      "parentUuid": "5c43d47a_b7d45344",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef59a26d_eb3b4859",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
