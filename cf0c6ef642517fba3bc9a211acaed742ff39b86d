@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "b18d13a1_c3f5a0e6",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-10T14:49:47Z",
+      "side": 1,
+      "message": "Oh.  I didn\u0027t realize that.\n\nSo what is the story with exceptions in Android?  I assumed it was pretty hard rule (i.e. they might not work at all, code might not compile, etc...)",
+      "parentUuid": "c02905ee_c9aef1cc",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "cf0c6ef642517fba3bc9a211acaed742ff39b86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef59a26d_eb3b4859",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 5
