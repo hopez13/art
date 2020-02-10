@@ -1,5 +1,5 @@
 java_test {
-    name: "art-run-test-001-HelloWorld",
+    name: "art-run-test-300-package-override",
     defaults: ["art-run-test-defaults"],
     srcs: [
         "src/**/*.java",
