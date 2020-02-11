@@ -22,6 +22,30 @@
       "revId": "e3f06251c14ca77e3faa5cce8159d96b57f2914e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0036a7a7_f8c18ae1",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-11T23:38:44Z",
+      "side": 1,
+      "message": "I prefer to keep public visibility on the leaf modules for better control. As a point in case, moving it to dex2oat-defaults would also make dex2oat(d)s visible, which we wouldn\u0027t want.",
+      "parentUuid": "ff4eec82_4f3993ee",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 40
+      },
+      "revId": "e3f06251c14ca77e3faa5cce8159d96b57f2914e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
