@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72933a45_33133277",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-12T00:20:44Z",
+      "side": 1,
+      "message": "Looking at this closer we probably don\u0027t want to be doing all the runtime manipulation in the library ctor. The loading can take place before the runtime is fully up.\n\nInstead do:\n\nstatic std::optional\u003cAdbConnectionState\u003e gState();\n\nthen in ArtPlugin_Initialize do\n\ngState.emplace(kDefaultJdwpAgentName);\n\nAlso leave in the TODO for allowing the agent name to be dynamically changed.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 56
+      },
+      "revId": "4521dfb897d64510b00f1fe8263cc17b4a34b9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
