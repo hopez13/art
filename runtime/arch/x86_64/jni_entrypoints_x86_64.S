@@ -28,8 +28,8 @@ DEFINE_FUNCTION art_jni_dlsym_lookup_stub
     PUSH rdx  // Arg.
     PUSH rcx  // Arg.
     // Create space for FPR args, plus padding for alignment
-    subq LITERAL(72 + 4 * 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(72 + 4 * 8)
+    subq LITERAL(72), %rsp
+    CFI_ADJUST_CFA_OFFSET(72)
     // Save FPRs.
     movq %xmm0, 0(%rsp)
     movq %xmm1, 8(%rsp)
@@ -39,17 +39,15 @@ DEFINE_FUNCTION art_jni_dlsym_lookup_stub
     movq %xmm5, 40(%rsp)
     movq %xmm6, 48(%rsp)
     movq %xmm7, 56(%rsp)
-    movq %xmm12, 64(%rsp)
-    movq %xmm13, 72(%rsp)
-    movq %xmm14, 80(%rsp)
-    movq %xmm15, 88(%rsp)
     // prepare call
     movq %gs:THREAD_SELF_OFFSET, %rdi      // RDI := Thread::Current()
-    // Call artFindNativeMethod() for normal native and artFindNativeMethodRunnable for @FastNative.
+    // Call artFindNativeMethod() for normal native and artFindNativeMethodRunnable()
+    // for @FastNative or @CriticalNative.
     movq THREAD_TOP_QUICK_FRAME_OFFSET(%rdi), %rax   // uintptr_t tagged_quick_frame
     andq LITERAL(0xfffffffffffffffe), %rax           // ArtMethod** sp
     movq (%rax), %rax                                // ArtMethod* method
-    testl LITERAL(ACCESS_FLAGS_METHOD_IS_FAST_NATIVE), ART_METHOD_ACCESS_FLAGS_OFFSET(%rax)
+    testl LITERAL(ACCESS_FLAGS_METHOD_IS_FAST_NATIVE | ACCESS_FLAGS_METHOD_IS_CRITICAL_NATIVE), \
+          ART_METHOD_ACCESS_FLAGS_OFFSET(%rax)
     jne .Llookup_stub_fast_native
     call SYMBOL(artFindNativeMethod)  // (Thread*)
     jmp .Llookup_stub_continue
@@ -65,21 +63,28 @@ DEFINE_FUNCTION art_jni_dlsym_lookup_stub
     movq 40(%rsp), %xmm5
     movq 48(%rsp), %xmm6
     movq 56(%rsp), %xmm7
-    movq 64(%rsp), %xmm12
-    movq 72(%rsp), %xmm13
-    movq 80(%rsp), %xmm14
-    movq 88(%rsp), %xmm15
-    addq LITERAL(72 + 4 * 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(-72 - 4 * 8)
+    addq LITERAL(72), %rsp
+    CFI_ADJUST_CFA_OFFSET(-72)
     POP rcx  // Arg.
     POP rdx  // Arg.
     POP rsi  // Arg.
     POP rdi  // JniEnv.
     POP r8   // Arg.
     POP r9   // Arg.
-    testq %rax, %rax         // check if returned method code is null
+    testq %rax, %rax              // check if returned method code is null
     jz .Lno_native_code_found     // if null, jump to return to handle
     jmp *%rax                     // otherwise, tail call to intended method
 .Lno_native_code_found:
     ret
 END_FUNCTION art_jni_dlsym_lookup_stub
+
+DEFINE_FUNCTION art_jni_dlsym_lookup_critical_stub
+    // The hidden arg holding the tagged method (bit 0 set means GenericJNI) is r11.
+    // For Generic JNI we already have a managed frame, so we reuse the art_jni_dlsym_lookup_stub.
+    testl LITERAL(1), %r11d;
+    jnz art_jni_dlsym_lookup_stub
+
+    // UNIMPLEMENTED: CRASH
+    movq LITERAL(0), %rax
+    movq LITERAL(0), (%rax)
+END_FUNCTION art_jni_dlsym_lookup_critical_stub

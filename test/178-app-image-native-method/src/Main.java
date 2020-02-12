@@ -31,13 +31,12 @@ public class Main {
     new TestMissingCritical();
     makeVisiblyInitialized();  // Make sure they are visibly initialized.
 
-    // FIXME: @FastNative and @CriticalNative fail a state check in artFindNativeMethod().
     test();
     testFast();
-    // testCritical();
+    testCritical();
     testMissing();
     testMissingFast();
-    // testMissingCritical();
+    testMissingCritical();
   }
 
   static void test() {
