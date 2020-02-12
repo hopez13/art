@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3aa5161_fe530e3d",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-12T10:25:44Z",
+      "side": 1,
+      "message": "Move to initializer list.",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 32
+      },
+      "revId": "59fe2fc1135850e8f0ff7db489668368ec389286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c1bf96a_f5453f6c",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-12T10:25:44Z",
+      "side": 1,
+      "message": "While we\u0027re here, change this to `down_cast`.",
+      "range": {
+        "startLine": 225,
+        "startChar": 27,
+        "endLine": 225,
+        "endChar": 43
+      },
+      "revId": "59fe2fc1135850e8f0ff7db489668368ec389286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
