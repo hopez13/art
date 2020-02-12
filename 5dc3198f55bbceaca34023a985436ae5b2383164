@@ -22,6 +22,29 @@
       "revId": "5dc3198f55bbceaca34023a985436ae5b2383164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd4d0290_d8e98e93",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-02-12T21:42:07Z",
+      "side": 1,
+      "message": "Yes, spawning a bash instance here seems unnecessary. Doesn\u0027t plain:\n$cmd\nsuffice here? Variables are already expanded in assignment to cmd.",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 15
+      },
+      "revId": "5dc3198f55bbceaca34023a985436ae5b2383164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
