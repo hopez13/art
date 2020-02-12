@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f257732c_ad26f71e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-12T18:45:57Z",
+      "side": 1,
+      "message": "Note: Maybe we could remove this method (in another CL)? All back ends have had support for register allocation for a long time now.",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "7e70d0e5835e1652b0c07ea1bba9ca9dda2cdb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
