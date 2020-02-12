@@ -73,6 +73,9 @@ class HInliner : public HOptimization {
 
   bool TryInline(HInvoke* invoke_instruction);
 
+  art::ArtMethod* FindActualCallTarget(HInvoke* invoke_instruction, bool* cha_devirtualize)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Try to inline `resolved_method` in place of `invoke_instruction`. `do_rtp` is whether
   // reference type propagation can run after the inlining. If the inlining is successful, this
   // method will replace and remove the `invoke_instruction`. If `cha_devirtualize` is true,
@@ -90,11 +93,14 @@ class HInliner : public HOptimization {
                          HInstruction** return_replacement)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool TryBuildAndInlineHelper(HInvoke* invoke_instruction,
-                               ArtMethod* resolved_method,
-                               ReferenceTypeInfo receiver_type,
-                               bool same_dex_file,
-                               HInstruction** return_replacement);
+  bool TryBuildAndInlineHelper(HInvoke* invoke_instruction, ArtMethod* resolved_method,
+                               ReferenceTypeInfo receiver_type, HInstruction** return_replacement)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SubstituteArguments(HGraph* callee_graph, const HInvoke* invoke_instruction,
+                           ReferenceTypeInfo receiver_type,
+                           const DexCompilationUnit& dex_compilation_unit)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Run simple optimizations on `callee_graph`.
   void RunOptimizations(HGraph* callee_graph,
@@ -106,6 +112,18 @@ class HInliner : public HOptimization {
   bool TryPatternSubstitution(HInvoke* invoke_instruction,
                               ArtMethod* resolved_method,
                               HInstruction** return_replacement)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool IsInliningAllowed(art::ArtMethod* method, const CodeItemDataAccessor& accessor) const
+    REQUIRES_SHARED(Locks::mutator_lock_);
+  bool IsInliningSupported(const HInvoke* invoke_instruction, art::ArtMethod* method,
+                           const CodeItemDataAccessor& accessor) const
+    REQUIRES_SHARED(Locks::mutator_lock_);
+  bool IsInliningBudgetAvailable(art::ArtMethod* method, const CodeItemDataAccessor& accessor) const
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool CanInlineBody(const HGraph* callee_graph, const HBasicBlock* target_block,
+                     size_t* out_number_of_instructions) const
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Create a new HInstanceFieldGet.
@@ -207,7 +225,7 @@ class HInliner : public HOptimization {
   // Otherwise returns inexact Object RTI.
   ReferenceTypeInfo GetClassRTI(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool ArgumentTypesMoreSpecific(HInvoke* invoke_instruction, ArtMethod* resolved_method)
+  bool ArgumentTypesMoreSpecific(const HInvoke* invoke_instruction, ArtMethod* resolved_method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool ReturnTypeMoreSpecific(HInvoke* invoke_instruction, HInstruction* return_replacement)
