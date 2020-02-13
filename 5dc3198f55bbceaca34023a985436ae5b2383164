@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a582769c_301584ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-13T12:31:09Z",
+      "side": 1,
+      "message": "Re-executing the shell is unnecessary (and adds the cost of creating a new process); the `eval` built-in is cheaper and cleaner.",
+      "parentUuid": "6a68e097_9add1a3b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 71
+      },
+      "revId": "5dc3198f55bbceaca34023a985436ae5b2383164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd4d0290_d8e98e93",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "5dc3198f55bbceaca34023a985436ae5b2383164",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de2f35fb_feea6d38",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-13T12:31:09Z",
+      "side": 1,
+      "message": "It would work in this case, yes. But it would not work in the case of line 135, as the `link_command` variable contains a \"\u0026\u0026\" substring which would not no longer be interpreted as a Bash operator if the command were to be executed without `eval`. For the sake of uniformity / future-proofness, I\u0027ve kept `eval` in all use cases.",
+      "parentUuid": "cd4d0290_d8e98e93",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 15
+      },
+      "revId": "5dc3198f55bbceaca34023a985436ae5b2383164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
