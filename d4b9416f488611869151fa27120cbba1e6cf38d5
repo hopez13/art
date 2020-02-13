@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84ea7612_7d4efca9",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-02-13T12:33:00Z",
+      "side": 1,
+      "message": "Why did not you remove the condition altogether? (I have two versions: (a) to minimize the diff , or (b) because you want to use it in future for something else).",
+      "range": {
+        "startLine": 325,
+        "startChar": 15,
+        "endLine": 325,
+        "endChar": 35
+      },
+      "revId": "d4b9416f488611869151fa27120cbba1e6cf38d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
