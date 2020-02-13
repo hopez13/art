@@ -22,6 +22,30 @@
       "revId": "7e70d0e5835e1652b0c07ea1bba9ca9dda2cdb5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393ccbd3_1ae91482",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-13T09:13:57Z",
+      "side": 1,
+      "message": "This may be useful for new architecture bringup.",
+      "parentUuid": "f257732c_ad26f71e",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "7e70d0e5835e1652b0c07ea1bba9ca9dda2cdb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
