@@ -22,6 +22,30 @@
       "revId": "d4b9416f488611869151fa27120cbba1e6cf38d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af863393_cd50bdfe",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-13T12:36:25Z",
+      "side": 1,
+      "message": "Both. It can be useful when gradually adding a new architecture.",
+      "parentUuid": "84ea7612_7d4efca9",
+      "range": {
+        "startLine": 325,
+        "startChar": 15,
+        "endLine": 325,
+        "endChar": 35
+      },
+      "revId": "d4b9416f488611869151fa27120cbba1e6cf38d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
