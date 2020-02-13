@@ -46,6 +46,30 @@
       "revId": "219420ea349960863f35b01353356c10a3736e57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3ebe4c_a2ac4ad0",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-13T12:54:26Z",
+      "side": 1,
+      "message": "I see. However, this is creating symlinks for the Bionic linker only, as `com.android.runtime` is the Bionic APEX (the new \"Runtime APEX\"); e.g. on master-art with the `armv8-eng` lunch target:\n\n  $ find $ANDROID_PRODUCT_OUT/symbols/system/bin -type l\n  /usr/local/google/home/rpl/src/aosp-art1/out/target/product/armv8/symbols/system/bin/linker64\n\nIs this on purpose?",
+      "parentUuid": "cf63869b_bf7050d4",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 6
+      },
+      "revId": "219420ea349960863f35b01353356c10a3736e57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
