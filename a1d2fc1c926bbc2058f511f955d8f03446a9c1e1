@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9f6af2d_747d76a0",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-14T17:11:46Z",
+      "side": 1,
+      "message": "Need to make sure that this won\u0027t allow one to attach a debugger to non-debuggable processes. AFAICT if adbd is convinced to send an fd it will start it. We should be defensive on both sides.\n\nAlso add a CTS test that (1) profilable works and, (2) profilable, non-debuggable processes cannot get a JDWP socket on user-builds. Take a look at the jdwptunnel cts test for some ideas on how to start.",
+      "range": {
+        "startLine": 95,
+        "startChar": 17,
+        "endLine": 95,
+        "endChar": 37
+      },
+      "revId": "a1d2fc1c926bbc2058f511f955d8f03446a9c1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
