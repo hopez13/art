@@ -16,6 +16,24 @@
       "revId": "b745adc02b2e38a4654e2a6e2a1872ddb243693b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb0dfd12_ae5d89e8",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-14T16:49:12Z",
+      "side": 1,
+      "message": "\u003e Also add\n\u003e \n\u003e   adb root\n\u003e \n\u003e here to be able to push to the chroot dir.\n\nDone in https://android-review.googlesource.com/c/platform/art/+/1235269/.",
+      "parentUuid": "5f861306_ecf04b2c",
+      "revId": "b745adc02b2e38a4654e2a6e2a1872ddb243693b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
