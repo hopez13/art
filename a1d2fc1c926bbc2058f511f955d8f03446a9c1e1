@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "68449c3e_8e88d87b",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-15T17:55:43Z",
+      "side": 1,
+      "message": "Please add a comment why isProfileable needs to start debugger threads.",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 80
+      },
+      "revId": "a1d2fc1c926bbc2058f511f955d8f03446a9c1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9f6af2d_747d76a0",
         "filename": "adbconnection/adbconnection.cc",
         "patchSetId": 1
