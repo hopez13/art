@@ -247,8 +247,15 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_
   }
 
   if (invoke_type == kInterface) {
-    UpdateCache(self, dex_pc_ptr, resolved_method->GetImtIndex());
-    return resolved_method->GetImtIndex();
+    if (resolved_method->GetDeclaringClass()->IsObjectClass()) {
+      // Don't update the cache and return a negative value to notify the
+      // interpreter it should do a vtable call instead.
+      return -resolved_method->GetMethodIndex();
+    } else {
+      DCHECK(resolved_method->GetDeclaringClass()->IsInterface());
+      UpdateCache(self, dex_pc_ptr, resolved_method->GetImtIndex());
+      return resolved_method->GetImtIndex();
+    }
   } else if (resolved_method->GetDeclaringClass()->IsStringClass()
              && !resolved_method->IsStatic()
              && resolved_method->IsConstructor()) {

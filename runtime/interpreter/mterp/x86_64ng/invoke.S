@@ -87,7 +87,17 @@
    movq 0(%rsp), %rsi
    movq rPC, %rdx
    call nterp_get_method
-   jmp 1b
+   testl MACRO_LITERAL(1), %eax
+   je 1b
+   testl %eax, %eax
+   jns 1b
+   // For j.l.Object interface calls, we return the negative of the vtable offset.
+   negl %eax
+   .if $range
+   jmp NterpHandleInvokeInterfaceOnObjectMethodRange
+   .else
+   jmp NterpHandleInvokeInterfaceOnObjectMethod
+   .endif
 
 %def op_invoke_interface():
 %  invoke_interface(helper="NterpCommonInvokeInterface", range="0")
