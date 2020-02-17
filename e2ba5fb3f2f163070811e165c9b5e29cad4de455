@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da136e42_c880a652",
+        "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-17T10:55:09Z",
+      "side": 1,
+      "message": "andl LITERAL(0x7fffffff), %eax",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 93,
+        "endChar": 12
+      },
+      "revId": "e2ba5fb3f2f163070811e165c9b5e29cad4de455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d9d982c_ee8f7d97",
+        "filename": "test/725-imt-conflict-object/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-17T10:55:09Z",
+      "side": 1,
+      "message": "Indentation.",
+      "revId": "e2ba5fb3f2f163070811e165c9b5e29cad4de455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
