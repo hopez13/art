@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f8e81163_9d743e6f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:47:01Z",
+      "side": 1,
+      "message": "Good catch, fixed.",
+      "parentUuid": "269f29ce_1bc6a0c6",
+      "range": {
+        "startLine": 253,
+        "startChar": 13,
+        "endLine": 253,
+        "endChar": 47
+      },
+      "revId": "938e4006afa38bb175aac2169a005bea85963883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08d1874f_637a5633",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2020-02-17T10:20:58Z",
       "side": 1,
       "message": "Missing `andq` for argument extraction.",
+      "revId": "938e4006afa38bb175aac2169a005bea85963883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8749b317_540d6d75",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:47:01Z",
+      "side": 1,
+      "message": "No need for range calls.",
+      "parentUuid": "08d1874f_637a5633",
       "revId": "938e4006afa38bb175aac2169a005bea85963883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "61c1a81c_f00e5138",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "882babcf_d338c3af",
+      "range": {
+        "startLine": 1920,
+        "startChar": 8,
+        "endLine": 1920,
+        "endChar": 13
+      },
+      "revId": "938e4006afa38bb175aac2169a005bea85963883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad5d7b28_fcd69511",
         "filename": "test/725-imt-conflict-object/src/Main.java",
         "patchSetId": 2
@@ -76,6 +142,24 @@
       "writtenOn": "2020-02-17T10:20:58Z",
       "side": 1,
       "message": "Since the IMT size is currently 43, you should have at least 86 methods and the names should be specifically chosen to cover each IMT index twice. The latter is rather difficult to do, so maybe use method\u003cn\u003e\u003cc\u003e where X\u003d{0,1,2,3}, c\u003d{\u0027a\u0027, \u0027b\u0027, ..., \u0027z\u0027}. That would cover each IMT index at least twice.\n\nMaybe change the test to generate the java file from the `build` script, see for example test/670-bitstring-type-check/build .",
+      "revId": "938e4006afa38bb175aac2169a005bea85963883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29933475_5e27ccda",
+        "filename": "test/725-imt-conflict-object/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:47:01Z",
+      "side": 1,
+      "message": "Done (manually, I felt adding a build script for this was too heavyweight).",
+      "parentUuid": "ad5d7b28_fcd69511",
       "revId": "938e4006afa38bb175aac2169a005bea85963883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
