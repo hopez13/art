@@ -16,6 +16,24 @@
       "revId": "e3826cb871f7625b1dc302f197f4e08f66f33dd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ab7147d_80a0590e",
+        "filename": "test/001-HelloWorld/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-17T12:27:38Z",
+      "side": 1,
+      "message": "This is the shortest path with the current build system, IIUC.\n\nIt should be possible to define special ART module types that would encode the existing build logic in Soong, based on the contents of each directories, but that would require some non-trivial work in Soong. I think that\u0027s something we should consider once we have an MVP. What do you think?",
+      "parentUuid": "d1d29c0d_6906b357",
+      "revId": "e3826cb871f7625b1dc302f197f4e08f66f33dd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
