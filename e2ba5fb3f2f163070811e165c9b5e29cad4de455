@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19f76bfb_ac96e053",
+        "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da136e42_c880a652",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 93,
+        "endChar": 12
+      },
+      "revId": "e2ba5fb3f2f163070811e165c9b5e29cad4de455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d9d982c_ee8f7d97",
         "filename": "test/725-imt-conflict-object/src/Main.java",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "e2ba5fb3f2f163070811e165c9b5e29cad4de455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7869c6c_ffab0f10",
+        "filename": "test/725-imt-conflict-object/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-17T10:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d9d982c_ee8f7d97",
+      "revId": "e2ba5fb3f2f163070811e165c9b5e29cad4de455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
