@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "825cb137_acd12217",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-17T14:33:54Z",
+      "side": 1,
+      "message": "I think it\u0027d be nice to be able to expose and reuse `kAndroidConscryptApexDefaultPath` from libartbase/base/file_utils.cc here (maybe in another CL).",
+      "range": {
+        "startLine": 397,
+        "startChar": 51,
+        "endLine": 397,
+        "endChar": 74
+      },
+      "revId": "fe9292923d1733cc6bfa097d6809ba40e44b2701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d0edfb_31eab7e8",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-17T14:33:54Z",
+      "side": 1,
+      "message": "Ditto with `kAndroidArtApexDefaultPath`.",
+      "range": {
+        "startLine": 397,
+        "startChar": 77,
+        "endLine": 397,
+        "endChar": 94
+      },
+      "revId": "fe9292923d1733cc6bfa097d6809ba40e44b2701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03fbfaca_bfb389ab",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-17T14:33:54Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 521,
+        "startChar": 25,
+        "endLine": 521,
+        "endChar": 46
+      },
+      "revId": "fe9292923d1733cc6bfa097d6809ba40e44b2701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0d095ff_9928e3d7",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-17T14:33:54Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 537,
+        "startChar": 19,
+        "endLine": 537,
+        "endChar": 40
+      },
+      "revId": "fe9292923d1733cc6bfa097d6809ba40e44b2701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
