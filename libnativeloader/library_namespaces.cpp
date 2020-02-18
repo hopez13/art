@@ -42,6 +42,7 @@ namespace {
 // vendor and system namespaces.
 constexpr const char* kVendorNamespaceName = "sphal";
 constexpr const char* kVndkNamespaceName = "vndk";
+constexpr const char* kVndkProductNamespaceName = "vndk_product";
 constexpr const char* kArtNamespaceName = "com.android.art";
 constexpr const char* kNeuralNetworksNamespaceName = "com.android.neuralnetworks";
 constexpr const char* kCronetNamespaceName = "com.android.cronet";
@@ -172,12 +173,12 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
 
   std::string system_exposed_libraries = default_public_libraries();
   std::string namespace_name = kClassloaderNamespaceName;
-  bool unbundled_vendor_or_product_app = false;
+  bool unbundled_vendor_app = false;
+  bool unbundled_product_app = false;
   if ((apk_origin == APK_ORIGIN_VENDOR ||
        (apk_origin == APK_ORIGIN_PRODUCT &&
         is_product_vndk_version_defined())) &&
       !is_shared) {
-    unbundled_vendor_or_product_app = true;
     // For vendor / product apks, give access to the vendor / product lib even though
     // they are treated as unbundled; the libs and apks are still bundled
     // together in the vendor / product partition.
@@ -187,11 +188,13 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
 
     switch (apk_origin) {
       case APK_ORIGIN_VENDOR:
+        unbundled_vendor_app = true;
         origin_partition = "vendor";
         origin_lib_path = kVendorLibPath;
         llndk_libraries = llndk_libraries_vendor().c_str();
         break;
       case APK_ORIGIN_PRODUCT:
+        unbundled_product_app = true;
         origin_partition = "product";
         origin_lib_path = kProductLibPath;
         llndk_libraries = llndk_libraries_product().c_str();
@@ -275,11 +278,22 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     }
   }
 
-  // Give access to VNDK-SP libraries from the 'vndk' namespace.
-  if (unbundled_vendor_or_product_app && !vndksp_libraries().empty()) {
+  // Give access to VNDK-SP libraries from the 'vndk' namespace for vendor apps.
+  if (unbundled_vendor_app && !vndksp_libraries_vendor().empty()) {
     auto vndk_ns = NativeLoaderNamespace::GetExportedNamespace(kVndkNamespaceName, is_bridged);
     if (vndk_ns.ok()) {
-      linked = app_ns->Link(*vndk_ns, vndksp_libraries());
+      linked = app_ns->Link(*vndk_ns, vndksp_libraries_vendor());
+      if (!linked.ok()) {
+        return linked.error();
+      }
+    }
+  }
+
+  // Give access to VNDK-SP libraries from the 'vndk_product' namespace for product apps.
+  if (unbundled_product_app && !vndksp_libraries_product().empty()) {
+    auto vndk_ns = NativeLoaderNamespace::GetExportedNamespace(kVndkProductNamespaceName, is_bridged);
+    if (vndk_ns.ok()) {
+      linked = app_ns->Link(*vndk_ns, vndksp_libraries_product());
       if (!linked.ok()) {
         return linked.error();
       }
