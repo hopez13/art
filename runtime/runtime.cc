@@ -18,6 +18,7 @@
 
 // sys/mount.h has to come before linux/fs.h due to redefinition of MS_RDONLY, MS_BIND, etc
 #include <sys/mount.h>
+#include "base/logging.h"
 #ifdef __linux__
 #include <linux/fs.h>
 #include <sys/prctl.h>
@@ -1068,6 +1069,9 @@ void Runtime::InitNonZygoteOrPostFork(
   }
   if (LIKELY(automatically_set_jni_ids_indirection_) && CanSetJniIdType()) {
     if (IsJavaDebuggable()) {
+      gLogVerbosity.plugin = true;
+      gLogVerbosity.agents = true;
+      gLogVerbosity.deopt = true;
       SetJniIdType(JniIdType::kIndices);
     } else {
       SetJniIdType(JniIdType::kPointer);
