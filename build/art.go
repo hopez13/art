@@ -392,8 +392,7 @@ func libartStaticDefaultsFactory() android.Module {
 }
 
 func artLibrary() android.Module {
-	m, _ := cc.NewLibrary(android.HostAndDeviceSupported)
-	module := m.Init()
+	module := cc.LibraryFactory()
 
 	installCodegenCustomizer(module, staticAndSharedLibrary)
 
@@ -401,9 +400,7 @@ func artLibrary() android.Module {
 }
 
 func artStaticLibrary() android.Module {
-	m, library := cc.NewLibrary(android.HostAndDeviceSupported)
-	library.BuildOnlyStatic()
-	module := m.Init()
+	module := cc.LibraryStaticFactory()
 
 	installCodegenCustomizer(module, staticLibrary)
 
@@ -411,8 +408,7 @@ func artStaticLibrary() android.Module {
 }
 
 func artBinary() android.Module {
-	binary, _ := cc.NewBinary(android.HostAndDeviceSupported)
-	module := binary.Init()
+	module := cc.BinaryFactory()
 
 	android.AddLoadHook(module, customLinker)
 	android.AddLoadHook(module, prefer32Bit)
@@ -420,8 +416,7 @@ func artBinary() android.Module {
 }
 
 func artTest() android.Module {
-	test := cc.NewTest(android.HostAndDeviceSupported)
-	module := test.Init()
+	module := cc.TestFactory()
 
 	installCodegenCustomizer(module, binary)
 
@@ -432,8 +427,7 @@ func artTest() android.Module {
 }
 
 func artTestLibrary() android.Module {
-	test := cc.NewTestLibrary(android.HostAndDeviceSupported)
-	module := test.Init()
+	module := cc.TestLibraryFactory()
 
 	installCodegenCustomizer(module, staticAndSharedLibrary)
 
