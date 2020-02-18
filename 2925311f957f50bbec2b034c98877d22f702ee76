@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6598a368_25a4d391",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2020-02-18T15:28:29Z",
+      "side": 1,
+      "message": "While the toolchain is almost certainly doing what we expect here, (1 \u003c\u003c 31) is technically implementation-defined behavior on platforms where sizeof(int) is 4.  We can avoid this by using an unsigned int here, which I\u0027ve done in a follow-up: https://android-review.googlesource.com/c/platform/art/+/1237790",
+      "revId": "2925311f957f50bbec2b034c98877d22f702ee76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
