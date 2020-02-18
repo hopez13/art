@@ -173,6 +173,7 @@ Instrumentation::Instrumentation()
       entry_exit_stubs_installed_(false),
       interpreter_stubs_installed_(false),
       interpret_only_(false),
+      native_instrumentation_only_(false),
       forced_interpret_only_(false),
       have_method_entry_listeners_(false),
       have_method_exit_listeners_(false),
@@ -280,6 +281,8 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
           // the locks we hold. Instead just set to the interpreter bridge and that code will search
           // the JIT when it gets called and replace the entrypoint then.
           new_quick_code = GetQuickToInterpreterBridge();
+        } else if (method->IsNative() && native_method_entry_exit_stubs_installed_) {
+          new_quick_code = GetQuickInstrumentationEntryPoint();
         } else {
           new_quick_code = class_linker->GetQuickOatCodeFor(method);
         }
@@ -780,6 +783,9 @@ void Instrumentation::UpdateStubs() {
 
   interpret_only_ = (requested_level == InstrumentationLevel::kInstrumentWithInterpreter) ||
                     forced_interpret_only_;
+  native_instrumentation_only_ =
+      requested_level == InstrumentationLevel::kInstrumentNativeWithInstrumentationStubs &&
+      !interpret_only_;
 
   if (!RequiresInstrumentationInstallation(requested_level)) {
     // We're already set.
@@ -793,9 +799,15 @@ void Instrumentation::UpdateStubs() {
     if (requested_level == InstrumentationLevel::kInstrumentWithInterpreter) {
       interpreter_stubs_installed_ = true;
       entry_exit_stubs_installed_ = true;
+      native_method_entry_exit_stubs_installed_ = true;
+    } else if (requested_level == InstrumentationLevel::kInstrumentNativeWithInstrumentationStubs) {
+      entry_exit_stubs_installed_ = false;
+      native_method_entry_exit_stubs_installed_ = true;
+      interpreter_stubs_installed_ = false;
     } else {
       CHECK_EQ(requested_level, InstrumentationLevel::kInstrumentWithInstrumentationStubs);
       entry_exit_stubs_installed_ = true;
+      native_method_entry_exit_stubs_installed_ = true;
       interpreter_stubs_installed_ = false;
     }
     InstallStubsClassVisitor visitor(this);
@@ -806,6 +818,7 @@ void Instrumentation::UpdateStubs() {
   } else {
     interpreter_stubs_installed_ = false;
     entry_exit_stubs_installed_ = false;
+    native_method_entry_exit_stubs_installed_ = false;
     InstallStubsClassVisitor visitor(this);
     runtime->GetClassLinker()->VisitClasses(&visitor);
     // Restore stack only if there is no method currently deoptimized.
@@ -1144,7 +1157,10 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) const {
   // This is called by instrumentation entry only and that should never be getting proxy methods.
   DCHECK(!method->IsProxyMethod()) << method->PrettyMethod();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  if (LIKELY(!instrumentation_stubs_installed_ && !interpreter_stubs_installed_)) {
+  if (UNLIKELY(native_method_entry_exit_stubs_installed_ && method->IsNative())) {
+    // We want to force native methods to have the instrumentation entrypoint.
+    return GetQuickInstrumentationEntryPoint();
+  } else if (LIKELY(!instrumentation_stubs_installed_ && !interpreter_stubs_installed_)) {
     // In general we just return whatever the method thinks its entrypoint is here. The only
     // exception is if it still has the instrumentation entrypoint. That means we are racing another
     // thread getting rid of instrumentation which is unexpected but possible. In that case we want

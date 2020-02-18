@@ -202,9 +202,11 @@ class Instrumentation {
   };
 
   enum class InstrumentationLevel {
-    kInstrumentNothing,                   // execute without instrumentation
-    kInstrumentWithInstrumentationStubs,  // execute with instrumentation entry/exit stubs
-    kInstrumentWithInterpreter            // execute with interpreter
+    kInstrumentNothing,                         // execute without instrumentation
+    kInstrumentNativeWithInstrumentationStubs,  // execute without instrumentation other than for
+                                                // native methods.
+    kInstrumentWithInstrumentationStubs,        // execute with instrumentation entry/exit stubs
+    kInstrumentWithInterpreter                  // execute with interpreter
   };
 
   Instrumentation();
@@ -333,6 +335,10 @@ class Instrumentation {
   // Called by ArtMethod::Invoke to determine dispatch mechanism.
   bool InterpretOnly() const {
     return interpret_only_;
+  }
+
+  bool NativeInstrumentationTrampolinesOnly() const {
+    return native_instrumentation_only_;
   }
 
   bool IsForcedInterpretOnly() const {
@@ -662,11 +668,17 @@ class Instrumentation {
   // Have we hijacked ArtMethod::code_ to reference the enter/exit stubs?
   bool entry_exit_stubs_installed_;
 
+  // Have we hijacked ArtMethod::code_ to reference the enter/exit stubs for native methods?
+  bool native_method_entry_exit_stubs_installed_;
+
   // Have we hijacked ArtMethod::code_ to reference the enter interpreter stub?
   bool interpreter_stubs_installed_;
 
   // Do we need the fidelity of events that we only get from running within the interpreter?
   bool interpret_only_;
+
+  // Do we need to put only native methods to instrumentation trampolines.
+  bool native_instrumentation_only_;
 
   // Did the runtime request we only run in the interpreter? ie -Xint mode.
   bool forced_interpret_only_;
