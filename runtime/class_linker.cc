@@ -25,6 +25,7 @@
 #include <map>
 #include <memory>
 #include <queue>
+#include <sstream>
 #include <string>
 #include <string_view>
 #include <tuple>
@@ -4033,13 +4034,20 @@ ObjPtr<mirror::DexCache> ClassLinker::DecodeDexCache(Thread* self, const DexCach
       : nullptr;
 }
 
+bool ClassLinker::IsSameClassLoader(
+    ObjPtr<mirror::DexCache> dex_cache,
+    const DexCacheData& data,
+    ObjPtr<mirror::ClassLoader> class_loader) {
+  DCHECK_EQ(dex_cache->GetDexFile(), data.dex_file);
+  return data.class_table == ClassTableForClassLoader(class_loader);
+}
+
 ObjPtr<mirror::DexCache> ClassLinker::EnsureSameClassLoader(
     Thread* self,
     ObjPtr<mirror::DexCache> dex_cache,
     const DexCacheData& data,
     ObjPtr<mirror::ClassLoader> class_loader) {
-  DCHECK_EQ(dex_cache->GetDexFile(), data.dex_file);
-  if (data.class_table != ClassTableForClassLoader(class_loader)) {
+  if (!IsSameClassLoader(dex_cache, data, class_loader)) {
     self->ThrowNewExceptionF("Ljava/lang/InternalError;",
                              "Attempt to register dex file %s with multiple class loaders",
                              data.dex_file->GetLocation().c_str());
@@ -4089,14 +4097,29 @@ void ClassLinker::RegisterExistingDexCache(ObjPtr<mirror::DexCache> dex_cache,
 ObjPtr<mirror::DexCache> ClassLinker::RegisterDexFile(const DexFile& dex_file,
                                                       ObjPtr<mirror::ClassLoader> class_loader) {
   Thread* self = Thread::Current();
-  DexCacheData old_data;
+  ObjPtr<mirror::DexCache> old_dex_cache;
+  bool failed = false;
+  std::ostringstream err_msg;
   {
     ReaderMutexLock mu(self, *Locks::dex_lock_);
-    old_data = FindDexCacheDataLocked(dex_file);
+    DexCacheData old_data = FindDexCacheDataLocked(dex_file);
+    old_dex_cache = DecodeDexCache(self, old_data);
+    if (old_dex_cache != nullptr) {
+      if (IsSameClassLoader(old_dex_cache, old_data, class_loader)) {
+        return old_dex_cache;
+      } else {
+        // TODO This is not very clean looking. Should maybe try to make a way to request exceptions
+        // be thrown when it's safe to do so to simplify this.
+        failed = true;
+        err_msg << "Attempt to register dex file " << old_data.dex_file->GetLocation().c_str()
+                << " with multiple class loaders";
+      }
+    }
   }
-  ObjPtr<mirror::DexCache> old_dex_cache = DecodeDexCache(self, old_data);
-  if (old_dex_cache != nullptr) {
-    return EnsureSameClassLoader(self, old_dex_cache, old_data, class_loader);
+  // We need to have released the dex_lock_ to allocate safely.
+  if (failed) {
+    self->ThrowNewException("Ljava/lang/InternalError;", err_msg.str().c_str());
+    return nullptr;
   }
   SCOPED_TRACE << __FUNCTION__ << " " << dex_file.GetLocation();
   LinearAlloc* const linear_alloc = GetOrCreateAllocatorForClassLoader(class_loader);
@@ -4122,7 +4145,7 @@ ObjPtr<mirror::DexCache> ClassLinker::RegisterDexFile(const DexFile& dex_file,
     // weak references access, and a thread blocking on the dex lock.
     gc::ScopedGCCriticalSection gcs(self, gc::kGcCauseClassLinker, gc::kCollectorTypeClassLinker);
     WriterMutexLock mu(self, *Locks::dex_lock_);
-    old_data = FindDexCacheDataLocked(dex_file);
+    DexCacheData old_data = FindDexCacheDataLocked(dex_file);
     old_dex_cache = DecodeDexCache(self, old_data);
     if (old_dex_cache == nullptr && h_dex_cache != nullptr) {
       // Do InitializeDexCache while holding dex lock to make sure two threads don't call it at the
@@ -4136,14 +4159,25 @@ ObjPtr<mirror::DexCache> ClassLinker::RegisterDexFile(const DexFile& dex_file,
                                            image_pointer_size_);
       RegisterDexFileLocked(dex_file, h_dex_cache.Get(), h_class_loader.Get());
     }
+    if (old_dex_cache != nullptr) {
+      // Another thread managed to initialize the dex cache faster, so use that DexCache.
+      // If this thread encountered OOME, ignore it.
+      DCHECK_EQ(h_dex_cache == nullptr, self->IsExceptionPending());
+      self->ClearException();
+      // We cannot call EnsureSameClassLoader() or allocate an exception while holding the
+      // dex_lock_.
+      if (IsSameClassLoader(old_dex_cache, old_data, h_class_loader.Get())) {
+        return old_dex_cache;
+      } else {
+        failed = true;
+        err_msg << "Attempt to register dex file " << old_data.dex_file->GetLocation().c_str()
+                << " with multiple class loaders";
+      }
+    }
   }
-  if (old_dex_cache != nullptr) {
-    // Another thread managed to initialize the dex cache faster, so use that DexCache.
-    // If this thread encountered OOME, ignore it.
-    DCHECK_EQ(h_dex_cache == nullptr, self->IsExceptionPending());
-    self->ClearException();
-    // We cannot call EnsureSameClassLoader() while holding the dex_lock_.
-    return EnsureSameClassLoader(self, old_dex_cache, old_data, h_class_loader.Get());
+  if (failed) {
+    self->ThrowNewException("Ljava/lang/InternalError;", err_msg.str().c_str());
+    return nullptr;
   }
   if (h_dex_cache == nullptr) {
     self->AssertPendingOOMException();
