@@ -22,6 +22,30 @@
       "revId": "1cdbf803a01dd4a7b58db72a335b650765872b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75597439_d9b9c0eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-19T13:32:14Z",
+      "side": 1,
+      "message": "Periods are separators in linker config lines like namespace.foo.link.bar.shared_libs. There\u0027s a discussion about it in the referenced ticket.",
+      "parentUuid": "c3d3ce26_95305323",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "1cdbf803a01dd4a7b58db72a335b650765872b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
