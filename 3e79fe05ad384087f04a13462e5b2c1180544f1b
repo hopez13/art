@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fd7d43d_b0778e2e",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-19T17:11:49Z",
+      "side": 1,
+      "message": "I believe runtime_libs is more accurate for this.",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "3e79fe05ad384087f04a13462e5b2c1180544f1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "557c52ad_9dba508f",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-19T17:11:49Z",
+      "side": 1,
+      "message": "Please put this in a variable so you can use the correct name also in the error message.\n\n(Btw I think dlerror() often includes the library name in its own error message, meaning it\u0027ll get printed double then. However I\u0027m not sure it\u0027s always the case, and it\u0027s better to print it twice than not at all.)",
+      "range": {
+        "startLine": 117,
+        "startChar": 15,
+        "endLine": 117,
+        "endChar": 83
+      },
+      "revId": "3e79fe05ad384087f04a13462e5b2c1180544f1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
