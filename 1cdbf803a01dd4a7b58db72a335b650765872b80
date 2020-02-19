@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3d3ce26_95305323",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-19T12:18:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure to understand why this change is needed; could you add more details here?\n\nI saw that the commit message of a CL part of this topic (https://android-review.googlesource.com/c/platform/system/linkerconfig/+/1239308/1//COMMIT_MSG#10) includes this justification:\n\n  Update name of namespace from APEX by replacing \u0027_\u0027 with \u0027.\u0027 so\n  keep configuration safe for future syntax update.\n\nbut I\u0027m not sure why using underscores is more future-proof than using periods.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "1cdbf803a01dd4a7b58db72a335b650765872b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
