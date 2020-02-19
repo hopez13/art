@@ -46,6 +46,29 @@
       "revId": "99d91d18f9f73427eced2f22642520d50c3c3b83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16d98dab_91c3a52e",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-19T12:04:44Z",
+      "side": 0,
+      "message": "Note: Mockito is used in libcore.java.lang.ThreadTest (see https://source.corp.google.com/h/android/platform/libcore/+/377449dce83e5b37acc5212f447343cadd63cd2f:luni/src/test/java/libcore/java/lang/ThreadTest.java;l\u003d35;drc\u003da13f68df2991e6acccad111d43e19b42e571db67). Tobias added this build target to the script to support this in https://android-review.googlesource.com/c/platform/art/+/253281/.\n\nRemoving it here might be fine, as this build target might be built as a dependency of the test itself.",
+      "range": {
+        "startLine": 38,
+        "startChar": 101,
+        "endLine": 38,
+        "endChar": 115
+      },
+      "revId": "99d91d18f9f73427eced2f22642520d50c3c3b83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
