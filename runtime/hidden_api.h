@@ -23,9 +23,11 @@
 #include "base/hiddenapi_flags.h"
 #include "base/locks.h"
 #include "intrinsics_enum.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "reflection.h"
 #include "runtime.h"
+#include "well_known_classes.h"
 
 namespace art {
 namespace hiddenapi {
@@ -268,6 +270,19 @@ ALWAYS_INLINE inline uint32_t CreateRuntimeFlags(T* member) REQUIRES_SHARED(Lock
 // Extracts hiddenapi runtime flags from access flags of ArtField.
 ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtField* field)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  // The following fields in WellKnownClasses correspond to private fields in the Core Platform
+  // API that cannot be otherwise expressed and propagated through tooling.
+  jfieldID private_core_platform_api_fields[] = {
+    WellKnownClasses::java_nio_Buffer_address,
+    WellKnownClasses::java_nio_Buffer_elementSizeShift,
+    WellKnownClasses::java_nio_Buffer_limit,
+    WellKnownClasses::java_nio_Buffer_position,
+  };
+  for (const auto private_core_platform_api_field : private_core_platform_api_fields) {
+    if (field == jni::DecodeArtField(private_core_platform_api_field)) {
+      return kAccCorePlatformApi;
+    }
+  }
   return field->GetAccessFlags() & kAccHiddenapiBits;
 }
 
