@@ -1065,6 +1065,10 @@ class ClassLinker {
                                                  ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  bool IsSameClassLoader(ObjPtr<mirror::DexCache> dex_cache,
+                         const DexCacheData& data,
+                         ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool InitializeDefaultInterfaceRecursive(Thread* self,
                                            Handle<mirror::Class> klass,
