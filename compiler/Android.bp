@@ -234,6 +234,11 @@ art_cc_library {
         "libdexfile",
     ],
     whole_static_libs: ["libelffile"],
+    required: [
+        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
+        // `libart-disassembler.so`.
+        "libart-disassembler",
+    ],
 
     target: {
         android: {
@@ -310,6 +315,12 @@ art_cc_library {
         "libdexfiled",
     ],
     whole_static_libs: ["libelffiled"],
+    required: [
+        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
+        // `libartd-disassembler.so`.
+        "libartd-disassembler",
+    ],
+
     apex_available: [
         "com.android.art.debug",
     ],

@@ -116,13 +116,13 @@ class HGraphVisualizerDisassembler {
     libart_disassembler_handle_ =
         dlopen(kIsDebugBuild ? "libartd-disassembler.so" : "libart-disassembler.so", RTLD_NOW);
     if (libart_disassembler_handle_ == nullptr) {
-      LOG(WARNING) << "Failed to dlopen libart-disassembler: " << dlerror();
+      LOG(ERROR) << "Failed to dlopen libart-disassembler: " << dlerror();
       return;
     }
     create_disasm_prototype* create_disassembler = reinterpret_cast<create_disasm_prototype*>(
         dlsym(libart_disassembler_handle_, "create_disassembler"));
     if (create_disassembler == nullptr) {
-      LOG(WARNING) << "Could not find create_disassembler entry: " << dlerror();
+      LOG(ERROR) << "Could not find create_disassembler entry: " << dlerror();
       return;
     }
     // Reading the disassembly from 0x0 is easier, so we print relative
