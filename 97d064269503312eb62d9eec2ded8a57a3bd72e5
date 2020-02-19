@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "90a6bf24_92d10507",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "Yeah, this is really personal taste. I like the style of \"references are always const, ie const\u0026\", and \"pointers are passed as-is\".",
+      "parentUuid": "ab158e1a_f8813916",
+      "range": {
+        "startLine": 2186,
+        "startChar": 41,
+        "endLine": 2186,
+        "endChar": 46
+      },
+      "revId": "97d064269503312eb62d9eec2ded8a57a3bd72e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d98a6c99_9aa7f176",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 2
@@ -589,6 +613,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "43d7f7f8_68d10a30",
+      "range": {
+        "startLine": 125,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 55
+      },
+      "revId": "97d064269503312eb62d9eec2ded8a57a3bd72e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfa1d8bc_f8f4c05a",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "Not on latest PS.",
+      "parentUuid": "413233d4_c8f52d24",
       "range": {
         "startLine": 125,
         "startChar": 21,

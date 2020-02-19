@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93c8275a_4095bfff",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "No need for \"art::\".",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 5
+      },
+      "revId": "ca6222cbe035269478f313a4f6123fcd41333b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06629488_6016760b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 1507,
+        "startChar": 41,
+        "endLine": 1507,
+        "endChar": 46
+      },
+      "revId": "ca6222cbe035269478f313a4f6123fcd41333b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9a6e04e_64460bea",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "Nit: add high-level comment.",
+      "revId": "ca6222cbe035269478f313a4f6123fcd41333b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e975f2f_06653823",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 139,
+        "startChar": 21,
+        "endLine": 139,
+        "endChar": 81
+      },
+      "revId": "ca6222cbe035269478f313a4f6123fcd41333b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb54a47_2a023261",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-19T08:36:59Z",
+      "side": 1,
+      "message": "nit: add high-level comments.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 42
+      },
+      "revId": "ca6222cbe035269478f313a4f6123fcd41333b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
