@@ -124,6 +124,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aabfa6f4_3d266cb7",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-20T14:08:34Z",
+      "side": 0,
+      "message": "The AddRequires from system doesn\u0027t depend on the source APEX, so there are no hardcoded paths in linkerconfig to worry about.\n\n\u003e The other side is \"AddRequires\" from system namespace.\n\nWhere does that go? I thought the AddRequires in linkerconfig like [1] would be used, but even after adding libicu* to the ART manifest I don\u0027t see the links in the generated ART ld.config.txt. On a related note, can the hardcoded AddRequires and AddProvides in art.cc [2] be removed now?\n\n[1] https://source.corp.google.com/h/android/platform/system/linkerconfig/+/2b465ce8817699ace03770455b931e1b8d20e398:contents/namespace/systemdefault.cc;l\u003d115-118;drc\u003d3e690e08dfc55b2199f312b966c37165b272d5de\n[2] http://cs/aosp-master/system/linkerconfig/contents/namespace/art.cc",
+      "parentUuid": "0591e8ab_10d55042",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
