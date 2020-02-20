@@ -52,6 +52,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8dcc2ec_d96d2aeb",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-02-20T06:01:50Z",
+      "side": 0,
+      "message": "Seems like they are not on the list because they did not define the stub.\n\nlibicuuc : https://source.corp.google.com/android/external/icu/icu4c/source/common/Android.bp;l\u003d82;cl\u003dmaster?q\u003df:Android.bp%20%22name:%20%5C%22libicuuc%5C%22%22\u0026sq\u003dpackage:android\n\nlibicui18n : \nhttps://source.corp.google.com/android/external/icu/icu4c/source/i18n/Android.bp;l\u003d72;cl\u003dmaster?q\u003df:Android.bp%20%22name:%20%5C%22libicui18n%5C%22%22\u0026sq\u003dpackage:android\n\nCan anyone please confirm IF these libraries are expected to be used from outside of ART APEX or not?",
+      "parentUuid": "ab95b027_ce39d9d4",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
