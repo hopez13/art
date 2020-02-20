@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c9c8a05a_a53b50d7",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T16:03:17Z",
+      "side": 1,
+      "message": "HiddenApiTest#DexDomain_SystemDir\nHiddenApiTest#DexDomain_SystemFrameworkDir\nHiddenApiTest#DexDomain_SystemDir_MultiDex\nHiddenApiTest#DexDomain_SystemFrameworkDir_MultiDex\nOatFileAssistantTest#SystemFrameworkDir\n\nFor example:\nart/runtime/hidden_api_test.cc:546: Failure\nValue of: Copy(GetTestDexFileName(\\\"Main\\\"), system_location_path, \u0026error_msg)\nCopy /data/nativetest64/art/art-gtest-Main.jar \u003d\u003e /system/foo.jar \n\nSimilarly oat file assistant does:\nstd::string dex_location \u003d GetAndroidRoot() + \"/framework/\" + filebase + \".jar\";                    \nCopy(GetDexSrc1(), dex_location);",
+      "parentUuid": "2901059f_83af7f76",
+      "range": {
+        "startLine": 17,
+        "startChar": 60,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d866a9da_98810479",
         "filename": "test/gtests-target.xml",
         "patchSetId": 9
