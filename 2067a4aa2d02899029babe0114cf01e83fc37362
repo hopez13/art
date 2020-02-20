@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2901059f_83af7f76",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T14:34:01Z",
+      "side": 1,
+      "message": "I forgot which tests were those...",
+      "parentUuid": "82864bc0_3926fa9c",
+      "range": {
+        "startLine": 17,
+        "startChar": 60,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d866a9da_98810479",
         "filename": "test/gtests-target.xml",
         "patchSetId": 9
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "We need /system (or other read-only partitions) writable?? I sincerely hope not.",
       "parentUuid": "b588bbee_95e36830",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acee26de_2a9bd255",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T14:34:01Z",
+      "side": 1,
+      "message": "We do.  It is in chroot, so not a disaster.",
+      "parentUuid": "ef19b277_acf84a13",
       "range": {
         "startLine": 19,
         "startChar": 0,
