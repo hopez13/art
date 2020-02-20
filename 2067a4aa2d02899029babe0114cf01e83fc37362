@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d3393492_f5aedad2",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T12:45:06Z",
+      "side": 1,
+      "message": "Some tests write to various system paths.",
+      "parentUuid": "998335cc_03a4a5b7",
+      "range": {
+        "startLine": 17,
+        "startChar": 60,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d866a9da_98810479",
         "filename": "test/gtests-target.xml",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b588bbee_95e36830",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T12:45:06Z",
+      "side": 1,
+      "message": "Ditto - we need various directories writable.",
+      "parentUuid": "d866a9da_98810479",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06c77c2f_eaecaffc",
         "filename": "test/gtests-target.xml",
         "patchSetId": 9
@@ -68,6 +116,30 @@
       "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203e1dad_bbf8f3c4",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-20T12:45:06Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "06c77c2f_eaecaffc",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
