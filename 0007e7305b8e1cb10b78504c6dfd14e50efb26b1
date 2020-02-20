@@ -70,6 +70,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c761631c_572fad16",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-20T06:23:55Z",
+      "side": 0,
+      "message": "Yes, they are required to be used from system. I once listed them in apex_manfiest.json manually to remove hard-coded list from art apex, but discarded because art apex is customized and those two libs should be hard-coded in system-default namespace anyway.",
+      "parentUuid": "b8dcc2ec_d96d2aeb",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
