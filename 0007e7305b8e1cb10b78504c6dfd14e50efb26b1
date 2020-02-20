@@ -106,6 +106,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0591e8ab_10d55042",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T08:36:08Z",
+      "side": 0,
+      "message": "The files are soon going to move to another apex, so not having to put some hardcoded paths is best here.",
+      "parentUuid": "92237db4_11cb80b7",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
