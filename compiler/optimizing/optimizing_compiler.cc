@@ -51,6 +51,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/jit_logger.h"
+#include "jit/jit_scoped_code_cache_write.h"
 #include "jni/quick/jni_compiler.h"
 #include "linker/linker_patch.h"
 #include "nodes.h"
@@ -1294,9 +1295,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                             osr,
                             /* has_should_deoptimize_flag= */ false,
                             cha_single_implementation_list)) {
-      code_cache->Free(self, region, reserved_code.data(), reserved_data.data());
       MutexLock mu(self, *Locks::jit_lock_);
-      RemoveNativeDebugInfoForJit(ArrayRef<const void*>(reinterpret_cast<const void**>(&code), 1));
+      jit::ScopedCodeCacheWrite ccw(*region);
+      code_cache->Free(region, reserved_code.data(), reserved_data.data());
       return false;
     }
 
@@ -1404,9 +1405,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                           osr,
                           codegen->GetGraph()->HasShouldDeoptimizeFlag(),
                           codegen->GetGraph()->GetCHASingleImplementationList())) {
-    code_cache->Free(self, region, reserved_code.data(), reserved_data.data());
     MutexLock mu(self, *Locks::jit_lock_);
-    RemoveNativeDebugInfoForJit(ArrayRef<const void*>(reinterpret_cast<const void**>(&code), 1));
+    jit::ScopedCodeCacheWrite ccw(*region);
+    code_cache->Free(region, reserved_code.data(), reserved_data.data());
     return false;
   }
 
