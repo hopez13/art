@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f952ef53_13cb3bfe",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:23:58Z",
+      "side": 1,
+      "message": "can you add a comment (also explaining why just on host?)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "3fd7f816e1e7ef4df2cd15fe0e3e894522f9c829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65ff85b1_f4aa089e",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:23:58Z",
+      "side": 1,
+      "message": "Is the target description above making the binaries in that list \"host\" only?",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 19
+      },
+      "revId": "3fd7f816e1e7ef4df2cd15fe0e3e894522f9c829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b99775cb_1aa56eca",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:23:58Z",
+      "side": 1,
+      "message": "In theory, building the conscrypt module shouldn\u0027t depend on dex2oat.\n\nBut dex2oat needs to be in the module_exports anyway.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "3fd7f816e1e7ef4df2cd15fe0e3e894522f9c829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
