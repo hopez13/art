@@ -46,6 +46,30 @@
       "revId": "1cdbf803a01dd4a7b58db72a335b650765872b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55016722_02c46611",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-02-20T01:30:07Z",
+      "side": 1,
+      "message": "We had same discussion from the update in the bionic, so I updated commit message with an example why sharing dot separator is dangerous. Please let me know if you think we should have more detailed explanation on this message.",
+      "parentUuid": "75597439_d9b9c0eb",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "1cdbf803a01dd4a7b58db72a335b650765872b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
