@@ -46,6 +46,30 @@
       "revId": "65a679edf14acf72c7f7b8067858cbb3ce608500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e67b35c2_92e8d694",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-20T17:48:53Z",
+      "side": 1,
+      "message": "Yeah never got it to trigger even after leaving the it running for 16 hours and getting up to ~5 million retries.\n\nIn any event there is clearly a race here and it should look like what we saw.",
+      "parentUuid": "37fe673f_d83d0122",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "65a679edf14acf72c7f7b8067858cbb3ce608500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
