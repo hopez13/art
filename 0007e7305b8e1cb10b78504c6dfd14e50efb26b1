@@ -88,6 +88,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92237db4_11cb80b7",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-20T06:40:55Z",
+      "side": 0,
+      "message": "More info about \"provideNativeLibs\" key in apex_manfiest.json https://b.corp.google.com/issues/143733063#comment13\n\nIf we list those two libs in manifest.json manually, then we could eliminate the hard-coded \"AddProvides\" from art namespace. But it is only a one-half. The other side is \"AddRequires\" from system namespace.\n\nIf we decide to make system namespace link to all providing apexes, then we could remove the other half. ;-)",
+      "parentUuid": "c761631c_572fad16",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
