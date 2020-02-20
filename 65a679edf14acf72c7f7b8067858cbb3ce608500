@@ -22,6 +22,30 @@
       "revId": "65a679edf14acf72c7f7b8067858cbb3ce608500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37fe673f_d83d0122",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-20T00:21:09Z",
+      "side": 1,
+      "message": "It should eventually but since for this race to happen we need to have (1) 2 different dex-files get assigned the same memory location (2) a class-loader with one of the dex-files gets collected and (3) the DeleteClassLoader races and wins with RegisterDexCache it\u0027s pretty unlikely. \n\nI didn\u0027t bother running it for more than 10 mins though so only got ~10000 attempts. I\u0027ll try running it overnight. See if it happens.",
+      "parentUuid": "281b0539_2e0cf38e",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "65a679edf14acf72c7f7b8067858cbb3ce608500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
