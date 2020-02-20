@@ -16,6 +16,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33ff0b6d_de014fb4",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-20T01:04:02Z",
+      "side": 0,
+      "message": "adbd\u0027s visibility seems fine.\n\nI guess that kiyoung \"experimented\" with those two missing libs to see if those two are really necessary or not. He commented out those two here:\nhttps://source.corp.google.com/h/android/platform/system/linkerconfig/+/2b465ce8817699ace03770455b931e1b8d20e398:contents/namespace/apexplatform.cc;bpv\u003d1;bpt\u003d0\n\nKiyoung, can you confirm?",
+      "parentUuid": "f86e976b_5a570081",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
