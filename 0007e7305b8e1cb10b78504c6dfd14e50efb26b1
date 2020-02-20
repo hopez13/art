@@ -34,6 +34,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab95b027_ce39d9d4",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-02-20T05:39:39Z",
+      "side": 0,
+      "message": "At that time I removed those because there ART APEX did not listed those files as \u0027provide\u0027.\nIf we can get those from providing libs now, let\u0027s let them back in the list.",
+      "parentUuid": "33ff0b6d_de014fb4",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
