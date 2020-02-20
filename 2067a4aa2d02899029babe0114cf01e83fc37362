@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "82864bc0_3926fa9c",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:25:42Z",
+      "side": 1,
+      "message": "Can you add a comment where?",
+      "parentUuid": "d3393492_f5aedad2",
+      "range": {
+        "startLine": 17,
+        "startChar": 60,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d866a9da_98810479",
         "filename": "test/gtests-target.xml",
         "patchSetId": 9
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Ditto - we need various directories writable.",
       "parentUuid": "d866a9da_98810479",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef19b277_acf84a13",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:25:42Z",
+      "side": 1,
+      "message": "We need /system (or other read-only partitions) writable?? I sincerely hope not.",
+      "parentUuid": "b588bbee_95e36830",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "I think we could.  I think we probably should.\nFor now, this was much easier.  Follow up CL?",
       "parentUuid": "a983ebff_b2ae8815",
+      "range": {
+        "startLine": 128,
+        "startChar": 42,
+        "endLine": 128,
+        "endChar": 64
+      },
+      "revId": "2067a4aa2d02899029babe0114cf01e83fc37362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "235c3240_9f3ba345",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-20T14:25:42Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "a9e5cccb_e5bd257c",
       "range": {
         "startLine": 128,
         "startChar": 42,
