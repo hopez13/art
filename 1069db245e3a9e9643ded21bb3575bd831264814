@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "488146bb_e89b8b39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "Can you mention that this solution relies on the installation of the Testing ART APEX here?",
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf0fc10_88d5129b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "Should you replace this with something like\n\n  Test: atest art_gtests_target_xml\n\n?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745c7ce0_14b36b6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "If you have a handy command to copy and paste here, that would be nice. :-)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11cff78f_c3b47e2f",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure to understand why this test needs to be disabled for Intel targets only. I seem to remember a previous discussion about this, but not its conclusion.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 57
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3b9d966_03d72011",
+        "filename": "test/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "Rename as \"art-gtests-target\"? Or maybe \"ArtGtestsTarget\", to follow the style used by other test suites?",
+      "range": {
+        "startLine": 919,
+        "startChar": 11,
+        "endLine": 919,
+        "endChar": 32
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7acf19_d0ed7d8c",
+        "filename": "test/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "I\u0027d add a comment explicitly mentioning that this test module has the Testing ART APEX as one of its dependencies.\n\nI wonder whether the build system recursively propagates the `test_suites` property to all test dependencies. I\u0027m asking about this because of the \"test-suites\" build targets, which are expected to bundle all tests and their dependencies – but test subjects (i.e. the contents of the platform itself) are usually *not* part of that set, as I understand it. Not sure about APEXes.\n\nThis is probably fine for now though.\n\nAdding Dan and Julien as reviewers, as they probably know more about this.",
+      "range": {
+        "startLine": 921,
+        "startChar": 8,
+        "endLine": 921,
+        "endChar": 35
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620e6d26_39c4c586",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "Does this target preparer also take care of uninstalling the Testing ART APEX after all tests have run?",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 91
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e675c747_3b25f6c2",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:32:03Z",
+      "side": 1,
+      "message": "Out of curiosity, what happens when that path does not exist?",
+      "range": {
+        "startLine": 180,
+        "startChar": 53,
+        "endLine": 180,
+        "endChar": 88
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
