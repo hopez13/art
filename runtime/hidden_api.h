@@ -282,31 +282,6 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kReferenceGetReferent:
       case Intrinsics::kMemoryPeekByte:
       case Intrinsics::kMemoryPokeByte:
-      case Intrinsics::kUnsafeCASInt:
-      case Intrinsics::kUnsafeCASLong:
-      case Intrinsics::kUnsafeCASObject:
-      case Intrinsics::kUnsafeGet:
-      case Intrinsics::kUnsafeGetAndAddInt:
-      case Intrinsics::kUnsafeGetAndAddLong:
-      case Intrinsics::kUnsafeGetAndSetInt:
-      case Intrinsics::kUnsafeGetAndSetLong:
-      case Intrinsics::kUnsafeGetAndSetObject:
-      case Intrinsics::kUnsafeGetLongVolatile:
-      case Intrinsics::kUnsafeGetObject:
-      case Intrinsics::kUnsafeGetObjectVolatile:
-      case Intrinsics::kUnsafeGetVolatile:
-      case Intrinsics::kUnsafePut:
-      case Intrinsics::kUnsafePutLong:
-      case Intrinsics::kUnsafePutLongOrdered:
-      case Intrinsics::kUnsafePutLongVolatile:
-      case Intrinsics::kUnsafePutObject:
-      case Intrinsics::kUnsafePutObjectOrdered:
-      case Intrinsics::kUnsafePutObjectVolatile:
-      case Intrinsics::kUnsafePutOrdered:
-      case Intrinsics::kUnsafePutVolatile:
-      case Intrinsics::kUnsafeLoadFence:
-      case Intrinsics::kUnsafeStoreFence:
-      case Intrinsics::kUnsafeFullFence:
       case Intrinsics::kCRC32Update:
       case Intrinsics::kCRC32UpdateBytes:
       case Intrinsics::kCRC32UpdateByteBuffer:
@@ -356,6 +331,31 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kVarHandleWeakCompareAndSetPlain:
       case Intrinsics::kVarHandleWeakCompareAndSetRelease:
         return 0u;
+      case Intrinsics::kUnsafeCASInt:
+      case Intrinsics::kUnsafeCASLong:
+      case Intrinsics::kUnsafeCASObject:
+      case Intrinsics::kUnsafeGet:
+      case Intrinsics::kUnsafeGetAndAddInt:
+      case Intrinsics::kUnsafeGetAndAddLong:
+      case Intrinsics::kUnsafeGetAndSetInt:
+      case Intrinsics::kUnsafeGetAndSetLong:
+      case Intrinsics::kUnsafeGetAndSetObject:
+      case Intrinsics::kUnsafeGetLongVolatile:
+      case Intrinsics::kUnsafeGetObject:
+      case Intrinsics::kUnsafeGetObjectVolatile:
+      case Intrinsics::kUnsafeGetVolatile:
+      case Intrinsics::kUnsafePut:
+      case Intrinsics::kUnsafePutLong:
+      case Intrinsics::kUnsafePutLongOrdered:
+      case Intrinsics::kUnsafePutLongVolatile:
+      case Intrinsics::kUnsafePutObject:
+      case Intrinsics::kUnsafePutObjectOrdered:
+      case Intrinsics::kUnsafePutObjectVolatile:
+      case Intrinsics::kUnsafePutOrdered:
+      case Intrinsics::kUnsafePutVolatile:
+      case Intrinsics::kUnsafeLoadFence:
+      case Intrinsics::kUnsafeStoreFence:
+      case Intrinsics::kUnsafeFullFence:
       case Intrinsics::kUnsafeGetLong:
       case Intrinsics::kFP16Ceil:
       case Intrinsics::kFP16Floor:
