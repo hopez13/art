@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecf22517_2d3d641c",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-02-21T20:55:36Z",
+      "side": 1,
+      "message": "Doing it like this means that if the adb-daemon is restarted the \u0027profilable-ness\u0027 of this process will be forgotten.\n\nThat\u0027s what the `\u0026\u0026 control_ctx_` is for in the inner loop.",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 0
+      },
+      "revId": "040c236b49826dbf8162fd2a91b5729cc85e651b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
