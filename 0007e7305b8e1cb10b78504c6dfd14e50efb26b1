@@ -160,6 +160,24 @@
       "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5304bfb3_de97d09e",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-21T19:57:43Z",
+      "side": 0,
+      "message": "\u003e BuildApexPlatformNamespace   \u003c- \"system\"\n\nWould it be possible to unify systemdefault.cc and apexplatform.cc? I think the latter is less complete than the former only as a result of the manual maintenance earlier.\n\n\u003e If you put missing libs in mainfest.json like: /.../\n\nThanks, I\u0027ll give that a go.\n\n\u003e     \"requireNativeLibs\": [\"libneuralnetworks.so\"],\n\nAh yes, this dependency was questioned in an earlier CL too. It originates from https://r.android.com/1134852, to address preloaded libs (b/141847343). In libnativeloader there\u0027s code to read public.libraries.txt and filter out the libs that aren\u0027t \"nopreload\" (https://r.android.com/1088750).\n\nIiuc libnativeloader needs to add links to the preloaded libs from classloader-namespace (and it should do it without hardcoding their namespaces - b/143733063). That means the appropriate source APEXes need to provide them, but I don\u0027t see why they need links from the com_android_art namespace. Jiyong, do you know?",
+      "parentUuid": "538000d9_e004ee74",
+      "revId": "0007e7305b8e1cb10b78504c6dfd14e50efb26b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
