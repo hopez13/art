@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c23e822e_fc6894d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-21T00:31:54Z",
+      "side": 1,
+      "message": "Could use WITH_DEXPREOPT\u003dfalse in the Conscrypt build, but we really ought to have a better condition to only enable it in actual platform builds.\n\nNo matter, dex2oat is necessary anyway. I\u0027m hoping to avoid dex2oatd though.",
+      "range": {
+        "startLine": 17,
+        "startChar": 43,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "bbb61a81ef30f46a058795109140c06a73ec0ffa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
