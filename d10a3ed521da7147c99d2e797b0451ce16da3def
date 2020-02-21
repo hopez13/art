@@ -22,6 +22,29 @@
       "revId": "d10a3ed521da7147c99d2e797b0451ce16da3def",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5756aca_99c94bf3",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2020-02-21T16:47:59Z",
+      "side": 1,
+      "message": "Each module is associated already with a given abi.\nRunning multiple abi within that, would mess up dashboard reporting. and there would be no way to differentiate the results.\nif you look at the presubmit results: https://sponge.corp.google.com/invocation?tab\u003dTargets\u0026id\u003d74ca1d3b-934e-4157-8d30-ad3647fc6071\u0026searchFor\u003d\n\neverything is reported under \"x86 ArtGtestsTarget\" which is wrong.",
+      "range": {
+        "startLine": 187,
+        "startChar": 85,
+        "endLine": 199,
+        "endChar": 84
+      },
+      "revId": "d10a3ed521da7147c99d2e797b0451ce16da3def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
