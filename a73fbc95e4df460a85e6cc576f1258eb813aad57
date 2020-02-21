@@ -22,6 +22,30 @@
       "revId": "a73fbc95e4df460a85e6cc576f1258eb813aad57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d2e8901_a621fdee",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-02-21T14:02:54Z",
+      "side": 1,
+      "message": "Done.\n\nI wanted to split \"fix\" and \"cleanup\".",
+      "parentUuid": "4a4e4238_3bc71c36",
+      "range": {
+        "startLine": 1298,
+        "startChar": 19,
+        "endLine": 1298,
+        "endChar": 36
+      },
+      "revId": "a73fbc95e4df460a85e6cc576f1258eb813aad57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
