@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "6f1bd244_0d095b1e",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:48:22Z",
+      "side": 1,
+      "message": "I just had a quick discussion with David; he agreed to track this issue in a new bug.",
+      "parentUuid": "11cff78f_c3b47e2f",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 57
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3b9d966_03d72011",
         "filename": "test/Android.bp",
         "patchSetId": 10
@@ -134,6 +158,29 @@
     },
     {
       "key": {
+        "uuid": "c8c07f26_4d4b3d95",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:48:22Z",
+      "side": 1,
+      "message": "\"ART gtests\"?",
+      "range": {
+        "startLine": 16,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "620e6d26_39c4c586",
         "filename": "test/gtests-target.xml",
         "patchSetId": 10
@@ -154,6 +201,29 @@
       "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724162fc_27f5fb74",
+        "filename": "test/gtests-target.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-21T14:48:22Z",
+      "side": 1,
+      "message": "From an offline discussion with David: David proposed to track this issue in a new bug.",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 82
+      },
+      "revId": "1069db245e3a9e9643ded21bb3575bd831264814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
