@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "897f15ae_561cca53",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-21T09:19:44Z",
+      "side": 1,
+      "message": "You´re calling this only when `data !\u003d nullptr`, so this can be a DCHECK().",
+      "range": {
+        "startLine": 4041,
+        "startChar": 2,
+        "endLine": 4043,
+        "endChar": 3
+      },
+      "revId": "a9d2bd456191cd958bb05db8953409fecc3f8578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3d6f161_c0626c9c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4087,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-21T09:19:44Z",
+      "side": 1,
+      "message": "Maybe rename to `registered_with_another_class_loader`.",
+      "range": {
+        "startLine": 4087,
+        "startChar": 7,
+        "endLine": 4087,
+        "endChar": 13
+      },
+      "revId": "a9d2bd456191cd958bb05db8953409fecc3f8578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "734e62a6_ef842151",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-02-21T09:19:44Z",
+      "side": 1,
+      "message": "This is the same as `\u0026dex_file`, so you do not need to prepare the error message here, you can construct it when throwing the exception below (or have a helper function to avoid repeating the throw message). Then you can drop the `#include \u003csstream\u003e`.",
+      "range": {
+        "startLine": 4100,
+        "startChar": 54,
+        "endLine": 4100,
+        "endChar": 72
+      },
+      "revId": "a9d2bd456191cd958bb05db8953409fecc3f8578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
