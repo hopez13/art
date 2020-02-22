@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "22ce1c9c_197d8e07",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1079424
+      },
+      "writtenOn": "2020-02-22T01:26:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68449c3e_8e88d87b",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 80
+      },
+      "revId": "a1d2fc1c926bbc2058f511f955d8f03446a9c1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9f6af2d_747d76a0",
         "filename": "adbconnection/adbconnection.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a1d2fc1c926bbc2058f511f955d8f03446a9c1e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b5b2a5_d224a143",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1079424
+      },
+      "writtenOn": "2020-02-22T01:26:43Z",
+      "side": 1,
+      "message": "Done. I added checking for IsDebuggingPossible() into RunPollLoop() in this file. In adbd, I updated create_jdwp_connection_fd() in jdwp_service.cpp. PTAL.",
+      "parentUuid": "a9f6af2d_747d76a0",
+      "range": {
+        "startLine": 95,
+        "startChar": 17,
+        "endLine": 95,
+        "endChar": 37
+      },
+      "revId": "a1d2fc1c926bbc2058f511f955d8f03446a9c1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
