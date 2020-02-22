@@ -201,18 +201,12 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
   if (kIsDebugBuild && Runtime::Current()->IsStarted()) {
     CHECK_LE(obj->SizeOf(), usable_size);
   }
-  // TODO: Deprecate.
-  if (kInstrumented) {
+  if (kInstrumented || (allocator == kAllocatorTypeRegionTLAB && !self->HasTlab())) {
     if (Runtime::Current()->HasStatsEnabled()) {
-      RuntimeStats* thread_stats = self->GetStats();
-      ++thread_stats->allocated_objects;
-      thread_stats->allocated_bytes += bytes_allocated;
-      RuntimeStats* global_stats = Runtime::Current()->GetStats();
-      ++global_stats->allocated_objects;
-      global_stats->allocated_bytes += bytes_allocated;
+      RuntimeStats* stats = self->GetStats();
+      ++stats->allocated_objects;
+      stats->allocated_bytes += bytes_allocated;
     }
-  } else {
-    DCHECK(!Runtime::Current()->HasStatsEnabled());
   }
   if (kInstrumented) {
     if (IsAllocTrackingEnabled()) {
