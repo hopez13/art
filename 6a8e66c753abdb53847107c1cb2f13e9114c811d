@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a1065bb_04b8a22e",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-02-22T17:48:11Z",
+      "side": 0,
+      "message": "The usage of `static` here was wrong because it caches regardless `use_product_vndk` value.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 66
+      },
+      "revId": "6a8e66c753abdb53847107c1cb2f13e9114c811d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
