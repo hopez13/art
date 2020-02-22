@@ -759,7 +759,7 @@ class Heap {
   void ResetGcPerformanceInfo() REQUIRES(!*gc_complete_lock_);
 
   // Thread pool.
-  void CreateThreadPool();
+  void CreateThreadPool(Thread* self);
   void DeleteThreadPool();
   ThreadPool* GetThreadPool() {
     return thread_pool_.get();

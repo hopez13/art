@@ -1165,6 +1165,11 @@ class Thread {
   mirror::Object* AllocTlab(size_t bytes);
   void SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit);
   bool HasTlab() const;
+
+  // No safety analysis as the callees need mutator_lock in shared mode, but the
+  // callers may not have it. It is safe as the heap contents read in this
+  // function aren't modified concurrently.
+  size_t CountTlabObjects() const NO_THREAD_SAFETY_ANALYSIS;
   void ResetTlab();
   uint8_t* GetTlabStart() {
     return tlsPtr_.thread_local_start;

@@ -473,20 +473,16 @@ class Runtime {
 
   ArtMethod* CreateCalleeSaveMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  uint64_t GetStat(int kind);
-
-  RuntimeStats* GetStats() {
-    return &stats_;
-  }
-
+  uint64_t GetStat(int kind) REQUIRES(!runtime_stats_lock_);
+  void CaptureRuntimeStatsFromThread(Thread* thread) REQUIRES(!runtime_stats_lock_);
   bool HasStatsEnabled() const {
     return stats_enabled_;
   }
 
-  void ResetStats(int kinds);
+  void ResetStats(int kinds) REQUIRES(!runtime_stats_lock_);
 
   void SetStatsEnabled(bool new_state)
-      REQUIRES(!Locks::instrument_entrypoints_lock_, !Locks::mutator_lock_);
+      REQUIRES(!Locks::instrument_entrypoints_lock_, !Locks::mutator_lock_, !runtime_stats_lock_);
 
   enum class NativeBridgeAction {  // private
     kUnload,
@@ -505,7 +501,7 @@ class Runtime {
   bool UseJitCompilation() const;
 
   void PreZygoteFork();
-  void PostZygoteFork();
+  void PostZygoteFork() REQUIRES(!runtime_stats_lock_);
   void InitNonZygoteOrPostFork(
       JNIEnv* env,
       bool is_system_server,
@@ -991,6 +987,7 @@ class Runtime {
   void InitNativeMethods() REQUIRES(!Locks::mutator_lock_);
   void RegisterRuntimeNativeMethods(JNIEnv* env);
 
+  uint64_t GatherStat(int kind) REQUIRES(!runtime_stats_lock_);
   void StartDaemonThreads();
   void StartSignalCatcher();
 
@@ -1142,7 +1139,10 @@ class Runtime {
   void (*abort_)();
 
   bool stats_enabled_;
-  RuntimeStats stats_;
+  // We need to maintina global stats for threads that get detached while stats
+  // are enabled.
+  RuntimeStats stats_ GUARDED_BY(runtime_stats_lock_);
+  Mutex runtime_stats_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
 
   const bool is_running_on_memory_tool_;
 

@@ -260,6 +260,7 @@ Runtime::Runtime()
       exit_(nullptr),
       abort_(nullptr),
       stats_enabled_(false),
+      runtime_stats_lock_("Runtime stats lock"),
       is_running_on_memory_tool_(kRunningOnMemoryTool),
       instrumentation_(),
       main_thread_group_(nullptr),
@@ -1005,6 +1006,7 @@ void Runtime::InitNonZygoteOrPostFork(
     NativeBridgeAction action,
     const char* isa,
     bool profile_system_server) {
+  Thread* self = Thread::Current();
   if (is_native_bridge_loaded_) {
     switch (action) {
       case NativeBridgeAction::kUnload:
@@ -1037,7 +1039,7 @@ void Runtime::InitNonZygoteOrPostFork(
   }
 
   // Create the thread pools.
-  heap_->CreateThreadPool();
+  heap_->CreateThreadPool(self);
   // Avoid creating the runtime thread pool for system server since it will not be used and would
   // waste memory.
   if (!is_system_server) {
@@ -1046,10 +1048,10 @@ void Runtime::InitNonZygoteOrPostFork(
     constexpr size_t kMaxRuntimeWorkers = 4u;
     const size_t num_workers =
         std::min(static_cast<size_t>(std::thread::hardware_concurrency()), kMaxRuntimeWorkers);
-    MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_);
+    MutexLock mu(self, *Locks::runtime_thread_pool_lock_);
     CHECK(thread_pool_ == nullptr);
     thread_pool_.reset(new ThreadPool("Runtime", num_workers, /*create_peers=*/false, kStackSize));
-    thread_pool_->StartWorkers(Thread::Current());
+    thread_pool_->StartWorkers(self);
   }
 
   // Reset the gc performance data at zygote fork so that the GCs
@@ -1058,11 +1060,11 @@ void Runtime::InitNonZygoteOrPostFork(
 
   StartSignalCatcher();
 
-  ScopedObjectAccess soa(Thread::Current());
+  ScopedObjectAccess soa(self);
   if (Dbg::IsJdwpAllowed() || IsProfileableFromShell() || IsJavaDebuggable()) {
     std::string err;
     ScopedTrace tr("perfetto_hprof init.");
-    ScopedThreadSuspension sts(Thread::Current(), ThreadState::kNative);
+    ScopedThreadSuspension sts(self, ThreadState::kNative);
     if (!EnsurePerfettoPlugin(&err)) {
       LOG(WARNING) << "Failed to load perfetto_hprof: " << err;
     }
@@ -2033,59 +2035,263 @@ void Runtime::DumpLockHolders(std::ostream& os) {
   }
 }
 
+class ResetStatsCheckpoint : public Closure {
+ public:
+  explicit ResetStatsCheckpoint(int kinds, Barrier* barrier) : kinds_(kinds), barrier_(barrier) {}
+
+  void Run(Thread* thread) override NO_THREAD_SAFETY_ANALYSIS {
+    thread->GetStats()->Clear(kinds_, thread);
+    barrier_->Pass(Thread::Current());
+  }
+
+ private:
+  const int kinds_;
+  Barrier* const barrier_;
+};
+
 void Runtime::SetStatsEnabled(bool new_state) {
   Thread* self = Thread::Current();
   MutexLock mu(self, *Locks::instrument_entrypoints_lock_);
   if (new_state == true) {
-    GetStats()->Clear(~0);
-    // TODO: wouldn't it make more sense to clear _all_ threads' stats?
-    self->GetStats()->Clear(~0);
-    if (stats_enabled_ != new_state) {
-      GetInstrumentation()->InstrumentQuickAllocEntryPointsLocked();
-    }
-  } else if (stats_enabled_ != new_state) {
-    GetInstrumentation()->UninstrumentQuickAllocEntryPointsLocked();
+    ResetStats(~0);
   }
   stats_enabled_ = new_state;
 }
 
 void Runtime::ResetStats(int kinds) {
-  GetStats()->Clear(kinds & 0xffff);
-  // TODO: wouldn't it make more sense to clear _all_ threads' stats?
-  Thread::Current()->GetStats()->Clear(kinds >> 16);
+  Thread* self = Thread::Current();
+  // For global stats clear everything.
+  if (kinds == ~0 || kinds < (1<<16)) {
+    Barrier barrier(0);
+    ResetStatsCheckpoint checkpoint(kinds, &barrier);
+    ScopedThreadStateChange tsc(self, kWaitingForCheckPointsToRun);
+    size_t barrier_count = GetThreadList()->RunCheckpoint(&checkpoint);
+    // Clear the global stats for detached threads.
+    MutexLock mu(self, runtime_stats_lock_);
+    stats_.Clear(kinds);
+    if (barrier_count != 0) {
+      barrier.Increment(self, barrier_count);
+    }
+  } else {
+    // For thread-local reset, copy the requested stat's content to global stats
+    // and then reset it.
+    RuntimeStats* thread_stats = self->GetStats();
+    // Convert thread-local stat kinds to base-type. See StatKinds in
+    // "runtime/runtime_stats.h".
+    kinds >>= 16;
+    MutexLock mu(self, runtime_stats_lock_);
+    if ((kinds & KIND_ALLOCATED_OBJECTS) != 0) {
+      uint64_t counted_objs = self->CountTlabObjects();
+      stats_.allocated_objects += thread_stats->allocated_objects + counted_objs;
+      // thread_stats->allocated_objects = 0;
+      thread_stats->allocated_objects = -counted_objs;
+    }
+    if ((kinds & KIND_ALLOCATED_BYTES) != 0) {
+      uint64_t allocated_bytes = self->GetThreadLocalBytesAllocated();
+      stats_.allocated_bytes += thread_stats->allocated_bytes + allocated_bytes;
+      // thread_stats->allocated_bytes = 0;
+      thread_stats->allocated_bytes = -allocated_bytes;
+    }
+    if ((kinds & KIND_FREED_OBJECTS) != 0) {
+      stats_.freed_objects += thread_stats->freed_objects;
+      thread_stats->freed_objects = 0;
+    }
+    if ((kinds & KIND_FREED_BYTES) != 0) {
+      stats_.freed_bytes += thread_stats->freed_bytes;
+      thread_stats->freed_bytes = 0;
+    }
+    if ((kinds & KIND_GC_INVOCATIONS) != 0) {
+      stats_.gc_for_alloc_count += thread_stats->gc_for_alloc_count;
+      thread_stats->gc_for_alloc_count = 0;
+    }
+    if ((kinds & KIND_CLASS_INIT_COUNT) != 0) {
+      stats_.class_init_count += thread_stats->class_init_count;
+      thread_stats->class_init_count = 0;
+    }
+    if ((kinds & KIND_CLASS_INIT_TIME) != 0) {
+      stats_.class_init_time_ns += thread_stats->class_init_time_ns;
+      thread_stats->class_init_time_ns = 0;
+    }
+  }
+}
+
+void RuntimeStats::Clear(int flags, Thread* thread) {
+  // Allocated objects/bytes may come from TLAB, in which case we could be in the
+  // middle of the TLAB when the stats are enabled/reset. Therefore, we set back
+  // these stats.
+  if ((flags & KIND_ALLOCATED_OBJECTS) != 0) {
+    allocated_objects = 0;
+    if (thread != nullptr) {
+      allocated_objects -= thread->CountTlabObjects();
+    }
+  }
+  if ((flags & KIND_ALLOCATED_BYTES) != 0) {
+    allocated_bytes = 0;
+    if (thread != nullptr) {
+      allocated_bytes -= thread->GetThreadLocalBytesAllocated();
+    }
+  }
+  if ((flags & KIND_FREED_OBJECTS) != 0) {
+    freed_objects = 0;
+  }
+  if ((flags & KIND_FREED_BYTES) != 0) {
+    freed_bytes = 0;
+  }
+  if ((flags & KIND_GC_INVOCATIONS) != 0) {
+    gc_for_alloc_count = 0;
+  }
+  if ((flags & KIND_CLASS_INIT_COUNT) != 0) {
+    class_init_count = 0;
+  }
+  if ((flags & KIND_CLASS_INIT_TIME) != 0) {
+    class_init_time_ns = 0;
+  }
+}
+
+class GatherStatCheckpoint : public Closure {
+ public:
+  explicit GatherStatCheckpoint(int kind, Barrier* barrier)
+      : kind_(kind), barrier_(barrier), total_(0) {}
+
+  void Run(Thread* thread) NO_THREAD_SAFETY_ANALYSIS {
+    RuntimeStats* stats = thread->GetStats();
+    uint64_t total = 0;
+    switch (kind_) {
+      case KIND_ALLOCATED_OBJECTS:
+        total = stats->allocated_objects + thread->CountTlabObjects();
+        DCHECK_GE(total, 0U);
+        break;
+      case KIND_ALLOCATED_BYTES:
+        total = stats->allocated_bytes + thread->GetThreadLocalBytesAllocated();
+        DCHECK_GE(total, 0U);
+        break;
+      case KIND_FREED_OBJECTS:
+        total = stats->freed_objects;
+        break;
+      case KIND_FREED_BYTES:
+        total = stats->freed_bytes;
+        break;
+      case KIND_GC_INVOCATIONS:
+        total = stats->gc_for_alloc_count;
+        break;
+      case KIND_GLOBAL_CLASS_INIT_COUNT:
+        total = stats->class_init_count;
+        break;
+      case KIND_GLOBAL_CLASS_INIT_TIME:
+        total = stats->class_init_time_ns;
+    }
+    total_.fetch_add(total, std::memory_order_relaxed);
+    barrier_->Pass(Thread::Current());
+  }
+
+  uint64_t TotalStat() {
+    return total_.load(std::memory_order_relaxed);
+  }
+
+ private:
+  const int kind_;
+  Barrier* const barrier_;
+  Atomic<uint64_t> total_;
+};
+
+uint64_t Runtime::GatherStat(int kind) {
+  Thread* self = Thread::Current();
+  uint64_t global_stat;
+  Barrier barrier(0);
+  GatherStatCheckpoint checkpoint(kind, &barrier);
+  // Ensure the right kind and fetch the global stat for detached threads.
+  {
+    MutexLock mu(self, runtime_stats_lock_);
+    switch (kind) {
+    case KIND_ALLOCATED_OBJECTS:
+      global_stat = stats_.allocated_objects;
+      break;
+    case KIND_ALLOCATED_BYTES:
+      global_stat = stats_.allocated_bytes;
+      break;
+    case KIND_FREED_OBJECTS:
+      global_stat = stats_.freed_objects;
+      break;
+    case KIND_FREED_BYTES:
+      global_stat = stats_.freed_bytes;
+      break;
+    case KIND_GC_INVOCATIONS:
+      global_stat = stats_.gc_for_alloc_count;
+      break;
+    case KIND_CLASS_INIT_COUNT:
+      global_stat = stats_.class_init_count;
+      break;
+    case KIND_CLASS_INIT_TIME:
+      global_stat = stats_.class_init_time_ns;
+      break;
+    case KIND_EXT_ALLOCATED_OBJECTS:
+    case KIND_EXT_ALLOCATED_BYTES:
+    case KIND_EXT_FREED_OBJECTS:
+    case KIND_EXT_FREED_BYTES:
+      return 0;  // backward compatibility
+    default:
+      LOG(FATAL) << "Unknown statistic " << kind;
+      UNREACHABLE();
+    }
+  }
+  ScopedThreadStateChange tsc(self, kWaitingForCheckPointsToRun);
+  size_t barrier_count = GetThreadList()->RunCheckpoint(&checkpoint);
+  if (barrier_count != 0) {
+    barrier.Increment(self, barrier_count);
+  }
+  return checkpoint.TotalStat() + global_stat;
+}
+
+void Runtime::CaptureRuntimeStatsFromThread(Thread* thread) {
+  RuntimeStats* thread_stats = thread->GetStats();
+  if (HasStatsEnabled()) {
+    DCHECK_EQ(thread, Thread::Current());
+    MutexLock mu(thread, runtime_stats_lock_);
+    stats_.allocated_objects += thread_stats->allocated_objects + thread->CountTlabObjects();
+    stats_.allocated_bytes += thread_stats->allocated_bytes + thread->GetThreadLocalBytesAllocated();
+    stats_.freed_objects += thread_stats->freed_objects;
+    stats_.freed_bytes += thread_stats->freed_bytes;
+    stats_.gc_for_alloc_count += thread_stats->gc_for_alloc_count;
+    stats_.class_init_count += thread_stats->class_init_count;
+    stats_.class_init_time_ns += thread_stats->class_init_time_ns;
+  }
 }
 
 uint64_t Runtime::GetStat(int kind) {
-  RuntimeStats* stats;
+  // Shouldn't have more than one kind.
+  DCHECK_EQ(POPCOUNT(kind), 1);
   if (kind < (1<<16)) {
-    stats = GetStats();
+    return GatherStat(kind);
   } else {
-    stats = Thread::Current()->GetStats();
+    Thread* self = Thread::Current();
+    RuntimeStats* stats = self->GetStats();
+    // Convert thread-local stat kinds to base-type. See StatKinds in
+    // "runtime/runtime_stats.h".
     kind >>= 16;
-  }
-  switch (kind) {
-  case KIND_ALLOCATED_OBJECTS:
-    return stats->allocated_objects;
-  case KIND_ALLOCATED_BYTES:
-    return stats->allocated_bytes;
-  case KIND_FREED_OBJECTS:
-    return stats->freed_objects;
-  case KIND_FREED_BYTES:
-    return stats->freed_bytes;
-  case KIND_GC_INVOCATIONS:
-    return stats->gc_for_alloc_count;
-  case KIND_CLASS_INIT_COUNT:
-    return stats->class_init_count;
-  case KIND_CLASS_INIT_TIME:
-    return stats->class_init_time_ns;
-  case KIND_EXT_ALLOCATED_OBJECTS:
-  case KIND_EXT_ALLOCATED_BYTES:
-  case KIND_EXT_FREED_OBJECTS:
-  case KIND_EXT_FREED_BYTES:
-    return 0;  // backward compatibility
-  default:
-    LOG(FATAL) << "Unknown statistic " << kind;
-    UNREACHABLE();
+    switch (kind) {
+    case KIND_ALLOCATED_OBJECTS:
+      return stats->allocated_objects + self->CountTlabObjects();
+    case KIND_ALLOCATED_BYTES:
+      return stats->allocated_bytes + self->GetThreadLocalBytesAllocated();
+    case KIND_FREED_OBJECTS:
+      return stats->freed_objects;
+    case KIND_FREED_BYTES:
+      return stats->freed_bytes;
+    case KIND_GC_INVOCATIONS:
+      return stats->gc_for_alloc_count;
+    case KIND_CLASS_INIT_COUNT:
+      return stats->class_init_count;
+    case KIND_CLASS_INIT_TIME:
+      return stats->class_init_time_ns;
+    case KIND_EXT_ALLOCATED_OBJECTS:
+    case KIND_EXT_ALLOCATED_BYTES:
+    case KIND_EXT_FREED_OBJECTS:
+    case KIND_EXT_FREED_BYTES:
+      return 0;  // backward compatibility
+    default:
+      LOG(FATAL) << "Unknown statistic " << kind;
+      UNREACHABLE();
+    }
   }
 }
 
