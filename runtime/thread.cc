@@ -2393,6 +2393,7 @@ class MonitorExitVisitor : public SingleRootVisitor {
 void Thread::Destroy() {
   Thread* self = this;
   DCHECK_EQ(self, Thread::Current());
+  Runtime* runtime = Runtime::Current();
 
   if (tlsPtr_.jni_env != nullptr) {
     {
@@ -2418,13 +2419,12 @@ void Thread::Destroy() {
     // We may need to call user-supplied managed code, do this before final clean-up.
     HandleUncaughtExceptions(soa);
     RemoveFromThreadGroup(soa);
-    Runtime* runtime = Runtime::Current();
     if (runtime != nullptr) {
       runtime->GetRuntimeCallbacks()->ThreadDeath(self);
     }
 
     // this.nativePeer = 0;
-    if (Runtime::Current()->IsActiveTransaction()) {
+    if (runtime->IsActiveTransaction()) {
       jni::DecodeArtField(WellKnownClasses::java_lang_Thread_nativePeer)
           ->SetLong<true>(tlsPtr_.opeer, 0);
     } else {
@@ -2445,15 +2445,16 @@ void Thread::Destroy() {
     }
     tlsPtr_.opeer = nullptr;
   }
-
+  // Add a detaching thread's runtime stats to global stats.
+  runtime->CaptureRuntimeStatsFromThread(self);
   {
     ScopedObjectAccess soa(self);
-    Runtime::Current()->GetHeap()->RevokeThreadLocalBuffers(this);
+    runtime->GetHeap()->RevokeThreadLocalBuffers(this);
   }
   // Mark-stack revocation must be performed at the very end. No
   // checkpoint/flip-function or read-barrier should be called after this.
   if (kUseReadBarrier) {
-    Runtime::Current()->GetHeap()->ConcurrentCopyingCollector()->RevokeThreadLocalMarkStack(this);
+    runtime->GetHeap()->ConcurrentCopyingCollector()->RevokeThreadLocalMarkStack(this);
   }
 }
 
@@ -4165,7 +4166,35 @@ void Thread::SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit) {
   tlsPtr_.thread_local_objects = 0;
 }
 
+static mirror::Object* GetNextObjectInTlab(mirror::Object* obj)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  const uintptr_t position = reinterpret_cast<uintptr_t>(obj) + obj->SizeOf();
+  return reinterpret_cast<mirror::Object*>(RoundUp(position, kObjectAlignment));
+}
+
+size_t Thread::CountTlabObjects() const {
+  DCHECK(Runtime::Current()->HasStatsEnabled());
+  size_t count = 0;
+  uint8_t* pos = tlsPtr_.thread_local_start;
+  uint8_t* top = tlsPtr_.thread_local_pos;
+  while (pos < top) {
+    mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
+    if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+      count++;
+      pos = reinterpret_cast<uint8_t*>(GetNextObjectInTlab(obj));
+    } else {
+      break;
+    }
+  }
+  return count;
+}
+
 void Thread::ResetTlab() {
+  if (Runtime::Current()->HasStatsEnabled()) {
+    RuntimeStats* stats = GetStats();
+    stats->allocated_bytes += GetThreadLocalBytesAllocated();
+    stats->allocated_objects += CountTlabObjects();
+  }
   SetTlab(nullptr, nullptr, nullptr);
 }
 

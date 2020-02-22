@@ -5531,12 +5531,9 @@ bool ClassLinker::InitializeClass(Thread* self,
       success = false;
     } else {
       if (stats_enabled) {
-        RuntimeStats* global_stats = runtime->GetStats();
-        RuntimeStats* thread_stats = self->GetStats();
-        ++global_stats->class_init_count;
-        ++thread_stats->class_init_count;
-        global_stats->class_init_time_ns += (t1 - t0 - t_sub);
-        thread_stats->class_init_time_ns += (t1 - t0 - t_sub);
+        RuntimeStats* stats = self->GetStats();
+        ++stats->class_init_count;
+        stats->class_init_time_ns += (t1 - t0 - t_sub);
       }
       // Set the class as initialized except if failed to initialize static fields.
       callback = MarkClassInitialized(self, klass);
