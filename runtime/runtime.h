@@ -475,10 +475,6 @@ class Runtime {
 
   uint64_t GetStat(int kind);
 
-  RuntimeStats* GetStats() {
-    return &stats_;
-  }
-
   bool HasStatsEnabled() const {
     return stats_enabled_;
   }
@@ -991,6 +987,7 @@ class Runtime {
   void InitNativeMethods() REQUIRES(!Locks::mutator_lock_);
   void RegisterRuntimeNativeMethods(JNIEnv* env);
 
+  uint64_t GatherStatFromThreads(int kind);
   void StartDaemonThreads();
   void StartSignalCatcher();
 
@@ -1142,7 +1139,6 @@ class Runtime {
   void (*abort_)();
 
   bool stats_enabled_;
-  RuntimeStats stats_;
 
   const bool is_running_on_memory_tool_;
 

@@ -1686,13 +1686,9 @@ void Heap::RecordFree(uint64_t freed_objects, int64_t freed_bytes) {
   // Note: This relies on 2s complement for handling negative freed_bytes.
   num_bytes_allocated_.fetch_sub(static_cast<ssize_t>(freed_bytes), std::memory_order_relaxed);
   if (Runtime::Current()->HasStatsEnabled()) {
-    RuntimeStats* thread_stats = Thread::Current()->GetStats();
-    thread_stats->freed_objects += freed_objects;
-    thread_stats->freed_bytes += freed_bytes;
-    // TODO: Do this concurrently.
-    RuntimeStats* global_stats = Runtime::Current()->GetStats();
-    global_stats->freed_objects += freed_objects;
-    global_stats->freed_bytes += freed_bytes;
+    RuntimeStats* stats = Thread::Current()->GetStats();
+    stats->freed_objects += freed_objects;
+    stats->freed_bytes += freed_bytes;
   }
 }
 
@@ -2614,7 +2610,6 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     collector_type_running_ = collector_type_;
   }
   if (gc_cause == kGcCauseForAlloc && runtime->HasStatsEnabled()) {
-    ++runtime->GetStats()->gc_for_alloc_count;
     ++self->GetStats()->gc_for_alloc_count;
   }
   const size_t bytes_allocated_before_gc = GetBytesAllocated();

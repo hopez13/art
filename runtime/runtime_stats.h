@@ -56,42 +56,20 @@ enum StatKinds {
 };
 
 /*
- * Memory allocation profiler state.  This is used both globally and
- * per-thread.
+ * Memory allocation profiler state.
  */
 struct PACKED(4) RuntimeStats {
   RuntimeStats() {
-    Clear(~0);
+    Clear(~0, nullptr);
   }
+  void Clear(int flags, Thread* thread = nullptr);
 
-  void Clear(int flags) {
-    if ((flags & KIND_ALLOCATED_OBJECTS) != 0) {
-      allocated_objects = 0;
-    }
-    if ((flags & KIND_ALLOCATED_BYTES) != 0) {
-      allocated_bytes = 0;
-    }
-    if ((flags & KIND_FREED_OBJECTS) != 0) {
-      freed_objects = 0;
-    }
-    if ((flags & KIND_FREED_BYTES) != 0) {
-      freed_bytes = 0;
-    }
-    if ((flags & KIND_GC_INVOCATIONS) != 0) {
-      gc_for_alloc_count = 0;
-    }
-    if ((flags & KIND_CLASS_INIT_COUNT) != 0) {
-      class_init_count = 0;
-    }
-    if ((flags & KIND_CLASS_INIT_TIME) != 0) {
-      class_init_time_ns = 0;
-    }
-  }
-
-  // Number of objects allocated.
-  uint64_t allocated_objects;
-  // Cumulative size of all objects allocated.
-  uint64_t allocated_bytes;
+  // Number of objects allocated. Signed to handle efficient counting with TLAB
+  // allocators.
+  int64_t allocated_objects;
+  // Cumulative size of all objects allocated. Signed to handle efficient
+  // counting with TLAB allocators.
+  int64_t allocated_bytes;
 
   // Number of objects freed.
   uint64_t freed_objects;

@@ -4166,6 +4166,13 @@ void Thread::SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit) {
 }
 
 void Thread::ResetTlab() {
+  // TODO: This needs to be modified as we are getting rid of object increment
+  // in allocation fast path.
+  if (Runtime::Current()->HasStatsEnabled()) {
+    RuntimeStats* stats = GetStats();
+    stats->allocated_objects += GetThreadLocalObjectsAllocated();
+    stats->allocated_bytes += GetThreadLocalBytesAllocated();
+  }
   SetTlab(nullptr, nullptr, nullptr);
 }
 
