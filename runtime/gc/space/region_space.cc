@@ -23,6 +23,7 @@
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
 #include "thread_list.h"
+#include "thread_pool.h"
 
 namespace art {
 namespace gc {
@@ -324,6 +325,27 @@ void RegionSpace::ZeroLiveBytesForLargeObject(mirror::Object* obj) {
   }
 }
 
+class RegionSpace::CountAllocatedObjectsTask : public SelfDeletingTask {
+ public:
+  using AllocCountingVector = std::vector<std::pair<Region*, uint8_t*>>;
+
+  explicit CountAllocatedObjectsTask(AllocCountingVector* v) : vec_(v) {}
+
+  void Run(Thread* self ATTRIBUTE_UNUSED) override {
+    for (auto iter : *vec_) {
+      size_t count = 0;
+      WalkObjectByObject([&count] (mirror::Object* obj ATTRIBUTE_UNUSED) { count++; },
+                         /*top*/ iter.second,
+                         /*pos*/ iter.first->Begin());
+      iter.first->RecordAllocatedObjects(count);
+    }
+    delete vec_;
+  }
+
+ private:
+  AllocCountingVector* vec_;
+};
+
 // Determine which regions to evacuate and mark them as
 // from-space. Mark the rest as unevacuated from-space.
 void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
@@ -331,81 +353,101 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
                                bool clear_live_bytes) {
   // Live bytes are only preserved (i.e. not cleared) during sticky-bit CC collections.
   DCHECK(use_generational_cc_ || clear_live_bytes);
+
+  using AllocCountingVector = std::vector<std::pair<Region*, uint8_t*>>;
+  gc::Heap* heap = art::Runtime::Current()->GetHeap();
+  ThreadPool* thread_pool = heap->GetThreadPool();
+  AllocCountingVector* alloc_count_vec = new AllocCountingVector();
+  // Some processes (like dex2oat) doesn't get heap's thread-pool created.
+  if (UNLIKELY(thread_pool == nullptr)) {
+    heap->CreateThreadPool();
+    thread_pool = heap->GetThreadPool();
+  }
+
+  Thread* self = Thread::Current();
   ++time_;
   if (kUseTableLookupReadBarrier) {
     DCHECK(rb_table->IsAllCleared());
     rb_table->SetAll();
   }
-  MutexLock mu(Thread::Current(), region_lock_);
-  // We cannot use the partially utilized TLABs across a GC. Therefore, revoke
-  // them during the thread-flip.
-  partial_tlabs_.clear();
-
   // Counter for the number of expected large tail regions following a large region.
   size_t num_expected_large_tails = 0U;
-  // Flag to store whether the previously seen large region has been evacuated.
-  // This is used to apply the same evacuation policy to related large tail regions.
-  bool prev_large_evacuated = false;
-  VerifyNonFreeRegionLimit();
-  const size_t iter_limit = kUseTableLookupReadBarrier
-      ? num_regions_
-      : std::min(num_regions_, non_free_region_index_limit_);
-  for (size_t i = 0; i < iter_limit; ++i) {
-    Region* r = &regions_[i];
-    RegionState state = r->State();
-    RegionType type = r->Type();
-    if (!r->IsFree()) {
-      DCHECK(r->IsInToSpace());
-      if (LIKELY(num_expected_large_tails == 0U)) {
-        DCHECK((state == RegionState::kRegionStateAllocated ||
-                state == RegionState::kRegionStateLarge) &&
-               type == RegionType::kRegionTypeToSpace);
-        bool should_evacuate = r->ShouldBeEvacuated(evac_mode);
-        bool is_newly_allocated = r->IsNewlyAllocated();
-        if (should_evacuate) {
-          r->SetAsFromSpace();
-          DCHECK(r->IsInFromSpace());
-        } else {
-          r->SetAsUnevacFromSpace(clear_live_bytes);
-          DCHECK(r->IsInUnevacFromSpace());
-        }
-        if (UNLIKELY(state == RegionState::kRegionStateLarge &&
-                     type == RegionType::kRegionTypeToSpace)) {
-          prev_large_evacuated = should_evacuate;
-          // In 2-phase full heap GC, this function is called after marking is
-          // done. So, it is possible that some newly allocated large object is
-          // marked but its live_bytes is still -1. We need to clear the
-          // mark-bit otherwise the live_bytes will not be updated in
-          // ConcurrentCopying::ProcessMarkStackRef() and hence will break the
-          // logic.
-          if (use_generational_cc_ && !should_evacuate && is_newly_allocated) {
-            GetMarkBitmap()->Clear(reinterpret_cast<mirror::Object*>(r->Begin()));
+  {
+    MutexLock mu(self, region_lock_);
+    // We cannot use the partially utilized TLABs across a GC. Therefore, revoke
+    // them during the thread-flip.
+    partial_tlabs_.clear();
+
+    // Flag to store whether the previously seen large region has been evacuated.
+    // This is used to apply the same evacuation policy to related large tail regions.
+    bool prev_large_evacuated = false;
+    VerifyNonFreeRegionLimit();
+    const size_t iter_limit = kUseTableLookupReadBarrier
+        ? num_regions_
+        : std::min(num_regions_, non_free_region_index_limit_);
+    for (size_t i = 0; i < iter_limit; ++i) {
+      Region* r = &regions_[i];
+      RegionState state = r->State();
+      RegionType type = r->Type();
+      if (!r->IsFree()) {
+        DCHECK(r->IsInToSpace());
+        if (LIKELY(num_expected_large_tails == 0U)) {
+          DCHECK((state == RegionState::kRegionStateAllocated ||
+                  state == RegionState::kRegionStateLarge) &&
+                 type == RegionType::kRegionTypeToSpace);
+          bool should_evacuate = r->ShouldBeEvacuated(evac_mode);
+          bool is_newly_allocated = r->IsNewlyAllocated();
+          if (is_newly_allocated && state != RegionState::kRegionStateLarge) {
+            alloc_count_vec->push_back(std::pair(r, r->is_a_tlab_
+                                                    ? r->thread_->GetTlabPos()
+                                                    : r->Top()));
           }
-          num_expected_large_tails = RoundUp(r->BytesAllocated(), kRegionSize) / kRegionSize - 1;
-          DCHECK_GT(num_expected_large_tails, 0U);
+          if (should_evacuate) {
+            r->SetAsFromSpace();
+            DCHECK(r->IsInFromSpace());
+          } else {
+            r->SetAsUnevacFromSpace(clear_live_bytes);
+            DCHECK(r->IsInUnevacFromSpace());
+          }
+          if (UNLIKELY(state == RegionState::kRegionStateLarge &&
+                       type == RegionType::kRegionTypeToSpace)) {
+            prev_large_evacuated = should_evacuate;
+            // In 2-phase full heap GC, this function is called after marking is
+            // done. So, it is possible that some newly allocated large object is
+            // marked but its live_bytes is still -1. We need to clear the
+            // mark-bit otherwise the live_bytes will not be updated in
+            // ConcurrentCopying::ProcessMarkStackRef() and hence will break the
+            // logic.
+            if (use_generational_cc_ && !should_evacuate && is_newly_allocated) {
+              GetMarkBitmap()->Clear(reinterpret_cast<mirror::Object*>(r->Begin()));
+            }
+            num_expected_large_tails = RoundUp(r->BytesAllocated(), kRegionSize) / kRegionSize - 1;
+            DCHECK_GT(num_expected_large_tails, 0U);
+          }
+        } else {
+          DCHECK(state == RegionState::kRegionStateLargeTail &&
+                 type == RegionType::kRegionTypeToSpace);
+          if (prev_large_evacuated) {
+            r->SetAsFromSpace();
+            DCHECK(r->IsInFromSpace());
+          } else {
+            r->SetAsUnevacFromSpace(clear_live_bytes);
+            DCHECK(r->IsInUnevacFromSpace());
+          }
+          --num_expected_large_tails;
         }
       } else {
-        DCHECK(state == RegionState::kRegionStateLargeTail &&
-               type == RegionType::kRegionTypeToSpace);
-        if (prev_large_evacuated) {
-          r->SetAsFromSpace();
-          DCHECK(r->IsInFromSpace());
-        } else {
-          r->SetAsUnevacFromSpace(clear_live_bytes);
-          DCHECK(r->IsInUnevacFromSpace());
+        DCHECK_EQ(num_expected_large_tails, 0U);
+        if (kUseTableLookupReadBarrier) {
+          // Clear the rb table for to-space regions.
+          rb_table->Clear(r->Begin(), r->End());
         }
-        --num_expected_large_tails;
       }
-    } else {
-      DCHECK_EQ(num_expected_large_tails, 0U);
-      if (kUseTableLookupReadBarrier) {
-        // Clear the rb table for to-space regions.
-        rb_table->Clear(r->Begin(), r->End());
-      }
+      // Invariant: There should be no newly-allocated region in the from-space.
+      DCHECK(!r->is_newly_allocated_);
     }
-    // Invariant: There should be no newly-allocated region in the from-space.
-    DCHECK(!r->is_newly_allocated_);
   }
+  thread_pool->AddTask(self, new CountAllocatedObjectsTask(alloc_count_vec));
   DCHECK_EQ(num_expected_large_tails, 0U);
   current_region_ = &full_region_;
   evac_region_ = &full_region_;
@@ -897,8 +939,7 @@ void RegionSpace::RevokeThreadLocalBuffersLocked(Thread* thread, bool reuse) {
     r->thread_ = nullptr;
     DCHECK(r->IsAllocated());
     DCHECK_LE(thread->GetThreadLocalBytesAllocated(), kRegionSize);
-    r->RecordThreadLocalAllocations(thread->GetThreadLocalObjectsAllocated(),
-                                    thread->GetTlabEnd() - r->Begin());
+    r->RecordThreadLocalAllocationSize(thread->GetTlabEnd() - r->Begin());
     DCHECK_GE(r->End(), thread->GetTlabPos());
     DCHECK_LE(r->Begin(), thread->GetTlabPos());
     size_t remaining_bytes = r->End() - thread->GetTlabPos();

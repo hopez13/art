@@ -283,14 +283,19 @@ inline void RegionSpace::WalkNonLargeRegion(Visitor&& visitor, const Region* r) 
         reinterpret_cast<uintptr_t>(top),
         visitor);
   } else {
-    while (pos < top) {
-      mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
-      if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
-        visitor(obj);
-        pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
-      } else {
-        break;
-      }
+    WalkObjectByObject(visitor, top, pos);
+  }
+}
+
+template <typename Visitor>
+inline void RegionSpace::WalkObjectByObject(Visitor&& visitor, uint8_t* top, uint8_t* pos) {
+  while (pos < top) {
+    mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
+    if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+      visitor(obj);
+      pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
+    } else {
+      break;
     }
   }
 }

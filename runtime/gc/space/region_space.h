@@ -596,12 +596,17 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     void Dump(std::ostream& os) const;
 
-    void RecordThreadLocalAllocations(size_t num_objects, size_t num_bytes) {
+    void RecordThreadLocalAllocationSize(size_t num_bytes) {
       DCHECK(IsAllocated());
       DCHECK_EQ(Top(), end_);
-      objects_allocated_.fetch_add(num_objects, std::memory_order_relaxed);
       top_.store(begin_ + num_bytes, std::memory_order_relaxed);
       DCHECK_LE(Top(), end_);
+    }
+
+    void RecordAllocatedObjects(size_t num_objects) {
+      DCHECK(IsAllocated());
+      DCHECK_EQ(objects_allocated_.load(std::memory_order_relaxed), 0u);
+      objects_allocated_.store(num_objects, std::memory_order_relaxed);
     }
 
     uint64_t GetLongestConsecutiveFreeBytes() const;
@@ -638,6 +643,10 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // Visitor will be iterating on objects in increasing address order.
   template<typename Visitor>
   ALWAYS_INLINE void WalkNonLargeRegion(Visitor&& visitor, const Region* r)
+      NO_THREAD_SAFETY_ANALYSIS;
+
+  template<typename Visitor>
+  static void WalkObjectByObject(Visitor&& visitor, uint8_t* top, uint8_t* pos)
       NO_THREAD_SAFETY_ANALYSIS;
 
   Region* RefToRegion(mirror::Object* ref) REQUIRES(!region_lock_) {
@@ -773,6 +782,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
   // Mark bitmap used by the GC.
   accounting::ContinuousSpaceBitmap mark_bitmap_;
+
+  class CountAllocatedObjectsTask;
 
   DISALLOW_COPY_AND_ASSIGN(RegionSpace);
 };

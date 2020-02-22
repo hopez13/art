@@ -1165,6 +1165,7 @@ class Thread {
   mirror::Object* AllocTlab(size_t bytes);
   void SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit);
   bool HasTlab() const;
+  size_t CountTlabObjects() const NO_THREAD_SAFETY_ANALYSIS;
   void ResetTlab();
   uint8_t* GetTlabStart() {
     return tlsPtr_.thread_local_start;
@@ -1346,6 +1347,8 @@ class Thread {
   explicit Thread(bool daemon);
   ~Thread() REQUIRES(!Locks::mutator_lock_, !Locks::thread_suspend_count_lock_);
   void Destroy();
+  static mirror::Object* GetNextObject(mirror::Object* obj)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Deletes and clears the tlsPtr_.jpeer field. Done in a way so that both it and opeer cannot be
   // observed to be set at the same time by instrumentation.

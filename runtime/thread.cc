@@ -4165,7 +4165,33 @@ void Thread::SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit) {
   tlsPtr_.thread_local_objects = 0;
 }
 
+mirror::Object* Thread::GetNextObject(mirror::Object* obj) {
+  const uintptr_t position = reinterpret_cast<uintptr_t>(obj) + obj->SizeOf();
+  return reinterpret_cast<mirror::Object*>(RoundUp(position, kObjectAlignment));
+}
+
+size_t Thread::CountTlabObjects() const {
+  size_t count = 0;
+  uint8_t* pos = tlsPtr_.thread_local_start;
+  uint8_t* top = tlsPtr_.thread_local_pos;
+  while (pos < top) {
+    mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
+    if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+      count++;
+      pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
+    } else {
+      break;
+    }
+  }
+  return count;
+}
+
 void Thread::ResetTlab() {
+  if (Runtime::Current()->HasStatsEnabled()) {
+    RuntimeStats* stats = GetStats();
+    stats->allocated_bytes += GetThreadLocalBytesAllocated();
+    stats->allocated_objects += CountTlabObjects();
+  }
   SetTlab(nullptr, nullptr, nullptr);
 }
 
