@@ -157,6 +157,7 @@ void CommonRuntimeTestImpl::SetUp() {
 }
 
 void CommonRuntimeTestImpl::FinalizeSetup() {
+  Thread* self = Thread::Current();
   // Initialize maps for unstarted runtime. This needs to be here, as running clinits needs this
   // set up.
   if (!unstarted_initialized_) {
@@ -165,16 +166,16 @@ void CommonRuntimeTestImpl::FinalizeSetup() {
   }
 
   {
-    ScopedObjectAccess soa(Thread::Current());
+    ScopedObjectAccess soa(self);
     runtime_->RunRootClinits(soa.Self());
   }
 
   // We're back in native, take the opportunity to initialize well known classes.
-  WellKnownClasses::Init(Thread::Current()->GetJniEnv());
+  WellKnownClasses::Init(self->GetJniEnv());
 
   // Create the heap thread pool so that the GC runs in parallel for tests. Normally, the thread
   // pool is created by the runtime.
-  runtime_->GetHeap()->CreateThreadPool();
+  runtime_->GetHeap()->CreateThreadPool(self);
   runtime_->GetHeap()->VerifyHeap();  // Check for heap corruption before the test
   // Reduce timinig-dependent flakiness in OOME behavior (eg StubTest.AllocObject).
   runtime_->GetHeap()->SetMinIntervalHomogeneousSpaceCompactionByOom(0U);

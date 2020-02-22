@@ -21,6 +21,7 @@
 #include "base/mutex.h"
 #include "space.h"
 #include "thread.h"
+#include "thread_pool.h"
 
 #include <functional>
 #include <map>
@@ -116,6 +117,9 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   accounting::ContinuousSpaceBitmap* GetMarkBitmap() override {
     return &mark_bitmap_;
   }
+
+  void CreateThreadPool(Thread* self);
+  void WaitOnThreadPool(Thread* self);
 
   void Clear() override REQUIRES(!region_lock_);
 
@@ -596,12 +600,17 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     void Dump(std::ostream& os) const;
 
-    void RecordThreadLocalAllocations(size_t num_objects, size_t num_bytes) {
+    void RecordThreadLocalAllocationSize(size_t num_bytes) {
       DCHECK(IsAllocated());
       DCHECK_EQ(Top(), end_);
-      objects_allocated_.fetch_add(num_objects, std::memory_order_relaxed);
       top_.store(begin_ + num_bytes, std::memory_order_relaxed);
       DCHECK_LE(Top(), end_);
+    }
+
+    void RecordAllocatedObjects(size_t num_objects) {
+      DCHECK(IsAllocated());
+      DCHECK_EQ(objects_allocated_.load(std::memory_order_relaxed), 0u);
+      objects_allocated_.store(num_objects, std::memory_order_relaxed);
     }
 
     uint64_t GetLongestConsecutiveFreeBytes() const;
@@ -632,12 +641,21 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     friend class RegionSpace;
   };
 
+  typedef std::vector<std::pair<Region*, uint8_t*>> AllocCountingVector;
+
   template<bool kToSpaceOnly, typename Visitor>
   ALWAYS_INLINE void WalkInternal(Visitor&& visitor) NO_THREAD_SAFETY_ANALYSIS;
 
   // Visitor will be iterating on objects in increasing address order.
   template<typename Visitor>
   ALWAYS_INLINE void WalkNonLargeRegion(Visitor&& visitor, const Region* r)
+      NO_THREAD_SAFETY_ANALYSIS;
+
+  // No safety analysis as the callees need mutator_lock in shared mode, but the
+  // callers may not have it. It is safe as the heap contents read in this
+  // function aren't modified concurrently.
+  template<typename Visitor>
+  static void WalkObjectByObject(Visitor&& visitor, uint8_t* top, uint8_t* pos)
       NO_THREAD_SAFETY_ANALYSIS;
 
   Region* RefToRegion(mirror::Object* ref) REQUIRES(!region_lock_) {
@@ -752,6 +770,14 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // The pointer to the region array.
   std::unique_ptr<Region[]> regions_ GUARDED_BY(region_lock_);
 
+  // When thread_pool is not created, this pointer is used to count allocations
+  // in gc-thread.
+  AllocCountingVector* alloc_counting_vec_;
+
+  // Thread pool to count allocated objects from newly allocated regions in
+  // parallel between SetFromSpace and ReclaimPhase.
+  std::unique_ptr<ThreadPool> thread_pool_;
+
   // To hold partially used TLABs which can be reassigned to threads later for
   // utilizing the un-used portion.
   std::multimap<size_t, Region*, std::greater<size_t>> partial_tlabs_ GUARDED_BY(region_lock_);
@@ -773,6 +799,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
   // Mark bitmap used by the GC.
   accounting::ContinuousSpaceBitmap mark_bitmap_;
+
+  class CountAllocatedObjectsTask;
 
   DISALLOW_COPY_AND_ASSIGN(RegionSpace);
 };
