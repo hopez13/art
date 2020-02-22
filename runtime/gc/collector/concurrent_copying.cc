@@ -95,7 +95,6 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
       region_space_bitmap_(nullptr),
       heap_mark_bitmap_(nullptr),
       live_stack_freeze_size_(0),
-      from_space_num_objects_at_first_pause_(0),
       from_space_num_bytes_at_first_pause_(0),
       mark_stack_mode_(kMarkStackModeOff),
       weak_ref_access_enabled_(true),
@@ -446,16 +445,7 @@ class ConcurrentCopying::ThreadFlipVisitor : public Closure, public RootVisitor 
     if (use_tlab_ && thread->HasTlab()) {
       // We should not reuse the partially utilized TLABs revoked here as they
       // are going to be part of from-space.
-      if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
-        // This must come before the revoke.
-        size_t thread_local_objects = thread->GetThreadLocalObjectsAllocated();
-        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread, /*reuse=*/ false);
-        reinterpret_cast<Atomic<size_t>*>(
-            &concurrent_copying_->from_space_num_objects_at_first_pause_)->
-                fetch_add(thread_local_objects, std::memory_order_relaxed);
-      } else {
-        concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread, /*reuse=*/ false);
-      }
+      concurrent_copying_->region_space_->RevokeThreadLocalBuffers(thread, /*reuse=*/ false);
     }
     if (kUseThreadLocalAllocationStack) {
       thread->RevokeThreadLocalAllocationStack();
@@ -541,7 +531,6 @@ class ConcurrentCopying::FlipCallback : public Closure {
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
       cc->RecordLiveStackFreezeSize(self);
-      cc->from_space_num_objects_at_first_pause_ = cc->region_space_->GetObjectsAllocated();
       cc->from_space_num_bytes_at_first_pause_ = cc->region_space_->GetBytesAllocated();
     }
     cc->is_marking_ = true;
@@ -2716,6 +2705,11 @@ void ConcurrentCopying::ReclaimPhase() {
   {
     // Record freed objects.
     TimingLogger::ScopedTiming split2("RecordFree", GetTimings());
+    // Wait for heap thread-pool workers to finish counting allocated object count,
+    // which is started in RegionSpace::SetFromSpace.
+    if (heap_->GetThreadPool()) {
+      heap_->GetThreadPool()->Wait(self, /*do_work=*/ true, /*may_hold_locks=*/ true);
+    }
     // Don't include thread-locals that are in the to-space.
     const uint64_t from_bytes = region_space_->GetBytesAllocatedInFromSpace();
     const uint64_t from_objects = region_space_->GetObjectsAllocatedInFromSpace();
@@ -2726,7 +2720,6 @@ void ConcurrentCopying::ReclaimPhase() {
     uint64_t to_objects = objects_moved_.load(std::memory_order_relaxed) + objects_moved_gc_thread_;
     cumulative_objects_moved_.fetch_add(to_objects, std::memory_order_relaxed);
     if (kEnableFromSpaceAccountingCheck) {
-      CHECK_EQ(from_space_num_objects_at_first_pause_, from_objects + unevac_from_objects);
       CHECK_EQ(from_space_num_bytes_at_first_pause_, from_bytes + unevac_from_bytes);
     }
     CHECK_LE(to_objects, from_objects);

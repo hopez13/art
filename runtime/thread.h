@@ -1165,6 +1165,7 @@ class Thread {
   mirror::Object* AllocTlab(size_t bytes);
   void SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit);
   bool HasTlab() const;
+  size_t CountTlabObjects() const NO_THREAD_SAFETY_ANALYSIS;
   void ResetTlab();
   uint8_t* GetTlabStart() {
     return tlsPtr_.thread_local_start;

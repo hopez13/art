@@ -5523,12 +5523,9 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
       mirror::Class::SetStatus(klass, ClassStatus::kErrorResolved, self);
       success = false;
     } else {
-      RuntimeStats* global_stats = Runtime::Current()->GetStats();
-      RuntimeStats* thread_stats = self->GetStats();
-      ++global_stats->class_init_count;
-      ++thread_stats->class_init_count;
-      global_stats->class_init_time_ns += (t1 - t0 - t_sub);
-      thread_stats->class_init_time_ns += (t1 - t0 - t_sub);
+      RuntimeStats* stats = self->GetStats();
+      ++stats->class_init_count;
+      stats->class_init_time_ns += (t1 - t0 - t_sub);
       // Set the class as initialized except if failed to initialize static fields.
       callback = MarkClassInitialized(self, klass);
       if (VLOG_IS_ON(class_linker)) {
