@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a74a6ae9_8cb85863",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1133165
+      },
+      "writtenOn": "2020-02-24T08:55:40Z",
+      "side": 1,
+      "message": "After clearing, this state is kRegionStateFree, which can be allocated by large objects. \nBut large object allocation does not check if top_ is 0, whether it will lead to exceptions\nOf course this probability is very small",
+      "range": {
+        "startLine": 118,
+        "startChar": 66,
+        "endLine": 118,
+        "endChar": 73
+      },
+      "revId": "2cd334ae2d4287216523882f0d298cf3901b7ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
