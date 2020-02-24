@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e0a390f_00ad8f74",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-24T11:43:18Z",
+      "side": 1,
+      "message": "Would have suggested std::regex_replace here for the sake of simplicity, but no change required.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 3
+      },
+      "revId": "26f7d102394748f8ec5f8c5342bf55e21bfb8ba5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
