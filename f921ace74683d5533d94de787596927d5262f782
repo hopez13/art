@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad9af592_355176e7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-25T15:42:34Z",
+      "side": 1,
+      "message": "Can we avoid leaking this out of the JIT?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "f921ace74683d5533d94de787596927d5262f782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "646babfe_555d3d8f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-25T15:42:34Z",
+      "side": 1,
+      "message": "Can you re-iterate why we don\u0027t have some kind of object that holds all these static fields, and that is passed from the JIT to the debugger interface?",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 85
+      },
+      "revId": "f921ace74683d5533d94de787596927d5262f782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
