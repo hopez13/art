@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d2b3de5_b6d583e0",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-02-25T12:54:52Z",
+      "side": 1,
+      "message": "I\u0027d change the condition to\n\n  cmdline.empty() || cmdline.back() !\u003d \u0027\\0\u0027\n\nto avoid the (unlikely) case where `cmdline.empty() \u003d\u003d true`, in which `cmdline.back()` had undefined behavior.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "b86fa4f9917b1864057b0dc60828b3d87025b9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
