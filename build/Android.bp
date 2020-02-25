@@ -9,6 +9,7 @@ bootstrap_go_package {
         "soong-android",
         "soong-apex",
         "soong-cc",
+        "soong-sdk",
     ],
     srcs: [
         "art.go",
