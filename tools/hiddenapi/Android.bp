@@ -40,6 +40,11 @@ cc_defaults {
 art_cc_binary {
     name: "hiddenapi",
     defaults: ["hiddenapi-defaults"],
+    target: {
+        host: {
+            compile_multilib: "64",
+        },
+    },
     shared_libs: [
         "libdexfile",
         "libartbase",
