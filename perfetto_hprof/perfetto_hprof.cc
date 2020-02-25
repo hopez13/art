@@ -26,20 +26,22 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <thread>
 #include <time.h>
+#include <zlib.h>
+#include <thread>
 
 #include "gc/heap-visit-objects-inl.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "nativehelper/scoped_local_ref.h"
+#include "perfetto/config/profiling/java_hprof_config.pbzero.h"
 #include "perfetto/profiling/normalize.h"
+#include "perfetto/protozero/packed_repeated_fields.h"
 #include "perfetto/trace/interned_data/interned_data.pbzero.h"
 #include "perfetto/trace/profiling/heap_graph.pbzero.h"
 #include "perfetto/trace/profiling/profile_common.pbzero.h"
-#include "perfetto/config/profiling/java_hprof_config.pbzero.h"
-#include "perfetto/protozero/packed_repeated_fields.h"
+#include "perfetto/trace/trace.pbzero.h"
 #include "perfetto/tracing.h"
 #include "runtime-inl.h"
 #include "runtime_callbacks.h"
@@ -64,6 +66,9 @@ constexpr time_t kWatchdogTimeoutSec = 120;
 // submessages can be up to 100k here for a 500k chunk size.
 // DropBox has a 500k chunk limit, and each chunk needs to parse as a proto.
 constexpr uint32_t kPacketSizeThreshold = 400000;
+constexpr uint32_t kPacketMaxSize = 1000000;
+static_assert(kPacketSizeThreshold < kPacketMaxSize,
+              "splitting threshold needs to be smaller than max size");
 constexpr char kByte[1] = {'x'};
 static art::Mutex& GetStateMutex() {
   static art::Mutex state_mutex("perfetto_hprof_state_mutex", art::LockLevel::kGenericBottomLock);
@@ -125,6 +130,8 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
         new perfetto::protos::pbzero::JavaHprofConfig::Decoder(
           args.config->java_hprof_config_raw()));
 
+    compress_in_producer_ = cfg->compress_in_producer();
+
     uint64_t self_pid = static_cast<uint64_t>(getpid());
     for (auto pid_it = cfg->pid(); pid_it; ++pid_it) {
       if (*pid_it == self_pid) {
@@ -173,6 +180,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   }
 
   bool enabled() { return enabled_; }
+  bool compress_in_producer() { return compress_in_producer_; }
 
   void OnStart(const StartArgs&) override {
     if (!enabled()) {
@@ -198,6 +206,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   }
 
  private:
+  bool compress_in_producer_ = false;
   bool enabled_ = false;
   static art::Thread* self_;
 };
@@ -224,13 +233,14 @@ void WaitForDataSource(art::Thread* self) {
 
 class Writer {
  public:
-  Writer(pid_t parent_pid, JavaHprofDataSource::TraceContext* ctx, uint64_t timestamp)
-      : parent_pid_(parent_pid), ctx_(ctx), timestamp_(timestamp),
-        last_written_(ctx_->written()) {}
+  Writer(pid_t parent_pid, JavaHprofDataSource::TraceContext* ctx,
+         uint64_t timestamp)
+      : parent_pid_(parent_pid), ctx_(ctx), timestamp_(timestamp) {}
 
-  // Return whether the next call to GetHeapGraph will create a new TracePacket.
+  // Return whether the next call to GetHeapGraph will create a new
+  // TracePacket.
   bool will_create_new_packet() {
-    return !heap_graph_ || ctx_->written() - last_written_ > kPacketSizeThreshold;
+    return !heap_graph_ || bytes_written() > kPacketSizeThreshold;
   }
 
   perfetto::protos::pbzero::HeapGraph* GetHeapGraph() {
@@ -243,41 +253,121 @@ class Writer {
   void CreateNewHeapGraph() {
     if (heap_graph_) {
       heap_graph_->set_continued(true);
+      Finalize();
     }
-    Finalize();
 
-    uint64_t written = ctx_->written();
-
-    trace_packet_ = ctx_->NewTracePacket();
-    trace_packet_->set_timestamp(timestamp_);
-    heap_graph_ = trace_packet_->set_heap_graph();
+    auto* trace_packet = CreateTracePacket();
+    trace_packet->set_timestamp(timestamp_);
+    heap_graph_ = trace_packet->set_heap_graph();
     heap_graph_->set_pid(parent_pid_);
     heap_graph_->set_index(index_++);
-
-    last_written_ = written;
   }
 
   void Finalize() {
-    if (trace_packet_) {
-      trace_packet_->Finalize();
-    }
+    FinalizeTracePacket();
     heap_graph_ = nullptr;
   }
 
-  ~Writer() { Finalize(); }
+  virtual ~Writer() = default;
 
- private:
+ protected:
   const pid_t parent_pid_;
   JavaHprofDataSource::TraceContext* const ctx_;
   const uint64_t timestamp_;
 
-  uint64_t last_written_ = 0;
-
-  perfetto::DataSource<JavaHprofDataSource>::TraceContext::TracePacketHandle
-      trace_packet_;
-  perfetto::protos::pbzero::HeapGraph* heap_graph_ = nullptr;
+ private:
+  virtual perfetto::protos::pbzero::TracePacket* CreateTracePacket() = 0;
+  virtual void FinalizeTracePacket() = 0;
+  virtual uint64_t bytes_written() = 0;
 
   uint64_t index_ = 0;
+  perfetto::protos::pbzero::HeapGraph* heap_graph_ = nullptr;
+};
+
+class DefaultWriter : public Writer {
+ public:
+  DefaultWriter(pid_t parent_pid, JavaHprofDataSource::TraceContext* ctx,
+                uint64_t timestamp)
+      : Writer(parent_pid, ctx, timestamp) {
+    last_written_ = ctx_->written();
+  }
+
+  virtual ~DefaultWriter() { FinalizeTracePacket(); }
+
+ private:
+  uint64_t bytes_written() override { return ctx_->written() - last_written_; }
+
+  perfetto::protos::pbzero::TracePacket* CreateTracePacket() override {
+    last_written_ = ctx_->written();
+    trace_packet_ = ctx_->NewTracePacket();
+    return &*trace_packet_;
+  }
+
+  void FinalizeTracePacket() override {
+    if (trace_packet_) {
+      trace_packet_->Finalize();
+    }
+  }
+
+  uint64_t last_written_ = 0;
+  perfetto::DataSource<JavaHprofDataSource>::TraceContext::TracePacketHandle
+      trace_packet_;
+};
+
+class CompressingWriter : public Writer {
+ public:
+  CompressingWriter(pid_t parent_pid, JavaHprofDataSource::TraceContext* ctx,
+                    uint64_t timestamp)
+      : Writer(parent_pid, ctx, timestamp) {}
+
+  virtual ~CompressingWriter() { FinalizeTracePacket(); }
+
+ private:
+  perfetto::protos::pbzero::TracePacket* CreateTracePacket() override {
+    last_written_ = trace_.writer().written();
+    trace_.Reset();
+    trace_packet_ = trace_->add_packet();
+    return trace_packet_;
+  }
+
+  uint64_t bytes_written() override {
+    return trace_.writer().written() - last_written_;
+  }
+
+  void FinalizeTracePacket() override {
+    CHECK_LT(bytes_written(), kPacketMaxSize);
+
+    z_stream stream{};
+    std::vector<unsigned char> buf(kPacketMaxSize);
+    CHECK_EQ(deflateInit(&stream, 9), Z_OK);
+    stream.next_out = &buf[0];
+    stream.avail_out = kPacketMaxSize;
+
+    for (protozero::ContiguousMemoryRange& range : trace_.GetRanges()) {
+      stream.next_in = range.begin;
+      stream.avail_in = range.size();
+      while (stream.avail_in > 0u) {
+        CHECK_EQ(deflate(&stream, Z_NO_FLUSH), Z_OK);
+        CHECK_GT(stream.avail_out, 0u);
+      }
+    }
+    int res = Z_OK;
+    do {
+      res = deflate(&stream, Z_FINISH);
+      CHECK_GT(stream.avail_out, 0u);
+    } while (res == Z_OK);
+    CHECK_EQ(res, Z_STREAM_END);
+    size_t size = buf.size() - stream.avail_out;
+    CHECK_EQ(deflateEnd(&stream), Z_OK);
+
+    auto trace_packet = ctx_->NewTracePacket();
+    trace_packet->set_compressed_packets(&buf[0], size);
+    trace_packet->Finalize();
+  }
+
+  uint64_t last_written_ = 0;
+  protozero::HeapBuffered<perfetto::protos::pbzero::Trace> trace_;
+  perfetto::protos::pbzero::TracePacket* trace_packet_;
 };
 
 class ReferredObjectsFinder {
@@ -423,15 +513,22 @@ void DumpPerfetto(art::Thread* self) {
   JavaHprofDataSource::Trace(
       [parent_pid, timestamp](JavaHprofDataSource::TraceContext ctx)
           NO_THREAD_SAFETY_ANALYSIS {
+            bool compress_in_producer;
             {
               auto ds = ctx.GetDataSourceLocked();
               if (!ds || !ds->enabled()) {
                 LOG(INFO) << "skipping irrelevant data source.";
                 return;
               }
+              compress_in_producer = ds->compress_in_producer();
             }
             LOG(INFO) << "dumping heap for " << parent_pid;
-            Writer writer(parent_pid, &ctx, timestamp);
+            std::unique_ptr<Writer> writer;
+            if (compress_in_producer) {
+              writer.reset(new CompressingWriter(parent_pid, &ctx, timestamp));
+            } else {
+              writer.reset(new DefaultWriter(parent_pid, &ctx, timestamp));
+            }
             // Make sure that intern ID 0 (default proto value for a uint64_t) always maps to ""
             // (default proto value for a string).
             std::map<std::string, uint64_t> interned_fields{{"", 0}};
@@ -446,13 +543,13 @@ void DumpPerfetto(art::Thread* self) {
               const art::RootType root_type = p.first;
               const std::vector<art::mirror::Object*>& children = p.second;
               perfetto::protos::pbzero::HeapGraphRoot* root_proto =
-                writer.GetHeapGraph()->add_roots();
+                  writer->GetHeapGraph()->add_roots();
               root_proto->set_root_type(ToProtoType(root_type));
               for (art::mirror::Object* obj : children) {
-                if (writer.will_create_new_packet()) {
+                if (writer->will_create_new_packet()) {
                   root_proto->set_object_ids(*object_ids);
                   object_ids->Reset();
-                  root_proto = writer.GetHeapGraph()->add_roots();
+                  root_proto = writer->GetHeapGraph()->add_roots();
                   root_proto->set_root_type(ToProtoType(root_type));
                 }
                 object_ids->Append(reinterpret_cast<uintptr_t>(obj));
@@ -468,10 +565,11 @@ void DumpPerfetto(art::Thread* self) {
 
             art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
                 [&writer, &interned_types, &interned_fields,
-                &reference_field_ids, &reference_object_ids](
-                    art::mirror::Object* obj) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+                 &reference_field_ids, &reference_object_ids](
+                    art::mirror::Object*
+                        obj) REQUIRES_SHARED(art::Locks::mutator_lock_) {
                   perfetto::protos::pbzero::HeapGraphObject* object_proto =
-                    writer.GetHeapGraph()->add_objects();
+                      writer->GetHeapGraph()->add_objects();
                   object_proto->set_id(reinterpret_cast<uintptr_t>(obj));
                   object_proto->set_type_id(
                       FindOrAppend(&interned_types, obj->PrettyTypeOf()));
@@ -496,7 +594,7 @@ void DumpPerfetto(art::Thread* self) {
               uint64_t id = p.second;
 
               perfetto::protos::pbzero::InternedString* field_proto =
-                writer.GetHeapGraph()->add_field_names();
+                  writer->GetHeapGraph()->add_field_names();
               field_proto->set_iid(id);
               field_proto->set_str(
                   reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
@@ -506,13 +604,13 @@ void DumpPerfetto(art::Thread* self) {
               uint64_t id = p.second;
 
               perfetto::protos::pbzero::InternedString* type_proto =
-                writer.GetHeapGraph()->add_type_names();
+                  writer->GetHeapGraph()->add_type_names();
               type_proto->set_iid(id);
               type_proto->set_str(reinterpret_cast<const uint8_t*>(str.c_str()),
                                   str.size());
             }
 
-            writer.Finalize();
+            writer->Finalize();
 
             ctx.Flush([] {
               {
