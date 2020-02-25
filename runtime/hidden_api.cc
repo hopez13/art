@@ -34,6 +34,12 @@
 namespace art {
 namespace hiddenapi {
 
+// Should be the same as dalvik.system.VMRuntime.HIDE_APIS_AFTER_P and
+// dalvik.system.VMRuntime.HIDE_APIS_AFTER_Q.
+// Corresponds to bug ids.
+static constexpr uint64_t kHideApisAfterP = 149997251;
+static constexpr uint64_t kHideApisAfterQ = 149994052;
+
 // Set to true if we should always print a warning in logcat for all hidden API accesses, not just
 // dark grey and black. This can be set to true for developer preview / beta builds, but should be
 // false for public release builds.
@@ -457,8 +463,17 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
     if (testApiPolicy == EnforcementPolicy::kDisabled && api_list.IsTestApi()) {
       deny_access = false;
     } else {
-      deny_access = IsSdkVersionSetAndMoreThan(runtime->GetTargetSdkVersion(),
-                                               api_list.GetMaxAllowedSdkVersion());
+      switch (api_list.GetMaxAllowedSdkVersion()) {
+        case SdkVersion::kP:
+          deny_access = runtime->isChangeEnabled(kHideApisAfterP);
+          break;
+        case SdkVersion::kQ:
+          deny_access = runtime->isChangeEnabled(kHideApisAfterQ);
+          break;
+        default:
+          deny_access = IsSdkVersionSetAndMoreThan(runtime->GetTargetSdkVersion(),
+                                                         api_list.GetMaxAllowedSdkVersion());
+      }
     }
   }
 
