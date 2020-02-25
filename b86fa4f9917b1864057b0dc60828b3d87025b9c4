@@ -22,6 +22,30 @@
       "revId": "b86fa4f9917b1864057b0dc60828b3d87025b9c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ad4f95_5ac801f9",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-02-25T13:07:45Z",
+      "side": 1,
+      "message": "As cmdline must never be empty, it includes at least the name of the running program, the empty cmdline means something really bad has happened. The execution cannot continue with the empty cmdline. The following \u0027execv\u0027 will fail.\n\nI suggest \u0027LOG(FATAL)\u0027 for such the empty cmdline.",
+      "parentUuid": "9d2b3de5_b6d583e0",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "b86fa4f9917b1864057b0dc60828b3d87025b9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
