@@ -27,7 +27,7 @@ sdk {
 }
 
 // Exported host tools and libraries.
-module_exports {
+art_module_exports {
     name: "art-module-host-exports",
     host_supported: true,
     device_supported: false,

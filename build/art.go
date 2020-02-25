@@ -19,6 +19,7 @@ import (
 	"log"
 	"sync"
 
+	"android/soong/sdk"
 	"github.com/google/blueprint/proptools"
 
 	"android/soong/android"
@@ -317,6 +318,7 @@ func init() {
 	// only used for testing we can just disable the module.
 	// See b/120617876 for more information.
 	android.RegisterModuleType("art_apex_test_host", artHostTestApexBundleFactory)
+	android.RegisterModuleType("art_module_exports", artModuleExportsFactory)
 }
 
 func artApexBundleFactory() android.Module {
@@ -329,6 +331,11 @@ func artTestApexBundleFactory() android.Module {
 
 func artHostTestApexBundleFactory() android.Module {
 	module := apex.ApexBundleFactory(true /*testApex*/, true /*artApex*/)
+	disableWhenHostPrefer32BitIsTrue(module)
+	return module
+}
+
+func disableWhenHostPrefer32BitIsTrue(module android.Module) {
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) {
 		if ctx.Config().IsEnvTrue("HOST_PREFER_32_BIT") {
 			type props struct {
@@ -345,7 +352,11 @@ func artHostTestApexBundleFactory() android.Module {
 			log.Print("Disabling host build of " + ctx.ModuleName() + " for HOST_PREFER_32_BIT=true")
 		}
 	})
+}
 
+func artModuleExportsFactory() android.Module {
+	module := sdk.ModuleExportsFactory()
+	disableWhenHostPrefer32BitIsTrue(module)
 	return module
 }
 
