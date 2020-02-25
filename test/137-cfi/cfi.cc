@@ -64,6 +64,10 @@ extern "C" JNIEXPORT jint JNICALL Java_Main_startSecondaryProcess(JNIEnv*, jclas
   // Get our command line so that we can use it to start identical process.
   std::string cmdline;  // null-separated and null-terminated arguments.
   android::base::ReadFileToString("/proc/self/cmdline", &cmdline);
+  // Workaround for b/150189787.
+  if (cmdline.back() != '\0') {
+    cmdline += '\0';
+  }
   cmdline = cmdline + "--secondary" + '\0';  // Let the child know it is a helper.
 
   // Split the string into individual arguments suitable for execv.
