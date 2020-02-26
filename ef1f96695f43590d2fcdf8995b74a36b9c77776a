@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16e8fd65_969086e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-02-26T21:14:07Z",
+      "side": 1,
+      "message": "When I tried this dalvikvm still errors out before it even gets to attempting to load the class, due to missing boot image in out/host/linux-x86/framework, so it looks like even more dependencies ought to be specified. Haven\u0027t looked into that.",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 89
+      },
+      "revId": "ef1f96695f43590d2fcdf8995b74a36b9c77776a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
