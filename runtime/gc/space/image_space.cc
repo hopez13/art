@@ -3441,6 +3441,11 @@ bool ImageSpace::LoadBootImage(
 
       // Disable compilation/patching - we do not want to fill up the space again.
       low_space = true;
+      
+      // Disable compilation when low space
+      if (Runtime::Current() != nullptr) {
+        Runtime::Current()->SetPruneDalvikCacheByLowSpace(true);
+      }
     }
   }
 

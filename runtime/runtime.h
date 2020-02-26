@@ -832,6 +832,14 @@ class Runtime {
     pruned_dalvik_cache_ = pruned;
   }
 
+  bool GetPrunedDalvikCacheByLowSpace() const {
+    | return pruned_dalvik_cache_low_space_;
+  }
+
+  void SetPruneDalvikCacheByLowSpace(bool pruned) {
+    | pruned_dalvik_cache_low_space_ = pruned;
+  }
+
   void UpdateProcessState(ProcessState process_state);
 
   // Returns true if we currently care about long mutator pause.
@@ -1285,6 +1293,9 @@ class Runtime {
 
   // Whether the dalvik cache was pruned when initializing the runtime.
   bool pruned_dalvik_cache_;
+
+  // Whether the dalvik cache was pruned when low space
+  bool pruned_dalvik_cache_low_space_;
 
   // Whether or not we currently care about pause times.
   ProcessState process_state_;
