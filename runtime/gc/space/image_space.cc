@@ -3439,8 +3439,10 @@ bool ImageSpace::LoadBootImage(
       // Re-evaluate the image.
       loader.FindImageFiles();
 
-      // Disable compilation/patching - we do not want to fill up the space again.
       low_space = true;
+      if (Runtime::Current() != nullptr) {
+        Runtime::Current()->SetPruneDalvikCacheByLowSpace(true);
+      }
     }
   }
 
