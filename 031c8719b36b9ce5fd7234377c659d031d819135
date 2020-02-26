@@ -70,6 +70,30 @@
       "revId": "031c8719b36b9ce5fd7234377c659d031d819135",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1e6de61_590ae204",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-02-26T20:30:05Z",
+      "side": 1,
+      "message": "I think _just_ removing enforcement policies would break some use cases for StrictMode.",
+      "parentUuid": "3ec3b3c1_0d797bad",
+      "range": {
+        "startLine": 463,
+        "startChar": 9,
+        "endLine": 463,
+        "endChar": 53
+      },
+      "revId": "031c8719b36b9ce5fd7234377c659d031d819135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
