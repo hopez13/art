@@ -22,6 +22,30 @@
       "revId": "031c8719b36b9ce5fd7234377c659d031d819135",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ab0d148_f606462d",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2020-02-26T10:30:01Z",
+      "side": 1,
+      "message": "you mean to replace it with compat framework as well? \nThere are tests that disable testAPI, but not hiddenAPI. I think it\u0027s easier to control with the flag that we have. +satayev@?",
+      "parentUuid": "77aae32b_c1c22d40",
+      "range": {
+        "startLine": 463,
+        "startChar": 9,
+        "endLine": 463,
+        "endChar": 53
+      },
+      "revId": "031c8719b36b9ce5fd7234377c659d031d819135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
