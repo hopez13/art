@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0f041e0_2efe7804",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3442,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-02-27T17:51:29Z",
+      "side": 1,
+      "message": "This is a stale comment, as we don\u0027t run patchoat/compilation anymore. It\u0027s likely that the whole block here is going to be removed.\n\nSo maybe this CL is better handled in the zygote itself?",
+      "range": {
+        "startLine": 3442,
+        "startChar": 5,
+        "endLine": 3442,
+        "endChar": 82
+      },
+      "revId": "ca768dc991165211cbca260cde8a6c8bfa754cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
