@@ -212,6 +212,30 @@
       "revId": "ad0079398c372bf72e81f31ca4e343cf38922ad4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a62abd0_0d4027e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-02-27T09:36:32Z",
+      "side": 1,
+      "message": "This runs on the art LUCI bots continuously and this CL change affects the bots (go/art-buildbot).\n\nMost ART development has more limited scope so typically team members are running a subset of these tests and relying on post-submit to do a broader sweep.",
+      "parentUuid": "225c1f83_b3dcf3ef",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "ad0079398c372bf72e81f31ca4e343cf38922ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
