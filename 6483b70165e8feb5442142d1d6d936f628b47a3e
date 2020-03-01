@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c088f2c_8d3b519d",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-01T11:18:34Z",
+      "side": 1,
+      "message": "Could we set those fields early on, when the runtime intiializes?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 3
+      },
+      "revId": "6483b70165e8feb5442142d1d6d936f628b47a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
