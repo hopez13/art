@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bac028a_63338539",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-02T21:10:49Z",
+      "side": 1,
+      "message": "Indentation here and below.",
+      "range": {
+        "startLine": 60,
+        "startChar": 76,
+        "endLine": 60,
+        "endChar": 78
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59a89846_0cd3443d",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-02T21:10:49Z",
+      "side": 1,
+      "message": "Could you please elaborate on what the reason is for introducing a new induction variable to the loop? this phi and the computation \"Add [\u003c\u003cPhi3\u003e\u003e,\u003c\u003cConst1\u003e\u003e]\".",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae622fc7_4208aa4d",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-02T21:10:49Z",
+      "side": 1,
+      "message": "I think it might be a good thing to extend checker testing from the situation with one positive and no negative ones; maybe less detailed check statements for some others.\n\nRelated question: what is a range of supported loops? Are loops with control flow allowed? Maybe worth to reflect in the tests.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 44
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
