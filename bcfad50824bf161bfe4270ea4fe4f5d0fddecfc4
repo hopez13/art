@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea9b0bfb_86b0c4be",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-03-02T18:11:11Z",
+      "side": 1,
+      "message": "nit: I think Finalize() is only called in one place, could this be inlined in  CreateNewHeapGraph?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 3
+      },
+      "revId": "bcfad50824bf161bfe4270ea4fe4f5d0fddecfc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acc14fac_d0acae96",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-03-02T18:11:11Z",
+      "side": 1,
+      "message": "If both the sub-classes exposed total_bytes_written_so_far() (or something) I think that would be simpler for them and then you could do the last_written_ math once in the superclass.",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 3
+      },
+      "revId": "bcfad50824bf161bfe4270ea4fe4f5d0fddecfc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1511c465_dbbf8a4c",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-03-02T18:11:11Z",
+      "side": 1,
+      "message": "9 uses a surprising amount of CPU, consider 6 instead (that\u0027s what I ended up switching perfetto_cmd to). In my expriments on a 27mb trace level 9 took 2.9s and compressed to 24% the size whereas level 6 compressed to 25% and took 0.6s\n\n- https://docs.google.com/spreadsheets/d/1IJJjn6vHrEc0XDKdBeGHgitSkZH8D-DBZ9LzXmEfxoE/edit#gid\u003d0\n- https://android-review.googlesource.com/c/platform/external/perfetto/+/1218416",
+      "range": {
+        "startLine": 342,
+        "startChar": 34,
+        "endLine": 342,
+        "endChar": 35
+      },
+      "revId": "bcfad50824bf161bfe4270ea4fe4f5d0fddecfc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b1ef3bf_b3b82050",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-03-02T18:11:11Z",
+      "side": 1,
+      "message": "nit: a comment about how GetRanges() implicitly finalizes the trace might be good otherwise looks like it was forgotten.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 71
+      },
+      "revId": "bcfad50824bf161bfe4270ea4fe4f5d0fddecfc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
