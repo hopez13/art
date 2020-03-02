@@ -21,7 +21,9 @@
 #include <dirent.h>
 
 #include <algorithm>
+#include <map>
 #include <memory>
+#include <optional>
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -49,6 +51,7 @@ namespace {
 constexpr const char* kDefaultPublicLibrariesFile = "/etc/public.libraries.txt";
 constexpr const char* kExtendedPublicLibrariesFilePrefix = "public.libraries-";
 constexpr const char* kExtendedPublicLibrariesFileSuffix = ".txt";
+constexpr const char* kJniConfigFile = "/linkerconfig/jni.config.txt";
 constexpr const char* kVendorPublicLibrariesFile = "/vendor/etc/public.libraries.txt";
 constexpr const char* kLlndkLibrariesFile = "/apex/com.android.vndk.v{}/etc/llndk.libraries.{}.txt";
 constexpr const char* kVndkLibrariesFile = "/apex/com.android.vndk.v{}/etc/vndksp.libraries.{}.txt";
@@ -313,6 +316,30 @@ static std::string InitStatsdPublicLibraries() {
   return kStatsdApexPublicLibrary;
 }
 
+static std::map<std::string, std::string> InitApexJniLibraries() {
+  std::string file_content;
+  if (!base::ReadFileToString(kJniConfigFile, &file_content)) {
+    // jni config is optional
+    return {};
+  }
+  std::map<std::string, std::string> entries;
+  std::vector<std::string> lines = base::Split(file_content, "\n");
+  for (auto& line : lines) {
+    auto trimmed_line = base::Trim(line);
+    if (trimmed_line[0] == '#' || trimmed_line.empty()) {
+      continue;
+    }
+
+    std::vector<std::string> tokens = android::base::Split(trimmed_line, " ");
+    if (tokens.size() > 2) {
+      LOG_ALWAYS_FATAL("Malformed line \"%s\"", line.c_str());
+      return {};
+    }
+    entries[tokens[0]] = tokens[1];
+  }
+  return entries;
+}
+
 }  // namespace
 
 const std::string& preloadable_public_libraries() {
@@ -373,6 +400,14 @@ const std::string& vndksp_libraries_product() {
 const std::string& vndksp_libraries_vendor() {
   static std::string list = InitVndkspLibrariesVendor();
   return list;
+}
+
+std::optional<std::string> apex_jni_libraries(const std::string& apex_ns_name) {
+  static std::map<std::string, std::string> jni_libraries = InitApexJniLibraries();
+  if (auto it = jni_libraries.find(apex_ns_name); it != jni_libraries.end()) {
+    return it->second;
+  }
+  return std::nullopt;
 }
 
 bool is_product_vndk_version_defined() {

@@ -26,6 +26,7 @@
 #include "native_loader_namespace.h"
 
 #include <list>
+#include <optional>
 #include <string>
 
 #include <android-base/result.h>
@@ -66,6 +67,8 @@ class LibraryNamespaces {
   NativeLoaderNamespace* app_main_namespace_;
   std::list<std::pair<jweak, NativeLoaderNamespace>> namespaces_;
 };
+
+std::optional<std::string> FindApexNamespaceName(const std::string& path);
 
 }  // namespace android::nativeloader
 
