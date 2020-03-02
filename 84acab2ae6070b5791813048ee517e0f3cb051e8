@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a5c63025_7f9cd0e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-02T17:05:58Z",
+      "side": 1,
+      "message": "Oh, I didn\u0027t see you comments when abandoning this. With CronetApiTest, I found that my approach didn\u0027t work.\n\nFor example, before loading /apex/com.android.foo/javalib/foo.jar, it is compiled. For System.loadLibrary from the compiled binary to work, the jni libs should be available to the classloader-namespace thru linked linker namespace.\n\ndlopen() from JNI libs might be another reason why this change doesn\u0027t work.",
+      "parentUuid": "d71c17d0_ba7f3ac8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "84acab2ae6070b5791813048ee517e0f3cb051e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec4692bc_41b25a6e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
