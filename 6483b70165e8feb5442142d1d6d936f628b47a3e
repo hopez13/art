@@ -46,6 +46,30 @@
       "revId": "6483b70165e8feb5442142d1d6d936f628b47a3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccbcc32f_37128aea",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-02T09:33:07Z",
+      "side": 1,
+      "message": "I meant set the bit in the access flags when the runtime initializes.",
+      "parentUuid": "84d90846_cfd0b3e5",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 3
+      },
+      "revId": "6483b70165e8feb5442142d1d6d936f628b47a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
