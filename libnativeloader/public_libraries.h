@@ -41,6 +41,7 @@ const std::string& llndk_libraries_product();
 const std::string& llndk_libraries_vendor();
 const std::string& vndksp_libraries_product();
 const std::string& vndksp_libraries_vendor();
+const std::string& apex_jni_libraries(const std::string& apex_name);
 
 // Returns true if libnativeloader is running on devices and the device has
 // ro.product.vndk.version property. It returns false for host.
