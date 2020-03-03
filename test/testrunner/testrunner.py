@@ -569,11 +569,22 @@ def run_test(command, test, test_variant, test_name):
       if verbose:
         print_text("Starting %s at %s\n" % (test_name, test_start_time))
       if gdb:
-        proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT,
-                                universal_newlines=True, start_new_session=True)
+        proc = subprocess.Popen(
+          command.split(),
+          stderr=subprocess.STDOUT,
+          universal_newlines=True,
+          start_new_session=True,
+          encoding=sys.stdout.encoding,
+        )
       else:
-        proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT, stdout = subprocess.PIPE,
-                                universal_newlines=True, start_new_session=True)
+        proc = subprocess.Popen(
+          command.split(),
+          stderr=subprocess.STDOUT,
+          stdout = subprocess.PIPE,
+          universal_newlines=True,
+          start_new_session=True,
+          encoding=sys.stdout.encoding,
+        )
       script_output = proc.communicate(timeout=timeout)[0]
       test_passed = not proc.wait()
       test_time_seconds = time.monotonic() - test_start_time
