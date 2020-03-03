@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "869a0e96_c49795f3",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T17:57:36Z",
+      "side": 1,
+      "message": "Yes, limiting the availability of JNI libs to only the same APEX is the intent. By the way, one thing I\u0027m not sure is whether there\u0027s any difference between jar and apk in an apex? Is classloader-namespace created APK as well? I hope that APEX namespace is linked to both cases.\n\nICU libs (and all libs in public.libraries.txt) might be generalized and we could remove hard-coded references. But it would require more information from linkerconfig. That would be the follow-up change.",
+      "parentUuid": "b713c6a3_3a3b9484",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd563b0c_f5b2f39b",
         "filename": "libnativeloader/library_namespaces.cpp",
         "patchSetId": 5
@@ -59,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "f25a7b03_55f6a5db",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T17:57:36Z",
+      "side": 1,
+      "message": "Sure, I will.",
+      "parentUuid": "bbbc6756_da7db802",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa23ad14_19ed2bf1",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 5
@@ -70,6 +106,30 @@
       "writtenOn": "2020-03-03T17:29:47Z",
       "side": 1,
       "message": "Consider making this \u003c, just in case we\u0027d like to extend the format for some reason in the future.",
+      "range": {
+        "startLine": 333,
+        "startChar": 38,
+        "endLine": 333,
+        "endChar": 40
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d3d59b_b3c50f35",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T17:57:36Z",
+      "side": 1,
+      "message": "I thought both ways and chose to be specific, at least for now. I\u0027d like to rely on tight-coupling, which reveals programming errors in a clear way.",
+      "parentUuid": "fa23ad14_19ed2bf1",
       "range": {
         "startLine": 333,
         "startChar": 38,
