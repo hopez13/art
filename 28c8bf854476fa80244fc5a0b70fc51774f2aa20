@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "94bd407c_b67d7682",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T19:09:43Z",
+      "side": 1,
+      "message": "Good questions, I\u0027ve no idea what APKs in APEXes look like.\n\n\u003e ... That would be the follow-up change.\n\nOk, I\u0027m all for it as long as we think this approach will work, rather than something that iterates over all the APEXes with JNI libs.\n\nI suggest adding a comment here to spell it out more clearly.",
+      "parentUuid": "869a0e96_c49795f3",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd563b0c_f5b2f39b",
         "filename": "libnativeloader/library_namespaces.cpp",
         "patchSetId": 5
@@ -81,6 +99,30 @@
       "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d6b85c_f65395ae",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T19:09:43Z",
+      "side": 1,
+      "message": "Aha, that\u0027s a pity. Strictly speaking data() would work since we know the source is null terminated, but it wouldn\u0027t be pretty.",
+      "parentUuid": "c9ea193e_c7c17838",
+      "range": {
+        "startLine": 388,
+        "startChar": 48,
+        "endLine": 388,
+        "endChar": 66
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -195,6 +237,30 @@
       "writtenOn": "2020-03-03T18:53:35Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "18d3d59b_b3c50f35",
+      "range": {
+        "startLine": 333,
+        "startChar": 38,
+        "endLine": 333,
+        "endChar": 40
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a7ea195_136ae8db",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T19:09:43Z",
+      "side": 1,
+      "message": "A risk is that we forget to revisit it before linkerconfig becomes updatable, especially if that were to happen while ART still isn\u0027t (unlikely though that might be). But I see you changed anyway, thanks.",
       "parentUuid": "18d3d59b_b3c50f35",
       "range": {
         "startLine": 333,
