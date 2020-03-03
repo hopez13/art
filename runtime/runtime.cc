@@ -2735,9 +2735,9 @@ bool Runtime::IsAsyncDeoptimizeable(uintptr_t code) const {
   // We could look at the oat file where `code` is being defined,
   // and check whether it's been compiled debuggable, but we decided to
   // only rely on the JIT for debuggable apps.
-  return IsJavaDebuggable() &&
-      GetJit() != nullptr &&
-      GetJit()->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(code));
+  return IsJavaDebuggable() && GetJit() != nullptr &&
+         GetJit()->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(code),
+                                              /*allow_zygote=*/false);
 }
 
 LinearAlloc* Runtime::CreateLinearAlloc() {

@@ -210,7 +210,7 @@ class JitCodeCache {
       REQUIRES(!Locks::jit_lock_);
 
   // Return true if the code cache contains this pc.
-  bool ContainsPc(const void* pc) const;
+  bool ContainsPc(const void* pc, bool allow_zygote = true) const;
 
   // Returns true if either the method's entrypoint is JIT compiled code or it is the
   // instrumentation entrypoint and we can jump to jit code for this method. For testing use only.

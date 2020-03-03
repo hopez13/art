@@ -273,8 +273,8 @@ JitCodeCache::JitCodeCache()
 
 JitCodeCache::~JitCodeCache() {}
 
-bool JitCodeCache::ContainsPc(const void* ptr) const {
-  return private_region_.IsInExecSpace(ptr) || shared_region_.IsInExecSpace(ptr);
+bool JitCodeCache::ContainsPc(const void* ptr, bool allow_zygote) const {
+  return private_region_.IsInExecSpace(ptr) || (allow_zygote && shared_region_.IsInExecSpace(ptr));
 }
 
 bool JitCodeCache::WillExecuteJitCode(ArtMethod* method) {
