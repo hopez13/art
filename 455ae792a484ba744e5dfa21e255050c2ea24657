@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2c52073b_cdbd4eb4",
+        "filename": "libnativeloader/library_namespaces.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T17:29:47Z",
+      "side": 1,
+      "message": "I agree, isn\u0027t Result\u003c\u003e applicable only if it would carry an error back? In this case FindApexNamespaceName is intended to be called on all locations, be they in /apex/ or not, so I wouldn\u0027t consider it an error. Just my 2 cents though, it works either way.",
+      "parentUuid": "32fae5c4_b85fa972",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc364198_d1bc6d69",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3

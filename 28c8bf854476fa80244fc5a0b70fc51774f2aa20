@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b713c6a3_3a3b9484",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T17:29:47Z",
+      "side": 1,
+      "message": "This means we install links to the JNI libs only when loading jars in our own APEX. That\u0027s different from the old approach where all classloader-namespaces get links to all APEXes\u0027 exported JNI libs.\n\nI suppose that\u0027s intentional, and it\u0027s great provided we a) can remove all the hardcoded cases, and b) still don\u0027t get compat issues with it. Is that the case? Note (a) applies to the ICU libs in the ART APEX itself too, because we plan to move ICU to a separate APEX.",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd563b0c_f5b2f39b",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T17:29:47Z",
+      "side": 1,
+      "message": "const std::string_view here to avoid a string copy in calls from FindExportedNamespace.",
+      "range": {
+        "startLine": 388,
+        "startChar": 48,
+        "endLine": 388,
+        "endChar": 66
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbbc6756_da7db802",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T17:29:47Z",
+      "side": 1,
+      "message": "A few unit tests for this to exercise the format of jni.config.txt would be nice.",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa23ad14_19ed2bf1",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-03T17:29:47Z",
+      "side": 1,
+      "message": "Consider making this \u003c, just in case we\u0027d like to extend the format for some reason in the future.",
+      "range": {
+        "startLine": 333,
+        "startChar": 38,
+        "endLine": 333,
+        "endChar": 40
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
