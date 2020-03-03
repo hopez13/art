@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84695a84_9807cea4",
+        "filename": "libnativeloader/library_namespaces.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-03T00:27:07Z",
+      "side": 1,
+      "message": "the pattern here is to use Result\u003c\u003e",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc364198_d1bc6d69",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-03T00:27:07Z",
+      "side": 1,
+      "message": "continue?",
+      "range": {
+        "startLine": 336,
+        "startChar": 6,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ce644d_5c478f62",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-03T00:27:07Z",
+      "side": 1,
+      "message": "const std::string\u0026 for consistency",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
