@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ea1355cf_f1f0a73f",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-03T02:58:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8be77395_dd9c1b39",
+      "range": {
+        "startLine": 336,
+        "startChar": 6,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87ce644d_5c478f62",
         "filename": "libnativeloader/public_libraries.h",
         "patchSetId": 3
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Okay, then \"\"(null string) would serve as std::nullopt, right?",
       "parentUuid": "87ce644d_5c478f62",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "455ae792a484ba744e5dfa21e255050c2ea24657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffaeff3d_58aff217",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-03-03T02:58:48Z",
+      "side": 1,
+      "message": "Right.",
+      "parentUuid": "ae7f9e54_f571d9dd",
       "range": {
         "startLine": 45,
         "startChar": 0,
