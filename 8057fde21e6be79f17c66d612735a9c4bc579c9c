@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f67ab0f_8b3496cc",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-03T10:43:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bac028a_63338539",
+      "range": {
+        "startLine": 60,
+        "startChar": 76,
+        "endLine": 60,
+        "endChar": 78
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59a89846_0cd3443d",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dedbba91_c537c082",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-03T10:43:48Z",
+      "side": 1,
+      "message": "With dynamic loop unrolling, one loop will run for \"orig_iterations % unroll_factor\" times and another loop will run for \"orig_iterations / unroll_factor\" times.\nFor the same, I added one PHI in original loop and one PHI in unrolled loop whose initial value will be 0 and value will be incremented after each iteration as PHI +\u003d 1.\nI also modified the original and unrolled loops induction conditions as below.\nOriginal loop will run until new PHI value remain less than \"orig_iterations % unroll_factor\".\nUnrolled loop will run until new PHI value remain less than \"orig_iterations / unroll_factor\".\nOld induction PHI in original and unrolled loops will be eliminated (in dead code elimination) if they don\u0027t have further uses.\n\nI am checking addition of new PHI and it\u0027s increment in checker test case.",
+      "parentUuid": "59a89846_0cd3443d",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae622fc7_4208aa4d",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-02T21:10:49Z",
       "side": 1,
       "message": "I think it might be a good thing to extend checker testing from the situation with one positive and no negative ones; maybe less detailed check statements for some others.\n\nRelated question: what is a range of supported loops? Are loops with control flow allowed? Maybe worth to reflect in the tests.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 44
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05ea8a70_c7375014",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-03T10:43:48Z",
+      "side": 1,
+      "message": "Dynamic loop unrolling is dependent on loop versioning. For dynamic loop unrolling, I am not performing any extra checks on loops (except last statement of original loop header should be IF). With dynamic loop unrolling, I am rearranging the loops, unrolling the versioned loop and modifying the loop induction variables. So, the restrictions for loop versioning applies for dynamic loop unrolling as well.",
+      "parentUuid": "ae622fc7_4208aa4d",
       "range": {
         "startLine": 107,
         "startChar": 0,
