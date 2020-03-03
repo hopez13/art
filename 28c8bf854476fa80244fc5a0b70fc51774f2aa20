@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "c9ea193e_c7c17838",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T18:53:35Z",
+      "side": 1,
+      "message": "I tried it but result was not good as expected because of the LOG() line.\nstring_view is not supposed to be used as const char*, which requires constructing std::string for printing.\n\nI don\u0027t think this is a big deal.",
+      "parentUuid": "fd563b0c_f5b2f39b",
+      "range": {
+        "startLine": 388,
+        "startChar": 48,
+        "endLine": 388,
+        "endChar": 66
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbbc6756_da7db802",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 5
@@ -92,6 +116,24 @@
       "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a11cc3ab_68c59955",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T18:53:35Z",
+      "side": 1,
+      "message": "Done. just basic parsing tests. more elaborated tests about linking namespaces might be required. I\u0027ll try it in a future cl.",
+      "parentUuid": "f25a7b03_55f6a5db",
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +181,30 @@
       "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811efb3d_a66507d6",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-03-03T18:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18d3d59b_b3c50f35",
+      "range": {
+        "startLine": 333,
+        "startChar": 38,
+        "endLine": 333,
+        "endChar": 40
+      },
+      "revId": "28c8bf854476fa80244fc5a0b70fc51774f2aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
