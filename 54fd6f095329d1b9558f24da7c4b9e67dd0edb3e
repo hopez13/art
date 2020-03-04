@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce7970c6_2289d2d4",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-04T21:31:08Z",
+      "side": 1,
+      "message": "Machine: prod30-hp01\nDIST_DIR\u003d/buildbot/dist_dirs/git_master-art-host-linux-art-test-javac/P12600945/0 ./art/test/testrunner/run_build_test_target.py -j80 art-test-javac\ngcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4 Copyright (C) 2013 Free Software Foundation, Inc. This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nopenjdk version \"1.8.0_45-internal\" OpenJDK Runtime Environment (build 1.8.0_45-internal-b14) OpenJDK 64-Bit Server VM (build 25.45-b02, mixed mode)\n  File \"/buildbot/src/googleplex-android/master-art-host/art/test/testrunner/testrunner.py\", line 546\n    return subprocess.Popen(**kwargs, encoding\u003dsys.stdout.encoding)\n                                    ^\nSyntaxError: invalid syntax",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 546,
+        "endChar": 67
+      },
+      "revId": "54fd6f095329d1b9558f24da7c4b9e67dd0edb3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
