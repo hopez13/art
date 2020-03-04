@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3eee4a51_85a9b84d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-04T23:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ae3548c_4e5cda6a",
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "520bfa87_01d75e7c",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2020-03-04T11:21:50Z",
       "side": 1,
       "message": "So counting depends on having parallel GC? Sounds like it should be dissociated?",
+      "range": {
+        "startLine": 151,
+        "startChar": 51,
+        "endLine": 151,
+        "endChar": 55
+      },
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c411313c_f5669565",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-04T23:16:42Z",
+      "side": 1,
+      "message": "In the latest patch I have made it independent. Now, in case we don\u0027t have the heap\u0027s thread-pool, then the GC thread will serially count the allocated objects on its own.\n\nI didn\u0027t want to create another thread (or thread-pool), when we already had heap\u0027s thread-pool, so enabled the Parallel GC here. But if you think we shouldn\u0027t enable it here, then I can create a thread in RegionSpace.",
+      "parentUuid": "520bfa87_01d75e7c",
       "range": {
         "startLine": 151,
         "startChar": 51,
@@ -62,6 +104,30 @@
       "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8ddfa1_41bbb124",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-04T23:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6892c2_f0420349",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 72
+      },
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -108,6 +174,54 @@
       "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1558bea_ab4c3fa0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-04T23:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090c2841_78294d5b",
+      "range": {
+        "startLine": 4168,
+        "startChar": 16,
+        "endLine": 4168,
+        "endChar": 24
+      },
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "688dbda9_0ffecef7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-04T23:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5721ea6b_15182e8e",
+      "range": {
+        "startLine": 4168,
+        "startChar": 24,
+        "endLine": 4168,
+        "endChar": 37
+      },
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
