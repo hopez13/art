@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b60dc3_c0aae801",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-04T10:24:21Z",
+      "side": 1,
+      "message": "unused (the last arg is unused also for many methods below)",
+      "range": {
+        "startLine": 617,
+        "startChar": 66,
+        "endLine": 617,
+        "endChar": 76
+      },
+      "revId": "a281e49320dee51de0900211e505281fcd6e1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
