@@ -22,6 +22,30 @@
       "revId": "6fc471e510d6a4e9c31fcab6c0542e2efdf50099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7162c8f8_50a25a6a",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-04T17:02:21Z",
+      "side": 1,
+      "message": "my IWYU must have put it in for the \u0027\u003c\u003c\u0027 defines.",
+      "parentUuid": "e4146acc_8008ed3b",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "6fc471e510d6a4e9c31fcab6c0542e2efdf50099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
