@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "386feb54_744850d1",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-03-04T01:36:28Z",
+      "side": 1,
+      "message": "Should we have an assert that the existing class loader is null? Or would that fail for the DexFile APIs",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
