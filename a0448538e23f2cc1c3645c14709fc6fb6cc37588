@@ -46,6 +46,30 @@
       "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692e4330_a70f2406",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-04T12:10:50Z",
+      "side": 1,
+      "message": "We\u0027re throwing _before_ calling ClassLinker::RegisterDexFileLocked(), so having a check here should be fine. The condition for the throw is not API level-specific and therefore I believe the check should not be either.\n\nOTOH, I do not see much value in the check, given the existing prevention of double-registration.",
+      "parentUuid": "4a3e5464_e843581b",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
