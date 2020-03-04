@@ -22,6 +22,30 @@
       "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3e5464_e843581b",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1611842
+      },
+      "writtenOn": "2020-03-04T02:28:23Z",
+      "side": 1,
+      "message": "I don\u0027t think it should. Taking DexFiles across classloaders has thrown in FindClass for a while, I believe, so we\u0027d simply break earlier or something.\n\nI don\u0027t have an app doing that at hand to test, though. Could make it API-level specific, just to be sure?",
+      "parentUuid": "386feb54_744850d1",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
