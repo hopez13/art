@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "ed87719e_6c2f1cea",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-04T13:36:43Z",
+      "side": 1,
+      "message": "Can you add comments around this code?",
+      "range": {
+        "startLine": 2096,
+        "startChar": 0,
+        "endLine": 2098,
+        "endChar": 9
+      },
+      "revId": "a281e49320dee51de0900211e505281fcd6e1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7af7d862_343c39c0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-04T13:36:43Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a281e49320dee51de0900211e505281fcd6e1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42b60dc3_c0aae801",
         "filename": "test/623-checker-loop-regressions/src/Main.java",
         "patchSetId": 1
