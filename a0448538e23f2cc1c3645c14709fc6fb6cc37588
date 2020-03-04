@@ -70,6 +70,30 @@
       "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c229cd94_8d37c4e4",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-04T15:12:57Z",
+      "side": 1,
+      "message": "Are we replacing a non-null ClassLoader from the app image with another one? That would be working as intended, so a `CHECK(GetClassLoader() \u003d\u003d nullptr)` would be broken.\n\nSee also ClassLinker::AddImageSpace(), section \"AppImage:UpdateClassLoaders\".",
+      "parentUuid": "692e4330_a70f2406",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
