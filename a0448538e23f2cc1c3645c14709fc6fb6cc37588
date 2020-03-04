@@ -94,6 +94,30 @@
       "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31697f76_d649ed82",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1611842
+      },
+      "writtenOn": "2020-03-04T16:20:54Z",
+      "side": 1,
+      "message": "You\u0027re right. I had assumed the cleaning code in the image writer would generically clean the non-table parts of the dex cache objects, but obviously it doesn\u0027t do that (yet).\n\nWhat\u0027s your opinion? Should it be nulled out (like the cookies and other stuff that is re-bound when loading)?",
+      "parentUuid": "c229cd94_8d37c4e4",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
