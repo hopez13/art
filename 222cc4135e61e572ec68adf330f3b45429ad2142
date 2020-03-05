@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6979cd45_ee7d7321",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-05T10:26:04Z",
+      "side": 1,
+      "message": "My main worry is the addition of a new library as dependency. With the work on being a mainline module, the library being available in the android stack is not relevant as that library is not guaranteed to be backwards compatible.",
+      "parentUuid": "94376d8d_1b9f961b",
+      "range": {
+        "startLine": 422,
+        "startChar": 9,
+        "endLine": 422,
+        "endChar": 20
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7205cdbc_59feac3c",
         "filename": "runtime/Android.bp",
         "patchSetId": 4
