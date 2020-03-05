@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2259c40_3bd14a73",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-05T17:31:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure if calling the constructor will not break instrumentation using Jacoco. Maybe we should just set the field.",
+      "range": {
+        "startLine": 725,
+        "startChar": 6,
+        "endLine": 732,
+        "endChar": 79
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
