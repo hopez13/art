@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "94376d8d_1b9f961b",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-03-05T10:22:09Z",
+      "side": 1,
+      "message": "Hi Nicolas,\n\nWe agree that art-disassembler also can be used for dumping the instructions.\nWe utilized the capstone as it was more of a disassembly engine for binary analysis and it includes iterative disassembly to get the related instruction specific details.Capstone is also available in the android stack.\n\nDo you see any advantage of art-disassembler over capstone to use with regards to instruction analysis as right now we see art-disassembler to being mostly used for dumping the opcodes and register information?",
+      "parentUuid": "35331a3b_10610dc2",
+      "range": {
+        "startLine": 422,
+        "startChar": 9,
+        "endLine": 422,
+        "endChar": 20
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7205cdbc_59feac3c",
         "filename": "runtime/Android.bp",
         "patchSetId": 4
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I see. Please use android::Base::GetProperty instead.",
       "parentUuid": "2296640c_343c9ac3",
+      "range": {
+        "startLine": 440,
+        "startChar": 9,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "543316ea_c35d4a72",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-03-05T10:22:09Z",
+      "side": 1,
+      "message": "Have removed this dependency in the last patch uploaded.",
+      "parentUuid": "013f7f6e_028be8ab",
       "range": {
         "startLine": 440,
         "startChar": 9,
@@ -349,6 +397,30 @@
       "side": 1,
       "message": "Yes, that\u0027s OK.",
       "parentUuid": "80c3dad3_7b33df49",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 44
+      },
+      "revId": "222cc4135e61e572ec68adf330f3b45429ad2142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb94c3e8_8d12090e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-03-05T10:22:09Z",
+      "side": 1,
+      "message": "Have fixed this in the last patch uploaded to make the FastJni false by default",
+      "parentUuid": "3b23a499_71703d25",
       "range": {
         "startLine": 1253,
         "startChar": 0,
