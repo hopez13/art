@@ -17,7 +17,14 @@ sdk {
     name: "art-module-sdk",
     host_supported: true,
     native_header_libs: [
+        "jni_headers",
         "libnativehelper_header_only",
+    ],
+    native_shared_libs: [
+        "libandroidio",
+        "libartbase",
+        "libartpalette",
+        "libdexfile",
     ],
     target: {
         android: {
@@ -45,34 +52,42 @@ module_exports {
             // property is fixed to "both" in the sdk/module_exports
             // implementation and cannot be overridden any other way.
             compile_multilib: "64",
+
+            java_libs: [
+                "timezone-host",
+            ],
+            native_binaries: [
+                "hiddenapi",
+                "dex2oat",
+                "dex2oatd",
+            ],
         },
         darwin: {
             enabled: false,
         },
     },
-    java_libs: [
-        "timezone-host",
-    ],
-    native_binaries: [
-        "hiddenapi",
-        "dex2oat",
-        "dex2oatd",
-    ],
 }
 
 // Exported tests and supporting libraries
 module_exports {
     name: "art-module-test-exports",
+    host_supported: true,
     java_libs: [
-        "core-compat-test-rules",
-        "core-test-rules",
-        "core-tests-support",
-        "okhttp-tests-nojarjar",
+        "bouncycastle-unbundled",
+        "bouncycastle-bcpkix-unbundled",
+        "bouncycastle-ocsp-unbundled",
     ],
-    java_tests: [
-        "libcore-crypto-tests",
-    ],
-    native_shared_libs: [
-        "libjavacoretests",
-    ],
+    target: {
+        android: {
+            java_libs: [
+                "core-compat-test-rules",
+                "core-test-rules",
+                "core-tests-support",
+                "okhttp-tests-nojarjar",
+            ],
+            native_shared_libs: [
+                "libjavacoretests",
+            ],
+        },
+    },
 }
