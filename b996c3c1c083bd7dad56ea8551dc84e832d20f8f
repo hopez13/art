@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60c3a5c6_2bda2869",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2020-03-05T03:05:56Z",
+      "side": 1,
+      "message": "I was wondering what kind of \"mostly safe\" use-after-moves you were talking about earlier and these seem like the case you were referring to. Since evaluation order for arguments is unspecified, this is the right way to fix the problem.",
+      "revId": "b996c3c1c083bd7dad56ea8551dc84e832d20f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
