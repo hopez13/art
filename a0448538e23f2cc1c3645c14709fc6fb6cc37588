@@ -118,6 +118,30 @@
       "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da6dab93_e77b485a",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-05T09:27:44Z",
+      "side": 1,
+      "message": "We\u0027re deliberately not cleaning the defining ClassLoader from Class objects (we really need it) and this is very similar, so I\u0027d rather keep the reference. We could add a check to the ClassLoader::AddImageSpace().",
+      "parentUuid": "31697f76_d649ed82",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "a0448538e23f2cc1c3645c14709fc6fb6cc37588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
