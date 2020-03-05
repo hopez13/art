@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "0eda8949_ce523067",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-05T09:43:02Z",
+      "side": 1,
+      "message": "I do feel like this is orthogonal, you are not creating dedicated parallel markers / sweepers (which is what I read in enable parallel gc)",
+      "parentUuid": "c411313c_f5669565",
+      "range": {
+        "startLine": 151,
+        "startChar": 51,
+        "endLine": 151,
+        "endChar": 55
+      },
+      "revId": "6c9f0226facfabdccf4d98a66dfd75b13522756d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c6892c2_f0420349",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 3

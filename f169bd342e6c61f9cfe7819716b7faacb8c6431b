@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2745aa52_89b4d9b6",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-05T09:43:02Z",
+      "side": 1,
+      "message": "!\u003d nullptr",
+      "range": {
+        "startLine": 2710,
+        "startChar": 30,
+        "endLine": 2710,
+        "endChar": 31
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a3a199_dd62b555",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-05T09:43:02Z",
+      "side": 1,
+      "message": "Nit: 2 more spaces",
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
