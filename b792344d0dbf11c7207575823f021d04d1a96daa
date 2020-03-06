@@ -22,6 +22,30 @@
       "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c3ce6c6_b75ddd86",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-06T10:53:31Z",
+      "side": 1,
+      "message": "Seems to be OK with EMMA_INSTRUMENT_FRAMEWORK\u003dtrue.",
+      "parentUuid": "e2259c40_3bd14a73",
+      "range": {
+        "startLine": 725,
+        "startChar": 6,
+        "endLine": 732,
+        "endChar": 79
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
