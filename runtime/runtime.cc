@@ -2852,7 +2852,7 @@ void Runtime::DeoptimizeBootImage() {
     jit::Jit* jit = GetJit();
     if (jit != nullptr) {
       // Code JITted by the zygote is not compiled debuggable.
-      jit->GetCodeCache()->ClearEntryPointsInZygoteExecSpace();
+      jit->GetCodeCache()->TransitionToDebuggable();
     }
   }
   // Also de-quicken all -quick opcodes. We do this for both BCP and non-bcp so if we are swapping
