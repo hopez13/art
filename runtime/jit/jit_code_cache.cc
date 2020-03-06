@@ -886,6 +886,8 @@ void JitCodeCache::ClearEntryPointsInZygoteExecSpace() {
     if (IsInZygoteExecSpace(method->GetEntryPointFromQuickCompiledCode())) {
       method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
     }
+    // We don't want any pre-compiled data being selected.
+    method->ClearPreCompiled();
   }
 }
 
