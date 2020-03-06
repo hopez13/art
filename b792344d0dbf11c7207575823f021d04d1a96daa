@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "ec42e1db_5b44e5ed",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:33:00Z",
+      "side": 1,
+      "message": "Can you add a high-level comment on why we have this class here? What is it for, etc?",
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbbc50b1_42ddb404",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:33:00Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 703,
+        "startChar": 2,
+        "endLine": 703,
+        "endChar": 10
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41c580b_87e27bbb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:33:00Z",
+      "side": 1,
+      "message": "Can you hold the mutator lock in the caller instead? Alternatively, have the caller pass the handle scope?",
+      "range": {
+        "startLine": 706,
+        "startChar": 24,
+        "endLine": 706,
+        "endChar": 58
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2259c40_3bd14a73",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -46,6 +109,29 @@
       "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0116d1b5_7b2b3639",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:33:00Z",
+      "side": 1,
+      "message": "explain the reasoning behind using dex file checksums.",
+      "range": {
+        "startLine": 2072,
+        "startChar": 68,
+        "endLine": 2072,
+        "endChar": 90
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
