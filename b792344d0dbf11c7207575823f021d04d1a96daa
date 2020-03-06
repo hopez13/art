@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "9fc31a14_6eba74c7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-06T14:57:59Z",
+      "side": 1,
+      "message": "Closing as WAI after offline discussion.",
+      "parentUuid": "8eee3a0c_21478e4b",
+      "range": {
+        "startLine": 706,
+        "startChar": 24,
+        "endLine": 706,
+        "endChar": 58
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2259c40_3bd14a73",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
