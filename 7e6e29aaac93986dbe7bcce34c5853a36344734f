@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ba5093a_8e9565db",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:26:44Z",
+      "side": 1,
+      "message": "I think you can remove the get()",
+      "range": {
+        "startLine": 355,
+        "startChar": 25,
+        "endLine": 355,
+        "endChar": 34
+      },
+      "revId": "7e6e29aaac93986dbe7bcce34c5853a36344734f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b77bd24a_8457b47b",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-06T11:26:44Z",
+      "side": 1,
+      "message": "nit: add a high-level comment",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 43
+      },
+      "revId": "7e6e29aaac93986dbe7bcce34c5853a36344734f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf03af52_612ee367",
         "filename": "runtime/runtime.cc",
         "patchSetId": 6
