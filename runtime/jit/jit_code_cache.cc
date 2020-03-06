@@ -880,13 +880,19 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
 }
 
 void JitCodeCache::ClearEntryPointsInZygoteExecSpace() {
+  auto clear_method =
+      [&](ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::jit_lock_) {
+        if (IsInZygoteExecSpace(method->GetEntryPointFromQuickCompiledCode())) {
+          method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
+        }
+        // We don't want any pre-compiled data being selected.
+        method->ClearPreCompiled();
+      };
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
   for (const auto& it : method_code_map_) {
-    ArtMethod* method = it.second;
-    if (IsInZygoteExecSpace(method->GetEntryPointFromQuickCompiledCode())) {
-      method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
-    }
+    clear_method(it.second);
   }
+  zygote_map_.VisitMethods(clear_method);
 }
 
 size_t JitCodeCache::CodeCacheSizeLocked() {

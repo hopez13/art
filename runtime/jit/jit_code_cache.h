@@ -140,6 +140,12 @@ class ZygoteMap {
            *compilation_state_ == ZygoteCompilationState::kNotifiedOk;
   }
 
+  template<typename Func> void VisitMethods(Func f) NO_THREAD_SAFETY_ANALYSIS {
+    for (auto e : map_) {
+      f(e.method);
+    }
+  }
+
  private:
   struct Entry {
     ArtMethod* method;
