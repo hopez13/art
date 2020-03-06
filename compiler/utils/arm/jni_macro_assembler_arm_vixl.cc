@@ -365,6 +365,43 @@ void ArmVIXLJNIMacroAssembler::ZeroExtend(ManagedRegister mreg ATTRIBUTE_UNUSED,
   UNIMPLEMENTED(FATAL) << "no zero extension necessary for arm";
 }
 
+void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
+                                             ArrayRef<ArgumentLocation> srcs) {
+  DCHECK_EQ(dests.size(), srcs.size());
+
+  auto is_stack_offset = [](ArgumentLocation loc) { return !loc.IsRegister(); };
+  auto is_core_reg =
+      [](ArmManagedRegister reg) { return reg.IsCoreRegister() || reg.IsRegisterPair(); };
+
+  // Native ABI is soft-float, so all destinations should be core registers
+  // or stack offsets. And register locations should be first, followed by
+  // stack locations with increasing offset and no gaps.
+  size_t num_reg_dests =
+      std::distance(dests.begin(), std::find_if(dests.begin(), dests.end(), is_stack_offset));
+  DCHECK(std::all_of(
+      dests.begin(),
+      dests.begin() + num_reg_dests,
+      [&](ArgumentLocation loc) { return is_core_reg(loc.GetRegister().AsArm()); }));
+  DCHECK(std::all_of(dests.begin() + num_reg_dests, dests.end(), is_stack_offset));
+  DCHECK(std::is_sorted(
+      dests.begin() + num_reg_dests,
+      dests.end(),
+      [](ArgumentLocation lhs, ArgumentLocation rhs) {
+        return lhs.GetFrameOffset().Uint32Value() < rhs.GetFrameOffset().Uint32Value();
+      }));
+
+  // Spill args first. Look for opportunities to spill multiple arguments at once.
+  for (size_t i = num_reg_dests, arg_count = dests.size(); i != arg_count; ++i) {
+    const ArgumentLocation& src = srcs[i];
+    const ArgumentLocation& dest = dests[i];
+    DCHECK_EQ(src.GetSize(), dest.GetSize());
+    DCHECK(!dest.IsRegister());
+    // TODO
+  }
+
+  // TODO
+}
+
 void ArmVIXLJNIMacroAssembler::Move(ManagedRegister mdst,
                                     ManagedRegister msrc,
                                     size_t size  ATTRIBUTE_UNUSED) {
