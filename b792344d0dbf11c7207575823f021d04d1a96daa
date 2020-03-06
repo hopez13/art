@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "92c2800e_1528f6b6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-06T12:46:42Z",
+      "side": 1,
+      "message": "Done (copied part of the updated commit message)",
+      "parentUuid": "ec42e1db_5b44e5ed",
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbc50b1_42ddb404",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "67a47d08_d90f7515",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-06T12:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbc50b1_42ddb404",
+      "range": {
+        "startLine": 703,
+        "startChar": 2,
+        "endLine": 703,
+        "endChar": 10
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e41c580b_87e27bbb",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2020-03-06T11:33:00Z",
       "side": 1,
       "message": "Can you hold the mutator lock in the caller instead? Alternatively, have the caller pass the handle scope?",
+      "range": {
+        "startLine": 706,
+        "startChar": 24,
+        "endLine": 706,
+        "endChar": 58
+      },
+      "revId": "b792344d0dbf11c7207575823f021d04d1a96daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eee3a0c_21478e4b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-06T12:46:42Z",
+      "side": 1,
+      "message": "The handle scope needs to be constructed when holding the mutator lock. Doing it in the caller would be just as clunky as here but it would additionally lose the benefit of RAII (unless we introduce another helper class).",
+      "parentUuid": "e41c580b_87e27bbb",
       "range": {
         "startLine": 706,
         "startChar": 24,
