@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf03af52_612ee367",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-03-06T02:40:03Z",
+      "side": 1,
+      "message": "What\u0027s the correct behavior for when a thread detaches? Should its local counts be added to the runtime at that point?",
+      "range": {
+        "startLine": 2186,
+        "startChar": 11,
+        "endLine": 2186,
+        "endChar": 32
+      },
+      "revId": "7e6e29aaac93986dbe7bcce34c5853a36344734f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
