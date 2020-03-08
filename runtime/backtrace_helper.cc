@@ -48,12 +48,8 @@ struct UnwindHelper : public TLSData {
 
   explicit UnwindHelper(size_t max_depth)
       : memory_(unwindstack::Memory::CreateProcessMemory(getpid())),
-        jit_(memory_),
-        dex_(memory_),
         unwinder_(max_depth, &maps_, memory_) {
     CHECK(maps_.Parse());
-    unwinder_.SetJitDebug(&jit_, unwindstack::Regs::CurrentArch());
-    unwinder_.SetDexFiles(&dex_, unwindstack::Regs::CurrentArch());
     unwinder_.SetResolveNames(false);
     unwindstack::Elf::SetCachingEnabled(true);
   }
@@ -75,8 +71,6 @@ struct UnwindHelper : public TLSData {
  private:
   unwindstack::LocalUpdatableMaps maps_;
   std::shared_ptr<unwindstack::Memory> memory_;
-  unwindstack::JitDebug jit_;
-  unwindstack::DexFiles dex_;
   unwindstack::Unwinder unwinder_;
 };
 
