@@ -16,6 +16,24 @@
       "revId": "c453112a7a2a4caddae279bf78d56e5b23ef153e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34328d03_c17ee729",
+        "filename": "openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-09T23:28:00Z",
+      "side": 1,
+      "message": "It does make me nervous, too. OTOH, calling exit() here can\u0027t work reliably.\n\nAn alternative is to change all the exit and _exit calls to quick_exit(). It was (grudgingly) invented for this reason. But for that to make a difference, apps would need to explicitly call at_quick_exit().\n\nI don\u0027t think real app code can normally rely on destructors running, since the lmk won\u0027t result in their invocation. We seem to run into these problems with tests.\n\nI\u0027ll hold off on submitting to allow discussion on the bug.",
+      "parentUuid": "5137e098_cd6bf99e",
+      "revId": "c453112a7a2a4caddae279bf78d56e5b23ef153e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
