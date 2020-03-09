@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5137e098_cd6bf99e",
+        "filename": "openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-09T23:03:31Z",
+      "side": 1,
+      "message": "this seems a little iffy since this is supposed to be an orderly shutdown so apps might assume their destructors are run. as long as they don\u0027t do anything to crazy in them it should be okay though I guess.",
+      "revId": "c453112a7a2a4caddae279bf78d56e5b23ef153e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
