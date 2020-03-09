@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540079a7_c9de94b4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T17:32:33Z",
+      "side": 1,
+      "message": "Replace with DCHECK(!method-\u003eIsPreCompiled()) and move line 888.",
+      "range": {
+        "startLine": 891,
+        "startChar": 0,
+        "endLine": 891,
+        "endChar": 33
+      },
+      "revId": "9ab32f889c12c4869d09172d844fd776e14a9fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
