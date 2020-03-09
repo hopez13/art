@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b4d5f3f_50c81e0a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T16:52:40Z",
+      "side": 1,
+      "message": "There is some different logic happening here between method_code_map_ and zygote_map_. Could we avoid the lamda and do:\n\nfor (method : method_code_map_) {\n  if (IsInZygoteExecSpace(method-\u003eGetEntryPointFromQuickCompiledCode())) {\n    DCHECK(!method-\u003eIsPreCompiled());\n    method-\u003eSetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());\n  }\n}\n\nfor (method : zygote_map_) {\n  if (ContainsPc(method-\u003eGetEntryPointFromQuickCompiledCode())) {\n    DCHECK(IsInZygoteExecSpace(method-\u003eGetEntryPointFromQuickCompiledCode());\n    DCHECK(method-\u003eIsPreCompiled());\n    method-\u003eSetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());\n  }\n}",
+      "range": {
+        "startLine": 885,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 35
+      },
+      "revId": "50cffb8207d3930347baa6ee1ca53244b2e0120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b19776c_3f6435be",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T16:52:40Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be under the jit lock.",
+      "range": {
+        "startLine": 895,
+        "startChar": 2,
+        "endLine": 895,
+        "endChar": 41
+      },
+      "revId": "50cffb8207d3930347baa6ee1ca53244b2e0120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
