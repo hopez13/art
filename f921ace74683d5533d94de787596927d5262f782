@@ -93,6 +93,30 @@
       "revId": "f921ace74683d5533d94de787596927d5262f782",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df9a78e5_6b03d0d8",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T10:11:51Z",
+      "side": 1,
+      "message": "Could you place those static somewhere consistent/visible (eg beginning of this file), with that sort of high-level comment?",
+      "parentUuid": "7c209200_e8cdb920",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 85
+      },
+      "revId": "f921ace74683d5533d94de787596927d5262f782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
