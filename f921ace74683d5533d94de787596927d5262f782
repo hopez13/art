@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76001427_a97a06f5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-09T09:15:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad9af592_355176e7",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "f921ace74683d5533d94de787596927d5262f782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "646babfe_555d3d8f",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "f921ace74683d5533d94de787596927d5262f782",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c209200_e8cdb920",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-09T09:15:58Z",
+      "side": 1,
+      "message": "The gdb api requires that most of the static state to be exposed as extern \"C\" global variables.\nThis static state in not part of that, but I don\u0027t want to have the static state in two places.",
+      "parentUuid": "646babfe_555d3d8f",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 85
+      },
+      "revId": "f921ace74683d5533d94de787596927d5262f782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
