@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40706474_94df81dc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-09T18:27:58Z",
+      "side": 1,
+      "message": "Yes it is. I think the way it comes back is jit::MaybeCompileMethod -\u003e GetSavedEntryPointOfPreCompiledMethod -\u003e zygote_map_ or saved_compiled_methods_map_.\n\nThe ClearPreCompiled short-circuits all of that.",
+      "parentUuid": "41bc91a4_bfbc982c",
+      "range": {
+        "startLine": 889,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 35
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba745a92_bb389f6a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56fb12c9_c001d251",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-09T18:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba745a92_bb389f6a",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 892,
+        "endChar": 39
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a59f5f87_a485cabf",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119970da_a6eb71f6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-09T18:27:58Z",
+      "side": 1,
+      "message": "So the way it was initially then. Done.",
+      "parentUuid": "a59f5f87_a485cabf",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 37
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
