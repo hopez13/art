@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41bc91a4_bfbc982c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T18:19:27Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 889,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 35
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba745a92_bb389f6a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T18:19:27Z",
+      "side": 1,
+      "message": "This should be in the if above.",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 892,
+        "endChar": 39
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a59f5f87_a485cabf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-09T18:19:27Z",
+      "side": 1,
+      "message": "This may not pass, thinking about it, the ClearPreCompiled line 901 should be outside of the if.",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 37
+      },
+      "revId": "e68d3e1f3e3b2c865b098f2aaa13c2b98221be02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
