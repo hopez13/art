@@ -224,6 +224,8 @@ static Parser CreateArgumentParser() {
           .IntoKey(M::VeryLargeAppThreshold)
       .Define("--force-determinism")
           .IntoKey(M::ForceDeterminism)
+      .Define("--crash-on-redefinition")
+          .IntoKey(M::CrashOnRedefinition)
       .Define("--copy-dex-files=_")
           .WithType<linker::CopyOption>()
           .WithValueMap({{"true", linker::CopyOption::kOnlyIfCompressed},

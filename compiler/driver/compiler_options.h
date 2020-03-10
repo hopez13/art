@@ -311,6 +311,10 @@ class CompilerOptions final {
     return force_determinism_;
   }
 
+  bool IsCrashOnRedefinition() const {
+    return crash_on_redefinition_;
+  }
+
   bool DeduplicateCode() const {
     return deduplicate_code_;
   }
@@ -430,6 +434,9 @@ class CompilerOptions final {
   // Whether the compiler should trade performance for determinism to guarantee exactly reproducible
   // outcomes.
   bool force_determinism_;
+
+  // Whether the compiler should crash when encountering a class redefinition.
+  bool crash_on_redefinition_;
 
   // Whether code should be deduplicated.
   bool deduplicate_code_;
