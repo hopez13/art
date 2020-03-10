@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "81860ab2_4bc2f0e5",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "Nit: I think it is reasonable to have consistent naming in the whole checker test: if the PHIs from \"loop_optimization (before)\" are renamed then ones from probably @loop_optimization (after)\" - this was my original comment implication.",
+      "parentUuid": "e6095446_693fc679",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bac028a_63338539",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -414,6 +438,30 @@
     },
     {
       "key": {
+        "uuid": "5f1f0b2f_8c691043",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "I do get different results when trying this; the newly introduced induction is not removed. To reproduce:\n\n0. Checkout master AOSP.\n1. Cherry-pick Loop Versioning CL.\n2. Cherry-pick this CL.\n3. Run 530-checker-unroll-unknown-iter test on the target.\n\ntest-art-target-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-530-checker-unroll-unknown-iter64\n\nNote: In the very checker lines you wrote in this test the old phi (Phi2) is used by ArrayGet and Add.\n\n/// CHECK-START: int Main.testArraySumDown(int[]) loop_optimization (after)\n/// CHECK-DAG: \u003c\u003cPhi2:i\\d+\u003e\u003e    Phi [\u003c\u003cAddL\u003e\u003e,\u003c\u003cAddB\u003e\u003e]\n/// CHECK-DAG: \u003c\u003cAddB:i\\d+\u003e\u003e    Add [\u003c\u003cPhi2\u003e\u003e,\u003c\u003cConst3\u003e\u003e]\n/// CHECK-DAG: \u003c\u003cGetA:i\\d+\u003e\u003e    ArrayGet [\u003c\u003cNullchk\u003e\u003e,\u003c\u003cPhi2\u003e\u003e]\n\n(You could add a test with \"CHECK-START ... dead_code_elimination$final (after)\" checking that there are only 1 induction in the loop)",
+      "parentUuid": "c0bfb35a_318837d5",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4ad6ea_cab8f7c1",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -496,6 +544,30 @@
       "side": 1,
       "message": "I haven\u0027t added check statement inside unrolled loop body in checker test-case as that check will be removed ultimately in dead_code_elimination.",
       "parentUuid": "a94ba388_a5aca84b",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 50
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97341c4_ac5d223d",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "Great, then please add a test to check that fact; either here or after dead_code_elimination.",
+      "parentUuid": "87e759bc_31f0f673",
       "range": {
         "startLine": 92,
         "startChar": 34,
@@ -603,6 +675,53 @@
     },
     {
       "key": {
+        "uuid": "1a3e6aec_dc5ff39e",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "I personally believe that 1 checker test is not enough for this type of complex transformation. Lets consult with Google engineers on that.",
+      "parentUuid": "31e72c95_0b07f25a",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 44
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c116d8cb_64b54661",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "if the length of the array x is 1, one will get out of bounds.",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "274424af_1ef703a5",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -647,6 +766,29 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e03a6f4_86e2c299",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "Is there a reason why this function is public and other are private?",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 8
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -697,6 +839,30 @@
     },
     {
       "key": {
+        "uuid": "a1b2ac31_fc1ea3df",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "Nit: Maybe it could be better not to put two separate things into one testArrayFill function:\nA) Initializing array.\nB) Copying array (use System.arrayCopy()) for that.",
+      "parentUuid": "b7a513d9_db6e1034",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 5
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70d50041_0fb783b2",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -741,6 +907,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc625eff_f63918e1",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-10T14:56:03Z",
+      "side": 1,
+      "message": "The fact of \"how many iterations will happen in the loop\" is determined by two things:\n- choice the array length.\n- custom \"for\" loops expressions (e.g.: i \u003d 1; i\u003c x.length;).\n\nWith your new PS25 arrays have different lengths, it is a bit confusing for the reader of the code (one would need to check both array creation (length) and the particular \u0027for\u0027 loop code). I think it would be a bit more clear if array length could be the same for all arrays (and passed as a parameter, similar to what happened in PS22); so the logic of how many iterations to be executed would be expressed by the test function.\n\nThen each function could be called twice - with a power of two array length and somewhat odd - thus checking both cases.",
+      "parentUuid": "9149dc1d_43e392a4",
+      "range": {
+        "startLine": 217,
+        "startChar": 12,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
