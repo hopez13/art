@@ -1611,6 +1611,40 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
       CheckAndClearResolveException(soa.Self());
       resolve_fields_and_methods = false;
     } else {
+      if (manager_->GetCompiler()->GetCompilerOptions().IsCheckLinkageConditions() &&
+          !manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {
+        bool is_fatal = manager_->GetCompiler()->GetCompilerOptions().IsCrashOnLinkageViolation();
+        ObjPtr<mirror::ClassLoader> current_class_loader =
+            soa.Decode<mirror::ClassLoader>(jclass_loader);
+        ObjPtr<mirror::ClassLoader> resolving_class_loader = klass->GetClassLoader();
+        if (resolving_class_loader != current_class_loader) {
+          // Redefinition via different ClassLoaders.
+          // This OptStat stuff is to enable logging from the APK scanner.
+          if (is_fatal)
+            LOG(FATAL) << "OptStat#" << klass->PrettyClassAndClassLoader() << ": 1";
+          else
+            LOG(WARNING)
+                << "LINKAGE VIOLATION: "
+                << klass->PrettyClassAndClassLoader()
+                << "was redefined";
+        }
+        // Check that the current class is not a descendant of ClassLoader.
+        Handle<mirror::ClassLoader> hclass_loader(hs.NewHandle(current_class_loader));
+        if (klass->IsSubClass(class_linker->FindClass(self,
+                                                      "Ljava/lang/ClassLoader;",
+                                                      hclass_loader))) {
+          // Subclassing of java.lang.ClassLoader.
+          // This OptStat stuff is to enable logging from the APK scanner.
+          if (is_fatal)
+            LOG(FATAL) << "OptStat#" << klass->PrettyClassAndClassLoader() << ": 1";
+          else
+            LOG(WARNING)
+                << "LINKAGE VIOLATION: "
+                << klass->PrettyClassAndClassLoader()
+                << "is a subclass of java.lang.ClassLoader";
+        }
+        CHECK(klass->IsResolved()) << klass->PrettyClass();
+      }
       // We successfully resolved a class, should we skip it?
       if (SkipClass(jclass_loader, dex_file, klass)) {
         return;
