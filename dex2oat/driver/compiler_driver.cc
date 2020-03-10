@@ -1605,6 +1605,24 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
       CheckAndClearResolveException(soa.Self());
       resolve_fields_and_methods = false;
     } else {
+      if (!manager_->GetCompiler()->GetCompilerOptions().IsBootImage()
+          && manager_->GetCompiler()->GetCompilerOptions().IsCrashOnRedefinition()) {
+        ObjPtr<mirror::ClassLoader> current_class_loader =
+            soa.Decode<mirror::ClassLoader>(jclass_loader);
+        ObjPtr<mirror::ClassLoader> resolving_class_loader = klass->GetClassLoader();
+        if (resolving_class_loader != current_class_loader) {
+          LOG(FATAL) << "OptStat#" << klass->PrettyClassAndClassLoader() << ": 1";
+        }
+        // Check that the current class is not a descendant of ClassLoader.
+        Handle<mirror::ClassLoader> hclass_loader(
+            hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
+        if (klass->IsSubClass(class_linker->FindClass(self,
+                                                      "LClassLoader;",
+                                                      hclass_loader))) {
+          LOG(FATAL) << "OptStat#" << klass->PrettyClassAndClassLoader() << ": 1";
+        }
+      }
+      CHECK(klass->IsResolved()) << klass->PrettyClass();
       // We successfully resolved a class, should we skip it?
       if (SkipClass(jclass_loader, dex_file, klass)) {
         return;

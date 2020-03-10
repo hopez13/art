@@ -736,7 +736,8 @@ class Dex2Oat final {
       app_image_fd_(kInvalidFd),
       profile_file_fd_(kInvalidFd),
       timings_(timings),
-      force_determinism_(false)
+      force_determinism_(false),
+      crash_on_redefinition_(false)
       {}
 
   ~Dex2Oat() {
@@ -1036,6 +1037,8 @@ class Dex2Oat final {
     }
     compiler_options_->force_determinism_ = force_determinism_;
 
+    compiler_options_->crash_on_redefinition_ = crash_on_redefinition_;
+
     if (passes_to_run_filename_ != nullptr) {
       passes_to_run_ = ReadCommentedInputFromFile<std::vector<std::string>>(
           passes_to_run_filename_,
@@ -1252,6 +1255,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::DirtyImageObjects, &dirty_image_objects_filename_);
     AssignIfExists(args, M::ImageFormat, &image_storage_mode_);
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
+    AssignTrueIfExists(args, M::CrashOnRedefinition, &crash_on_redefinition_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
     parser_options->requested_specific_compiler = args.Exists(M::Backend);
@@ -2927,6 +2931,8 @@ class Dex2Oat final {
 
   // See CompilerOptions.force_determinism_.
   bool force_determinism_;
+  // See CompilerOptions.crash_on_redefinition_.
+  bool crash_on_redefinition_;
 
   // Directory of relative classpaths.
   std::string classpath_dir_;
