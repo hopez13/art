@@ -27,6 +27,8 @@
 #include "gc/space/space-inl.h"
 #include "image.h"
 #include "mirror/class.h"
+#include "nativehelper/scoped_utf_chars.h"
+#include "oat_file.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 
@@ -34,18 +36,50 @@ namespace art {
 
 namespace {
 
-extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkAppImageLoaded(JNIEnv*, jclass) {
+// Returns whether the extensionless basename of `location` is equal to name.
+// E.g. check_name("/foo/bar/baz.odex", "baz") == true,
+//      check_name("/foo/bar/baz.odex", "bar") == false
+static bool check_name(const std::string& location, const std::string& name) {
+  std::string loc_name = location;
+  size_t idx = loc_name.rfind('/');
+  if (idx != std::string::npos) {
+    loc_name = loc_name.substr(idx + 1);
+  }
+  idx = loc_name.rfind('.');
+  if (idx != std::string::npos) {
+    loc_name = loc_name.substr(0, idx);
+  }
+  return loc_name == name;
+}
+
+extern "C" JNIEXPORT
+jboolean JNICALL Java_Main_checkAppImageLoaded__Ljava_lang_String_2(JNIEnv* env,
+                                                                    jclass,
+                                                                    jstring jimage_name) {
+  std::string image_name = jimage_name == nullptr
+      ? ""
+      : ScopedUtfChars(env, jimage_name).c_str();
   ScopedObjectAccess soa(Thread::Current());
   for (auto* space : Runtime::Current()->GetHeap()->GetContinuousSpaces()) {
     if (space->IsImageSpace()) {
       auto* image_space = space->AsImageSpace();
       const auto& image_header = image_space->GetImageHeader();
-      if (image_header.IsAppImage()) {
+      // Check that this is an app image associated with the dex file named
+      // `jname` by verifying the extensionless basename of the odex file
+      // location is equal to `jname`.
+      if (image_header.IsAppImage() &&
+          (image_name.empty() ||
+           check_name(image_space->GetOatFile()->GetLocation(), image_name.c_str()))) {
         return JNI_TRUE;
       }
     }
   }
   return JNI_FALSE;
+}
+
+extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkAppImageLoaded__(
+    JNIEnv* env, jclass klass) {
+  return Java_Main_checkAppImageLoaded__Ljava_lang_String_2(env, klass, nullptr);
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkAppImageContains(JNIEnv*, jclass, jclass c) {
