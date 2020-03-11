@@ -350,9 +350,10 @@ class Checker:
       self.fail('Library missing: %s', filename)
 
   def check_dexpreopt(self, basename):
+    self.check_file('javalib/%s.%s' % (basename, 'vdex'))
     dirs = self.arch_dirs_for_path('javalib')
     for dir in dirs:
-      for ext in ['art', 'oat', 'vdex']:
+      for ext in ['art', 'oat']:
         self.check_file('%s/%s.%s' % (dir, basename, ext))
 
   def check_java_library(self, basename):
