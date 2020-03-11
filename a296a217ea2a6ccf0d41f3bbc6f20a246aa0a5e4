@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec61fb78_56a1431d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-11T21:26:40Z",
+      "side": 1,
+      "message": "Nit: We might want to avoid the term \u0027redefinition\u0027 since it\u0027s already used for jvmti class redefinition. Maybe crash_on_class_definition_change_?",
+      "range": {
+        "startLine": 804,
+        "startChar": 6,
+        "endLine": 804,
+        "endChar": 28
+      },
+      "revId": "a296a217ea2a6ccf0d41f3bbc6f20a246aa0a5e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
