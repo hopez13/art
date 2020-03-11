@@ -658,6 +658,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   return dex_files;
 }
 
+<<<<<<< HEAD
 static std::vector<const DexFile::Header*> GetDexFileHeaders(const std::vector<MemMap>& maps) {
   std::vector<const DexFile::Header*> headers;
   headers.reserve(maps.size());
@@ -1037,9 +1038,9 @@ void OatFileManager::WaitForBackgroundVerificationTasks() {
   }
 }
 
-void OatFileManager::SetOnlyUseSystemOatFiles(bool enforce, bool assert_no_files_loaded) {
+void OatFileManager::SetOnlyUseSystemOatFiles(bool assert_no_files_loaded) {
   ReaderMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
-  if (!only_use_system_oat_files_ && enforce && assert_no_files_loaded) {
+  if (assert_no_files_loaded) {
     // Make sure all files that were loaded up to this point are on /system. Skip the image
     // files.
     std::vector<const OatFile*> boot_vector = GetBootOatFiles();
@@ -1051,7 +1052,7 @@ void OatFileManager::SetOnlyUseSystemOatFiles(bool enforce, bool assert_no_files
       }
     }
   }
-  only_use_system_oat_files_ = enforce;
+  only_use_system_oat_files_ = true;
 }
 
 void OatFileManager::DumpForSigQuit(std::ostream& os) {
