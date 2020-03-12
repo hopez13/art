@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8359ac0c_e5d1d832",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-12T18:31:10Z",
+      "side": 1,
+      "message": "Previous line is the same.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 39
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f002c2c_74576923",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-12T18:31:10Z",
+      "side": 1,
+      "message": "I might be wrong but is DCHECK_LE \"less or equal\" so xSP, wSP will pass the test?",
+      "range": {
+        "startLine": 337,
+        "startChar": 43,
+        "endLine": 337,
+        "endChar": 64
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
