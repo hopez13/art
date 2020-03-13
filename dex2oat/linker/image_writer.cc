@@ -237,7 +237,7 @@ static void ClearDexFileCookies() REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime::Current()->GetHeap()->VisitObjects(visitor);
 }
 
-bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
+bool ImageWriter::PrepareImageAddressSpace(bool preload_dex_caches, TimingLogger* timings) {
   target_ptr_size_ = InstructionSetPointerSize(compiler_options_.GetInstructionSet());
 
   Thread* const self = Thread::Current();
@@ -247,7 +247,7 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
     ScopedObjectAccess soa(self);
     {
       TimingLogger::ScopedTiming t("PruneNonImageClasses", timings);
-      PruneNonImageClasses();  // Remove junk
+      PruneNonImageClasses(/*clear_dex_caches=*/ !preload_dex_caches);  // Remove junk
     }
 
     if (compiler_options_.IsAppImage()) {
@@ -277,7 +277,7 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
     Runtime::Current()->GetInternTable()->PromoteWeakToStrong();
   }
 
-  {
+  if (preload_dex_caches) {
     TimingLogger::ScopedTiming t("PreloadDexCaches", timings);
     // Preload deterministic contents to the dex cache arrays we're going to write.
     ScopedObjectAccess soa(self);
@@ -1306,6 +1306,42 @@ void ImageWriter::PruneDexCache(ObjPtr<mirror::DexCache> dex_cache,
   // Strings do not need pruning.
 }
 
+void ImageWriter::ClearDexCache(ObjPtr<mirror::DexCache> dex_cache) {
+  // Clear methods.
+  mirror::MethodDexCacheType* resolved_methods = dex_cache->GetResolvedMethods();
+  for (size_t slot_idx = 0, num = dex_cache->NumResolvedMethods(); slot_idx != num; ++slot_idx) {
+    auto pair =
+        mirror::DexCache::GetNativePairPtrSize(resolved_methods, slot_idx, target_ptr_size_);
+    if (pair.object != nullptr) {
+      dex_cache->ClearResolvedMethod(pair.index, target_ptr_size_);
+    }
+  }
+  // Clear fields.
+  mirror::FieldDexCacheType* resolved_fields = dex_cache->GetResolvedFields();
+  for (size_t slot_idx = 0, num = dex_cache->NumResolvedFields(); slot_idx != num; ++slot_idx) {
+    auto pair = mirror::DexCache::GetNativePairPtrSize(resolved_fields, slot_idx, target_ptr_size_);
+    if (pair.object != nullptr) {
+      dex_cache->ClearResolvedField(pair.index, target_ptr_size_);
+    }
+  }
+  // Clear types.
+  for (size_t slot_idx = 0, num = dex_cache->NumResolvedTypes(); slot_idx != num; ++slot_idx) {
+    mirror::TypeDexCachePair pair =
+        dex_cache->GetResolvedTypes()[slot_idx].load(std::memory_order_relaxed);
+    if (!pair.object.IsNull()) {
+      dex_cache->ClearResolvedType(dex::TypeIndex(pair.index));
+    }
+  }
+  // Clear strings.
+  for (size_t slot_idx = 0, num = dex_cache->NumStrings(); slot_idx != num; ++slot_idx) {
+    mirror::StringDexCachePair pair =
+        dex_cache->GetStrings()[slot_idx].load(std::memory_order_relaxed);
+    if (!pair.object.IsNull()) {
+      dex_cache->ClearString(dex::StringIndex(pair.index));
+    }
+  }
+}
+
 void ImageWriter::PreloadDexCache(ObjPtr<mirror::DexCache> dex_cache,
                                   ObjPtr<mirror::ClassLoader> class_loader) {
   // To ensure deterministic contents of the hash-based arrays, each slot shall contain
@@ -1413,7 +1449,7 @@ void ImageWriter::PreloadDexCache(ObjPtr<mirror::DexCache> dex_cache,
   }
 }
 
-void ImageWriter::PruneNonImageClasses() {
+void ImageWriter::PruneNonImageClasses(bool clear_dex_caches) {
   Runtime* runtime = Runtime::Current();
   ClassLinker* class_linker = runtime->GetClassLinker();
   Thread* self = Thread::Current();
@@ -1446,10 +1482,14 @@ void ImageWriter::PruneNonImageClasses() {
   // Clear references to removed classes from the DexCaches.
   std::vector<ObjPtr<mirror::DexCache>> dex_caches = FindDexCaches(self);
   for (ObjPtr<mirror::DexCache> dex_cache : dex_caches) {
-    // Pass the class loader associated with the DexCache. This can either be
-    // the app's `class_loader` or `nullptr` if boot class loader.
-    bool is_app_image_dex_cache = compiler_options_.IsAppImage() && IsImageDexCache(dex_cache);
-    PruneDexCache(dex_cache, is_app_image_dex_cache ? GetAppClassLoader() : nullptr);
+    if (clear_dex_caches) {
+      ClearDexCache(dex_cache);
+    } else {
+      // Pass the class loader associated with the DexCache. This can either be
+      // the app's `class_loader` or `nullptr` if boot class loader.
+      bool is_app_image_dex_cache = compiler_options_.IsAppImage() && IsImageDexCache(dex_cache);
+      PruneDexCache(dex_cache, is_app_image_dex_cache ? GetAppClassLoader() : nullptr);
+    }
   }
 
   // Drop the array class cache in the ClassLinker, as these are roots holding those classes live.
