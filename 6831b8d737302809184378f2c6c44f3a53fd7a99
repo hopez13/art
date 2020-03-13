@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3a6921a_0f60dcd2",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T09:18:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8359ac0c_e5d1d832",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 39
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f002c2c_74576923",
         "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c64a90a_990a16a5",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T09:18:11Z",
+      "side": 1,
+      "message": "Done. (The original mistake was copy-pasted around here and x86-64.)",
+      "parentUuid": "4f002c2c_74576923",
+      "range": {
+        "startLine": 337,
+        "startChar": 43,
+        "endLine": 337,
+        "endChar": 64
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
