@@ -116,6 +116,30 @@
       "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ade1f93_dc807968",
+        "filename": "test/178-app-image-native-method/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "The current generated code is more readable than hexadecimal numbers when you want to compare it with the other generated parts.",
+      "parentUuid": "92d2e310_334fac6a",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 16
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

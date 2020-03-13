@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a4a7922_6b7cf4a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Waiting for remaining Golem results for NativeDowncallStaticCritical6. I intend to update the commit message on Monday.",
+      "parentUuid": "ef3bbee4_dff54274",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "313ba775_08a60407",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5faf3812_24693a39",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "This comes down to a personal preference for using the weaker requirements for iterators. (size_t being a specific iterator, dests.size() being the end of the range and \u0027\u003c\u0027 being unnecessary ordering where equality is sufficient.)",
+      "parentUuid": "313ba775_08a60407",
+      "range": {
+        "startLine": 402,
+        "startChar": 19,
+        "endLine": 402,
+        "endChar": 21
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f80be89c_a7679175",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Added reference to LDRD/STRD to line 400. Added alignment checks above.",
+      "parentUuid": "93d03864_9072c932",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 90
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66d3cacf_b6a0641e",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -91,6 +163,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33d3427b_fd320ecf",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "The name here refers to the return value, not the type of input argument, so it should stay aligned with the other GetCoreRegisterMask() below.",
+      "parentUuid": "66d3cacf_b6a0641e",
+      "range": {
+        "startLine": 438,
+        "startChar": 23,
+        "endLine": 438,
+        "endChar": 42
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c82601b4_9a818ed1",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "I\u0027d rather keep this as is. See also vixl\u0027s \"RegisterList\" rather than \"RegistersList\".",
+      "parentUuid": "f27bd947_557497c4",
+      "range": {
+        "startLine": 449,
+        "startChar": 23,
+        "endLine": 449,
+        "endChar": 42
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aa5fed2_0d5e1e73",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -137,6 +257,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2ba7beb_2869bd6f",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Yes, STRD requires \"word\" (4 bytes) alignment.",
+      "parentUuid": "3aa5fed2_0d5e1e73",
+      "range": {
+        "startLine": 462,
+        "startChar": 2,
+        "endLine": 462,
+        "endChar": 66
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "00527e8a_fdd9af78",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "T2 allow arbitrary 2 registers, A32 allows only two consecutive registers (t2\u003dt+1).\n\nT32 yields smaller code. We mostly use T32. (mterp is A32 but I\u0027m in favor of rewriting it using T32.)",
+      "parentUuid": "e49b1077_f503369f",
+      "range": {
+        "startLine": 464,
+        "startChar": 22,
+        "endLine": 464,
+        "endChar": 31
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65545063_6f80a7a7",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -183,6 +351,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d52fc4_eb45b4e0",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65545063_6f80a7a7",
+      "range": {
+        "startLine": 525,
+        "startChar": 43,
+        "endLine": 525,
+        "endChar": 81
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5a71938f_8b528c4c",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "We have no reason to define managed ABI with reordered argument registers compared to the native ABI. OTOH, if the managed ABI did the same stuff for core registers as for FP registers (trying to squeeze as many float and double args to 8 S registers while keeping doubles in the overlapping D registers), foo(long l, int i) would have l in r2-r3 and i in r1 which would need special handling (r2-r3 -\u003e r0-r1, r1 -\u003e r2 is a cycle unless you split the two word move into individual moves).\n\nWith the current managed ABI, we\u0027re talking about 3 registers (r1-r3) and there is no case where we would need more than 2 passes, so definitely not worth it. For other architectures (i.e. arm64 and x86-64 because x86 has no native argument registers), it will be done in a single pass for @CriticalNative because of their particular ABIs.\n\nNote that I deliberately put one CHECK() below, so if we were to define an ABI that has cycles, this would crash even in release build.",
+      "parentUuid": "657a34c3_2e0a6e96",
+      "range": {
+        "startLine": 598,
+        "startChar": 2,
+        "endLine": 598,
+        "endChar": 71
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df5f4ae6_17c0010b",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -229,6 +445,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "557c294d_e44b94d6",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Not with any reasonable ABI. (Unless we start supporting little-endian native ABI with big-endian managed ABI or vice versa.)",
+      "parentUuid": "df5f4ae6_17c0010b",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 78
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "bb0bc9ad_86dd563e",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a8e1ca_ac6167d2",
+      "range": {
+        "startLine": 393,
+        "startChar": 22,
+        "endLine": 393,
+        "endChar": 67
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5abc5c50_f7f601e3",
         "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
         "patchSetId": 9
@@ -275,6 +539,30 @@
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86262eac_a4f9f014",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-13T14:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5abc5c50_f7f601e3",
+      "range": {
+        "startLine": 393,
+        "startChar": 22,
+        "endLine": 393,
+        "endChar": 67
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
