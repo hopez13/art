@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5226ddec_ccbfab7f",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-03-13T15:31:52Z",
+      "side": 1,
+      "message": "Sorry for the late review; David, could you explain why you decided to enable these tests for post-submit only (AIUI, listing tests in a \"presubmit\" section also enables them as postsubmits)? Is this to try and reproduce the original issue that only happened in post-submit testing?",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "fcc51211e6c079018e78477051011024a89da644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
