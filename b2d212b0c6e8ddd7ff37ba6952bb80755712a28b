@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ef3bbee4_dff54274",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "Did you observe any speedup on the benchmarks?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "313ba775_08a60407",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 9
@@ -133,6 +156,121 @@
         "startChar": 22,
         "endLine": 464,
         "endChar": 31
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65545063_6f80a7a7",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "This is mentioned a few times, maybe introduce a constant.",
+      "range": {
+        "startLine": 525,
+        "startChar": 43,
+        "endLine": 525,
+        "endChar": 81
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "657a34c3_2e0a6e96",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "Why should there be no cycles? As I understand, a 2-cycle would mean that two registers are swapped in the managed ABI and in the native ABI. Why is that (or a longer cycle) not possible?\n\nAssuming no cycles, I think it\u0027s worst-case O(n^2) where n is the number of core registers (an optimal algorithm would do topsort in O(n), but not worth it for 32 registers).",
+      "range": {
+        "startLine": 598,
+        "startChar": 2,
+        "endLine": 598,
+        "endChar": 71
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5f4ae6_17c0010b",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "There cannot be a case when the source is (X,Y) and the destination is (Y,X), right?",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 78
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5a8e1ca_ac6167d2",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "In the VIXL code, you also say \"Equals source, or ...\".",
+      "range": {
+        "startLine": 393,
+        "startChar": 22,
+        "endLine": 393,
+        "endChar": 67
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5abc5c50_f7f601e3",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T12:49:19Z",
+      "side": 1,
+      "message": "In VIXL code you also say \"Equals source, or ...\".",
+      "range": {
+        "startLine": 393,
+        "startChar": 22,
+        "endLine": 393,
+        "endChar": 67
       },
       "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
