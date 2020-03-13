@@ -46,6 +46,30 @@
       "revId": "eb2301dc64896e5acdafc0c4d1068b6a3e03babc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1226a2cd_c9f42aea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T13:51:47Z",
+      "side": 1,
+      "message": "Thanks (I added that line fro the Gerrit UI and lost it when rebasing the CL on the command-line).",
+      "parentUuid": "6db7e02f_46e30d1e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "eb2301dc64896e5acdafc0c4d1068b6a3e03babc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
