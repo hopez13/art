@@ -93,6 +93,29 @@
       "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92d2e310_334fac6a",
+        "filename": "test/178-app-image-native-method/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "Nit: maybe add a constant like in the other test:\n  jlong l \u003d INT64_C(0xf00000000);\n\nOr you can avoid the + altogether:\n  for i in {0..84}; do printf \u0027        0xf000000%02XL,\\n        0x%X,\\n\u0027 $((i*3)) $((i*3+2)); done",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 16
+      },
+      "revId": "6831b8d737302809184378f2c6c44f3a53fd7a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

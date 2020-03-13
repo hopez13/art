@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "313ba775_08a60407",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "I\u0027d put \u003c instead of !\u003d here.",
+      "range": {
+        "startLine": 402,
+        "startChar": 19,
+        "endLine": 402,
+        "endChar": 21
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93d03864_9072c932",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "It is not clear from this comment (1) which operation requires alignment, (2) what is the required alignment. Maybe also ensure 4B alignment with a DCHECK.",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 90
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d3cacf_b6a0641e",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "Should this be GetCoreRegisterOrPairMask to follow the naming convention?",
+      "range": {
+        "startLine": 438,
+        "startChar": 23,
+        "endLine": 438,
+        "endChar": 42
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f27bd947_557497c4",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "Should this be GetCoreRegistersMask (as there are many of them)?",
+      "range": {
+        "startLine": 449,
+        "startChar": 23,
+        "endLine": 449,
+        "endChar": 42
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aa5fed2_0d5e1e73",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "Is this a requirement of STRD?",
+      "range": {
+        "startLine": 462,
+        "startChar": 2,
+        "endLine": 462,
+        "endChar": 66
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e49b1077_f503369f",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T11:16:31Z",
+      "side": 1,
+      "message": "What does \u0027unrelated\u0027 mean here? Not a \u0027register pair\u0027?\n\nPardon my ignorance, but why do we keep to T32 and not A32 (and what about A64)?",
+      "range": {
+        "startLine": 464,
+        "startChar": 22,
+        "endLine": 464,
+        "endChar": 31
+      },
+      "revId": "b2d212b0c6e8ddd7ff37ba6952bb80755712a28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
