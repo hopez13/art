@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "287962ff_0a29f098",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-13T16:28:08Z",
+      "side": 1,
+      "message": "Same as for libcrypto - should we export this?",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b2fd7bd_2f50d623",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2020-03-13T15:16:12Z",
       "side": 1,
       "message": "I don\u0027t think all of these have stubs. Only libraries that have stubs should be in that list. libartpalette should definitely not go in there.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d27960ad_0abfd35a",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-13T16:28:08Z",
+      "side": 1,
+      "message": "libartbase, libartpalette and libdexfile shouldn\u0027t be in the SDK, but libdexfile_external, libnative*, and several others should. Is listing all these internal libs related to the issue with transitive deps discussed in https://r.android.com/c/platform/build/soong/+/1254006/5/android/sdk.go#196?",
+      "parentUuid": "0b2fd7bd_2f50d623",
       "range": {
         "startLine": 27,
         "startChar": 0,
