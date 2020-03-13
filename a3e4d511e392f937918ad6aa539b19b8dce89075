@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51b4a7e5_417f8cca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T13:33:29Z",
+      "side": 1,
+      "message": "I would reword it slightly, like:\n\n  Use the ART apex boot image instead of core.art.",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9139d5d4_49f5bd79",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T13:33:29Z",
+      "side": 1,
+      "message": "Why is conscrypt needed? It\u0027s not in the boot.art.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1901674d_ecf7fb35",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T13:33:29Z",
+      "side": 1,
+      "message": "Is conscrypt ever used here? (I know it\u0027s reformatted old code, just wondering if it has become obsolete.)",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 95
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e1f43fa_79a0c9cc",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-13T13:33:29Z",
+      "side": 1,
+      "message": "Maybe we don\u0027t need test-specific helpers now that the tests use the ART apex image?",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
