@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b2fd7bd_2f50d623",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-13T15:16:12Z",
+      "side": 1,
+      "message": "I don\u0027t think all of these have stubs. Only libraries that have stubs should be in that list. libartpalette should definitely not go in there.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "028a5072_79ebdb7f",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-13T15:16:12Z",
+      "side": 1,
+      "message": "libcrypto isn\u0027t something ART offers to other modules. I think you\u0027ll need conscrypt manifest to have it too.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e08e2c_3b570cf9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-13T15:16:12Z",
+      "side": 1,
+      "message": "Why is that on ART to export?",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
