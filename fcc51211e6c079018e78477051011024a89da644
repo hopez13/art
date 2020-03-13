@@ -22,6 +22,30 @@
       "revId": "fcc51211e6c079018e78477051011024a89da644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e46897b_a41fa6c0",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-13T15:48:18Z",
+      "side": 1,
+      "message": "The test ran into some issue during test runs of the presubmit suite for postsubmit builds. There were several changes since then and we\u0027d like to add this test to postsubmit group first to see if it can run without flakes. Once that\u0027s confirmed, we can move it to presubmit group.\n\nThis approach is recommended for new tests being added to Test Mapping files.",
+      "parentUuid": "5226ddec_ccbfab7f",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "fcc51211e6c079018e78477051011024a89da644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
