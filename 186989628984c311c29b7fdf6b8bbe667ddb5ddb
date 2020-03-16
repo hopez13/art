@@ -211,6 +211,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3cfba4_15fb383f",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-16T16:55:08Z",
+      "side": 1,
+      "message": "This test is run early on boot to avoid the FIPS check on every boringssl lib load, so my guess is it\u0027s necessary here to get into the system image. If that\u0027s correct then what\u0027s the plan to deal with it in the updatable future? Can the test be in the boot image if the lib isn\u0027t?",
+      "parentUuid": "cd6198cf_f685719b",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
