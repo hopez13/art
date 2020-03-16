@@ -18,8 +18,10 @@
 #define ART_COMPILER_DRIVER_COMPILER_OPTIONS_H_
 
 #include <memory>
+#include <optional>
 #include <ostream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include "base/globals.h"
@@ -359,6 +361,19 @@ class CompilerOptions final {
     return initialize_app_image_classes_;
   }
 
+  void SetTraceInliningDecisionsTo(std::string filename) {
+    trace_inlining_decisions_to_ = filename;
+  }
+
+  std::string_view GetTraceInliningDecisionsTo() const {
+    return *trace_inlining_decisions_to_;
+  }
+
+  // Return whether we should enable detailed logging of inlining decisions.
+  bool TraceInliningDecisions() const {
+    return trace_inlining_decisions_to_.has_value();
+  }
+
   // Is `boot_image_filename` the name of a core image (small boot
   // image used for ART testing only)?
   static bool IsCoreImageFilename(const std::string& boot_image_filename);
@@ -461,6 +476,8 @@ class CompilerOptions final {
   // Passing pass names which are not recognized by the compiler will result in
   // compiler-dependant behavior.
   const std::vector<std::string>* passes_to_run_;
+
+  std::optional<std::string> trace_inlining_decisions_to_;
 
   friend class Dex2Oat;
   friend class DexToDexDecompilerTest;

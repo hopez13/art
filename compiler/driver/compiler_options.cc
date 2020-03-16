@@ -80,7 +80,8 @@ CompilerOptions::CompilerOptions()
       check_profiled_methods_(ProfileMethodsCheck::kNone),
       max_image_block_size_(std::numeric_limits<uint32_t>::max()),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
-      passes_to_run_(nullptr) {
+      passes_to_run_(nullptr),
+      trace_inlining_decisions_to_{} {
 }
 
 CompilerOptions::~CompilerOptions() {
