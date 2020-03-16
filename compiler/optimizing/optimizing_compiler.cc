@@ -1002,6 +1002,26 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
   return codegen.release();
 }
 
+static void DumpInliningDecisions(
+    const CompilerOptions& compiler_options,
+    const std::vector<std::pair<InliningDecisionParameters, InliningResult>>& decisions,
+    size_t native_size) {
+  std::ofstream out(compiler_options.GetTraceInliningDecisionsTo(), std::ofstream::out);
+  // Write the header
+  out << "caller,caller_idx,callee,callee_idx,invoke_pc,num_arguments,"
+         "num_constant_arguments,recursion_depth,callee_size,did_inline,ir_size_delta,"
+         "native_size\n";
+  // Write all the decisions
+  for (auto& pair : decisions) {
+    out << pair.first.caller_name_ << "," << pair.first.caller_idx_ << ","
+        << pair.first.callee_name_ << "," << pair.first.callee_idx_ << "," << pair.first.invoke_pc_
+        << "," << pair.first.num_arguments_ << "," << pair.first.num_constant_arguments_ << ","
+        << static_cast<size_t>(pair.first.recursion_depth_) << ","
+        << pair.first.callee_number_of_instructions_ << "," << pair.second.did_inline_ << ","
+        << pair.second.ir_size_delta_ << "," << native_size << std::endl;
+  }
+}
+
 CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
                                             uint32_t access_flags,
                                             InvokeType invoke_type,
@@ -1080,6 +1100,13 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
                              compiled_intrinsic ? nullptr : code_item);
       if (compiled_intrinsic) {
         compiled_method->MarkAsIntrinsic();
+      }
+
+      // Dump inlining trace
+      if (kIsDebugBuild && compiler_options.TraceInliningDecisions()) {
+        DumpInliningDecisions(compiler_options,
+                              *codegen->GetInliningDecisions(),
+                              codegen->GetAssembler()->CodeSize());
       }
 
       if (kArenaAllocatorCountAllocations) {

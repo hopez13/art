@@ -97,6 +97,10 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
     options->dump_stats_ = true;
   }
 
+  if (map.Exists(Base::DumpInliningDecisionsTo)) {
+    options->SetTraceInliningDecisionsTo(*map.Get(Base::DumpInliningDecisionsTo));
+  }
+
   return true;
 }
 
@@ -205,6 +209,12 @@ inline void AddCompilerOptionsArgumentParserOptions(Builder& b) {
       .Define("--max-image-block-size=_")
           .template WithType<unsigned int>()
           .IntoKey(Map::MaxImageBlockSize);
+
+  if (kIsDebugBuild) {
+    b.Define("--dump-inlining-decisions-to=_")
+        .template WithType<std::string>()
+        .IntoKey(Map::DumpInliningDecisionsTo);
+  }
 }
 
 #pragma GCC diagnostic pop

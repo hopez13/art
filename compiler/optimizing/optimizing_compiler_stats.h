@@ -186,6 +186,26 @@ inline void MaybeRecordStat(OptimizingCompilerStats* compiler_stats,
   }
 }
 
+// Contains a set of parameters to inform whether to inline a function at a
+// callsite.
+struct InliningDecisionParameters {
+  std::string caller_name_;
+  uint32_t caller_idx_;
+  std::string callee_name_;
+  uint32_t callee_idx_;
+  uint32_t invoke_pc_;
+  size_t num_arguments_;
+  size_t num_constant_arguments_;
+  uint8_t recursion_depth_;
+  size_t callee_number_of_instructions_;
+};
+
+// Used to report the results of inlining, such as the size change.
+struct InliningResult {
+  bool did_inline_;
+  int ir_size_delta_;
+};
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_OPTIMIZING_COMPILER_STATS_H_

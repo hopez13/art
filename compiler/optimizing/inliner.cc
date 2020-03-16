@@ -2086,6 +2086,32 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
     return false;
   }
 
+  const bool trace_inlining =
+      kIsDebugBuild && codegen_->GetCompilerOptions().TraceInliningDecisions();
+  InliningDecisionParameters inlining_params{
+      /*caller_name_=*/graph_->GetMethodName(),
+      /*caller_idx_=*/graph_->GetMethodIdx(),
+      /*callee_name_=*/resolved_method->GetName(),
+      /*callee_idx_=*/resolved_method->GetDexMethodIndex(),
+      /*invoke_pc_=*/invoke_instruction->GetDexPc(),
+      /*num_arguments_=*/invoke_instruction->InputCount(),
+      /*num_constant_arguments_=*/0,  // We'll count these later.
+      /*recursion_depth_=*/0,  // We'll count these later
+      /*callee_number_of_instructions_=*/number_of_instructions,
+  };
+  if (trace_inlining) {
+    for (const auto* input : invoke_instruction->GetInputs()) {
+      if (input->IsConstant()) {
+        inlining_params.num_constant_arguments_++;
+      }
+    }
+    inlining_params.recursion_depth_ = static_cast<uint8_t>(CountRecursiveCallsOf(resolved_method));
+  }
+
+  InliningResult result{
+      /*did_inline_=*/true,
+      /*ir_size_delta_=*/trace_inlining ? -static_cast<int>(CountNumberOfInstructions(graph_)) : 0};
+
   DCHECK_EQ(caller_instruction_counter, graph_->GetCurrentInstructionId())
       << "No instructions can be added to the outer graph while inner graph is being built";
 
@@ -2096,6 +2122,10 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
   // Update our budget for other inlining attempts in `caller_graph`.
   total_number_of_instructions_ += number_of_instructions;
   UpdateInliningBudget();
+
+  if (trace_inlining) {
+    result.ir_size_delta_ += CountNumberOfInstructions(graph_);
+  }
 
   DCHECK_EQ(callee_instruction_counter, callee_graph->GetCurrentInstructionId())
       << "No instructions can be added to the inner graph during inlining into the outer graph";
@@ -2112,6 +2142,9 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
     graph_->MarkDeadReferenceUnsafe();
   }
 
+  if (trace_inlining && parent_ == nullptr) {
+    codegen_->GetInliningDecisions()->emplace_back(std::pair{inlining_params, result});
+  }
   return true;
 }
 

@@ -667,6 +667,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   static QuickEntrypointEnum GetArrayAllocationEntrypoint(HNewArray* new_array);
 
+  std::vector<std::pair<InliningDecisionParameters, InliningResult>>* GetInliningDecisions() {
+    return &inlining_decisions_;
+  }
+
  protected:
   // Patch info used for recording locations of required linker patches and their targets,
   // i.e. target method, string, type or code identified by their dex file and index,
@@ -819,6 +823,12 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   // held by the ArenaAllocator. This ScopedArenaAllocator is created in
   // CodeGenerator::Compile() and remains alive until the CodeGenerator is destroyed.
   std::unique_ptr<CodeGenerationData> code_generation_data_;
+
+  // A trace of inlining decisions for this method.
+  //
+  // It's attached to the code generator so we can update the decisions when we
+  // know the final method size.
+  std::vector<std::pair<InliningDecisionParameters, InliningResult>> inlining_decisions_;
 
   friend class OptimizingCFITest;
   ART_FRIEND_TEST(CodegenTest, ARM64FrameSizeSIMD);
