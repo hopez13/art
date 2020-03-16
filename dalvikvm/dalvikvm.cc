@@ -17,14 +17,14 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
 #include <algorithm>
 #include <memory>
+#include <string>
 
 #include "jni.h"
 #include "nativehelper/JniInvocation.h"
 #include "nativehelper/ScopedLocalRef.h"
-#include "nativehelper/toStringArray.h"
 
 namespace art {
 
@@ -56,11 +56,31 @@ static bool IsMethodPublic(JNIEnv* env, jclass c, jmethodID method_id) {
   return true;
 }
 
-static int InvokeMain(JNIEnv* env, char** argv) {
-  // We want to call main() with a String array with our arguments in
-  // it.  Create an array and populate it.  Note argv[0] is not
-  // included.
-  ScopedLocalRef<jobjectArray> args(env, toStringArray(env, argv + 1));
+static jobjectArray MakeMainArguments(JNIEnv* env, int count, char** args) {
+  ScopedLocalRef string_class(env, env->FindClass("java/lang/String"));
+  if (string_class == nullptr) {
+    return nullptr;
+  }
+  jobjectArray array = env->NewObjectArray(count, string_class.get(), nullptr);
+  if (array == nullptr) {
+    return nullptr;
+  }
+  // Skip initial element, the main class name, this isn't passed to main(String[] args).
+  for (int i = 1; i < count; ++count) {
+    ScopedLocalRef element(env, env->NewStringUTF(args[i]));
+    if (env->ExceptionCheck()) {
+      return nullptr;
+    }
+    env->SetObjectArrayElement(array, i, element.get());
+    if (env->ExceptionCheck()) {
+      return nullptr;
+    }
+  }
+  return array;
+}
+
+static int InvokeMain(JNIEnv* env, int argc, char** argv) {
+  ScopedLocalRef<jobjectArray> args(env, MakeMainArguments(env, argc, argv));
   if (args.get() == nullptr) {
     env->ExceptionDescribe();
     return EXIT_FAILURE;
@@ -187,7 +207,7 @@ static int dalvikvm(int argc, char** argv) {
     return EXIT_FAILURE;
   }
 
-  int rc = InvokeMain(env, &argv[arg_idx]);
+  int rc = InvokeMain(env, argc - arg_idx, &argv[arg_idx]);
 
 #if defined(NDEBUG)
   // The DestroyJavaVM call will detach this thread for us. In debug builds, we don't want to
