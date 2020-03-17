@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f64aaf7_ca078e26",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-17T17:56:23Z",
+      "side": 0,
+      "message": "To confirm: It\u0027s OK to not do this as it makes no sense to rollback the classloader of a class?",
+      "range": {
+        "startLine": 1194,
+        "startChar": 0,
+        "endLine": 1194,
+        "endChar": 90
+      },
+      "revId": "bf7705509ea10d1f172bd37200ebbb6472a139a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
