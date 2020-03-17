@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "62d52f6c_3b37a6ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T15:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c54a341a_504c4951",
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4845cdc6_223090e7",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4ef2000_f1053e7b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T15:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4845cdc6_223090e7",
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
