@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b82531eb_f488e86e",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-17T19:29:35Z",
+      "side": 1,
+      "message": "Should be !hklass-\u003eIsInterface \u0026\u0026 hklass-\u003eIsSubClass or there will be a DCHECK failure.",
+      "revId": "ea032c328a25eeb7f6298bb9178308502d06342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
