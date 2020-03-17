@@ -355,6 +355,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ccaccd_0fdeabf0",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-17T16:18:23Z",
+      "side": 1,
+      "message": "Right, Paul this means that boringssl *is* part of the conscrypt module (as having its own copy).",
+      "parentUuid": "30c79b5e_8ea02cfc",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
