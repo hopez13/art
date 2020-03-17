@@ -235,6 +235,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7639bc10_a9147c63",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2020-03-17T15:04:59Z",
+      "side": 1,
+      "message": "Note that if you\u0027re planning to run a boringssl_self_test for the art apex, you\u0027ll also need init and sepolicy changes.  See b/151141564",
+      "parentUuid": "4d3cfba4_15fb383f",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
