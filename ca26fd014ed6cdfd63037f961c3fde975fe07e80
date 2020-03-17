@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa39f1c8_4e9883ac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-17T11:11:58Z",
+      "side": 1,
+      "message": "1) Is \"assume-verified\" only used for in-memory boot image compilation? If yes, maybe we should have a DCHECK to enforce that guarantee (do we already?). If no, then this comment should say something about other cases.\n\n2) Nit: I\u0027d reword second half of the comment to make it easier to read, e.g. \"This filter is used for in-memory compilation of boot image extension. In that scenario it is undesirable to use a lot of time to look up things now in hope it will be somewhat useful later.\"",
+      "range": {
+        "startLine": 2239,
+        "startChar": 0,
+        "endLine": 2241,
+        "endChar": 82
+      },
+      "revId": "ca26fd014ed6cdfd63037f961c3fde975fe07e80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
