@@ -22,6 +22,30 @@
       "revId": "ca26fd014ed6cdfd63037f961c3fde975fe07e80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc9d9bbf_ea006436",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T14:57:51Z",
+      "side": 1,
+      "message": "1) It is currently the most important (only?) use case. But the filter predates this use case as it was historically used for some testing - I do not remember the details. Currently dex2oat does not know if was called to compile in memory (with mem_fd file descriptors). And dex2oat is responsible only for the compilation, not what the artifacts are used for, so it would be wrong to include such DCHECK() even if it was feasible.\n\n2) Done.",
+      "parentUuid": "aa39f1c8_4e9883ac",
+      "range": {
+        "startLine": 2239,
+        "startChar": 0,
+        "endLine": 2241,
+        "endChar": 82
+      },
+      "revId": "ca26fd014ed6cdfd63037f961c3fde975fe07e80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
