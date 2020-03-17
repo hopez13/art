@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c54a341a_504c4951",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-17T14:51:32Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4845cdc6_223090e7",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-17T14:51:32Z",
+      "side": 1,
+      "message": "Nit: add a high-level comment on why this is different than SetAccessFlags.",
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
