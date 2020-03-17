@@ -296,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "b8e6c674_2f7a28f6",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81860ab2_4bc2f0e5",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bac028a_63338539",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -462,6 +486,30 @@
     },
     {
       "key": {
+        "uuid": "b1fccce7_2cbe1ea9",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Hi Artem, \nThe original loop contains 2 PHIs (one induction and other reduction). We adds one new Induction PHI. I mentioned earlier that in case of no uses, old PHI will be removed in dead_code_elimination pass. \nIn your previous post, you mentioned that newly introduced induction is not removed. Newly introduced induction PHI will not be removed and old induction PHI will be removed in case of no uses. But, we can see that all PHIs have uses and hence, are not being removed.",
+      "parentUuid": "5f1f0b2f_8c691043",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4ad6ea_cab8f7c1",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -577,6 +625,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a013cb5b_6948dd39",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "I added checker for above case in \"testArraySumByTwo()\" method.",
+      "parentUuid": "c97341c4_ac5d223d",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 50
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -699,6 +771,30 @@
     },
     {
       "key": {
+        "uuid": "2a5ddb3d_ea631bcc",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "I added one more checker test case for \"testArraySumByTwo()\" .",
+      "parentUuid": "1a3e6aec_dc5ff39e",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 44
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c116d8cb_64b54661",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -719,6 +815,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f132f205_a369d6af",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c116d8cb_64b54661",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -789,6 +909,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e44dc6_55ca91d1",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e03a6f4_86e2c299",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 8
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -863,6 +1007,30 @@
     },
     {
       "key": {
+        "uuid": "3b13fafc_f2fdb2e5",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1b2ac31_fc1ea3df",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 5
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d50041_0fb783b2",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -931,6 +1099,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb6e3024_41d52e35",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-17T20:31:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc625eff_f63918e1",
+      "range": {
+        "startLine": 217,
+        "startChar": 12,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
