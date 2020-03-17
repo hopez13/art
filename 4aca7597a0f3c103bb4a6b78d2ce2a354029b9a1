@@ -22,6 +22,30 @@
       "revId": "4aca7597a0f3c103bb4a6b78d2ce2a354029b9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04c947f9_8d2e8eb1",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T15:43:40Z",
+      "side": 1,
+      "message": "It\u0027s not about being slow. It\u0027s just plain wrong when creating an array class with an active Transaction (rhs\u003dtrue) while we do not want to record the write (lhs\u003dfalse).",
+      "parentUuid": "8192b000_2f66d0ff",
+      "range": {
+        "startLine": 410,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 62
+      },
+      "revId": "4aca7597a0f3c103bb4a6b78d2ce2a354029b9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
