@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99267711_0651e36e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T16:06:40Z",
+      "side": 1,
+      "message": "I don\u0027t understand. Did you want me to copy this \"top-level-comment\" to the SetAccessFlagsDuringLinking()? Than I guess it would be appropriate to clutter all the other changes to Class field setters with the same.\n\nNot running the transactional interpreter for assume-verified means not initializing many classes. And as we previously discussed offline, trying to do the initialization early in zygote has potential impact on memory use by stuff we will not be able to unload the way we do in ImageWriter.",
+      "parentUuid": "fa36d45d_470ad5e9",
+      "revId": "4aca7597a0f3c103bb4a6b78d2ce2a354029b9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8192b000_2f66d0ff",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
