@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba485d42_d5d4a3d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-17T15:38:56Z",
+      "side": 1,
+      "message": "I\u0027ve described what I\u0027ve done based on my limited knowledge of the build. If you want more details, it\u0027s \"less out/verbose.log.gz\", search for the pattern \"dex2oatd .*framework\\.jar \", copy the dex2oatd command, etc.\n\nI\u0027m not sure your explicit instructions are good for repeating the Test: a week, month or a year from now. The build.ninja format may be stable but the rule names are probably not.",
+      "parentUuid": "a3205a21_7a64cb65",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c54a341a_504c4951",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
