@@ -46,6 +46,30 @@
       "revId": "ca26fd014ed6cdfd63037f961c3fde975fe07e80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22a9d228_1b55f290",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-17T15:28:32Z",
+      "side": 1,
+      "message": "Re 1): ok, perhaps other use-cases for \"assume-verified\" would be similar (they also wouldn\u0027t want to preload dex caches).",
+      "parentUuid": "dc9d9bbf_ea006436",
+      "range": {
+        "startLine": 2239,
+        "startChar": 0,
+        "endLine": 2241,
+        "endChar": 82
+      },
+      "revId": "ca26fd014ed6cdfd63037f961c3fde975fe07e80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
