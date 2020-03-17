@@ -259,6 +259,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bffa91ad_35cc2658",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-17T15:24:29Z",
+      "side": 1,
+      "message": "From an SDK perspective, doesn\u0027t that mean that boringssl_self_test should be provided by a Conscrypt module export instead?",
+      "parentUuid": "7639bc10_a9147c63",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
