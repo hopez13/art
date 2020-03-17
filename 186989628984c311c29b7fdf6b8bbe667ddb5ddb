@@ -283,6 +283,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68de77c8_9054d41e",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-03-17T16:00:10Z",
+      "side": 1,
+      "message": "That would require external/boringssl to be part of the Conscrypt module and it is currently part of the ART module. I don\u0027t know why there is the split but I presume that there is a good reason for it.",
+      "parentUuid": "bffa91ad_35cc2658",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
