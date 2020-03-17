@@ -331,6 +331,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c79b5e_8ea02cfc",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2020-03-17T16:16:24Z",
+      "side": 1,
+      "message": "I\u0027m not completely following the logic here, but boringssl provides these libs:\n* libcrypto is used in several modules (ART, Conscrypt, Media, resolv) and /system and /vendor.  This is the library that boringssl_self_test tests.\n* libssl is also used in a few places (/system and Conscrypt at least)\n\nSo maybe from an SDK perspective we need a boringssl SDK? (I don\u0027t really know, just thinking out loud)",
+      "parentUuid": "146070c8_bec0191b",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
