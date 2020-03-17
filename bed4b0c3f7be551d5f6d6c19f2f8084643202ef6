@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3205a21_7a64cb65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-17T15:14:53Z",
+      "side": 1,
+      "message": "Nit: it\u0027s better to use more precise instructions, e.g.:\n  fgrep \u0027rule s.dex_bootjars.bootJarsDexpreopt_android_arm64_armv8-a_cortex-a73\u0027 $ANDROID_BUILD_TOP/out/soong/build.ninja -A2",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "bed4b0c3f7be551d5f6d6c19f2f8084643202ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c54a341a_504c4951",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
