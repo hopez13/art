@@ -34,6 +34,24 @@
       "revId": "03008223bc443c2e7a411d6595671e376dea0a9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bdabc18_e5e0a5f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-18T12:31:44Z",
+      "side": 1,
+      "message": "Short answer would be that x86-64 has to save/restore xmm12-xmm15.\n\nThe full answer would be to show you oatdump output for each architecture before and after for the stub, but also the unchanged oatdump output for the method that benchmarks it because there is a lot of time spent on the argument setup and the loop overhead.\n\nAs for the stub itself, x86 used to have 3 MOVL (store, load, store) for each of 3 incoming register args but has only 1 MOVL (store) now, while stack args retain 2 MOVL (load, store). x86-64 used to have 2 MOVL (store, load) for each of 5 register args and now has only 1 MOVL between registers, retaining 1 MOVL (load) for incoming stack arg; unfortunately, x86-64 also has to save and restore xmm12-xmm15 every single time because of ABI mismatch which is an overhead that reduces the gains expressed as a percentage. On ARM, we replace STR+LDR with MOV for 3 incoming register args (like x86-64), retain LDR for incoming stack arg that\u0027s outgoing register arg and exploit LDRD/STRD to move the remaining 2 stack args together. ARM64 has everything in registers and, like register args on x86-64, we replace STR+LDR with MOV for each arg.\n\nNote that this benchmark uses only int arguments, so it does not show the arm64/x86-64 gains from not doing any work whatsoever for first 8 float/double args because they are already in the right registers.",
+      "parentUuid": "fd4e7168_426ee657",
+      "revId": "03008223bc443c2e7a411d6595671e376dea0a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
