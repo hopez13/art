@@ -52,6 +52,24 @@
       "revId": "03008223bc443c2e7a411d6595671e376dea0a9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb7b6b27_8f310307",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-18T17:40:20Z",
+      "side": 1,
+      "message": "Thanks!\n\nLooking at oatdump output is a good idea.\n\nI wonder if we can analyze if the native code uses xmm12-xmm15 at all (or in general what registers are used) and avoid saving/restoring them.",
+      "parentUuid": "8bdabc18_e5e0a5f0",
+      "revId": "03008223bc443c2e7a411d6595671e376dea0a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
