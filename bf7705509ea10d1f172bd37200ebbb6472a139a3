@@ -22,6 +22,30 @@
       "revId": "bf7705509ea10d1f172bd37200ebbb6472a139a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d8e591_aa57df5c",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-18T09:52:09Z",
+      "side": 0,
+      "message": "The (unimplemented) roll back of a class would be to remove it from the class table. If we do that, it does not matter whether we roll back the field or not because the Class object will be unreachable. As long as we are keeping the class, the field must not be rolled back.\n\nNote that besides class creation (\"linking\"), we set the class loader also when loading app image but that\u0027s outside of a Transaction.",
+      "parentUuid": "9f64aaf7_ca078e26",
+      "range": {
+        "startLine": 1194,
+        "startChar": 0,
+        "endLine": 1194,
+        "endChar": 90
+      },
+      "revId": "bf7705509ea10d1f172bd37200ebbb6472a139a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

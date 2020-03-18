@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a77c4ff8_ca7ceae9",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-18T09:52:09Z",
+      "side": 1,
+      "message": "The prevalent pattern in this CL is to specify `\u003c/*kTransactionActive\u003d*/ false, /*kCheckTransaction\u003d*/ false\u003e` but that does not work for SetAccessFlags() which is used also after class creation (\"linking\"). I could have added the two template arguments but, as I didn\u0027t want to do the SetAccessFlagsDCheck() [*], I decided to use the other common pattern, i.e. \"DuringLinking\" which is used to provide different DCHECK()s. It was previously used only for getters but I think that setters using it is fine.\n\n[*] I want to eventually remove the unnecessary SetStatusForPrimitiveOrArray() call from ClassLinker::FinishArrayClassSetup(), but at this moment it would still trigger some DCHECK()s.",
+      "parentUuid": "47971e08_1d3c9173",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 87
+      },
+      "revId": "4aca7597a0f3c103bb4a6b78d2ce2a354029b9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8192b000_2f66d0ff",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
