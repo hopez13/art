@@ -435,6 +435,10 @@ class JitCodeCache {
       REQUIRES(Locks::jit_lock_)
       REQUIRES(Locks::mutator_lock_);
 
+  // Call given callback for every compiled method in the code cache.
+  void VisitAllMethods(std::function<void(const void*, ArtMethod*)> cb)
+      REQUIRES(Locks::jit_lock_);
+
   // Free code and data allocations for `code_ptr`.
   void FreeCodeAndData(const void* code_ptr)
       REQUIRES(Locks::jit_lock_)

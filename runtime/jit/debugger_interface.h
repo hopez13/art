@@ -72,6 +72,9 @@ size_t GetJitMiniDebugInfoMemUsage() REQUIRES_SHARED(Locks::jit_lock_);
 // TODO: Unwinding should be race-free. Remove this.
 Mutex* GetNativeDebugInfoLock();
 
+// Call given callback for every stored symbol. The parameters are (address, size, name).
+void ForEachNativeDebugSymbolLocked(std::function<void(const void*, size_t, const char*)> cb);
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_JIT_DEBUGGER_INTERFACE_H_

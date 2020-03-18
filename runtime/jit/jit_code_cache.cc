@@ -498,6 +498,24 @@ void JitCodeCache::FreeAllMethodHeaders(
 
   // We have potentially removed a lot of debug info. Do maintenance pass to save space.
   RepackNativeDebugInfoForJit();
+
+  // Check that the set of compiled methods exactly matches native debug information.
+  if (kIsDebugBuild) {
+    std::map<const void*, ArtMethod*> compiled_methods;
+    VisitAllMethods([&](const void* addr, ArtMethod* method) {
+      compiled_methods[addr] = method;
+    });
+    std::map<const void*, const char*> debug_info;
+    MutexLock mu2(Thread::Current(), *GetNativeDebugInfoLock());
+    ForEachNativeDebugSymbolLocked([&](const void* addr, size_t, const char* name) {
+      addr = AlignDown(addr, GetInstructionSetInstructionAlignment(kRuntimeISA));
+      CHECK(debug_info.emplace(addr, name).second) << "Duplicate debug info: " << name;
+      CHECK_EQ(compiled_methods.count(addr), 1u) << "JITed method not found: " << name;
+    });
+    for (auto it : compiled_methods) {
+      CHECK_EQ(debug_info.count(it.first), 1u) << "No debug info: " << it.second->PrettyMethod();
+    }
+  }
 }
 
 void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
@@ -1881,6 +1899,24 @@ void JitCodeCache::PostForkChildAction(bool is_system_server, bool is_zygote) {
 
 JitMemoryRegion* JitCodeCache::GetCurrentRegion() {
   return Runtime::Current()->IsZygote() ? &shared_region_ : &private_region_;
+}
+
+void JitCodeCache::VisitAllMethods(std::function<void(const void*, ArtMethod*)> cb) {
+  for (auto it : jni_stubs_map_) {
+    const JniStubData& data = it.second;
+    for (ArtMethod* method : data.GetMethods()) {
+      cb(data.GetCode(), method);
+    }
+  }
+  for (auto it : method_code_map_) {
+    cb(it.first, it.second);
+  }
+  for (auto it : saved_compiled_methods_map_) {
+    cb(it.second, it.first);
+  }
+  for (auto it : osr_code_map_) {
+    cb(it.second, it.first);
+  }
 }
 
 void ZygoteMap::Initialize(uint32_t number_of_methods) {

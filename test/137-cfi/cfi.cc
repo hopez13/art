@@ -99,6 +99,10 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_sigstop(JNIEnv*, jclass) {
   printf("Java_Main_sigstop\n");
 #if __linux__
   MutexLock mu(Thread::Current(), *GetNativeDebugInfoLock());  // Avoid races with the JIT thread.
+  ForEachNativeDebugSymbolLocked([](const void* addr, size_t size, const char* name){
+    const void* end = reinterpret_cast<const uint8_t*>(addr) + size;
+    LOG(INFO) << "JIT mini-debug-info entry: " << addr << "-" << end << ":" << name;
+  });
   raise(SIGSTOP);
 #endif
   return true;  // Prevent the compiler from tail-call optimizing this method away.
