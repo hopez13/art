@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d07a7631_98a486b5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-18T11:34:40Z",
+      "side": 1,
+      "message": "I would not rely on the compiler to optimize this away in release mode. Just put this under `if (kIsDebuggable)`. Same for the loop below.",
+      "range": {
+        "startLine": 887,
+        "startChar": 4,
+        "endLine": 890,
+        "endChar": 5
+      },
+      "revId": "786da9cd85e6cf382d48e35c37d87d3daba118a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
