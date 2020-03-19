@@ -170,7 +170,6 @@ static constexpr size_t kNumRosAllocThreadLocalSizeBracketsInThread = 16;
 
 class Thread {
  public:
-  static const size_t kStackOverflowImplicitCheckSize;
   static constexpr bool kVerifyStack = kIsDebugBuild;
 
   // Creates a new native thread corresponding to the given managed peer.
@@ -1466,7 +1465,7 @@ class Thread {
       REQUIRES(!Locks::thread_suspend_count_lock_);
 
   // Install the protected region for implicit stack checks.
-  void InstallImplicitProtection();
+  void InstallImplicitProtection(bool is_main_thread);
 
   template <bool kPrecise>
   void VisitRoots(RootVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_);
