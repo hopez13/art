@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d0b1d2cc_e7d9f258",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T22:06:48Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "fc010122_38e85cbb",
+      "range": {
+        "startLine": 139,
+        "startChar": 44,
+        "endLine": 145,
+        "endChar": 4
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59bca1a1_b9c48a58",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "It\u0027s not entirely clear to me that this is correct. It is a little strange that we are giving extra stack space when given an explicit size.\n\nAlso the pthread default size is at least 1MB correct? I don\u0027t think we want to be making the stack smaller in general.\n\nmathieuc, lokesh any comment?",
       "parentUuid": "00b39264_8f2680c6",
+      "range": {
+        "startLine": 702,
+        "startChar": 3,
+        "endLine": 705,
+        "endChar": 0
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86e12195_1fe474d5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T22:06:48Z",
+      "side": 1,
+      "message": "\u003e It\u0027s not entirely clear to me that this is correct. It is a little strange that we are giving extra stack space when given an explicit size.\n\nWhen we\u0027re *not* given a size, it means the thread creator doesn\u0027t care how large the stack is. If we *do* have an explicit size, the thread creator *does* care how large the stack is, and since we historically had a stack of 1MB plus whatever the caller specified, let\u0027s keep that behavior. I want to change ART\u0027s behavior only in the case that the thread creator said he\u0027s happy with the default.",
+      "parentUuid": "78e52106_f49d2598",
       "range": {
         "startLine": 702,
         "startChar": 3,
