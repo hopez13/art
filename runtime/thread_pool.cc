@@ -40,29 +40,39 @@ using android::base::StringPrintf;
 
 static constexpr bool kMeasureWaitTime = false;
 
+#if defined(__BIONIC__)
+static constexpr bool kUseCustomThreadPoolStack = false;
+#else
+static constexpr bool kUseCustomThreadPoolStack = true;
+#endif
+
 ThreadPoolWorker::ThreadPoolWorker(ThreadPool* thread_pool, const std::string& name,
                                    size_t stack_size)
     : thread_pool_(thread_pool),
       name_(name) {
-  // Add an inaccessible page to catch stack overflow.
-  stack_size += kPageSize;
   std::string error_msg;
-  stack_ = MemMap::MapAnonymous(name.c_str(),
-                                stack_size,
-                                PROT_READ | PROT_WRITE,
-                                /*low_4gb=*/ false,
-                                &error_msg);
-  CHECK(stack_.IsValid()) << error_msg;
-  CHECK_ALIGNED(stack_.Begin(), kPageSize);
-  CheckedCall(mprotect,
-              "mprotect bottom page of thread pool worker stack",
-              stack_.Begin(),
-              kPageSize,
-              PROT_NONE);
+  if (kUseCustomThreadPoolStack) {
+    // Add an inaccessible page to catch stack overflow.
+    stack_size += kPageSize;
+    stack_ = MemMap::MapAnonymous(name.c_str(),
+                                  stack_size,
+                                  PROT_READ | PROT_WRITE,
+                                  /*low_4gb=*/ false,
+                                  &error_msg);
+    CHECK(stack_.IsValid()) << error_msg;
+    CHECK_ALIGNED(stack_.Begin(), kPageSize);
+    CheckedCall(mprotect,
+                "mprotect bottom page of thread pool worker stack",
+                stack_.Begin(),
+                kPageSize,
+                PROT_NONE);
+  }
   const char* reason = "new thread pool worker thread";
   pthread_attr_t attr;
   CHECK_PTHREAD_CALL(pthread_attr_init, (&attr), reason);
-  CHECK_PTHREAD_CALL(pthread_attr_setstack, (&attr, stack_.Begin(), stack_.Size()), reason);
+  if (kUseCustomThreadPoolStack) {
+    CHECK_PTHREAD_CALL(pthread_attr_setstack, (&attr, stack_.Begin(), stack_.Size()), reason);
+  }
   CHECK_PTHREAD_CALL(pthread_create, (&pthread_, &attr, &Callback, this), reason);
   CHECK_PTHREAD_CALL(pthread_attr_destroy, (&attr), reason);
 }
