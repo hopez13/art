@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fc010122_38e85cbb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-19T22:03:11Z",
+      "side": 1,
+      "message": "In other places we define the symbol multiple places (see mem_map.h or globals.h). Please do so here as well.",
+      "parentUuid": "de5c0fae_0d82126c",
+      "range": {
+        "startLine": 139,
+        "startChar": 44,
+        "endLine": 145,
+        "endChar": 4
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "59bca1a1_b9c48a58",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "\u003e We don\u0027t seem to have a default value for DefaultStackSize (so the value is 0). This change means we do longer add 1mb to this default size of 0 and so could cause issues.\n\nIf stack_size is zero upon return, we use the pthread default stack size, and on Android, we know that\u0027s big enough (at least 1MB). The whole point is to let bionic pick the default stack size. On other platforms, sure, we can specify something.",
       "parentUuid": "59bca1a1_b9c48a58",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 694,
+        "endChar": 66
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc04520f_84d7162c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-19T22:03:11Z",
+      "side": 1,
+      "message": "Ack. Please add a comment. The current comment doesn\u0027t make it clear that returning \u00270\u0027 is (1) a valid return value and (2) means to use the default pthread stack size.",
+      "parentUuid": "c9756c53_5ca3ce60",
       "range": {
         "startLine": 694,
         "startChar": 0,
@@ -190,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "78e52106_f49d2598",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-19T22:03:11Z",
+      "side": 1,
+      "message": "It\u0027s not entirely clear to me that this is correct. It is a little strange that we are giving extra stack space when given an explicit size.\n\nAlso the pthread default size is at least 1MB correct? I don\u0027t think we want to be making the stack smaller in general.\n\nmathieuc, lokesh any comment?",
+      "parentUuid": "00b39264_8f2680c6",
+      "range": {
+        "startLine": 702,
+        "startChar": 3,
+        "endLine": 705,
+        "endChar": 0
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d728f4a3_e21cce10",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -234,6 +306,30 @@
       "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "443b1c20_720d16b3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-03-19T22:03:11Z",
+      "side": 1,
+      "message": "I don\u0027t know of any.",
+      "parentUuid": "2ce3c663_d1f1a95e",
+      "range": {
+        "startLine": 714,
+        "startChar": 6,
+        "endLine": 714,
+        "endChar": 16
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
