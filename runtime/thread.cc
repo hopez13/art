@@ -130,11 +130,19 @@ extern "C" NO_RETURN void artDeoptimize(Thread* self);
 bool Thread::is_started_ = false;
 pthread_key_t Thread::pthread_key_self_;
 ConditionVariable* Thread::resume_cond_ = nullptr;
-const size_t Thread::kStackOverflowImplicitCheckSize = GetStackOverflowReservedBytes(kRuntimeISA);
 bool (*Thread::is_sensitive_thread_hook_)() = nullptr;
 Thread* Thread::jit_sensitive_thread_ = nullptr;
 #ifndef __BIONIC__
 thread_local Thread* Thread::self_tls_ = nullptr;
+#endif
+
+// We know Bionic tolerates our unprotecting the libc-allocated thread
+// guard region during stack overflow. We don't know whether other
+// libcs so.
+#if defined(__BIONIC__)
+static constexpr bool kUsePthreadGuardRegion = true;
+#else
+static constexpr bool kUsePthreadGuardRegion = false;
 #endif
 
 static constexpr bool kVerifyImageObjectsMarked = kIsDebugBuild;
@@ -680,15 +688,26 @@ Thread* Thread::FromManagedThread(const ScopedObjectAccessAlreadyRunnable& soa,
   return FromManagedThread(soa, soa.Decode<mirror::Object>(java_thread));
 }
 
-static size_t FixStackSize(size_t stack_size) {
+// Given a user-supplied stack size request in stack_size, return the
+// stack sizes we want to pass into the pthreads library.  Input of
+// zero means "use your best judgment, ART", and a return value of
+// zero (either for stack size or guard size) means to have pthreads
+// just use its own default stack size. Return needed stack and
+// guard sizes.
+static std::pair<size_t, size_t> FixStackSize(size_t stack_size) {
   // A stack size of zero means "use the default".
   if (stack_size == 0) {
     stack_size = Runtime::Current()->GetDefaultStackSize();
   }
 
-  // Dalvik used the bionic pthread default stack size for native threads,
-  // so include that here to support apps that expect large native stacks.
-  stack_size += 1 * MB;
+  if (stack_size != 0) {
+    // Dalvik used the bionic pthread default stack size for native
+    // threads, so include that here to support apps that expect large
+    // native stacks.  Recall that stack_size==0 means to let pthreads
+    // use the default, so skipping the stack_size addition here
+    // doesn't give us a tiny stack.
+    stack_size += 1 * MB;
+  }
 
   // Under sanitization, frames of the interpreter may become bigger, both for C code as
   // well as the ShadowFrame. Ensure a larger minimum size. Otherwise initialization
@@ -698,26 +717,38 @@ static size_t FixStackSize(size_t stack_size) {
   }
 
   // It's not possible to request a stack smaller than the system-defined PTHREAD_STACK_MIN.
-  if (stack_size < PTHREAD_STACK_MIN) {
+  if (stack_size != 0 && stack_size < PTHREAD_STACK_MIN) {
     stack_size = PTHREAD_STACK_MIN;
   }
 
-  if (Runtime::Current()->ExplicitStackOverflowChecks()) {
-    // It's likely that callers are trying to ensure they have at least a certain amount of
-    // stack space, so we should add our reserved space on top of what they requested, rather
-    // than implicitly take it away from them.
+  // We need room for reserved bytes below stack_end (the normal end of the runtime stack) and
+  // stack_begin (the last unprotected address) for throwing on stack overflow. For default-
+  // sized stacks, we just carve this region out of the regular allocation.
+  if (stack_size != 0) {
     stack_size += GetStackOverflowReservedBytes(kRuntimeISA);
-  } else {
-    // If we are going to use implicit stack checks, allocate space for the protected
-    // region at the bottom of the stack.
-    stack_size += Thread::kStackOverflowImplicitCheckSize +
-        GetStackOverflowReservedBytes(kRuntimeISA);
+  }
+
+  // If we are going to use implicit stack checks, we need an mprotected region below the
+  // regular end of the stack.  On some platforms, it's more efficient to let pthreads allocate
+  // this reserved region than to do it ourselves, so ask pthreads nicely to allocate the
+  // region for us. In InitStackHwm(), we see whether we actually got a guard region, and if we
+  // didn't, we just carve one off the stack and mprotect it ourselves.
+  size_t guard_size = 0;
+  if (!Runtime::Current()->ExplicitStackOverflowChecks()) {
+    if (kUsePthreadGuardRegion) {
+      guard_size += kStackOverflowProtectedSize;
+    } else {
+      stack_size += kStackOverflowProtectedSize;
+    }
   }
 
   // Some systems require the stack size to be a multiple of the system page size, so round up.
   stack_size = RoundUp(stack_size, kPageSize);
+  guard_size = RoundUp(guard_size, kPageSize);
 
-  return stack_size;
+  // Zeros here mean "use pthread default". We want to use the pthread default when the user
+  // hasn't asked us for a stack of any particular size.
+  return {stack_size, guard_size};
 }
 
 // Return the nearest page-aligned address below the current stack top.
@@ -730,16 +761,17 @@ static uint8_t* FindStackTop() {
 // Install a protected region in the stack.  This is used to trigger a SIGSEGV if a stack
 // overflow is detected.  It is located right below the stack_begin_.
 ATTRIBUTE_NO_SANITIZE_ADDRESS
-void Thread::InstallImplicitProtection() {
+void Thread::InstallImplicitProtection(bool is_main_thread) {
   uint8_t* pregion = tlsPtr_.stack_begin - kStackOverflowProtectedSize;
   // Page containing current top of stack.
   uint8_t* stack_top = FindStackTop();
 
-  // Try to directly protect the stack.
+  // Try to directly protect the stack. For threads that aren't the main thread, we shouldn't
+  // have a VM_GROWSDOWN mapping and so we can skip the logic below.
   VLOG(threads) << "installing stack protected region at " << std::hex <<
         static_cast<void*>(pregion) << " to " <<
         static_cast<void*>(pregion + kStackOverflowProtectedSize - 1);
-  if (ProtectStack(/* fatal_on_error= */ false)) {
+  if (ProtectStack(/* fatal_on_error= */ !is_main_thread)) {
     // Tell the kernel that we won't be needing these pages any more.
     // NB. madvise will probably write zeroes into the memory (on linux it does).
     uint32_t unwanted_size = stack_top - pregion - kPageSize;
@@ -818,7 +850,9 @@ void Thread::InstallImplicitProtection() {
   madvise(pregion, unwanted_size, MADV_DONTNEED);
 }
 
-void Thread::CreateNativeThread(JNIEnv* env, jobject java_peer, size_t stack_size, bool is_daemon) {
+void Thread::CreateNativeThread(JNIEnv* env, jobject java_peer,
+                                size_t req_stack_size,
+                                bool is_daemon) {
   CHECK(java_peer != nullptr);
   Thread* self = static_cast<JNIEnvExt*>(env)->GetSelf();
 
@@ -860,7 +894,6 @@ void Thread::CreateNativeThread(JNIEnv* env, jobject java_peer, size_t stack_siz
   Thread* child_thread = new Thread(is_daemon);
   // Use global JNI ref to hold peer live while child thread starts.
   child_thread->tlsPtr_.jpeer = env->NewGlobalRef(java_peer);
-  stack_size = FixStackSize(stack_size);
 
   // Thread.start is synchronized, so we know that nativePeer is 0, and know that we're not racing
   // to assign it.
@@ -873,6 +906,10 @@ void Thread::CreateNativeThread(JNIEnv* env, jobject java_peer, size_t stack_siz
   std::unique_ptr<JNIEnvExt> child_jni_env_ext(
       JNIEnvExt::Create(child_thread, Runtime::Current()->GetJavaVM(), &error_msg));
 
+  auto stack_info = FixStackSize(req_stack_size);
+  size_t stack_size = stack_info.first;
+  size_t guard_size = stack_info.second;
+
   int pthread_create_result = 0;
   if (child_jni_env_ext.get() != nullptr) {
     pthread_t new_pthread;
@@ -881,7 +918,12 @@ void Thread::CreateNativeThread(JNIEnv* env, jobject java_peer, size_t stack_siz
     CHECK_PTHREAD_CALL(pthread_attr_init, (&attr), "new thread");
     CHECK_PTHREAD_CALL(pthread_attr_setdetachstate, (&attr, PTHREAD_CREATE_DETACHED),
                        "PTHREAD_CREATE_DETACHED");
-    CHECK_PTHREAD_CALL(pthread_attr_setstacksize, (&attr, stack_size), stack_size);
+    if (guard_size) {
+      CHECK_PTHREAD_CALL(pthread_attr_setguardsize, (&attr, guard_size), guard_size);
+    }
+    if (stack_size) {
+      CHECK_PTHREAD_CALL(pthread_attr_setstacksize, (&attr, stack_size), stack_size);
+    }
     pthread_create_result = pthread_create(&new_pthread,
                                            &attr,
                                            Thread::CreateCallback,
@@ -1235,7 +1277,10 @@ void Thread::SetThreadName(const char* name) {
 static void GetThreadStack(pthread_t thread,
                            void** stack_base,
                            size_t* stack_size,
-                           size_t* guard_size) {
+                           size_t* guard_size,
+                           bool* is_main_thread) {
+  *is_main_thread = (::art::GetTid() == getpid());
+
 #if defined(__APPLE__)
   *stack_size = pthread_get_stacksize_np(thread);
   void* stack_addr = pthread_get_stackaddr_np(thread);
@@ -1260,13 +1305,11 @@ static void GetThreadStack(pthread_t thread,
   CHECK_PTHREAD_CALL(pthread_attr_getstack, (&attributes, stack_base, stack_size), __FUNCTION__);
   CHECK_PTHREAD_CALL(pthread_attr_getguardsize, (&attributes, guard_size), __FUNCTION__);
   CHECK_PTHREAD_CALL(pthread_attr_destroy, (&attributes), __FUNCTION__);
-
 #if defined(__GLIBC__)
   // If we're the main thread, check whether we were run with an unlimited stack. In that case,
   // glibc will have reported a 2GB stack for our 32-bit process, and our stack overflow detection
   // will be broken because we'll die long before we get close to 2GB.
-  bool is_main_thread = (::art::GetTid() == getpid());
-  if (is_main_thread) {
+  if (*is_main_thread) {
     rlimit stack_limit;
     if (getrlimit(RLIMIT_STACK, &stack_limit) == -1) {
       PLOG(FATAL) << "getrlimit(RLIMIT_STACK) failed";
@@ -1293,10 +1336,19 @@ bool Thread::InitStackHwm() {
   void* read_stack_base;
   size_t read_stack_size;
   size_t read_guard_size;
-  GetThreadStack(tlsPtr_.pthread_self, &read_stack_base, &read_stack_size, &read_guard_size);
+  bool is_main_thread;
+  GetThreadStack(tlsPtr_.pthread_self, &read_stack_base, &read_stack_size, &read_guard_size,
+                 &is_main_thread);
 
-  tlsPtr_.stack_begin = reinterpret_cast<uint8_t*>(read_stack_base);
-  tlsPtr_.stack_size = read_stack_size;
+  // N.B. read_stack_base points to the beginning of the pthreads-allocated guard region at the
+  // bottom of the stack! We need to advance it by read_guard_size to reach the end of the
+  // usable stack.
+
+    // This is included in the SIGQUIT output, but it's useful here for thread debugging.
+  VLOG(threads) << StringPrintf("Native stack is at %p (%s with %s guard)",
+                                read_stack_base,
+                                PrettySize(read_stack_size).c_str(),
+                                PrettySize(read_guard_size).c_str());
 
   // The minimum stack size we can cope with is the overflow reserved bytes (typically
   // 8K) + the protected region size (4K) + another page (4K).  Typically this will
@@ -1313,30 +1365,36 @@ bool Thread::InitStackHwm() {
     return false;
   }
 
-  // This is included in the SIGQUIT output, but it's useful here for thread debugging.
-  VLOG(threads) << StringPrintf("Native stack is at %p (%s with %s guard)",
-                                read_stack_base,
-                                PrettySize(read_stack_size).c_str(),
-                                PrettySize(read_guard_size).c_str());
+  // Remember where the stack is.
+  tlsPtr_.stack_begin = reinterpret_cast<uint8_t*>(read_stack_base);
+  tlsPtr_.stack_size = read_stack_size;
 
-  // Set stack_end_ to the bottom of the stack saving space of stack overflows
-
-  Runtime* runtime = Runtime::Current();
-  bool implicit_stack_check = !runtime->ExplicitStackOverflowChecks() && !runtime->IsAotCompiler();
-
+  // Adjust the remembered stack values so that stack_begin points to the lowest address of the
+  // *usable* stack.
+  tlsPtr_.stack_begin += read_guard_size;
+  tlsPtr_.stack_size -= read_guard_size;
+  // Advance stack_end beyond stack_begin, reserving some usable stack space for stack overflow
+  // handling (in the explicit case).
   ResetDefaultStackEnd();
 
-  // Install the protected region if we are doing implicit overflow checks.
-  if (implicit_stack_check) {
-    // The thread might have protected region at the bottom.  We need
-    // to install our own region so we need to move the limits
-    // of the stack to make room for it.
-
-    tlsPtr_.stack_begin += read_guard_size + kStackOverflowProtectedSize;
-    tlsPtr_.stack_end += read_guard_size + kStackOverflowProtectedSize;
-    tlsPtr_.stack_size -= read_guard_size;
-
-    InstallImplicitProtection();
+  if (!Runtime::Current()->ExplicitStackOverflowChecks()) {
+    // If we're using implicit stack overflow protection, we need to ensure that we have at
+    // least kStackOverflowProtectedSize bytes *before* stack_begin (that's what ProtectStack
+    // and UnprotectStack expect). If pthreads happened to give us a big-enough guard region,
+    // we don't have to do anything extra here. Otherwise, we mint our own guard region out of
+    // the usable stack space, further adjusting the above pointers.
+    if (kUsePthreadGuardRegion &&
+        read_guard_size <= kStackOverflowProtectedSize &&
+        !is_main_thread) {
+      VLOG(threads) << "Using pthreads-provided guard region";
+      // Nothing to do.
+    } else {
+      VLOG(threads) << "Carving guard region out of regular stack";
+      tlsPtr_.stack_begin += kStackOverflowProtectedSize;
+      tlsPtr_.stack_end += kStackOverflowProtectedSize;
+      tlsPtr_.stack_size -= kStackOverflowProtectedSize;
+      InstallImplicitProtection(is_main_thread);
+    }
   }
 
   // Sanity check.
