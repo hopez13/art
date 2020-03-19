@@ -68,6 +68,30 @@
       "revId": "7e6e29aaac93986dbe7bcce34c5853a36344734f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5eaf704_aed1b5af",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-19T01:30:21Z",
+      "side": 1,
+      "message": "That\u0027s a good point! I can also maintain stats in Runtime only to capture detached threads\u0027 stats. This way, if the requested stat is \u0027global\u0027 then we can also add this counter.\n\nSo should I maintain these runtime stats (for detached threads) as atomics, or use a lock for more accurate results?",
+      "parentUuid": "cf03af52_612ee367",
+      "range": {
+        "startLine": 2186,
+        "startChar": 11,
+        "endLine": 2186,
+        "endChar": 32
+      },
+      "revId": "7e6e29aaac93986dbe7bcce34c5853a36344734f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
