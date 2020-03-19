@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "de5c0fae_0d82126c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "I don\u0027t like multiple definitions of the same symbol.",
+      "parentUuid": "21065274_01a60bb6",
+      "range": {
+        "startLine": 139,
+        "startChar": 44,
+        "endLine": 145,
+        "endChar": 4
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59bca1a1_b9c48a58",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-19T21:27:22Z",
       "side": 1,
       "message": "This seems like it might be fundamentally broken. We don\u0027t seem to have a default value for DefaultStackSize (so the value is 0). This change means we do longer add 1mb to this default size of 0 and so could cause issues.\n\nI think you should just give it a default (1MB?) in runtime_options.def",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 694,
+        "endChar": 66
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9756c53_5ca3ce60",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "\u003e We don\u0027t seem to have a default value for DefaultStackSize (so the value is 0). This change means we do longer add 1mb to this default size of 0 and so could cause issues.\n\nIf stack_size is zero upon return, we use the pthread default stack size, and on Android, we know that\u0027s big enough (at least 1MB). The whole point is to let bionic pick the default stack size. On other platforms, sure, we can specify something.",
+      "parentUuid": "59bca1a1_b9c48a58",
       "range": {
         "startLine": 694,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c9a625b4_bcec5e1f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "f1ee65c7_c1fcedf2",
+      "range": {
+        "startLine": 700,
+        "startChar": 6,
+        "endLine": 700,
+        "endChar": 20
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aabc10cf_f7cf7e57",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-03-19T21:27:22Z",
       "side": 1,
       "message": "This seems unrelated. Also see above. I think this might cause issues.\n\nAlso I\u0027m not totally sure I understand what this comment is even saying. Mathieuc@?",
+      "range": {
+        "startLine": 702,
+        "startChar": 3,
+        "endLine": 705,
+        "endChar": 0
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b39264_8f2680c6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "No. This preserves existing behavior in the case where a user has explicitly provided a stack size: if you\u0027ve given us some concrete value for the desired stack size, we add 1MB to it. If you *haven\u0027t* given us a default value for the stack, we just use the pthread default by returning a stack size of zero from this function. The whole idea is that the vast majority of threads are created with default-sized stacks, and these threads should be bionic default-sized threads.",
+      "parentUuid": "aabc10cf_f7cf7e57",
       "range": {
         "startLine": 702,
         "startChar": 3,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2ce3c663_d1f1a95e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "Isn\u0027t there a compiler warning you can enable to enforce this?",
+      "parentUuid": "d728f4a3_e21cce10",
+      "range": {
+        "startLine": 714,
+        "startChar": 6,
+        "endLine": 714,
+        "endChar": 16
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c56f94a_e7bc7989",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2020-03-19T21:27:22Z",
       "side": 1,
       "message": "see above.",
+      "range": {
+        "startLine": 721,
+        "startChar": 6,
+        "endLine": 721,
+        "endChar": 16
+      },
+      "revId": "a69b2fd381a716300f517a86836a48eb5f42c52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6d0728e_6f781d1e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2020-03-19T21:39:22Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "6c56f94a_e7bc7989",
       "range": {
         "startLine": 721,
         "startChar": 6,
