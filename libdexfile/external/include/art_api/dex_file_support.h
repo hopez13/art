@@ -125,9 +125,9 @@ inline bool operator==(const MethodInfo& s1, const MethodInfo& s2) {
 // thread-safe.
 class DexFile {
  public:
-  DexFile(DexFile&& dex_file) noexcept {
-    ext_dex_file_ = dex_file.ext_dex_file_;
-    dex_file.ext_dex_file_ = nullptr;
+  DexFile(DexFile* dex_file) noexcept {
+    ext_dex_file_ = dex_file->ext_dex_file_;
+    dex_file->ext_dex_file_ = nullptr;
   }
   virtual ~DexFile();
 
