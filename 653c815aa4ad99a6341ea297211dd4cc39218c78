@@ -80,6 +80,54 @@
       "revId": "653c815aa4ad99a6341ea297211dd4cc39218c78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2265f3b_572ecddc",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2020-03-20T23:47:20Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "26f62490_f818b857",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 4
+      },
+      "revId": "653c815aa4ad99a6341ea297211dd4cc39218c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a8b762_43cb5e93",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2020-03-20T23:47:20Z",
+      "side": 1,
+      "message": "Added a unique_ptr version and destroys the pointer so it can\u0027t be used afterwards.\n\nAnd I left the original.",
+      "parentUuid": "366d2e45_b5f45796",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "653c815aa4ad99a6341ea297211dd4cc39218c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
