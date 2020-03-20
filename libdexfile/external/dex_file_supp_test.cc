@@ -278,8 +278,8 @@ TEST(DexFileTest, move_construct) {
   std::unique_ptr<DexFile> dex_file = GetTestDexData();
   ASSERT_NE(dex_file, nullptr);
 
-  auto df1 = DexFile(std::move(*dex_file));
-  auto df2 = DexFile(std::move(df1));
+  auto df1 = DexFile(dex_file.get());
+  auto df2 = DexFile(&df1);
 
   MethodInfo info = df2.GetMethodInfoForOffset(0x100, false);
   EXPECT_EQ(info.offset, int32_t{0x100});
