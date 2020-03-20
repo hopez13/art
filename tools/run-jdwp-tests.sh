@@ -43,6 +43,7 @@ function boot_classpath_arg {
     printf -- "${separator}${dir}/${var}${suffix}.jar";
     separator=":"
   done
+  printf -- "${separator}/apex/com.android.conscrypt/javalib/conscrypt.jar";
 }
 
 # Note: This must start with the CORE_IMG_JARS in Android.common_path.mk
@@ -66,7 +67,7 @@ debug="no"
 explicit_debug="no"
 verbose="no"
 image="-Ximage:/data/art-test/core.art"
-boot_classpath="$(boot_classpath_arg /system/framework -testdex $BOOT_CLASSPATH_JARS)"
+boot_classpath="$(boot_classpath_arg /apex/com.android.art/javalib "" $BOOT_CLASSPATH_JARS)"
 boot_classpath_locations=""
 with_jdwp_path=""
 agent_wrapper=""
@@ -121,11 +122,6 @@ while true; do
     device_dir=""
     # Vogar knows which VM to use on host.
     vm_command=""
-    shift
-  elif [[ "$1" == "--mode=device" ]]; then
-    # Remove the --mode=device from the arguments and replace it with --mode=device_testdex
-    args=${args/$1}
-    args="$args --mode=device_testdex"
     shift
   elif [[ "$1" == "--mode=jvm" ]]; then
     mode="ri"
