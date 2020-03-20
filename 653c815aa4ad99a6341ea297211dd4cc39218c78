@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26f62490_f818b857",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-20T12:51:11Z",
+      "side": 1,
+      "message": "Please make this constructor explicit.",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 4
+      },
+      "revId": "653c815aa4ad99a6341ea297211dd4cc39218c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "366d2e45_b5f45796",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-20T12:51:11Z",
+      "side": 1,
+      "message": "Isn\u0027t it better to let this take a unique_ptr and consume it? I suppose this variant is a bit more convenient if the caller isn\u0027t using ownership opinionated abstractions, but that shouldn\u0027t be encouraged.",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "653c815aa4ad99a6341ea297211dd4cc39218c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

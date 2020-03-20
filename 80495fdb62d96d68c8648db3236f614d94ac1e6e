@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a45ac1e8_aef24ce7",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-20T12:51:11Z",
+      "side": 0,
+      "message": "Can we please keep the move constructor? (Then of course keep the test for it as well, and add a new one for the other constructor.)",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 29
+      },
+      "revId": "80495fdb62d96d68c8648db3236f614d94ac1e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
