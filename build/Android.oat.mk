@@ -197,7 +197,7 @@ $$(core_image_name): PRIVATE_CORE_IMG_NAME := $$(core_image_name)
 $$(core_image_name): PRIVATE_CORE_OAT_NAME := $$(core_oat_name)
 # In addition to the primary core image containing TARGET_CORE_IMG_DEX_FILES,
 # also build a boot image extension for the remaining TARGET_CORE_DEX_FILES.
-$$(core_image_name): $$(TARGET_CORE_DEX_FILES) $$(core_dex2oat_dependency)
+$$(core_image_name): $$(TESTING_ART_APEX) $$(CONSCRYPT_APEX) $$(core_dex2oat_dependency)
 	@echo "target dex2oat: $$@"
 	@mkdir -p $$(dir $$@)
 	$$(hide) $$(DEX2OAT) \
