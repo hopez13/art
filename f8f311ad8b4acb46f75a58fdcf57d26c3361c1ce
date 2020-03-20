@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7e55b6eb_a1d0827c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-20T16:45:44Z",
+      "side": 1,
+      "message": "And in conscrypt apex.",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b37cac01_2fc704a1",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
@@ -13,6 +36,52 @@
       "writtenOn": "2020-03-20T16:39:43Z",
       "side": 1,
       "message": "The \"CORE\" was supposed to be only the jars that we\u0027re now shipping in ART apex while \"TEST_CORE\" was also supposed to be \"CORE\" plus conscrypt. So, the TARGET_CORE_DEX_FILES should really have been TARGET_TEST_CORE_DEX_FILES. Now, you\u0027re also excluding conscrypt from the \"CORE\" variable, making it another misnomer.",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29a4be69_b63e61ae",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-20T16:45:44Z",
+      "side": 1,
+      "message": "CONSCRYPT_DEXPREOPT_BOOT_JAR_DIR?",
+      "range": {
+        "startLine": 102,
+        "startChar": 39,
+        "endLine": 102,
+        "endChar": 73
+      },
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0f5c30_d6a879cf",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-20T16:45:44Z",
+      "side": 1,
+      "message": "Should gtests also depend on conscrypt?\nIt seems that previousy they did (via TARGET_TEST_CORE_JARS).",
+      "range": {
+        "startLine": 598,
+        "startChar": 4,
+        "endLine": 598,
+        "endChar": 27
+      },
       "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
