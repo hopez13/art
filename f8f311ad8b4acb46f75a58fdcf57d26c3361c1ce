@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b37cac01_2fc704a1",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-20T16:39:43Z",
+      "side": 1,
+      "message": "The \"CORE\" was supposed to be only the jars that we\u0027re now shipping in ART apex while \"TEST_CORE\" was also supposed to be \"CORE\" plus conscrypt. So, the TARGET_CORE_DEX_FILES should really have been TARGET_TEST_CORE_DEX_FILES. Now, you\u0027re also excluding conscrypt from the \"CORE\" variable, making it another misnomer.",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5acfd2_93bc2af8",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-20T16:39:43Z",
+      "side": 1,
+      "message": "Isn\u0027t this broken for host, lines 119-120?",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
