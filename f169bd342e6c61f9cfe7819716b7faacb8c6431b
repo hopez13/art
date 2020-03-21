@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b30c545f_49eb4524",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f22694e2_71104247",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 56
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6d68306_e85899a5",
         "filename": "runtime/gc/space/region_space-inl.h",
         "patchSetId": 4
@@ -83,6 +107,30 @@
       "writtenOn": "2020-03-06T00:06:05Z",
       "side": 1,
       "message": "Can you check what this compiles into? I\u0027m a bit worried because naive compilation seems to involve many calls to GetClass(). (See Object::SizeOf()) Those may bottom out in memory_order_relaxed atomic loads, which may not get CSE\u0027d. But I\u0027m not sure.\n\nIf that\u0027s a problem here, it may be a problem elsewhere, too.",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06afb882_242aa67d",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "I didn\u0027t completely understand your concern. There are indeed many calls to GetClass() (one per SizeOf() and one above in the if condition), but it seems pretty trivial given as being called without read-barrier.\n\nAlso, I\u0027m not sure if there\u0027s another approach that we can take to linearly scan objects in an address range.",
+      "parentUuid": "a6d68306_e85899a5",
       "range": {
         "startLine": 296,
         "startChar": 6,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5b4624ca_6ed2aa2e",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6790c335_0941fff3",
+      "range": {
+        "startLine": 335,
+        "startChar": 14,
+        "endLine": 335,
+        "endChar": 18
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e8b5e1f_f4794e75",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 4
@@ -129,6 +201,30 @@
       "writtenOn": "2020-03-06T00:06:05Z",
       "side": 1,
       "message": "How/why doesn\u0027t this happen if stats are disabled? Can we add a DCHECK for that?",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 79
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6845824f_b702e9f3",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Sorry I didn\u0027t understand your question.",
+      "parentUuid": "3e8b5e1f_f4794e75",
       "range": {
         "startLine": 450,
         "startChar": 4,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "cf8228a4_379030c5",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "715c9a54_4ebf069e",
+      "range": {
+        "startLine": 650,
+        "startChar": 6,
+        "endLine": 650,
+        "endChar": 31
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77820ce7_12a338f1",
         "filename": "runtime/runtime_stats.h",
         "patchSetId": 4
@@ -184,6 +304,30 @@
       "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4992c79e_48576d31",
+        "filename": "runtime/runtime_stats.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77820ce7_12a338f1",
+      "range": {
+        "startLine": 67,
+        "startChar": 34,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -245,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "a65e8150_9e6f6f10",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4175,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72a78d4f_eae31c90",
+      "range": {
+        "startLine": 4175,
+        "startChar": 2,
+        "endLine": 4175,
+        "endChar": 19
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c8b0f68_3f581d8f",
         "filename": "runtime/thread.h",
         "patchSetId": 4
@@ -265,6 +433,30 @@
       "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9345e4b_35fadd8b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-21T00:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c8b0f68_3f581d8f",
+      "range": {
+        "startLine": 1168,
+        "startChar": 34,
+        "endLine": 1168,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
