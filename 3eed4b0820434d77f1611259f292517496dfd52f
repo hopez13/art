@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bbd28d08_05267a55",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-21T19:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "956f8e30_dcb28423",
+      "range": {
+        "startLine": 75,
+        "startChar": 62,
+        "endLine": 75,
+        "endChar": 63
+      },
+      "revId": "3eed4b0820434d77f1611259f292517496dfd52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40d84a40_6cc952b8",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "3eed4b0820434d77f1611259f292517496dfd52f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8529279_18aac061",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-21T19:01:51Z",
+      "side": 1,
+      "message": "Done (added)",
+      "parentUuid": "40d84a40_6cc952b8",
+      "revId": "3eed4b0820434d77f1611259f292517496dfd52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
