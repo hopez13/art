@@ -22,6 +22,30 @@
       "revId": "cd3186c23b70262988f974d6690025ca110007e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85a69fa7_c258d97e",
+        "filename": "test/1964-linkage/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2020-03-21T20:32:39Z",
+      "side": 1,
+      "message": "Switched to use ${RUN} instead and removed.",
+      "parentUuid": "cdfd4104_16de9d95",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "cd3186c23b70262988f974d6690025ca110007e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
