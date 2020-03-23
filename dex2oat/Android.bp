@@ -70,9 +70,10 @@ art_cc_defaults {
     generated_sources: ["art_dex2oat_operator_srcs"],
     shared_libs: [
         "libbase",
-
+    ],
+    static_libs: [
         // For SHA-1 checksumming of build ID
-        "libcrypto",
+        "libcrypto_static",
     ],
     export_include_dirs: ["."],
 }
@@ -81,7 +82,7 @@ cc_defaults {
     name: "libart-dex2oat_static_base_defaults",
     static_libs: [
         "libbase",
-        "libcrypto",
+        "libcrypto_static",
         "libz",
     ],
 }
@@ -239,7 +240,6 @@ art_cc_binary {
         "libart-compiler",
         "libart-dexlayout",
         "libart",
-        "libcrypto",
         "libdexfile",
         "libartbase",
         "libartpalette",
@@ -248,6 +248,7 @@ art_cc_binary {
     ],
     static_libs: [
         "libart-dex2oat",
+        "libcrypto_static",
     ],
 
     pgo: {
@@ -301,7 +302,6 @@ art_cc_binary {
         "libartd-compiler",
         "libartd-dexlayout",
         "libartd",
-        "libcrypto",
         "libdexfiled",
         "libartbased",
         "libartpalette",
@@ -310,6 +310,7 @@ art_cc_binary {
     ],
     static_libs: [
         "libartd-dex2oat",
+        "libcrypto_static",
     ],
     target: {
         android: {
@@ -465,7 +466,6 @@ art_cc_test {
         "libartd-dexlayout",
         "libartpalette",
         "libbase",
-        "libcrypto",
         "libprofiled",
         "libsigchain",
         "libziparchive",
@@ -473,5 +473,6 @@ art_cc_test {
     static_libs: [
         "libart-dex2oat-gtest",
         "libartd-dex2oat",
+        "libcrypto_static",
     ],
 }

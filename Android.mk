@@ -519,7 +519,6 @@ PRIVATE_ART_APEX_DEPENDENCY_LIBS := \
   lib/libart.so \
   lib/libbacktrace.so \
   lib/libbase.so \
-  lib/libcrypto.so \
   lib/libdexfiled_external.so \
   lib/libdexfiled.so \
   lib/libdexfile_external.so \
@@ -572,7 +571,6 @@ PRIVATE_ART_APEX_DEPENDENCY_LIBS := \
   lib64/libart.so \
   lib64/libbacktrace.so \
   lib64/libbase.so \
-  lib64/libcrypto.so \
   lib64/libdexfiled_external.so \
   lib64/libdexfiled.so \
   lib64/libdexfile_external.so \
