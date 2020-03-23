@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c32e085_f18e6bd2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-03-23T17:48:18Z",
+      "side": 1,
+      "message": "What case can the class be null, racing with mutators? Add a comment",
+      "range": {
+        "startLine": 4186,
+        "startChar": 6,
+        "endLine": 4186,
+        "endChar": 11
+      },
+      "revId": "01ebb97bb161dbe67a87ff63f76a87178d20047d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
