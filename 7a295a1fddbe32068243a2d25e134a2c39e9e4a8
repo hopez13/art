@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a190077_229dca37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-23T18:14:00Z",
+      "side": 1,
+      "message": "+ccross did more or less the opposite in https://r.android.com/1121699 to fix ODR problems with both static and dynamic libcrypto getting linked in. Have you checked that there\u0027s no dynamic instance coming in somewhere?",
+      "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
