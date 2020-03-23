@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b500525b_8dd51960",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T14:47:43Z",
+      "side": 1,
+      "message": "Returning a copy of a std::vector seems inefficient?",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 409,
+        "endChar": 23
+      },
+      "revId": "a2b41bdd664ed54efeb3c3a5a393fcbe1a50c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
