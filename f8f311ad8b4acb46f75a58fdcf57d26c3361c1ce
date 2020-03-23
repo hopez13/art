@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "9e22d17f_d23e90c0",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-23T10:43:17Z",
+      "side": 1,
+      "message": "Removing TARGET_TEST_CORE_JARS sounds OK. (And maybe also rename TARGET_CORE_DEX_LOCATIONS to TARGET_TEST_CORE_DEX_LOCATIONS.)",
+      "parentUuid": "33d01207_ef95fa50",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29a4be69_b63e61ae",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
