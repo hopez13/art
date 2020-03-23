@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "eb99ef81_214a67c2",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:49:38Z",
+      "side": 1,
+      "message": "OK, I\u0027ve removed TARGET_TEST_CORE_JARS. I\u0027ve kept TARGET_CORE_DEX_LOCATIONS as it mimics HOST_CORE_DEX_LOCATIONS. Note that David is also in the process of making all those code obsolete.",
+      "parentUuid": "9e22d17f_d23e90c0",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29a4be69_b63e61ae",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
