@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5aea87a1_2e74e6aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:28:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e55b6eb_a1d0827c",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b37cac01_2fc704a1",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "33d01207_ef95fa50",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:28:47Z",
+      "side": 1,
+      "message": "I can remove TARGET_TEST_CORE_JARS if that reduces the confusion. \"conscrypt\" is still included for the tests, it\u0027s just that the logic for fetching the path is different for target, see line 102.",
+      "parentUuid": "b37cac01_2fc704a1",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29a4be69_b63e61ae",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2020-03-20T16:45:44Z",
       "side": 1,
       "message": "CONSCRYPT_DEXPREOPT_BOOT_JAR_DIR?",
+      "range": {
+        "startLine": 102,
+        "startChar": 39,
+        "endLine": 102,
+        "endChar": 73
+      },
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67bdb4d9_70ddbfc3",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:28:47Z",
+      "side": 1,
+      "message": "This isn\u0027t necessarily the same path, CONSCRYPT_DEXPREOPT_BOOT_JAR_DIR is for the apex activated on device, which can be of a different name (see art / art.testing for example).",
+      "parentUuid": "29a4be69_b63e61ae",
       "range": {
         "startLine": 102,
         "startChar": 39,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "4e8e8da5_1bf8b9dc",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:28:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0f5c30_d6a879cf",
+      "range": {
+        "startLine": 598,
+        "startChar": 4,
+        "endLine": 598,
+        "endChar": 27
+      },
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5acfd2_93bc2af8",
         "filename": "tools/run-jdwp-tests.sh",
         "patchSetId": 2
@@ -99,6 +189,24 @@
       "writtenOn": "2020-03-20T16:39:43Z",
       "side": 1,
       "message": "Isn\u0027t this broken for host, lines 119-120?",
+      "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4df1410f_3afa06f8",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-23T10:28:47Z",
+      "side": 1,
+      "message": "Ah yes good catch, done.",
+      "parentUuid": "1b5acfd2_93bc2af8",
       "revId": "f8f311ad8b4acb46f75a58fdcf57d26c3361c1ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
