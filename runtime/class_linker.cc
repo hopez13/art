@@ -8100,11 +8100,12 @@ bool ClassLinker::LinkInterfaceMethods(
       //      at the super-classes iftable methods (copied into method_array previously) when we are
       //      looking for the implementation of a super-interface method but that is rather dirty.
       bool using_virtuals;
-      if (super_interface || is_interface) {
+      if (super_interface || is_interface || klass->IsProxyClass()) {
         // If we are overwriting a super class interface, try to only virtual methods instead of the
-        // whole vtable.
+        // whole vtable. Do the same for proxy classes since they don't really pass in their vtable
+        // due to the special way they are initialized.
         using_virtuals = true;
-        input_virtual_methods = klass->GetDeclaredMethodsSlice(image_pointer_size_);
+        input_virtual_methods = klass->GetDeclaredVirtualMethodsSlice(image_pointer_size_);
         input_array_length = input_virtual_methods.size();
       } else {
         // For a new interface, however, we need the whole vtable in case a new
@@ -8140,6 +8141,7 @@ bool ClassLinker::LinkInterfaceMethods(
               input_vtable_array->GetElementPtrSize<ArtMethod*>(k, image_pointer_size_);
           ArtMethod* vtable_method_for_name_comparison =
               vtable_method->GetInterfaceMethodIfProxy(image_pointer_size_);
+          DCHECK(!vtable_method->IsStatic());
           if (interface_name_comparator.HasSameNameAndSignature(
               vtable_method_for_name_comparison)) {
             if (!vtable_method->IsAbstract() && !vtable_method->IsPublic()) {
