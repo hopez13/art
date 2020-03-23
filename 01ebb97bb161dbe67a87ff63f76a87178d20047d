@@ -22,6 +22,30 @@
       "revId": "01ebb97bb161dbe67a87ff63f76a87178d20047d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab03f9f9_bc849b06",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-23T19:09:05Z",
+      "side": 1,
+      "message": "Actually the class pointer check is not needed here. PTAL at the recent patch",
+      "parentUuid": "2c32e085_f18e6bd2",
+      "range": {
+        "startLine": 4186,
+        "startChar": 6,
+        "endLine": 4186,
+        "endChar": 11
+      },
+      "revId": "01ebb97bb161dbe67a87ff63f76a87178d20047d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
