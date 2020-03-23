@@ -510,6 +510,30 @@
     },
     {
       "key": {
+        "uuid": "6a0419db_839deedc",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-23T21:07:34Z",
+      "side": 1,
+      "message": "As you say, \"old induction PHI will be removed in case of no uses\", but it will (almost) always have uses; if someone writes a \"for (int i\u003d0; i \u003cn; i++)\" loop, probably they intend to use \"i\" in the body of the loop. This means effectively that you always introduce an extra induction variable to the loop (with the old one not being removed) - adding extra \"Add\" operation, occupying extra register; this of course affects badly performance and code size. Here is a source level illustration:\n\nBefore:\n  for (int i \u003d 0; i \u003c n;) {\n    a[i]++;\n    i++;\n  }\n\nAfter:\n  int rem \u003d n % 4;\n  int i \u003d 0;\n  int i2 \u003d 0;\n\n  for (; i2 \u003c rem;) {\n    a[i]++;\n    i++;\n    i2++;\n  }\n\n  for (; i2 \u003c n;) {\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n\n    i2 + \u003d4;\n  }\n\nReusing the old induction variable and adjusting the checks without introducing new induction might be a better solution (for a unroll factor 4):\n\nBefore:\n  for (int i \u003d 0; i \u003c n; i++) {\n    a[i]++;\n    i++;\n  }\n\nAfter:\n  int rem \u003d n % 4;\n  int i \u003d 0;\n  int i2 \u003d 0;\n\n  for (; i \u003c rem;) {\n    a[i]++;\n    i++;\n  }\n\n  for (; i \u003c n;) {\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n    a[i]++;\n    i++;\n  }\n\nWhat do you think?",
+      "parentUuid": "b1fccce7_2cbe1ea9",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4ad6ea_cab8f7c1",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -842,6 +866,30 @@
     },
     {
       "key": {
+        "uuid": "a56a9284_aec5ac2d",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-23T21:07:34Z",
+      "side": 1,
+      "message": "Now this function is not being tested for odd trip count, so the scalar loop is never executed.\n\nI am not exactly sure what the test\u0027s main target is; you could remove \"(n % 2 !\u003d 0)\" check and iterate the loop n-4 times \"for (int i \u003d 0; i \u003c n - 4; )\".",
+      "parentUuid": "f132f205_a369d6af",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "274424af_1ef703a5",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -1123,6 +1171,30 @@
       "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1b5f2e_a064dc94",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-23T21:07:34Z",
+      "side": 1,
+      "message": "Thanks for addressing this in PS26; in my previous comment I suggested to call all the testing methods twice - for even and odd trip counts/array lengths. Is there a reason that \"periodicIdiom\" and \"testFloatCode\" are only called with even trip counts?\n\nIf all functions to be checked for both case - what do you think about having this expressed as something like:\n\nint checksum_even \u003d checkAllCases(100);\nexpectEquals(..., checksum_even);\nint checksum_odd  \u003d checkAllCases(103);\nexpectEquals(..., checksum_odd);\n\nto have exactly the same code executed?",
+      "parentUuid": "cb6e3024_41d52e35",
+      "range": {
+        "startLine": 217,
+        "startChar": 12,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
