@@ -70,6 +70,24 @@
       "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9724d0f3_c88a751e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-24T16:26:37Z",
+      "side": 1,
+      "message": "b/128709844 is about this, not much has happened there.\n\nSpecifically for dex2oat, it should only use the linkerconfig for the ART APEX, which means its default namespace is art, and hence as long as there\u0027s no libcrypto.so in the ART APEX it might only be loaded in other namespaces, which should be fine, right?\n\nThere\u0027s some discussion in http://b/137267623#comment86 ff, but it\u0027s not clear to me where the dynamic dependency came from. Colin, do you remember?",
+      "parentUuid": "6c20be6c_25c0b634",
+      "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
