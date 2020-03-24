@@ -25,7 +25,9 @@ art_cc_binary {
         "-Werror",
         "-Wextra",
     ],
+    header_libs: ["libnativehelper_header_only"],
     shared_libs: [
+        "libjniart",
         "libnativehelper",
     ],
     whole_static_libs: ["libsigchain"],

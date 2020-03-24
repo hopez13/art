@@ -491,6 +491,7 @@ class ReleaseChecker:
 
     # Check exported libraries for ART.
     self._checker.check_native_library('libdexfile_external')
+    self._checker.check_native_library('libjniart')
     self._checker.check_native_library('libnativebridge')
     self._checker.check_native_library('libnativehelper')
     self._checker.check_native_library('libnativeloader')

@@ -1,0 +1,13 @@
+# This library should only export C linkage definitions.
+#
+# VERSION string that follows is derived from <library_name>_<version>.
+LIBJNIART_1 {
+  global:
+    JniInvocationCreate;
+    JniInvocationDestroy;
+    JniInvocationInit;
+    JniInvocationGetLibrary;
+
+  local:
+    *;
+};

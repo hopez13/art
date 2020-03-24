@@ -22,8 +22,10 @@
 #include <memory>
 
 #include "jni.h"
-#include "nativehelper/JniInvocation.h"
-#include "nativehelper/ScopedLocalRef.h"
+
+#include "jniart/JniInvocation.h"
+#include "nativehelper/libnativehelper_api.h"
+#include "nativehelper/scoped_local_ref.h"
 #include "nativehelper/toStringArray.h"
 
 namespace art {
