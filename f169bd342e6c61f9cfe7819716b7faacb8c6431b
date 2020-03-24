@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "95ecd02a_d4ff92c7",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-24T23:53:51Z",
+      "side": 1,
+      "message": "I was mainly wondering if we need to / can refactor the code to only make one GetClass() call per object here. I agree that we need one call per object, and that each call is not terribly expensive. But this is the inner loop in a heap traversal, and my intuition is that things like extra function calls and redundant loads count, especially if they could possibly end up confusing a prefetecher. If we\u0027re not eliminating all but one of the GetClass() calls for each object, I would try to refactor the code to do that manually, probably by passing down the class explicitly.",
+      "parentUuid": "06afb882_242aa67d",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6790c335_0941fff3",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 4
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "Sorry I didn\u0027t understand your question.",
       "parentUuid": "3e8b5e1f_f4794e75",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 79
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "602dce76_7840f1ea",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-24T23:53:51Z",
+      "side": 1,
+      "message": "Rephrasing: Do we need to do this if stats are disabled? If not, do we? I\u0027m concerned that even if this is done in parallel, it involves significant new overhead / battery drain. This looks to me like it\u0027s thus adding significant overhead to the stats disabled case, but I may well be missing something.",
+      "parentUuid": "6845824f_b702e9f3",
       "range": {
         "startLine": 450,
         "startChar": 4,

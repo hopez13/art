@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "717e9e2b_b137d68e",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-24T23:53:51Z",
+      "side": 1,
+      "message": "Please either make this a vector of structs with named fields, or add a comment to explain what the second element of the pair represents. The type is exceptionally uninformative.",
+      "range": {
+        "startLine": 644,
+        "startChar": 2,
+        "endLine": 644,
+        "endChar": 72
+      },
+      "revId": "80d8b5788fbe011efc2c3e0a140cea4bfc88d641",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e72d5f5_5eb9079e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-24T23:53:51Z",
+      "side": 1,
+      "message": "This looks mysterious to me. Can we add a comment someplace, maybe in a header file, to make it clear what\u0027s going on here?",
+      "range": {
+        "startLine": 2069,
+        "startChar": 15,
+        "endLine": 2069,
+        "endChar": 26
+      },
+      "revId": "80d8b5788fbe011efc2c3e0a140cea4bfc88d641",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
