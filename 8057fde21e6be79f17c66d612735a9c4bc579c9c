@@ -867,6 +867,30 @@
     },
     {
       "key": {
+        "uuid": "05be931a_f07a483c",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-24T14:42:09Z",
+      "side": 1,
+      "message": "As I stated in my previous comments I would rather consult with Google engineers as we have different opinions here.\n\nHere is my usual overall testing strategy (personal opinion):\n\n - If there is a complex transformation being introduced I would make sure that the generated code to be covered by tests (e.g. if only even trip counts are covered, then this means that the scalar loop code is never executed -\u003e tested).\n - If the transformation covers only a number of patterns or excludes a number of patterns I would add both positive and negative tests to some degree (e.g. \"bottom tested loop\" or loops for which GenerateTripCount() returns nullptr).\n - If there are different behavior when treating a set of categories (e.g. induction types:  kLinear, kPolynomial, kGeometric) I would have dedicated tests for those cases.\n - If there are assumptions in comments in the test (\"// This loop will be dynamically unrolled.\" or \"// This function returns 42\") I would explicitly test them in the code.\n\nAs for checker tests (with CHECK statements) what I usually do is providing rigorous checks for a few test cases and for other tests - at least a minimal checker one - not to bloat the test with CHECK statements (e.g. to check that unrolling is actually happening I would add a CHECK for a loop phi and count the number of ArrayGets). 530-checker-peel-unroll could be a good example.",
+      "parentUuid": "2a5ddb3d_ea631bcc",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 44
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c116d8cb_64b54661",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -950,6 +974,30 @@
       "side": 1,
       "message": "Yes, it increments induction variable by 4 in one iteration. Hence, it should be even count. I also added check inside function for same. I am checking other functions for both even and odd trip counts.",
       "parentUuid": "a56a9284_aec5ac2d",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36f9c291_e5389870",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-24T14:42:09Z",
+      "side": 1,
+      "message": "I am a bit confused here on what the intention of the checks are. Trip count is the number of times the loop body is executed; not the number of increment to the induction variable. And checking that array accesses are within bounds is the third thing.",
+      "parentUuid": "0501f426_b8adcda9",
       "range": {
         "startLine": 150,
         "startChar": 19,
@@ -1282,6 +1330,30 @@
       "side": 1,
       "message": "\"testFloatCode\" increment induction variable by 4 in one iteration. Hence, it should be even count. I also added check in \"testFloatCode\" for same. As i was checking other functions for even and odd trip counts, i didn\u0027t consider checking \"periodicIdiom\" necessary for odd trip counts. If required, I can add code changes for checking \"periodicIdiom\" for odd trip counts in  next patch sets. And, please add review comment on latest patch set.",
       "parentUuid": "ba1b5f2e_a064dc94",
+      "range": {
+        "startLine": 217,
+        "startChar": 12,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a869d79_9ea200f8",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-03-24T14:42:09Z",
+      "side": 1,
+      "message": "My suggestion was to try to have all the tests checked for both odd and even trip counts by having an easy way to do so in one go without copy-paste; this would also avoid debate on per function basis.",
+      "parentUuid": "ce0b9278_ae2b1f72",
       "range": {
         "startLine": 217,
         "startChar": 12,
