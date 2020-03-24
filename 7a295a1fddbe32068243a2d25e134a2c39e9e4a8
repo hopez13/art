@@ -34,6 +34,24 @@
       "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05cdecbd_3f2c8b2e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2020-03-24T10:20:05Z",
+      "side": 1,
+      "message": "It is an issue I\u0027m afraid, if you link both libcrypto_static directly and libcrypto as a transitive dependency then there could be ODR issues.",
+      "parentUuid": "4b2e68b7_310ba630",
+      "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
