@@ -16,6 +16,24 @@
       "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2e68b7_310ba630",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-24T09:24:47Z",
+      "side": 1,
+      "message": "There\u0027s no mention of libcrypto in dex2oat dependencies anymore. Pete, can you confirm using libcrypto_static won\u0027t lead to such issues?",
+      "parentUuid": "2a190077_229dca37",
+      "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
