@@ -534,6 +534,30 @@
     },
     {
       "key": {
+        "uuid": "af92459d_6d741249",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-24T03:54:28Z",
+      "side": 1,
+      "message": "Hi Artem,\nThere can be many complex cases with loop existing induction variable. \n- case 1 (induction var don\u0027t have uses other than increment in loop body)\n    for (i \u003d a; i \u003c b; i \u003cop\u003e c)\n        where a, b and c are constant.\n- case 2 (induction var has other uses in loop)\n    for (i \u003d a; i \u003c b; i \u003cop\u003e c)\n      res +\u003d some_arr[i]\n  One loop i saw\n    for (int i \u003d j; i \u003c x.length; i++) {\n      int k \u003d (-i) + (i \u003c\u003c 5) + i - (32 * i) + 5 + (int) i;\n      res1 +\u003d x[k - 5];\n      res2 +\u003d z[i/2];\n    }\n- case 3 (induction var and condition has variables + further uses of induction var)\n    for (int j \u003d k; j \u003c i; j+\u003dx) {\n        if (a[j] \u003e a[j+1]) {\n          int tmp \u003d a[j];\n          a[j]  \u003d a[j+1];\n          a[j+1] \u003d tmp;\n        }\n      }\n\nThere can be other complex cases.\nSo, i added separate induction variable to avoid complexities with transformations related to existing induction variables.\nI was thinking that un-necessary PHI (in simple cases) will be removed by dead_code_elimination passes. But, it is not happening and i am checking further about same.",
+      "parentUuid": "6a0419db_839deedc",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4ad6ea_cab8f7c1",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -890,6 +914,30 @@
     },
     {
       "key": {
+        "uuid": "0501f426_b8adcda9",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-24T03:54:28Z",
+      "side": 1,
+      "message": "Yes, it increments induction variable by 4 in one iteration. Hence, it should be even count. I also added check inside function for same. I am checking other functions for both even and odd trip counts.",
+      "parentUuid": "a56a9284_aec5ac2d",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "274424af_1ef703a5",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
@@ -1186,6 +1234,30 @@
       "side": 1,
       "message": "Thanks for addressing this in PS26; in my previous comment I suggested to call all the testing methods twice - for even and odd trip counts/array lengths. Is there a reason that \"periodicIdiom\" and \"testFloatCode\" are only called with even trip counts?\n\nIf all functions to be checked for both case - what do you think about having this expressed as something like:\n\nint checksum_even \u003d checkAllCases(100);\nexpectEquals(..., checksum_even);\nint checksum_odd  \u003d checkAllCases(103);\nexpectEquals(..., checksum_odd);\n\nto have exactly the same code executed?",
       "parentUuid": "cb6e3024_41d52e35",
+      "range": {
+        "startLine": 217,
+        "startChar": 12,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0b9278_ae2b1f72",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-24T03:54:28Z",
+      "side": 1,
+      "message": "\"testFloatCode\" increment induction variable by 4 in one iteration. Hence, it should be even count. I also added check in \"testFloatCode\" for same. As i was checking other functions for even and odd trip counts, i didn\u0027t consider checking \"periodicIdiom\" necessary for odd trip counts. If required, I can add code changes for checking \"periodicIdiom\" for odd trip counts in  next patch sets. And, please add review comment on latest patch set.",
+      "parentUuid": "ba1b5f2e_a064dc94",
       "range": {
         "startLine": 217,
         "startChar": 12,
