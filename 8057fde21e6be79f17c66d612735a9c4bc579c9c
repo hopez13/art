@@ -558,6 +558,30 @@
     },
     {
       "key": {
+        "uuid": "81d6e211_12b8e9f0",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2020-03-24T07:52:10Z",
+      "side": 1,
+      "message": "Hi,\nI checked and found that old induction PHI is not being identified and removed by dead_code_elimination (even if not being used at other places) because it is also referred by other unrolled loop. I agree that it is unnecessary consuming one register.\nI am checking if we can modify the old induction PHI for dynamic unrolling.",
+      "parentUuid": "af92459d_6d741249",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 37
+      },
+      "revId": "8057fde21e6be79f17c66d612735a9c4bc579c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b4ad6ea_cab8f7c1",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 22
