@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3475ed07_7cc56214",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-25T17:47:39Z",
+      "side": 1,
+      "message": "What is stored in the \"output file\" and what in the \"output directory\"? I would expect the -o to specify the dex file output but maybe that\u0027s not the case and dexlayout just constructs a filename in the output directory?",
+      "range": {
+        "startLine": 441,
+        "startChar": 16,
+        "endLine": 441,
+        "endChar": 45
+      },
+      "revId": "56ce57932832d38751c158a4e9289177b6d53cda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
