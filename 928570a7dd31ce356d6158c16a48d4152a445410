@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002104830",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1268119?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "cebffb86_883dc53a",
+          "description": "Change to \"libjniart/include/jniart/JniInvocation.h\"",
+          "replacements": [
+            {
+              "path": "libjniart/include/jniart/JniInvocation.h",
+              "range": {
+                "startLine": 41,
+                "startChar": 51,
+                "endLine": 41,
+                "endChar": 59
+              },
+              "replacement": "specify"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e9926538_51e1929e",
+        "filename": "libjniart/include/jniart/JniInvocation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-25T09:15:28Z",
+      "side": 1,
+      "message": "Common typo found: \"specifiy\" -- should it be \"specify\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "928570a7dd31ce356d6158c16a48d4152a445410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
