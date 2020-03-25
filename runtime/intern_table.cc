@@ -481,4 +481,29 @@ InternTable::Table::Table() {
   tables_.push_back(std::move(initial_table));
 }
 
+void InternTable::RemoveDuplicates(
+    const UnorderedSet& old_set,
+    /*inout*/UnorderedSet* new_set,
+    /*inout*/SafeMap<mirror::String*, mirror::String*>* intern_remap) {
+  if (old_set.size() < new_set->size()) {
+    for (const GcRoot<mirror::String>& old_s : old_set) {
+      auto new_it = new_set->find(old_s);
+      if (UNLIKELY(new_it != new_set->end())) {
+        intern_remap->Put(new_it->Read<kWithoutReadBarrier>(), old_s.Read<kWithoutReadBarrier>());
+        new_set->erase(new_it);
+      }
+    }
+  } else {
+    for (auto new_it = new_set->begin(), end = new_set->end(); new_it != end; ) {
+      auto old_it = old_set.find(*new_it);
+      if (UNLIKELY(old_it != old_set.end())) {
+        intern_remap->Put(new_it->Read<kWithoutReadBarrier>(), old_it->Read<kWithoutReadBarrier>());
+        new_it = new_set->erase(new_it);
+      } else {
+        ++new_it;
+      }
+    }
+  }
+}
+
 }  // namespace art
