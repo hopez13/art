@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c7b0f41_3012122b",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-25T10:14:28Z",
+      "side": 1,
+      "message": "The commit message mentions \"not working on device\" instead?",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 59
+      },
+      "revId": "c506ade420ed3a1a67cc577573c15bd3a34f37c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
