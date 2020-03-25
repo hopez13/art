@@ -22,6 +22,30 @@
       "revId": "c506ade420ed3a1a67cc577573c15bd3a34f37c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b26fb5_eedc9d57",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2020-03-25T18:55:53Z",
+      "side": 1,
+      "message": "Moved out of runtest to gtest.",
+      "parentUuid": "0c7b0f41_3012122b",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 59
+      },
+      "revId": "c506ade420ed3a1a67cc577573c15bd3a34f37c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
