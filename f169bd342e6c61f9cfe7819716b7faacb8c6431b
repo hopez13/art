@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "077ff697_367422a8",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-25T22:01:25Z",
+      "side": 1,
+      "message": "If we have to make sure that GetClass() is called only once, then I\u0027ll have to add SizeOf() functions for all instance types (String, Array, Class, and standard object) which takes class* as parameter.\nBut given that in my case the lambda passed to this function is a trivial one and the fact that GetClass(), SizeOf() and other related functions are all inlined, I guess the compiler will be able to eliminate redundant loads.",
+      "parentUuid": "95ecd02a_d4ff92c7",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6790c335_0941fff3",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 4
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "Rephrasing: Do we need to do this if stats are disabled? If not, do we? I\u0027m concerned that even if this is done in parallel, it involves significant new overhead / battery drain. This looks to me like it\u0027s thus adding significant overhead to the stats disabled case, but I may well be missing something.",
       "parentUuid": "6845824f_b702e9f3",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 79
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5750fe8e_69288fcc",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-25T22:01:25Z",
+      "side": 1,
+      "message": "Thanks for rephrasing.\n\nAs of now, we need to do this even when stats are disabled. The reason is that we have exposed some metrics like \u0027FreedObjectEver\u0027 and \u0027AllocatedObjectsEver\u0027 to android.os.Debug, which doesn\u0027t require explicitly enabling the stats. Metrics like these require us to know precisely how many objects were allocated. Also, as you know there are many ART internal assertions that also depend on it.\n\nIdeally I would also like to incur this overhead only for \u0027stats-enabled\u0027 case, but that requires taking away those metrics. And given the Mathieu\u0027s CL on inlining TLAB allocation, which gets rid of object count increment in the fast path, counting it here seems to be the only solution.",
+      "parentUuid": "602dce76_7840f1ea",
       "range": {
         "startLine": 450,
         "startChar": 4,
