@@ -17,12 +17,11 @@
 #ifndef ART_RUNTIME_INTERN_TABLE_H_
 #define ART_RUNTIME_INTERN_TABLE_H_
 
-#include <unordered_set>
-
 #include "base/atomic.h"
 #include "base/allocator.h"
 #include "base/hash_set.h"
 #include "base/mutex.h"
+#include "base/safe_map.h"
 #include "gc/weak_root_state.h"
 #include "gc_root.h"
 
@@ -325,6 +324,13 @@ class InternTable {
   // Wait until we can read weak roots.
   void WaitUntilAccessible(Thread* self)
       REQUIRES(Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Remove duplicates found in the `old_set` from the `new_set`.
+  // Record the removed Strings for remapping.
+  static void RemoveDuplicates(const UnorderedSet& old_set,
+                               /*inout*/UnorderedSet* new_set,
+                               /*inout*/SafeMap<mirror::String*, mirror::String*>* intern_remap)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool log_new_roots_ GUARDED_BY(Locks::intern_table_lock_);
   ConditionVariable weak_intern_condition_ GUARDED_BY(Locks::intern_table_lock_);
