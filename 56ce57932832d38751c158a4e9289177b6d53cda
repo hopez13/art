@@ -22,6 +22,30 @@
       "revId": "56ce57932832d38751c158a4e9289177b6d53cda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60bc12be_dff86a2f",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-25T18:21:25Z",
+      "side": 1,
+      "message": "If you mean tmp_dir and tmp_name, these are temporary file paths like the following:\n\n  /usr/local/google/.../out/soong/.temp/art-data-0GB0wg\n  /usr/local/google/.../out/soong/.temp/art-data-0GB0wg/TmpFile-Mtkaxc\n\nWithout -o, dexlayout dumps everything on stdout. With -o it uses filenames like these:\n\n  /usr/local/google/.../out/soong/.temp/art-data-0GB0wg/classes.dex.new\n  /usr/local/google/.../out/soong/.temp/art-data-0GB0wg/classes.dex.new.new\n\nI don\u0027t know why it chooses not to use tmp_name. The code that creates these \".new\" names is here:\n\n  https://source.corp.google.com/aosp-master/art/dexlayout/dexlayout.cc;l\u003d1832",
+      "parentUuid": "3475ed07_7cc56214",
+      "range": {
+        "startLine": 441,
+        "startChar": 16,
+        "endLine": 441,
+        "endChar": 45
+      },
+      "revId": "56ce57932832d38751c158a4e9289177b6d53cda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
