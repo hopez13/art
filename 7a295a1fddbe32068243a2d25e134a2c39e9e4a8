@@ -88,6 +88,24 @@
       "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ff8208_62ce2797",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-25T15:17:30Z",
+      "side": 1,
+      "message": "Looks like libcore was the reason libcrypto.so was brought in. I\u0027ve uploaded:\nhttps://android-review.googlesource.com/c/platform/libcore/+/1268165\n\nTo address this. I can confirm libcrypto after this CL doesn\u0027t end up in the apex.",
+      "parentUuid": "9724d0f3_c88a751e",
+      "revId": "7a295a1fddbe32068243a2d25e134a2c39e9e4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
