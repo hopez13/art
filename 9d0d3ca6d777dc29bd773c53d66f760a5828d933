@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002110631",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1267444?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "ae51bc20_8a6717d6",
+          "description": "Change to \"runtime/class_linker.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 5013,
+                "startChar": 28,
+                "endLine": 5013,
+                "endChar": 35
+              },
+              "replacement": "virtual"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "cadb04e5_afb6dbf2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5013,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-25T17:12:23Z",
+      "side": 1,
+      "message": "Common typo found: \"virutal\" -- should it be \"virtual\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 5013,
+        "startChar": 28,
+        "endLine": 5013,
+        "endChar": 35
+      },
+      "revId": "9d0d3ca6d777dc29bd773c53d66f760a5828d933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
