@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (C) 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,6 +39,9 @@ function one() {
     fi
   fi
   adb pull $1/$2 /tmp || exit 1
+  # pull vdex file for oatdump if exist
+  vdex=${2%.*}.vdex
+  adb pull $1/$vdex /tmp/ 2>/dev/null
   mkdir -p $OUT/symbols/$1
   oatdump --symbolize=/tmp/$2 --output=$OUT/symbols/$1/$2
 }
