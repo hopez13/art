@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cee79cb_8aeebb0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-26T11:58:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51b4a7e5_417f8cca",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9139d5d4_49f5bd79",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 2
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "01996669_3b868bdb",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-26T11:58:23Z",
+      "side": 1,
+      "message": "Conscript is needed to initialize the core libraries I belive,\nand some tests explicitly use as \"non-core\" dex file.",
+      "parentUuid": "ba044582_d04cc19d",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1901674d_ecf7fb35",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 2
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "c8ac531b_add9815d",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-26T11:58:23Z",
+      "side": 1,
+      "message": "Yes, used.",
+      "parentUuid": "1901674d_ecf7fb35",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 95
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e1f43fa_79a0c9cc",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 2
@@ -163,6 +235,30 @@
       "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ae0bef_a4ae574c",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-03-26T11:58:23Z",
+      "side": 1,
+      "message": "I am not sure if I follow.  The tests still need the paths.\nThe fact the paths are in the apex now is more of an convenience.\nNote that there APEX on host is really just plain old directory.",
+      "parentUuid": "4e1f43fa_79a0c9cc",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
