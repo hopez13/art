@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "af949e8e_e1bc97eb",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-26T00:18:25Z",
+      "side": 1,
+      "message": "I had a look at the disassembled libart.so. The class\u0027 load is duplicated. But interestingly, it is duplicated for other cases also. Here\u0027s the disassembled code:\n\n  2e003c:       b94001cf        ldr     w15, [x14]       \u003c\u003d\u003d\u003d\u003d\u003d\u003dThe first load from if cond\n  2e0040:       34fffc8f        cbz     w15, 2dffd0 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0x28\u003e\n  2e0044:       b94001cf        ldr     w15, [x14]       \u003c\u003d\u003d\u003d\u003d\u003d\u003dInside SizeOf()\n  2e0048:       9100058c        add     x12, x12, #0x1\n  2e004c:       b9400df0        ldr     w16, [x15,#12]\n  2e0050:       b94001cf        ldr     w15, [x14]       \u003c\u003d\u003d\u003d\u003d\u003d\u003dAgain! Not sure why\n  2e0054:       35fffd70        cbnz    w16, 2e0000 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0x58\u003e\n  2e0058:       b94001f0        ldr     w16, [x15]\n  2e005c:       eb1001ff        cmp     x15, x16\n  2e0060:       540000e0        b.eq    2e007c \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0xd4\u003e\n  2e0064:       b94001cf        ldr     w15, [x14]        \u003c\u003d\u003d\u003d\u003d\u003d\u003d\u003dAgain!\n  2e0068:       b94045ef        ldr     w15, [x15,#68]\n  2e006c:       371000cf        tbnz    w15, #2, 2e0084 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0xdc\u003e\n  2e0070:       b94001cf        ldr     w15, [x14]\n  2e0074:       b94061ef        ldr     w15, [x15,#96]\n  2e0078:       17ffffec        b       2e0028 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0x80\u003e\n  2e007c:       b94049cf        ldr     w15, [x14,#72]\n  2e0080:       17ffffea        b       2e0028 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0x80\u003e\n  2e0084:       b94009cf        ldr     w15, [x14,#8]\n  2e0088:       b94009d0        ldr     w16, [x14,#8]\n  2e008c:       924001ef        and     x15, x15, #0x1\n  2e0090:       d341fe10        lsr     x16, x16, #1\n  2e0094:       9acf220f        lsl     x15, x16, x15\n  2e0098:       91005def        add     x15, x15, #0x17\n  2e009c:       927d75ef        and     x15, x15, #0x1fffffff8\n  2e00a0:       17ffffe2        b       2e0028 \u003c_ZN3art2gc5space11RegionSpace25CountAllocatedObjectsTask3RunEPNS_6ThreadE+0x80\u003e",
+      "parentUuid": "64a2e5b9_15c66831",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6790c335_0941fff3",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 4
@@ -369,6 +393,30 @@
       "side": 1,
       "message": "Is that really a consistent improvement? If we only have one mutator task, it seems cheaper (as measured by total cpu cycles or maybe battery) to count it in the allocator rather than here? I agree that this wins in terms of latency.\n\nI couldn\u0027t find AllocatedObjectsEver. Can you point me at the spec? I\u0027m still concerned that this is a feature that doesn\u0027t pull its own weight.",
       "parentUuid": "5750fe8e_69288fcc",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 79
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "803398f1_e452ba4c",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-03-26T00:18:25Z",
+      "side": 1,
+      "message": "Mathieu\u0027s CL takes it out of allocation fastpath to reduce allocation cost and code size. I contemplated counting when partial tlab is expanded, but that had similar cost as this implementation. Also, this one allows us to do it in a separate thread, avoiding any latency concerns.\n\nI got a bit confused about AllocatedObjectsEver etc. Those metrics, luckily, are only in terms of bytes. But the GC performance dump, which is part of the ANR report, has it.\n\nHow about we go ahead with this CL now. We can discuss in the next GC meeting to see if it\u0027s ok to get rid of object-count based metrics from everywhere (other then when stats are enabled). If we agree, then I\u0027ll come up with another CL to take care of this.",
+      "parentUuid": "8d8035b3_86a55b75",
       "range": {
         "startLine": 450,
         "startChar": 4,
