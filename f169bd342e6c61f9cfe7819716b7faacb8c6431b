@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "3e380c24_4aa7bdaf",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-26T01:20:26Z",
+      "side": 1,
+      "message": "Interesting. Thanks!\n\nI suspect the problem is that it\u0027s treated as a field access, which needs to obey the Java memory model, even in the presence of a data race. Those need to get mapped to relaxed atomic accesses. It\u0027s dubious to combine those. But I don\u0027t think the class can change while we\u0027re accessing it, so we should be able to use an ordinary access here. Please file a bug and assign it to either of us, as you prefer. This may also get us some GC performance back. These are presumably all L1 hits, but still.",
+      "parentUuid": "af949e8e_e1bc97eb",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 59
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6790c335_0941fff3",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 4
@@ -417,6 +441,30 @@
       "side": 1,
       "message": "Mathieu\u0027s CL takes it out of allocation fastpath to reduce allocation cost and code size. I contemplated counting when partial tlab is expanded, but that had similar cost as this implementation. Also, this one allows us to do it in a separate thread, avoiding any latency concerns.\n\nI got a bit confused about AllocatedObjectsEver etc. Those metrics, luckily, are only in terms of bytes. But the GC performance dump, which is part of the ANR report, has it.\n\nHow about we go ahead with this CL now. We can discuss in the next GC meeting to see if it\u0027s ok to get rid of object-count based metrics from everywhere (other then when stats are enabled). If we agree, then I\u0027ll come up with another CL to take care of this.",
       "parentUuid": "8d8035b3_86a55b75",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 79
+      },
+      "revId": "f169bd342e6c61f9cfe7819716b7faacb8c6431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f833bd_c3414261",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-03-26T01:20:26Z",
+      "side": 1,
+      "message": "I\u0027m OK with that for AOSP. Can we open two bugs corresponding to the two ongoing discussions? I\u0027m concerned about cherrypicking this as is. Do we have a way to measure battery impact, or some reasonable approximation?\n\nIs that data in the ANR report important? Are there robots that look at it? We could approximate it in various ways, but I\u0027m not sure what a good approximation is, since I\u0027m not sure what a good use is.",
+      "parentUuid": "803398f1_e452ba4c",
       "range": {
         "startLine": 450,
         "startChar": 4,
