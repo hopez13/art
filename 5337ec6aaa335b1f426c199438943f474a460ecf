@@ -22,6 +22,30 @@
       "revId": "5337ec6aaa335b1f426c199438943f474a460ecf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b6371b_0d317d45",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2020-03-26T15:23:04Z",
+      "side": 1,
+      "message": "Yep.  Had missed that one.  Thanks.",
+      "parentUuid": "338a63af_171821bd",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 33
+      },
+      "revId": "5337ec6aaa335b1f426c199438943f474a460ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
