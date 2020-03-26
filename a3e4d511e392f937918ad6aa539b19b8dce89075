@@ -259,6 +259,30 @@
       "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649df3d2_fd199c58",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-26T14:49:11Z",
+      "side": 1,
+      "message": "Well, I thought that since the paths are now for boot image not specific to the tests, they may  be already constructed by existing helper functions in ART. On second thought I realize that this is a host boot image, so it is not used by anything except tests.",
+      "parentUuid": "97ae0bef_a4ae574c",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "a3e4d511e392f937918ad6aa539b19b8dce89075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
