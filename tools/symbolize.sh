@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (C) 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +28,10 @@ fi
 # Pull the file from the device and symbolize it.
 function one() {
   echo $1 $2
+  # skip vdex, vdex can be used for oatdump independently.
+  if [[ $2 = *vdex ]] ; then
+    return
+  fi
   if [ "x$INTERACTIVE" = "xyes" ] ; then
     echo -n "What to do? [Y/n/q] "
     read -e input
@@ -50,7 +54,7 @@ function adbshellstrip() {
 
 # Search in all of /data on device.
 function all() {
-  FILES=$(adbshellstrip find /data -name "'*.oat'" -o -name "'*.dex'" -o -name "'*.odex'")
+  FILES=$(adbshellstrip find /data -name "'*.oat'" -o -name "'*.dex'" -o -name "'*.odex'" -o -name "'*.vdex'")
   for FILE in $FILES ; do
     DIR=$(dirname $FILE)
     NAME=$(basename $FILE)
