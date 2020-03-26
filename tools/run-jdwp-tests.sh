@@ -50,7 +50,7 @@ function boot_classpath_arg {
 }
 
 # Note: This must start with the CORE_IMG_JARS in Android.common_path.mk
-# because that's what we use for compiling the core.art image.
+# because that's what we use for compiling the boot.art image.
 # It may contain additional modules from TEST_CORE_JARS.
 BOOT_CLASSPATH_JARS="core-oj core-libart core-icu4j okhttp bouncycastle apache-xml conscrypt"
 
