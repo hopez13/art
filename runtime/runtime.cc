@@ -1059,7 +1059,8 @@ void Runtime::InitNonZygoteOrPostFork(
   StartSignalCatcher();
 
   ScopedObjectAccess soa(Thread::Current());
-  if (Dbg::IsJdwpAllowed() || IsProfileableFromShell() || IsJavaDebuggable()) {
+  if (Dbg::IsJdwpAllowed() || Runtime::Current()->IsSystemServer() || IsProfileableFromShell() ||
+      IsJavaDebuggable()) {
     std::string err;
     ScopedTrace tr("perfetto_hprof init.");
     ScopedThreadSuspension sts(Thread::Current(), ThreadState::kNative);

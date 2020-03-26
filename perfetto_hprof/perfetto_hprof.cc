@@ -29,6 +29,7 @@
 #include <thread>
 #include <time.h>
 
+#include "debugger.h"
 #include "gc/heap-visit-objects-inl.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
@@ -113,6 +114,46 @@ void ArmWatchdogOrDie() {
   }
 }
 
+bool IsDebuggableDomain() {
+  int fd = open("/proc/self/attr/current", O_RDONLY);
+  if (fd == -1) {
+      PLOG(ERROR) << "failed to open /proc/self/attr/current";
+      return false;
+  }
+  char buf[512];
+  size_t off = 0;
+  ssize_t rd = 0;
+  while (off < sizeof(buf)) {
+    rd = read(fd, buf + off, sizeof(buf) - off);
+    if (rd == -1) {
+      if (errno == EINTR) {
+        continue;
+      }
+
+      PLOG(ERROR) << "failed to read /proc/self/attr/current";
+      close(fd);
+      return false;
+    } else if (rd == 0) {
+      break;
+    } else {
+      off += static_cast<size_t>(rd);
+    }
+  }
+  if (off == sizeof(buf)) {
+    close(fd);
+    return false;
+  }
+  const std::string sys_srv("u:r:system_server:s0");
+  const std::string buf_str(buf);
+  if (buf_str == sys_srv) {
+    close(fd);
+    return true;
+  }
+
+  close(fd);
+  return false;
+}
+
 constexpr size_t kMaxCmdlineSize = 512;
 
 class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
@@ -124,6 +165,14 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
     std::unique_ptr<perfetto::protos::pbzero::JavaHprofConfig::Decoder> cfg(
         new perfetto::protos::pbzero::JavaHprofConfig::Decoder(
           args.config->java_hprof_config_raw()));
+
+    bool debuggable_domain = IsDebuggableDomain();
+    LOG(INFO) << "debuggable domain " << debuggable_domain;
+    if (!art::Dbg::IsJdwpAllowed() && !art::Runtime::Current()->IsSystemServer() &&
+        !debuggable_domain && args.config->enable_extra_guardrails()) {
+      LOG(ERROR) << "rejecting extra guardrails config";
+      return;
+    }
 
     uint64_t self_pid = static_cast<uint64_t>(getpid());
     for (auto pid_it = cfg->pid(); pid_it; ++pid_it) {
