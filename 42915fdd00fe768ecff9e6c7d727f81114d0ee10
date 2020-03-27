@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0034f265_9152000a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-27T18:52:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "42915fdd00fe768ecff9e6c7d727f81114d0ee10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59cd20a8_22f64e47",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-27T18:52:02Z",
+      "side": 1,
+      "message": "Test: m test-art-host-gtest-dex2oat_image_test # clean build\n\n(This test requires conscrypt and I do not see any dependency here anymore?)",
+      "revId": "42915fdd00fe768ecff9e6c7d727f81114d0ee10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
