@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a09f31a_5b4e9267",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-27T12:46:47Z",
+      "side": 1,
+      "message": "Could you please write the full names of the variables to avoid confusion?\n\nAlso, please add a note why it was broken by https://r.android.com/1234908 (what has changed).",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "73b901a311954dee3f403b0783732c6a6f5f286b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
