@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acdd708a_74b12b8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-27T10:29:31Z",
+      "side": 1,
+      "message": "Please remove. This is a performance improvement, not a bug fix.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "e759227bda0e6fe3d230d80c926f16dfb8b3189e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f511e920_69ae9ee3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-27T10:29:31Z",
+      "side": 1,
+      "message": "Fix repeatedly preparing dex files for oat file...\n\n... when compiling dex files individually.\n\n(Keep the first line short and the second line blank. This applies to other filters, not just quicken. Only applies when compiling multi-dex apk dex files individually.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 62
+      },
+      "revId": "e759227bda0e6fe3d230d80c926f16dfb8b3189e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24480d26_f47ece8e",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-27T10:29:31Z",
+      "side": 1,
+      "message": "Looks more like a \"Prepare\" function rather than a setter.",
+      "range": {
+        "startLine": 845,
+        "startChar": 21,
+        "endLine": 845,
+        "endChar": 24
+      },
+      "revId": "e759227bda0e6fe3d230d80c926f16dfb8b3189e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
