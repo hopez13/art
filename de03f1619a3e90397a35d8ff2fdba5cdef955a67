@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdbe62b4_51c0ce20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-27T15:57:28Z",
+      "side": 1,
+      "message": "Could you be more specific, what doesn\u0027t work on dash?\n\nNote that you can use `shellcheck -s sh symbolize.sh` to see hints with references to the standard.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "de03f1619a3e90397a35d8ff2fdba5cdef955a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73680be7_23534bd4",
+        "filename": "tools/symbolize.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-27T15:57:28Z",
+      "side": 1,
+      "message": "Can you use single-bracket syntax compatible with sh to match the rest of the script?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "de03f1619a3e90397a35d8ff2fdba5cdef955a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
