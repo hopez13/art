@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "007ddf8f_8f38000d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-03-27T14:43:54Z",
+      "side": 1,
+      "message": "I\u0027d add a comment here (inspired by your commit message):\n\n  # Note: The \"host arch\" Make variables defined in build/make/core/envsetup.mk\n  # and art/build/Android.common.mk have different meanings:\n  #\n  #  * In build/make/core/envsetup.mk:\n  #    * HOST_ARCH :\u003d x86_64\n  #    * HOST_2ND_ARCH :\u003d x86\n  #\n  #   * In art/build/Android.common.mk:\n  #     * When `HOST_PREFER_32_BIT` is `true`:\n  #       * ART_HOST_ARCH :\u003d x86\n  #       * 2ND_ART_HOST_ARCH :\u003d\n  #       * 2ND_HOST_ARCH :\u003d\n  #     * Otherwise:\n  #       * ART_HOST_ARCH :\u003d x86_64\n  #       * 2ND_ART_HOST_ARCH :\u003d x86\n  #       * 2ND_HOST_ARCH :\u003d x86\n\nI think this would help future selves. :)",
+      "range": {
+        "startLine": 500,
+        "startChar": 4,
+        "endLine": 500,
+        "endChar": 76
+      },
+      "revId": "8e30685a69ad35df413d70571fa88e3be397ac37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
