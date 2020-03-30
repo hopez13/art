@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "749bd56c_d3394b78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-03-30T03:54:44Z",
+      "side": 1,
+      "message": "The checking result for the original symbolize.sh:\n\n$ uname -s -r -v -m -o\nLinux 4.15.0-91-generic #92~16.04.1-Ubuntu SMP Fri Feb 28 14:57:22 UTC 2020 x86_64 GNU/Linux\n$ ls -l /bin/sh\nlrwxrwxrwx 1 root root 4 Sep  5  2019 /bin/sh -\u003e dash\n\n$ shellcheck -s sh art/tools/symbolize.sh\nIn art/tools/symbolize.sh line 29:\nfunction one() {\n^-- SC2112: \u0027function\u0027 keyword is non-standard. Delete it.\n\n\nIn art/tools/symbolize.sh line 30:\n  echo $1 $2\n       ^-- SC2086: Double quote to prevent globbing and word splitting.\n          ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 32:\n    echo -n \"What to do? [Y/n/q] \"\n         ^-- SC2039: In POSIX sh, echo flags are not supported.\n\n\nIn art/tools/symbolize.sh line 33:\n    read -e input\n         ^-- SC2039: In POSIX sh, read -e is not supported.\n\n\nIn art/tools/symbolize.sh line 41:\n  adb pull $1/$2 /tmp || exit 1\n           ^-- SC2086: Double quote to prevent globbing and word splitting.\n              ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 42:\n  mkdir -p $OUT/symbols/$1\n           ^-- SC2086: Double quote to prevent globbing and word splitting.\n                        ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 43:\n  oatdump --symbolize\u003d/tmp/$2 --output\u003d$OUT/symbols/$1/$2\n                           ^-- SC2086: Double quote to prevent globbing and word splitting.\n                                       ^-- SC2086: Double quote to prevent globbing and word splitting.\n                                                    ^-- SC2086: Double quote to prevent globbing and word splitting.\n                                                       ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 47:\nfunction adbshellstrip() {\n^-- SC2112: \u0027function\u0027 keyword is non-standard. Delete it.\n\n\nIn art/tools/symbolize.sh line 48:\n  adb shell $@ | sed \u0027s/\\r$//\u0027\n            ^-- SC2068: Double quote array expansions, otherwise they\u0027re like $* and break on spaces.\n\n\nIn art/tools/symbolize.sh line 52:\nfunction all() {\n^-- SC2112: \u0027function\u0027 keyword is non-standard. Delete it.\n\n\nIn art/tools/symbolize.sh line 55:\n    DIR\u003d$(dirname $FILE)\n                  ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 56:\n    NAME\u003d$(basename $FILE)\n                    ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 57:\n    one $DIR $NAME\n        ^-- SC2086: Double quote to prevent globbing and word splitting.\n             ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 66:\n  while (($#)); do\n        ^-- SC2039: In POSIX sh, standalone ((..)) is not supported.\n\n\nIn art/tools/symbolize.sh line 67:\n    DIR\u003d$(dirname $1)\n                  ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 68:\n    NAME\u003d$(basename $1)\n                    ^-- SC2086: Double quote to prevent globbing and word splitting.\n\n\nIn art/tools/symbolize.sh line 69:\n    one $DIR $NAME\n        ^-- SC2086: Double quote to prevent globbing and word splitting.\n             ^-- SC2086: Double quote to prevent globbing and word splitting.",
+      "parentUuid": "cdbe62b4_51c0ce20",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "de03f1619a3e90397a35d8ff2fdba5cdef955a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73680be7_23534bd4",
         "filename": "tools/symbolize.sh",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "de03f1619a3e90397a35d8ff2fdba5cdef955a67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c836114_f2f9ced0",
+        "filename": "tools/symbolize.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-03-30T03:54:44Z",
+      "side": 1,
+      "message": "it will be removed, see next patch",
+      "parentUuid": "73680be7_23534bd4",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "de03f1619a3e90397a35d8ff2fdba5cdef955a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
