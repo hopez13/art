@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebfa880_3e21c633",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-30T13:52:22Z",
+      "side": 1,
+      "message": "No need?",
+      "range": {
+        "startLine": 680,
+        "startChar": 2,
+        "endLine": 680,
+        "endChar": 10
+      },
+      "revId": "ff5d30fc518f29019ecf28c9536aea213a7e8668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a4d342_b95a087f",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-03-30T13:52:22Z",
+      "side": 1,
+      "message": "Nit: add a high-level comment, also explaining the difference with the other method line 140.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 68
+      },
+      "revId": "ff5d30fc518f29019ecf28c9536aea213a7e8668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
