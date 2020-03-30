@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0980398_eb0b1cbb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-03-30T18:47:34Z",
+      "side": 1,
+      "message": "There is similar logic to this in AppImageLoadingHelper::HandleAppImageStrings, any reason to not just change that code?",
+      "range": {
+        "startLine": 678,
+        "startChar": 18,
+        "endLine": 678,
+        "endChar": 45
+      },
+      "revId": "2660e3ccd3ef270837a9c232e733af6865753459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
