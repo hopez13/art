@@ -338,8 +338,7 @@ std::unique_ptr<const DexFile> CommonArtTestImpl::LoadExpectSingleDexFile(const 
   MemMap::Init();
   static constexpr bool kVerifyChecksum = true;
   const ArtDexFileLoader dex_file_loader;
-  std::string prefix = IsHost() ? GetAndroidRoot() : "";
-  std::string filename = prefix + location;
+  std::string filename = location;
   if (!dex_file_loader.Open(filename.c_str(),
                             std::string(location),
                             /* verify= */ true,
@@ -436,8 +435,14 @@ std::vector<std::string> CommonArtTestImpl::GetLibCoreDexLocations(
     const std::vector<std::string>& modules) const {
   std::vector<std::string> result = GetLibCoreDexFileNames(modules);
   if (IsHost()) {
-    // Strip the build directory prefix (e.g. .../host/linux-x86)
-    std::string prefix = GetAndroidRoot();
+    // Strip the ANDROID_BUILD_TOP directory including the directory separator '/'.
+    const char* host_dir = getenv("ANDROID_BUILD_TOP");
+    CHECK(host_dir != nullptr);
+    std::string prefix = host_dir;
+    CHECK(!prefix.empty());
+    if (prefix.back() != '/') {
+      prefix += '/';
+    }
     for (std::string& location : result) {
       CHECK_GT(location.size(), prefix.size());
       CHECK_EQ(location.compare(0u, prefix.size(), prefix), 0);
