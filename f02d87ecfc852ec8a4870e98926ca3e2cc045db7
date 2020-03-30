@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58090c32_8f703458",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-03-30T14:38:46Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with these files, but I note this is a new dependency that wasn\u0027t in $$(HOST_CORE_DEX_LOCATIONS). Intentional? If so, it might be worth mentioning in the commit message.",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 27
+      },
+      "revId": "f02d87ecfc852ec8a4870e98926ca3e2cc045db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
