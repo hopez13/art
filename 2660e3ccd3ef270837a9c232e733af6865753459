@@ -22,6 +22,30 @@
       "revId": "2660e3ccd3ef270837a9c232e733af6865753459",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25fc375a_b2d9a412",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-03-31T08:41:50Z",
+      "side": 1,
+      "message": "There are both similarities and differences. I initially wanted to refactor the class linker code to use a bit of the code here (in PS3 RemoveDuplicates() was in InternTable) but decided not to. For example, here we can always avoid the read barriers as we\u0027re dealing exclusively with image intern tables while the class linker code must use read barriers at least for the weak interns. And we do not have the string references metadata for boot image extensions and I wanted to use the same code for them and app images here.",
+      "parentUuid": "e0980398_eb0b1cbb",
+      "range": {
+        "startLine": 678,
+        "startChar": 18,
+        "endLine": 678,
+        "endChar": 45
+      },
+      "revId": "2660e3ccd3ef270837a9c232e733af6865753459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
