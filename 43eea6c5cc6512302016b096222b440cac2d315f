@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002218039",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1274874?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "a6071447_23080d41",
+          "description": "Change to \"tools/checker/match/file.py\"",
+          "replacements": [
+            {
+              "path": "tools/checker/match/file.py",
+              "range": {
+                "startLine": 145,
+                "startChar": 63,
+                "endLine": 145,
+                "endChar": 73
+              },
+              "replacement": "preceding"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7818c3f9_fc91d848",
+        "filename": "tools/checker/match/file.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-31T18:23:42Z",
+      "side": 1,
+      "message": "Common typo found: \"preceeding\" -- should it be \"preceding\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 145,
+        "startChar": 63,
+        "endLine": 145,
+        "endChar": 73
+      },
+      "revId": "43eea6c5cc6512302016b096222b440cac2d315f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
