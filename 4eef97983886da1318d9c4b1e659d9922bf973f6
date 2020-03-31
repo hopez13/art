@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df6848a8_b25e39c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-03-31T10:27:10Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "db08a61e_7808648b",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "4eef97983886da1318d9c4b1e659d9922bf973f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e1a7b9a_34b80c89",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "4eef97983886da1318d9c4b1e659d9922bf973f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfaf65ae_c6174e12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-03-31T10:27:10Z",
+      "side": 1,
+      "message": "it is right.\nall function keywords: removed.\nthree Tests: pass\n\ndone",
+      "parentUuid": "1e1a7b9a_34b80c89",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "4eef97983886da1318d9c4b1e659d9922bf973f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
