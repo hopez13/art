@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db08a61e_7808648b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-31T09:13:35Z",
+      "side": 1,
+      "message": "I\u0027d change this to be a bit more descriptive, e.g:\n\n  Symbolize script: make dash-compatible and pull vdex file for oatdump.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "4eef97983886da1318d9c4b1e659d9922bf973f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e1a7b9a_34b80c89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-31T09:13:35Z",
+      "side": 1,
+      "message": "Instead of changing the shell to bash, could you please fix the script to be dash-compatible? It seems that the only necessary change is to remove the function keyword (in three places).\n\nThe reason bash has a function keyword is to avoid collisions with aliases (see https://stackoverflow.com/questions/7917018/what-is-the-function-keyword-used-in-some-bash-scripts).\n\nAlso, please test the script with bash, POSIX-compatible bash and dash, and include this in the commit message:\n\nTest: bash symbolize.sh\nTest: bash --posix symbolize.sh\nTest: dash symbolize.sh",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "4eef97983886da1318d9c4b1e659d9922bf973f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
