@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002218044",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1274877?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "fe24016b_dce8b2ff",
+          "description": "Change to \"tools/checker/file_format/c1visualizer/isa_features_parser.py\"",
+          "replacements": [
+            {
+              "path": "tools/checker/file_format/c1visualizer/isa_features_parser.py",
+              "range": {
+                "startLine": 54,
+                "startChar": 82,
+                "endLine": 54,
+                "endChar": 89
+              },
+              "replacement": "and"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "4f08c653_faf3d370",
+        "filename": "tools/checker/file_format/c1visualizer/isa_features_parser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-31T18:23:42Z",
+      "side": 1,
+      "message": "Common typo found: \"and and\" -- should it be \"and\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 54,
+        "startChar": 82,
+        "endLine": 54,
+        "endChar": 89
+      },
+      "revId": "63ac07ff85309cafd35f526bf99242d3cfb627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
