@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5df64787_92cabcad",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-31T08:40:28Z",
+      "side": 1,
+      "message": "const ref?",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 14
+      },
+      "revId": "9f0cb634e883674d90606cc3d10c9929132eabd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19e2d0d6_3e9a84ec",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-03-31T08:40:28Z",
+      "side": 1,
+      "message": "Maybe worth adding a function GetBuildRoot()?",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 5
+      },
+      "revId": "9f0cb634e883674d90606cc3d10c9929132eabd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
