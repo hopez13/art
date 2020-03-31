@@ -501,6 +501,10 @@ if [ "$HOST" = "n" ]; then
   ISA=$("$ANDROID_BUILD_TOP/art/test/utils/get-device-isa" "$GET_DEVICE_ISA_BITNESS_FLAG")
 fi
 
+# Let the compiler and runtime know that we are running tests.
+COMPILE_FLAGS="${COMPILE_FLAGS} --compile-art-test"
+FLAGS="${FLAGS} -Xcompiler-option --compile-art-test"
+
 if [ "$USE_JVM" = "n" ]; then
     FLAGS="${FLAGS} ${ANDROID_FLAGS}"
     # we don't want to be trying to get adbconnections since the plugin might
