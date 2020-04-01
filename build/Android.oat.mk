@@ -210,9 +210,10 @@ define create-core-oat-target-rule-combination
   endif
 endef
 
-$(eval $(call create-core-oat-target-rule-combination,optimizing))
-$(eval $(call create-core-oat-target-rule-combination,interpreter))
-$(eval $(call create-core-oat-target-rule-combination,interp-ac))
+# Don't compile core images anymore.
+# $(eval $(call create-core-oat-target-rule-combination,optimizing))
+# $(eval $(call create-core-oat-target-rule-combination,interpreter))
+# $(eval $(call create-core-oat-target-rule-combination,interp-ac))
 
 # Define a default core image that can be used for things like gtests that
 # need some image to run, but don't otherwise care which image is used.
