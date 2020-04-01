@@ -118,9 +118,10 @@ define create-core-oat-host-rule-combination
   endif
 endef
 
-$(eval $(call create-core-oat-host-rule-combination,optimizing))
-$(eval $(call create-core-oat-host-rule-combination,interpreter))
-$(eval $(call create-core-oat-host-rule-combination,interp-ac))
+# Don't compile core images anymore.
+# $(eval $(call create-core-oat-host-rule-combination,optimizing))
+# $(eval $(call create-core-oat-host-rule-combination,interpreter))
+# $(eval $(call create-core-oat-host-rule-combination,interp-ac))
 
 .PHONY: test-art-host-dex2oat-host
 test-art-host-dex2oat-host: $(HOST_CORE_IMG_OUTS)
@@ -210,9 +211,10 @@ define create-core-oat-target-rule-combination
   endif
 endef
 
-$(eval $(call create-core-oat-target-rule-combination,optimizing))
-$(eval $(call create-core-oat-target-rule-combination,interpreter))
-$(eval $(call create-core-oat-target-rule-combination,interp-ac))
+# Don't compile core images anymore.
+# $(eval $(call create-core-oat-target-rule-combination,optimizing))
+# $(eval $(call create-core-oat-target-rule-combination,interpreter))
+# $(eval $(call create-core-oat-target-rule-combination,interp-ac))
 
 # Define a default core image that can be used for things like gtests that
 # need some image to run, but don't otherwise care which image is used.
