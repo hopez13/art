@@ -135,7 +135,7 @@ $(foreach target, $(TARGET_TYPES), \
       $(foreach address_size, $(ALL_ADDRESS_SIZES), $(eval \
         $(call core-image-dependencies,$(target),$(image),$(compiler),$(address_size)))))))
 
-test-art-host-run-test-dependencies : $(host_prereq_rules)
+test-art-host-run-test-dependencies : $(HOST_BOOT_IMAGE) $(2ND_HOST_BOOT_IMAGE)
 .PHONY: test-art-host-run-test-dependencies
 test-art-target-run-test-dependencies :
 .PHONY: test-art-target-run-test-dependencies

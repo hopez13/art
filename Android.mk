@@ -724,8 +724,6 @@ build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(ART_TARGET_DEX_DEPENDENCIES) \
                         $(ART_DEBUG_TARGET_SHARED_LIBRARY_DEPENDENCIES) \
                         $(ART_TARGET_SHARED_LIBRARY_BENCHMARK) \
-                        $(TARGET_CORE_IMG_OUT_BASE).art \
-                        $(TARGET_CORE_IMG_OUT_BASE)-interpreter.art \
                         libartpalette-system \
                         libc.bootstrap libdl.bootstrap libdl_android.bootstrap libm.bootstrap \
                         icu-data-art-test-i18n \
