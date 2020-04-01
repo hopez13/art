@@ -19,9 +19,8 @@
 
 #include "intern_table.h"
 
-#include "gc/space/image_space.h"
-#include "image.h"
-#include "mirror/string-inl.h"  // Required for ToModifiedUtf8 below.
+// Required for ToModifiedUtf8 below.
+#include "mirror/string-inl.h"
 
 namespace art {
 
