@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1753646_539a179e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-01T16:06:42Z",
+      "side": 1,
+      "message": "This should be done before parsing command line arguments, so that we can override it with --no-compile-art-test if we ever find a reason to do that. (Though omitting the $...$ tags should do the trick too.)",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 53
+      },
+      "revId": "82e7f454f2fb89c03cbcdcc1c9d988f4e6849b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
