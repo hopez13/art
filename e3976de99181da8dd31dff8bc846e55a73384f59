@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcafc75c_2ad890f3",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1463043
+      },
+      "writtenOn": "2020-04-02T01:57:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5486a643_1113bcc4",
+      "range": {
+        "startLine": 548,
+        "startChar": 2,
+        "endLine": 548,
+        "endChar": 78
+      },
+      "revId": "e3976de99181da8dd31dff8bc846e55a73384f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7244e7ad_d161baef",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "e3976de99181da8dd31dff8bc846e55a73384f59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38781c69_c9999b2a",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1463043
+      },
+      "writtenOn": "2020-04-02T01:57:08Z",
+      "side": 1,
+      "message": "Hi,\nThe gtest case have been uploaded, please help review. Thanks a alot!",
+      "parentUuid": "7244e7ad_d161baef",
+      "range": {
+        "startLine": 549,
+        "startChar": 6,
+        "endLine": 549,
+        "endChar": 23
+      },
+      "revId": "e3976de99181da8dd31dff8bc846e55a73384f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
