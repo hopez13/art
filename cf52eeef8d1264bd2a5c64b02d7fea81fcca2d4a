@@ -22,6 +22,30 @@
       "revId": "cf52eeef8d1264bd2a5c64b02d7fea81fcca2d4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b54cce_0af9d04a",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2294,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-04-02T08:53:43Z",
+      "side": 1,
+      "message": "I was trying to say we no longer crash here, but this is implicit in the return value check. Updated the comment and added a further test.",
+      "parentUuid": "514732c7_dd26f8f5",
+      "range": {
+        "startLine": 2294,
+        "startChar": 29,
+        "endLine": 2294,
+        "endChar": 43
+      },
+      "revId": "cf52eeef8d1264bd2a5c64b02d7fea81fcca2d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
