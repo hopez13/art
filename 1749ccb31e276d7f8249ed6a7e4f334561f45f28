@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002263266",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1235249?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "a759ef1b_c27049e2",
+          "description": "Change to \"test/941-recurive-obsolete-jit/Android.bp\"",
+          "replacements": [
+            {
+              "path": "test/941-recurive-obsolete-jit/Android.bp",
+              "range": {
+                "startLine": 2,
+                "startChar": 28,
+                "endLine": 2,
+                "endChar": 36
+              },
+              "replacement": "recursive"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a46b68a5_2cb1b0f8",
+        "filename": "test/941-recurive-obsolete-jit/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-02T18:18:29Z",
+      "side": 1,
+      "message": "Common typo found: \"recurive\" -- should it be \"recursive\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 36
+      },
+      "revId": "1749ccb31e276d7f8249ed6a7e4f334561f45f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
