@@ -48,6 +48,53 @@
     },
     {
       "key": {
+        "uuid": "82520b74_119a1aff",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-04-02T18:58:06Z",
+      "side": 1,
+      "message": "+1\n\nEncoding the list on the else branch does not scale well and makes it hard to discover/update.",
+      "parentUuid": "c9c64176_63feed3a",
+      "range": {
+        "startLine": 2634,
+        "startChar": 1,
+        "endLine": 2634,
+        "endChar": 54
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bf45989_0dfa3a8d",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-04-02T18:58:06Z",
+      "side": 1,
+      "message": "Can you document somewhere what the impact of this flag is?",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a357b2c4_ad57094c",
         "filename": "runtime/aot_class_linker.cc",
         "patchSetId": 1
