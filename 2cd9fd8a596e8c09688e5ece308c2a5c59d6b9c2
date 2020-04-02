@@ -45,6 +45,29 @@
       "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a357b2c4_ad57094c",
+        "filename": "runtime/aot_class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-02T17:08:02Z",
+      "side": 1,
+      "message": "I still think it is much better done by a regexp (RE2 compiled regexp in particular, although we don\u0027t use it in ART). It is both more efficient than repeatedly matching strings and more readable than this construction.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 27
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
