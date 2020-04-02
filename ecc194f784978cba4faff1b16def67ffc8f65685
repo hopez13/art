@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b92dee52_23164d84",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-04-02T19:23:26Z",
+      "side": 1,
+      "message": "As is, these two sections share a lot but are also hard to read an follow due to their size. Can you abstract the logic in common method?",
+      "range": {
+        "startLine": 585,
+        "startChar": 1,
+        "endLine": 586,
+        "endChar": 10
+      },
+      "revId": "ecc194f784978cba4faff1b16def67ffc8f65685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
