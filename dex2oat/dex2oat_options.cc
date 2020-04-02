@@ -131,6 +131,9 @@ static void AddImageMappings(Builder& builder) {
       .Define("--dirty-image-objects=_")
           .WithType<std::string>()
           .IntoKey(M::DirtyImageObjects)
+      .Define("--updatable-bcp-packages=_")
+          .WithType<std::string>()
+          .IntoKey(M::UpdatableBcpPackages)
       .Define("--image-format=_")
           .WithType<ImageHeader::StorageMode>()
           .WithValueMap({{"lz4", ImageHeader::kStorageModeLZ4},
