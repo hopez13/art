@@ -22,6 +22,30 @@
       "revId": "ca3b4c80bddd6643178653c2a023b849a9a02384",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83578cdd_1e1297a1",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1463043
+      },
+      "writtenOn": "2020-04-02T09:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51bd6177_d5d5c324",
+      "range": {
+        "startLine": 549,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 102
+      },
+      "revId": "ca3b4c80bddd6643178653c2a023b849a9a02384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
