@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3b1287da_e3a40c2f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2020-04-03T11:13:54Z",
+      "side": 1,
+      "message": "A risk I see is that if the file ends up being incorrect, or the file is moved, or whatever, this could go unnoticed because the (likely stale) else clause would end up hiding the bug. Maybe enabling the default list could be a flag on its own, like --default-updatable-bcp-packages or something.",
+      "parentUuid": "ca682ced_b6a9dcd6",
+      "range": {
+        "startLine": 2634,
+        "startChar": 1,
+        "endLine": 2634,
+        "endChar": 54
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bf45989_0dfa3a8d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 1
