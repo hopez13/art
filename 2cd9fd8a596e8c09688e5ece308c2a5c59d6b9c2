@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55059e17_f39a8bb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T08:26:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcde4374_3ccf7b64",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9c64176_63feed3a",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ca682ced_b6a9dcd6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T08:26:49Z",
+      "side": 1,
+      "message": "That would make manual dex2oat invocations even more inconvenient, you\u0027d have to create an additional file and pass the extra argument.",
+      "parentUuid": "82520b74_119a1aff",
+      "range": {
+        "startLine": 2634,
+        "startChar": 1,
+        "endLine": 2634,
+        "endChar": 54
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bf45989_0dfa3a8d",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd830dd9_96b7d420",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T08:26:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf45989_0dfa3a8d",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "2cd9fd8a596e8c09688e5ece308c2a5c59d6b9c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
