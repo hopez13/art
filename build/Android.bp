@@ -253,7 +253,6 @@ art_debug_defaults {
 java_library {
     // We need our own name to not class with the conscrypt library.
     name: "conscrypt-host",
-    installable: true,
     hostdex: true,
     static_libs: ["conscrypt"],
 
