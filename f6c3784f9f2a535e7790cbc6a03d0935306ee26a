@@ -22,6 +22,30 @@
       "revId": "f6c3784f9f2a535e7790cbc6a03d0935306ee26a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e83798db_e4ec8d79",
+        "filename": "build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-03T16:42:00Z",
+      "side": 0,
+      "message": "Hmm, I got a build failure with conscrypt out of the tree, but I cannot reproduce it anymore. Removed in latest PS.",
+      "parentUuid": "aede394b_5a1915d9",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 21
+      },
+      "revId": "f6c3784f9f2a535e7790cbc6a03d0935306ee26a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
