@@ -24,6 +24,7 @@ public class Main {
     System.out.println($noinline$foo(3, 4));
     System.out.println($noinline$mulAndIntrinsic());
     System.out.println($noinline$directIntrinsic(-5));
+    System.out.println($noinline$deoptimizeArray());
   }
 
   private static int $inline$add(int a, int b) {
@@ -89,5 +90,32 @@ public class Main {
     int abs1 = Math.abs(x);
     int abs2 = Math.abs(x);
     return abs1 + abs2;
+  }
+
+  public static class MyList {
+    public int[] arr;
+  }
+  /// CHECK-START: int Main.$noinline$deoptimizeArray() GVN$after_arch (before)
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK-NOT: Deoptimize
+  // Get rid of redundant deoptimizes
+  /// CHECK-START: int Main.$noinline$deoptimizeArray() GVN$after_arch (after)
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK-NOT: Deoptimize
+  public static int $noinline$deoptimizeArray() {
+    MyList ml = new MyList();
+    ml.arr = new int[100];
+    for (int i = 0; i < 10; i++) {
+      ml.arr[i] = i;
+    }
+    int sum = 0;
+    for (int i = 0; i < 10; i++) {
+      sum += ml.arr[i];
+    }
+    return sum;
   }
 }
