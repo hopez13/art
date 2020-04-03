@@ -46,6 +46,69 @@
       "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c648586_aee7e670",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T14:09:30Z",
+      "side": 1,
+      "message": "Line too long. Maybe you should introduce a local variable for \"/apex/${apex_module}/javalib/${bpath_module}.jar\"",
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1677012f_de18cc2f",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T14:09:30Z",
+      "side": 1,
+      "message": "This is useless since https://android-review.googlesource.com/1270614 , please remove.",
+      "range": {
+        "startLine": 679,
+        "startChar": 84,
+        "endLine": 679,
+        "endChar": 86
+      },
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850c59e0_3d792759",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T14:09:30Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 684,
+        "startChar": 65,
+        "endLine": 684,
+        "endChar": 67
+      },
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
