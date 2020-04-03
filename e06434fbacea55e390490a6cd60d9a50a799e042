@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c1a1520_6536f4da",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-04-03T15:50:51Z",
+      "side": 1,
+      "message": "Is this combining the entires by name for space savings?\n\nMight be worth keeping track of how many mappings this is combining, I can imagine wishing we had that information later.",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 40
+      },
+      "revId": "e06434fbacea55e390490a6cd60d9a50a799e042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
