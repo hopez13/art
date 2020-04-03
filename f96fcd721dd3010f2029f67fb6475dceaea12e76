@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48bc824b_66179432",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-03T09:49:28Z",
+      "side": 1,
+      "message": "file?",
+      "range": {
+        "startLine": 498,
+        "startChar": 42,
+        "endLine": 498,
+        "endChar": 51
+      },
+      "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75effad5_6c36e33c",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-03T09:49:28Z",
+      "side": 1,
+      "message": "Do we put the logic in the AotClassLinker because there\u0027s no better place to put? Could CompilerOptions be a better place?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 74
+      },
+      "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
