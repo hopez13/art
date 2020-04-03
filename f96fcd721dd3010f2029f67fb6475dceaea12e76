@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce43f83b_471ece8a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T12:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48bc824b_66179432",
+      "range": {
+        "startLine": 498,
+        "startChar": 42,
+        "endLine": 498,
+        "endChar": 51
+      },
+      "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75effad5_6c36e33c",
         "filename": "runtime/aot_class_linker.h",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0314afa_0b157ee3",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T12:53:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1bf3eda2_172ee6ca",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 74
+      },
+      "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
