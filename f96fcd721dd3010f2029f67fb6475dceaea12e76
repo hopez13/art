@@ -45,6 +45,30 @@
       "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f4b208_5ca7f439",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T10:13:45Z",
+      "side": 1,
+      "message": "It\u0027s because it\u0027s needed by the ClassLinker which does not know anything about CompilerOptions.\n\nDo you want me to move it to CompilerOptions and add an indirection from AotClassLinker to CompilerOptions? (I do not mind having the AotClassLinker know about CompilerOptions.)",
+      "parentUuid": "75effad5_6c36e33c",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 74
+      },
+      "revId": "f96fcd721dd3010f2029f67fb6475dceaea12e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
