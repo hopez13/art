@@ -35,9 +35,11 @@
 #include "mirror/object-refvisitor-inl.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "perfetto/profiling/normalize.h"
+#include "perfetto/profiling/parse_smaps.h"
 #include "perfetto/trace/interned_data/interned_data.pbzero.h"
 #include "perfetto/trace/profiling/heap_graph.pbzero.h"
 #include "perfetto/trace/profiling/profile_common.pbzero.h"
+#include "perfetto/trace/profiling/smaps.pbzero.h"
 #include "perfetto/config/profiling/java_hprof_config.pbzero.h"
 #include "perfetto/protozero/packed_repeated_fields.h"
 #include "perfetto/tracing.h"
@@ -114,6 +116,40 @@ void ArmWatchdogOrDie() {
   }
 }
 
+bool StartsWith(const std::string& str, const std::string& prefix) {
+  return str.compare(0, prefix.length(), prefix) == 0;
+}
+
+bool EndsWith(const std::string& str, const std::string& suffix) {
+  if (suffix.size() > str.size())
+    return false;
+  return str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+}
+
+// Sample entries that match one of the following
+// start with /system/
+// start with /vendor/
+// start with /data/app/
+// contains "extracted in memory from Y", where Y matches any of the above
+bool ShouldSampleSmapsEntry(const perfetto::profiling::SmapsEntry& e) {
+  if (StartsWith(e.pathname, "/system/") || StartsWith(e.pathname, "/vendor/") ||
+      StartsWith(e.pathname, "/data/app/")) {
+    return true;
+  }
+  if (StartsWith(e.pathname, "[anon:")) {
+    if (e.pathname.find("extracted in memory from /system/") != std::string::npos) {
+      return true;
+    }
+    if (e.pathname.find("extracted in memory from /vendor/") != std::string::npos) {
+      return true;
+    }
+    if (e.pathname.find("extracted in memory from /data/app/") != std::string::npos) {
+      return true;
+    }
+  }
+  return false;
+}
+
 constexpr size_t kMaxCmdlineSize = 512;
 
 class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
@@ -125,6 +161,8 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
     std::unique_ptr<perfetto::protos::pbzero::JavaHprofConfig::Decoder> cfg(
         new perfetto::protos::pbzero::JavaHprofConfig::Decoder(
           args.config->java_hprof_config_raw()));
+
+    include_smaps_ = cfg->sample_smaps();
 
     uint64_t self_pid = static_cast<uint64_t>(getpid());
     for (auto pid_it = cfg->pid(); pid_it; ++pid_it) {
@@ -173,6 +211,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
     }
   }
 
+  bool include_smaps() { return include_smaps_; }
   bool enabled() { return enabled_; }
 
   void OnStart(const StartArgs&) override {
@@ -200,6 +239,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
 
  private:
   bool enabled_ = false;
+  bool include_smaps_ = false;
   static art::Thread* self_;
 };
 
@@ -376,6 +416,45 @@ std::string PrettyType(art::mirror::Class* klass) NO_THREAD_SAFETY_ANALYSIS {
   return result;
 }
 
+void DumpSmaps(JavaHprofDataSource::TraceContext* ctx) {
+  FILE* smaps = fopen("/proc/self/smaps", "r");
+  if (smaps != nullptr) {
+    std::map<std::string /* pathname */, perfetto::profiling::SmapsEntry> entries;
+    perfetto::profiling::ParseSmaps(smaps, [&entries](const perfetto::profiling::SmapsEntry& e) {
+      if (ShouldSampleSmapsEntry(e)) {
+        auto it = entries.find(e.pathname);
+        if (it == entries.end()) {
+          entries.emplace(e.pathname, e);
+        } else {
+          perfetto::profiling::SmapsEntry& existing = it->second;
+          existing.size_kb += e.size_kb;
+          existing.private_dirty_kb += e.private_dirty_kb;
+          existing.swap_kb += e.swap_kb;
+        }
+      }
+    });
+
+    fclose(smaps);
+    if (entries.empty()) {
+      LOG(INFO) << "no matching smaps entries.";
+      return;
+    }
+    auto trace_packet = ctx->NewTracePacket();
+    auto* smaps_packet = trace_packet->set_smaps_packet();
+    smaps_packet->set_pid(getpid());
+    for (const auto& p : entries) {
+      const perfetto::profiling::SmapsEntry& e = p.second;
+      auto* smaps_entry = smaps_packet->add_entries();
+      smaps_entry->set_path(e.pathname);
+      smaps_entry->set_size_kb(e.size_kb);
+      smaps_entry->set_private_dirty_kb(e.private_dirty_kb);
+      smaps_entry->set_swap_kb(e.swap_kb);
+    }
+  } else {
+    PLOG(ERROR) << "failed to open smaps";
+  }
+}
+
 void DumpPerfetto(art::Thread* self) {
   pid_t parent_pid = getpid();
   LOG(INFO) << "preparing to dump heap for " << parent_pid;
@@ -433,14 +512,19 @@ void DumpPerfetto(art::Thread* self) {
   JavaHprofDataSource::Trace(
       [parent_pid, timestamp](JavaHprofDataSource::TraceContext ctx)
           NO_THREAD_SAFETY_ANALYSIS {
+            bool include_smaps;
             {
               auto ds = ctx.GetDataSourceLocked();
               if (!ds || !ds->enabled()) {
                 LOG(INFO) << "skipping irrelevant data source.";
                 return;
               }
+              include_smaps = ds->include_smaps();
             }
             LOG(INFO) << "dumping heap for " << parent_pid;
+            if (include_smaps) {
+              DumpSmaps(&ctx);
+            }
             Writer writer(parent_pid, &ctx, timestamp);
             // Make sure that intern ID 0 (default proto value for a uint64_t) always maps to ""
             // (default proto value for a string).
