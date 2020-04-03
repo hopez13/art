@@ -22,6 +22,30 @@
       "revId": "d1f73515701bc64b3a23727b3973da6906f1b167",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60008037_e9afbd2f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-03T13:12:26Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure which one to use and originally made it consistent with --dirty-image-objects. But after Anton\u0027s comment about aapt args in a chat, I shortly discussed that with him and decided to change this.\n\nIf we ever wanted to add the option of passing the packages directly on the command line, the argument name without \"-file\" will now be available.",
+      "parentUuid": "5b55c8ac_a549b2a3",
+      "range": {
+        "startLine": 498,
+        "startChar": 40,
+        "endLine": 498,
+        "endChar": 45
+      },
+      "revId": "d1f73515701bc64b3a23727b3973da6906f1b167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
