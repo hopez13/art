@@ -22,6 +22,30 @@
       "revId": "e06434fbacea55e390490a6cd60d9a50a799e042",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "397144d2_e86f2291",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-04-04T09:51:23Z",
+      "side": 1,
+      "message": "Actually, let me get rid of the aggregation. That might do more harm than good.",
+      "parentUuid": "5c1a1520_6536f4da",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 40
+      },
+      "revId": "e06434fbacea55e390490a6cd60d9a50a799e042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
