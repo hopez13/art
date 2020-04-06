@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32b66969_2688146b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T17:41:17Z",
+      "side": 1,
+      "message": "NIT: We keep a list of all MemMaps in the runtime (there\u0027s no accessor but you could add one) which might be easier than doing this/give you more information. You\u0027d be able to avoid this reliance on parsing strings. This seems fine though.",
+      "range": {
+        "startLine": 134,
+        "startChar": 18,
+        "endLine": 134,
+        "endChar": 34
+      },
+      "revId": "d59e141187a57b2458731be85e0cb39e64173de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
