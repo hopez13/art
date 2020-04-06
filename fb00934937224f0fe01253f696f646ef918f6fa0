@@ -284,6 +284,30 @@
       "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44750344_b140b036",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T17:08:06Z",
+      "side": 1,
+      "message": "I\u0027m still not sure what you mean.\n\nIf you are suggesting changing to line 514 to:\n\n```\n  if (!current-\u003eIsDeoptimize()) {\n    set-\u003eKill(current-\u003eGetSideEffects());\n  }\n```\n\nthough it will not work since there are 2 issues that prevented the removal of the redundant deoptimize. The first is that we didn\u0027t add the deoptimize instructions (line 500) and the second is that the deoptimizes were removed by other instructions due the loop back-edge.",
+      "parentUuid": "d44e694d_2eaf71d3",
+      "range": {
+        "startLine": 518,
+        "startChar": 11,
+        "endLine": 518,
+        "endChar": 12
+      },
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
