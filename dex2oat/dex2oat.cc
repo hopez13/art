@@ -1962,6 +1962,30 @@ class Dex2Oat final {
       }
     }
 
+    // Setup vdex for compilation.
+    if (!DoEagerUnquickeningOfVdex() && input_vdex_file_ != nullptr) {
+      std::unique_ptr<verifier::VerifierDeps> verifier_deps(
+          new verifier::VerifierDeps(dex_files, /*output_only=*/ false));
+      if (!verifier_deps->ParseStoredData(dex_files, input_vdex_file_->GetVerifierDepsData())) {
+        return dex2oat::ReturnCode::kOther;
+      }
+      callbacks_->SetVerifierDeps(verifier_deps.release());
+
+      // TODO: we unquicken unconditionally, as we don't know
+      // if the boot image has changed. How exactly we'll know is under
+      // experimentation.
+      TimingLogger::ScopedTiming time_unquicken("Unquicken", timings_);
+
+      // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
+      // optimization does not depend on the boot image (the optimization relies on not
+      // having final fields in a class, which does not change for an app).
+      input_vdex_file_->Unquicken(dex_files, /* decompile_return_instruction */ false);
+    } else {
+      // Create the main VerifierDeps, here instead of in the compiler since we want to aggregate
+      // the results for all the dex files, not just the results for the current dex file.
+      callbacks_->SetVerifierDeps(new verifier::VerifierDeps(dex_files));
+    }
+
     return dex2oat::ReturnCode::kNoFailure;
   }
 
@@ -2096,27 +2120,6 @@ class Dex2Oat final {
       callbacks_->SetDoesClassUnloading(true, driver_.get());
     }
 
-    // Setup vdex for compilation.
-    const std::vector<const DexFile*>& dex_files = compiler_options_->dex_files_for_oat_file_;
-    if (!DoEagerUnquickeningOfVdex() && input_vdex_file_ != nullptr) {
-      callbacks_->SetVerifierDeps(
-          new verifier::VerifierDeps(dex_files, input_vdex_file_->GetVerifierDepsData()));
-
-      // TODO: we unquicken unconditionally, as we don't know
-      // if the boot image has changed. How exactly we'll know is under
-      // experimentation.
-      TimingLogger::ScopedTiming time_unquicken("Unquicken", timings_);
-
-      // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
-      // optimization does not depend on the boot image (the optimization relies on not
-      // having final fields in a class, which does not change for an app).
-      input_vdex_file_->Unquicken(dex_files, /* decompile_return_instruction */ false);
-    } else {
-      // Create the main VerifierDeps, here instead of in the compiler since we want to aggregate
-      // the results for all the dex files, not just the results for the current dex file.
-      callbacks_->SetVerifierDeps(new verifier::VerifierDeps(dex_files));
-    }
-
     // To allow initialization of classes that construct ThreadLocal objects in class initializer,
     // re-initialize the ThreadLocal.nextHashCode to a new object that's not in the boot image.
     ThreadLocalHashOverride thread_local_hash_override(
@@ -2128,7 +2131,7 @@ class Dex2Oat final {
       // Return a null classloader since we already freed released it.
       return nullptr;
     }
-    return CompileDexFiles(dex_files);
+    return CompileDexFiles(compiler_options_->GetDexFilesForOatFile());
   }
 
   // Create the class loader, use it to compile, and return.
