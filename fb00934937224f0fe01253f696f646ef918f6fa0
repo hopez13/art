@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d54626e_ce31abe1",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-06T09:24:06Z",
+      "side": 1,
+      "message": "I think you could just check if (!HDeoptimize()) here and avoid the changes lines 200-213?",
+      "range": {
+        "startLine": 518,
+        "startChar": 11,
+        "endLine": 518,
+        "endChar": 12
+      },
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
