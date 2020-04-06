@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "8e1ec23f_da5479f9",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T15:43:18Z",
+      "side": 1,
+      "message": "I mean things like stack-allocating objects that are then read both before and after the deoptimize and similar things..",
+      "parentUuid": "3667062b_1ab7e0a9",
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d54626e_ce31abe1",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 1
