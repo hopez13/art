@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "4b0c370e_3de4925b",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-06T09:30:50Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 207,
+        "startChar": 48,
+        "endLine": 207,
+        "endChar": 62
+      },
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a9b6d76_4d731719",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-06T09:30:50Z",
+      "side": 1,
+      "message": "Is there any reason why HDeoptimize has SideEffects::All()? I would expect AllReads() to be enough.",
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d54626e_ce31abe1",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 1
