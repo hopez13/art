@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "f86e234d_e82b20f8",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T16:00:09Z",
+      "side": 1,
+      "message": "AIUI with load-store elimination we do end up eliding the allocation of some objects and doing all operations on the stack.\n\nWRT AllReads. I guess that makes sense, I\u0027d want to look at it more closely though.\n\nAnyway this seems like something that should be explored separately. As you say it shouldn\u0027t make any difference here and this type of change is needed regardless of what the \u0027real\u0027 side-effects are.",
+      "parentUuid": "f1b43939_e202c48f",
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d54626e_ce31abe1",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 1
