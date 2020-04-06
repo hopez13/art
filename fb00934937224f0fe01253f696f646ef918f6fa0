@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "f1b43939_e202c48f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-06T15:52:27Z",
+      "side": 1,
+      "message": "We\u0027re not stack-allocating objects at the moment. And even if we were, I don\u0027t see how that affects anything. Even if we reordered reads across a Deopt (we cannot reorder and earlier read after Deopt if that read is an environment use of the Deopt), everything should be OK. And AllReads would prevent moving stores across deopts.",
+      "parentUuid": "8e1ec23f_da5479f9",
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3d54626e_ce31abe1",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 1
