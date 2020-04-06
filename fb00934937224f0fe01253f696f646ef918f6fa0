@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c1c739a3_86b6d425",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T15:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b0c370e_3de4925b",
+      "range": {
+        "startLine": 207,
+        "startChar": 48,
+        "endLine": 207,
+        "endChar": 62
+      },
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a9b6d76_4d731719",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd08476c_d85ae1f0",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T15:33:11Z",
+      "side": 1,
+      "message": "I believe we need it to prevent splitting of reads since HDeoptimize is actually a predicated never-return instruction so any sort of splitting would cause problems.",
+      "parentUuid": "3a9b6d76_4d731719",
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631e6644_b71f2c02",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-04-06T15:33:11Z",
+      "side": 1,
+      "message": "No we need to Add the deoptimize node to be able to deduplicate it.",
+      "parentUuid": "3d54626e_ce31abe1",
+      "range": {
+        "startLine": 518,
+        "startChar": 11,
+        "endLine": 518,
+        "endChar": 12
+      },
+      "revId": "fb00934937224f0fe01253f696f646ef918f6fa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
