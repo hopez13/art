@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "6e9d652f_2b0a444a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-07T17:03:41Z",
+      "side": 1,
+      "message": "Maybe document the new return value?",
+      "range": {
+        "startLine": 1459,
+        "startChar": 2,
+        "endLine": 1459,
+        "endChar": 6
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4e0185c_443c8f5b",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 2
