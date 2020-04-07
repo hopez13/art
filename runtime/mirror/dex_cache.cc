@@ -284,21 +284,66 @@ void DexCache::SetClassLoader(ObjPtr<ClassLoader> class_loader) {
 }
 
 #if !defined(__aarch64__) && !defined(__x86_64__)
-static pthread_mutex_t dex_cache_slow_atomic_mutex = PTHREAD_MUTEX_INITIALIZER;
+// We use a seqlock-based implementation. Empirically, using a pthread_mutex here leads to
+// excessive contention.
+// We use the low order bit of dc_version as a spin lock for writers. An odd value means an entry
+// is currently being updated. Each update increments the version twice, once before and once
+// after. A read is consistent if the before and after versions match and are even.
+// We might consider using multiple sharded versions for different entries.
+static std::atomic<uint32_t> dc_version = 0;
 
 DexCache::ConversionPair64 DexCache::AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  DexCache::ConversionPair64 value = *reinterpret_cast<ConversionPair64*>(target);
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-  return value;
+  using PairOfAtomic64 = ConversionPair<std::atomic<uint64_t>>;
+  PairOfAtomic64* pieces_ptr = reinterpret_cast<PairOfAtomic64 *>(target);
+  uint32_t version1, version2;
+  uint64_t piece1, piece2;
+  do {
+    version1 = dc_version.load(std::memory_order_acquire);
+    piece1 = pieces_ptr->first.load(std::memory_order_acquire);
+    piece2 = pieces_ptr->second.load(std::memory_order_acquire);
+    version2 = dc_version.load(std::memory_order_relaxed);
+  } while ((version1 & 1) != 0 || version1 != version2);
+  return ConversionPair64(piece1, piece2);
 }
 
 void DexCache::AtomicStoreRelease16B(std::atomic<ConversionPair64>* target,
                                      ConversionPair64 value) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  *reinterpret_cast<ConversionPair64*>(target) = value;
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
+  using PairOfAtomic64 = ConversionPair<std::atomic<uint64_t>>;
+  static_assert(sizeof(PairOfAtomic64) == sizeof(ConversionPair64));
+  static_assert(sizeof(PairOfAtomic64) == sizeof(std::atomic<ConversionPair64>));
+  static_assert(alignof(ConversionPair64) >= 8);
+  constexpr uint32_t YIELD_THRESHOLD = 100;
+  PairOfAtomic64* pieces_ptr = reinterpret_cast<PairOfAtomic64 *>(target);
+  DCHECK(pieces_ptr->first.is_lock_free());
+  DCHECK(pieces_ptr->second.is_lock_free());
+  uint32_t version1 = dc_version.load(std::memory_order_relaxed);
+
+  // Acquire the write lock, and signal readers that we're writing.
+  for (uint32_t i = 0; ; ++i) {
+    if ((version1 & 1) == 1) {
+      if (i > YIELD_THRESHOLD) {
+        sched_yield();
+      }
+      version1 = dc_version.load(std::memory_order_relaxed);
+      DCHECK_LT(i, 1'000'000);
+      continue;
+    }
+    if (dc_version.compare_exchange_weak(version1, version1 + 1, std::memory_order_relaxed)) {
+      // version1 was updated by compare_exchange.
+      break;
+    }
+    DCHECK_LT(i, 1'000'000);
+  }
+
+  // Write 8 bytes at a time.
+  pieces_ptr->first.store(value.first, std::memory_order_release);
+  pieces_ptr->second.store(value.second, std::memory_order_release);
+
+  // Unlock and signal readers.
+  uint32_t version2 = dc_version.fetch_add(1, std::memory_order_release);
+  DCHECK(version2 == version1 + 1);
 }
+
 #endif
 
 }  // namespace mirror
