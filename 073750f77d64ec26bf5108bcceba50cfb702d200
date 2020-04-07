@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77ed894d_e261013d",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T07:33:34Z",
+      "side": 1,
+      "message": "art/dex2oat/dex2oat_test.cc:2269:21: error: the const qualified variable \u0027dex_location\u0027 is copy-constructed from a const reference; consider making it a const reference [performance-unnecessary-copy-initialization,-warnings-as-errors]\n  const std::string dex_location \u003d dex_file.GetFilename();\n                    ^\n                   \u0026",
+      "range": {
+        "startLine": 2269,
+        "startChar": 19,
+        "endLine": 2269,
+        "endChar": 20
+      },
+      "revId": "073750f77d64ec26bf5108bcceba50cfb702d200",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
