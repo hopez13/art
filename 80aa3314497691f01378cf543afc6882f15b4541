@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1dc0ed04_85dd9cf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-07T16:06:15Z",
+      "side": 1,
+      "message": "Ah, got it.",
+      "parentUuid": "26847d2c_b139d36c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "80aa3314497691f01378cf543afc6882f15b4541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eccc0d34_7b2683c5",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
