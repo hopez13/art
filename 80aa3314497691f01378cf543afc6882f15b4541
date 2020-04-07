@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6acbcaeb_42e5254c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-07T15:21:39Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not following. I thought we switched to boot.art for testing. Could you explain what is different about golem (and maybe include that in the commit message)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "80aa3314497691f01378cf543afc6882f15b4541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eccc0d34_7b2683c5",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-07T15:21:39Z",
+      "side": 1,
+      "message": "Nit: the same list is used above, maybe worth adding a variable.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "80aa3314497691f01378cf543afc6882f15b4541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
