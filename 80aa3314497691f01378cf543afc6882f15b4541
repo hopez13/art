@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "26847d2c_b139d36c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-07T15:45:44Z",
+      "side": 1,
+      "message": "We switched for gtests only.  Everything else still uses core.art.",
+      "parentUuid": "6acbcaeb_42e5254c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "80aa3314497691f01378cf543afc6882f15b4541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eccc0d34_7b2683c5",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "80aa3314497691f01378cf543afc6882f15b4541",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aa0feef_0cf36c47",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-07T15:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eccc0d34_7b2683c5",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "80aa3314497691f01378cf543afc6882f15b4541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
