@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8dd41c_68806d2b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-07T12:56:01Z",
+      "side": 1,
+      "message": "Given you\u0027ve moved the code around, can you add a comment why we can do it at this point, and what next steps require it?",
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e0185c_443c8f5b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-07T12:56:01Z",
+      "side": 1,
+      "message": "Is there a warning that gets printed before?",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 28
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03979073_75ad922a",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-07T12:56:01Z",
+      "side": 1,
+      "message": "For better readability, should this be kFillStringVector or kSkipFillStringVector ?",
+      "range": {
+        "startLine": 724,
+        "startChar": 14,
+        "endLine": 724,
+        "endChar": 19
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0351ad5e_a535b7e5",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-07T12:56:01Z",
+      "side": 1,
+      "message": "nit: add comment on return value.",
+      "range": {
+        "startLine": 246,
+        "startChar": 9,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
