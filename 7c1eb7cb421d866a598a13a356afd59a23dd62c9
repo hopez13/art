@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ca2cbb8_0aae5bb7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "range": {
+        "startLine": 2705,
+        "startChar": 46,
+        "endLine": 2705,
+        "endChar": 52
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1702d821_6dd2e8dd",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "We usually use 4-space indentation. And I would break the line before the `ZipArchive::OpenFromFd(`.",
+      "range": {
+        "startLine": 2260,
+        "startChar": 6,
+        "endLine": 2260,
+        "endChar": 24
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3649dac7_db8488c8",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "4-space indentation. Or don\u0027t break the line at all, it should fit into our 100-character limit.",
+      "range": {
+        "startLine": 2265,
+        "startChar": 6,
+        "endLine": 2265,
+        "endChar": 24
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66401402_c7a8c64d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "We could just open the file and delegate to the AddDexFilesSource(). There\u0027s no reason to repeat the code for reading and checking the header.\n\n(And I would prefer to have identical function names. Overloading is appropriate in this case as the only difference is in how we specify the input file, whether by filename or as a `File`.)",
+      "range": {
+        "startLine": 509,
+        "startChar": 12,
+        "endLine": 509,
+        "endChar": 28
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9260e1fb_d685e7dd",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "If you\u0027re using an index in the loop anyway, it\u0027s better to make the `for` use the index. Using a range-based loop makes it harder to read as the `index++` is far from the `for`.",
+      "range": {
+        "startLine": 289,
+        "startChar": 9,
+        "endLine": 289,
+        "endChar": 77
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54e4fac4_0390495c",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-07T14:31:56Z",
+      "side": 1,
+      "message": "Avoid C-style casts, please. This should be static_cast\u003c\u003e, or the dchecked_integral_cast\u003c\u003e from `#include \"base/casts.h\"`. (I know you\u0027re just moving the code but, since you\u0027re touching it, please update it.)",
+      "range": {
+        "startLine": 313,
+        "startChar": 14,
+        "endLine": 313,
+        "endChar": 25
+      },
+      "revId": "7c1eb7cb421d866a598a13a356afd59a23dd62c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
