@@ -99,15 +99,6 @@ void ExtDexFileFreeString(const ExtDexFileString* ext_string) {
 // Wraps DexFile to add the caching needed by the external interface. This is
 // what gets passed over as ExtDexFile*.
 struct ExtDexFile {
- private:
-  // Method cache for GetMethodInfoForOffset. This is populated as we iterate
-  // sequentially through the class defs. MethodCacheEntry.name is only set for
-  // methods returned by GetMethodInfoForOffset.
-  std::map<int32_t, art::MethodCacheEntry> method_cache_;
-
-  // Index of first class def for which method_cache_ isn't complete.
-  uint32_t class_def_index_ = 0;
-
  public:
   std::unique_ptr<const art::DexFile> dex_file_;
   explicit ExtDexFile(std::unique_ptr<const art::DexFile>&& dex_file)
@@ -120,8 +111,9 @@ struct ExtDexFile {
       return &it->second;
     }
 
-    for (; class_def_index_ < dex_file_->NumClassDefs(); class_def_index_++) {
-      art::ClassAccessor accessor(*dex_file_, class_def_index_);
+    uint32_t class_def_index;
+    if (GetClassDefIndex(dex_offset, &class_def_index)) {
+      art::ClassAccessor accessor(*dex_file_, class_def_index);
 
       for (const art::ClassAccessor::Method& method : accessor.GetMethods()) {
         art::CodeItemInstructionAccessor code = method.GetInstructions();
@@ -131,9 +123,9 @@ struct ExtDexFile {
 
         int32_t offset = reinterpret_cast<const uint8_t*>(code.Insns()) - dex_file_->Begin();
         int32_t len = code.InsnsSizeInBytes();
-        int32_t index = method.GetIndex();
-        auto res = method_cache_.emplace(offset + len, art::MethodCacheEntry{offset, len, index});
         if (offset <= dex_offset && dex_offset < offset + len) {
+          int32_t index = method.GetIndex();
+          auto res = method_cache_.emplace(offset + len, art::MethodCacheEntry{offset, len, index});
           return &res.first->second;
         }
       }
@@ -141,6 +133,50 @@ struct ExtDexFile {
 
     return nullptr;
   }
+
+ private:
+  bool GetClassDefIndex(uint32_t dex_offset, uint32_t* class_def_index) {
+    if (class_cache_.empty()) {
+      // Create map end_dex_offset -> class_def_index based on individual methods.
+      // That is, we don't assume that dex code of given class is consecutive.
+      std::map<uint32_t, uint32_t> cache;
+      for (uint32_t class_idx = 0; class_idx < dex_file_->NumClassDefs(); class_idx++) {
+        art::ClassAccessor accessor(*dex_file_, class_idx);
+        for (const art::ClassAccessor::Method& method : accessor.GetMethods()) {
+          art::CodeItemInstructionAccessor code = method.GetInstructions();
+          if (code.HasCodeItem()) {
+            int32_t offset = reinterpret_cast<const uint8_t*>(code.Insns()) - dex_file_->Begin();
+            cache.emplace(offset + code.InsnsSizeInBytes(), class_idx);
+          }
+        }
+      }
+
+      // If two consecutive methods belong to same class, we can merge them.
+      // This tends to reduce the number of entries (used memory) by 10x.
+      for (auto it = cache.begin(); it != cache.end(); it++) {
+        if (it != cache.begin() && std::prev(it)->second == it->second) {
+          cache.erase(std::prev(it));  // Remove entry with lower end_dex_offset.
+        }
+      }
+
+      // The cache is immutable now. Store it as continuous vector to save space.
+      class_cache_.reserve(cache.size());
+      class_cache_.insert(class_cache_.begin(), cache.begin(), cache.end());
+    }
+
+    // Binary search in the class cache. First element of the pair is the key.
+    auto pred = [](uint32_t value, const auto& it) { return value < it.first; };
+    auto it = std::upper_bound(class_cache_.begin(), class_cache_.end(), dex_offset, pred);
+    if (it != class_cache_.end()) {
+      *class_def_index = it->second;
+      return true;
+    }
+    return false;
+  }
+
+  // Binary search table with (end_dex_offset, class_def_index) entries.
+  std::vector<std::pair<uint32_t, uint32_t>> class_cache_;
+  std::map<uint32_t, art::MethodCacheEntry> method_cache_;  // end_dex_offset -> method.
 };
 
 int ExtDexFileOpenFromMemory(const void* addr,
