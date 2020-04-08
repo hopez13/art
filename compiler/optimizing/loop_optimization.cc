@@ -2588,7 +2588,7 @@ bool HLoopOptimization::CanRemoveCycle() {
     }
     // A deoptimization should never have an environment input removed.
     for (const HUseListNode<HEnvironment*>& use : i->GetEnvUses()) {
-      if (use.GetUser()->GetHolder()->IsDeoptimize()) {
+      if (use.GetUser()->GetHolder()->HasEnvironmentAsInput()) {
         return false;
       }
     }

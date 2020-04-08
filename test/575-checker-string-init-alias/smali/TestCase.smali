@@ -20,8 +20,9 @@
 
 ## CHECK-START: void TestCase.testNoAlias(int[], java.lang.String) register (after)
 ## CHECK:         <<Null:l\d+>>   NullConstant
-## CHECK:                         Deoptimize env:[[<<Null>>,{{.*]]}}
+## CHECK:                         If
 ## CHECK:                         InvokeStaticOrDirect method_name:java.lang.String.<init>
+## CHECK:                         Deoptimize env:[[<<Null>>,{{.*]]}}
 .method public static testNoAlias([ILjava/lang/String;)V
     .registers 6
     const v1, 0
@@ -46,8 +47,9 @@
 
 ## CHECK-START: void TestCase.testAlias(int[], java.lang.String) register (after)
 ## CHECK:         <<New:l\d+>>    NewInstance
-## CHECK:                         Deoptimize env:[[<<New>>,<<New>>,{{.*]]}}
+## CHECK:                         If
 ## CHECK:                         InvokeStaticOrDirect method_name:java.lang.String.<init>
+## CHECK:                         Deoptimize env:[[<<New>>,<<New>>,{{.*]]}}
 .method public static testAlias([ILjava/lang/String;)V
     .registers 7
     const v2, 0

@@ -32,6 +32,7 @@ public class Main {
   /// CHECK-START: void Main.bubble(int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void bubble(int[] a) {
     for (int i = a.length; --i >= 0;) {
       for (int j = 0; j < i; j++) {
@@ -50,6 +51,7 @@ public class Main {
   /// CHECK-START: int Main.periodicIdiom(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int periodicIdiom(int tc) {
     int[] x = { 1, 3 };
     // Loop with periodic sequence (0, 1).
@@ -68,6 +70,7 @@ public class Main {
   /// CHECK-START: int Main.periodicSequence2(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int periodicSequence2(int tc) {
     int[] x = { 1, 3 };
     // Loop with periodic sequence (0, 1).
@@ -92,6 +95,7 @@ public class Main {
   /// CHECK-START: int Main.periodicSequence4(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int periodicSequence4(int tc) {
     int[] x = { 1, 3, 5, 7 };
     // Loop with periodic sequence (0, 1, 2, 3).
@@ -117,6 +121,7 @@ public class Main {
   /// CHECK-START: int Main.periodicXorSequence(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int periodicXorSequence(int tc) {
     int[] x = { 1, 3 };
     // Loop with periodic sequence (0, 1).
@@ -135,6 +140,7 @@ public class Main {
   /// CHECK-START: int Main.justRightUp1() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightUp1() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -150,6 +156,7 @@ public class Main {
   /// CHECK-START: int Main.justRightUp2() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightUp2() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -165,6 +172,7 @@ public class Main {
   /// CHECK-START: int Main.justRightUp3() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightUp3() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -182,6 +190,7 @@ public class Main {
   //
   /// CHECK-START: int Main.justOOBUp() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justOOBUp() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -198,6 +207,7 @@ public class Main {
   /// CHECK-START: int Main.justRightDown1() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightDown1() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -213,6 +223,7 @@ public class Main {
   /// CHECK-START: int Main.justRightDown2() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightDown2() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -228,6 +239,7 @@ public class Main {
   /// CHECK-START: int Main.justRightDown3() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justRightDown3() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -245,6 +257,7 @@ public class Main {
   //
   /// CHECK-START: int Main.justOOBDown() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int justOOBDown() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int result = 0;
@@ -263,6 +276,7 @@ public class Main {
   //
   /// CHECK-START: void Main.lowerOOB(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void lowerOOB(int[] x) {
     // OOB!
     for (int i = -1; i < x.length; i++) {
@@ -278,6 +292,7 @@ public class Main {
   //
   /// CHECK-START: void Main.upperOOB(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void upperOOB(int[] x) {
     // OOB!
     for (int i = 0; i <= x.length; i++) {
@@ -293,6 +308,7 @@ public class Main {
   //
   /// CHECK-START: void Main.doWhileUpOOB() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void doWhileUpOOB() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int i = 0;
@@ -310,6 +326,7 @@ public class Main {
   //
   /// CHECK-START: void Main.doWhileDownOOB() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void doWhileDownOOB() {
     int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int i = x.length - 1;
@@ -325,6 +342,7 @@ public class Main {
   /// CHECK-START: void Main.justRightTriangular1() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void justRightTriangular1() {
     int[] a = { 1 } ;
     for (int i = Integer.MIN_VALUE + 5; i <= Integer.MIN_VALUE + 10; i++) {
@@ -340,6 +358,7 @@ public class Main {
   /// CHECK-START: void Main.justRightTriangular2() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void justRightTriangular2() {
     int[] a = { 1 } ;
     for (int i = Integer.MIN_VALUE + 5; i <= 10; i++) {
@@ -353,7 +372,7 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.justOOBTriangular() BCE (after)
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.justOOBTriangular() BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -370,7 +389,7 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.hiddenOOB1(int) BCE (after)
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.hiddenOOB1(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -390,7 +409,7 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.hiddenOOB2(int) BCE (after)
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.hiddenOOB2(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -410,7 +429,7 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.hiddenOOB3(int) BCE (after)
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.hiddenOOB3(int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -434,6 +453,7 @@ public class Main {
   //
   /// CHECK-START: void Main.hiddenInfiniteOOB() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void hiddenInfiniteOOB() {
     int[] a = { 11 } ;
     for (int i = -1; i <= 0; i++) {
@@ -450,7 +470,7 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.hiddenFiniteOOB() BCE (after)
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.hiddenFiniteOOB() BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -473,6 +493,7 @@ public class Main {
   //
   /// CHECK-START: void Main.inductionOOB(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void inductionOOB(int[] a) {
     // Careless range analysis would remove the bounds check.
     // However, the narrower induction b wraps around arithmetically
@@ -491,6 +512,7 @@ public class Main {
   //
   /// CHECK-START: void Main.controlOOB(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void controlOOB(int[] a) {
     // As above, but now the loop control also wraps around.
     for (byte i = 0; i < a.length; i++) {
@@ -506,6 +528,7 @@ public class Main {
   //
   /// CHECK-START: void Main.conversionOOB(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static void conversionOOB(int[] a) {
     // As above, but with wrap around caused by an explicit conversion.
     for (int i = 0; i < a.length; ) {
@@ -539,6 +562,7 @@ public class Main {
   /// CHECK-START: int[] Main.add() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int[] add() {
     int[] a = new int[10];
     for (int i = 0; i <= 3; i++) {
@@ -555,6 +579,7 @@ public class Main {
   /// CHECK-START: int[] Main.multiply1() BCE (after)
   /// CHECK-NOT: BoundsCheck
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   private static int[] multiply1() {
     int[] a = new int[10];
     try {
@@ -578,6 +603,7 @@ public class Main {
   //
   /// CHECK-START: int[] Main.multiply2() BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   static int[] multiply2() {
     int[] a = new int[10];
     try {
@@ -601,7 +627,7 @@ public class Main {
   //
   /// CHECK-START: int Main.linearDynamicBCE1(int[], int, int) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:{{B\d+}}
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.linearDynamicBCE1(int[], int, int) BCE (after)
   /// CHECK-NOT: NullCheck   loop:{{B\d+}}
@@ -623,7 +649,7 @@ public class Main {
   //
   /// CHECK-START: int Main.linearDynamicBCE2(int[], int, int, int) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:{{B\d+}}
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.linearDynamicBCE2(int[], int, int, int) BCE (after)
   /// CHECK-NOT: NullCheck   loop:{{B\d+}}
@@ -645,7 +671,7 @@ public class Main {
   //
   /// CHECK-START: int Main.wrapAroundDynamicBCE(int[]) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:{{B\d+}}
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.wrapAroundDynamicBCE(int[]) BCE (after)
   /// CHECK-NOT: NullCheck   loop:{{B\d+}}
@@ -669,7 +695,7 @@ public class Main {
   //
   /// CHECK-START: int Main.periodicDynamicBCE(int[]) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:{{B\d+}}
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.periodicDynamicBCE(int[]) BCE (after)
   /// CHECK-NOT: NullCheck   loop:{{B\d+}}
@@ -693,7 +719,7 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEPossiblyInfiniteLoop(int[], int, int) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:{{B\d+}}
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.dynamicBCEPossiblyInfiniteLoop(int[], int, int) BCE (after)
   /// CHECK-NOT: NullCheck   loop:{{B\d+}}
@@ -719,6 +745,7 @@ public class Main {
   //
   /// CHECK-START: int Main.noDynamicBCEPossiblyInfiniteLoop(int[], int, int) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   static int noDynamicBCEPossiblyInfiniteLoop(int[] x, int lo, int hi) {
     // As above, but now the index is not used as subscript,
     // and dynamic bce is not applied.
@@ -739,6 +766,7 @@ public class Main {
   //
   /// CHECK-START: int Main.noDynamicBCEMixedInductionTypes(int[], long, long) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   static int noDynamicBCEMixedInductionTypes(int[] x, long lo, long hi) {
     int result = 0;
     // Mix of int and long induction.
@@ -758,17 +786,17 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
   /// CHECK-DAG: ArrayGet   loop:<<InnerLoop:B\d+>>
-  /// CHECK-DAG: Deoptimize loop:<<OuterLoop:B\d+>>
-  /// CHECK-EVAL: "<<InnerLoop>>" != "<<OuterLoop>>"
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
   //
-  //  No additional top tests were introduced.
+  //  No additional top tests were introduced, all 3 new 'DeoptimizeMarkers'
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
-  /// CHECK-DAG: If
-  /// CHECK-DAG: If
-  /// CHECK-NOT: If
+  /// CHECK-DAG: DeoptimizeMarker
+  /// CHECK-DAG: DeoptimizeMarker
+  /// CHECK-DAG: DeoptimizeMarker
+  /// CHECK-NOT: DeoptimizeMarker
   static int dynamicBCEConstantRange(int[] x) {
     int result = 0;
     for (int i = 2; i <= 6; i++) {
@@ -787,15 +815,15 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndices(int[], int[][], int, int) BCE (after)
   //  Order matters:
-  /// CHECK:              Deoptimize loop:<<Loop:B\d+>>
-  /// CHECK-NOT:          Goto       loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK:              Goto       loop:<<Loop>>
+  /// CHECK:              AboveOrEqual loop:<<Loop:B\d+>>
+  /// CHECK-DAG:          DeoptimizeMarker loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK:              Goto         loop:<<Loop>>
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndices(int[], int[][], int, int) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
   static int dynamicBCEAndConstantIndices(int[] x, int[][] a, int lo, int hi) {
     // Deliberately test array length on a before the loop so that only bounds checks
     // on constant subscripts remain, making them a viable candidate for hoisting.
@@ -844,7 +872,7 @@ public class Main {
   /// CHECK-NOT: BoundsCheck loop:{{B\d+}}
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndicesAllPrimTypes(int[], boolean[], byte[], char[], short[], int[], long[], float[], double[], int, int) BCE (after)
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   static int dynamicBCEAndConstantIndicesAllPrimTypes(int[] q,
                                                       boolean[] r,
                                                       byte[] s,
@@ -875,7 +903,7 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndexRefType(int[], java.lang.Integer[], int, int) BCE (after)
   /// CHECK-DAG: ArrayGet    loop:<<Loop:B\d+>>
-  /// CHECK-DAG: Deoptimize  loop:none
+  /// CHECK-DAG: DeoptimizeMarker  loop:none
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndexRefType(int[], java.lang.Integer[], int, int) BCE (after)
   /// CHECK-NOT: ArrayLength loop:{{B\d+}}
@@ -900,6 +928,7 @@ public class Main {
   //
   /// CHECK-START: int Main.shortIndex(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   static int shortIndex(int[] a) {
     int r = 0;
     // Make sure short/int conversions compiles well (b/32193474).

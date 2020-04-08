@@ -19,6 +19,7 @@
 #include "dex/dex_file_types.h"
 #include "driver/compiler_options.h"
 #include "jni/jni_internal.h"
+#include "nodes.h"
 #include "optimizing_compiler_stats.h"
 #include "well_known_classes.h"
 
@@ -70,12 +71,10 @@ void PrepareForRegisterAllocation::VisitDivZeroCheck(HDivZeroCheck* check) {
   check->ReplaceWith(check->InputAt(0));
 }
 
-void PrepareForRegisterAllocation::VisitDeoptimize(HDeoptimize* deoptimize) {
-  if (deoptimize->GuardsAnInput()) {
-    // Replace the uses with the actual guarded instruction.
-    deoptimize->ReplaceWith(deoptimize->GuardedInput());
-    deoptimize->RemoveGuard();
-  }
+void PrepareForRegisterAllocation::VisitUnemitable(HInstruction* inst) {
+  DCHECK(!inst->Emitable());
+  LOG(FATAL) << "Instruction " << inst->DebugName() << " (id: " << inst->GetId() << ") survived"
+             << " until PrepareForRegisterAllocation but cannot be emitted!";
 }
 
 void PrepareForRegisterAllocation::VisitBoundsCheck(HBoundsCheck* check) {
