@@ -22,6 +22,30 @@
       "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61d5268_88baf1e9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-08T14:43:18Z",
+      "side": 1,
+      "message": "It is passed by pointer and later used in the caller of ResolveMethod(), HInstructionBuilder::BuildInvoke().",
+      "parentUuid": "6cf1a18d_d34e9e16",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 72
+      },
+      "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
