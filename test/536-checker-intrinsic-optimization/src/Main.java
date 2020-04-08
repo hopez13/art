@@ -273,7 +273,7 @@ public class Main {
   /// CHECK-NOT:                    InvokeVirtual
 
   /// CHECK-START: int Main.$opt$noinline$stringSumLeadingChars(java.lang.String, int) BCE (after)
-  /// CHECK-DAG:                    Deoptimize env:[[{{[^\]]*}}]]
+  /// CHECK-DAG:                    DeoptimizeMarker env:[[{{[^\]]*}}]]
 
   /// CHECK-START: int Main.$opt$noinline$stringSumLeadingChars(java.lang.String, int) BCE (after)
   /// CHECK-NOT:                    BoundsCheck is_string_char_at:true
@@ -304,7 +304,7 @@ public class Main {
   /// CHECK-NOT:                    InvokeVirtual
 
   /// CHECK-START: int Main.$opt$noinline$stringSum4LeadingChars(java.lang.String) BCE (after)
-  /// CHECK-DAG:                    Deoptimize env:[[{{[^\]]*}}]]
+  /// CHECK-DAG:                    DeoptimizeMarker env:[[{{[^\]]*}}]]
 
   /// CHECK-START: int Main.$opt$noinline$stringSum4LeadingChars(java.lang.String) BCE (after)
   /// CHECK-NOT:                    BoundsCheck is_string_char_at:true
