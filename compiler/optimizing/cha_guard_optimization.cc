@@ -15,6 +15,7 @@
  */
 
 #include "cha_guard_optimization.h"
+#include "optimizing/nodes.h"
 
 namespace art {
 
@@ -90,7 +91,7 @@ void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
   HInstruction* compare = flag->GetNext();
   DCHECK(compare->IsNotEqual());
   HInstruction* deopt = compare->GetNext();
-  DCHECK(deopt->IsDeoptimize());
+  DCHECK(deopt->IsDeoptimize() || (deopt->IsIf() && block->GetLastInstruction() == deopt)) << deopt->DebugName();
 
   // Advance instruction iterator first before we remove the guard.
   // We need to do it twice since we remove three instructions and the
@@ -100,6 +101,12 @@ void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
   block->RemoveInstruction(deopt);
   block->RemoveInstruction(compare);
   block->RemoveInstruction(flag);
+  if (deopt->IsIf()) {
+    block->AddInstruction(new (block->GetGraph()->GetAllocator()) HGoto());
+    HBasicBlock* old_suc = block->GetSuccessors()[0];
+    block->RemoveSuccessor(old_suc);
+    old_suc->RemovePredecessor(block);
+  }
 }
 
 bool CHAGuardVisitor::OptimizeForParameter(HShouldDeoptimizeFlag* flag,

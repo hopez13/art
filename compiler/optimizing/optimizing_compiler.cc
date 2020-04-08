@@ -22,6 +22,7 @@
 
 #include <stdint.h>
 
+#include "android-base/stringprintf.h"
 #include "art_method-inl.h"
 #include "base/arena_allocator.h"
 #include "base/arena_containers.h"
@@ -311,6 +312,24 @@ class OptimizingCompiler final : public Compiler {
                         VariableSizedHandleScope* handles,
                         const OptimizationDef definitions[],
                         size_t length) const {
+    std::vector<OptimizationDef> opts;
+    std::vector<std::string> names;
+    for (size_t i = 0; i < length; i++) {
+      const char* prev_name = definitions[i].pass_name == nullptr ? OptimizationPassName(definitions[i].pass) : definitions[i].pass_name;
+      names.push_back(android::base::StringPrintf("DeconditionDeoptimize$after_%s", prev_name));
+      opts.push_back(definitions[i]);
+      opts.push_back(OptDef(OptimizationPass::kDeconditionDeoptimize, names[i].c_str(), definitions[i].depends_on));
+    }
+    return RunOptimizationsDirect(
+        graph, codegen, dex_compilation_unit, pass_observer, handles, opts.data(), opts.size());
+  }
+  bool RunOptimizationsDirect(HGraph* graph,
+                              CodeGenerator* codegen,
+                              const DexCompilationUnit& dex_compilation_unit,
+                              PassObserver* pass_observer,
+                              VariableSizedHandleScope* handles,
+                              const OptimizationDef definitions[],
+                              size_t length) const {
     // Convert definitions to optimization passes.
     ArenaVector<HOptimization*> optimizations = ConstructOptimizations(
         definitions,
@@ -511,6 +530,8 @@ bool OptimizingCompiler::RunArchOptimizations(HGraph* graph,
       OptimizationDef arm64_optimizations[] = {
         OptDef(OptimizationPass::kInstructionSimplifierArm64),
         OptDef(OptimizationPass::kSideEffectsAnalysis),
+        // OptDef(OptimizationPass::kDeconditionDeoptimize, "DCDEOPT-b4-final-gvn"),
+        // OptDef(OptimizationPass::kDeadCodeElimination, "DCE-after-deopt_removal"),
         OptDef(OptimizationPass::kGlobalValueNumbering, "GVN$after_arch"),
         OptDef(OptimizationPass::kScheduling)
       };

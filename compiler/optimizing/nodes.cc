@@ -1835,7 +1835,8 @@ void HInstruction::MoveBeforeFirstUserAndOutOfLoops() {
 }
 
 HBasicBlock* HBasicBlock::SplitBefore(HInstruction* cursor) {
-  DCHECK(!graph_->IsInSsaForm()) << "Support for SSA form not implemented.";
+  DCHECK(!graph_->IsInSsaForm() || (!cursor->IsControlFlow() && !cursor->IsPhi()))
+    << "Support for SSA form not implemented.";
   DCHECK_EQ(cursor->GetBlock(), this);
 
   HBasicBlock* new_block =

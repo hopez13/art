@@ -18,6 +18,7 @@
 #define ART_COMPILER_OPTIMIZING_COMMON_DOMINATOR_H_
 
 #include "nodes.h"
+#include <unordered_set>
 
 namespace art {
 
@@ -80,8 +81,19 @@ class CommonDominator {
 
  private:
   static size_t ChainLength(HBasicBlock* block) {
+    std::unordered_set<void*> vals;
     size_t result = 0;
     while (block != nullptr) {
+      if (vals.find(block) != vals.cend()) {
+        LOG(INFO) << "Loop found! loop is: ";
+        HBasicBlock* hbb = block;
+        do {
+          LOG(INFO) << hbb;
+          hbb = hbb->GetDominator();
+        } while (hbb != block);
+        LOG(FATAL) << "Bad loop1";
+      }
+      vals.insert(block);
       ++result;
       block = block->GetDominator();
     }

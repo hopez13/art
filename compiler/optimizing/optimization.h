@@ -83,6 +83,7 @@ enum class OptimizationPass {
   kScheduling,
   kSelectGenerator,
   kSideEffectsAnalysis,
+  kDeconditionDeoptimize,
 #ifdef ART_ENABLE_CODEGEN_arm
   kInstructionSimplifierArm,
 #endif
@@ -115,6 +116,10 @@ OptimizationPass OptimizationPassByName(const std::string& pass_name);
 struct OptimizationDef {
   OptimizationDef(OptimizationPass p, const char* pn, OptimizationPass d)
       : pass(p), pass_name(pn), depends_on(d) {}
+
+  OptimizationDef(const OptimizationDef&) = default;
+  OptimizationDef& operator=(const OptimizationDef&) = default;
+
   OptimizationPass pass;
   const char* pass_name;
   OptimizationPass depends_on;
