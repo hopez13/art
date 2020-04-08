@@ -21,12 +21,12 @@ public class Main {
 
   /// CHECK-START-X86_64: int Main.test() disassembly (after)
   /// CHECK-DAG:   <<Zero:i\d+>>        IntConstant 0
+  /// CHECK-DAG:   <<Fibs:l\d+>>        StaticFieldGet
   //
   /// CHECK:                            If
   /// CHECK-NEXT:                       cmp
   /// CHECK-NEXT:                       jle/ng
   //
-  /// CHECK-DAG:   <<Fibs:l\d+>>        StaticFieldGet
   /// CHECK-DAG:                        NullCheck [<<Fibs>>]
   /// CHECK-NOT:                        jmp
   /// CHECK-DAG:   <<FibsAtZero:i\d+>>  ArrayGet [<<Fibs>>,<<Zero>>]

@@ -20,11 +20,11 @@ public class Main {
   /// CHECK:       InvokeInterface method_name:java.lang.CharSequence.charAt
 
   /// CHECK-START: char Main.$noinline$inlineMonomorphic(java.lang.CharSequence) inliner (after)
-  /// CHECK:       Deoptimize
+  /// CHECK:       DeoptimizeGuard
   /// CHECK:       InvokeVirtual method_name:java.lang.String.charAt intrinsic:StringCharAt
 
   /// CHECK-START: char Main.$noinline$inlineMonomorphic(java.lang.CharSequence) instruction_simplifier$after_inlining (after)
-  /// CHECK:       Deoptimize
+  /// CHECK:       DeoptimizeGuard
   /// CHECK-NOT:   InvokeInterface
   /// CHECK-NOT:   InvokeVirtual
 
@@ -51,11 +51,11 @@ public class Main {
   /// CHECK:       InvokeVirtual method_name:java.lang.Object.equals intrinsic:None
 
   /// CHECK-START: boolean Main.$noinline$stringEquals(java.lang.Object) inliner (after)
-  /// CHECK:       Deoptimize
+  /// CHECK:       DeoptimizeGuard
   /// CHECK:       InvokeVirtual method_name:java.lang.String.equals intrinsic:StringEquals
 
   /// CHECK-START: boolean Main.$noinline$stringEquals(java.lang.Object) instruction_simplifier$after_inlining (after)
-  /// CHECK:       Deoptimize
+  /// CHECK:       DeoptimizeGuard
   /// CHECK:       InvokeVirtual method_name:java.lang.String.equals intrinsic:StringEquals
 
   public static boolean $noinline$stringEquals(Object obj) {

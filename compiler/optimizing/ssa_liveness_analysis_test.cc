@@ -146,6 +146,7 @@ TEST_F(SsaLivenessAnalysisTest, TestAput) {
 }
 
 TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
+  // Entry block
   HInstruction* array = new (GetAllocator()) HParameterValue(
       graph_->GetDexFile(), dex::TypeIndex(0), 0, DataType::Type::kReference);
   HInstruction* index = new (GetAllocator()) HParameterValue(
@@ -161,9 +162,10 @@ TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
     entry_->AddInstruction(insn);
   }
 
-  HBasicBlock* block = CreateSuccessor(entry_);
+  // Block with deoptimize test.
+  HBasicBlock* block_start = CreateSuccessor(entry_);
   HInstruction* null_check = new (GetAllocator()) HNullCheck(array, 0);
-  block->AddInstruction(null_check);
+  block_start->AddInstruction(null_check);
   HEnvironment* null_check_env = new (GetAllocator()) HEnvironment(GetAllocator(),
                                                                    /* number_of_vregs= */ 5,
                                                                    /* method= */ nullptr,
@@ -172,13 +174,17 @@ TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
   null_check_env->CopyFrom(ArrayRef<HInstruction* const>(args));
   null_check->SetRawEnvironment(null_check_env);
   HInstruction* length = new (GetAllocator()) HArrayLength(array, 0);
-  block->AddInstruction(length);
-  // Use HAboveOrEqual+HDeoptimize as the bounds check.
+  block_start->AddInstruction(length);
+  // Use HAboveOrEqual+HIf as the bounds check.
   HInstruction* ae = new (GetAllocator()) HAboveOrEqual(index, length);
-  block->AddInstruction(ae);
+  block_start->AddInstruction(ae);
+  HInstruction* if_inst = new (GetAllocator()) HIf(ae);
+  block_start->AddInstruction(if_inst);
+  // The actual deopt block
+  HBasicBlock* block_deopt = CreateSuccessor(block_start);
   HInstruction* deoptimize = new(GetAllocator()) HDeoptimize(
-      GetAllocator(), ae, DeoptimizationKind::kBlockBCE, /* dex_pc= */ 0u);
-  block->AddInstruction(deoptimize);
+      DeoptimizationKind::kBlockBCE, /* dex_pc= */ 0u);
+  block_deopt->AddInstruction(deoptimize);
   HEnvironment* deoptimize_env = new (GetAllocator()) HEnvironment(GetAllocator(),
                                                                    /* number_of_vregs= */ 5,
                                                                    /* method= */ nullptr,
@@ -186,26 +192,31 @@ TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
                                                                    deoptimize);
   deoptimize_env->CopyFrom(ArrayRef<HInstruction* const>(args));
   deoptimize->SetRawEnvironment(deoptimize_env);
+  // The array-set block
+  HBasicBlock* block_array = CreateSuccessor(block_start);
   HInstruction* array_set =
       new (GetAllocator()) HArraySet(array, index, value, DataType::Type::kInt32, /* dex_pc= */ 0);
-  block->AddInstruction(array_set);
+  block_array->AddInstruction(array_set);
 
   graph_->BuildDominatorTree();
   SsaLivenessAnalysis ssa_analysis(graph_, codegen_.get(), GetScopedAllocator());
   ssa_analysis.Analyze();
 
   EXPECT_FALSE(graph_->IsDebuggable());
-  EXPECT_EQ(20u, deoptimize->GetLifetimePosition());
+  EXPECT_EQ(28u, deoptimize->GetLifetimePosition());
   static const char* const expected[] = {
-      "ranges: { [2,23) }, uses: { 15 17 23 }, { 15 21 } is_fixed: 0, is_split: 0 is_low: 0 "
+      "ranges: { [2,25) [26,29) }, uses: { 15 17 25 }, { 15 29 } is_fixed: 0, is_split: 0 "
+          "is_low: 0 is_high: 0",
+      "ranges: { [4,25) [26,29) }, uses: { 19 25 }, { 29 } is_fixed: 0, is_split: 0 is_low: 0 "
           "is_high: 0",
-      "ranges: { [4,23) }, uses: { 19 23 }, { 21 } is_fixed: 0, is_split: 0 is_low: 0 "
+      "ranges: { [6,25) [26,29) }, uses: { 25 }, { 29 } is_fixed: 0, is_split: 0 is_low: 0 "
           "is_high: 0",
-      "ranges: { [6,23) }, uses: { 23 }, { 21 } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
       // Environment use in HDeoptimize keeps even the non-reference argument alive.
-      "ranges: { [8,21) }, uses: { }, { 21 } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
+      "ranges: { [8,22) [26,29) }, uses: { }, { 29 } is_fixed: 0, is_split: 0 is_low: 0 "
+          "is_high: 0",
       // Environment uses keep the reference argument alive.
-      "ranges: { [10,21) }, uses: { }, { 15 21 } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
+      "ranges: { [10,22) [26,29) }, uses: { }, { 15 29 } is_fixed: 0, is_split: 0 is_low: 0 "
+          "is_high: 0",
   };
   static_assert(arraysize(expected) == arraysize(args), "Array size check.");
   size_t arg_index = 0u;
