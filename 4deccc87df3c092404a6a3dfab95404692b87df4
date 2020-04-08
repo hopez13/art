@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a76a6d9e_ae9b7572",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T14:49:19Z",
+      "side": 1,
+      "message": "I moved this here only because the Compile() function cannot report errors. PS3 moves part of it back to Compile().",
+      "parentUuid": "7a8dd41c_68806d2b",
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e9d652f_2b0a444a",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2020-04-07T17:03:41Z",
       "side": 1,
       "message": "Maybe document the new return value?",
+      "range": {
+        "startLine": 1459,
+        "startChar": 2,
+        "endLine": 1459,
+        "endChar": 6
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a16f6f48_fe6b2de1",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T14:49:19Z",
+      "side": 1,
+      "message": "And all the other bool-returning function is this file?",
+      "parentUuid": "6e9d652f_2b0a444a",
       "range": {
         "startLine": 1459,
         "startChar": 2,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "3a45ca9e_888a298b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T14:49:19Z",
+      "side": 1,
+      "message": "Added a LOG(ERROR) to VerifierDeps::ParseVerifiedClasses().\n\nOatFileBase::Setup() cannot fail at the moment but checking the return value (in OatFileBackedByVdex::Initialized()) is a good practice just in case some future change introduces something that can fail there.",
+      "parentUuid": "f4e0185c_443c8f5b",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 28
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03979073_75ad922a",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 2
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "ac965b91_7cc93563",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T14:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03979073_75ad922a",
+      "range": {
+        "startLine": 724,
+        "startChar": 14,
+        "endLine": 724,
+        "endChar": 19
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0351ad5e_a535b7e5",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 2
@@ -108,6 +198,30 @@
       "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "309ba9cb_0a3499ef",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T14:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0351ad5e_a535b7e5",
+      "range": {
+        "startLine": 246,
+        "startChar": 9,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
