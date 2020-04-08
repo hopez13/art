@@ -18,8 +18,11 @@
 
 #include <limits>
 
+#include "base/arena_allocator.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
+#include "decondition_deoptimize.h"
+#include "deoptimization_kind.h"
 #include "induction_var_range.h"
 #include "nodes.h"
 #include "side_effects_analysis.h"
@@ -524,6 +527,7 @@ class BCEVisitor : public HGraphVisitor {
         taken_test_loop_(std::less<uint32_t>(),
                          allocator_.Adapter(kArenaAllocBoundsCheckElimination)),
         finite_loop_(allocator_.Adapter(kArenaAllocBoundsCheckElimination)),
+        deopt_remover_(graph, allocator_, kArenaAllocBoundsCheckElimination),
         has_dom_based_dynamic_bce_(false),
         initial_block_size_(graph->GetBlocks().size()),
         side_effects_(side_effects),
@@ -559,6 +563,8 @@ class BCEVisitor : public HGraphVisitor {
     // Preserve SSA structure which may have been broken by adding one or more
     // new taken-test structures (see TransformLoopForDeoptimizationIfNeeded()).
     InsertPhiNodes();
+    // Actually split the blocks so we end up with deoptimize blocks.
+    deopt_remover_.Finalize();
 
     // Clear the loop data structures.
     early_exit_loop_.clear();
@@ -567,6 +573,10 @@ class BCEVisitor : public HGraphVisitor {
   }
 
  private:
+  void SavePredicatedDeoptimize(HDeoptimize* deopt, HInstruction* condition) {
+    deopt_remover_.AddPredicatedDeoptimization(deopt, condition);
+  }
+
   // Return the map of proven value ranges at the beginning of a basic block.
   ScopedArenaSafeMap<int, ValueRange*>* GetValueRangeMap(HBasicBlock* basic_block) {
     if (IsAddedBlock(basic_block)) {
@@ -1717,6 +1727,10 @@ class BCEVisitor : public HGraphVisitor {
       deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
           suspend->GetEnvironment(), loop->GetHeader());
     }
+    // Keep track of the deoptimizes we need to remove/split on. Keep the
+    // condition separate so we can later eliminate the condition argument from
+    // HDeoptimize.
+    SavePredicatedDeoptimize(deoptimize, condition);
   }
 
   /** Inserts a deoptimization test right before a bounds check. */
@@ -1730,6 +1744,10 @@ class BCEVisitor : public HGraphVisitor {
         bounds_check->GetDexPc());
     block->InsertInstructionBefore(deoptimize, bounds_check);
     deoptimize->CopyEnvironmentFrom(bounds_check->GetEnvironment());
+    // Keep track of the deoptimizes we need to remove/split on. Keep the
+    // condition separate so we can later eliminate the condition argument from
+    // HDeoptimize.
+    SavePredicatedDeoptimize(deoptimize, condition);
   }
 
   /** Hoists instruction out of the loop to preheader or deoptimization block. */
@@ -1921,6 +1939,8 @@ class BCEVisitor : public HGraphVisitor {
 
   // Finite loop bookkeeping.
   ScopedArenaSet<uint32_t> finite_loop_;
+
+  ScopedDeoptimizationRemover deopt_remover_;
 
   // Flag that denotes whether dominator-based dynamic elimination has occurred.
   bool has_dom_based_dynamic_bce_;
