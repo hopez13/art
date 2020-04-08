@@ -66,6 +66,7 @@ struct WellKnownClasses {
   static jclass dalvik_system_InMemoryDexClassLoader;
   static jclass dalvik_system_PathClassLoader;
   static jclass dalvik_system_VMRuntime;
+  static jclass java_io_FileDescriptor;
   static jclass java_lang_annotation_Annotation__array;
   static jclass java_lang_BootClassLoader;
   static jclass java_lang_ClassLoader;
@@ -102,6 +103,7 @@ struct WellKnownClasses {
   static jmethodID dalvik_system_BaseDexClassLoader_getLdLibraryPath;
   static jmethodID dalvik_system_VMRuntime_runFinalization;
   static jmethodID dalvik_system_VMRuntime_hiddenApiUsed;
+  static jmethodID java_io_FileDescriptor_init;
   static jmethodID java_lang_Boolean_valueOf;
   static jmethodID java_lang_Byte_valueOf;
   static jmethodID java_lang_Character_valueOf;
@@ -131,6 +133,8 @@ struct WellKnownClasses {
   static jmethodID java_lang_ThreadGroup_add;
   static jmethodID java_lang_ThreadGroup_removeThread;
   static jmethodID java_nio_DirectByteBuffer_init;
+  static jmethodID java_nio_Buffer_array;
+  static jmethodID java_nio_Buffer_arrayOffset;
   static jmethodID java_util_function_Consumer_accept;
   static jmethodID libcore_reflect_AnnotationFactory_createAnnotation;
   static jmethodID libcore_reflect_AnnotationMember_init;

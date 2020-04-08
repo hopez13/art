@@ -53,6 +53,7 @@ jclass WellKnownClasses::dalvik_system_EmulatedStackFrame;
 jclass WellKnownClasses::dalvik_system_InMemoryDexClassLoader;
 jclass WellKnownClasses::dalvik_system_PathClassLoader;
 jclass WellKnownClasses::dalvik_system_VMRuntime;
+jclass WellKnownClasses::java_io_FileDescriptor;
 jclass WellKnownClasses::java_lang_annotation_Annotation__array;
 jclass WellKnownClasses::java_lang_BootClassLoader;
 jclass WellKnownClasses::java_lang_ClassLoader;
@@ -89,6 +90,7 @@ jclass WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer;
 jmethodID WellKnownClasses::dalvik_system_BaseDexClassLoader_getLdLibraryPath;
 jmethodID WellKnownClasses::dalvik_system_VMRuntime_runFinalization;
 jmethodID WellKnownClasses::dalvik_system_VMRuntime_hiddenApiUsed;
+jmethodID WellKnownClasses::java_io_FileDescriptor_init;
 jmethodID WellKnownClasses::java_lang_Boolean_valueOf;
 jmethodID WellKnownClasses::java_lang_Byte_valueOf;
 jmethodID WellKnownClasses::java_lang_Character_valueOf;
@@ -117,6 +119,8 @@ jmethodID WellKnownClasses::java_lang_Thread_init;
 jmethodID WellKnownClasses::java_lang_Thread_run;
 jmethodID WellKnownClasses::java_lang_ThreadGroup_add;
 jmethodID WellKnownClasses::java_lang_ThreadGroup_removeThread;
+jmethodID WellKnownClasses::java_nio_Buffer_array;
+jmethodID WellKnownClasses::java_nio_Buffer_arrayOffset;
 jmethodID WellKnownClasses::java_nio_DirectByteBuffer_init;
 jmethodID WellKnownClasses::java_util_function_Consumer_accept;
 jmethodID WellKnownClasses::libcore_reflect_AnnotationFactory_createAnnotation;
@@ -341,7 +345,7 @@ void WellKnownClasses::Init(JNIEnv* env) {
   dalvik_system_InMemoryDexClassLoader = CacheClass(env, "dalvik/system/InMemoryDexClassLoader");
   dalvik_system_PathClassLoader = CacheClass(env, "dalvik/system/PathClassLoader");
   dalvik_system_VMRuntime = CacheClass(env, "dalvik/system/VMRuntime");
-
+  java_io_FileDescriptor = CacheClass(env, "java/io/FileDescriptor");
   java_lang_annotation_Annotation__array = CacheClass(env, "[Ljava/lang/annotation/Annotation;");
   java_lang_BootClassLoader = CacheClass(env, "java/lang/BootClassLoader");
   java_lang_ClassLoader = CacheClass(env, "java/lang/ClassLoader");
@@ -386,6 +390,8 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   dalvik_system_VMRuntime_runFinalization = CacheMethod(env, dalvik_system_VMRuntime, true, "runFinalization", "(J)V");
   dalvik_system_VMRuntime_hiddenApiUsed = CacheMethod(env, dalvik_system_VMRuntime, true, "hiddenApiUsed", "(ILjava/lang/String;Ljava/lang/String;IZ)V");
 
+  java_io_FileDescriptor_init = CacheMethod(env, java_io_FileDescriptor, false, "<init>", "(I)V");
+
   java_lang_ClassNotFoundException_init = CacheMethod(env, java_lang_ClassNotFoundException, false, "<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V");
   java_lang_ClassLoader_loadClass = CacheMethod(env, java_lang_ClassLoader, false, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
 
@@ -406,6 +412,8 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   java_lang_Thread_run = CacheMethod(env, java_lang_Thread, false, "run", "()V");
   java_lang_ThreadGroup_add = CacheMethod(env, java_lang_ThreadGroup, false, "add", "(Ljava/lang/Thread;)V");
   java_lang_ThreadGroup_removeThread = CacheMethod(env, java_lang_ThreadGroup, false, "threadTerminated", "(Ljava/lang/Thread;)V");
+  java_nio_Buffer_array = CacheMethod(env, java_nio_Buffer, false, "array", "()Ljava/lang/Object;");
+  java_nio_Buffer_arrayOffset = CacheMethod(env, java_nio_Buffer, false, "arrayOffset", "()I");
   java_nio_DirectByteBuffer_init = CacheMethod(env, java_nio_DirectByteBuffer, false, "<init>", "(JI)V");
   java_util_function_Consumer_accept = CacheMethod(env, java_util_function_Consumer, false, "accept", "(Ljava/lang/Object;)V");
   libcore_reflect_AnnotationFactory_createAnnotation = CacheMethod(env, libcore_reflect_AnnotationFactory, true, "createAnnotation", "(Ljava/lang/Class;[Llibcore/reflect/AnnotationMember;)Ljava/lang/annotation/Annotation;");
@@ -421,9 +429,8 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   dalvik_system_DexPathList__Element_dexFile = CacheField(env, dalvik_system_DexPathList__Element, false, "dexFile", "Ldalvik/system/DexFile;");
   dalvik_system_VMRuntime_nonSdkApiUsageConsumer = CacheField(env, dalvik_system_VMRuntime, true, "nonSdkApiUsageConsumer", "Ljava/util/function/Consumer;");
 
-  ScopedLocalRef<jclass> java_io_FileDescriptor(env, env->FindClass("java/io/FileDescriptor"));
-  java_io_FileDescriptor_descriptor = CacheField(env, java_io_FileDescriptor.get(), false, "descriptor", "I");
-  java_io_FileDescriptor_ownerId = CacheField(env, java_io_FileDescriptor.get(), false, "ownerId", "J");
+  java_io_FileDescriptor_descriptor = CacheField(env, java_io_FileDescriptor, false, "descriptor", "I");
+  java_io_FileDescriptor_ownerId = CacheField(env, java_io_FileDescriptor, false, "ownerId", "J");
 
   java_lang_Thread_parkBlocker = CacheField(env, java_lang_Thread, false, "parkBlocker", "Ljava/lang/Object;");
   java_lang_Thread_daemon = CacheField(env, java_lang_Thread, false, "daemon", "Z");
@@ -514,6 +521,7 @@ void WellKnownClasses::Clear() {
   dalvik_system_EmulatedStackFrame = nullptr;
   dalvik_system_PathClassLoader = nullptr;
   dalvik_system_VMRuntime = nullptr;
+  java_io_FileDescriptor = nullptr;
   java_lang_annotation_Annotation__array = nullptr;
   java_lang_BootClassLoader = nullptr;
   java_lang_ClassLoader = nullptr;
@@ -549,8 +557,7 @@ void WellKnownClasses::Clear() {
   dalvik_system_BaseDexClassLoader_getLdLibraryPath = nullptr;
   dalvik_system_VMRuntime_runFinalization = nullptr;
   dalvik_system_VMRuntime_hiddenApiUsed = nullptr;
-  java_io_FileDescriptor_descriptor = nullptr;
-  java_io_FileDescriptor_ownerId = nullptr;
+  java_io_FileDescriptor_init = nullptr;
   java_lang_Boolean_valueOf = nullptr;
   java_lang_Byte_valueOf = nullptr;
   java_lang_Character_valueOf = nullptr;
@@ -578,6 +585,8 @@ void WellKnownClasses::Clear() {
   java_lang_Thread_run = nullptr;
   java_lang_ThreadGroup_add = nullptr;
   java_lang_ThreadGroup_removeThread = nullptr;
+  java_nio_Buffer_array = nullptr;
+  java_nio_Buffer_arrayOffset = nullptr;
   java_nio_DirectByteBuffer_init = nullptr;
   libcore_reflect_AnnotationFactory_createAnnotation = nullptr;
   libcore_reflect_AnnotationMember_init = nullptr;
@@ -590,6 +599,8 @@ void WellKnownClasses::Clear() {
   dalvik_system_DexPathList_dexElements = nullptr;
   dalvik_system_DexPathList__Element_dexFile = nullptr;
   dalvik_system_VMRuntime_nonSdkApiUsageConsumer = nullptr;
+  java_io_FileDescriptor_descriptor = nullptr;
+  java_io_FileDescriptor_ownerId = nullptr;
   java_lang_Thread_parkBlocker = nullptr;
   java_lang_Thread_daemon = nullptr;
   java_lang_Thread_group = nullptr;
