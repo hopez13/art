@@ -285,6 +285,18 @@ public class Main {
   /// CHECK-DAG:                   ArraySet                                  loop:<<Loop3>>      outer_loop:<<Loop2>>
   /// CHECK-DAG:                   Add [<<Phi3>>,<<Const1>>]                 loop:<<Loop3>>      outer_loop:<<Loop2>>
   //
+  // Deoptimizes
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  //
   /// CHECK-NOT:                   ArrayGet
   /// CHECK-NOT:                   ArraySet
   /// CHECK-NOT:                   If
@@ -349,6 +361,16 @@ public class Main {
   /// CHECK-DAG:                   ArrayGet                                  loop:<<Loop3>>      outer_loop:<<Loop1>>
   /// CHECK-DAG:                   ArraySet                                  loop:<<Loop3>>      outer_loop:<<Loop1>>
   /// CHECK-DAG: <<AddI3:i\d+>>    Add [<<Phi3>>,<<Const1>>]                 loop:<<Loop3>>      outer_loop:<<Loop1>>
+  //
+  // Deoptimizes
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
   //
   /// CHECK-NOT:                   ArrayGet
   /// CHECK-NOT:                   ArraySet
@@ -665,6 +687,16 @@ public class Main {
   /// CHECK-DAG: <<Add:i\d+>>     Add [<<Get0>>,<<Get1>>]                   loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  ArraySet [<<Array>>,<<Phi>>,<<Add>>]      loop:<<Loop>>      outer_loop:none
   //
+  // Deoptimizes
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  //
   /// CHECK-NOT:                  Phi
   /// CHECK-NOT:                  If
   /// CHECK-NOT:                  ArrayGet
@@ -676,6 +708,16 @@ public class Main {
   /// CHECK-DAG:                  ArrayGet                                  loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  ArrayGet                                  loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                  ArraySet                                  loop:<<Loop>>      outer_loop:none
+  //
+  // Deoptimizes
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   If
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
+  /// CHECK-DAG:                   Deoptimize
   //
   /// CHECK-NOT:                  Phi
   /// CHECK-NOT:                  If

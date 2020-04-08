@@ -139,7 +139,9 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.$opt$noinline$constantIndexing2(int[]) BCE (after)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -203,7 +205,9 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.constantIndexing2c(int[]) BCE (after)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -239,7 +243,9 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: int[] Main.constantIndexing3(int[], int[], boolean) BCE (after)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArrayGet
   /// CHECK: Deoptimize
@@ -314,7 +320,9 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.constantIndexing6(int[]) BCE (after)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -336,8 +344,11 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.constantIndexing7(int[], int) BCE (after)
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<AboveCheck:z\d+>> Above [{{i\d+}},{{i\d+}}]
+  /// CHECK: If [<<AboveCheck>>]
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -366,8 +377,11 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.constantIndexing8(int[], int) BCE (after)
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<AboveCheck:z\d+>> Above [{{i\d+}},{{i\d+}}]
+  /// CHECK: If [<<AboveCheck>>]
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -395,18 +409,24 @@ public class Main {
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
 
+  // Unfortunately checker is not powerful enough to really check the dominates relationships we
+  // want here (namely the deoptimize checks dominate the array-sets). Instead we just use CHECK-DAG
+  // to ensure things look mostly ok.
   /// CHECK-START: void Main.constantIndexing9(int[], int) BCE (after)
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<AboveCheck:z\d+>> Above [{{i\d+}},{{i\d+}}]
+  /// CHECK: If [<<AboveCheck>>]
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
+  /// CHECK-DAG: ArraySet
+  /// CHECK-DAG: ArraySet
+  /// CHECK-DAG: ArraySet
+  /// CHECK-DAG: ArraySet
+  /// CHECK-DAG: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK-DAG: If [<<LengthCheck>>]
 
   static void constantIndexing9(int[] array, int base) {
     // Final range is base..base+3 so conditional
@@ -430,8 +450,11 @@ public class Main {
   /// CHECK: ArraySet
 
   /// CHECK-START: void Main.constantIndexing10(int[], int) BCE (after)
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<AboveCheck:z\d+>> Above [{{i\d+}},{{i\d+}}]
+  /// CHECK: If [<<AboveCheck>>]
+  /// CHECK: <<LengthCheck:z\d+>> AboveOrEqual [{{i\d+}},<<Length>>]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
@@ -1159,7 +1182,8 @@ public class Main {
   //
   /// CHECK-START: void Main.dynamicBCEAndIntrinsic(int) BCE (after)
   //  Array reference mA[i] hoisted to same level as deopt.
-  /// CHECK-DAG:                 Deoptimize                                  loop:<<OuterLoop:B\d+>>
+  /// CHECK-DAG:                 If                                          loop:<<OuterLoop:B\d+>>
+  /// CHECK-DAG:                 Deoptimize
   /// CHECK-DAG:                 ArrayLength                                 loop:<<OuterLoop>>
   /// CHECK-DAG:  <<Get1:l\d+>>  ArrayGet [<<Array1:l\d+>>,<<Index1:i\d+>>]  loop:<<OuterLoop>>
   //  Array reference ..[j] still in inner loop, with a direct index.
@@ -1227,9 +1251,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo1(int[] array, int start, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1267,9 +1288,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo2(int[] array, int start, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1307,9 +1325,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo3(int[] array, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1348,9 +1363,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo4(int[] array, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1397,9 +1409,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo5(int[] array, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1458,9 +1467,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo6(int[] array, int start, int end, boolean expectInterpreter) {
     if (end < 0)
@@ -1495,9 +1501,6 @@ public class Main {
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo7(int[] array, int start, int end, boolean lowEnd) {
     // Three HDeoptimize will be added. One for the index
@@ -1531,20 +1534,20 @@ public class Main {
   //  Added blocks at end for deoptimization.
   /// CHECK: Exit
   /// CHECK: If
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
-  /// CHECK: Goto
+  /// CHECK: If
   /// CHECK: Goto
   /// CHECK: Goto
   /// CHECK: If
+  /// CHECK: If
+  /// CHECK: Goto
+  /// CHECK: Goto
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize
-  /// CHECK: Goto
-  /// CHECK: Goto
-  /// CHECK: Goto
 
   void foo8(int[][] matrix, int start, int end) {
     // Three HDeoptimize will be added for the outer loop,
@@ -1567,17 +1570,17 @@ public class Main {
   /// CHECK-START: void Main.foo9(int[], boolean) BCE (after)
   //  The loop is guaranteed to be entered. No need to transform the
   //  loop for loop body entry test.
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
-  /// CHECK: Deoptimize
-  /// CHECK-NOT: Deoptimize
   /// CHECK: Phi
   /// CHECK-NOT: NullCheck
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArrayGet
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK: Deoptimize
+  /// CHECK-NOT: Deoptimize
 
-  /// CHECK-START: void Main.foo9(int[], boolean) instruction_simplifier$after_bce (after)
-  //  Simplification removes the redundant check
+  /// CHECK-START: void Main.foo9(int[], boolean) dead_code_elimination$final (after)
+  //  DCE removes the redundant check
   /// CHECK: Deoptimize
   /// CHECK: Deoptimize
   /// CHECK-NOT: Deoptimize

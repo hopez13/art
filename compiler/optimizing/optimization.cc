@@ -15,6 +15,7 @@
  */
 
 #include "optimization.h"
+#include "optimizing/decondition_deoptimize.h"
 
 #ifdef ART_ENABLE_CODEGEN_arm
 #include "instruction_simplifier_arm.h"

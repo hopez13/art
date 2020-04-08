@@ -72,13 +72,15 @@
 
 ## CHECK-START: int TestCase.deoptimizeNewInstance(int[], byte[]) register (after)
 ## CHECK:         <<Null:l\d+>>   NullConstant
-## CHECK:                         Deoptimize env:[[<<Null>>,{{.*]]}}
+## CHECK:                         If
 ## CHECK:                         InvokeStaticOrDirect method_name:java.lang.String.<init>
+## CHECK:                         Deoptimize env:[[<<Null>>,{{.*]]}}
 
 ## CHECK-START-DEBUGGABLE: int TestCase.deoptimizeNewInstance(int[], byte[]) register (after)
 ## CHECK:         <<String:l\d+>> NewInstance
-## CHECK:                         Deoptimize env:[[<<String>>,{{.*]]}}
+## CHECK:                         If
 ## CHECK:                         InvokeStaticOrDirect method_name:java.lang.String.<init>
+## CHECK:                         Deoptimize env:[[<<String>>,{{.*]]}}
 
 .method public static deoptimizeNewInstance([I[B)I
    .registers 6
