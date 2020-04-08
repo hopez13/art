@@ -2831,18 +2831,12 @@ void LocationsBuilderARMVIXL::VisitDeoptimize(HDeoptimize* deoptimize) {
   RegisterSet caller_saves = RegisterSet::Empty();
   caller_saves.Add(LocationFrom(calling_convention.GetRegisterAt(0)));
   locations->SetCustomSlowPathCallerSaves(caller_saves);
-  if (IsBooleanValueOrMaterializedCondition(deoptimize->InputAt(0))) {
-    locations->SetInAt(0, Location::RequiresRegister());
-  }
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitDeoptimize(HDeoptimize* deoptimize) {
   SlowPathCodeARMVIXL* slow_path =
       deopt_slow_paths_.NewSlowPath<DeoptimizationSlowPathARMVIXL>(deoptimize);
-  GenerateTestAndBranch(deoptimize,
-                        /* condition_input_index= */ 0,
-                        slow_path->GetEntryLabel(),
-                        /* false_target= */ nullptr);
+  __ B(slow_path->GetEntryLabel());
 }
 
 void LocationsBuilderARMVIXL::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* flag) {

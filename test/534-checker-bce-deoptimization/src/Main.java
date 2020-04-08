@@ -80,10 +80,10 @@ public class Main {
     }
 
     /// CHECK-START: void Main.$noinline$FloatFill(float, float, float[], int) BCE (after)
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-NOT:          Deoptimize
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-NOT:          DeoptimizeMarker
 
     /// CHECK-START: void Main.$noinline$FloatFill(float, float, float[], int) BCE (after)
     /// CHECK-NOT:          BoundsCheck
@@ -109,10 +109,10 @@ public class Main {
     }
 
     /// CHECK-START: void Main.$noinline$DoubleFill(double, double, double[], int) BCE (after)
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-DAG:          Deoptimize
-    /// CHECK-NOT:          Deoptimize
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-DAG:          DeoptimizeMarker
+    /// CHECK-NOT:          DeoptimizeMarker
 
     /// CHECK-START: void Main.$noinline$DoubleFill(double, double, double[], int) BCE (after)
     /// CHECK-NOT:          BoundsCheck

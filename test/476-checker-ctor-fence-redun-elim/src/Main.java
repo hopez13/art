@@ -611,7 +611,6 @@ class TestDontOptimizeAcrossEscape {
     /// CHECK-START: void TestDontOptimizeAcrossEscape$Deopt.exercise() constructor_fence_redundancy_elimination (before)
     /// CHECK: <<NewInstance:l\d+>>     NewInstance
     /// CHECK:                          ConstructorFence [<<NewInstance>>]
-    /// CHECK-DAG:                      Deoptimize
     /// CHECK: <<NewInstance2:l\d+>>    NewInstance
     /// CHECK-DAG:                      ConstructorFence [<<NewInstance2>>]
     /// CHECK-NOT:                      ConstructorFence

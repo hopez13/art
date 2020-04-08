@@ -3660,18 +3660,13 @@ void LocationsBuilderARM64::VisitDeoptimize(HDeoptimize* deoptimize) {
   RegisterSet caller_saves = RegisterSet::Empty();
   caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0).GetCode()));
   locations->SetCustomSlowPathCallerSaves(caller_saves);
-  if (IsBooleanValueOrMaterializedCondition(deoptimize->InputAt(0))) {
-    locations->SetInAt(0, Location::RequiresRegister());
-  }
 }
 
 void InstructionCodeGeneratorARM64::VisitDeoptimize(HDeoptimize* deoptimize) {
   SlowPathCodeARM64* slow_path =
       deopt_slow_paths_.NewSlowPath<DeoptimizationSlowPathARM64>(deoptimize);
-  GenerateTestAndBranch(deoptimize,
-                        /* condition_input_index= */ 0,
-                        slow_path->GetEntryLabel(),
-                        /* false_target= */ nullptr);
+
+  __ B(slow_path->GetEntryLabel());
 }
 
 void LocationsBuilderARM64::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* flag) {

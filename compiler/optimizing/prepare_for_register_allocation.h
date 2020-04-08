@@ -54,8 +54,17 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
   void VisitCondition(HCondition* condition) override;
   void VisitConstructorFence(HConstructorFence* constructor_fence) override;
   void VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) override;
-  void VisitDeoptimize(HDeoptimize* deoptimize) override;
   void VisitTypeConversion(HTypeConversion* instruction) override;
+
+  void VisitUnemitable(HInstruction* inst);
+#define UNEMITABLE_VISIT(type, super) \
+  void Visit##type(H##type* inst) override { \
+    VisitUnemitable(inst); \
+  }
+
+  FOR_EACH_CONCRETE_INSTRUCTION_UNEMITABLE(UNEMITABLE_VISIT)
+
+#undef UNEMITABLE_VISIT
 
   bool CanMoveClinitCheck(HInstruction* input, HInstruction* user) const;
   bool CanEmitConditionAt(HCondition* condition, HInstruction* user) const;

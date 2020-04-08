@@ -1982,17 +1982,11 @@ void LocationsBuilderX86_64::VisitDeoptimize(HDeoptimize* deoptimize) {
   RegisterSet caller_saves = RegisterSet::Empty();
   caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
   locations->SetCustomSlowPathCallerSaves(caller_saves);
-  if (IsBooleanValueOrMaterializedCondition(deoptimize->InputAt(0))) {
-    locations->SetInAt(0, Location::Any());
-  }
 }
 
 void InstructionCodeGeneratorX86_64::VisitDeoptimize(HDeoptimize* deoptimize) {
   SlowPathCode* slow_path = deopt_slow_paths_.NewSlowPath<DeoptimizationSlowPathX86_64>(deoptimize);
-  GenerateTestAndBranch<Label>(deoptimize,
-                               /* condition_input_index= */ 0,
-                               slow_path->GetEntryLabel(),
-                               /* false_target= */ nullptr);
+  __ jmp(slow_path->GetEntryLabel());
 }
 
 void LocationsBuilderX86_64::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* flag) {

@@ -205,7 +205,7 @@ class ValueSet : public ArenaObject<kArenaAllocGvn> {
       // relevant and we only need to care about the no-op case, in which case there are
       // no side-effects. By doing this we are able to eliminate redundant (i.e.
       // dominated deopts with GVNd conditions) deoptimizations.
-      if (instruction_->IsDeoptimize()) {
+      if (instruction_->IsDeoptimizeMarker()) {
         return SideEffects::None();
       } else {
         return instruction_->GetSideEffects();
@@ -497,7 +497,7 @@ void GlobalValueNumberer::VisitBasicBlock(HBasicBlock* block) {
     //
     // Deoptimize is a special case since even though we don't want to move it we can still remove
     // it for GVN.
-    if (current->CanBeMoved() || current->IsBoundType() || current->IsDeoptimize()) {
+    if (current->CanBeMoved() || current->IsBoundType() || current->IsDeoptimizeMarker()) {
       if (current->IsBinaryOperation() && current->AsBinaryOperation()->IsCommutative()) {
         // For commutative ops, (x op y) will be treated the same as (y op x)
         // after fixed ordering.

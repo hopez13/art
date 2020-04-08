@@ -108,7 +108,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void VisitIf(HIf* instruction) override;
   void VisitInstanceOf(HInstanceOf* instruction) override;
   void VisitInvoke(HInvoke* invoke) override;
-  void VisitDeoptimize(HDeoptimize* deoptimize) override;
+  void VisitDeoptimizeGuard(HDeoptimizeGuard* deoptimize) override;
   void VisitVecMul(HVecMul* instruction) override;
   void VisitPredicatedInstanceFieldGet(HPredicatedInstanceFieldGet* instruction) override;
 
@@ -2837,14 +2837,12 @@ void InstructionSimplifierVisitor::VisitInvoke(HInvoke* instruction) {
   }
 }
 
-void InstructionSimplifierVisitor::VisitDeoptimize(HDeoptimize* deoptimize) {
+void InstructionSimplifierVisitor::VisitDeoptimizeGuard(HDeoptimizeGuard* deoptimize) {
   HInstruction* cond = deoptimize->InputAt(0);
   if (cond->IsConstant()) {
     if (cond->AsIntConstant()->IsFalse()) {
       // Never deopt: instruction can be removed.
-      if (deoptimize->GuardsAnInput()) {
-        deoptimize->ReplaceWith(deoptimize->GuardedInput());
-      }
+      deoptimize->ReplaceWith(deoptimize->GuardedInput());
       deoptimize->GetBlock()->RemoveInstruction(deoptimize);
     } else {
       // Always deopt.

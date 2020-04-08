@@ -570,6 +570,7 @@ public class Main {
   /// CHECK-NOT: InstanceFieldGet
 
   // Loop side effects can kill heap values, stores need to be kept in that case.
+  // TODO DCE after bce eliminates this.
   static void test21(TestClass obj0) {
     TestClass obj = new TestClass();
     obj0.str = "abc";
@@ -1656,7 +1657,9 @@ public class Main {
   /// CHECK: InstanceFieldSet
   /// CHECK: InstanceFieldSet
   /// CHECK: InstanceFieldSet
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> BelowOrEqual [<<Length>>,{{i\d+}}]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK: ArraySet
   /// CHECK: ArraySet
   /// CHECK: ArraySet
@@ -1665,13 +1668,14 @@ public class Main {
   /// CHECK: ArrayGet
   /// CHECK: ArrayGet
   /// CHECK: ArrayGet
+  /// CHECK-DAG: Deoptimize
 
+  // NB The live-range of the new-instance'd 'obj' finishes before the
+  // Deoptimize so it's fully legal for it to be removed.
   /// CHECK-START: int Main.testStoreStoreWithDeoptimize(int[]) load_store_elimination (after)
-  /// CHECK: NewInstance
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldSet
-  /// CHECK-NOT: InstanceFieldSet
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> BelowOrEqual [<<Length>>,{{i\d+}}]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK: ArraySet
   /// CHECK: ArraySet
   /// CHECK: ArraySet
@@ -1706,15 +1710,20 @@ public class Main {
   }
 
   /// CHECK-START: double Main.testDeoptimize(int[], double[], double) load_store_elimination (before)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> BelowOrEqual [<<Length>>,{{i\d+}}]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK: NewInstance
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length2:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck2:z\d+>> BelowOrEqual [<<Length2>>,{{i\d+}}]
+  /// CHECK: If [<<LengthCheck2>>]
   /// CHECK: NewInstance
 
   /// CHECK-START: double Main.testDeoptimize(int[], double[], double) load_store_elimination (after)
-  /// CHECK: Deoptimize
+  /// CHECK: <<Length:i\d+>> ArrayLength
+  /// CHECK: <<LengthCheck:z\d+>> BelowOrEqual [<<Length>>,{{i\d+}}]
+  /// CHECK: If [<<LengthCheck>>]
   /// CHECK: NewInstance
-  /// CHECK: Deoptimize
   /// CHECK-NOT: NewInstance
 
   private static double testDeoptimize(int[] iarr, double[] darr, double radius) {
@@ -1756,10 +1765,10 @@ public class Main {
   /// CHECK: ArrayGet
 
   /// CHECK-START: int Main.testAllocationEliminationOfArray2() load_store_elimination (after)
-  /// CHECK: NewArray
-  /// CHECK: ArraySet
-  /// CHECK: ArraySet
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: NewArray
+  /// CHECK-NOT: ArraySet
+  /// CHECK-NOT: ArraySet
+  /// CHECK-NOT: ArrayGet
   private static int testAllocationEliminationOfArray2() {
     // Cannot eliminate array allocation since array is accessed with non-constant
     // index (only 3 elements to prevent vectorization of the reduction).

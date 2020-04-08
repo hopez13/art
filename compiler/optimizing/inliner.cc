@@ -838,8 +838,8 @@ void HInliner::AddCHAGuard(HInstruction* invoke_instruction,
       HShouldDeoptimizeFlag(graph_->GetAllocator(), dex_pc);
   HInstruction* compare = new (graph_->GetAllocator()) HNotEqual(
       deopt_flag, graph_->GetIntConstant(0, dex_pc));
-  HInstruction* deopt = new (graph_->GetAllocator()) HDeoptimize(
-      graph_->GetAllocator(), compare, DeoptimizationKind::kCHA, dex_pc);
+  HInstruction* deopt =
+      new (graph_->GetAllocator()) HDeoptimizeMarker(compare, DeoptimizationKind::kCHA, dex_pc);
 
   if (cursor != nullptr) {
     bb_cursor->InsertInstructionAfter(deopt_flag, cursor);
@@ -912,8 +912,7 @@ HInstruction* HInliner::AddTypeGuard(HInstruction* receiver,
   HNotEqual* compare = new (graph_->GetAllocator()) HNotEqual(load_class, receiver_class);
   bb_cursor->InsertInstructionAfter(compare, load_class);
   if (with_deoptimization) {
-    HDeoptimize* deoptimize = new (graph_->GetAllocator()) HDeoptimize(
-        graph_->GetAllocator(),
+    HDeoptimizeGuard* deoptimize = new (graph_->GetAllocator()) HDeoptimizeGuard(
         compare,
         receiver,
         Runtime::Current()->IsAotCompiler()
@@ -1194,8 +1193,7 @@ bool HInliner::TryInlinePolymorphicCallToSameTarget(
   if (outermost_graph_->IsCompilingOsr()) {
     CreateDiamondPatternForPolymorphicInline(compare, return_replacement, invoke_instruction);
   } else {
-    HDeoptimize* deoptimize = new (graph_->GetAllocator()) HDeoptimize(
-        graph_->GetAllocator(),
+    HDeoptimizeGuard* deoptimize = new (graph_->GetAllocator()) HDeoptimizeGuard(
         compare,
         receiver,
         DeoptimizationKind::kJitSameTarget,

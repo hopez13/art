@@ -15,6 +15,8 @@
  */
 
 #include "cha_guard_optimization.h"
+#include "decondition_deoptimize.h"
+#include "nodes.h"
 
 namespace art {
 
@@ -90,7 +92,7 @@ void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
   HInstruction* compare = flag->GetNext();
   DCHECK(compare->IsNotEqual());
   HInstruction* deopt = compare->GetNext();
-  DCHECK(deopt->IsDeoptimize());
+  DCHECK(deopt->IsDeoptimizeMarker());
 
   // Advance instruction iterator first before we remove the guard.
   // We need to do it twice since we remove three instructions and the
@@ -186,7 +188,7 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* compare = flag->GetNext();
     DCHECK(compare->IsNotEqual());
     HInstruction* deopt = compare->GetNext();
-    DCHECK(deopt->IsDeoptimize());
+    DCHECK(deopt->IsDeoptimizeMarker());
 
     // Advance instruction iterator first before we move the guard.
     // We need to do it twice since we move three instructions and the
@@ -202,8 +204,8 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* suspend = loop_info->GetSuspendCheck();
     // Need a new deoptimize instruction that copies the environment
     // of the suspend instruction for the loop.
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(), compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
+        compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
     pre_header->InsertInstructionBefore(deoptimize, pre_header->GetLastInstruction());
     deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
         suspend->GetEnvironment(), loop_info->GetHeader());

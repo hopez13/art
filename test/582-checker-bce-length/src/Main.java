@@ -33,6 +33,7 @@ public class Main {
   //
   /// CHECK-START: void Main.doit1(int[]) BCE (after)
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   public static void doit1(int[] a) {
     a[a.length-3] = 1;
     a[a.length-2] = 2;
@@ -50,8 +51,8 @@ public class Main {
   /// CHECK-DAG: BoundsCheck
   //
   /// CHECK-START: void Main.doit2(int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize
-  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker
+  /// CHECK-DAG: DeoptimizeMarker
   //
   /// CHECK-START: void Main.doit2(int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck

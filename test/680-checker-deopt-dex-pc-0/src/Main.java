@@ -17,7 +17,7 @@
 public class Main {
     // We run this test for AOT to verify that there is a HDeoptimize with dex pc 0.
     /// CHECK-START: int Main.$noinline$getInt(byte[], int) BCE (after)
-    /// CHECK:          Deoptimize dex_pc:0
+    /// CHECK:          DeoptimizeMarker dex_pc:0
     public static int $noinline$getInt(byte[] array, int offset) {
         // The aget for `array[offset]` is at dex pc 0, so the Deoptimize
         // from dynamic BCE shall also be at dex pc 0.

@@ -22,7 +22,7 @@ public class Main {
     ensureJitCompiled(Main.class, "$noinline$intUpdate");
     $noinline$intUpdate(new SubMain());
     if (myIntStatic != 5000) {
-      throw new Error("Expected 5000, got " + myIntStatic);
+      throw new Error("Expected 5000, got mis " + myIntStatic);
     }
 
     $noinline$objectUpdate(new Main());
