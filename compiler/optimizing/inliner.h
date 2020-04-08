@@ -17,9 +17,11 @@
 #ifndef ART_COMPILER_OPTIMIZING_INLINER_H_
 #define ART_COMPILER_OPTIMIZING_INLINER_H_
 
+#include "base/scoped_arena_allocator.h"
 #include "dex/dex_file_types.h"
 #include "dex/invoke_type.h"
 #include "optimization.h"
+#include "optimizing/decondition_deoptimize.h"
 #include "profile/profile_compilation_info.h"
 
 namespace art {
@@ -45,6 +47,7 @@ class HInliner : public HOptimization {
            size_t depth = 0,
            const char* name = kInlinerPassName)
       : HOptimization(outer_graph, name, stats),
+        deopt_remover_(graph_, kArenaAllocCHA),
         outermost_graph_(outermost_graph),
         outer_compilation_unit_(outer_compilation_unit),
         caller_compilation_unit_(caller_compilation_unit),
@@ -321,6 +324,7 @@ class HInliner : public HOptimization {
   // Pretty-print for spaces during logging.
   std::string DepthString(int line) const;
 
+  UnscopedDeoptimizationRemover deopt_remover_;
   HGraph* const outermost_graph_;
   const DexCompilationUnit& outer_compilation_unit_;
   const DexCompilationUnit& caller_compilation_unit_;

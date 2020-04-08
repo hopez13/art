@@ -44,6 +44,9 @@ static bool IsAllowedToJumpToExitBlock(HInstruction* instruction) {
   if (instruction->IsGoto() && instruction->GetPrevious() != nullptr) {
     instruction = instruction->GetPrevious();
   }
+  if (instruction->IsDeoptimize() && instruction->AsDeoptimize()->IsUnconditional()) {
+    return true;
+  }
   return instruction->AlwaysThrows();
 }
 
@@ -486,11 +489,14 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
       HInstruction* env_instruction = environment->GetInstructionAt(i);
       if (env_instruction != nullptr
           && !env_instruction->StrictlyDominates(instruction)) {
-        AddError(StringPrintf("Instruction %d in environment of instruction %d "
-                              "from block %d does not dominate instruction %d.",
+        AddError(StringPrintf("Instruction %s:%d in environment of instruction %s:%d "
+                              "from block %d does not dominate instruction %s:%d.",
+                              env_instruction->DebugName(),
                               env_instruction->GetId(),
+                              instruction->DebugName(),
                               instruction->GetId(),
                               current_block_->GetBlockId(),
+                              instruction->DebugName(),
                               instruction->GetId()));
       }
     }

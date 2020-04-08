@@ -653,14 +653,21 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     OptDef(OptimizationPass::kSideEffectsAnalysis,
            "side_effects$before_licm"),
     OptDef(OptimizationPass::kInvariantCodeMotion),
-    OptDef(OptimizationPass::kInductionVarAnalysis),
+    OptDef(OptimizationPass::kInductionVarAnalysis,
+           "induction_var_analysis$before_bce"),
     OptDef(OptimizationPass::kBoundsCheckElimination),
+    // TODO Only needed if BCE creates Deopts.
+    OptDef(OptimizationPass::kInductionVarAnalysis,
+           "induction_var_analysis$before_loop_optimization"),
     OptDef(OptimizationPass::kLoopOptimization),
     // Simplification.
     OptDef(OptimizationPass::kConstantFolding,
            "constant_folding$after_bce"),
     OptDef(OptimizationPass::kInstructionSimplifier,
            "instruction_simplifier$after_bce"),
+    // TODO Only if BCE created deopts.
+    OptDef(OptimizationPass::kDeadCodeElimination,
+           "dead_code_elimination$after_bce"),
     // Other high-level optimizations.
     OptDef(OptimizationPass::kSideEffectsAnalysis,
            "side_effects$before_lse"),
