@@ -28,9 +28,9 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.oneConstantIndex(int[], int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.oneConstantIndex(int[], int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -48,9 +48,9 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.multipleConstantIndices(int[], int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.multipleConstantIndices(int[], int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -66,9 +66,9 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.oneInvariantIndex(int[], int[], int) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.oneInvariantIndex(int[], int[], int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -86,10 +86,10 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.multipleInvariantIndices(int[], int[], int) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.multipleInvariantIndices(int[], int[], int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -105,10 +105,10 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.oneUnitStride(int[], int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.oneUnitStride(int[], int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -126,17 +126,18 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.multipleUnitStrides(int[], int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
-  /// CHECK-START: void Main.multipleUnitStrides(int[], int[]) instruction_simplifier$after_bce (after)
+  /// CHECK-START: void Main.multipleUnitStrides(int[], int[]) dead_code_elimination$after_bce (after)
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-NOT: Deoptimize
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.multipleUnitStrides(int[], int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -158,13 +159,13 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.multipleUnitStridesConditional(int[], int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
-  /// CHECK-START: void Main.multipleUnitStridesConditional(int[], int[]) instruction_simplifier$after_bce (after)
+  /// CHECK-START: void Main.multipleUnitStridesConditional(int[], int[]) dead_code_elimination$after_bce (after)
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-DAG: Deoptimize loop:none
@@ -190,13 +191,13 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.shifter(int[]) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
-  /// CHECK-START: void Main.shifter(int[]) instruction_simplifier$after_bce (after)
+  /// CHECK-START: void Main.shifter(int[]) dead_code_elimination$after_bce (after)
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-DAG: Deoptimize loop:none
   /// CHECK-NOT: Deoptimize
@@ -220,11 +221,11 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:<<Loop>>
   //
   /// CHECK-START: void Main.stencil(int[], int, int) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.stencil(int[], int, int) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -239,10 +240,10 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:{{B\d+}}
   //
   /// CHECK-START: void Main.shortBound1(int[], short) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.shortBound1(int[], short) BCE (after)
   /// CHECK-NOT: BoundsCheck
@@ -258,10 +259,10 @@ public class Main {
   /// CHECK-DAG: BoundsCheck loop:{{B\d+}}
   //
   /// CHECK-START: void Main.shortBound2(int[], short) BCE (after)
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-DAG: Deoptimize loop:none
-  /// CHECK-NOT: Deoptimize
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-DAG: DeoptimizeMarker loop:none
+  /// CHECK-NOT: DeoptimizeMarker
   //
   /// CHECK-START: void Main.shortBound2(int[], short) BCE (after)
   /// CHECK-NOT: BoundsCheck

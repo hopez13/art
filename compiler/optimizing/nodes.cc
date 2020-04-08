@@ -1351,6 +1351,10 @@ std::ostream& HInstruction::Dump(std::ostream& os, bool dump_args) {
   return os;
 }
 
+HInstruction::InstructionKind HInstruction::DebugGetKind() const {
+  return GetKind();
+}
+
 HInstruction* HInstruction::GetNextDisregardingMoves() const {
   HInstruction* next = GetNext();
   while (next != nullptr && next->IsParallelMove()) {
@@ -2095,7 +2099,8 @@ void HInstruction::MoveBeforeFirstUserAndOutOfLoops() {
 }
 
 HBasicBlock* HBasicBlock::SplitBefore(HInstruction* cursor) {
-  DCHECK(!graph_->IsInSsaForm()) << "Support for SSA form not implemented.";
+  DCHECK(!graph_->IsInSsaForm() || (!cursor->IsControlFlow() && !cursor->IsPhi()))
+    << "Support for SSA form not implemented.";
   DCHECK_EQ(cursor->GetBlock(), this);
 
   HBasicBlock* new_block =
@@ -2200,7 +2205,11 @@ HBasicBlock* HBasicBlock::SplitAfterForInlining(HInstruction* cursor) {
 }
 
 const HTryBoundary* HBasicBlock::ComputeTryEntryOfSuccessors() const {
-  if (EndsWithTryBoundary()) {
+  if (GetLastInstruction() != nullptr && GetLastInstruction()->IsDeoptimize()) {
+    // Deoptimize's are no-return.
+    DCHECK_EQ(GetSingleSuccessor(), GetGraph()->GetExitBlock());
+    return nullptr;
+  } else if (EndsWithTryBoundary()) {
     HTryBoundary* try_boundary = GetLastInstruction()->AsTryBoundary();
     if (try_boundary->IsEntry()) {
       DCHECK(!IsTryBlock());
@@ -2814,7 +2823,21 @@ HInstruction* HGraph::InlineInto(HGraph* outer_graph, HInvoke* invoke) {
     for (size_t pred = 0; pred < to->GetPredecessors().size(); ++pred) {
       HBasicBlock* predecessor = to->GetPredecessors()[pred];
       HInstruction* last = predecessor->GetLastInstruction();
-      if (last->IsThrow()) {
+      // Deoptimizes are either 'Deoptimize' or 'Deoptimize' -> 'TryEnd'. Detect both and fixup.
+      if (last->IsDeoptimize()) {
+        // Deoptimize instruction.
+        predecessor->ReplaceSuccessor(to, outer_graph->GetExitBlock());
+        --pred;
+        // We need to re-run dominance information, as the exit block now has
+        // a new dominator.
+        rerun_dominance = true;
+        if (predecessor->GetLoopInformation() != nullptr) {
+          // The exit block and blocks post dominated by the exit block do not belong
+          // to any loop. Because we do not compute the post dominators, we need to re-run
+          // loop analysis to get the loop information correct.
+          rerun_loop_analysis = true;
+        }
+      } else if (last->IsThrow()) {
         DCHECK(!at->IsTryBlock());
         predecessor->ReplaceSuccessor(to, outer_graph->GetExitBlock());
         --pred;
