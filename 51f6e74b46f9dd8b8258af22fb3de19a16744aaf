@@ -70,6 +70,30 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7bdcb4c_79a615f0",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-08T17:14:47Z",
+      "side": 1,
+      "message": "It could... it is pretty much a map (with linear layout)... hence the trivial copy to create it.\n\nIt could not be unordered_map, as we will do lookup by any PC in the range of the class\u0027s code.",
+      "parentUuid": "490d76a3_7856075a",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 81
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
