@@ -23,7 +23,7 @@
  */
 public class Main {
 
-  /// CHECK-START: int Main.breakLoop(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoop(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                     loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                      loop:none
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                      loop:none
@@ -35,7 +35,7 @@ public class Main {
   /// CHECK-DAG:               If [<<NE>>]                        loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI>>      Add [<<Phi>>,<<One>>]              loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: int Main.breakLoop(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoop(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                     loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                      loop:none
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                      loop:none
@@ -80,7 +80,7 @@ public class Main {
     return i;
   }
 
-  /// CHECK-START: int Main.breakLoopDown(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoopDown(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                     loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                      loop:none
   /// CHECK-DAG: <<MOne:i\d+>> IntConstant -1                     loop:none
@@ -93,7 +93,7 @@ public class Main {
   /// CHECK-DAG:               If [<<NE>>]                        loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI>>      Add [<<Phi>>,<<MOne>>]             loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: int Main.breakLoopDown(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoopDown(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                        loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                         loop:none
   /// CHECK-DAG: <<MOne:i\d+>> IntConstant -1                        loop:none
@@ -119,7 +119,7 @@ public class Main {
     return i;
   }
 
-  /// CHECK-START: int Main.breakLoopSafeConst(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoopSafeConst(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>   ParameterValue                       loop:none
   /// CHECK-DAG: <<One:i\d+>>   IntConstant 1                        loop:none
   /// CHECK-DAG: <<Three:i\d+>> IntConstant 3                        loop:none
@@ -134,7 +134,7 @@ public class Main {
   /// CHECK-DAG:                If [<<NE>>]                          loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI>>       Add [<<Phi>>,<<One>>]                loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: int Main.breakLoopSafeConst(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoopSafeConst(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                        loop:none
   /// CHECK-DAG: <<One:i\d+>>   IntConstant 1                        loop:none
   /// CHECK-DAG: <<Three:i\d+>> IntConstant 3                        loop:none
@@ -181,7 +181,7 @@ public class Main {
     return i;
   }
 
-  /// CHECK-START: int Main.breakLoopUnsafeConst(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoopUnsafeConst(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>   ParameterValue                       loop:none
   /// CHECK-DAG: <<One:i\d+>>   IntConstant 1                        loop:none
   /// CHECK-DAG: <<Four:i\d+>>  IntConstant 4                        loop:none
@@ -196,7 +196,7 @@ public class Main {
   /// CHECK-DAG:                If [<<NE>>]                          loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI>>       Add [<<Phi>>,<<One>>]                loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: int Main.breakLoopUnsafeConst(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoopUnsafeConst(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG:                NotEqual
   /// CHECK-NOT:                LessThanOrEqual
   static int breakLoopUnsafeConst(int[] a) {
@@ -213,7 +213,7 @@ public class Main {
     return i;
   }
 
-  /// CHECK-START: int Main.breakLoopNastyPhi(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoopNastyPhi(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                      loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                       loop:none
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                       loop:none
@@ -230,7 +230,7 @@ public class Main {
   /// CHECK-DAG: <<Comb:i\d+>> Phi [<<M123>>,<<Wrap>>]             loop:none
   /// CHECK-DAG:               Return [<<Comb>>]                   loop:none
   //
-  /// CHECK-START: int Main.breakLoopNastyPhi(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoopNastyPhi(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG:               NotEqual
   /// CHECK-NOT:               LessThanOrEqual
   static int breakLoopNastyPhi(int[] a) {
@@ -249,7 +249,7 @@ public class Main {
     return x;  // keep another phi live
   }
 
-  /// CHECK-START: int Main.breakLoopReduction(int[]) induction_var_analysis (before)
+  /// CHECK-START: int Main.breakLoopReduction(int[]) induction_var_analysis$before_bce (before)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                 loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                  loop:none
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                  loop:none
@@ -265,7 +265,7 @@ public class Main {
   /// CHECK-DAG: <<Comb:i\d+>> Phi [<<Zero>>,<<RedI>>]        loop:none
   /// CHECK-DAG:               Return [<<Comb>>]              loop:none
   //
-  /// CHECK-START: int Main.breakLoopReduction(int[]) induction_var_analysis (after)
+  /// CHECK-START: int Main.breakLoopReduction(int[]) induction_var_analysis$before_bce (after)
   /// CHECK-DAG: <<Par:l\d+>>  ParameterValue                     loop:none
   /// CHECK-DAG: <<Zero:i\d+>> IntConstant 0                      loop:none
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                      loop:none

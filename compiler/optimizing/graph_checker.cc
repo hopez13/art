@@ -37,8 +37,8 @@ namespace art {
 using android::base::StringPrintf;
 
 static bool IsAllowedToJumpToExitBlock(HInstruction* instruction) {
-  // Anything that returns is allowed to jump into the exit block.
-  if (instruction->IsReturn() || instruction->IsReturnVoid()) {
+  // Anything that returns or deoptimizes is allowed to jump into the exit block.
+  if (instruction->IsReturn() || instruction->IsReturnVoid() || instruction->IsDeoptimize()) {
     return true;
   }
   // Anything that always throws is allowed to jump into the exit block.
@@ -307,6 +307,18 @@ void GraphChecker::VisitDeoptimize(HDeoptimize* deopt) {
     AddError(StringPrintf("A graph compiled OSR cannot have a HDeoptimize instruction"));
   }
 
+  if (deopt != deopt->GetBlock()->GetLastInstruction()) {
+    AddError(
+        StringPrintf("A Deoptimize is a never-return instruction, it must be the final "
+                     "instruction of its block."));
+  }
+  if (deopt->GetBlock()->GetSuccessors().size() != 1 ||
+      !deopt->GetBlock()->GetSingleSuccessor()->IsExitBlock()) {
+    AddError(
+        StringPrintf("A Deoptimize is a never-return instruction, its block must have the "
+                     "exit block as its sole successor."));
+  }
+
   // Perform the instruction base checks too.
   VisitInstruction(deopt);
 }
@@ -487,11 +499,14 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
       HInstruction* env_instruction = environment->GetInstructionAt(i);
       if (env_instruction != nullptr
           && !env_instruction->StrictlyDominates(instruction)) {
-        AddError(StringPrintf("Instruction %d in environment of instruction %d "
-                              "from block %d does not dominate instruction %d.",
+        AddError(StringPrintf("Instruction %s:%d in environment of instruction %s:%d "
+                              "from block %d does not dominate instruction %s:%d.",
+                              env_instruction->DebugName(),
                               env_instruction->GetId(),
+                              instruction->DebugName(),
                               instruction->GetId(),
                               current_block_->GetBlockId(),
+                              instruction->DebugName(),
                               instruction->GetId()));
       }
     }

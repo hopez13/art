@@ -56,7 +56,7 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
     worklist_.reserve(kDefaultWorklistSize);
   }
 
-  void VisitDeoptimize(HDeoptimize* deopt) override;
+  void VisitDeoptimizeGuard(HDeoptimizeGuard* deopt) override;
   void VisitNewInstance(HNewInstance* new_instance) override;
   void VisitLoadClass(HLoadClass* load_class) override;
   void VisitInstanceOf(HInstanceOf* load_class) override;
@@ -340,8 +340,8 @@ static void BoundTypeForClassCheck(HInstruction* check) {
         : check->AsIf()->IfFalseSuccessor();
     BoundTypeIn(receiver, trueBlock, /* start_instruction= */ nullptr, class_rti);
   } else {
-    DCHECK(check->IsDeoptimize());
-    if (compare->IsEqual() && check->AsDeoptimize()->GuardsAnInput()) {
+    DCHECK(check->IsDeoptimizeGuard());
+    if (compare->IsEqual()) {
       check->SetReferenceTypeInfo(class_rti);
     }
   }
@@ -569,7 +569,7 @@ void ReferenceTypePropagation::RTPVisitor::SetClassAsTypeInfo(HInstruction* inst
   }
 }
 
-void ReferenceTypePropagation::RTPVisitor::VisitDeoptimize(HDeoptimize* instr) {
+void ReferenceTypePropagation::RTPVisitor::VisitDeoptimizeGuard(HDeoptimizeGuard* instr) {
   BoundTypeForClassCheck(instr);
 }
 
