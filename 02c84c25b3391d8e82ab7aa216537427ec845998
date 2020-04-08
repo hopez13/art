@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef8ee41f_6ed7caa9",
+        "filename": "runtime/ndk_support.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2020-04-08T14:58:45Z",
+      "side": 1,
+      "message": "doesn\u0027t GetIntField make these checks, and show a more human-readable error if they fail? (i thought we moved this kind of CheckJNI stuff into regular JNI? [but it\u0027s been 10 years, so...])",
+      "revId": "02c84c25b3391d8e82ab7aa216537427ec845998",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
