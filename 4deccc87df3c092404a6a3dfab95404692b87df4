@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "ea4ec747_73b3a2ea",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-08T15:27:43Z",
+      "side": 1,
+      "message": "Does these Boolean return values all have the same meaning? If so a general comment in this file could be useful.\n\nIn general I think it is reasonable to document function declarations (not definitions), especially if they are new or modified.",
+      "parentUuid": "a16f6f48_fe6b2de1",
+      "range": {
+        "startLine": 1459,
+        "startChar": 2,
+        "endLine": 1459,
+        "endChar": 6
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4e0185c_443c8f5b",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 2
