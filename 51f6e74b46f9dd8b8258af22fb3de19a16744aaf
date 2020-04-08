@@ -46,6 +46,30 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "490d76a3_7856075a",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T17:06:09Z",
+      "side": 1,
+      "message": "Oh I see, I thought class_cache_ could have been encoded as a map.",
+      "parentUuid": "06f9e2e0_fa09b3b1",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 81
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
