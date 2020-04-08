@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76777c35_abf02d5f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T15:29:34Z",
+      "side": 1,
+      "message": "Do we need this? Is there anything in this loop other than ProcessDexInstruction() that acquires the mutator lock?",
+      "revId": "2f0040cdead4746441238590f4a4effd975ae9eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de89ae25_7b7a8dc5",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-08T15:29:34Z",
+      "side": 1,
+      "message": "And it would be nice to output an extra space here.",
+      "range": {
+        "startLine": 393,
+        "startChar": 12,
+        "endLine": 393,
+        "endChar": 13
+      },
+      "revId": "2f0040cdead4746441238590f4a4effd975ae9eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
