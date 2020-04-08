@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d867b206_92721db6",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-04-08T22:40:40Z",
+      "side": 1,
+      "message": "Could do this I think:\nfor (ClassAccessor accessor : dex_file-\u003eGetClasses()) {",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 88
+      },
+      "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e838e5e_7ae648ec",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-04-08T22:40:40Z",
+      "side": 1,
+      "message": "It can theoretically happen that multiple methods share the same code item, does that cause any issues?",
+      "range": {
+        "startLine": 149,
+        "startChar": 26,
+        "endLine": 149,
+        "endChar": 32
+      },
+      "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
