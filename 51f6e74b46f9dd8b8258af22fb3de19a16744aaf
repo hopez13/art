@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "7a072ac2_52ca1b25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-08T21:10:47Z",
+      "side": 1,
+      "message": "libunwindstack tests are useful to exercise this.",
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "006edaad_6fa1d6b8",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-08T21:10:47Z",
+      "side": 1,
+      "message": "Can move into the if block.",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 126,
+        "endChar": 41
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2320587d_4bff13ba",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-08T21:10:47Z",
+      "side": 1,
+      "message": "This is not safe to do?\n\nMethod entries and instructions don\u0027t necessarily follow the same order either?",
+      "range": {
+        "startLine": 141,
+        "startChar": 18,
+        "endLine": 141,
+        "endChar": 77
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31cf1382_180f5b80",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-08T21:10:47Z",
+      "side": 1,
+      "message": "Nit: Suggest class_idx for clarity.",
+      "range": {
+        "startLine": 143,
+        "startChar": 20,
+        "endLine": 143,
+        "endChar": 23
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50aadf27_2eaa4665",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 2
@@ -94,6 +180,23 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12160c3c_d9763539",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-08T21:10:47Z",
+      "side": 1,
+      "message": "Could be helpful to comment that this is sorted by end_dex_offset.",
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
