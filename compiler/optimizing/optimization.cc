@@ -40,6 +40,7 @@
 #include "constant_folding.h"
 #include "constructor_fence_redundancy_elimination.h"
 #include "dead_code_elimination.h"
+#include "decondition_deoptimize.h"
 #include "dex/code_item_accessors-inl.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
@@ -62,6 +63,8 @@ namespace art {
 
 const char* OptimizationPassName(OptimizationPass pass) {
   switch (pass) {
+    case OptimizationPass::kDeconditionDeoptimize:
+      return DeconditionDeoptimize::kDeconditionDeoptimizePassName;
     case OptimizationPass::kSideEffectsAnalysis:
       return SideEffectsAnalysis::kSideEffectsAnalysisPassName;
     case OptimizationPass::kInductionVarAnalysis:
@@ -266,6 +269,9 @@ ArenaVector<HOptimization*> ConstructOptimizations(
         break;
       case OptimizationPass::kLoadStoreElimination:
         opt = new (allocator) LoadStoreElimination(graph, stats, pass_name);
+        break;
+      case OptimizationPass::kDeconditionDeoptimize:
+        opt = new (allocator) DeconditionDeoptimize(graph, stats, pass_name);
         break;
       case OptimizationPass::kScheduling:
         opt = new (allocator) HInstructionScheduling(
