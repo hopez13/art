@@ -215,9 +215,7 @@
 # to the location of the catch phi.
 
 ## CHECK-START: int Runtime.testCatchPhi_int(boolean, boolean) register (after)
-## CHECK-DAG:     <<Val1:i\d+>> ArrayGet
-## CHECK-DAG:     <<Val2:i\d+>> ArrayGet
-## CHECK-DAG:                   Phi [<<Val1>>,<<Val2>>] is_catch_phi:true
+## CHECK-DAG:                   Phi is_catch_phi:true
 
 .method public static testCatchPhi_int(ZZ)I
   .registers 6
@@ -389,11 +387,11 @@
 # copy the value to the location of the catch phi. The value is then returned.
 
 ## CHECK-START: int Runtime.testCatchPhi_singleSlot(boolean, boolean) register (after)
-## CHECK:         <<Val1:i\d+>> ArrayGet
+## CHECK-DAG:                   Phi [<<Val1:i\d+>>,<<Val2:i\d+>>] is_catch_phi:true
+## CHECK:              <<Val1>> ArrayGet
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}{{\d+}}(sp)]
-## CHECK:         <<Val2:i\d+>> ArrayGet
+## CHECK:              <<Val2>> ArrayGet
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}{{\d+}}(sp)]
-## CHECK:                       Phi [<<Val1>>,<<Val2>>] is_catch_phi:true
 
 .method public static testCatchPhi_singleSlot(ZZ)I
   .registers 6
@@ -438,12 +436,14 @@
 # copy the value to the location of the catch phi. The value is converted to int
 # and returned. Values were chosen so that all 64 bits are used.
 
+# NB deoptimizes cause the PHI to be higher in the serialization even though it
+# is dominated by the moves.
 ## CHECK-START: int Runtime.testCatchPhi_doubleSlot(boolean, boolean) register (after)
-## CHECK:         <<Val1:d\d+>> ArrayGet
+## CHECK:                       Phi [<<Val1:d\d+>>,<<Val2:d\d+>>] is_catch_phi:true
+## CHECK:         <<Val1>> ArrayGet
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}2x{{\d+}}(sp)]
-## CHECK:         <<Val2:d\d+>> ArrayGet
+## CHECK:         <<Val2>> ArrayGet
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}2x{{\d+}}(sp)]
-## CHECK:                       Phi [<<Val1>>,<<Val2>>] is_catch_phi:true
 
 .method public static testCatchPhi_doubleSlot(ZZ)I
   .registers 10

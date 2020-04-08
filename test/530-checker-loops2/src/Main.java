@@ -758,17 +758,23 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
   /// CHECK-DAG: ArrayGet   loop:<<InnerLoop:B\d+>>
-  /// CHECK-DAG: Deoptimize loop:<<OuterLoop:B\d+>>
-  /// CHECK-EVAL: "<<InnerLoop>>" != "<<OuterLoop>>"
+  /// CHECK-DAG: Deoptimize
   //
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
   /// CHECK-NOT: BoundsCheck
   //
-  //  No additional top tests were introduced.
+  //  No additional top tests were introduced, all 3 new 'ifs' associated with a deoptimize.
   /// CHECK-START: int Main.dynamicBCEConstantRange(int[]) BCE (after)
   /// CHECK-DAG: If
   /// CHECK-DAG: If
+  /// CHECK-DAG: If
+  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: If
+  /// CHECK-DAG: Deoptimize
+  /// CHECK-DAG: If
+  /// CHECK-DAG: Deoptimize
   /// CHECK-NOT: If
+  /// CHECK-NOT: Deoptimize
   static int dynamicBCEConstantRange(int[] x) {
     int result = 0;
     for (int i = 2; i <= 6; i++) {
@@ -787,12 +793,12 @@ public class Main {
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndices(int[], int[][], int, int) BCE (after)
   //  Order matters:
-  /// CHECK:              Deoptimize loop:<<Loop:B\d+>>
-  /// CHECK-NOT:          Goto       loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK-DAG: {{l\d+}} ArrayGet   loop:<<Loop>>
-  /// CHECK:              Goto       loop:<<Loop>>
+  /// CHECK:              AboveOrEqual loop:<<Loop:B\d+>>
+  /// CHECK-NEXT:         If           loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK-DAG: {{l\d+}} ArrayGet     loop:<<Loop>>
+  /// CHECK:              Goto         loop:<<Loop>>
   //
   /// CHECK-START: int Main.dynamicBCEAndConstantIndices(int[], int[][], int, int) BCE (after)
   /// CHECK-DAG: Deoptimize loop:none

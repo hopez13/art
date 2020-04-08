@@ -47,6 +47,7 @@ art_cc_defaults {
         "optimizing/constructor_fence_redundancy_elimination.cc",
         "optimizing/data_type.cc",
         "optimizing/dead_code_elimination.cc",
+        "optimizing/decondition_deoptimize.cc",
         "optimizing/escape.cc",
         "optimizing/graph_checker.cc",
         "optimizing/graph_visualizer.cc",

@@ -1178,7 +1178,7 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   }
 
   HBasicBlock* GetSingleSuccessor() const {
-    DCHECK_EQ(GetSuccessors().size(), 1u);
+    DCHECK_EQ(GetSuccessors().size(), 1u) << "Blk: " << GetBlockId();
     return GetSuccessors()[0];
   }
 
@@ -3288,6 +3288,7 @@ class HDeoptimize final : public HVariableInputSizeInstruction {
   // instead of `guard`.
   // We set CanTriggerGC to prevent any intermediate address to be live
   // at the point of the `HDeoptimize`.
+  // TODO We should move this to an explicit control-flow.
   HDeoptimize(ArenaAllocator* allocator,
               HInstruction* cond,
               HInstruction* guard,
@@ -3319,8 +3320,16 @@ class HDeoptimize final : public HVariableInputSizeInstruction {
 
   DeoptimizationKind GetDeoptimizationKind() const { return GetPackedField<DeoptimizeKindField>(); }
 
+  bool IsUnconditional() const {
+    return !GuardsAnInput() && InputAt(0)->IsIntConstant() && InputAt(0)->AsIntConstant()->IsTrue();
+  }
+
   bool GuardsAnInput() const {
     return InputCount() == 2;
+  }
+
+  bool IsControlFlow() const override {
+    return IsUnconditional();
   }
 
   HInstruction* GuardedInput() const {

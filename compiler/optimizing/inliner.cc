@@ -196,6 +196,8 @@ bool HInliner::Run() {
     }
   }
 
+  deopt_remover_.Finalize();
+
   return didInline;
 }
 
@@ -923,6 +925,7 @@ void HInliner::AddCHAGuard(HInstruction* invoke_instruction,
   DCHECK_EQ(deopt_flag->InputCount(), 1u);
   deopt->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
   outermost_graph_->IncrementNumberOfCHAGuards();
+  deopt_remover_.AddPredicatedDeoptimization(deopt->AsDeoptimize(), compare);
 }
 
 HInstruction* HInliner::AddTypeGuard(HInstruction* receiver,
