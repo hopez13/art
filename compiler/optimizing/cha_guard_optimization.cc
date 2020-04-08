@@ -15,6 +15,8 @@
  */
 
 #include "cha_guard_optimization.h"
+#include "decondition_deoptimize.h"
+#include "nodes.h"
 
 namespace art {
 
@@ -90,7 +92,8 @@ void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
   HInstruction* compare = flag->GetNext();
   DCHECK(compare->IsNotEqual());
   HInstruction* deopt = compare->GetNext();
-  DCHECK(deopt->IsDeoptimize());
+  DCHECK(deopt->IsDeoptimizeMarker() || (deopt->IsIf() && block->GetLastInstruction() == deopt))
+      << deopt->DebugName();
 
   // Advance instruction iterator first before we remove the guard.
   // We need to do it twice since we remove three instructions and the
@@ -100,6 +103,12 @@ void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
   block->RemoveInstruction(deopt);
   block->RemoveInstruction(compare);
   block->RemoveInstruction(flag);
+  if (deopt->IsIf()) {
+    block->AddInstruction(new (block->GetGraph()->GetAllocator()) HGoto());
+    HBasicBlock* old_suc = block->GetSuccessors()[0];
+    block->RemoveSuccessor(old_suc);
+    old_suc->RemovePredecessor(block);
+  }
 }
 
 bool CHAGuardVisitor::OptimizeForParameter(HShouldDeoptimizeFlag* flag,
@@ -186,7 +195,7 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* compare = flag->GetNext();
     DCHECK(compare->IsNotEqual());
     HInstruction* deopt = compare->GetNext();
-    DCHECK(deopt->IsDeoptimize());
+    DCHECK(deopt->IsDeoptimizeMarker());
 
     // Advance instruction iterator first before we move the guard.
     // We need to do it twice since we move three instructions and the
@@ -202,13 +211,18 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* suspend = loop_info->GetSuspendCheck();
     // Need a new deoptimize instruction that copies the environment
     // of the suspend instruction for the loop.
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(), compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
+        compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
     pre_header->InsertInstructionBefore(deoptimize, pre_header->GetLastInstruction());
     deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
         suspend->GetEnvironment(), loop_info->GetHeader());
     block_has_cha_guard_[pre_header->GetBlockId()] = 1;
     GetGraph()->IncrementNumberOfCHAGuards();
+    LOG(INFO) << "New deopt in method " << GetGraph()->GetMethodName();
+    HEnvironment* env = deopt->GetEnvironment();
+    for (uint32_t i = 0; i < env->Size(); ++i) {
+      LOG(INFO) << " env: " << i << " = " << env->GetInstructionAt(i)->DebugName();
+    }
     return true;
   }
   return false;

@@ -29,12 +29,13 @@ namespace art {
 // A control-flow graph visitor performing various checks.
 class GraphChecker : public HGraphDelegateVisitor {
  public:
-  explicit GraphChecker(HGraph* graph, const char* dump_prefix = "art::GraphChecker: ")
+  explicit GraphChecker(HGraph* graph, const char* dump_prefix = "art::GraphChecker: ", const std::string_view& pass_name = "UNKNOWN")
     : HGraphDelegateVisitor(graph),
       errors_(graph->GetAllocator()->Adapter(kArenaAllocGraphChecker)),
       dump_prefix_(dump_prefix),
       allocator_(graph->GetArenaStack()),
-      seen_ids_(&allocator_, graph->GetCurrentInstructionId(), false, kArenaAllocGraphChecker) {
+      seen_ids_(&allocator_, graph->GetCurrentInstructionId(), false, kArenaAllocGraphChecker),
+      pass_name_(pass_name) {
     seen_ids_.ClearAllBits();
   }
 
@@ -124,6 +125,7 @@ class GraphChecker : public HGraphDelegateVisitor {
   // object references, e.g. HNewInstance, HLoadClass.
   // The default value is true.
   bool check_reference_type_info_ = true;
+  const std::string_view pass_name_;
 
   DISALLOW_COPY_AND_ASSIGN(GraphChecker);
 };

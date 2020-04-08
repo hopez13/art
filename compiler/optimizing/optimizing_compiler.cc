@@ -57,6 +57,7 @@
 #include "prepare_for_register_allocation.h"
 #include "reference_type_propagation.h"
 #include "register_allocator_linear_scan.h"
+#include "scoped_thread_state_change.h"
 #include "select_generator.h"
 #include "ssa_builder.h"
 #include "ssa_liveness_analysis.h"
@@ -190,7 +191,7 @@ class PassObserver : public ValueObject {
     // Validate the HGraph if running in debug mode.
     if (kIsDebugBuild) {
       if (!graph_in_bad_state_) {
-        GraphChecker checker(graph_);
+        GraphChecker checker(graph_, "GraphChecker: ", pass_name);
         last_seen_graph_size_ = checker.Run(pass_change, last_seen_graph_size_);
         if (!checker.IsValid()) {
           LOG(FATAL) << "Error after " << pass_name << ": " << Dumpable<GraphChecker>(checker);
@@ -635,7 +636,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     OptDef(OptimizationPass::kSideEffectsAnalysis,
            "side_effects$before_licm"),
     OptDef(OptimizationPass::kInvariantCodeMotion),
-    OptDef(OptimizationPass::kInductionVarAnalysis),
+    OptDef(OptimizationPass::kInductionVarAnalysis,
+           "induction_var_analysis$before_bce"),
     OptDef(OptimizationPass::kBoundsCheckElimination),
     OptDef(OptimizationPass::kLoopOptimization),
     // Simplification.
@@ -643,12 +645,20 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
            "constant_folding$after_bce"),
     OptDef(OptimizationPass::kInstructionSimplifier,
            "instruction_simplifier$after_bce"),
+    // TODO Only if BCE created deopts. Remove any DeoptimizeGuard instructions
+    // now that we're done moving them around.
+    OptDef(OptimizationPass::kCHAGuardOptimization),
+    OptDef(OptimizationPass::kDeconditionDeoptimize),
+    // TODO Only needed if we changed deopts.
+    OptDef(OptimizationPass::kInductionVarAnalysis,
+           "induction_var_analysis$before_loop_optimization"),
+    OptDef(OptimizationPass::kDeadCodeElimination,
+           "dead_code_elimination$after_bce"),
     // Other high-level optimizations.
     OptDef(OptimizationPass::kSideEffectsAnalysis,
            "side_effects$before_lse"),
     OptDef(OptimizationPass::kLoadStoreAnalysis),
     OptDef(OptimizationPass::kLoadStoreElimination),
-    OptDef(OptimizationPass::kCHAGuardOptimization),
     OptDef(OptimizationPass::kDeadCodeElimination,
            "dead_code_elimination$final"),
     OptDef(OptimizationPass::kCodeSinking),
