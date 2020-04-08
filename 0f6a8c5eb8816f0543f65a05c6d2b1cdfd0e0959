@@ -94,6 +94,30 @@
       "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "537601e1_4f0c6bf1",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T14:55:52Z",
+      "side": 1,
+      "message": "Ah I see, that\u0027s the missing bit :) Could you add that as a comment, either at top-level of the method, or line 950.",
+      "parentUuid": "a0b01e4a_0efd26d5",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 72
+      },
+      "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
