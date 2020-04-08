@@ -46,6 +46,30 @@
       "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96743e90_b886cbe5",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T14:46:41Z",
+      "side": 1,
+      "message": "Yes, but the information used is already in the returned method.",
+      "parentUuid": "f61d5268_88baf1e9",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 72
+      },
+      "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
