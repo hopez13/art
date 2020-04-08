@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cf1a18d_d34e9e16",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T14:23:59Z",
+      "side": 1,
+      "message": "I fail to find the value of target_method? Looks like you can get all the info in the caller from the returned method?",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 72
+      },
+      "revId": "0f6a8c5eb8816f0543f65a05c6d2b1cdfd0e0959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
