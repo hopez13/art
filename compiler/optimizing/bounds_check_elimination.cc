@@ -18,8 +18,11 @@
 
 #include <limits>
 
+#include "base/arena_allocator.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
+#include "decondition_deoptimize.h"
+#include "deoptimization_kind.h"
 #include "induction_var_range.h"
 #include "nodes.h"
 #include "side_effects_analysis.h"
@@ -1811,8 +1814,8 @@ class BCEVisitor : public HGraphVisitor {
     block->InsertInstructionBefore(condition, block->GetLastInstruction());
     DeoptimizationKind kind =
         is_null_check ? DeoptimizationKind::kLoopNullBCE : DeoptimizationKind::kLoopBoundsBCE;
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(), condition, kind, suspend->GetDexPc());
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
+        condition, kind, suspend->GetDexPc());
     block->InsertInstructionBefore(deoptimize, block->GetLastInstruction());
     if (suspend->HasEnvironment()) {
       deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
@@ -1824,8 +1827,7 @@ class BCEVisitor : public HGraphVisitor {
   void InsertDeoptInBlock(HBoundsCheck* bounds_check, HInstruction* condition) {
     HBasicBlock* block = bounds_check->GetBlock();
     block->InsertInstructionBefore(condition, bounds_check);
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(),
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
         condition,
         DeoptimizationKind::kBlockBCE,
         bounds_check->GetDexPc());
