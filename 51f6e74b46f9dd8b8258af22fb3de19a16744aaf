@@ -22,6 +22,30 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f9e2e0_fa09b3b1",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-08T16:07:57Z",
+      "side": 1,
+      "message": "Which O(1) do you mean?  Both class and method lookup needs O(log(n)) because it \"nearest\" DEX PC lookup (upper_bound), rather then exact DEX PC lookup (so we can not use hashmap).",
+      "parentUuid": "50aadf27_2eaa4665",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 81
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
