@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa461800_8fbc0412",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T15:58:50Z",
+      "side": 1,
+      "message": "I don\u0027t know - I couldn\u0027t find the point that would throw an exception that we wouldn\u0027t clear in handling invoke-static. I cannot reproduce locally, so I\u0027m adding those extra checks. But we can surely revert once we found the issue.",
+      "parentUuid": "76777c35_abf02d5f",
+      "revId": "2f0040cdead4746441238590f4a4effd975ae9eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de89ae25_7b7a8dc5",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "2f0040cdead4746441238590f4a4effd975ae9eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc03a20_2d657838",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-08T15:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de89ae25_7b7a8dc5",
+      "range": {
+        "startLine": 393,
+        "startChar": 12,
+        "endLine": 393,
+        "endChar": 13
+      },
+      "revId": "2f0040cdead4746441238590f4a4effd975ae9eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
