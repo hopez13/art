@@ -117,6 +117,24 @@
       "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "317dbff4_07e6e1ac",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-04-09T16:40:55Z",
+      "side": 1,
+      "message": "\u003e (e.g. 8 times the object size on 64-bit libstdc++; 16 times the object size or 4096 bytes, whichever is larger, on 64-bit libc++).\n\nI am pretty sure we build with libc++, so at least 4k.",
+      "parentUuid": "c58d5a5e_310a2320",
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
