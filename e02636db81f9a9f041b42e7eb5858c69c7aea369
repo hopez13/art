@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e764eaf3_38d34ea3",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T17:20:34Z",
+      "side": 1,
+      "message": "We could count the number of kept elements for the reserve() and then std::copy_if() directly to std::back_inserter(class_cache_).\n\n(Inspired by Martin\u0027s comment on PS4.)",
+      "range": {
+        "startLine": 165,
+        "startChar": 8,
+        "endLine": 165,
+        "endChar": 83
+      },
+      "revId": "e02636db81f9a9f041b42e7eb5858c69c7aea369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
