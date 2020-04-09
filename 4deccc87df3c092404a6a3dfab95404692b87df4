@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "e46fdeb3_92c4e847",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T08:51:05Z",
+      "side": 1,
+      "message": "I\u0027ve added a general comment about Setup functions and renamed this one to Setup.",
+      "parentUuid": "ea4ec747_73b3a2ea",
+      "range": {
+        "startLine": 1459,
+        "startChar": 2,
+        "endLine": 1459,
+        "endChar": 6
+      },
+      "revId": "4deccc87df3c092404a6a3dfab95404692b87df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4e0185c_443c8f5b",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 2
