@@ -272,6 +272,24 @@
     },
     {
       "key": {
+        "uuid": "a2024b29_5c5e266c",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T15:38:07Z",
+      "side": 1,
+      "message": "You can get creative with remove_if:\n\n  if (!v.empty()) {\n    auto end \u003d std::remove_if(\n        v.begin(),\n        std::prev(v.end()),\n        [](const auto\u0026 entry) {\n          const auto\u0026 next \u003d (\u0026entry)[1];\n          return entry.first \u003d\u003d entry.second;\n        });\n    if (std::next(end) !\u003d v.end()) {\n      *end \u003d v.back();\n      v.resize(std::distance(v.begin(), end) + 1u);\n    }\n    v.shrink_to_fit();\n  }\n\nBut you would have to trust the implementation to do the obvious thing and nothing weird.",
+      "parentUuid": "e3b8d9bd_d6ffdc8e",
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50aadf27_2eaa4665",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 2
