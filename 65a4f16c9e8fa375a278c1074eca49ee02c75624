@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f07e030_900303e3",
+        "filename": "compiler/optimizing/common_dominator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-04-09T17:06:36Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter I guess, but any reason not to have this be `std::unordered_set\u003cHBasicBlock*\u003e` instead of `void*`?",
+      "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "461600c9_fb17cb52",
         "filename": "compiler/optimizing/decondition_deoptimize.cc",
         "patchSetId": 1
@@ -19,6 +36,23 @@
         "endLine": 55,
         "endChar": 81
       },
+      "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d250039_f191c910",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-04-09T17:06:36Z",
+      "side": 1,
+      "message": "How do we lay out blocks for branches? If we put the true block first, we may want to reverse the conditional so the deoptimize block is further away from the hot code.",
       "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
