@@ -66,6 +66,29 @@
     },
     {
       "key": {
+        "uuid": "4d6dee0d_4ca3eb39",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T14:11:59Z",
+      "side": 1,
+      "message": "If you make all the types unsigned, you can simplify this as `dex_offset - offset \u003c len`.",
+      "range": {
+        "startLine": 127,
+        "startChar": 12,
+        "endLine": 127,
+        "endChar": 61
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2320587d_4bff13ba",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 2
@@ -157,6 +180,23 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beb748ae_eb5406c9",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T14:11:59Z",
+      "side": 1,
+      "message": "I think the cache construction would be faster and more memory efficient if you just added the pairs into a vector\u003c\u003e, and then called std::sort() before pruning the undesirable entries.",
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -252,6 +292,29 @@
       "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644cb563_8142de92",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T14:11:59Z",
+      "side": 1,
+      "message": "Rename to `cmp` or `comp` (this is a Compare object according to https://en.cppreference.com/w/cpp/algorithm/upper_bound ).",
+      "range": {
+        "startLine": 168,
+        "startChar": 9,
+        "endLine": 168,
+        "endChar": 13
+      },
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
