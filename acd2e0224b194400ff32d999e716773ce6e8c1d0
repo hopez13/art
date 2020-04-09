@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74ba6836_4329bc27",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-09T15:48:24Z",
+      "side": 1,
+      "message": "I would prefer we avoid this composite condition, for example\n\n  if (!cache.empty()) {\n    for (auto it \u003d cache.begin(), end \u003d std::prev(cache.end()); it !\u003d end; ++it) {\n      // ...\n    }\n  }\n\n(I see you got creative with the remove_if in your own way and it\u0027s easily readable.)",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 35
+      },
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
