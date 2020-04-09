@@ -200,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "05bec147_78991e6b",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-09T14:16:42Z",
+      "side": 1,
+      "message": "I tried that, but then the merging becomes more complex.\nThe end result would be the same either way, it is just choice of the temporary structure, so I went for the simpler (slower).",
+      "parentUuid": "beb748ae_eb5406c9",
+      "revId": "51f6e74b46f9dd8b8258af22fb3de19a16744aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50aadf27_2eaa4665",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 2
