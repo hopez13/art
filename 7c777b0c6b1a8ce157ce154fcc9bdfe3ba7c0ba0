@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8bdd42d_d7aeb9df",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-09T13:50:18Z",
+      "side": 1,
+      "message": "I need the class_idx value to cache it.",
+      "parentUuid": "d867b206_92721db6",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 88
+      },
+      "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e838e5e_7ae648ec",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "513af882_5b7e2017",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-09T13:50:18Z",
+      "side": 1,
+      "message": "It is just pain std::map, to the first inserted method will win.\n\nWe are mapping from dex_offset to method, so in case of shared code, there is not much we can do.  The first one wining seems reasonable.",
+      "parentUuid": "4e838e5e_7ae648ec",
+      "range": {
+        "startLine": 149,
+        "startChar": 26,
+        "endLine": 149,
+        "endChar": 32
+      },
+      "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
