@@ -22,6 +22,23 @@
       "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4edfdb9c_bbb161e4",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-09T16:17:17Z",
+      "side": 1,
+      "message": "This moves elements around a bit, doesn\u0027t it? You could instead count the elements to keep in the loop above, and copy them in another loop that replaces the class_cache_.insert() below.",
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
