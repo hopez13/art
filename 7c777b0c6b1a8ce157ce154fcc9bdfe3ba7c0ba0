@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fb8c7ebd_3c1edda0",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-04-09T15:41:20Z",
+      "side": 1,
+      "message": "There is a getter that does that: GetClassDefIndex",
+      "parentUuid": "b8bdd42d_d7aeb9df",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 88
+      },
+      "revId": "7c777b0c6b1a8ce157ce154fcc9bdfe3ba7c0ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e838e5e_7ae648ec",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 3
