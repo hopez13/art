@@ -81,6 +81,24 @@
       "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b8fa0a4_2acc5593",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-09T16:35:28Z",
+      "side": 1,
+      "message": "Sure, there was no different in ordo, only constant extra work moving elements around.\n\n\u003e With the std::map gone, I guess the copy below is redundant actually.\n\nUsing the deque directly for the binary search is a bit slower though:\n\nhttps://en.cppreference.com/w/cpp/container/deque: \"As opposed to std::vector, the elements of a deque are not stored contiguously: typical implementations use a sequence of individually allocated fixed-size arrays, with additional bookkeeping, which means indexed access to deque must perform two pointer dereferences, compared to vector\u0027s indexed access which performs only one.\"\n\nIsn\u0027t it better to pay for an extra copy here to keep the vector?",
+      "parentUuid": "54cc4333_d56b26e3",
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
