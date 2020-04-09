@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37cd6a73_e7bd96a3",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-09T16:23:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74ba6836_4329bc27",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 35
+      },
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4edfdb9c_bbb161e4",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54cc4333_d56b26e3",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-04-09T16:23:07Z",
+      "side": 1,
+      "message": "remove_if is pretty clever: O(n) \n\nWith the std::map gone, I guess the copy below is redundant actually.",
+      "parentUuid": "4edfdb9c_bbb161e4",
+      "revId": "acd2e0224b194400ff32d999e716773ce6e8c1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
