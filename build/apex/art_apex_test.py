@@ -482,7 +482,8 @@ class ReleaseChecker:
     self._checker.check_file('apex_manifest.pb')
 
     # Check binaries for ART.
-    self._checker.check_executable('dex2oat')
+    self._checker.check_executable('dex2oat32')
+    self._checker.check_executable('dex2oat64')
     self._checker.check_executable('dexdump')
     self._checker.check_executable('dexlist')
     self._checker.check_executable('dexoptanalyzer')
@@ -614,7 +615,8 @@ class ReleaseHostChecker:
   def run(self):
     # Check binaries for ART.
     self._checker.check_executable('hprof-conv')
-    self._checker.check_executable('dex2oatd')
+    self._checker.check_executable('dex2oatd32')
+    self._checker.check_executable('dex2oatd64')
 
     # Check exported native libraries for Managed Core Library.
     self._checker.check_native_library('libandroidicu-host')
@@ -674,7 +676,8 @@ class DebugTargetChecker:
 
   def run(self):
     # Check ART debug binaries.
-    self._checker.check_executable('dex2oatd')
+    self._checker.check_executable('dex2oatd32')
+    self._checker.check_executable('dex2oatd64')
     self._checker.check_executable('oatdumpd')
 
     # Check ART internal libraries.
