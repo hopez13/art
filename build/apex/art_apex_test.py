@@ -412,7 +412,7 @@ class Arch32Checker(Checker):
     self.check_executable_symlink(filename)
 
   def check_multilib_executable(self, filename):
-    self.check_executable(filename)
+    self.check_executable('%s32' % filename)
 
   def check_native_library(self, basename):
     # TODO: Use $TARGET_ARCH (e.g. check whether it is "arm" or "arm64") to improve
@@ -454,7 +454,7 @@ class MultilibChecker(Checker):
 
   def check_multilib_executable(self, filename):
     self.check_executable('%s64' % filename)
-    self.check_executable(filename)
+    self.check_executable('%s32' % filename)
 
   def check_native_library(self, basename):
     # TODO: Use $TARGET_ARCH (e.g. check whether it is "arm" or "arm64") to improve
@@ -482,7 +482,7 @@ class ReleaseChecker:
     self._checker.check_file('apex_manifest.pb')
 
     # Check binaries for ART.
-    self._checker.check_executable('dex2oat')
+    self._checker.check_multilib_executable('dex2oat')
     self._checker.check_executable('dexdump')
     self._checker.check_executable('dexlist')
     self._checker.check_executable('dexoptanalyzer')
@@ -614,7 +614,7 @@ class ReleaseHostChecker:
   def run(self):
     # Check binaries for ART.
     self._checker.check_executable('hprof-conv')
-    self._checker.check_executable('dex2oatd')
+    self._checker.check_symlink_multilib_executable('dex2oatd')
 
     # Check exported native libraries for Managed Core Library.
     self._checker.check_native_library('libandroidicu-host')
@@ -674,7 +674,7 @@ class DebugTargetChecker:
 
   def run(self):
     # Check ART debug binaries.
-    self._checker.check_executable('dex2oatd')
+    self._checker.check_multilib_executable('dex2oatd')
     self._checker.check_executable('oatdumpd')
 
     # Check ART internal libraries.
