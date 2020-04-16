@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03769fda_a38dd090",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-16T13:01:40Z",
+      "side": 1,
+      "message": "Nit: the helpers currently only add a DCHECK and are used once. You probably plan to extend them in the follow-up CLs (in that case ignore this comment), otherwise maybe move the DCHECKs into the calling functions and get rid of the helpers?",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 5
+      },
+      "revId": "bc83c41353a57d9123bfd061a3bc8daac5955fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24a90ea8_1832d38a",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-04-16T13:01:40Z",
+      "side": 1,
+      "message": "Nit: the highlighted space should be removed I think.",
+      "range": {
+        "startLine": 1530,
+        "startChar": 4,
+        "endLine": 1530,
+        "endChar": 29
+      },
+      "revId": "bc83c41353a57d9123bfd061a3bc8daac5955fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
