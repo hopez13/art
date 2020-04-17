@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "95e60c55_7be1dbb1",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:32:39Z",
+      "side": 1,
+      "message": "Ah sorry, I did not realize that `symlink_preferred_arch: true` (https://android-review.googlesource.com/c/platform/art/+/1286852/4/dex2oat/Android.bp#290) applied only in the `target: host` case for `dex2oat` and `dex2oatd`, so this is indeed fine; however…",
+      "parentUuid": "b1f6421f_0fb5c326",
+      "range": {
+        "startLine": 485,
+        "startChar": 18,
+        "endLine": 485,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08e04120_e2821e73",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
@@ -83,6 +107,30 @@
       "writtenOn": "2020-04-17T09:14:58Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 617,
+        "startChar": 18,
+        "endLine": 617,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d0749d_25b3ff5f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:32:39Z",
+      "side": 1,
+      "message": "…I think this one should be `check_symlinked_multilib_executable` as this is the host case, for the same reasons.",
+      "parentUuid": "08e04120_e2821e73",
       "range": {
         "startLine": 617,
         "startChar": 18,
@@ -115,6 +163,30 @@
       "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a4938cd_0a23024b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:32:39Z",
+      "side": 1,
+      "message": "Also fine, no need to change.",
+      "parentUuid": "86a615ab_0f609cf2",
+      "range": {
+        "startLine": 677,
+        "startChar": 18,
+        "endLine": 677,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
