@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd2e99a2_eafc24ed",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-17T14:47:53Z",
+      "side": 1,
+      "message": "This is guarded by `if (kSuperblockClonerVerify)` on ToT. Please rebase and resolve the conflict.",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 3
+      },
+      "revId": "56524e2eefbb57a9306a94ed4d6b8dd94be38608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
