@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b1f6421f_0fb5c326",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-17T09:19:22Z",
+      "side": 1,
+      "message": "No, there\u0027s no symlink for dex2oat (and we should actually not have them for all other binaries as it doesn\u0027t make sense for a unique apex for all devices).",
+      "parentUuid": "9ba397d2_e0fcac23",
+      "range": {
+        "startLine": 485,
+        "startChar": 18,
+        "endLine": 485,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08e04120_e2821e73",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
