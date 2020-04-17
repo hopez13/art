@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1749c5a_dbffa971",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:14:58Z",
+      "side": 1,
+      "message": "Could you also add:\n\n  Test: art/build/apex/runtests.sh\n\nwhich does a bit more testing (like building and checking the Host ART APEX)?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba397d2_e0fcac23",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:14:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `check_symlinked_multilib_executable`?",
+      "range": {
+        "startLine": 485,
+        "startChar": 18,
+        "endLine": 485,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08e04120_e2821e73",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:14:58Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 617,
+        "startChar": 18,
+        "endLine": 617,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86a615ab_0f609cf2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-17T09:14:58Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 677,
+        "startChar": 18,
+        "endLine": 677,
+        "endChar": 43
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
