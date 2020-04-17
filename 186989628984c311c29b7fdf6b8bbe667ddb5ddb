@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7de8d134_0c227da9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-04-17T12:13:20Z",
+      "side": 1,
+      "message": "Removed as external/boringssl is shared between ART and conscrypt.",
+      "parentUuid": "fda27882_1230ceac",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b2fd7bd_2f50d623",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 1
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "b38740e9_2a3a428c",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-04-17T12:13:20Z",
+      "side": 1,
+      "message": "Removed as external/boringssl is shared between ART and conscrypt.",
+      "parentUuid": "9418fcd6_e93f08e2",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "028a5072_79ebdb7f",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 1
@@ -155,6 +203,30 @@
       "side": 1,
       "message": "If we don\u0027t export it then conscrypt won\u0027t build.",
       "parentUuid": "028a5072_79ebdb7f",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aba7c6d_c60e75e5",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-04-17T12:13:20Z",
+      "side": 1,
+      "message": "Removed as external/boringssl is shared between ART and conscrypt.",
+      "parentUuid": "d3e1056d_5fc4e6ea",
       "range": {
         "startLine": 34,
         "startChar": 9,
@@ -379,6 +451,30 @@
       "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af15ed59_b044e7e2",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-04-17T12:13:20Z",
+      "side": 1,
+      "message": "Removed as external/boringssl is shared between ART and conscrypt.",
+      "parentUuid": "94ccaccd_0fdeabf0",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 36
+      },
+      "revId": "186989628984c311c29b7fdf6b8bbe667ddb5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
