@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0348e230_29b738b3",
+        "filename": "test/2033-shutdown-mechanics/native_shutdown.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-17T22:42:22Z",
+      "side": 1,
+      "message": "Hopefully fixed that.",
+      "parentUuid": "47c66f23_74e3c577",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "2f2169287a855052ac4d9d9dcc75005f6b26e100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620408e8_4473f706",
         "filename": "test/2033-shutdown-mechanics/native_shutdown.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6a5002bd_4d9bc3c5",
+        "filename": "test/2033-shutdown-mechanics/native_shutdown.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-17T22:42:22Z",
+      "side": 1,
+      "message": "Based on a survey of existing code, printf easily wins. I don\u0027t much care ...",
+      "parentUuid": "620408e8_4473f706",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "2f2169287a855052ac4d9d9dcc75005f6b26e100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d011222_5dda8d9b",
         "filename": "test/2033-shutdown-mechanics/native_shutdown.cc",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "2f2169287a855052ac4d9d9dcc75005f6b26e100",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c435f9f7_6277ed7b",
+        "filename": "test/2033-shutdown-mechanics/native_shutdown.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-17T22:42:22Z",
+      "side": 1,
+      "message": "Goode idea. Done.",
+      "parentUuid": "3d011222_5dda8d9b",
+      "range": {
+        "startLine": 51,
+        "startChar": 6,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "2f2169287a855052ac4d9d9dcc75005f6b26e100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
