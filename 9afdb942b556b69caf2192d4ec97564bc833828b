@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3aa9919_a59f1b7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2020-04-19T23:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1749c5a_dbffa971",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "9afdb942b556b69caf2192d4ec97564bc833828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ba397d2_e0fcac23",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
