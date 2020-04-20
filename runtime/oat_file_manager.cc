@@ -602,6 +602,10 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
               runtime->GetHeap()->RemoveSpace(image_space.get());
             }
             // Non-fatal, don't update error_msg.
+
+            LOG(INFO) << "Unloading oat file because app image failed to load";
+            UnRegisterAndDeleteOatFile(source_oat_file);
+            *out_oat_file = nullptr;
           }
         }
       }
