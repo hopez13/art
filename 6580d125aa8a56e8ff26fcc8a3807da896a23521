@@ -22,6 +22,30 @@
       "revId": "6580d125aa8a56e8ff26fcc8a3807da896a23521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a15841_01c76b7e",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-04-20T18:22:31Z",
+      "side": 1,
+      "message": "This happens before we look at the app image. I wasn\u0027t if we can switch the order, but I can give it a try.",
+      "parentUuid": "2ce08a19_6235c570",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 539,
+        "endChar": 5
+      },
+      "revId": "6580d125aa8a56e8ff26fcc8a3807da896a23521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
