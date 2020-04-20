@@ -607,13 +607,9 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
       }
     }
     if (!added_image_space) {
-      DCHECK(dex_files.empty());
-      dex_files = oat_file_assistant.LoadDexFiles(*source_oat_file, dex_location);
-
-      // Register for tracking.
-      for (const auto& dex_file : dex_files) {
-        dex::tracking::RegisterDexFile(dex_file.get());
-      }
+      LOG(INFO) << "Unloading oat file because app image failed to load";
+      UnRegisterAndDeleteOatFile(source_oat_file);
+      *out_oat_file = nullptr;
     }
     if (dex_files.empty()) {
       error_msgs->push_back("Failed to open dex files from " + source_oat_file->GetLocation());
