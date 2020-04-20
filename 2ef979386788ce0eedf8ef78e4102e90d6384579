@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d9229c9_589d3c53",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-20T08:43:58Z",
+      "side": 1,
+      "message": "Can you add a comment there?",
+      "range": {
+        "startLine": 1210,
+        "startChar": 0,
+        "endLine": 1210,
+        "endChar": 33
+      },
+      "revId": "2ef979386788ce0eedf8ef78e4102e90d6384579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d9f52d7_6c87999b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-20T08:43:58Z",
+      "side": 1,
+      "message": "Can you explain why fastnative (only?) comes into play here?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 53,
+        "endLine": 1216,
+        "endChar": 63
+      },
+      "revId": "2ef979386788ce0eedf8ef78e4102e90d6384579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
