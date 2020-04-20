@@ -22,6 +22,30 @@
       "revId": "ea0962d34ee69223ae5c5d5d541dec9892980d19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4729f45e_8d178688",
+        "filename": "test/941-recursive-obsolete-jit/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-20T18:27:42Z",
+      "side": 1,
+      "message": "Right; I renamed the directory in https://android-review.googlesource.com/c/platform/art/+/1291000 and adjust this CL in patchsets 7 and 8.",
+      "parentUuid": "e5665d17_ae7103b2",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 36
+      },
+      "revId": "ea0962d34ee69223ae5c5d5d541dec9892980d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
