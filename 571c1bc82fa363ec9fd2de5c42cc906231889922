@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "58a07840_b01c1a06",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-20T15:21:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3916df07_b3b5fd2c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8716c285_1ce02b81",
         "filename": "runtime/nterp_helpers.cc",
         "patchSetId": 3
@@ -884,6 +908,30 @@
       "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7e750a1_5609743f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-20T15:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd6336ad_0e923c01",
+      "range": {
+        "startLine": 757,
+        "startChar": 44,
+        "endLine": 757,
+        "endChar": 50
+      },
+      "revId": "571c1bc82fa363ec9fd2de5c42cc906231889922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

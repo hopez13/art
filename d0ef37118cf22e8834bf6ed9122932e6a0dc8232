@@ -117,6 +117,30 @@
       "revId": "d0ef37118cf22e8834bf6ed9122932e6a0dc8232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "755271f7_e9bb7258",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-20T15:21:40Z",
+      "side": 1,
+      "message": "This cannot be added to the GetNterpEntryPoint() because that needs the Thumb flag (assuming T32 implementation rather than A32). So the change needs to be here.",
+      "parentUuid": "a3e8d320_919750c9",
+      "range": {
+        "startLine": 94,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 72
+      },
+      "revId": "d0ef37118cf22e8834bf6ed9122932e6a0dc8232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
