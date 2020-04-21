@@ -70,6 +70,30 @@
       "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484a84f7_ac693c63",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-04-21T16:30:28Z",
+      "side": 1,
+      "message": "I like the idea of having a flag that says an OAT file requires an app image.\n\nEven without the flag though, we\u0027d run in interpreter/JIT mode, which may be good enough if these cases are rare.\n\nFor the flag, I\u0027m guessing we could have dex2oat set it if it is generating an app image in addition to compiling?",
+      "parentUuid": "091b626a_87bf5385",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
