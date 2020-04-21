@@ -118,6 +118,30 @@
       "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db99421_549cc0e3",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-04-21T20:44:15Z",
+      "side": 1,
+      "message": "Sounds good. Do you think a flag in the odex file that says an app image is required would be reasonable? If we set that flag, then we can generate code assuming the image exists, and otherwise we keep the current behavior.",
+      "parentUuid": "802af413_09785e91",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
