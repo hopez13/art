@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53061b8f_dcc05b03",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-21T15:15:06Z",
+      "side": 1,
+      "message": "I think as-is this might break the ART Buildbot, as we don\u0027t run `lunch` there, and we don\u0027t (yet) define `ANDROID_HOST_OUT` there.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 6
+      },
+      "revId": "bf6bdc06c83e5d119282308aa23e50b2821a5a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
