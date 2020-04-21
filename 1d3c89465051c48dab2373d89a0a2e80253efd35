@@ -22,6 +22,30 @@
       "revId": "1d3c89465051c48dab2373d89a0a2e80253efd35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eee2916_b7af7d1a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-21T16:12:57Z",
+      "side": 1,
+      "message": "That fixes the test failure for 004-JniTest as it preserves the -XX:SlowDebug\u003dtrue from line 111.",
+      "parentUuid": "374b2636_389ec5ef",
+      "range": {
+        "startLine": 116,
+        "startChar": 17,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "1d3c89465051c48dab2373d89a0a2e80253efd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
