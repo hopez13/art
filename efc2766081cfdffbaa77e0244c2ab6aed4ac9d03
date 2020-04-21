@@ -142,6 +142,30 @@
       "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f698e4b6_9c170e43",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-21T20:49:28Z",
+      "side": 1,
+      "message": "Maybe we can use the speed-profile filter as such a flag? Ie if the odex is speed-profile then we must also load an image.",
+      "parentUuid": "9db99421_549cc0e3",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
