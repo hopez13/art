@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38f44a9b_e4b4169c",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-21T21:24:07Z",
+      "side": 1,
+      "message": "Can\u0027t you use \u0027oss\u0027 here too? In fact, otherwise wouldn\u0027t it print spaces and maps first and then the content of oss (below)?",
+      "range": {
+        "startLine": 110,
+        "startChar": 44,
+        "endLine": 110,
+        "endChar": 75
+      },
+      "revId": "c53945428754e8e078c317086f41612ede0a05f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
