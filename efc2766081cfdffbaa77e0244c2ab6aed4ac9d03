@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9488a511_78883c38",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-21T10:53:57Z",
+      "side": 1,
+      "message": "If there is an .odex file but no .art file, we still want to load the .odex file. So this check looks wrong?",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
