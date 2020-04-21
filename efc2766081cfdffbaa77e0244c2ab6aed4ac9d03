@@ -94,6 +94,30 @@
       "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "802af413_09785e91",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-21T20:36:00Z",
+      "side": 1,
+      "message": "There are still some cases we don\u0027t have an image (compiler filter verify, quicken, speed, etc). For those cases, we still want to support loading an .odex file when we don\u0027t have an image.",
+      "parentUuid": "484a84f7_ac693c63",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
