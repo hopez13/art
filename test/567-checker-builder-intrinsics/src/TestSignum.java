@@ -14,70 +14,108 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.Method;
+public class TestSignum {
 
-public class Main {
-
-  /// CHECK-START: int Main.signByte(byte) builder (after)
+  /// CHECK-START: int TestSignum.signByte(byte) builder (after)
   /// CHECK-DAG:     <<Result:i\d+>> Compare
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.signByte(byte) builder (after)
+  /// CHECK-START: int TestSignum.signByte(byte) builder (after)
   /// CHECK-NOT:                     InvokeStaticOrDirect
 
   private static int signByte(byte x) {
     return Integer.signum(x);
   }
 
-  /// CHECK-START: int Main.signShort(short) builder (after)
+  /// CHECK-START: int TestSignum.signShort(short) builder (after)
   /// CHECK-DAG:     <<Result:i\d+>> Compare
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.signShort(short) builder (after)
+  /// CHECK-START: int TestSignum.signShort(short) builder (after)
   /// CHECK-NOT:                     InvokeStaticOrDirect
 
   private static int signShort(short x) {
     return Integer.signum(x);
   }
 
-  /// CHECK-START: int Main.signChar(char) builder (after)
+  /// CHECK-START: int TestSignum.signChar(char) builder (after)
   /// CHECK-DAG:     <<Result:i\d+>> Compare
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.signChar(char) builder (after)
+  /// CHECK-START: int TestSignum.signChar(char) builder (after)
   /// CHECK-NOT:                     InvokeStaticOrDirect
 
   private static int signChar(char x) {
     return Integer.signum(x);
   }
 
-  /// CHECK-START: int Main.signInt(int) builder (after)
+  /// CHECK-START: int TestSignum.signInt(int) builder (after)
   /// CHECK-DAG:     <<Result:i\d+>> Compare
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.signInt(int) builder (after)
+  /// CHECK-START: int TestSignum.signInt(int) builder (after)
   /// CHECK-NOT:                     InvokeStaticOrDirect
 
   private static int signInt(int x) {
     return Integer.signum(x);
   }
 
-  /// CHECK-START: int Main.signLong(long) builder (after)
+  /// CHECK-START: int TestSignum.signLong(long) builder (after)
   /// CHECK-DAG:     <<Result:i\d+>> Compare
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.signLong(long) builder (after)
+  /// CHECK-START: int TestSignum.signLong(long) builder (after)
   /// CHECK-NOT:                     InvokeStaticOrDirect
 
   private static int signLong(long x) {
     return Long.signum(x);
   }
 
+  /// CHECK-START: int TestSignum.signBoolean(boolean) builder (after)
+  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
+  /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<One>>,<<Zero>>]
+  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Phi>>,<<Zero>>]
+  /// CHECK-DAG:                     Return [<<Result>>]
 
-  public static void testSignBoolean() throws Exception {
-    Method signBoolean = Class.forName("Main2").getMethod("signBoolean", boolean.class);
-    expectEquals(0, (int)signBoolean.invoke(null, false));
-    expectEquals(1, (int)signBoolean.invoke(null, true));
+  /// CHECK-START: int TestSignum.signBoolean(boolean) builder (after)
+  /// CHECK-NOT:                     InvokeStaticOrDirect
+
+  /// CHECK-START: int TestSignum.signBoolean(boolean) select_generator (after)
+  /// CHECK-DAG:     <<Arg:z\d+>>    ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>    IntConstant 1
+  /// CHECK-DAG:     <<Sel:i\d+>>    Select [<<Zero>>,<<One>>,<<Arg>>]
+  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Sel>>,<<Zero>>]
+  /// CHECK-DAG:                     Return [<<Result>>]
+
+  /// CHECK-START: int TestSignum.signBoolean(boolean) select_generator (after)
+  /// CHECK-NOT:                     Phi
+
+  /// CHECK-START: int TestSignum.signBoolean(boolean) instruction_simplifier$after_bce (after)
+  /// CHECK-DAG:     <<Arg:z\d+>>    ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
+  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Arg>>,<<Zero>>]
+  /// CHECK-DAG:                     Return [<<Result>>]
+
+  /// CHECK-START: int TestSignum.signBoolean(boolean) instruction_simplifier$after_bce (after)
+  /// CHECK-NOT:                     Select
+
+  private static int signBoolean(boolean x) {
+    // Note: D8 would replace the ternary expression `x ? 1 : 0` with `x`
+    // but explicit `if` is preserved.
+    int src_x;
+    if (x) {
+      src_x = 1;
+    } else {
+      src_x = 0;
+    }
+    return Integer.signum(src_x);
+  }
+
+  public static void testSignBoolean() {
+    expectEquals(0, signBoolean(false));
+    expectEquals(1, signBoolean(true));
   }
 
   public static void testSignByte() {
@@ -157,7 +195,7 @@ public class Main {
   }
 
 
-  public static void main(String args[]) throws Exception {
+  public static void main() {
     testSignBoolean();
     testSignByte();
     testSignShort();
@@ -165,7 +203,7 @@ public class Main {
     testSignInt();
     testSignLong();
 
-    System.out.println("passed");
+    System.out.println("TestSignum passed");
   }
 
   private static void expectEquals(int expected, int result) {

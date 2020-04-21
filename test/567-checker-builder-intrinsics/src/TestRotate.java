@@ -14,141 +14,137 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.Method;
+public class TestRotate {
 
-public class Main {
-
-  private static Class main2;
-
-  /// CHECK-START: int Main.rotateLeftByte(byte, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftByte(byte, int) builder (after)
   /// CHECK:         <<ArgVal:b\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateLeftByte(byte, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftByte(byte, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateLeftByte(byte value, int distance) {
     return Integer.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateLeftShort(short, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftShort(short, int) builder (after)
   /// CHECK:         <<ArgVal:s\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateLeftShort(short, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftShort(short, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateLeftShort(short value, int distance) {
     return Integer.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateLeftChar(char, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftChar(char, int) builder (after)
   /// CHECK:         <<ArgVal:c\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateLeftChar(char, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftChar(char, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateLeftChar(char value, int distance) {
     return Integer.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateLeftInt(int, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftInt(int, int) builder (after)
   /// CHECK:         <<ArgVal:i\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateLeftInt(int, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftInt(int, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateLeftInt(int value, int distance) {
     return Integer.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: long Main.rotateLeftLong(long, int) builder (after)
+  /// CHECK-START: long TestRotate.rotateLeftLong(long, int) builder (after)
   /// CHECK:         <<ArgVal:j\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:j\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: long Main.rotateLeftLong(long, int) builder (after)
+  /// CHECK-START: long TestRotate.rotateLeftLong(long, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static long rotateLeftLong(long value, int distance) {
     return Long.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateRightByte(byte, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightByte(byte, int) builder (after)
   /// CHECK:         <<ArgVal:b\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateRightByte(byte, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightByte(byte, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateRightByte(byte value, int distance) {
     return Integer.rotateRight(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateRightShort(short, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightShort(short, int) builder (after)
   /// CHECK:         <<ArgVal:s\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateRightShort(short, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightShort(short, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateRightShort(short value, int distance) {
     return Integer.rotateRight(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateRightChar(char, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightChar(char, int) builder (after)
   /// CHECK:         <<ArgVal:c\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateRightChar(char, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightChar(char, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateRightChar(char value, int distance) {
     return Integer.rotateRight(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateRightInt(int, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightInt(int, int) builder (after)
   /// CHECK:         <<ArgVal:i\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateRightInt(int, int) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightInt(int, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateRightInt(int value, int distance) {
     return Integer.rotateRight(value, distance);
   }
 
-  /// CHECK-START: long Main.rotateRightLong(long, int) builder (after)
+  /// CHECK-START: long TestRotate.rotateRightLong(long, int) builder (after)
   /// CHECK:         <<ArgVal:j\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:j\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: long Main.rotateRightLong(long, int) builder (after)
+  /// CHECK-START: long TestRotate.rotateRightLong(long, int) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static long rotateRightLong(long value, int distance) {
@@ -156,40 +152,86 @@ public class Main {
   }
 
 
-  /// CHECK-START: int Main.rotateLeftIntWithByteDistance(int, byte) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftIntWithByteDistance(int, byte) builder (after)
   /// CHECK:         <<ArgVal:i\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:b\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateLeftIntWithByteDistance(int, byte) builder (after)
+  /// CHECK-START: int TestRotate.rotateLeftIntWithByteDistance(int, byte) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateLeftIntWithByteDistance(int value, byte distance) {
     return Integer.rotateLeft(value, distance);
   }
 
-  /// CHECK-START: int Main.rotateRightIntWithByteDistance(int, byte) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightIntWithByteDistance(int, byte) builder (after)
   /// CHECK:         <<ArgVal:i\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:b\d+>> ParameterValue
   /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
 
-  /// CHECK-START: int Main.rotateRightIntWithByteDistance(int, byte) builder (after)
+  /// CHECK-START: int TestRotate.rotateRightIntWithByteDistance(int, byte) builder (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
 
   private static int rotateRightIntWithByteDistance(int value, byte distance) {
     return Integer.rotateRight(value, distance);
   }
 
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) builder (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
+  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Val>>,<<NegDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
 
-  public static void testRotateLeftBoolean() throws Exception {
-    Method rotateLeftBoolean = main2.getMethod("rotateLeftBoolean", boolean.class, int.class);
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) builder (after)
+  /// CHECK-NOT:                      InvokeStaticOrDirect
+
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) select_generator (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<SelVal:i\d+>>  Select [<<Zero>>,<<One>>,<<ArgVal>>]
+  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<SelVal>>,<<NegDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
+
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) select_generator (after)
+  /// CHECK-NOT:                      Phi
+
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) instruction_simplifier$after_bce (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
+
+  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) instruction_simplifier$after_bce (after)
+  /// CHECK-NOT:                      Select
+
+  private static int rotateLeftBoolean(boolean value, int distance) {
+    // Note: D8 would replace the ternary expression `value ? 1 : 0` with `value`
+    // but explicit `if` is preserved.
+    int src;
+    if (value) {
+      src = 1;
+    } else {
+      src = 0;
+    }
+    return Integer.rotateLeft(src, distance);
+  }
+
+  public static void testRotateLeftBoolean() {
     for (int i = 0; i < 40; i++) {  // overshoot a bit
       int j = i & 31;
-      expectEqualsInt(0, (int)rotateLeftBoolean.invoke(null, false, i));
-      expectEqualsInt(1 << i, (int)rotateLeftBoolean.invoke(null, true, i));
+      expectEqualsInt(0, rotateLeftBoolean(false, i));
+      expectEqualsInt(1 << j, rotateLeftBoolean(true, i));
     }
   }
 
@@ -284,12 +326,56 @@ public class Main {
     }
   }
 
-  public static void testRotateRightBoolean() throws Exception {
-    Method rotateRightBoolean = main2.getMethod("rotateRightBoolean", boolean.class, int.class);
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) builder (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<Val:i\d+>>     Phi [<<One>>,<<Zero>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Val>>,<<ArgDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
+
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) builder (after)
+  /// CHECK-NOT:                      InvokeStaticOrDirect
+
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) select_generator (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<Zero:i\d+>>    IntConstant 0
+  /// CHECK-DAG:     <<One:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<SelVal:i\d+>>  Select [<<Zero>>,<<One>>,<<ArgVal>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<SelVal>>,<<ArgDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
+
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) select_generator (after)
+  /// CHECK-NOT:                     Phi
+
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) instruction_simplifier$after_bce (after)
+  /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
+  /// CHECK:         <<ArgDist:i\d+>> ParameterValue
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
+  /// CHECK-DAG:                      Return [<<Result>>]
+
+  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) instruction_simplifier$after_bce (after)
+  /// CHECK-NOT:                     Select
+
+  private static int rotateRightBoolean(boolean value, int distance) {
+    // Note: D8 would replace the ternary expression `value ? 1 : 0` with `value`
+    // but explicit `if` is preserved.
+    int src;
+    if (value) {
+      src = 1;
+    } else {
+      src = 0;
+    }
+    return Integer.rotateRight(src, distance);
+  }
+
+  public static void testRotateRightBoolean() {
     for (int i = 0; i < 40; i++) {  // overshoot a bit
-      int j = i & 31;
-      expectEqualsInt(0, (int)rotateRightBoolean.invoke(null, false, i));
-      expectEqualsInt(1 << (32 - i), (int)rotateRightBoolean.invoke(null, true, i));
+      int j = (-i) & 31;
+      expectEqualsInt(0, rotateRightBoolean(false, i));
+      expectEqualsInt(1 << j, rotateRightBoolean(true, i));
     }
   }
 
@@ -423,9 +509,7 @@ public class Main {
   }
 
 
-  public static void main(String args[]) throws Exception {
-    main2 = Class.forName("Main2");
-
+  public static void main() {
     testRotateLeftBoolean();
     testRotateLeftByte();
     testRotateLeftShort();
@@ -444,7 +528,7 @@ public class Main {
     testRotateLeftIntWithByteDistance();
     testRotateRightIntWithByteDistance();
 
-    System.out.println("passed");
+    System.out.println("TestRotate passed");
   }
 
 
