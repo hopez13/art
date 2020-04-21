@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1ec4862_701a0ed0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-21T22:24:08Z",
+      "side": 1,
+      "message": "\"fraction of the current maximum heap size\"?\n\nBased on our discussion, I wonder whether .05 is too much. Maybe .01 or .02? I\u0027m really concerned about the case in which we only get bytes or kbytes, rather than mbytes back.",
+      "range": {
+        "startLine": 1742,
+        "startChar": 5,
+        "endLine": 1742,
+        "endChar": 15
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32eb57ae_82557dcb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-21T22:24:08Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 1787,
+        "startChar": 59,
+        "endLine": 1787,
+        "endChar": 76
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d801b69f_d526a91e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-21T22:24:08Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 1789,
+        "startChar": 16,
+        "endLine": 1789,
+        "endChar": 21
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "100a6734_f01aad9f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-21T22:24:08Z",
+      "side": 1,
+      "message": "Factor out the test into a function, since it\u0027s repeated below?",
+      "range": {
+        "startLine": 1803,
+        "startChar": 6,
+        "endLine": 1807,
+        "endChar": 56
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1c662e_df23c15d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-21T22:24:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we be using growth_limit_ here?",
+      "range": {
+        "startLine": 1832,
+        "startChar": 28,
+        "endLine": 1832,
+        "endChar": 45
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
