@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590323",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [
+        {
+          "fixId": "393a9635_2a46f4b5",
+          "description": "Change to \"test/1972-math-prec/src/com/android/calculator2/evaluation/UnifiedReal.java\"",
+          "replacements": [
+            {
+              "path": "test/1972-math-prec/src/com/android/calculator2/evaluation/UnifiedReal.java",
+              "range": {
+                "startLine": 1473,
+                "startChar": 4,
+                "endLine": 1473,
+                "endChar": 10
+              },
+              "replacement": " Don\u0027t "
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "137b27eb_d91b87fb",
+        "filename": "test/1972-math-prec/src/com/android/calculator2/evaluation/UnifiedReal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1473,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Common typo found: \" Dont \" -- should it be \" Don\u0027t \"?\nCheck whether the apostrophe needs to be escaped.\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 1473,
+        "startChar": 4,
+        "endLine": 1473,
+        "endChar": 10
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "be932334_aacc8f59",
+        "filename": "test/1972-math-prec/src/com/hp/creals/StringFloatRep.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nWARRANTY\n",
+      "range": {
+        "startLine": 7,
+        "startChar": 57,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "d8fd52ed_437d73cc",
+        "filename": "test/1972-math-prec/src/com/hp/creals/StringFloatRep.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nLIABILITY...DISCLAIMER...WARRANTY...HEREUNDER...DISCLAIMER...NEGLIGENCE...LIABILITY...LIABLE...INCIDENTAL...DAMAGES...DAMAGES...DAMAGES...DAMAGES...LIABILITY...LIABILITY...NEGLIGENCE...APPLICABLE LAW...JURISDICTIONS...INCIDENTAL...DAMAGES\n",
+      "range": {
+        "startLine": 13,
+        "startChar": 39,
+        "endLine": 29,
+        "endChar": 66
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "57eec6af_6b9b0bc3",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nWARRANTY...LIABILITY...DISCLAIMER...WARRANTY...HEREUNDER...DISCLAIMER...NEGLIGENCE...LIABILITY...LIABLE...INCIDENTAL...DAMAGES...DAMAGES...DAMAGES...DAMAGES...LIABILITY...LIABILITY...NEGLIGENCE...APPLICABLE LAW...JURISDICTIONS...INCIDENTAL...DAMAGES...governed...the laws of...litigation...license...jurisdiction...jurisdiction\n",
+      "range": {
+        "startLine": 7,
+        "startChar": 57,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "113d617b_5679f9a1",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative...derivative\n",
+      "range": {
+        "startLine": 163,
+        "startChar": 15,
+        "endLine": 165,
+        "endChar": 21
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "55842402_a0eb8059",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative\n",
+      "range": {
+        "startLine": 295,
+        "startChar": 36,
+        "endLine": 295,
+        "endChar": 46
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "c1e4f40e_72690c5e",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative\n",
+      "range": {
+        "startLine": 373,
+        "startChar": 23,
+        "endLine": 373,
+        "endChar": 33
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f6a09fa4_74ec64cb",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative\n",
+      "range": {
+        "startLine": 588,
+        "startChar": 36,
+        "endLine": 588,
+        "endChar": 46
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "6bfebfec_c80e5153",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative\n",
+      "range": {
+        "startLine": 594,
+        "startChar": 36,
+        "endLine": 594,
+        "endChar": 46
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002590312",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1012109?revision\u003d6",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9b100a18_8d0670de",
+        "filename": "test/1972-math-prec/src/com/hp/creals/UnaryCRFunction.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T01:32:38Z",
+      "side": 1,
+      "message": "Unrecognized license :\nderivative\n",
+      "range": {
+        "startLine": 606,
+        "startChar": 59,
+        "endLine": 606,
+        "endChar": 69
+      },
+      "revId": "9dce1e19d83810414106e06bb2a0b40d98b88434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
