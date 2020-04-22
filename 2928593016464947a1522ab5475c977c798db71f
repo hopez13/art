@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002601226",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1011970?revision\u003d8",
+      "fixSuggestions": [
+        {
+          "fixId": "7dcabe2f_8924ec16",
+          "description": "Change to \"runtime/binary_analyzer/binary_analyzer_x86.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+              "range": {
+                "startLine": 56,
+                "startChar": 19,
+                "endLine": 56,
+                "endChar": 25
+              },
+              "replacement": "Address"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "10d9292e_382fc9be",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T11:59:01Z",
+      "side": 1,
+      "message": "Common typo found: \"Adress\" -- should it be \"Address\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 25
+      },
+      "revId": "2928593016464947a1522ab5475c977c798db71f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002601226",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1011970?revision\u003d8",
+      "fixSuggestions": [
+        {
+          "fixId": "b348ab3b_bf3fe1b2",
+          "description": "Change to \"runtime/binary_analyzer/disassembler.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/binary_analyzer/disassembler.cc",
+              "range": {
+                "startLine": 59,
+                "startChar": 25,
+                "endLine": 59,
+                "endChar": 32
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "3715e67d_800206e1",
+        "filename": "runtime/binary_analyzer/disassembler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-22T11:59:01Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 59,
+        "startChar": 25,
+        "endLine": 59,
+        "endChar": 32
+      },
+      "revId": "2928593016464947a1522ab5475c977c798db71f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
