@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "904b2d3c_2d268c68",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "nit: maybe \"data_offset\" could be used here for \"wide\" case: MIRROR_WIDE_ARRAY_DATA_OFFSET is still correctly passed in \"data_offset\".",
+      "range": {
+        "startLine": 20,
+        "startChar": 22,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dcc7026_a818f4cf",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "I am sorry, didn\u0027t get it, but is Nterp only be used for read-barriers/heap-poisoning-off configuration?",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e05e963b_c1642986",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "stale comments.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 64
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f27256_a09bfffa",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "Opt: This could be something like FETCH_PAIR (here and in other places).",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "877b035e_37b2c2dd",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "Nit: Maybe a macro for this?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5deddc2_6f154b11",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "In Mterp there is a suspend check on return; is it there because we are able just directly call runtime? could the check be removed there as well?",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 7
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc19a0c3_bdd61038",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "Could you please comment why we need this?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89d4cf7d_2cc431dd",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 22
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a91ffa5_6a1f5605",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "Do we check .S for long lines (here and in other files)?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 101
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34007bcb_50fff08b",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "There are uses of this macro with either D or X registers; are SET_VREG_WIDE and SET_VREG_DOUBLE interchangeable by design?",
+      "range": {
+        "startLine": 226,
+        "startChar": 7,
+        "endLine": 226,
+        "endChar": 20
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b333e43_23f5aae9",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-22T13:37:24Z",
+      "side": 1,
+      "message": "Could you please comment why this has UXTW and not just simply LSL (here and in other *_VREG*)?  Is vreg is only permitted to be passed as W register? Can the actual higher bits of the corresponding X register be non-zero?\n\nOpt: Also something like the following could be used (zero-extending \\vreg W register and shifting by 2).\n\nubfiz ip2, \u003cX register for \\vreg\u003e, 2, 32\nstr \\reg, [xFP, ip2]\nstr xzr, [xREFS, ip2]",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 22
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
