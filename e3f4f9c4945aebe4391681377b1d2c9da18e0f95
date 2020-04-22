@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4d9bf41d_d8b43391",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T15:02:39Z",
+      "side": 1,
+      "message": "That\u0027s what IsNterpSupported() in nterp.cc says. But wMR is not even defined for other configurations, so so this will need to be guarded by some #ifdef to avoid compilation errors.",
+      "parentUuid": "6dcc7026_a818f4cf",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e05e963b_c1642986",
         "filename": "runtime/interpreter/mterp/arm64ng/array.S",
         "patchSetId": 8
