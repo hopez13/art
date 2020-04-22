@@ -46,6 +46,30 @@
       "revId": "f55bfc80f0d25603dcdde94d6adce5a3cc1a597f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3037c92a_819388ae",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-04-22T15:47:31Z",
+      "side": 1,
+      "message": "I see. Could you add a comment here, saying that this case was added to support Golem (with a reference to the bug number)?",
+      "parentUuid": "1e2d2f56_c8beb936",
+      "range": {
+        "startLine": 541,
+        "startChar": 32,
+        "endLine": 541,
+        "endChar": 53
+      },
+      "revId": "f55bfc80f0d25603dcdde94d6adce5a3cc1a597f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
