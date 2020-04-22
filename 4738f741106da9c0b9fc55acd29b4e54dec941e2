@@ -625,6 +625,30 @@
     },
     {
       "key": {
+        "uuid": "785ad68a_d899bf13",
+        "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Done; test added in https://android-review.googlesource.com/1189318 .",
+      "parentUuid": "4353ca81_8506409b",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 55
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c660d73c_fe142a2d",
         "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
         "patchSetId": 6
@@ -657,6 +681,24 @@
       "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f412a85_866d523c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "For the record, invoke-interface can indeed resolve to a public j.l.Object method. This has been fixed by https://android-review.googlesource.com/1236946 .",
+      "parentUuid": "d0bdcd92_57a6cda9",
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -801,6 +843,30 @@
     },
     {
       "key": {
+        "uuid": "acd402c4_34754fe3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Done before merging.",
+      "parentUuid": "8698eeff_00fd61d9",
+      "range": {
+        "startLine": 1129,
+        "startChar": 10,
+        "endLine": 1129,
+        "endChar": 11
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa2b6abb_fbafb0b1",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 6
@@ -821,6 +887,30 @@
       "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861cfe6f_7783c2a5",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Not done but I think this is OK as is.",
+      "parentUuid": "aa2b6abb_fbafb0b1",
+      "range": {
+        "startLine": 1130,
+        "startChar": 10,
+        "endLine": 1130,
+        "endChar": 44
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1067,6 +1157,30 @@
       "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98f59035_f70ca95d",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Done before merging.",
+      "parentUuid": "5b4444bb_9b7ede2b",
+      "range": {
+        "startLine": 1239,
+        "startChar": 3,
+        "endLine": 1247,
+        "endChar": 27
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1352,6 +1466,30 @@
     },
     {
       "key": {
+        "uuid": "f7719b03_b6982c90",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "A comment was added before submission.",
+      "parentUuid": "df8cbfda_44f27944",
+      "range": {
+        "startLine": 1496,
+        "startChar": 0,
+        "endLine": 1496,
+        "endChar": 20
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6276127_f1e28b5d",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 6
@@ -1396,6 +1534,30 @@
       "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e12f59a1_12ef1d40",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b005f48c_aed035b0",
+      "range": {
+        "startLine": 1596,
+        "startChar": 39,
+        "endLine": 1596,
+        "endChar": 41
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1810,6 +1972,30 @@
     },
     {
       "key": {
+        "uuid": "d05863dc_48be1de9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c6eae10_2df862ca",
+      "range": {
+        "startLine": 1934,
+        "startChar": 39,
+        "endLine": 1934,
+        "endChar": 41
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "967ff369_ebf3824b",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 6
@@ -1998,6 +2184,30 @@
     },
     {
       "key": {
+        "uuid": "a86e1e8d_67047f60",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2087,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b29a7c68_ce9d5bac",
+      "range": {
+        "startLine": 2086,
+        "startChar": 4,
+        "endLine": 2087,
+        "endChar": 13
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1df1bcc_64763dc5",
         "filename": "runtime/interpreter/mterp/x86_64ng/object.S",
         "patchSetId": 6
@@ -2042,6 +2252,30 @@
       "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06a2f9a2_224fd0cb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:01:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "abdc8f80_2f20d386",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 29
+      },
+      "revId": "4738f741106da9c0b9fc55acd29b4e54dec941e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
