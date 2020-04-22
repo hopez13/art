@@ -190,6 +190,30 @@
       "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6954e35d_acfbe90a",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-22T08:28:15Z",
+      "side": 1,
+      "message": "We can do that as well - but I think this may require an .oat version change?",
+      "parentUuid": "64584abc_22787366",
+      "range": {
+        "startLine": 614,
+        "startChar": 22,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "efc2766081cfdffbaa77e0244c2ab6aed4ac9d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
