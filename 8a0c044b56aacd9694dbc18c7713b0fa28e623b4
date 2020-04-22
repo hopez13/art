@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "74c643d5_60f67cc1",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5447519_d29af369",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e436c7_0f9886f0",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -284,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "8097a7a6_c0c05087",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "For the record, invoke-interface can indeed resolve to a public j.l.Object method. This has been fixed by https://android-review.googlesource.com/1236946 .",
+      "parentUuid": "c01c2074_6f2aa781",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 81
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d199a852_3fd94e21",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -375,6 +423,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c0c6e3_13f38624",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5376a5d1_faa244ca",
+      "range": {
+        "startLine": 353,
+        "startChar": 27,
+        "endLine": 353,
+        "endChar": 40
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -731,6 +803,30 @@
     },
     {
       "key": {
+        "uuid": "9def4363_efe68aa3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack (but maybe we should align the code entry on 16-byte boundary, i.e. maybe we should have kept the two longs and add a comment)",
+      "parentUuid": "80826bbc_953eb59b",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "784bf951_1b8db146",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -763,6 +859,24 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "744ea643_f8db8375",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b91ea285_f2d9f7b9",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -813,6 +927,30 @@
     },
     {
       "key": {
+        "uuid": "7f4a2c10_96f39403",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "582c00a7_1c6c2601",
+      "range": {
+        "startLine": 274,
+        "startChar": 16,
+        "endLine": 274,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bae61fc9_83daf34a",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -860,6 +998,30 @@
     },
     {
       "key": {
+        "uuid": "c39c3561_8e83002f",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b3df3ebd_8de3bfbb",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ee8887_b3ede8e3",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -904,6 +1066,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "616dc3ad_ad166534",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d15642be_17d6422a",
+      "range": {
+        "startLine": 399,
+        "startChar": 4,
+        "endLine": 400,
+        "endChar": 35
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1001,6 +1187,30 @@
     },
     {
       "key": {
+        "uuid": "8860d02f_e7749c66",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cd8bf1f3_89b51d0f",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 43
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0737da43_cedfcb9a",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -1048,6 +1258,30 @@
     },
     {
       "key": {
+        "uuid": "bac380ac_c79724c3",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "You used indexes for loading but the storing macros still used offsets when this CL was submitted.\n\nDone in https://android-review.googlesource.com/1292894 .",
+      "parentUuid": "7ff1f97d_60af31ca",
+      "range": {
+        "startLine": 531,
+        "startChar": 23,
+        "endLine": 531,
+        "endChar": 24
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bdff8e5_216f5e87",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -1092,6 +1326,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad90a98_0b7a036b",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57ab0f22_cccf7641",
+      "range": {
+        "startLine": 583,
+        "startChar": 3,
+        "endLine": 584,
+        "endChar": 44
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1221,6 +1479,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08897e0b_d74419c8",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "422bafcb_fa1e8e29",
+      "range": {
+        "startLine": 676,
+        "startChar": 3,
+        "endLine": 676,
+        "endChar": 25
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1365,6 +1647,30 @@
     },
     {
       "key": {
+        "uuid": "de1ce76e_9e38343d",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "afc00373_7ec3ef73",
+      "range": {
+        "startLine": 709,
+        "startChar": 3,
+        "endLine": 709,
+        "endChar": 58
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d0ae306_8c82071e",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -1503,6 +1809,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8abd23f5_44c8c487",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "daaad933_1e763615",
+      "range": {
+        "startLine": 752,
+        "startChar": 3,
+        "endLine": 755,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1694,6 +2024,30 @@
     },
     {
       "key": {
+        "uuid": "02d71859_1ce7096a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5d0f7ad9_b0e2706e",
+      "range": {
+        "startLine": 803,
+        "startChar": 34,
+        "endLine": 803,
+        "endChar": 36
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aabd2fab_9fddd964",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
@@ -1726,6 +2080,24 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3742132a_1d7f8c28",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "This was fixed before submitting. A test was added in a separate CL, https://android-review.googlesource.com/1189318 .",
+      "parentUuid": "af517672_957f3f96",
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1773,6 +2145,30 @@
       "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b324d516_88cceb15",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T13:39:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46d3091a_7b21de26",
+      "range": {
+        "startLine": 825,
+        "startChar": 3,
+        "endLine": 828,
+        "endChar": 30
+      },
+      "revId": "8a0c044b56aacd9694dbc18c7713b0fa28e623b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
