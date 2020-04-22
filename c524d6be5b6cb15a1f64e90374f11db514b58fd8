@@ -140,6 +140,30 @@
       "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fee5d3df_3918bd01",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-22T14:09:20Z",
+      "side": 1,
+      "message": "The comment was removed in https://android-review.googlesource.com/1202728 .",
+      "parentUuid": "fd52cde1_9bd6328d",
+      "range": {
+        "startLine": 753,
+        "startChar": 36,
+        "endLine": 753,
+        "endChar": 51
+      },
+      "revId": "c524d6be5b6cb15a1f64e90374f11db514b58fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
