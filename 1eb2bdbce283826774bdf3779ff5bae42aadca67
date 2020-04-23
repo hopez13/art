@@ -16,6 +16,24 @@
       "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f1c53d_83fad2d4",
+        "filename": "libartbase/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-04-23T23:17:01Z",
+      "side": 1,
+      "message": "Indeed it would.  I\u0027m more than happy to leave the lock out, but wanted to push this to retain the current behavior unless we reach consensus on the thread that I started.\n\nI didn\u0027t think that ART had any issues with fork(), like other libbase clients do.",
+      "parentUuid": "b0d2bdbf_50e3d5ef",
+      "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
