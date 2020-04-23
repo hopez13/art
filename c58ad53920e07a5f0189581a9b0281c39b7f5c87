@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8b34c84_29f79cb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-23T12:56:53Z",
+      "side": 1,
+      "message": "Most are just using smali or JNI (we should investigate why loading the test library doesn\u0027t work; we probably need to specify the path on command line).",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "c58ad53920e07a5f0189581a9b0281c39b7f5c87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
