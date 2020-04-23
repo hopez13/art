@@ -131,6 +131,7 @@ class BitTableAccessor {
 // Helper macro to create named column accessors in derived class.
 #define BIT_TABLE_COLUMN(COLUMN, NAME)                                               \
   static constexpr uint32_t k##NAME = COLUMN;                                        \
+  static_assert(k##NAME < kNumColumns);                                              \
   ALWAYS_INLINE uint32_t Get##NAME() const { return table_->Get(row_, COLUMN); }     \
   ALWAYS_INLINE bool Has##NAME() const { return Get##NAME() != kNoValue; }           \
   template<int UNUSED> struct ColumnName<COLUMN, UNUSED> {                           \

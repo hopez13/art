@@ -322,7 +322,6 @@ class LoadClassSlowPathARM64 : public SlowPathCodeARM64 {
 
     InvokeRuntimeCallingConvention calling_convention;
     if (must_resolve_type) {
-      DCHECK(IsSameDexFile(cls_->GetDexFile(), arm64_codegen->GetGraph()->GetDexFile()));
       dex::TypeIndex type_index = cls_->GetTypeIndex();
       __ Mov(calling_convention.GetRegisterAt(0).W(), type_index.index_);
       arm64_codegen->InvokeRuntime(kQuickResolveType, instruction_, dex_pc, this);

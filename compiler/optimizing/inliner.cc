@@ -1779,7 +1779,8 @@ static inline Handle<T> NewHandleIfDifferent(ObjPtr<T> object,
   return (object != hint.Get()) ? handles->NewHandle(object) : hint;
 }
 
-static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file, ArtMethod* callee)
+static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file,
+                                             ArtMethod* callee)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (!Runtime::Current()->IsAotCompiler()) {
     // JIT can always encode methods in stack maps.
@@ -1788,9 +1789,11 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file, Art
   if (IsSameDexFile(caller_dex_file, *callee->GetDexFile())) {
     return true;
   }
+  if (callee->IsInBootImage() && !Runtime::Current()->IsCompilingBootImage()) {
+    return true;
+  }
   // TODO(ngeoffray): Support more AOT cases for inlining:
   // - methods in multidex
-  // - methods in boot image for on-device non-PIC compilation.
   return false;
 }
 
@@ -1878,14 +1881,16 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
             << " could not be inlined because one branch always throws and"
             << " caller is in a try/catch block";
         return false;
-      } else if (graph_->GetExitBlock() == nullptr) {
+      }
+      if (graph_->GetExitBlock() == nullptr) {
         // TODO(ngeoffray): Support adding HExit in the caller graph.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInfiniteLoop)
             << "Method " << callee_dex_file.PrettyMethod(method_index)
             << " could not be inlined because one branch always throws and"
             << " caller does not have an exit block";
         return false;
-      } else if (graph_->HasIrreducibleLoops()) {
+      }
+      if (graph_->HasIrreducibleLoops()) {
         // TODO(ngeoffray): Support re-computing loop information to graphs with
         // irreducible loops?
         VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
@@ -1949,7 +1954,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
       }
 
       if (current->NeedsEnvironment() &&
-          !CanEncodeInlinedMethodInStackMap(*caller_compilation_unit_.GetDexFile(),
+          !CanEncodeInlinedMethodInStackMap(outermost_graph_->GetDexFile(),
                                             resolved_method)) {
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedStackMaps)
             << "Method " << callee_dex_file.PrettyMethod(method_index)
@@ -1976,6 +1981,13 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
             << "Method " << callee_dex_file.PrettyMethod(method_index)
             << " could not be inlined because it is using an unresolved"
             << " entrypoint";
+        return false;
+      }
+
+      if (!same_dex_file && current->CanThrow()) {
+        // This is due to some Bss stuff in OatWriter. Maybe we can fix that?
+        VLOG(compiler) << "Could not inline " << callee_dex_file.PrettyMethod(method_index)
+                       << " because it is in another dex file and has instructions that can throw";
         return false;
       }
     }

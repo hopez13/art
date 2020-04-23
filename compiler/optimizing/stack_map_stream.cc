@@ -181,7 +181,7 @@ void StackMapStream::EndStackMapEntry() {
 void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
                                           uint32_t dex_pc,
                                           uint32_t num_dex_registers,
-                                          const DexFile* outer_dex_file) {
+                                          const DexFile& outer_dex_file) {
   DCHECK(in_stack_map_) << "Call BeginStackMapEntry first";
   DCHECK(!in_inline_info_) << "Mismatched Begin/End calls";
   in_inline_info_ = true;
@@ -194,12 +194,22 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
   entry[InlineInfo::kDexPc] = dex_pc;
   entry[InlineInfo::kNumberOfDexRegisters] = static_cast<uint32_t>(expected_num_dex_registers_);
   if (EncodeArtMethodInInlineInfo(method)) {
-    entry[InlineInfo::kArtMethodHi] = High32Bits(reinterpret_cast<uintptr_t>(method));
-    entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(method));
+    uintptr_t ptr = reinterpret_cast<uintptr_t>(method);
+    if (method->IsInBootImage() && !Runtime::Current()->IsCompilingBootImage()) {
+      ptr -= Runtime::Current()->GetHeap()->GetBootImagesStartAddress();
+      entry[InlineInfo::kMethodEncodingType] =
+          static_cast<uint32_t>(InlineInfo::MethodEncoding::kBootImageRelative);
+
+    } else {
+      entry[InlineInfo::kMethodEncodingType] =
+          static_cast<uint32_t>(InlineInfo::MethodEncoding::kDirect);
+    }
+    entry[InlineInfo::kArtMethodHi] = High32Bits(reinterpret_cast<uintptr_t>(ptr));
+    entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(ptr));
   } else {
     if (dex_pc != static_cast<uint32_t>(-1) && kIsDebugBuild) {
       ScopedObjectAccess soa(Thread::Current());
-      DCHECK(IsSameDexFile(*outer_dex_file, *method->GetDexFile()));
+      DCHECK(IsSameDexFile(outer_dex_file, *method->GetDexFile()));
     }
     uint32_t dex_method_index = method->GetDexMethodIndex();
     entry[InlineInfo::kMethodInfoIndex] = method_infos_.Dedup({dex_method_index});

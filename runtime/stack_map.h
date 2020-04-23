@@ -172,7 +172,7 @@ class StackMap : public BitTableAccessor<8> {
  * The row referenced from the StackMap holds information at depth 0.
  * Following rows hold information for further depths.
  */
-class InlineInfo : public BitTableAccessor<6> {
+class InlineInfo : public BitTableAccessor<7> {
  public:
   BIT_TABLE_HEADER(InlineInfo)
   BIT_TABLE_COLUMN(0, IsLast)  // Determines if there are further rows for further depths.
@@ -181,19 +181,21 @@ class InlineInfo : public BitTableAccessor<6> {
   BIT_TABLE_COLUMN(3, ArtMethodHi)  // High bits of ArtMethod*.
   BIT_TABLE_COLUMN(4, ArtMethodLo)  // Low bits of ArtMethod*.
   BIT_TABLE_COLUMN(5, NumberOfDexRegisters)  // Includes outer levels and the main method.
+  BIT_TABLE_COLUMN(6, MethodEncodingType)
 
   static constexpr uint32_t kLast = -1;
   static constexpr uint32_t kMore = 0;
+
+  enum class MethodEncoding : uint32_t {
+    kDirect,
+    kBootImageRelative,
+  };
 
   bool EncodesArtMethod() const {
     return HasArtMethodLo();
   }
 
-  ArtMethod* GetArtMethod() const {
-    uint64_t lo = GetArtMethodLo();
-    uint64_t hi = GetArtMethodHi();
-    return reinterpret_cast<ArtMethod*>((hi << 32) | lo);
-  }
+  ArtMethod* GetArtMethod() const;
 
   void Dump(VariableIndentationOutputStream* vios,
             const CodeInfo& info,

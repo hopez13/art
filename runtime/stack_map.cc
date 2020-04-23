@@ -22,7 +22,9 @@
 #include "art_method.h"
 #include "base/indenter.h"
 #include "base/stats.h"
+#include "gc/heap.h"
 #include "oat_quick_method_header.h"
+#include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {
@@ -332,6 +334,19 @@ void StackMap::Dump(VariableIndentationOutputStream* vios,
   for (InlineInfo inline_info : code_info.GetInlineInfosOf(*this)) {
     inline_info.Dump(vios, code_info, *this);
   }
+}
+
+ArtMethod* InlineInfo::GetArtMethod() const {
+    uint64_t lo = GetArtMethodLo();
+    uint64_t hi = GetArtMethodHi();
+    uintptr_t ptr = (hi << 32) | lo;
+    switch(static_cast<MethodEncoding>(GetMethodEncodingType())) {
+      case MethodEncoding::kDirect:
+        return reinterpret_cast<ArtMethod*>(ptr);
+      case MethodEncoding::kBootImageRelative:
+        ptr += Runtime::Current()->GetHeap()->GetBootImagesStartAddress();
+        return reinterpret_cast<ArtMethod*>(ptr);
+    }
 }
 
 void InlineInfo::Dump(VariableIndentationOutputStream* vios,

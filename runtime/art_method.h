@@ -316,6 +316,8 @@ class ArtMethod final {
 
   bool IsPolymorphicSignature() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool IsInBootImage() const;
+
   bool UseFastInterpreterToInterpreterInvoke() const {
     // The bit is applicable only if the method is not intrinsic.
     constexpr uint32_t mask = kAccFastInterpreterToInterpreterInvoke | kAccIntrinsic;

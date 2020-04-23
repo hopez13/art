@@ -1206,9 +1206,17 @@ Compiler* CreateOptimizingCompiler(const CompilerOptions& compiler_options,
   return new OptimizingCompiler(compiler_options, storage);
 }
 
-bool EncodeArtMethodInInlineInfo(ArtMethod* method ATTRIBUTE_UNUSED) {
+bool EncodeArtMethodInInlineInfo(ArtMethod* method) {
   // Note: the runtime is null only for unit testing.
-  return Runtime::Current() == nullptr || !Runtime::Current()->IsAotCompiler();
+  if (Runtime::Current() == nullptr || !Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+
+  if (method->IsInBootImage() && !Runtime::Current()->IsCompilingBootImage()) {
+    return true;
+  }
+
+  return false;
 }
 
 bool OptimizingCompiler::JitCompile(Thread* self,
