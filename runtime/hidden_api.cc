@@ -48,6 +48,14 @@ static constexpr uint64_t kHideMaxtargetsdkQHiddenApis = 149994052;
 // list.
 static constexpr bool kLogAllAccesses = false;
 
+// Exemptions for logcat warning. Following signatures do not produce a warning as app developers
+// should not be alerted on the usage of these greylised APIs. See b/154851649.
+static const std::vector<std::string> kWarningExemptions = {
+    "Ljava/nio/Buffer;",
+    "Llibcore/io/Memory;",
+    "Lsun/misc/Unsafe;",
+};
+
 static inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
   switch (value) {
     case AccessMethod::kNone:
@@ -499,14 +507,19 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
   }
 
   if (access_method != AccessMethod::kNone) {
-    // Print a log message with information about this class member access.
-    // We do this if we're about to deny access, or the app is debuggable.
-    if (kLogAllAccesses || deny_access || runtime->IsJavaDebuggable()) {
-      member_signature.WarnAboutAccess(access_method, api_list, deny_access);
-    }
+    if (member_signature.IsExempted(kWarningExemptions)) {
+      // Avoid re-examining the exemption list next time. Add member to the whitelist.
+      MaybeUpdateAccessFlags(runtime, member, kAccPublicApi);
+    } else {
+        // Print a log message with information about this class member access.
+        // We do this if we're about to deny access, or the app is debuggable.
+        if (kLogAllAccesses || deny_access || runtime->IsJavaDebuggable()) {
+          member_signature.WarnAboutAccess(access_method, api_list, deny_access);
+        }
 
-    // If there is a StrictMode listener, notify it about this violation.
-    member_signature.NotifyHiddenApiListener(access_method);
+        // If there is a StrictMode listener, notify it about this violation.
+        member_signature.NotifyHiddenApiListener(access_method);
+    }
 
     // If event log sampling is enabled, report this violation.
     if (kIsTargetBuild && !kIsTargetLinux) {
