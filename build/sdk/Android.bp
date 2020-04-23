@@ -67,6 +67,7 @@ module_exports {
         "core-compat-test-rules",
         "core-test-rules",
         "core-tests-support",
+        "core-tests-instrumentation",
         "okhttp-tests-nojarjar",
     ],
     java_tests: [
