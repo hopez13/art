@@ -25,7 +25,6 @@
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
 #include "gc/heap.h"
-#include "gc/space/image_space.h"
 #include "handle_scope-inl.h"
 #include "jit/jit.h"
 #include "mirror/dex_cache.h"
@@ -35,18 +34,6 @@
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {
-
-static bool IsInBootImage(ArtMethod* method) {
-  gc::Heap* heap = Runtime::Current()->GetHeap();
-  DCHECK_EQ(heap->IsBootImageAddress(method),
-            std::any_of(heap->GetBootImageSpaces().begin(),
-                        heap->GetBootImageSpaces().end(),
-                        [=](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
-                          return space->GetImageHeader().GetMethodsSection().Contains(
-                              reinterpret_cast<uint8_t*>(method) - space->Begin());
-                        }));
-  return heap->IsBootImageAddress(method);
-}
 
 static bool BootImageAOTCanEmbedMethod(ArtMethod* method, const CompilerOptions& compiler_options) {
   DCHECK(compiler_options.IsBootImage() || compiler_options.IsBootImageExtension());
@@ -91,7 +78,7 @@ HInvokeStaticOrDirect::DispatchInfo HSharpening::SharpenInvokeStaticOrDirect(
     if (!compiler_options.GetCompilePic()) {
       // Test configuration, do not sharpen.
       method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kRuntimeCall;
-    } else if (IsInBootImage(callee)) {
+    } else if (callee->IsInBootImage()) {
       DCHECK(compiler_options.IsBootImageExtension());
       method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kBootImageRelRo;
     } else if (BootImageAOTCanEmbedMethod(callee, compiler_options)) {
@@ -114,7 +101,7 @@ HInvokeStaticOrDirect::DispatchInfo HSharpening::SharpenInvokeStaticOrDirect(
       method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kRuntimeCall;
       code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
     }
-  } else if (IsInBootImage(callee)) {
+  } else if (callee->IsInBootImage()) {
     // Use PC-relative access to the .data.bimg.rel.ro methods array.
     method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kBootImageRelRo;
     code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;

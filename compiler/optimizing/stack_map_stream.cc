@@ -194,8 +194,18 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
   entry[InlineInfo::kDexPc] = dex_pc;
   entry[InlineInfo::kNumberOfDexRegisters] = static_cast<uint32_t>(expected_num_dex_registers_);
   if (EncodeArtMethodInInlineInfo(method)) {
-    entry[InlineInfo::kArtMethodHi] = High32Bits(reinterpret_cast<uintptr_t>(method));
-    entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(method));
+    uintptr_t ptr = reinterpret_cast<uintptr_t>(method);
+    if (method->IsInBootImage()) {
+      ptr -= Runtime::Current()->GetHeap()->GetBootImagesStartAddress();
+      entry[InlineInfo::kMethodEncodingType] =
+          static_cast<uint32_t>(InlineInfo::MethodEncoding::kBootImageRelative);
+
+    } else {
+      entry[InlineInfo::kMethodEncodingType] =
+          static_cast<uint32_t>(InlineInfo::MethodEncoding::kDirect);
+    }
+    entry[InlineInfo::kArtMethodHi] = High32Bits(reinterpret_cast<uintptr_t>(ptr));
+    entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(ptr));
   } else {
     if (dex_pc != static_cast<uint32_t>(-1) && kIsDebugBuild) {
       ScopedObjectAccess soa(Thread::Current());

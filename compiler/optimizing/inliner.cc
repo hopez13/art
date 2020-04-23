@@ -1788,9 +1788,13 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file, Art
   if (IsSameDexFile(caller_dex_file, *callee->GetDexFile())) {
     return true;
   }
+  if (callee->IsInBootImage()) {
+    return true;
+  }
   // TODO(ngeoffray): Support more AOT cases for inlining:
   // - methods in multidex
   // - methods in boot image for on-device non-PIC compilation.
+  //return false;
   return false;
 }
 

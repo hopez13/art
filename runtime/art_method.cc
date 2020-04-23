@@ -36,6 +36,7 @@
 #include "dex/signature-inl.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "gc/accounting/card_table-inl.h"
+#include "gc/space/image_space.h"
 #include "hidden_api.h"
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
@@ -425,6 +426,18 @@ bool ArtMethod::IsPolymorphicSignature() {
   ObjPtr<mirror::Class> cls = GetDeclaringClass();
   return (cls == GetClassRoot<mirror::MethodHandle>(class_roots) ||
           cls == GetClassRoot<mirror::VarHandle>(class_roots));
+}
+
+bool ArtMethod::IsInBootImage() const {
+  gc::Heap* heap = Runtime::Current()->GetHeap();
+  DCHECK_EQ(heap->IsBootImageAddress(this),
+            std::any_of(heap->GetBootImageSpaces().begin(),
+                        heap->GetBootImageSpaces().end(),
+                        [=](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
+                          return space->GetImageHeader().GetMethodsSection().Contains(
+                              reinterpret_cast<const uint8_t*>(this) - space->Begin());
+                        }));
+  return heap->IsBootImageAddress(this);
 }
 
 static uint32_t GetOatMethodIndexFromMethodIndex(const DexFile& dex_file,
