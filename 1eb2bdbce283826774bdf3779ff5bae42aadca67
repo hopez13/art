@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d2bdbf_50e3d5ef",
+        "filename": "libartbase/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-23T23:11:22Z",
+      "side": 1,
+      "message": "Won\u0027t this bring the same risks with the forking in ART as the libbase lock did?\n\nMy preference would be to leave out the locking here too, but then I don\u0027t know the history behind the aversion to split messages.",
+      "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
