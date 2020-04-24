@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002649022",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1011970?revision\u003d9",
+      "fixSuggestions": [
+        {
+          "fixId": "b770d3fd_6fe22bbd",
+          "description": "Change to \"runtime/binary_analyzer/binary_analyzer_x86.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+              "range": {
+                "startLine": 57,
+                "startChar": 19,
+                "endLine": 57,
+                "endChar": 25
+              },
+              "replacement": "Address"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "972bcfce_bb3f49bc",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-24T09:50:01Z",
+      "side": 1,
+      "message": "Common typo found: \"Adress\" -- should it be \"Address\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 57,
+        "startChar": 19,
+        "endLine": 57,
+        "endChar": 25
+      },
+      "revId": "040f4c952f94952cf28223d32f2459d086b21b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
