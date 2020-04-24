@@ -93,6 +93,24 @@
       "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9f16ca_34e90ae7",
+        "filename": "libartbase/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-24T09:59:19Z",
+      "side": 1,
+      "message": "Good to know. Tom, can you please add a comment stating that fact here?\n\nSide issue in this CL, but how do we ensure that? It seems like it could happen easily that someone finds the need to spin up a thread for some cleanup work or whatever.",
+      "parentUuid": "43e48fd5_5a7d6de3",
+      "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
