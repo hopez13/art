@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3c32357_6ca522f1",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-24T13:00:23Z",
+      "side": 1,
+      "message": "Should this be \u0027\u0026\u0026\u0027 ?",
+      "range": {
+        "startLine": 510,
+        "startChar": 20,
+        "endLine": 510,
+        "endChar": 22
+      },
+      "revId": "9af09826a400a96d2a4474cebc9438d31c3ea919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b118e9e7_87d52892",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-24T13:00:23Z",
+      "side": 1,
+      "message": "Indentation looks off?",
+      "revId": "9af09826a400a96d2a4474cebc9438d31c3ea919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
