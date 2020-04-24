@@ -75,6 +75,24 @@
       "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43e48fd5_5a7d6de3",
+        "filename": "libartbase/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-24T09:34:28Z",
+      "side": 1,
+      "message": "Ah the fork issue is b/153824050?\n\nSo ART doesn\u0027t have the issue, as we fork only when single-threaded.",
+      "parentUuid": "58624bea_9e116fa7",
+      "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
