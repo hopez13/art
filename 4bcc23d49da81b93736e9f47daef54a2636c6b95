@@ -22,6 +22,30 @@
       "revId": "4bcc23d49da81b93736e9f47daef54a2636c6b95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a6ec81_3cfa2978",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2020-04-24T12:09:24Z",
+      "side": 1,
+      "message": "Actually, now that you mention it. We only want to hide the warning if the access wasn\u0027t denied. Accessing non-greylisted APIs is still a problem.",
+      "parentUuid": "03de9c1d_03440648",
+      "range": {
+        "startLine": 512,
+        "startChar": 6,
+        "endLine": 512,
+        "endChar": 28
+      },
+      "revId": "4bcc23d49da81b93736e9f47daef54a2636c6b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
