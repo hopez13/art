@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b00abed4_36763975",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-24T22:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1ec4862_701a0ed0",
+      "range": {
+        "startLine": 1742,
+        "startChar": 5,
+        "endLine": 1742,
+        "endChar": 15
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32eb57ae_82557dcb",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654afea3_161d6041",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-24T22:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32eb57ae_82557dcb",
+      "range": {
+        "startLine": 1787,
+        "startChar": 59,
+        "endLine": 1787,
+        "endChar": 76
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5fabdbae_ed1435b3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-24T22:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d801b69f_d526a91e",
+      "range": {
+        "startLine": 1789,
+        "startChar": 16,
+        "endLine": 1789,
+        "endChar": 21
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "100a6734_f01aad9f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "df95d0db_66bcd3b1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-24T22:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "100a6734_f01aad9f",
+      "range": {
+        "startLine": 1803,
+        "startChar": 6,
+        "endLine": 1807,
+        "endChar": 56
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff1c662e_df23c15d",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a459813d_4c8d7d85",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-24T22:22:01Z",
+      "side": 1,
+      "message": "I think if we are really in this situation then target_footprint is already same as growth_limit. Isn\u0027t it? Anyways, made the change in latest patch",
+      "parentUuid": "ff1c662e_df23c15d",
+      "range": {
+        "startLine": 1832,
+        "startChar": 28,
+        "endLine": 1832,
+        "endChar": 45
+      },
+      "revId": "fc1c2c3e1d22ddc0df4a50f24d11ab470d01cf93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
