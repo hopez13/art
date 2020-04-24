@@ -45,6 +45,30 @@
       "revId": "939d8c7c6f15e9f03567d0bba6ed7fc61db6a26f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcd256cb_1a82e922",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2020-04-24T11:34:10Z",
+      "side": 1,
+      "message": "Not sure about style guides, went with DoesPrefixMatchAny(), maybe keep overload DoesPrefixMatch()?",
+      "parentUuid": "77b5f2c6_2f537f2c",
+      "range": {
+        "startLine": 510,
+        "startChar": 25,
+        "endLine": 510,
+        "endChar": 35
+      },
+      "revId": "939d8c7c6f15e9f03567d0bba6ed7fc61db6a26f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
