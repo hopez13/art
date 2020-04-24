@@ -22,6 +22,30 @@
       "revId": "cea80e5c0a36b2ffe8340ba26a60f693b22fe449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "523a41cb_7eb76b42",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-04-24T08:54:19Z",
+      "side": 1,
+      "message": "They are needed because they are used by other modules exported by the sdk/module_exports. We don\u0027t yet have a way to treat these as internal dependencies. Switching to static dependencies on these would also fix this.",
+      "parentUuid": "7339bd68_3e308a5e",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "cea80e5c0a36b2ffe8340ba26a60f693b22fe449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
