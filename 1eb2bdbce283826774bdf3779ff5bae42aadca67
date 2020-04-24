@@ -111,6 +111,24 @@
       "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11daec7f_a46085e6",
+        "filename": "libartbase/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-24T10:33:09Z",
+      "side": 1,
+      "message": "We ensure there are no other threads by calling ZygoteHooks.waitUntilAllThreadsStopped.",
+      "parentUuid": "aa9f16ca_34e90ae7",
+      "revId": "1eb2bdbce283826774bdf3779ff5bae42aadca67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
