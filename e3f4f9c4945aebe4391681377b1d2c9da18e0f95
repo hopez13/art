@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4ed3dec0_5ad4cfb9",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "This is the same in all 3 blocks, just pull it before the `if`. And you could structure the code more like `op_aput`, the read barrier CBNZ can go after a shared `GET_INST_OPCODE ip`.",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 66
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "904b2d3c_2d268c68",
         "filename": "runtime/interpreter/mterp/arm64ng/array.S",
         "patchSetId": 8
@@ -65,6 +88,69 @@
         "startChar": 10,
         "endLine": 27,
         "endChar": 12
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7210588_e2609157",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why different order compared to op_aput? The code could be merged into op_aput with a few ifs.",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 69
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e543c57d_b4cd5d4b",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Missing EXPORT_PC before the call?",
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569c7125_895c9298",
+        "filename": "runtime/interpreter/mterp/arm64ng/array.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Same comment as above, please.",
+      "range": {
+        "startLine": 134,
+        "startChar": 43,
+        "endLine": 134,
+        "endChar": 52
       },
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -141,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "a9eb4fcd_9521e596",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Or add extra arguments, i.e. is_wide, is_void, is_void_no_barrier.",
+      "parentUuid": "877b035e_37b2c2dd",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5deddc2_6f154b11",
         "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
         "patchSetId": 8
@@ -187,6 +297,213 @@
     },
     {
       "key": {
+        "uuid": "79e8723c_93627ddc",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move after op_packed_switch.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 0
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7303aecb_eb84d1d0",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Implicit null check instead of explicit CBZ? That would make more sense in aget/aput than here.",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7e7cd50_66711f33",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "This is correct but the documentation is wrong at https://source.android.com/devices/tech/dalvik/dalvik-bytecode.html as it says that C is 16-bit and contradicts the 45cc instruction format at https://source.android.com/devices/tech/dalvik/instruction-formats .",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b42a50_8fa5aa64",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Implicit null check? (Add comment such as line 134.)",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 44
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "602d6453_2139d911",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Nit: While we use a \"helper\" variable above, we explicitly specify helper names here. This is inconsistent.",
+      "range": {
+        "startLine": 88,
+        "startChar": 3,
+        "endLine": 92,
+        "endChar": 9
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c223a18_54f11478",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move after the other uses of invoke_direct_or_super.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 77
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5095ad0f_b102434d",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "I prefer UXTW (the value is 16-bit unsigned).",
+      "range": {
+        "startLine": 160,
+        "startChar": 20,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d2f32f1_95794c37",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move after op_invoke_virtual.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 69
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82f6b86b_4b533963",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Refactor to share code with op_invoke_virtual_quick.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 35
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89d4cf7d_2cc431dd",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -210,6 +527,52 @@
     },
     {
       "key": {
+        "uuid": "89f1748e_6ab63c10",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "What do you mean by \"backend\" in this context?",
+      "range": {
+        "startLine": 33,
+        "startChar": 61,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "939fc47b_aec58b32",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "caller saves (align with comment about r8-r15)",
+      "range": {
+        "startLine": 50,
+        "startChar": 25,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a91ffa5_6a1f5605",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -226,6 +589,213 @@
         "startChar": 0,
         "endLine": 69,
         "endChar": 101
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32ab3464_50af8d8e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Should this be 22, corresponding to xPC?",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac0ede54_072e9a56",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Do you really need new names in addition to `{w,x}IP{0,1} from asm_support_arm64.S?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 20
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "107cc17d_bad31963",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why callee-saves? These could be x14-x15 for example.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 23
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d065abc3_b028dcdf",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "This should be something defined in asm_support_arm64.h as it is closely related to FRAME_SIZE_SAVE_ALL_CALLEE_SAVES.",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 97,
+        "endChar": 25
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc3d9de_f2df75de",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Remove. Similar at lines 148, 149, 160, 174.",
+      "range": {
+        "startLine": 111,
+        "startChar": 39,
+        "endLine": 111,
+        "endChar": 40
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0846de38_8798b50e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Remove (unused).",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6e1d329_c4c0e326",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Did you mean that this macro does not set flags?",
+      "range": {
+        "startLine": 150,
+        "startChar": 66,
+        "endLine": 150,
+        "endChar": 85
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09296272_0b7999cb",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Using xFP here should always yield the same value (and we\u0027re relying on it in object.S where we use GET_VREG even if object\u003d\u003d1), so GET_VREG_OBJECT exists solely for copying arguments, right?",
+      "range": {
+        "startLine": 204,
+        "startChar": 19,
+        "endLine": 204,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "956e1694_3749bdd6",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Remove (unused).",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 5
       },
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -272,6 +842,1052 @@
         "startChar": 0,
         "endLine": 230,
         "endChar": 22
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "505ef113_2b66d457",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Remove (unused).",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca7dd3c9_5a37c110",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "This is only 8 bytes, right? Do we want to align the entry on 16-byte boundary?",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bafb8aa_fe92b37f",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why not embed the offset to LDRH and STRH?",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 48
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa7c2c20_ab9efd70",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why do we store this before doing the overflow check? (Same in line 388.)",
+      "range": {
+        "startLine": 318,
+        "startChar": 4,
+        "endLine": 318,
+        "endChar": 17
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c407bc6b_d29e55ba",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "For odd number of out registers, this is unaligned. That\u0027s something that I did not realize when I requested that we move the alignment in https://android-review.googlesource.com/c/platform/art/+/1180627/3/runtime/nterp_helpers.cc#60 .\n\nWe could either revert https://android-review.googlesource.com/1202728 , or have two pieces of alignment (4 bytes above out args if needed, 8 bytes in the current alignment padding position if needed; the total size would not change). I\u0027m in favor of two pieces as the old alignment position subtly relied on having \"dex registers\" and \"reference registers\" together to keep 8-byte alignment.",
+      "range": {
+        "startLine": 365,
+        "startChar": 13,
+        "endLine": 365,
+        "endChar": 25
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587551c2_7d7c51a6",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "str xzr, [xIP1], #8  // May clear vreg[0].\n(Use \"b.lo\" below.)\n\nWe could even clear 16 bytes at a time with \"STP xzr, xzr, [xIP1]\". To avoid an extra check after this loop, we could alter the range so that we can clobber the stack pointer stored in line 365, so we would need to reorder that store with the loop. (On the other hand, most methods do not have that many dex registers, so this may not be worth the effort.)",
+      "range": {
+        "startLine": 372,
+        "startChar": 4,
+        "endLine": 373,
+        "endChar": 20
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7e5bdf1_bcc02fd3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move this to a slow path.",
+      "range": {
+        "startLine": 394,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 29
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cffd6320_aab4dfe0",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "This replicates code in SETUP_SAVE_ALL_CALLEE_SAVES_FRAME with a modified offset (0 instead of 16). Please refactor this and RESTORE_ALL_CALLEE_SAVES. (Or at least add a TODO.)",
+      "range": {
+        "startLine": 410,
+        "startChar": 4,
+        "endLine": 424,
+        "endChar": 30
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe7197a8_59c122fc",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Misleading for non-range invokes.",
+      "range": {
+        "startLine": 480,
+        "startChar": 9,
+        "endLine": 480,
+        "endChar": 28
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264c3a84_95d0f2aa",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Isn\u0027t this always available as `wINST \u003e\u003e 8`?",
+      "range": {
+        "startLine": 503,
+        "startChar": 3,
+        "endLine": 503,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3f2a1a5_0c550bc7",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "All instance invokes load this to get `this` register, so if those were updated to load it straight to w3, we would not have to repeat the work here. And to simplify this further, maybe we should load it in invoke_static handlers as well.",
+      "range": {
+        "startLine": 504,
+        "startChar": 3,
+        "endLine": 504,
+        "endChar": 14
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "787a8e3c_5e52b0c8",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "... (bits 4-7), 5th argument if any (bits 0-3); but maybe this should be extracted from wINST.",
+      "range": {
+        "startLine": 516,
+        "startChar": 9,
+        "endLine": 516,
+        "endChar": 28
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ad7802_40d0af23",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "UBFX",
+      "range": {
+        "startLine": 553,
+        "startChar": 3,
+        "endLine": 554,
+        "endChar": 27
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01d6624d_39a99075",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "UBFX",
+      "range": {
+        "startLine": 561,
+        "startChar": 3,
+        "endLine": 562,
+        "endChar": 27
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58c066dd_e2b81621",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Unnecessary `if \\is_string_init`.",
+      "range": {
+        "startLine": 567,
+        "startChar": 3,
+        "endLine": 567,
+        "endChar": 25
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a413d77_60b1e9f1",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Change the loads above to post-index (add \u0027!\u0027 after \u0027]\u0027) and drop these.",
+      "range": {
+        "startLine": 623,
+        "startChar": 3,
+        "endLine": 624,
+        "endChar": 16
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f12782_8af0ae52",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "You could decrement x2 and compare with 0 (and move the decrement between the loads and stores for better scheduling) and then you do not need to keep the x5 around.",
+      "range": {
+        "startLine": 625,
+        "startChar": 3,
+        "endLine": 626,
+        "endChar": 10
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62d4ee14_931cb596",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Pre-increment: stp x0, x1, [sp, #-16]!",
+      "range": {
+        "startLine": 642,
+        "startChar": 3,
+        "endLine": 643,
+        "endChar": 23
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7f6b9ab_54eda447",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Post-increment: ldp x0, x1, [sp], #16",
+      "range": {
+        "startLine": 660,
+        "startChar": 3,
+        "endLine": 661,
+        "endChar": 18
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70696b30_a861bbda",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move to a GET_CODE_ITEM macro?",
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24355fc9_c7fec98b",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Pre-increment.",
+      "range": {
+        "startLine": 672,
+        "startChar": 3,
+        "endLine": 673,
+        "endChar": 23
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaedffe8_c97a7f3d",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Post-increment.",
+      "range": {
+        "startLine": 676,
+        "startChar": 3,
+        "endLine": 677,
+        "endChar": 18
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86398d7e_5a2c7995",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Move after GET_VREG_OBJECT for better scheduling.",
+      "range": {
+        "startLine": 689,
+        "startChar": 3,
+        "endLine": 689,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "181e54a3_454d34a3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Before the loop, calculate `xIP1 :\u003d (xFP - xREFS) \u003e\u003e 2` and do a simple `cmp xIP0, xIP1` here.",
+      "range": {
+        "startLine": 690,
+        "startChar": 3,
+        "endLine": 691,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77a64fb8_628fd7dc",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Extract from wINST here and below? (Requires using a different register in the COMMON_INVOKE_NON_RANGE.)",
+      "range": {
+        "startLine": 726,
+        "startChar": 4,
+        "endLine": 727,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76f9d8e4_b1591ed3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "\"0\"",
+      "range": {
+        "startLine": 1216,
+        "startChar": 56,
+        "endLine": 1216,
+        "endChar": 58
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7994109_78cb820c",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Rename to arg_offset, or use as index (i.e. divide increments by 4 and add \"uxtw #2\" or \"lsl #2\" to vreg stores).",
+      "range": {
+        "startLine": 1370,
+        "startChar": 26,
+        "endLine": 1370,
+        "endChar": 35
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c9ad7e2_af76d3a5",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Rename or use as index.",
+      "range": {
+        "startLine": 1401,
+        "startChar": 9,
+        "endLine": 1401,
+        "endChar": 18
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a3ceca1_17c053c0",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Rename or use as index.",
+      "range": {
+        "startLine": 1433,
+        "startChar": 9,
+        "endLine": 1433,
+        "endChar": 18
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a53a09_4f07d99e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Rename or use as index.",
+      "range": {
+        "startLine": 1467,
+        "startChar": 26,
+        "endLine": 1467,
+        "endChar": 35
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc35053d_2b0cd24e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Could be TBNZ but we\u0027d need a constant for log2(ART_METHOD_IS_STATIC_FLAG).",
+      "range": {
+        "startLine": 1535,
+        "startChar": 4,
+        "endLine": 1536,
+        "endChar": 31
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "914301ba_f714e7ad",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Merge into the stores above with post-index mode.",
+      "range": {
+        "startLine": 1539,
+        "startChar": 4,
+        "endLine": 1540,
+        "endChar": 20
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b647a26_13d3b42a",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1630,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why are you explicitly passing the default values? (OTOH, if you want to be explicit, you\u0027re missing some. For example, is_custom here.)",
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a243f5c_95817877",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1651,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "I think we\u0027re clearing the cache when starting GC, so there should be no from-space reference there.",
+      "range": {
+        "startLine": 1651,
+        "startChar": 3,
+        "endLine": 1651,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11420863_318a0b63",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1676,
+        "startChar": 3,
+        "endLine": 1676,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3535516e_05e148bf",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "May as well repeat the load here rather than branching to the load and back.",
+      "range": {
+        "startLine": 1843,
+        "startChar": 3,
+        "endLine": 1844,
+        "endChar": 2
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88b2b266_0ab1d20e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "The cache should not contain from-space references.",
+      "range": {
+        "startLine": 1945,
+        "startChar": 3,
+        "endLine": 1945,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00c87f20_c7a25ce9",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "You could just skip the call and store the zero already present in w0 instead of using wzr.",
+      "range": {
+        "startLine": 1949,
+        "startChar": 3,
+        "endLine": 1949,
+        "endChar": 13
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e964c3d1_497a69df",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "The cache should not contain from-space references.",
+      "range": {
+        "startLine": 1976,
+        "startChar": 3,
+        "endLine": 1976,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcb362e9_86796ccf",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Merge, use \"lsl #1\".",
+      "range": {
+        "startLine": 1998,
+        "startChar": 4,
+        "endLine": 1999,
+        "endChar": 21
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a13f361_f1ce471b",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "It\u0027s not native ABI, it\u0027s the transition frame of type SaveAllCalleeSaves.",
+      "range": {
+        "startLine": 2013,
+        "startChar": 7,
+        "endLine": 2013,
+        "endChar": 17
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c371703_785ee443",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Does OSR-compiled method always have these registers spilled?\n\nDoesn\u0027t the OSR_DATA copied below contain these registers? (So we could just copy a longer range and avoid this spilling sequence.)",
+      "range": {
+        "startLine": 2015,
+        "startChar": 4,
+        "endLine": 2028,
+        "endChar": 30
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89c3d4b4_42b0373a",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Why not FETCH_ADVANCE_INST?",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "629f4ba8_4be0ac59",
+        "filename": "runtime/interpreter/mterp/arm64ng/other.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027.",
+      "range": {
+        "startLine": 7,
+        "startChar": 53,
+        "endLine": 8,
+        "endChar": 58
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f772bb4_6cfce30c",
+        "filename": "runtime/interpreter/mterp/arm64ng/other.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Reorder after GET_INST_OPCODE.",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 54
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f01ea6_cd442d85",
+        "filename": "runtime/interpreter/mterp/arm64ng/other.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-24T14:57:00Z",
+      "side": 1,
+      "message": "Use xzr.",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 49
       },
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
