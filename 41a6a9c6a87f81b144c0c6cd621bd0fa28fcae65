@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0aee09ee_0cc14aab",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2020-04-24T17:23:27Z",
+      "side": 1,
+      "message": "Can you combine these two conditionals into a single statement?  `accept_oat_file \u0026\u0026 oat_file-\u003eIsExecutable()`",
+      "revId": "41a6a9c6a87f81b144c0c6cd621bd0fa28fcae65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
