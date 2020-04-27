@@ -311,6 +311,9 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
   virtual void LoadSIMDRegFromStack(Location destination, Location source) = 0;
   virtual void MoveSIMDRegToSIMDReg(Location destination, Location source) = 0;
   virtual void MoveToSIMDStackSlot(Location destination, Location source) = 0;
+  virtual void SaveRestoreLiveRegistersHelper(LocationSummary* locations,
+                                              int64_t spill_offset,
+                                              bool is_save) = 0;
 
  protected:
   void GenerateClassInitializationCheck(SlowPathCodeARM64* slow_path,
@@ -464,6 +467,9 @@ class InstructionCodeGeneratorARM64Neon : public InstructionCodeGeneratorARM64 {
   void LoadSIMDRegFromStack(Location destination, Location source) override;
   void MoveSIMDRegToSIMDReg(Location destination, Location source) override;
   void MoveToSIMDStackSlot(Location destination, Location source) override;
+  void SaveRestoreLiveRegistersHelper(LocationSummary* locations,
+                                      int64_t spill_offset,
+                                      bool is_save) override;
 };
 
 class LocationsBuilderARM64Neon : public LocationsBuilderARM64 {
@@ -497,8 +503,15 @@ class InstructionCodeGeneratorARM64Sve : public InstructionCodeGeneratorARM64 {
   void LoadSIMDRegFromStack(Location destination, Location source) override;
   void MoveSIMDRegToSIMDReg(Location destination, Location source) override;
   void MoveToSIMDStackSlot(Location destination, Location source) override;
+  void SaveRestoreLiveRegistersHelper(LocationSummary* locations,
+                                      int64_t spill_offset,
+                                      bool is_save) override;
 
  private:
+  // Validate that instruction vector length and packed type are compliant with the SIMD
+  // register size (full SIMD register is used).
+  void ValidateVectorLength(HVecOperation* instr) const;
+
   // Returns default predicate register which is used as governing vector predicate
   // to implement predicated iteration loop execution.
   //
@@ -581,9 +594,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
     return vixl::aarch64::kDRegSizeInBytes;
   }
 
-  size_t GetSIMDRegisterWidth() const override {
-    return vixl::aarch64::kQRegSizeInBytes;
-  }
+  size_t GetSIMDRegisterWidth() const override;
 
   uintptr_t GetAddressOf(HBasicBlock* block) override {
     vixl::aarch64::Label* block_entry_label = GetLabelOf(block);
