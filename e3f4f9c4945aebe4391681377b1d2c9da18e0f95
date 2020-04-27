@@ -1418,6 +1418,23 @@
     },
     {
       "key": {
+        "uuid": "684fa0d8_e07aadb9",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-04-27T09:20:47Z",
+      "side": 1,
+      "message": "Is there a particular reason to prefer the x86 register loading pattern over the arm64 pattern? (See art_quick_invoke_stub in quick_entrypoints_arm64.S .)",
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76f9d8e4_b1591ed3",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
