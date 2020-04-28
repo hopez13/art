@@ -540,12 +540,14 @@ $$(gtest_rule): $$(gtest_output)
 # Re-run the tests, even if nothing changed. Until the build system has a dedicated "no cache"
 # option, claim to write a file that is never produced.
 $$(gtest_output): .KATI_IMPLICIT_OUTPUTS := $$(gtest_output)-nocache
+# Limit concurrent runs. Each test itself is already highly parallel (and thus memory hungry).
+$$(gtest_output): .KATI_NINJA_POOL := highmem_pool
 $$(gtest_output): NAME := $$(gtest_rule)
 ifeq (,$(SANITIZE_HOST))
 $$(gtest_output): $$(gtest_exe) $$(gtest_deps)
 	$(hide) ($$(call ART_TEST_SKIP,$$(NAME)) && \
 		timeout --foreground -k 120s 2400s $(HOST_OUT_EXECUTABLES)/signal_dumper -s 15 \
-			$$< --gtest_output=xml:$$@ && \
+			$$< --deadline_threshold_ms=600000 --gtest_output=xml:$$@ && \
 		$$(call ART_TEST_PASSED,$$(NAME))) || $$(call ART_TEST_FAILED,$$(NAME))
 else
 # Note: envsetup currently exports ASAN_OPTIONS=detect_leaks=0 to suppress leak detection, as some
