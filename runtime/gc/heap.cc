@@ -1391,13 +1391,18 @@ void Heap::ThrowOutOfMemoryError(Thread* self, size_t byte_count, AllocatorType 
     } else if (allocator_type == kAllocatorTypeBumpPointer ||
                allocator_type == kAllocatorTypeTLAB) {
       space = bump_pointer_space_;
+      // We use TLAB allocator in-place of RegionTLAB when suitable.
+      if (space == nullptr && GetCurrentAllocator() == kAllocatorTypeRegionTLAB) {
+        space = region_space_;
+      }
     } else if (allocator_type == kAllocatorTypeRegion ||
                allocator_type == kAllocatorTypeRegionTLAB) {
       space = region_space_;
     }
-    if (space != nullptr) {
-      space->LogFragmentationAllocFailure(oss, byte_count);
-    }
+    CHECK(space != nullptr) << "allocator_type:" << allocator_type
+                            << " byte_count:" << byte_count
+                            << " total_bytes_free:" << total_bytes_free;
+    space->LogFragmentationAllocFailure(oss, byte_count);
   }
   self->ThrowOutOfMemoryError(oss.str().c_str());
 }
