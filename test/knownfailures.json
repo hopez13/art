@@ -1222,7 +1222,8 @@
                   "2005-pause-all-redefine-multithreaded",
                   "2006-virtual-structural-finalizing",
                   "2007-virtual-structural-finalizable",
-                  "2033-shutdown-mechanics"],
+                  "2033-shutdown-mechanics",
+                  "2034-spaces-in-SimpleName"],
         "variant": "jvm",
         "description": ["Doesn't run on RI."]
     },
@@ -1392,8 +1393,7 @@
                   "1956-pop-frame-jit-calling",
                   "2009-structural-local-ref",
                   "2011-stack-walk-concurrent-instrument",
-                  "2012-structural-redefinition-failures-jni-id",
-                  "2029-spaces-in-SimpleName"],
+                  "2012-structural-redefinition-failures-jni-id"],
         "variant": "jvm",
         "bug": "b/154802847",
         "description": ["Failing on RI. Needs further investigating."]
