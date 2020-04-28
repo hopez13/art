@@ -3,7 +3,8 @@
   "version": 1,
   "provideNativeLibs": [
     "libicui18n.so",
-    "libicuuc.so"
+    "libicuuc.so",
+    "libnativehelper.so"
   ],
   "requireNativeLibs": [
     "libneuralnetworks.so"
