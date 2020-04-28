@@ -1223,7 +1223,8 @@
                   "2009-structural-local-ref",
                   "2011-stack-walk-concurrent-instrument",
                   "2012-structural-redefinition-failures-jni-id",
-                  "2033-shutdown-mechanics"],
+                  "2033-shutdown-mechanics",
+                  "2034-spaces-in-SimpleName"],
         "variant": "jvm",
         "description": ["Doesn't run on RI."]
     },
@@ -1386,8 +1387,7 @@
                   "952-invoke-custom",
                   "960-default-smali",
                   "966-default-conflict",
-                  "990-field-trace",
-                  "2034-spaces-in-SimpleName"],
+                  "990-field-trace"],
         "variant": "jvm",
         "bug": "b/154802847",
         "description": ["Failing on RI. Needs further investigating."]
