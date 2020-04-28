@@ -1407,9 +1407,10 @@ void Heap::ThrowOutOfMemoryError(Thread* self, size_t byte_count, AllocatorType 
                allocator_type == kAllocatorTypeRegionTLAB) {
       space = region_space_;
     }
-    if (space != nullptr) {
-      space->LogFragmentationAllocFailure(oss, byte_count);
-    }
+    CHECK(space != nullptr) << "allocator_type:" << allocator_type
+                            << "byte_count:" << byte_count
+                            << "total_bytes_free:" << total_bytes_free;
+    space->LogFragmentationAllocFailure(oss, byte_count);
   }
   self->ThrowOutOfMemoryError(oss.str().c_str());
 }
