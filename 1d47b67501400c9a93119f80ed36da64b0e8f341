@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42cab17d_63dbaa54",
+        "filename": "build/apex/manifest-art.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-29T13:25:09Z",
+      "side": 1,
+      "message": "I hope you shouldn\u0027t need to add this here - it should be taken care of by it being in native_shared_libs in the apex{} module. (The ICU libs are here because they don\u0027t have stubs but are public anyway.)",
+      "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69c02c9c_c914088e",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-29T13:25:09Z",
+      "side": 1,
+      "message": "This is only applicable if you intend to add libnativehelper to /system/etc/public.libraries.txt. Is that the case? (Even then, I\u0027m not sure it\u0027s the right thing - again, the ICU libs are weird and special.)",
+      "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
