@@ -69,6 +69,24 @@
       "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb16d206_dcb8930a",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-04-29T15:49:15Z",
+      "side": 1,
+      "message": "\u003e The intent here is to make this a public library.\n\nRight, so a CL to add it to public.libraries.txt files is upcoming then? Assuming I\u0027m right about the manifest change above I think this CL wouldn\u0027t have any effect until then, so I suggest making a topic of these two changes, possibly separate from the current topic.\n\n\u003e (Even then, I\u0027m not sure it\u0027s the right thing - again, the ICU libs are weird and special.)\n\nLooked some more and I take that back, it\u0027s indeed necessary. It\u0027s one of the things that need to be cleaned up as part of b/150767721.",
+      "parentUuid": "0450ff91_434bd50a",
+      "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
