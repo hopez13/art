@@ -1210,6 +1210,9 @@ class Dex2Oat final {
         CompilerFilter::NameOfFilter(compiler_options_->GetCompilerFilter()));
     key_value_store_->Put(OatHeader::kConcurrentCopying,
                           kUseReadBarrier ? OatHeader::kTrueValue : OatHeader::kFalseValue);
+    key_value_store_->Put(
+        OatHeader::kRequiresImage,
+        compiler_options_->IsGeneratingImage() ? OatHeader::kTrueValue : OatHeader::kFalseValue);
     if (invocation_file_.get() != -1) {
       std::ostringstream oss;
       for (int i = 0; i < argc; ++i) {
