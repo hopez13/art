@@ -651,6 +651,8 @@ standalone-apex-files: libc.bootstrap \
 	  tf="$$conscrypt_apex_orig_dir/$$f"; \
 	  if [ -f $$tf ]; then cp -f $$tf $(TARGET_OUT)/$$f; fi; \
 	done; \
+	if [ -f $(TARGET_OUT)/bin/dex2oat32 ]; then ln -sf dex2oat32 $(TARGET_OUT)/bin/dex2oat; fi; \
+	if [ -f $(TARGET_OUT)/bin/dex2oat64 ]; then ln -sf dex2oat64 $(TARGET_OUT)/bin/dex2oat; fi; \
 
 ########################################################################
 # Phony target for only building what go/lem requires for pushing ART on /data.
