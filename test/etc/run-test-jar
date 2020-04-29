@@ -86,6 +86,7 @@ TEST_DM="n"
 TEST_IS_NDEBUG="n"
 APP_IMAGE="y"
 SECONDARY_APP_IMAGE="y"
+REMOVE_APP_IMAGE="n"
 SECONDARY_CLASS_LOADER_CONTEXT=""
 SECONDARY_COMPILATION="y"
 JVMTI_STRESS="n"
@@ -246,6 +247,9 @@ while true; do
         shift
     elif [ "x$1" = "x--no-app-image" ]; then
         APP_IMAGE="n"
+        shift
+    elif [ "x$1" = "x--remove-app-image" ]; then
+        REMOVE_APP_IMAGE="y"
         shift
     elif [ "x$1" = "x--no-secondary-app-image" ]; then
         SECONDARY_APP_IMAGE="n"
@@ -882,6 +886,7 @@ profman_cmdline="true"
 dex2oat_cmdline="true"
 vdex_cmdline="true"
 dm_cmdline="true"
+rm_app_image_cmdline="true"
 mkdir_locations="${DEX_LOCATION}/dalvik-cache/$ISA"
 strip_cmdline="true"
 sync_cmdline="true"
@@ -964,8 +969,9 @@ function write_dex2oat_cmdlines {
     $enable_app_image && [ "$SECONDARY_APP_IMAGE" = "y" ] || enable_app_image=false
   fi
 
+  local app_image_file="$DEX_LOCATION/oat/$ISA/$name.art"
   local app_image=""
-  $enable_app_image && app_image="--app-image-file=$DEX_LOCATION/oat/$ISA/$name.art --resolve-startup-const-strings=true"
+  $enable_app_image && app_image="--app-image-file=$app_image_file --resolve-startup-const-strings=true"
 
   local dex2oat_binary
   dex2oat_binary=${DEX2OAT_DEBUG_BINARY}
@@ -1004,6 +1010,10 @@ function write_dex2oat_cmdlines {
     dex2oat_cmdline="${dex2oat_cmdline} --output-vdex=$DEX_LOCATION/oat/$ISA/primary.vdex"
     dm_cmdline="zip -qj $DEX_LOCATION/oat/$ISA/$name.dm $DEX_LOCATION/oat/$ISA/primary.vdex"
     vdex_cmdline="${dex2oat_cmdline} ${VDEX_ARGS} --dump-timings --dm-file=$DEX_LOCATION/oat/$ISA/$name.dm"
+  fi
+
+  if [ "$REMOVE_APP_IMAGE" = "y" ]; then
+    rm_app_image_cmdline="rm ${app_image_file}"
   fi
 }
 
@@ -1255,6 +1265,7 @@ if [ "$HOST" = "n" ]; then
              $dm_cmdline && \
              $vdex_cmdline && \
              $strip_cmdline && \
+             $rm_app_image_cmdline && \
              $sync_cmdline && \
              $timeout_prefix $dalvikvm_cmdline"
 
@@ -1344,7 +1355,7 @@ else
         echo EXPORT $var=${!var}
       done
       echo "$(declare -f linkdirs)"
-      echo "mkdir -p ${mkdir_locations} && $setupapex_cmdline && $installapex_cmdline && $linkroot_cmdline && $linkroot_overlay_cmdline && $profman_cmdline && $dex2oat_cmdline && $dm_cmdline && $vdex_cmdline && $strip_cmdline && $sync_cmdline && $cmdline"
+      echo "mkdir -p ${mkdir_locations} && $setupapex_cmdline && $installapex_cmdline && $linkroot_cmdline && $linkroot_overlay_cmdline && $profman_cmdline && $dex2oat_cmdline && $dm_cmdline && $vdex_cmdline && $strip_cmdline && $rm_app_image_cmdline && $sync_cmdline && $cmdline"
     fi
 
     cd $ANDROID_BUILD_TOP
@@ -1367,6 +1378,7 @@ else
     eval "$dm_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
     eval "$vdex_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
     $strip_cmdline || { echo "Strip failed." >&2 ; exit 3; }
+    $rm_app_image_cmdline || { echo "Failed to remove app image."; exit 5;}
     $sync_cmdline || { echo "Sync failed." >&2 ; exit 4; }
 
     if [ "$CREATE_RUNNER" = "y" ]; then
