@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55eed937_86a6ba3c",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-29T10:09:52Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 292,
+        "startChar": 60,
+        "endLine": 292,
+        "endChar": 81
+      },
+      "revId": "5b89694a0f2316edd38505eab61f8edde61d0996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f42f908_021bac42",
+        "filename": "runtime/binary_analyzer/binary_disassembler.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-04-29T10:09:52Z",
+      "side": 1,
+      "message": "Keep the old name, BinaryDisassembler",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "5b89694a0f2316edd38505eab61f8edde61d0996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
