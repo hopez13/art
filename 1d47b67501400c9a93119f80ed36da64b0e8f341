@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea9d193f_242253d8",
+        "filename": "build/apex/manifest-art.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-04-29T13:44:25Z",
+      "side": 1,
+      "message": "Ack, will update.",
+      "parentUuid": "42cab17d_63dbaa54",
+      "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69c02c9c_c914088e",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-29T13:25:09Z",
       "side": 1,
       "message": "This is only applicable if you intend to add libnativehelper to /system/etc/public.libraries.txt. Is that the case? (Even then, I\u0027m not sure it\u0027s the right thing - again, the ICU libs are weird and special.)",
+      "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0450ff91_434bd50a",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-04-29T13:44:25Z",
+      "side": 1,
+      "message": "This change came from here:\n\nhttps://googleplex-android-review.git.corp.google.com/c/platform/art/+/10633365/1/libnativeloader/public_libraries.cpp\n\nThe intent here is to make this a public library. Ideally it wants to be loaded once (by zygote). This makes the NDK API for lnh more tractable as otherwise we can\u0027t dlsym additional sybmols from libart.",
+      "parentUuid": "69c02c9c_c914088e",
       "revId": "1d47b67501400c9a93119f80ed36da64b0e8f341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
