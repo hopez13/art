@@ -521,6 +521,9 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("");
   UsageError("  --max-image-block-size=<size>: Maximum solid block size for compressed images.");
   UsageError("");
+  UsageError("  --compile-individually: Compiles dex files individually, unloading classes in");
+  UsageError("      between compiling each file.");
+  UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
@@ -815,7 +818,8 @@ class Dex2Oat final {
       timings_(timings),
       force_determinism_(false),
       check_linkage_conditions_(false),
-      crash_on_linkage_violation_(false)
+      crash_on_linkage_violation_(false),
+      compile_individually_(false)
       {}
 
   ~Dex2Oat() {
@@ -1210,6 +1214,9 @@ class Dex2Oat final {
         CompilerFilter::NameOfFilter(compiler_options_->GetCompilerFilter()));
     key_value_store_->Put(OatHeader::kConcurrentCopying,
                           kUseReadBarrier ? OatHeader::kTrueValue : OatHeader::kFalseValue);
+    key_value_store_->Put(
+        OatHeader::kRequiresImage,
+        compiler_options_->IsGeneratingImage() ? OatHeader::kTrueValue : OatHeader::kFalseValue);
     if (invocation_file_.get() != -1) {
       std::ostringstream oss;
       for (int i = 0; i < argc; ++i) {
@@ -1370,6 +1377,7 @@ class Dex2Oat final {
     if (args.Exists(M::ForceDeterminism)) {
       force_determinism_ = true;
     }
+    AssignTrueIfExists(args, M::CompileIndividually, &compile_individually_);
 
     if (args.Exists(M::Base)) {
       ParseBase(*args.Get(M::Base));
@@ -2008,17 +2016,17 @@ class Dex2Oat final {
   }
 
   bool ShouldCompileDexFilesIndividually() const {
-    // Compile individually if we are:
-    // 1. not building an image,
-    // 2. not verifying a vdex file,
-    // 3. using multidex,
+    // Compile individually if we are specifically asked to, or
+    // 1. not building an image, and
+    // 2. not verifying a vdex file, and
+    // 3. using multidex, and
     // 4. not doing any AOT compilation.
     // This means extract, no-vdex verify, and quicken, will use the individual compilation
     // mode (to reduce RAM used by the compiler).
-    return !IsImage() &&
-        !update_input_vdex_ &&
-        compiler_options_->dex_files_for_oat_file_.size() > 1 &&
-        !CompilerFilter::IsAotCompilationEnabled(compiler_options_->GetCompilerFilter());
+    return compile_individually_ ||
+           (!IsImage() && !update_input_vdex_ &&
+            compiler_options_->dex_files_for_oat_file_.size() > 1 &&
+            !CompilerFilter::IsAotCompilationEnabled(compiler_options_->GetCompilerFilter()));
   }
 
   uint32_t GetCombinedChecksums() const {
@@ -3106,6 +3114,9 @@ class Dex2Oat final {
 
   // The reason for invoking the compiler.
   std::string compilation_reason_;
+
+  // Whether to force individual compilation.
+  bool compile_individually_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
