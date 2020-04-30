@@ -22,6 +22,30 @@
       "revId": "268db622f2abfda2bfd4f138702ec33b2ba1abae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13c89c99_04563d1a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-04-30T18:49:28Z",
+      "side": 1,
+      "message": "PTAL at latest patchset. I have simplified the allocator selection as we no longer have read-barrier in allocation patch.",
+      "parentUuid": "00c4e4fa_3cd9a22f",
+      "range": {
+        "startLine": 1394,
+        "startChar": 6,
+        "endLine": 1397,
+        "endChar": 7
+      },
+      "revId": "268db622f2abfda2bfd4f138702ec33b2ba1abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
