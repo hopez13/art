@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00c4e4fa_3cd9a22f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-04-30T01:11:37Z",
+      "side": 1,
+      "message": "Can we fix this at the source instead? Or can we add some detail as to why we\u0027re not? Maybe that\u0027s more appropriate for the commit message than a comment.",
+      "range": {
+        "startLine": 1394,
+        "startChar": 6,
+        "endLine": 1397,
+        "endChar": 7
+      },
+      "revId": "268db622f2abfda2bfd4f138702ec33b2ba1abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
