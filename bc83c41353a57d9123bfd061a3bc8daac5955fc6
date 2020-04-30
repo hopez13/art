@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6645ec38_dbd4316e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-30T16:45:05Z",
+      "side": 1,
+      "message": "Those helpers will have different implementations for SVE and NEON backends.",
+      "parentUuid": "03769fda_a38dd090",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 5
+      },
+      "revId": "bc83c41353a57d9123bfd061a3bc8daac5955fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a90ea8_1832d38a",
         "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "bc83c41353a57d9123bfd061a3bc8daac5955fc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf6218a6_7c9bce90",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-04-30T16:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a90ea8_1832d38a",
+      "range": {
+        "startLine": 1530,
+        "startChar": 4,
+        "endLine": 1530,
+        "endChar": 29
+      },
+      "revId": "bc83c41353a57d9123bfd061a3bc8daac5955fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
