@@ -259,6 +259,30 @@
       "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "884f79f3_f820c9ab",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-05-01T18:35:12Z",
+      "side": 1,
+      "message": "\u003e Do you get a symlink to the prebuilt from out/soong/host/.../bin there?\n\nI just checked and there was a discrepancy between the prebuilt hiddenapi and the one in out/soong/host/linux-x86/bin so I deleted the whole out directory and rebuilt.\n\nThe out/soong/host/linux-x86/hiddenapi is a full binary not a symlink and has the same md5sum as the one in art prebuilts.",
+      "parentUuid": "984a4ff7_a10a09de",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
