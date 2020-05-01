@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "53691fd6_bb84a7f5",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T16:04:51Z",
+      "side": 1,
+      "message": "Ah yes, very much so. Apologies.",
+      "parentUuid": "e13ea5ae_7deea01b",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0442b143_b98c43eb",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 7
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "89036a1c_dbcb451c",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T16:04:51Z",
+      "side": 1,
+      "message": "I know, but I still thought it could reduce the duplication as long as there\u0027s nothing else in it. But this helps a bit too, thanks.",
+      "parentUuid": "ab3e9a8c_51e42eb4",
+      "range": {
+        "startLine": 30,
+        "startChar": 49,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "070e7f69_17102a28",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 7
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "Without these hiddenapi execution fails while building everything in external/conscrypt.\nHowever, with these everything in external/conscrypt builds properly, apart from some test code.\n\nBased on that I think that hiddenapi must run correctly with these present.",
       "parentUuid": "070e7f69_17102a28",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "984a4ff7_a10a09de",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T16:04:51Z",
+      "side": 1,
+      "message": "Interesting. Given [1] I wouldn\u0027t think the prebuilt hiddenapi to actually get run atm. For dex2oat I\u0027ve done work to make it pick up the prebuilt path (still unfinished), and I expected to have to do the same for hiddenapi. Do you get a symlink to the prebuilt from out/soong/host/.../bin there?\n\n[1] https://devops-console-stagingoss.corp.google.com/android/platform/superproject/+/master:build/soong/java/config/config.go;l\u003d124;drc\u003d1dcc27e47cdb629f2ca5c3dd25a39733a49d364e",
+      "parentUuid": "7e8ac309_a9315fb3",
       "range": {
         "startLine": 83,
         "startChar": 19,
