@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dce19603_fc7a5b2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T11:49:43Z",
+      "side": 1,
+      "message": "I wasn\u0027t aware of this. We\u0027ll have to do something about it, right? Set visibilities once we have proper (or even temporary) prebuilt locations?",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bace5099_57e75288",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T11:49:43Z",
+      "side": 1,
+      "message": "\"TODO(b/138994281): Move to i18n module SDK\"?",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0442b143_b98c43eb",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T11:49:43Z",
+      "side": 1,
+      "message": "Nit: This is the same for all the libs. Would it make sense to only mention it once for java_header_libs as a whole? The repetition makes it harder to see what the differences are between the libs are.",
+      "range": {
+        "startLine": 30,
+        "startChar": 49,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "070e7f69_17102a28",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-01T11:49:43Z",
+      "side": 1,
+      "message": "Just as a side note, even with these I don\u0027t think the prebuilt hiddenapi runs out of the box; one would have to fiddle around with LD_LIBRARY_PATH first. But I take it the reason they\u0027re added is to make Soong happy.",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
