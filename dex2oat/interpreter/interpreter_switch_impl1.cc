@@ -17,13 +17,15 @@
 // The interpreter function takes considerable time to compile and link.
 // We compile the explicit definitions separately to speed up the build.
 
-#include "interpreter_switch_impl-inl.h"
+#include "interpreter/interpreter_switch_impl-inl.h"
+
+#include "interpreter/active_transaction_checker.h"
 
 namespace art {
 namespace interpreter {
 
 // Explicit definition of ExecuteSwitchImplCpp.
-template
+template HOT_ATTR
 void ExecuteSwitchImplCpp<false, true>(SwitchImplContext* ctx);
 
 }  // namespace interpreter

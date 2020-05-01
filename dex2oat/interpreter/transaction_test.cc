@@ -21,6 +21,7 @@
 #include "class_linker-inl.h"
 #include "common_runtime_test.h"
 #include "dex/dex_file.h"
+#include "dex/quick_compiler_callbacks.h"
 #include "mirror/array-alloc-inl.h"
 #include "mirror/class-alloc-inl.h"
 #include "scoped_thread_state_change-inl.h"
@@ -32,6 +33,16 @@ class TransactionTest : public CommonRuntimeTest {
   void SetUpRuntimeOptions(/*out*/RuntimeOptions* options) override {
     // Set up the image location.
     options->emplace_back("-Ximage:" + GetImageLocation(), nullptr);
+  }
+
+  void PreRuntimeCreate() override {
+    CommonRuntimeTest::PreRuntimeCreate();
+    callbacks_.reset(new QuickCompilerCallbacks(CompilerCallbacks::CallbackMode::kCompileApp));
+  }
+
+  void PostRuntimeCreate() override {
+    CommonRuntimeTest::PostRuntimeCreate();
+    Runtime::Current()->SetCompilerCallbacks(callbacks_.get());
   }
 
   // Tests failing class initialization due to native call with transaction rollback.

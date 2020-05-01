@@ -18,16 +18,27 @@
 #define ART_RUNTIME_COMPILER_CALLBACKS_H_
 
 #include "base/locks.h"
+#include "base/logging.h"
+#include "base/macros.h"
 #include "dex/class_reference.h"
 #include "class_status.h"
 
 namespace art {
 
 class CompilerDriver;
+template <class MirrorType> class ObjPtr;
+class Thread;
+
+namespace interpreter {
+
+struct SwitchImplContext;
+
+}  // interpreter
 
 namespace mirror {
 
 class Class;
+class Object;
 
 }  // namespace mirror
 
@@ -74,6 +85,18 @@ class CompilerCallbacks {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     return false;
   }
+
+  // Transactional interpreter support.
+  // TODO: Move this to ClassLinker/AotClassLinker when we move AotClassLinker to dex2oat/.
+  using InterpreterPointer = void (*)(interpreter::SwitchImplContext* ctx);
+  virtual InterpreterPointer GetTransactionalInterpreter() = 0;
+  virtual InterpreterPointer GetTransactionalInterpreterWithAccessChecks() = 0;
+  virtual bool CheckTransactionWriteConstraint(Thread* self, ObjPtr<mirror::Object> obj)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual bool CheckTransactionWriteValueConstraint(Thread* self, ObjPtr<mirror::Object> value)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual bool CheckTransactionAllocationConstraint(Thread* self, ObjPtr<mirror::Class> klass)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
  protected:
   explicit CompilerCallbacks(CallbackMode mode) : mode_(mode) { }

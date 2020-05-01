@@ -537,6 +537,13 @@ class Runtime {
   const std::unique_ptr<Transaction>& GetTransaction() const;
   bool IsActiveStrictTransactionMode() const;
 
+  static void AbortTransactionF(Thread* self, const char* fmt, ...)
+      __attribute__((__format__(__printf__, 2, 3)))
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void AbortTransactionV(Thread* self, const char* fmt, va_list args)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void AbortTransactionAndThrowAbortError(Thread* self, const std::string& abort_message)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void ThrowTransactionAbortError(Thread* self)

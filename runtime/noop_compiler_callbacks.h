@@ -19,6 +19,9 @@
 
 #include "compiler_callbacks.h"
 
+#include "base/macros.h"
+#include "base/logging.h"
+
 namespace art {
 
 class NoopCompilerCallbacks final : public CompilerCallbacks {
@@ -32,6 +35,39 @@ class NoopCompilerCallbacks final : public CompilerCallbacks {
   void ClassRejected(ClassReference ref ATTRIBUTE_UNUSED) override {}
 
   verifier::VerifierDeps* GetVerifierDeps() const override { return nullptr; }
+
+  // Transactional interpreter support.
+
+  InterpreterPointer GetTransactionalInterpreter() override {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
+  InterpreterPointer GetTransactionalInterpreterWithAccessChecks() override {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
+  bool CheckTransactionWriteConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                       ObjPtr<mirror::Object> obj ATTRIBUTE_UNUSED) override
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
+  bool CheckTransactionWriteValueConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                            ObjPtr<mirror::Object> value ATTRIBUTE_UNUSED) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
+  bool CheckTransactionAllocationConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                            ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
 
  private:
   DISALLOW_COPY_AND_ASSIGN(NoopCompilerCallbacks);

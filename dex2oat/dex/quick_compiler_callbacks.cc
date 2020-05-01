@@ -18,6 +18,8 @@
 
 #include "dex/verification_results.h"
 #include "driver/compiler_driver.h"
+#include "interpreter/active_transaction_checker.h"
+#include "interpreter/interpreter_switch_impl.h"
 #include "mirror/class-inl.h"
 
 namespace art {
@@ -63,6 +65,32 @@ bool QuickCompilerCallbacks::CanUseOatStatusForVerification(mirror::Class* klass
   // If the class isn't from one of the dex files, accept oat file data.
   const DexFile* dex_file = &klass->GetDexFile();
   return std::find(dex_files_->begin(), dex_files_->end(), dex_file) == dex_files_->end();
+}
+
+CompilerCallbacks::InterpreterPointer QuickCompilerCallbacks::GetTransactionalInterpreter() {
+  return &interpreter::ExecuteSwitchImplCpp</*do_access_check=*/ false,
+                                            /*transaction_active=*/ true>;
+}
+
+CompilerCallbacks::InterpreterPointer
+QuickCompilerCallbacks::GetTransactionalInterpreterWithAccessChecks() {
+  return &interpreter::ExecuteSwitchImplCpp</*do_access_check=*/ true,
+                                            /*transaction_active=*/ true>;
+}
+
+bool QuickCompilerCallbacks::CheckTransactionWriteConstraint(Thread* self,
+                                                             ObjPtr<mirror::Object> obj) {
+  return interpreter::ActiveTransactionChecker::CheckWriteConstraint(self, obj);
+}
+
+bool QuickCompilerCallbacks::CheckTransactionWriteValueConstraint(Thread* self,
+                                                                  ObjPtr<mirror::Object> value) {
+  return interpreter::ActiveTransactionChecker::CheckWriteValueConstraint(self, value);
+}
+
+bool QuickCompilerCallbacks::CheckTransactionAllocationConstraint(Thread* self,
+                                                                  ObjPtr<mirror::Class> klass) {
+  return interpreter::ActiveTransactionChecker::CheckAllocationConstraint(self, klass);
 }
 
 }  // namespace art

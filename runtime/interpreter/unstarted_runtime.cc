@@ -37,6 +37,7 @@
 #include "base/zip_archive.h"
 #include "class_linker.h"
 #include "common_throws.h"
+#include "compiler_callbacks.h"
 #include "dex/descriptors_names.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "gc/reference_processor.h"
@@ -76,7 +77,7 @@ static void AbortTransactionOrFail(Thread* self, const char* fmt, ...) {
   va_list args;
   if (Runtime::Current()->IsActiveTransaction()) {
     va_start(args, fmt);
-    AbortTransactionV(self, fmt, args);
+    Runtime::AbortTransactionV(self, fmt, args);
     va_end(args);
   } else {
     va_start(args, fmt);
@@ -290,12 +291,11 @@ void UnstartedRuntime::UnstartedClassNewInstance(
   }
 
   // If we're in a transaction, class must not be finalizable (it or a superclass has a finalizer).
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (h_klass->IsFinalizable()) {
-      AbortTransactionF(self, "Class for newInstance is finalizable: '%s'",
-                        h_klass->PrettyClass().c_str());
-      return;
-    }
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction() &&
+      !runtime->GetCompilerCallbacks()->CheckTransactionAllocationConstraint(self, h_klass.Get())) {
+    DCHECK(self->IsExceptionPending());
+    return;
   }
 
   // There are two situations in which we'll abort this run.
@@ -303,7 +303,7 @@ void UnstartedRuntime::UnstartedClassNewInstance(
   //  2) If we can't find the default constructor. We'll postpone the exception to runtime.
   // Note that 2) could likely be handled here, but for safety abort the transaction.
   bool ok = false;
-  auto* cl = Runtime::Current()->GetClassLinker();
+  auto* cl = runtime->GetClassLinker();
   if (cl->EnsureInitialized(self, h_klass, true, true)) {
     ArtMethod* cons = h_klass->FindConstructor("()V", cl->GetImagePointerSize());
     if (cons != nullptr && ShouldDenyAccessToMember(cons, shadow_frame)) {
@@ -791,7 +791,9 @@ void UnstartedRuntime::UnstartedSystemArraycopy(
     return;
   }
 
-  if (Runtime::Current()->IsActiveTransaction() && !CheckWriteConstraint(self, dst_obj)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction() &&
+      !runtime->GetCompilerCallbacks()->CheckTransactionWriteConstraint(self, dst_obj)) {
     DCHECK(self->IsExceptionPending());
     return;
   }
@@ -1417,8 +1419,9 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapLong(
   int64_t newValue = shadow_frame->GetVRegLong(arg_offset + 6);
   bool success;
   // Check whether we're in a transaction, call accordingly.
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    if (!runtime->GetCompilerCallbacks()->CheckTransactionWriteConstraint(self, obj)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -1463,8 +1466,11 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapObject(
   }
   bool success;
   // Check whether we're in a transaction, call accordingly.
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj) || !CheckWriteValueConstraint(self, new_value)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    CompilerCallbacks* compiler_callbacks = runtime->GetCompilerCallbacks();
+    if (!compiler_callbacks->CheckTransactionWriteConstraint(self, obj) ||
+        !compiler_callbacks->CheckTransactionWriteValueConstraint(self, new_value)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -1508,8 +1514,11 @@ void UnstartedRuntime::UnstartedUnsafePutObjectVolatile(
   }
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
   mirror::Object* value = shadow_frame->GetVRegReference(arg_offset + 4);
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj) || !CheckWriteValueConstraint(self, value)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    CompilerCallbacks* compiler_callbacks = runtime->GetCompilerCallbacks();
+    if (!compiler_callbacks->CheckTransactionWriteConstraint(self, obj) ||
+        !compiler_callbacks->CheckTransactionWriteValueConstraint(self, value)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -1531,8 +1540,11 @@ void UnstartedRuntime::UnstartedUnsafePutOrderedObject(
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
   mirror::Object* new_value = shadow_frame->GetVRegReference(arg_offset + 4);
   std::atomic_thread_fence(std::memory_order_release);
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj) || !CheckWriteValueConstraint(self, new_value)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    CompilerCallbacks* compiler_callbacks = runtime->GetCompilerCallbacks();
+    if (!compiler_callbacks->CheckTransactionWriteConstraint(self, obj) ||
+        !compiler_callbacks->CheckTransactionWriteValueConstraint(self, new_value)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -1861,8 +1873,9 @@ void UnstartedRuntime::UnstartedJNIUnsafeCompareAndSwapInt(
   jint expectedValue = args[3];
   jint newValue = args[4];
   bool success;
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    if (!runtime->GetCompilerCallbacks()->CheckTransactionWriteConstraint(self, obj)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -1908,8 +1921,11 @@ void UnstartedRuntime::UnstartedJNIUnsafePutObject(Thread* self,
   }
   jlong offset = (static_cast<uint64_t>(args[2]) << 32) | args[1];
   ObjPtr<mirror::Object> new_value = reinterpret_cast32<mirror::Object*>(args[3]);
-  if (Runtime::Current()->IsActiveTransaction()) {
-    if (!CheckWriteConstraint(self, obj) || !CheckWriteValueConstraint(self, new_value)) {
+  Runtime* runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    CompilerCallbacks* compiler_callbacks = runtime->GetCompilerCallbacks();
+    if (!compiler_callbacks->CheckTransactionWriteConstraint(self, obj) ||
+        !compiler_callbacks->CheckTransactionWriteValueConstraint(self, new_value)) {
       DCHECK(self->IsExceptionPending());
       return;
     }
@@ -2027,8 +2043,8 @@ void UnstartedRuntime::Jni(Thread* self, ArtMethod* method, mirror::Object* rece
     result->SetL(nullptr);
     (*iter->second)(self, method, receiver, args, result);
   } else if (Runtime::Current()->IsActiveTransaction()) {
-    AbortTransactionF(self, "Attempt to invoke native method in non-started runtime: %s",
-                      name.c_str());
+    Runtime::AbortTransactionF(
+        self, "Attempt to invoke native method in non-started runtime: %s", name.c_str());
   } else {
     LOG(FATAL) << "Calling native method " << ArtMethod::PrettyMethod(method) << " in an unstarted "
         "non-transactional runtime";

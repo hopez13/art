@@ -53,6 +53,9 @@ namespace interpreter {
 template<bool do_access_check, bool transaction_active, Instruction::Format kFormat>
 class InstructionHandler {
  public:
+  using TransactionChecker = typename std::conditional<
+      transaction_active, ActiveTransactionChecker, InactiveTransactionChecker>::type;
+
 #define HANDLER_ATTRIBUTES ALWAYS_INLINE FLATTEN WARN_UNUSED REQUIRES_SHARED(Locks::mutator_lock_)
 
   HANDLER_ATTRIBUTES bool CheckForceReturn() {
@@ -343,7 +346,7 @@ class InstructionHandler {
     if (UNLIKELY(!array->CheckIsValidIndex(index))) {
       return false;  // Pending exception.
     } else {
-      if (transaction_active && !CheckWriteConstraint(self, array)) {
+      if (!TransactionChecker::CheckWriteConstraint(self, array)) {
         return false;
       }
       array->template SetWithoutChecks<transaction_active>(index, value);
@@ -734,10 +737,7 @@ class InstructionHandler {
     if (LIKELY(c != nullptr)) {
       // Don't allow finalizable objects to be allocated during a transaction since these can't
       // be finalized without a started runtime.
-      if (transaction_active && c->IsFinalizable()) {
-        AbortTransactionF(self,
-                          "Allocating finalizable object in transaction: %s",
-                          c->PrettyDescriptor().c_str());
+      if (!TransactionChecker::CheckAllocationConstraint(self, c)) {
         return false;  // Pending exception.
       }
       gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
@@ -977,8 +977,8 @@ class InstructionHandler {
     ObjPtr<mirror::Object> val = GetVRegReference(A());
     ObjPtr<mirror::ObjectArray<mirror::Object>> array = a->AsObjectArray<mirror::Object>();
     if (array->CheckIsValidIndex(index) && array->CheckAssignable(val)) {
-      if (transaction_active &&
-          (!CheckWriteConstraint(self, array) || !CheckWriteValueConstraint(self, val))) {
+      if (!TransactionChecker::CheckWriteConstraint(self, array) ||
+          !TransactionChecker::CheckWriteValueConstraint(self, val)) {
         return false;
       }
       array->SetWithoutChecks<transaction_active>(index, val);

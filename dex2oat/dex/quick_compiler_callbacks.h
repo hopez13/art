@@ -64,6 +64,16 @@ class QuickCompilerCallbacks final : public CompilerCallbacks {
   bool CanUseOatStatusForVerification(mirror::Class* klass) override
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Transactional interpreter support.
+  InterpreterPointer GetTransactionalInterpreter() override;
+  InterpreterPointer GetTransactionalInterpreterWithAccessChecks() override;
+  bool CheckTransactionWriteConstraint(Thread* self, ObjPtr<mirror::Object> obj) override
+        REQUIRES_SHARED(Locks::mutator_lock_);
+  bool CheckTransactionWriteValueConstraint(Thread* self, ObjPtr<mirror::Object> value) override
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  bool CheckTransactionAllocationConstraint(Thread* self, ObjPtr<mirror::Class> klass) override
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void SetDexFiles(const std::vector<const DexFile*>* dex_files) {
     dex_files_ = dex_files;
   }

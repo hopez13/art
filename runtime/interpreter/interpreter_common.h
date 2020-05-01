@@ -68,6 +68,32 @@
 namespace art {
 namespace interpreter {
 
+// We declare the helper class for transaction checks here but it shall be defined
+// only when compiling the transactional interpreter for dex2oat.
+class ActiveTransactionChecker;
+
+// Define the helper class that does not do any transaction checks.
+class InactiveTransactionChecker {
+ public:
+  ALWAYS_INLINE static bool CheckWriteConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                                 ObjPtr<mirror::Object> obj ATTRIBUTE_UNUSED)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return true;
+  }
+
+  ALWAYS_INLINE static bool CheckWriteValueConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                                      ObjPtr<mirror::Object> value ATTRIBUTE_UNUSED)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return true;
+  }
+
+  ALWAYS_INLINE static bool CheckAllocationConstraint(Thread* self ATTRIBUTE_UNUSED,
+                                                      ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return true;
+  }
+};
+
 void ThrowNullPointerExceptionFromInterpreter()
     REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -111,13 +137,6 @@ static inline bool DoMonitorCheckOnExit(Thread* self, ShadowFrame* frame)
   }
   return true;
 }
-
-void AbortTransactionF(Thread* self, const char* fmt, ...)
-    __attribute__((__format__(__printf__, 2, 3)))
-    REQUIRES_SHARED(Locks::mutator_lock_);
-
-void AbortTransactionV(Thread* self, const char* fmt, va_list args)
-    REQUIRES_SHARED(Locks::mutator_lock_);
 
 void RecordArrayElementsInTransaction(ObjPtr<mirror::Array> array, int32_t count)
     REQUIRES_SHARED(Locks::mutator_lock_);
@@ -382,15 +401,20 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     while (true) {
       // Mterp does not support all instrumentation/debugging.
       if (!self->UseMterp()) {
-        *result =
-            ExecuteSwitchImpl<false, false>(self, accessor, *new_shadow_frame, *result, false);
+        void (*impl)(SwitchImplContext* ctx) =
+            &ExecuteSwitchImplCpp</*do_access_check=*/ false, /*transaction_active=*/ false>;
+        *result = ExecuteSwitchImpl(
+            self, accessor, *new_shadow_frame, *result, /*interpret_one_instruction=*/ false, impl);
         break;
       }
       if (ExecuteMterpImpl(self, accessor.Insns(), new_shadow_frame, result)) {
         break;
       } else {
         // Mterp didn't like that instruction.  Single-step it with the reference interpreter.
-        *result = ExecuteSwitchImpl<false, false>(self, accessor, *new_shadow_frame, *result, true);
+        void (*impl)(SwitchImplContext* ctx) =
+            &ExecuteSwitchImplCpp</*do_access_check=*/ false, /*transaction_active=*/ false>;
+        *result = ExecuteSwitchImpl(
+            self, accessor, *new_shadow_frame, *result, /*interpret_one_instruction=*/ true, impl);
         if (new_shadow_frame->GetDexPC() == dex::kDexNoIndex) {
           break;  // Single-stepped a return or an exception not handled locally.
         }
@@ -635,34 +659,6 @@ ALWAYS_INLINE bool DoIGetQuick(ShadowFrame& shadow_frame, const Instruction* ins
   return true;
 }
 
-static inline bool CheckWriteConstraint(Thread* self, ObjPtr<mirror::Object> obj)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  Runtime* runtime = Runtime::Current();
-  if (runtime->GetTransaction()->WriteConstraint(self, obj)) {
-    DCHECK(runtime->GetHeap()->ObjectIsInBootImageSpace(obj) || obj->IsClass());
-    const char* base_msg = runtime->GetHeap()->ObjectIsInBootImageSpace(obj)
-        ? "Can't set fields of boot image "
-        : "Can't set fields of ";
-    runtime->AbortTransactionAndThrowAbortError(self, base_msg + obj->PrettyTypeOf());
-    return false;
-  }
-  return true;
-}
-
-static inline bool CheckWriteValueConstraint(Thread* self, ObjPtr<mirror::Object> value)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  Runtime* runtime = Runtime::Current();
-  if (runtime->GetTransaction()->WriteValueConstraint(self, value)) {
-    DCHECK(value != nullptr);
-    std::string msg = value->IsClass()
-        ? "Can't store reference to class " + value->AsClass()->PrettyDescriptor()
-        : "Can't store reference to instance of " + value->GetClass()->PrettyDescriptor();
-    runtime->AbortTransactionAndThrowAbortError(self, msg);
-    return false;
-  }
-  return true;
-}
-
 // Handles iput-XXX and sput-XXX instructions.
 // Returns true on success, otherwise throws an exception and returns false.
 template<FindFieldType find_type, Primitive::Type field_type, bool do_access_check,
@@ -690,16 +686,17 @@ ALWAYS_INLINE bool DoFieldPut(Thread* self, const ShadowFrame& shadow_frame,
       return false;
     }
   }
-  if (transaction_active && !CheckWriteConstraint(self, obj)) {
+  using TransactionChecker = typename std::conditional<
+      transaction_active, ActiveTransactionChecker, InactiveTransactionChecker>::type;
+  if (!TransactionChecker::CheckWriteConstraint(self, obj)) {
     return false;
   }
 
   uint32_t vregA = is_static ? inst->VRegA_21c(inst_data) : inst->VRegA_22c(inst_data);
   JValue value = GetFieldValue<field_type>(shadow_frame, vregA);
 
-  if (transaction_active &&
-      field_type == Primitive::kPrimNot &&
-      !CheckWriteValueConstraint(self, value.GetL())) {
+  if (field_type == Primitive::kPrimNot &&
+      !TransactionChecker::CheckWriteValueConstraint(self, value.GetL())) {
     return false;
   }
 
