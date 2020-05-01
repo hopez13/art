@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55ecfda0_5fd71b43",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-01T08:19:27Z",
+      "side": 1,
+      "message": "One of the presubmit builds fails here (you can try to reproduce with `WITH_TIDY\u003d\"1\" m`):\n\n  art/compiler/optimizing/code_generator_vector_arm64_neon.cc:39:16: error: using decl \u0027WRegisterFrom\u0027 is unused [misc-unused-using-decls,-warnings-as-errors]\n\nCan you remove this line?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "c54f29d37a2cbcdde8d00225d0008d712b03854c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
