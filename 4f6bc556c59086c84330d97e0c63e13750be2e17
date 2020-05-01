@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b7b5bb3_586faf8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-05-01T14:56:21Z",
+      "side": 1,
+      "message": "Yes. The simplest solution is just to add the location of the prebuilts to the visibility property of the source modules that are affected.",
+      "parentUuid": "dce19603_fc7a5b2d",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bace5099_57e75288",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13ea5ae_7deea01b",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-05-01T14:56:21Z",
+      "side": 1,
+      "message": "I think you may have this confused with libandroidicu.",
+      "parentUuid": "bace5099_57e75288",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ab3e9a8c_51e42eb4",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-05-01T14:56:21Z",
+      "side": 1,
+      "message": "It is not a function of java_header_libs it just happens that all the entries in here are used in the same way.\n\nHave moved the common behaviour into a separate paragraph in each so the difference in the first paragraph is clearer.",
+      "parentUuid": "0442b143_b98c43eb",
+      "range": {
+        "startLine": 30,
+        "startChar": 49,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "070e7f69_17102a28",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2020-05-01T11:49:43Z",
       "side": 1,
       "message": "Just as a side note, even with these I don\u0027t think the prebuilt hiddenapi runs out of the box; one would have to fiddle around with LD_LIBRARY_PATH first. But I take it the reason they\u0027re added is to make Soong happy.",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "4f6bc556c59086c84330d97e0c63e13750be2e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e8ac309_a9315fb3",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-05-01T14:56:21Z",
+      "side": 1,
+      "message": "Without these hiddenapi execution fails while building everything in external/conscrypt.\nHowever, with these everything in external/conscrypt builds properly, apart from some test code.\n\nBased on that I think that hiddenapi must run correctly with these present.",
+      "parentUuid": "070e7f69_17102a28",
       "range": {
         "startLine": 83,
         "startChar": 19,
