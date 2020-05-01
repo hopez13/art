@@ -22,6 +22,30 @@
       "revId": "c2a77b67cb354fae1edb2cec165ea9239a7f9043",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a241ffb_9fa1eb0f",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-01T13:12:57Z",
+      "side": 1,
+      "message": "You mean clear() + shrink_to_fit() as we want to release memory. I don\u0027t really care, I arbitrarily chose the pre-C++11 way of doing it.",
+      "parentUuid": "33dd489a_26978230",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 31
+      },
+      "revId": "c2a77b67cb354fae1edb2cec165ea9239a7f9043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
