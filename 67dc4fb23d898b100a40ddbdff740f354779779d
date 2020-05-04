@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d9e8e8d_2ec209f9",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-04T15:55:56Z",
+      "side": 1,
+      "message": "With this change the name of the function becomes misleading. I think it is better to add a new function LocationIsOnSystemExtFramework and use it in those places which require supporting /system_ext.",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 57
+      },
+      "revId": "67dc4fb23d898b100a40ddbdff740f354779779d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
