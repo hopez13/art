@@ -533,9 +533,9 @@ class JNI {
     DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
     DCHECK(!Runtime::Current()->IsActiveTransaction());
     if (m->IsConstructor()) {
-      method = mirror::Constructor::CreateFromArtMethod<kRuntimePointerSize, false>(soa.Self(), m);
+      method = mirror::Constructor::CreateFromArtMethod<kRuntimePointerSize>(soa.Self(), m);
     } else {
-      method = mirror::Method::CreateFromArtMethod<kRuntimePointerSize, false>(soa.Self(), m);
+      method = mirror::Method::CreateFromArtMethod<kRuntimePointerSize>(soa.Self(), m);
     }
     return soa.AddLocalReference<jobject>(method);
   }

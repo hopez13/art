@@ -526,19 +526,17 @@ bool ProcessAnnotationValue(const ClassData& klass,
         set_object = true;
         if (method->IsConstructor()) {
           if (pointer_size == PointerSize::k64) {
-            element_object = mirror::Constructor::CreateFromArtMethod<PointerSize::k64,
-                kTransactionActive>(self, method);
+            element_object =
+                mirror::Constructor::CreateFromArtMethod<PointerSize::k64>(self, method);
           } else {
-            element_object = mirror::Constructor::CreateFromArtMethod<PointerSize::k32,
-                kTransactionActive>(self, method);
+            element_object =
+                mirror::Constructor::CreateFromArtMethod<PointerSize::k32>(self, method);
           }
         } else {
           if (pointer_size == PointerSize::k64) {
-            element_object = mirror::Method::CreateFromArtMethod<PointerSize::k64,
-                kTransactionActive>(self, method);
+            element_object = mirror::Method::CreateFromArtMethod<PointerSize::k64>(self, method);
           } else {
-            element_object = mirror::Method::CreateFromArtMethod<PointerSize::k32,
-                kTransactionActive>(self, method);
+            element_object = mirror::Method::CreateFromArtMethod<PointerSize::k32>(self, method);
           }
         }
         if (element_object == nullptr) {
@@ -563,11 +561,9 @@ bool ProcessAnnotationValue(const ClassData& klass,
         set_object = true;
         PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
         if (pointer_size == PointerSize::k64) {
-          element_object = mirror::Field::CreateFromArtField<PointerSize::k64,
-              kTransactionActive>(self, field, true);
+          element_object = mirror::Field::CreateFromArtField<PointerSize::k64>(self, field, true);
         } else {
-          element_object = mirror::Field::CreateFromArtField<PointerSize::k32,
-              kTransactionActive>(self, field, true);
+          element_object = mirror::Field::CreateFromArtField<PointerSize::k32>(self, field, true);
         }
         if (element_object == nullptr) {
           return false;
@@ -746,10 +742,10 @@ ObjPtr<mirror::Object> CreateAnnotationMember(const ClassData& klass,
   ObjPtr<mirror::Method> method_obj_ptr;
   DCHECK(!Runtime::Current()->IsActiveTransaction());
   if (pointer_size == PointerSize::k64) {
-    method_obj_ptr = mirror::Method::CreateFromArtMethod<PointerSize::k64, false>(
+    method_obj_ptr = mirror::Method::CreateFromArtMethod<PointerSize::k64>(
         self, annotation_method);
   } else {
-    method_obj_ptr = mirror::Method::CreateFromArtMethod<PointerSize::k32, false>(
+    method_obj_ptr = mirror::Method::CreateFromArtMethod<PointerSize::k32>(
         self, annotation_method);
   }
   Handle<mirror::Method> method_object(hs.NewHandle(method_obj_ptr));

@@ -1328,11 +1328,11 @@ TEST_F(UnstartedRuntimeTest, ConstructorNewInstance0) {
   Handle<mirror::Constructor> cons;
   if (class_linker->GetImagePointerSize() == PointerSize::k64) {
      cons = hs.NewHandle(
-        mirror::Constructor::CreateFromArtMethod<PointerSize::k64, false>(self, throw_cons));
+        mirror::Constructor::CreateFromArtMethod<PointerSize::k64>(self, throw_cons));
     ASSERT_TRUE(cons != nullptr);
   } else {
     cons = hs.NewHandle(
-        mirror::Constructor::CreateFromArtMethod<PointerSize::k32, false>(self, throw_cons));
+        mirror::Constructor::CreateFromArtMethod<PointerSize::k32>(self, throw_cons));
     ASSERT_TRUE(cons != nullptr);
   }
 
