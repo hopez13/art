@@ -22,6 +22,30 @@
       "revId": "42dba4b0f63a44cc24c36aee77600d5c12e8014d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91c8c8c1_c50f8cb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-05T13:23:29Z",
+      "side": 1,
+      "message": "This is my default set of tests, excluding JIT and interpreter tests reduces the time I need to wait.\n\nIn this case --optimizing is somewhat relevant. A few tests put stuff into app image, so maybe they take that path.\n\nHowever, the main test is the build for the \"aosp_taimen-userdebug boots\" as it has to build the boot image and that definitely tests the modified code.",
+      "parentUuid": "25f9797c_741ad14d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 39
+      },
+      "revId": "42dba4b0f63a44cc24c36aee77600d5c12e8014d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
