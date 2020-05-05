@@ -46,6 +46,30 @@
       "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ffcdcd_8ab6830d",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-05T16:50:58Z",
+      "side": 1,
+      "message": "\u003e we expect exactly one after the icu4j changes\n\nMaybe we should DCHECK that the unresolved type is the one we expect?",
+      "parentUuid": "abe2351b_bc2ce677",
+      "range": {
+        "startLine": 1139,
+        "startChar": 40,
+        "endLine": 1139,
+        "endChar": 45
+      },
+      "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
