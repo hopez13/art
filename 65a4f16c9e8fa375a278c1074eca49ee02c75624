@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f3cf4fa7_8c0966cb",
+        "filename": "compiler/optimizing/common_dominator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-05T16:43:16Z",
+      "side": 1,
+      "message": "Yeah this is just stuff left-over from when I was debugging the code.",
+      "parentUuid": "6f07e030_900303e3",
+      "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461600c9_fb17cb52",
         "filename": "compiler/optimizing/decondition_deoptimize.cc",
         "patchSetId": 1
@@ -53,6 +71,24 @@
       "writtenOn": "2020-04-09T17:06:36Z",
       "side": 1,
       "message": "How do we lay out blocks for branches? If we put the true block first, we may want to reverse the conditional so the deoptimize block is further away from the hot code.",
+      "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "506d4344_93c7a615",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-05T16:43:16Z",
+      "side": 1,
+      "message": "This is laid out the same way that current deoptimize works, with \u0027true\u0027 being to deoptimize. The deoptimize block will be created very late so I think it\u0027s placed at the end. I\u0027m not sure though.",
+      "parentUuid": "4d250039_f191c910",
       "revId": "65a4f16c9e8fa375a278c1074eca49ee02c75624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
