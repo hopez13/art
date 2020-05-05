@@ -1012,6 +1012,7 @@ java_defaults {
         enabled: false,
     },
     sdk_version: "core_platform",
+    uncompress_dex: false,
 }
 
 // The following modules are just trivial compilations (non-trivial cases are the end).
@@ -1395,4 +1396,11 @@ genrule {
     defaults: ["art-gtest-jars-smali-defaults"],
     srcs: ["VerifySoftFailDuringClinit/**/*.smali"],
     out: ["art-gtest-jars-VerifySoftFailDuringClinit.jar"],
+}
+
+genrule {
+    name: "art-gtest-jars-LinkageTest",
+    defaults: ["art-gtest-jars-smali-defaults"],
+    srcs: ["LinkageTest/*.smali"],
+    out: ["art-gtest-jars-LinkageTest.jar"],
 }
