@@ -229,6 +229,9 @@ art_cc_test {
         "libprofiled",
         "libartd-dexlayout",
     ],
+    data: [
+        ":art-gtest-jars-ManyMethods",
+    ],
     srcs: ["dexlayout_test.cc"],
 }
 
