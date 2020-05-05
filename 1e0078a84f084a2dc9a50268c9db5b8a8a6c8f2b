@@ -22,6 +22,30 @@
       "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe2351b_bc2ce677",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-05T16:17:31Z",
+      "side": 1,
+      "message": "Yes, once per iteration. But the ClassLinker::ResolveType() call is surely much slower than the erase().\n\nAssuming that there are not that many exception classes to start with, the set should be small. As for unresolved exception classes, we expect exactly one after the icu4j changes.\n\nThis is the easiest way to make sure the do-while loop terminates. We could record a set of classes that we failed to resolve (and thus avoid repeating the ResolveType()) but so far we did not consider this loop worth optimizing.",
+      "parentUuid": "867622ac_3c29d3b4",
+      "range": {
+        "startLine": 1139,
+        "startChar": 40,
+        "endLine": 1139,
+        "endChar": 45
+      },
+      "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
