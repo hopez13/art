@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "867622ac_3c29d3b4",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-05T15:29:20Z",
+      "side": 1,
+      "message": "From the code it looks like the same type may be added and removed to the working set multiple times on different iterations. Is that ok?\n\nI assume the set is typically small, otherwise this insertion/deletion is not very efficient. What is the possible range of type IDs in those type references?\n\nAlso note that you can avoid erase and get back the range-for loop if you use a second set to gather new/remaining references and swap between iterations.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 40,
+        "endLine": 1139,
+        "endChar": 45
+      },
+      "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
