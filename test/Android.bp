@@ -1389,3 +1389,10 @@ genrule {
     srcs: ["VerifySoftFailDuringClinit/**/*.smali"],
     out: ["art-gtest-jars-VerifySoftFailDuringClinit.jar"],
 }
+
+genrule {
+    name: "art-gtest-jars-LinkageTest",
+    defaults: ["art-gtest-jars-smali-defaults"],
+    srcs: ["LinkageTest/*.smali"],
+    out: ["art-gtest-jars-LinkageTest.jar"],
+}
