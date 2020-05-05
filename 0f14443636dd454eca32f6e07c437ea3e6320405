@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d76aa51_8cce3e4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-05T10:02:47Z",
+      "side": 1,
+      "message": "Please also run the hidden api test (I ran it with your CL cherry-picked and it passes, so feel free to just add the tags):\n\nTest: m test-art-host-gtest-hidden_api_test32\nTest: m test-art-host-gtest-hidden_api_test64",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 79
+      },
+      "revId": "0f14443636dd454eca32f6e07c437ea3e6320405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
