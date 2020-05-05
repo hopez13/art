@@ -22,6 +22,30 @@
       "revId": "d34b73b4ac478462acc03c4cd42ae7568c832eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dabe6ba_71a25598",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-05T16:35:00Z",
+      "side": 1,
+      "message": "This is 4 spaces from previous line, so I think this is OK. Also, unchanged in this CL. (Though inconsistent with the code below where the `-\u003e` is after the line break.)",
+      "parentUuid": "03ec6910_dda36c12",
+      "range": {
+        "startLine": 259,
+        "startChar": 4,
+        "endLine": 259,
+        "endChar": 8
+      },
+      "revId": "d34b73b4ac478462acc03c4cd42ae7568c832eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
