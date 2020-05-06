@@ -17,6 +17,79 @@
 # Build rules are excluded from Mac, since we can not run ART tests there in the first place.
 ifneq ($(HOST_OS),darwin)
 
+###############################################################################
+# Create module in testcases to hold all data and tools needed for ART tests.
+include $(CLEAR_VARS)
+LOCAL_IS_HOST_MODULE := true
+LOCAL_MODULE := art-host-test-apex
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(HOST_OUT_TESTCASES)/art
+LOCAL_MODULE_SUFFIX := .txt
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE):
+	@mkdir -p $(dir $@)
+	$(hide) echo "This directory contains common data and tools for ART tests" > $@
+
+# $(1): module class
+# $(2): module name
+# $(3): source binary name
+# $(4): destination binary name
+define add-art-host-test-tool
+ART_HOST_TEST_TOOL_SRC := $(call intermediates-dir-for,$(1),$(2),HOST)/$(3)
+ART_HOST_TEST_TOOL_DST := $(HOST_OUT_TESTCASES)/art/apex/com.android.art/$(4)
+$$(ART_HOST_TEST_TOOL_DST) : $$(ART_HOST_TEST_TOOL_SRC)
+	$$(copy-file-to-new-target)
+$$(LOCAL_INSTALLED_MODULE) : $$(ART_HOST_TEST_TOOL_DST)
+endef
+
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dex2oatd,dex2oatd64,bin/dex2oatd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dex2oatds,dex2oatds,bin/dex2oatds))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexanalyze,dexanalyze,bin/dexanalyze))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexdiag,dexdiag,bin/dexdiag))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexdump,dexdump,bin/dexdump))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexlayoutd,dexlayoutd,bin/dexlayoutd,))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexlist,dexlist,bin/dexlist))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexoptanalyzerd,dexoptanalyzerd,bin/dexoptanalyzerd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,hiddenapid,hiddenapid,bin/hiddenapid))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,imgdiagd,imgdiagd64,bin/imgdiagd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,oatdumpd,oatdumpd,bin/oatdumpd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,oatdumpds,oatdumpds,bin/oatdumpds))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,profmand,profmand,bin/profmand))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libart,libart.so,lib64/libart.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libart-dexlayout,libart-dexlayout.so,lib64/libart-dexlayout.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartbase,libartbase.so,lib64/libartbase.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartbased,libartbased.so,lib64/libartbased.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd,libartd.so,lib64/libartd.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-compiler,libartd-compiler.so,lib64/libartd-compiler.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-dexlayout,libartd-dexlayout.so,lib64/libartd-dexlayout.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-disassembler,libartd-disassembler.so,lib64/libartd-disassembler.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartpalette,libartpalette.so,lib64/libartpalette.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbacktrace,libbacktrace.so,lib64/libbacktrace.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbase,libbase.so,lib64/libbase.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libc++,libc++.so,lib64/libc++.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libcrypto,libcrypto.so,lib64/libcrypto-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile,libdexfile.so,lib64/libdexfile.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile_external,libdexfile_external.so,lib64/libdexfile_external.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile_support,libdexfile_support.so,lib64/libdexfile_support.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfiled,libdexfiled.so,lib64/libdexfiled.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfiled_external,libdexfiled_external.so,lib64/libdexfiled_external.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,liblog,liblog.so,lib64/liblog.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libnativebridge,libnativebridge.so,lib64/libnativebridge.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libnativeloader,libnativeloader.so,lib64/libnativeloader.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libprofile,libprofile.so,lib64/libprofile.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libprofiled,libprofiled.so,lib64/libprofiled.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libsigchain,libsigchain.so,lib64/libsigchain.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libunwindstack,libunwindstack.so,lib64/libunwindstack.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libvixld,libvixld.so,lib64/libvixld.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libz,libz.so,lib64/libz-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libziparchive,libziparchive.so,lib64/libziparchive.so))
+
+ART_HOST_TEST_APEX := $(LOCAL_INSTALLED_MODULE)
+
+include $(CLEAR_VARS)
+#######################################
+
 # The path for which all the dex files are relative, not actually the current directory.
 LOCAL_PATH := art/test
 
@@ -206,7 +279,7 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-ART_TEST_HOST_GTEST_DEPENDENCIES :=
+ART_TEST_HOST_GTEST_DEPENDENCIES += $(ART_HOST_TEST_APEX)
 ART_TEST_TARGET_GTEST_DEPENDENCIES := $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test

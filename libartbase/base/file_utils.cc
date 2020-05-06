@@ -259,7 +259,9 @@ std::string GetArtBinDir() {
   // situation is cleaner on target, where `ANDROID_ART_ROOT` is
   // `$ANDROID_ROOT/apex/com.android.art` and ART binaries are installed in
   // `$ANDROID_ROOT/apex/com.android.art/bin`.
-  std::string android_art_root = kIsTargetBuild ? GetArtRoot() : GetAndroidRoot();
+  std::string android_art_root = kIsTargetBuild
+      ? GetArtRoot()
+      : GetAndroidRoot() + "/testcases/art/apex/com.android.art";
   return android_art_root + "/bin";
 }
 
