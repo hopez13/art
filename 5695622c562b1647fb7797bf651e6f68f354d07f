@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "36f86159_5e24e255",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T12:09:09Z",
+      "side": 1,
+      "message": "This is no longer true. We have stopped stripping from apks, so the dex file should always be there.\n\nThere may be an issue accepting the oat file, if it says a class is initialized, but that requires on having an image.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec03a688_206a7c92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T12:09:09Z",
+      "side": 1,
+      "message": "Could we avoid adding a one-off argument to the test suite, and write a test that knows how to remove it?",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9239d7e5_e1affbe7",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 7
@@ -87,6 +133,29 @@
         "startChar": 17,
         "endLine": 266,
         "endChar": 37
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b922868e_f02eba6e",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T12:09:09Z",
+      "side": 1,
+      "message": "The need for this flag looks unrelated to your change?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 39
       },
       "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
