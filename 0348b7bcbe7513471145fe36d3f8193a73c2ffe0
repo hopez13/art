@@ -1,0 +1,267 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01a29291_7ce61440",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "nit: \u0027*\u0027 should be next to the type.",
+      "range": {
+        "startLine": 283,
+        "startChar": 76,
+        "endLine": 283,
+        "endChar": 77
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93d70056_7613e09b",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 293,
+        "startChar": 50,
+        "endLine": 293,
+        "endChar": 51
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e2c6c07_5fc48602",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "nit: keep includes sorted.",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a31c6bb_9065de29",
+        "filename": "runtime/binary_analyzer/binary_analyzer.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Too many new lines.",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb93bd9_665cbfd4",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "The Android Open Source Project",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88bf3cc7_00065539",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "I don\u0027t think you need these?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e51e7d58_ec94ccd8",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Avoid includes in header files. Looks like this file doesn\u0027t need most of them here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81f6a399_42fd5a40",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Remove this line?",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7fb43a2_5a6ea951",
+        "filename": "runtime/binary_analyzer/binary_disassembler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d50d7f4_afddfaed",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Line too ling.",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34836e02_ba6d69f3",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669888e5_4fd8a5c7",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "The caller already has that. So you could avoid it here?",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f02f37f_5739e2a7",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:09:05Z",
+      "side": 1,
+      "message": "This needs comments.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
