@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61138b1b_bc452d17",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:28:42Z",
+      "side": 1,
+      "message": "Ditto about avoiding something scoped like this and be explicit at the end of the pass.",
+      "range": {
+        "startLine": 1943,
+        "startChar": 2,
+        "endLine": 1943,
+        "endChar": 29
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f53741_3259a9d7",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:28:42Z",
+      "side": 1,
+      "message": "Please avoid. I\u0027d much prefer having something explicit at the end of the pass.",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 51
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3aa582a_85d5e004",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T13:28:42Z",
+      "side": 1,
+      "message": "The use of template/std::enable_if/std::is_same creates a cognitive load that I hope we could make unnecessary. I think I know what you\u0027re trying to work around (the fact that one pass uses scopedstorage and another pass doesn\u0027t?), but I fail to find the place where the kind really matters in the BaseDeoptimizationRemover implementation.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
