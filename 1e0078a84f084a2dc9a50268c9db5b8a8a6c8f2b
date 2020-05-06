@@ -70,6 +70,30 @@
       "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb2660c9_31240d3f",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-06T08:09:55Z",
+      "side": 1,
+      "message": "I don\u0027t think ART should try to detect such libcore/framework changes. In my opinion, the old check was invalid the moment we stopped building a boot image for the entire BCP, i.e. from Android Q.",
+      "parentUuid": "04ffcdcd_8ab6830d",
+      "range": {
+        "startLine": 1139,
+        "startChar": 40,
+        "endLine": 1139,
+        "endChar": 45
+      },
+      "revId": "1e0078a84f084a2dc9a50268c9db5b8a8a6c8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
