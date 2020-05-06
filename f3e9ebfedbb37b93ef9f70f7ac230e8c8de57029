@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ba11e7a_d8db3051",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-06T15:29:51Z",
+      "side": 1,
+      "message": "This does that actually. The Scoped is due to the ScopedArenaAllocator.",
+      "parentUuid": "61138b1b_bc452d17",
+      "range": {
+        "startLine": 1943,
+        "startChar": 2,
+        "endLine": 1943,
+        "endChar": 29
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68f53741_3259a9d7",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 2
@@ -68,6 +92,30 @@
       "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceab770e_b027f901",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-06T15:29:51Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter in BaseDeoptimizationRemover but everything seems to break if you mix allocator types in a pass so it needs to use the same one as the pass this is used in.",
+      "parentUuid": "f3aa582a_85d5e004",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
