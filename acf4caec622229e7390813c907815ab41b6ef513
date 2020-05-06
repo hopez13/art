@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf2f2fb_2326b35d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3549,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-05-06T00:04:14Z",
+      "side": 1,
+      "message": "DCHECK_EQ with const void* cast?",
+      "range": {
+        "startLine": 3549,
+        "startChar": 2,
+        "endLine": 3549,
+        "endChar": 8
+      },
+      "revId": "acf4caec622229e7390813c907815ab41b6ef513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
