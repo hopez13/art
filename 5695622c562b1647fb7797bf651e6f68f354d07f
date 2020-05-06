@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "3003f7ef_655a9b04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-06T11:12:54Z",
+      "side": 1,
+      "message": "Suggestion: \"that require app images that cannot be loaded.\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9239d7e5_e1affbe7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-06T11:12:54Z",
+      "side": 1,
+      "message": "Note: The following pattern is used several times here and could be refactored (in another CL):\n\n  boolean_value ? OatHeader::kTrueValue : OatHeader::kFalseValue",
+      "range": {
+        "startLine": 1216,
+        "startChar": 8,
+        "endLine": 1216,
+        "endChar": 95
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "148e0c1d_d592cd76",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-06T11:12:54Z",
+      "side": 1,
+      "message": "Nit: I\u0027d number these items separately, to highlight the disjunction with the first item.",
+      "range": {
+        "startLine": 2018,
+        "startChar": 0,
+        "endLine": 2021,
+        "endChar": 40
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff8bd51d_d7301764",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 7
