@@ -22,6 +22,30 @@
       "revId": "9f2db47ab917e15ecec2beaeea2883df0a33e823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1210bfc_206dca02",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-06T13:43:00Z",
+      "side": 1,
+      "message": "Moved the identical ConversionType definition before `ìf`, keeping the rest as is. Pulling the a \"return (T) converted_value;\" out of the `if` would just make the code longer without any actual benefit.",
+      "parentUuid": "11aa464b_ff29c816",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 61
+      },
+      "revId": "9f2db47ab917e15ecec2beaeea2883df0a33e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
