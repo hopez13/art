@@ -140,6 +140,30 @@
       "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8e82fde_19ca1f0f",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-06T15:55:21Z",
+      "side": 1,
+      "message": "DCHECK failures in the allocator during destruction saying there were too many references.",
+      "parentUuid": "c7012577_63337e2d",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
