@@ -17,6 +17,29 @@
 # Build rules are excluded from Mac, since we can not run ART tests there in the first place.
 ifneq ($(HOST_OS),darwin)
 
+##################################################################################################
+# Create module in testcases to hold all data and tools needed for ART host tests.
+# The content mirrors the directory structure of apex on device.
+include $(CLEAR_VARS)
+LOCAL_IS_HOST_MODULE := true
+LOCAL_MODULE := host-testcases-art-apex
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(HOST_OUT_TESTCASES)/art
+LOCAL_MODULE_SUFFIX := .txt
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE):
+	@mkdir -p $(dir $@)
+	$(hide) echo "This directory contains common data and tools for ART tests" > $@
+
+$(LOCAL_INSTALLED_MODULE): \
+	$(call copy-many-files,$(ART_TESTCASES_CONTENT),$(HOST_OUT_TESTCASES)/art/apex/com.android.art)
+
+HOST_TESTCASES_ART_APEX := $(LOCAL_INSTALLED_MODULE)
+
+include $(CLEAR_VARS)
+#######################################
+
 # The path for which all the dex files are relative, not actually the current directory.
 LOCAL_PATH := art/test
 
@@ -206,7 +229,7 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-ART_TEST_HOST_GTEST_DEPENDENCIES :=
+ART_TEST_HOST_GTEST_DEPENDENCIES := $(HOST_TESTCASES_ART_APEX)
 ART_TEST_TARGET_GTEST_DEPENDENCIES := $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test
