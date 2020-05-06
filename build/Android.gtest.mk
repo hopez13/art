@@ -17,6 +17,53 @@
 # Build rules are excluded from Mac, since we can not run ART tests there in the first place.
 ifneq ($(HOST_OS),darwin)
 
+##################################################################################################
+# Create module in testcases to hold all data and tools needed for ART host tests.
+# The content mirrors the directory structure of apex on device.
+include $(CLEAR_VARS)
+LOCAL_IS_HOST_MODULE := true
+LOCAL_MODULE := host-testcases-art-apex
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(HOST_OUT_TESTCASES)/art
+LOCAL_MODULE_SUFFIX := .txt
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE):
+	@mkdir -p $(dir $@)
+	$(hide) echo "This directory contains common data and tools for ART tests" > $@
+
+# Copy all ART binaries and libraries.  The filenames have been added in "art/build/makevars.go".
+$(LOCAL_INSTALLED_MODULE): \
+	$(call copy-many-files,$(ART_TESTCASES_CONTENT),$(HOST_OUT_TESTCASES)/art/apex/com.android.art)
+
+# $(1): module class
+# $(2): module name
+# $(3): source binary name
+# $(4): destination binary name
+define add-art-host-test-tool
+ART_HOST_TEST_TOOL_SRC := $(call intermediates-dir-for,$(1),$(2),HOST)/$(3)
+ART_HOST_TEST_TOOL_DST := $(HOST_OUT_TESTCASES)/art/apex/com.android.art/$(4)
+$$(ART_HOST_TEST_TOOL_DST) : $$(ART_HOST_TEST_TOOL_SRC)
+	$$(copy-file-to-new-target)
+$$(LOCAL_INSTALLED_MODULE) : $$(ART_HOST_TEST_TOOL_DST)
+endef
+
+# We also need to manually copy some system libraries that we depend on.
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbacktrace,libbacktrace.so,lib64/libbacktrace.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbase,libbase.so,lib64/libbase.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libc++,libc++.so,lib64/libc++.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libcrypto,libcrypto.so,lib64/libcrypto-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,liblog,liblog.so,lib64/liblog.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libz,libz.so,lib64/libz-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libziparchive,libziparchive.so,lib64/libziparchive.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libsigchain,libsigchain.so,lib64/libsigchain.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libunwindstack,libunwindstack.so,lib64/libunwindstack.so))
+
+HOST_TESTCASES_ART_APEX := $(LOCAL_INSTALLED_MODULE)
+
+include $(CLEAR_VARS)
+#######################################
+
 # The path for which all the dex files are relative, not actually the current directory.
 LOCAL_PATH := art/test
 
@@ -206,7 +253,7 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-ART_TEST_HOST_GTEST_DEPENDENCIES :=
+ART_TEST_HOST_GTEST_DEPENDENCIES := $(HOST_TESTCASES_ART_APEX)
 ART_TEST_TARGET_GTEST_DEPENDENCIES := $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test

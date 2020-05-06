@@ -44,4 +44,19 @@ func makeVarsProvider(ctx android.MakeVarsContext) {
 	for _, name := range testNames {
 		ctx.Strict("ART_TEST_LIST_"+name, strings.Join(testMap[name], " "))
 	}
+
+	// Iterate over the list in deterministic order
+	testcasesContent := testcasesContent(ctx.Config())
+	var keys []string
+	for key := range testcasesContent {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+
+	// Create list of copy commands to install the content of the testcases directory.
+	copy_cmds := []string{}
+	for _, key := range keys {
+		copy_cmds = append(copy_cmds, testcasesContent[key]+":"+key)
+	}
+	ctx.Strict("ART_TESTCASES_CONTENT", strings.Join(copy_cmds, " "))
 }
