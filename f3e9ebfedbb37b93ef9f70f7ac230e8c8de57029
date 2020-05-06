@@ -116,6 +116,30 @@
       "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7012577_63337e2d",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-06T15:42:34Z",
+      "side": 1,
+      "message": "Breaking how?\n\nIf the StorageType doesn\u0027t matter in BaseDeoptimizationRemover, then making a class maybe is not worth it, and just helper methods are required?",
+      "parentUuid": "ceab770e_b027f901",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "f3e9ebfedbb37b93ef9f70f7ac230e8c8de57029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
