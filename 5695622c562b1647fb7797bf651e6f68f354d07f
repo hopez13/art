@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f6fa6b9_3ecadbfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3003f7ef_655a9b04",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f86159_5e24e255",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-06T12:09:09Z",
       "side": 1,
       "message": "This is no longer true. We have stopped stripping from apks, so the dex file should always be there.\n\nThere may be an issue accepting the oat file, if it says a class is initialized, but that requires on having an image.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe93555d_ff5d6c9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "Does that mean test 147-stripped-dex-fallback [1] is obsolete now?\n\nIf so, this CL can be a little cleaner, since we don\u0027t have to do the reload-as-non-executable trick. \n\n[1]: https://cs.android.com/android/platform/superproject/+/master:art/test/147-stripped-dex-fallback/run",
+      "parentUuid": "36f86159_5e24e255",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8a55e0e1_379cb577",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "I agree that this is less than ideal (although maybe it would be better with a more general name, like --generate-corrupt-app-image), but unfortunately I haven\u0027t been able to find a better way to do it. I\u0027m open to suggestions.\n\nThe problem is that run-test-jar does both dex2oat and launches dalvikvm to run the result. We need some way in between these two steps to damage or remove the app image.\n\nThere are a couple options.\n\n1. Copy the contents of run-test-jar into this test\u0027s run script, and then specialize it for my needs. There is a lot of logic there that I\u0027d rather not duplicate, since paths needed to run dex2oat and dalvikvm tend to change frequently.\n\n2. Refactor run-test-jar. Split the dex2oat and the execution steps into two separate scripts so that we can call them independently. This makes it easy to add localized changes. There are quite a few variables in run-test-jar, and a lot of command line argument parsing logic that still might need to be duplicated (although maybe we can factor that out too). This is probably the nicest solution, but my understanding is we are migrating towards Tradefed, so we may not want to invest a lot of effort refactoring these scripts just yet.\n\n3. Try calling run-test-jar twice, with --no-prebuild the second time. In between the runs, we can remove the app image. The challenge with this option is that run-test-jar deletes the oat directory before running to prevent earlier runs from impacting it. This means the second run would not be able to reuse the OAT file. So, to do this option, we\u0027d need to modify run-test-jar to have an option not to clean the OAT files. So even in this case, we need to add a one-off argument, although it\u0027s probably more generally useful than --remove-app-image.\n\nThese are the main options I\u0027m aware of, but there may be others that I\u0027ve missed.\n\nGiven these options, I like --remove-app-image the best, but #3 isn\u0027t bad either.\n\nWhat do you think",
+      "parentUuid": "ec03a688_206a7c92",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9239d7e5_e1affbe7",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "e478e8fd_98c2e473",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9239d7e5_e1affbe7",
+      "range": {
+        "startLine": 1216,
+        "startChar": 8,
+        "endLine": 1216,
+        "endChar": 95
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "148e0c1d_d592cd76",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "297985dc_43954227",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "148e0c1d_d592cd76",
+      "range": {
+        "startLine": 2018,
+        "startChar": 0,
+        "endLine": 2021,
+        "endChar": 40
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -160,6 +280,54 @@
       "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "928ab1c8_15013c14",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "See the change in dex2oat_test.cc. That test was making sure we have determinism when compiling individually or not, but it was using the app image as a way to control this behavior. Since this change adds a requires-image flag to the OAT header, the OAT files are no longer identical. The new command line option lets us control the behavior we want directly.",
+      "parentUuid": "b922868e_f02eba6e",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 39
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03e46a1b_c4e070d3",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-06T22:37:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff8bd51d_d7301764",
+      "range": {
+        "startLine": 266,
+        "startChar": 17,
+        "endLine": 266,
+        "endChar": 37
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
