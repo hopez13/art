@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72c67c87_fd6f291c",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2020-05-06T09:19:45Z",
+      "side": 1,
+      "message": "Ulya, here is the change. It was breaking out/target/common/obj/JAVA_LIBRARIES/ahat-test-dump_intermediates/test-dump-base.hprof, which requires running the tools/art script on host",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 132
+      },
+      "revId": "b5bd206445af3984779991f876ed49330bdac0df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0367ab6c_017a3350",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2020-05-06T09:19:45Z",
+      "side": 1,
+      "message": "Ulya, here is the change.",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 597,
+        "endChar": 6
+      },
+      "revId": "b5bd206445af3984779991f876ed49330bdac0df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
