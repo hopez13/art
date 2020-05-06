@@ -14,174 +14,85 @@
 # limitations under the License.
 #
 
+###############################################################################
+# Create module in testcases to hold all data and tools needed for ART tests.
+include $(CLEAR_VARS)
+LOCAL_IS_HOST_MODULE := true
+LOCAL_MODULE := art-host-test-apex
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(HOST_OUT_TESTCASES)/art
+LOCAL_MODULE_SUFFIX := .txt
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE):
+	@mkdir -p $(dir $@)
+	$(hide) echo "This directory contains common data and tools for ART tests" > $@
+
+# $(1): module class
+# $(2): module name
+# $(3): source binary name
+# $(4): destination binary name
+define add-art-host-test-tool
+ART_HOST_TEST_TOOL_SRC := $(call intermediates-dir-for,$(1),$(2),HOST)/$(3)
+ART_HOST_TEST_TOOL_DST := $(HOST_OUT_TESTCASES)/art/apex/com.android.art/$(4)
+$$(ART_HOST_TEST_TOOL_DST) : $$(ART_HOST_TEST_TOOL_SRC)
+	$$(copy-file-to-new-target)
+$$(LOCAL_INSTALLED_MODULE) : $$(ART_HOST_TEST_TOOL_DST)
+endef
+
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dex2oatd,dex2oatd64,bin/dex2oatd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dex2oatds,dex2oatds,bin/dex2oatds))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexanalyze,dexanalyze,bin/dexanalyze))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexdiag,dexdiag,bin/dexdiag))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexdump,dexdump,bin/dexdump))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexlayoutd,dexlayoutd,bin/dexlayoutd,))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexlist,dexlist,bin/dexlist))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,dexoptanalyzerd,dexoptanalyzerd,bin/dexoptanalyzerd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,hiddenapid,hiddenapid,bin/hiddenapid))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,imgdiagd,imgdiagd64,bin/imgdiagd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,oatdumpd,oatdumpd,bin/oatdumpd))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,oatdumpds,oatdumpds,bin/oatdumpds))
+$(eval $(call add-art-host-test-tool,EXECUTABLES,profmand,profmand,bin/profmand))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libart,libart.so,lib64/libart.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libart-dexlayout,libart-dexlayout.so,lib64/libart-dexlayout.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartbase,libartbase.so,lib64/libartbase.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartbased,libartbased.so,lib64/libartbased.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd,libartd.so,lib64/libartd.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-compiler,libartd-compiler.so,lib64/libartd-compiler.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-dexlayout,libartd-dexlayout.so,lib64/libartd-dexlayout.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartd-disassembler,libartd-disassembler.so,lib64/libartd-disassembler.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libartpalette,libartpalette.so,lib64/libartpalette.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbacktrace,libbacktrace.so,lib64/libbacktrace.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libbase,libbase.so,lib64/libbase.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libc++,libc++.so,lib64/libc++.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libcrypto,libcrypto.so,lib64/libcrypto-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile,libdexfile.so,lib64/libdexfile.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile_external,libdexfile_external.so,lib64/libdexfile_external.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfile_support,libdexfile_support.so,lib64/libdexfile_support.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfiled,libdexfiled.so,lib64/libdexfiled.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libdexfiled_external,libdexfiled_external.so,lib64/libdexfiled_external.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,liblog,liblog.so,lib64/liblog.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libnativebridge,libnativebridge.so,lib64/libnativebridge.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libnativeloader,libnativeloader.so,lib64/libnativeloader.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libprofile,libprofile.so,lib64/libprofile.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libprofiled,libprofiled.so,lib64/libprofiled.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libsigchain,libsigchain.so,lib64/libsigchain.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libunwindstack,libunwindstack.so,lib64/libunwindstack.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libvixld,libvixld.so,lib64/libvixld.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libz,libz.so,lib64/libz-host.so))
+$(eval $(call add-art-host-test-tool,SHARED_LIBRARIES,libziparchive,libziparchive.so,lib64/libziparchive.so))
+
+ART_HOST_TEST_APEX := $(LOCAL_INSTALLED_MODULE)
+
+include $(CLEAR_VARS)
+#######################################
+
 # The path for which all the dex files are relative, not actually the current directory.
 LOCAL_PATH := art/test
 
 include art/build/Android.common_test.mk
 include art/build/Android.common_path.mk
 include art/build/Android.common_build.mk
-
-# The elf writer test has dependencies on core.oat.
-ART_GTEST_elf_writer_test_HOST_DEPS := $(HOST_CORE_IMAGE_DEFAULT_64) $(HOST_CORE_IMAGE_DEFAULT_32)
-ART_GTEST_elf_writer_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARGET_CORE_IMAGE_DEFAULT_32)
-
-# The two_runtimes_test test has dependencies on core.oat.
-ART_GTEST_two_runtimes_test_HOST_DEPS := $(HOST_CORE_IMAGE_DEFAULT_64) $(HOST_CORE_IMAGE_DEFAULT_32)
-ART_GTEST_two_runtimes_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARGET_CORE_IMAGE_DEFAULT_32)
-
-# The transaction test has dependencies on core.oat.
-ART_GTEST_transaction_test_HOST_DEPS := $(HOST_CORE_IMAGE_DEFAULT_64) $(HOST_CORE_IMAGE_DEFAULT_32)
-ART_GTEST_transaction_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARGET_CORE_IMAGE_DEFAULT_32)
-
-ART_GTEST_dex2oat_environment_tests_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_optimizing_64) \
-  $(HOST_CORE_IMAGE_optimizing_32) \
-  $(HOST_CORE_IMAGE_interpreter_64) \
-  $(HOST_CORE_IMAGE_interpreter_32)
-ART_GTEST_dex2oat_environment_tests_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_optimizing_64) \
-  $(TARGET_CORE_IMAGE_optimizing_32) \
-  $(TARGET_CORE_IMAGE_interpreter_64) \
-  $(TARGET_CORE_IMAGE_interpreter_32)
-
-ART_GTEST_oat_file_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS) \
-  $(HOST_OUT_EXECUTABLES)/dex2oatd
-ART_GTEST_oat_file_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS) \
-  dex2oatd.com.android.art.testing
-
-ART_GTEST_oat_file_assistant_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS)
-ART_GTEST_oat_file_assistant_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS)
-
-ART_GTEST_dexoptanalyzer_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS) \
-  $(HOST_OUT_EXECUTABLES)/dexoptanalyzerd
-ART_GTEST_dexoptanalyzer_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS) \
-  $(TESTING_ART_APEX)  # For dexoptanalyzerd.
-
-ART_GTEST_image_space_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS)
-ART_GTEST_image_space_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS)
-
-ART_GTEST_dex2oat_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS) \
-  $(HOST_OUT_EXECUTABLES)/dex2oatd
-ART_GTEST_dex2oat_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS) \
-  $(TESTING_ART_APEX)  # For dex2oatd.
-
-ART_GTEST_dex2oat_image_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS) \
-  $(HOST_OUT_EXECUTABLES)/dex2oatd
-ART_GTEST_dex2oat_image_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS) \
-  $(TESTING_ART_APEX)  # For dex2oatd.
-
-ART_GTEST_module_exclusion_test_HOST_DEPS := \
-  $(ART_GTEST_dex2oat_image_test_HOST_DEPS)
-ART_GTEST_module_exclusion_test_TARGET_DEPS := \
-  $(ART_GTEST_dex2oat_image_test_TARGET_DEPS)
-
-# TODO: document why this is needed.
-ART_GTEST_proxy_test_HOST_DEPS := $(HOST_CORE_IMAGE_DEFAULT_64) $(HOST_CORE_IMAGE_DEFAULT_32)
-
-# The dexdiag test requires the dexdiag utility.
-ART_GTEST_dexdiag_test_HOST_DEPS := $(HOST_OUT_EXECUTABLES)/dexdiag
-ART_GTEST_dexdiag_test_TARGET_DEPS := $(TESTING_ART_APEX)  # For dexdiag.
-
-# The dexdump test requires an image and the dexdump utility.
-# TODO: rename into dexdump when migration completes
-ART_GTEST_dexdump_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/dexdump
-ART_GTEST_dexdump_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  dexdump.com.android.art.testing
-
-# The dexanalyze test requires an image and the dexanalyze utility.
-ART_GTEST_dexanalyze_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/dexanalyze
-ART_GTEST_dexanalyze_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  dexanalyze.com.android.art.testing
-
-# The dexlayout test requires an image and the dexlayout utility.
-# TODO: rename into dexdump when migration completes
-ART_GTEST_dexlayout_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/dexlayoutd \
-  $(HOST_OUT_EXECUTABLES)/dexdump
-ART_GTEST_dexlayout_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  dexlayoutd.com.android.art.testing \
-  dexdump.com.android.art.testing
-
-# The dexlist test requires an image and the dexlist utility.
-ART_GTEST_dexlist_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/dexlist
-ART_GTEST_dexlist_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  $(TESTING_ART_APEX)   # For dexlist.
-
-# The imgdiag test has dependencies on core.oat since it needs to load it during the test.
-# For the host, also add the installed tool (in the base size, that should suffice). For the
-# target, just the module is fine, the sync will happen late enough.
-ART_GTEST_imgdiag_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/imgdiagd
-ART_GTEST_imgdiag_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  imgdiagd.com.android.art.testing
-
-# Dex analyze test requires dexanalyze.
-ART_GTEST_dexanalyze_test_HOST_DEPS := \
-  $(HOST_OUT_EXECUTABLES)/dexanalyze
-ART_GTEST_dexanalyze_test_TARGET_DEPS := \
-  dexanalyze.com.android.art.testing
-
-# Oatdump test requires an image and oatfile to dump.
-ART_GTEST_oatdump_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/oatdumpd \
-  $(HOST_OUT_EXECUTABLES)/oatdumpds \
-  $(HOST_OUT_EXECUTABLES)/dexdump \
-  $(HOST_OUT_EXECUTABLES)/dex2oatd \
-  $(HOST_OUT_EXECUTABLES)/dex2oatds
-ART_GTEST_oatdump_test_TARGET_DEPS := \
-  $(TARGET_CORE_IMAGE_DEFAULT_64) \
-  $(TARGET_CORE_IMAGE_DEFAULT_32) \
-  $(TESTING_ART_APEX)    # For oatdumpd, dexdump, dex2oatd.
-ART_GTEST_oatdump_image_test_HOST_DEPS := $(ART_GTEST_oatdump_test_HOST_DEPS)
-ART_GTEST_oatdump_image_test_TARGET_DEPS := $(ART_GTEST_oatdump_test_TARGET_DEPS)
-ART_GTEST_oatdump_app_test_HOST_DEPS := $(ART_GTEST_oatdump_test_HOST_DEPS)
-ART_GTEST_oatdump_app_test_TARGET_DEPS := $(ART_GTEST_oatdump_test_TARGET_DEPS)
-
-# Profile assistant tests requires profman utility.
-ART_GTEST_profile_assistant_test_HOST_DEPS := $(HOST_OUT_EXECUTABLES)/profmand
-ART_GTEST_profile_assistant_test_TARGET_DEPS := $(TESTING_ART_APEX)  # For profmand.
-
-ART_GTEST_hiddenapi_test_HOST_DEPS := \
-  $(HOST_CORE_IMAGE_DEFAULT_64) \
-  $(HOST_CORE_IMAGE_DEFAULT_32) \
-  $(HOST_OUT_EXECUTABLES)/hiddenapid
 
 # The path for which all the source files are relative, not actually the current directory.
 LOCAL_PATH := art
@@ -351,23 +262,8 @@ endef  # define-art-gtest-rule-host
 # Removal of test_per_src broke the naming convention for dependencies,
 # so the fine-grained dependencies no longer work for now.
 # TODO: Move all dependency tracking to the blueprint file.
-ART_TEST_HOST_GTEST_DEPENDENCIES += \
-  $(HOST_OUT_EXECUTABLES)/dex2oatd \
-  $(HOST_OUT_EXECUTABLES)/dex2oatds \
-  $(HOST_OUT_EXECUTABLES)/dexanalyze \
-  $(HOST_OUT_EXECUTABLES)/dexdiag \
-  $(HOST_OUT_EXECUTABLES)/dexdump \
-  $(HOST_OUT_EXECUTABLES)/dexlayoutd  \
-  $(HOST_OUT_EXECUTABLES)/dexlist \
-  $(HOST_OUT_EXECUTABLES)/dexoptanalyzerd \
-  $(HOST_OUT_EXECUTABLES)/hiddenapid \
-  $(HOST_OUT_EXECUTABLES)/imgdiagd \
-  $(HOST_OUT_EXECUTABLES)/oatdumpd \
-  $(HOST_OUT_EXECUTABLES)/oatdumpds \
-  $(HOST_OUT_EXECUTABLES)/profmand \
-
-ART_TEST_TARGET_GTEST_DEPENDENCIES += \
-  $(TESTING_ART_APEX) \
+ART_TEST_HOST_GTEST_DEPENDENCIES += $(ART_HOST_TEST_APEX)
+ART_TEST_TARGET_GTEST_DEPENDENCIES += $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test
 # $(1): test name
