@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11aa464b_ff29c816",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-06T13:34:36Z",
+      "side": 1,
+      "message": "Can this be factored out of \u0027if\u0027? Assign result to a common uint64_t (in the \u0027else\u0027 branch first cast to uint32_t which then zero-extends to uint64_t).",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 61
+      },
+      "revId": "9f2db47ab917e15ecec2beaeea2883df0a33e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
