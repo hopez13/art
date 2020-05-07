@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a8c0672_f581506d",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01a29291_7ce61440",
+      "range": {
+        "startLine": 283,
+        "startChar": 76,
+        "endLine": 283,
+        "endChar": 77
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93d70056_7613e09b",
         "filename": "disassembler/disassembler_x86.cc",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cbc75326_3e036c5c",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93d70056_7613e09b",
+      "range": {
+        "startLine": 293,
+        "startChar": 50,
+        "endLine": 293,
+        "endChar": 51
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e2c6c07_5fc48602",
         "filename": "runtime/art_method.cc",
         "patchSetId": 14
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ed0f7451_53906c41",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e2c6c07_5fc48602",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a31c6bb_9065de29",
         "filename": "runtime/binary_analyzer/binary_analyzer.h",
         "patchSetId": 14
@@ -79,6 +145,24 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9b3665_074e7f17",
+        "filename": "runtime/binary_analyzer/binary_analyzer.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a31c6bb_9065de29",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "3070b427_f9a76303",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb93bd9_665cbfd4",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88bf3cc7_00065539",
         "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
         "patchSetId": 14
@@ -125,6 +233,30 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0a2b16b_531ee16d",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done Removed",
+      "parentUuid": "88bf3cc7_00065539",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "0900aef7_4166b48a",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e51e7d58_ec94ccd8",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81f6a399_42fd5a40",
         "filename": "runtime/binary_analyzer/binary_analyzer_x86.h",
         "patchSetId": 14
@@ -165,6 +321,24 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b05f1190_d479a997",
+        "filename": "runtime/binary_analyzer/binary_analyzer_x86.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f6a399_42fd5a40",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -185,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "281466eb_19fd8f6c",
+        "filename": "runtime/binary_analyzer/binary_disassembler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7fb43a2_5a6ea951",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d50d7f4_afddfaed",
         "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
         "patchSetId": 14
@@ -202,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "2913c027_bb153b24",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d50d7f4_afddfaed",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34836e02_ba6d69f3",
         "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
         "patchSetId": 14
@@ -216,6 +426,24 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae79e9d5_fd600dbc",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34836e02_ba6d69f3",
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -239,6 +467,30 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb2b1ef2_79a563e1",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T06:58:49Z",
+      "side": 1,
+      "message": "Have avoided the call.",
+      "parentUuid": "669888e5_4fd8a5c7",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
