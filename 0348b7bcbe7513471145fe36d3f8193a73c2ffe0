@@ -514,6 +514,30 @@
       "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2db64f_81520136",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-05-07T09:37:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f02f37f_5739e2a7",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "0348b7bcbe7513471145fe36d3f8193a73c2ffe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
