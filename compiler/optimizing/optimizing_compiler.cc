@@ -653,6 +653,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     OptDef(OptimizationPass::kSideEffectsAnalysis,
            "side_effects$before_licm"),
     OptDef(OptimizationPass::kInvariantCodeMotion),
+    // - Remove any DeoptimizeGuard instructions now that we're done moving them around.
+    OptDef(OptimizationPass::kDeconditionDeoptimize),
     OptDef(OptimizationPass::kInductionVarAnalysis,
            "induction_var_analysis$before_bce"),
     OptDef(OptimizationPass::kBoundsCheckElimination),

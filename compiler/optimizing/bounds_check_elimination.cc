@@ -573,8 +573,8 @@ class BCEVisitor : public HGraphVisitor {
   }
 
  private:
-  void SavePredicatedDeoptimize(HDeoptimize* deopt, HInstruction* condition) {
-    deopt_remover_.AddPredicatedDeoptimization(deopt, condition);
+  void SavePredicatedDeoptimize(HDeoptimizeMarker* deopt) {
+    deopt_remover_.AddPredicatedDeoptimization(deopt);
   }
 
   // Return the map of proven value ranges at the beginning of a basic block.
@@ -1720,8 +1720,8 @@ class BCEVisitor : public HGraphVisitor {
     block->InsertInstructionBefore(condition, block->GetLastInstruction());
     DeoptimizationKind kind =
         is_null_check ? DeoptimizationKind::kLoopNullBCE : DeoptimizationKind::kLoopBoundsBCE;
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(), condition, kind, suspend->GetDexPc());
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
+        condition, kind, suspend->GetDexPc());
     block->InsertInstructionBefore(deoptimize, block->GetLastInstruction());
     if (suspend->HasEnvironment()) {
       deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
@@ -1730,15 +1730,14 @@ class BCEVisitor : public HGraphVisitor {
     // Keep track of the deoptimizes we need to remove/split on. Keep the
     // condition separate so we can later eliminate the condition argument from
     // HDeoptimize.
-    SavePredicatedDeoptimize(deoptimize, condition);
+    SavePredicatedDeoptimize(deoptimize);
   }
 
   /** Inserts a deoptimization test right before a bounds check. */
   void InsertDeoptInBlock(HBoundsCheck* bounds_check, HInstruction* condition) {
     HBasicBlock* block = bounds_check->GetBlock();
     block->InsertInstructionBefore(condition, bounds_check);
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(),
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
         condition,
         DeoptimizationKind::kBlockBCE,
         bounds_check->GetDexPc());
@@ -1747,7 +1746,7 @@ class BCEVisitor : public HGraphVisitor {
     // Keep track of the deoptimizes we need to remove/split on. Keep the
     // condition separate so we can later eliminate the condition argument from
     // HDeoptimize.
-    SavePredicatedDeoptimize(deoptimize, condition);
+    SavePredicatedDeoptimize(deoptimize);
   }
 
   /** Hoists instruction out of the loop to preheader or deoptimization block. */

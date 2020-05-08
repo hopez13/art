@@ -35,32 +35,28 @@ void BaseDeoptimizationRemover<StorageType>::Finalize() {
     return;
   }
   HGraph* graph = GetGraph();
-  for (const PredicatedDeoptimize& pd : required_deopts_) {
-    HBasicBlock* new_pred = pd.existing_deopt_->GetBlock();
-    HBasicBlock* new_block = new_pred->SplitBefore(pd.existing_deopt_);
+  for (HDeoptimizeMarker* pd : required_deopts_) {
+    HBasicBlock* new_pred = pd->GetBlock();
+    HBasicBlock* new_block = new_pred->SplitBefore(pd);
     DCHECK(new_pred->GetLastInstruction()->IsGoto());
-    HInstruction* cond = pd.existing_deopt_->InputAt(0);
+    HInstruction* cond = pd->GetCondition();
     HInstruction* goto_inst = new_pred->GetLastInstruction();
     HInstruction* if_inst = new (graph->GetAllocator()) HIf(cond);
 
     new_pred->ReplaceAndRemoveInstructionWith(goto_inst, if_inst);
 
     // Make a deopt block.
-    HBasicBlock* deopt_block =
-        new (graph->GetAllocator()) HBasicBlock(graph, pd.existing_deopt_->GetDexPc());
+    HBasicBlock* deopt_block = new (graph->GetAllocator()) HBasicBlock(graph, pd->GetDexPc());
     graph->AddBlock(deopt_block);
     HDeoptimize* new_deopt =
-        new (graph->GetAllocator()) HDeoptimize(graph->GetAllocator(),
-                                                graph->GetConstant(DataType::Type::kBool, 1),
-                                                pd.existing_deopt_->GetDeoptimizationKind(),
-                                                pd.existing_deopt_->GetDexPc());
+        new (graph->GetAllocator()) HDeoptimize(pd->GetDeoptimizationKind(), pd->GetDexPc());
     deopt_block->AddInstruction(new_deopt);
-    new_deopt->CopyEnvironmentFrom(pd.existing_deopt_->GetEnvironment());
+    new_deopt->CopyEnvironmentFrom(pd->GetEnvironment());
     deopt_block->AddSuccessor(graph->GetExitBlock());
     new_pred->AddSuccessor(deopt_block);
     // The true branch is the deopt.
     new_pred->SwapSuccessors();
-    new_block->RemoveInstruction(pd.existing_deopt_);
+    new_block->RemoveInstruction(pd);
   }
   GetGraph()->ClearLoopInformation();
   GetGraph()->ClearDominanceInformation();
@@ -69,17 +65,63 @@ void BaseDeoptimizationRemover<StorageType>::Finalize() {
 }
 
 template <typename StorageType>
-void BaseDeoptimizationRemover<StorageType>::AddPredicatedDeoptimization(HDeoptimize* deopt,
-                                                                         HInstruction* condition) {
-  required_deopts_.emplace_back(deopt, condition);
+void BaseDeoptimizationRemover<StorageType>::AddPredicatedDeoptimization(HDeoptimizeMarker* deopt) {
+  required_deopts_.push_back(deopt);
 }
 
 // Initialize all the templates.
 template void BaseDeoptimizationRemover<ScopedStorageType>::Finalize();
 template void BaseDeoptimizationRemover<UnscopedStorageType>::Finalize();
 template void BaseDeoptimizationRemover<ScopedStorageType>::AddPredicatedDeoptimization(
-    HDeoptimize* deopt, HInstruction* condition);
+    HDeoptimizeMarker* deopt);
 template void BaseDeoptimizationRemover<UnscopedStorageType>::AddPredicatedDeoptimization(
-    HDeoptimize* deopt, HInstruction* condition);
+    HDeoptimizeMarker* deopt);
+
+class GuardRemover : public ValueObject {
+ public:
+  explicit GuardRemover(HGraph* graph)
+      : graph_(graph), deopt_remover_(graph_, ArenaAllocKind::kArenaAllocMisc) {}
+
+  void Run() {
+    for (HBasicBlock* bb : graph_->GetReversePostOrderSkipEntryBlock()) {
+      VisitBasicBlock(bb);
+    }
+    deopt_remover_.Finalize();
+  }
+
+ private:
+  void VisitBasicBlock(HBasicBlock* bb) {
+    HInstruction* current_instruction = bb->GetFirstInstruction();
+    DCHECK(current_instruction != nullptr)
+        << "Block without instructions found! " << bb->GetBlockId();
+    HInstruction* next;
+    do {
+      next = current_instruction->GetNext();
+      if (current_instruction->IsDeoptimizeGuard()) {
+        HDeoptimizeGuard* guard = current_instruction->AsDeoptimizeGuard();
+        HInstruction* guarded = guard->GuardedInput();
+        HInstruction* cond = guard->Condition();
+        // restore the original value in users.
+        guard->ReplaceWith(guarded);
+        // Make the deopt we will actually use.
+        HDeoptimizeMarker* deopt = new (graph_->GetAllocator())
+            HDeoptimizeMarker(cond, guard->GetDeoptimizationKind(), guard->GetDexPc());
+        bb->InsertInstructionBefore(deopt, guard);
+        deopt->CopyEnvironmentFrom(guard->GetEnvironment());
+        bb->RemoveInstruction(guard);
+        deopt_remover_.AddPredicatedDeoptimization(deopt);
+      }
+    } while ((current_instruction = next) != nullptr);
+  }
+
+  HGraph* graph_;
+  UnscopedDeoptimizationRemover deopt_remover_;
+};
+
+bool DeconditionDeoptimize::Run() {
+  GuardRemover dr(graph_);
+  dr.Run();
+  return true;
+}
 
 }  // namespace art

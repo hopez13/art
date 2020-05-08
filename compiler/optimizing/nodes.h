@@ -1387,6 +1387,10 @@ class HLoopInformationOutwardIterator : public ValueObject {
   DISALLOW_COPY_AND_ASSIGN(HLoopInformationOutwardIterator);
 };
 
+#define FOR_EACH_CONCRETE_INSTRUCTION_UNEMITABLE(M) \
+  M(DeoptimizeGuard, Instruction)  \
+  M(DeoptimizeMarker, Instruction)
+
 #define FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M)                  \
   M(Above, Condition)                                                   \
   M(AboveOrEqual, Condition)                                            \
@@ -1552,6 +1556,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
 #define FOR_EACH_CONCRETE_INSTRUCTION_X86_64(M)
 
 #define FOR_EACH_CONCRETE_INSTRUCTION(M)                                \
+  FOR_EACH_CONCRETE_INSTRUCTION_UNEMITABLE(M)                           \
   FOR_EACH_CONCRETE_INSTRUCTION_COMMON(M)                               \
   FOR_EACH_CONCRETE_INSTRUCTION_SHARED(M)                               \
   FOR_EACH_CONCRETE_INSTRUCTION_ARM(M)                                  \
@@ -1579,7 +1584,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
 FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
 #undef FORWARD_DECLARATION
 
-#define DECLARE_INSTRUCTION(type)                                         \
+#define DECLARE_INSTRUCTION_GENERIC(type, emitable)                       \
   private:                                                                \
   H##type& operator=(const H##type&) = delete;                            \
   public:                                                                 \
@@ -1588,7 +1593,11 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
     DCHECK(IsClonable());                                                 \
     return new (arena) H##type(*this->As##type());                        \
   }                                                                       \
+  bool Emitable() const override { return emitable; }                     \
   void Accept(HGraphVisitor* visitor) override
+
+#define DECLARE_INSTRUCTION(type) DECLARE_INSTRUCTION_GENERIC(type, true)
+#define DECLARE_UNEMITABLE_INSTRUCTION(type) DECLARE_INSTRUCTION_GENERIC(type, false)
 
 #define DECLARE_ABSTRACT_INSTRUCTION(type)                              \
   private:                                                              \
@@ -2119,6 +2128,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
   virtual void Accept(HGraphVisitor* visitor) = 0;
   virtual const char* DebugName() const = 0;
+  virtual bool Emitable() const = 0;
 
   DataType::Type GetType() const {
     return TypeField::Decode(GetPackedFields());
@@ -3266,58 +3276,22 @@ class HTryBoundary final : public HExpression<0> {
   using BoundaryKindField = BitField<BoundaryKind, kFieldBoundaryKind, kFieldBoundaryKindSize>;
 };
 
-// Deoptimize to interpreter, upon checking a condition.
-class HDeoptimize final : public HVariableInputSizeInstruction {
+// Deoptimize to interpreter
+class HDeoptimize final : public HExpression<0> {
  public:
   // Use this constructor when the `HDeoptimize` acts as a barrier, where no code can move
   // across.
-  HDeoptimize(ArenaAllocator* allocator,
-              HInstruction* cond,
-              DeoptimizationKind kind,
-              uint32_t dex_pc)
-      : HVariableInputSizeInstruction(
-            kDeoptimize,
-            SideEffects::All(),
-            dex_pc,
-            allocator,
-            /* number_of_inputs= */ 1,
-            kArenaAllocMisc) {
-    SetPackedFlag<kFieldCanBeMoved>(false);
+  HDeoptimize(DeoptimizationKind kind, uint32_t dex_pc)
+      : HExpression<0>(kDeoptimize, SideEffects::All(), dex_pc) {
     SetPackedField<DeoptimizeKindField>(kind);
-    SetRawInputAt(0, cond);
   }
 
   bool IsClonable() const override { return true; }
 
-  // Use this constructor when the `HDeoptimize` guards an instruction, and any user
-  // that relies on the deoptimization to pass should have its input be the `HDeoptimize`
-  // instead of `guard`.
-  // We set CanTriggerGC to prevent any intermediate address to be live
-  // at the point of the `HDeoptimize`.
-  // TODO We should move this to an explicit control-flow.
-  HDeoptimize(ArenaAllocator* allocator,
-              HInstruction* cond,
-              HInstruction* guard,
-              DeoptimizationKind kind,
-              uint32_t dex_pc)
-      : HVariableInputSizeInstruction(
-            kDeoptimize,
-            guard->GetType(),
-            SideEffects::CanTriggerGC(),
-            dex_pc,
-            allocator,
-            /* number_of_inputs= */ 2,
-            kArenaAllocMisc) {
-    SetPackedFlag<kFieldCanBeMoved>(true);
-    SetPackedField<DeoptimizeKindField>(kind);
-    SetRawInputAt(0, cond);
-    SetRawInputAt(1, guard);
-  }
-
-  bool CanBeMoved() const override { return GetPackedFlag<kFieldCanBeMoved>(); }
+  bool CanBeMoved() const override { return false; }
 
   bool InstructionDataEquals(const HInstruction* other) const override {
-    return (other->CanBeMoved() == CanBeMoved()) && (other->AsDeoptimize()->GetKind() == GetKind());
+    return other->AsDeoptimize()->GetKind() == GetKind();
   }
 
   bool NeedsEnvironment() const override { return true; }
@@ -3326,25 +3300,8 @@ class HDeoptimize final : public HVariableInputSizeInstruction {
 
   DeoptimizationKind GetDeoptimizationKind() const { return GetPackedField<DeoptimizeKindField>(); }
 
-  bool IsUnconditional() const {
-    return !GuardsAnInput() && InputAt(0)->IsIntConstant() && InputAt(0)->AsIntConstant()->IsTrue();
-  }
-
-  bool GuardsAnInput() const {
-    return InputCount() == 2;
-  }
-
   bool IsControlFlow() const override {
-    return IsUnconditional();
-  }
-
-  HInstruction* GuardedInput() const {
-    DCHECK(GuardsAnInput());
-    return InputAt(1);
-  }
-
-  void RemoveGuard() {
-    RemoveInputAt(1);
+    return true;
   }
 
   DECLARE_INSTRUCTION(Deoptimize);
@@ -3353,8 +3310,124 @@ class HDeoptimize final : public HVariableInputSizeInstruction {
   DEFAULT_COPY_CONSTRUCTOR(Deoptimize);
 
  private:
-  static constexpr size_t kFieldCanBeMoved = kNumberOfGenericPackedBits;
-  static constexpr size_t kFieldDeoptimizeKind = kNumberOfGenericPackedBits + 1;
+  static constexpr size_t kFieldDeoptimizeKind = kNumberOfGenericPackedBits;
+  static constexpr size_t kFieldDeoptimizeKindSize =
+      MinimumBitsToStore(static_cast<size_t>(DeoptimizationKind::kLast));
+  static constexpr size_t kNumberOfDeoptimizePackedBits =
+      kFieldDeoptimizeKind + kFieldDeoptimizeKindSize;
+  static_assert(kNumberOfDeoptimizePackedBits <= kMaxNumberOfPackedBits,
+                "Too many packed fields.");
+  using DeoptimizeKindField =
+      BitField<DeoptimizationKind, kFieldDeoptimizeKind, kFieldDeoptimizeKindSize>;
+};
+
+// Marker for deoptimize to interpreter. Cannot be emited.
+class HDeoptimizeMarker final : public HExpression<1> {
+ public:
+  // Use this constructor when the `HDeoptimize` acts as a barrier, where no code can move
+  // across.
+  HDeoptimizeMarker(HInstruction* cond, DeoptimizationKind kind, uint32_t dex_pc)
+      : HExpression<1>(kDeoptimize, SideEffects::All(), dex_pc) {
+    SetPackedField<DeoptimizeKindField>(kind);
+    SetRawInputAt(0, cond);
+  }
+
+  bool IsClonable() const override { return true; }
+
+  bool CanBeMoved() const override { return false; }
+
+  HInstruction* GetCondition() {
+    return InputAt(0);
+  }
+
+  bool InstructionDataEquals(const HInstruction* other) const override {
+    return other->AsDeoptimizeMarker()->GetKind() == GetKind();
+  }
+
+  bool NeedsEnvironment() const override { return true; }
+
+  bool CanThrow() const override { return true; }
+
+  DeoptimizationKind GetDeoptimizationKind() const { return GetPackedField<DeoptimizeKindField>(); }
+
+  bool IsControlFlow() const override {
+    return false;
+  }
+
+  DECLARE_UNEMITABLE_INSTRUCTION(DeoptimizeMarker);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(DeoptimizeMarker);
+
+ private:
+  static constexpr size_t kFieldDeoptimizeKind = kNumberOfGenericPackedBits;
+  static constexpr size_t kFieldDeoptimizeKindSize =
+      MinimumBitsToStore(static_cast<size_t>(DeoptimizationKind::kLast));
+  static constexpr size_t kNumberOfDeoptimizePackedBits =
+      kFieldDeoptimizeKind + kFieldDeoptimizeKindSize;
+  static_assert(kNumberOfDeoptimizePackedBits <= kMaxNumberOfPackedBits,
+                "Too many packed fields.");
+  using DeoptimizeKindField =
+      BitField<DeoptimizationKind, kFieldDeoptimizeKind, kFieldDeoptimizeKindSize>;
+};
+
+
+// Marker for deoptimize that can be moved since it guards only a single value. This is removed
+// before code-generation.
+// TODO We should maybe give a real type to these un-emmittable intermediate instructions.
+class HDeoptimizeGuard : public HExpression<2> {
+ public:
+  // Use this constructor when the Deoptimize guards an instruction, and any user
+  // that relies on the deoptimization to pass should have its input be the `HDeoptimize`
+  // instead of `guard`.
+  // We set CanTriggerGC to prevent any intermediate address to be live
+  // at the point of the `HDeoptimize`.
+  // This is removed by the RemoveDeoptimizeGuards pass and must not survive to code-gen
+  HDeoptimizeGuard(HInstruction* cond,
+                   HInstruction* guard,
+                   DeoptimizationKind kind,
+                   uint32_t dex_pc)
+      : HExpression<2>(
+            kDeoptimizeGuard,
+            guard->GetType(),
+            SideEffects::CanTriggerGC(),
+            dex_pc) {
+    SetPackedField<DeoptimizeKindField>(kind);
+    SetRawInputAt(0, cond);
+    SetRawInputAt(1, guard);
+  }
+
+  bool IsClonable() const override { return true; }
+
+  bool CanBeMoved() const override { return true; }
+
+  bool InstructionDataEquals(const HInstruction* other) const override {
+    return other->AsDeoptimizeGuard()->GetKind() == GetKind();
+  }
+
+  bool NeedsEnvironment() const override { return true; }
+
+  bool CanThrow() const override { return true; }
+
+  DeoptimizationKind GetDeoptimizationKind() const { return GetPackedField<DeoptimizeKindField>(); }
+
+  bool IsControlFlow() const override { return false; }
+
+  HInstruction* GuardedInput() {
+    return InputAt(1);
+  }
+
+  HInstruction* Condition() {
+    return InputAt(0);
+  }
+
+  DECLARE_UNEMITABLE_INSTRUCTION(DeoptimizeGuard);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(DeoptimizeGuard);
+
+ private:
+  static constexpr size_t kFieldDeoptimizeKind = kNumberOfGenericPackedBits;
   static constexpr size_t kFieldDeoptimizeKindSize =
       MinimumBitsToStore(static_cast<size_t>(DeoptimizationKind::kLast));
   static constexpr size_t kNumberOfDeoptimizePackedBits =

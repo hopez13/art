@@ -36,16 +36,13 @@ namespace art {
 using android::base::StringPrintf;
 
 static bool IsAllowedToJumpToExitBlock(HInstruction* instruction) {
-  // Anything that returns is allowed to jump into the exit block.
-  if (instruction->IsReturn() || instruction->IsReturnVoid()) {
+  // Anything that returns or deoptimizes is allowed to jump into the exit block.
+  if (instruction->IsReturn() || instruction->IsReturnVoid() || instruction->IsDeoptimize()) {
     return true;
   }
   // Anything that always throws is allowed to jump into the exit block.
   if (instruction->IsGoto() && instruction->GetPrevious() != nullptr) {
     instruction = instruction->GetPrevious();
-  }
-  if (instruction->IsDeoptimize() && instruction->AsDeoptimize()->IsUnconditional()) {
-    return true;
   }
   return instruction->AlwaysThrows();
 }
@@ -307,6 +304,18 @@ void GraphChecker::VisitBoundsCheck(HBoundsCheck* check) {
 void GraphChecker::VisitDeoptimize(HDeoptimize* deopt) {
   if (GetGraph()->IsCompilingOsr()) {
     AddError(StringPrintf("A graph compiled OSR cannot have a HDeoptimize instruction"));
+  }
+
+  if (deopt != deopt->GetBlock()->GetLastInstruction()) {
+    AddError(
+        StringPrintf("A Deoptimize is a never-return instruction, it must be the final "
+                     "instruction of its block."));
+  }
+  if (deopt->GetBlock()->GetSuccessors().size() != 1 ||
+      !deopt->GetBlock()->GetSingleSuccessor()->IsExitBlock()) {
+    AddError(
+        StringPrintf("A Deoptimize is a never-return instruction, its block must have the "
+                     "exit block as its sole successor."));
   }
 
   // Perform the instruction base checks too.

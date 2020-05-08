@@ -79,30 +79,14 @@ namespace art {
 //           +----------->+Exit Block|
 //                        +----------+
 
-// A deoptimize paired with the condition we wish for it to trigger on.
-class PredicatedDeoptimize {
- public:
-  PredicatedDeoptimize() : existing_deopt_(nullptr), condition_(nullptr) {}
-  PredicatedDeoptimize(HDeoptimize* deopt, HInstruction* cond)
-      : existing_deopt_(deopt), condition_(cond) {}
-
-  // Copy and assign.
-  PredicatedDeoptimize(const PredicatedDeoptimize&) = default;
-  PredicatedDeoptimize(PredicatedDeoptimize&&) = default;
-  PredicatedDeoptimize& operator=(const PredicatedDeoptimize&) = default;
-
-  HDeoptimize* const existing_deopt_;
-  HInstruction* const condition_;
-};
-
 class UnscopedStorageType {
  public:
-  using Vector = ArenaVector<PredicatedDeoptimize>;
+  using Vector = ArenaVector<HDeoptimizeMarker*>;
 };
 
 class ScopedStorageType {
  public:
-  using Vector = ScopedArenaVector<PredicatedDeoptimize>;
+  using Vector = ScopedArenaVector<HDeoptimizeMarker*>;
 };
 
 template<typename StorageType>
@@ -121,7 +105,7 @@ class BaseDeoptimizationRemover : public ValueObject {
   }
 
   void Finalize();
-  void AddPredicatedDeoptimization(HDeoptimize* deopt, HInstruction* condition);
+  void AddPredicatedDeoptimization(HDeoptimizeMarker* deopt);
 
   HGraph* GetGraph() const {
     return graph_;
@@ -135,6 +119,25 @@ class BaseDeoptimizationRemover : public ValueObject {
 
 using ScopedDeoptimizationRemover = BaseDeoptimizationRemover<ScopedStorageType>;
 using UnscopedDeoptimizationRemover = BaseDeoptimizationRemover<UnscopedStorageType>;
+
+
+class DeconditionDeoptimize : public HOptimization {
+ public:
+  DeconditionDeoptimize(HGraph* graph,
+                        const char* pass_name = kDeconditionDeoptimizePassName)
+      : HOptimization(graph, pass_name) {}
+
+  // Transform the graph to move all DeoptimizeGaurd nodes to being in their own
+  // block and use the guarded value directly in other instructions.
+  bool Run() override;
+
+  static constexpr const char* kDeconditionDeoptimizePassName = "DeconditionDeoptimize";
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(DeconditionDeoptimize);
+};
+
+
 
 }  // namespace art
 

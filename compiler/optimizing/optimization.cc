@@ -63,6 +63,8 @@ namespace art {
 
 const char* OptimizationPassName(OptimizationPass pass) {
   switch (pass) {
+    case OptimizationPass::kDeconditionDeoptimize:
+      return DeconditionDeoptimize::kDeconditionDeoptimizePassName;
     case OptimizationPass::kSideEffectsAnalysis:
       return SideEffectsAnalysis::kSideEffectsAnalysisPassName;
     case OptimizationPass::kInductionVarAnalysis:
@@ -267,6 +269,9 @@ ArenaVector<HOptimization*> ConstructOptimizations(
         break;
       case OptimizationPass::kConstructorFenceRedundancyElimination:
         opt = new (allocator) ConstructorFenceRedundancyElimination(graph, stats, pass_name);
+        break;
+      case OptimizationPass::kDeconditionDeoptimize:
+        opt = new (allocator) DeconditionDeoptimize(graph, pass_name);
         break;
       case OptimizationPass::kScheduling:
         opt = new (allocator) HInstructionScheduling(

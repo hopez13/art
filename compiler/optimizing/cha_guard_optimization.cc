@@ -220,14 +220,14 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* suspend = loop_info->GetSuspendCheck();
     // Need a new deoptimize instruction that copies the environment
     // of the suspend instruction for the loop.
-    HDeoptimize* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimize(
-        GetGraph()->GetAllocator(), compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
+    HDeoptimizeMarker* deoptimize = new (GetGraph()->GetAllocator()) HDeoptimizeMarker(
+        compare, DeoptimizationKind::kCHA, suspend->GetDexPc());
     pre_header->InsertInstructionBefore(deoptimize, pre_header->GetLastInstruction());
     deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
         suspend->GetEnvironment(), loop_info->GetHeader());
     block_has_cha_guard_[pre_header->GetBlockId()] = 1;
     GetGraph()->IncrementNumberOfCHAGuards();
-    deopt_remover_.AddPredicatedDeoptimization(deoptimize, compare);
+    deopt_remover_.AddPredicatedDeoptimization(deoptimize);
     return true;
   }
   return false;
