@@ -344,7 +344,7 @@ void AdbConnectionState::SendDdmPacket(uint32_t id,
                                        art::ArrayRef<const uint8_t> data) {
   // Get the write_event early to fail fast.
   ScopedEventFdLock lk(adb_write_event_fd_);
-  if (adb_connection_socket_ == -1) {
+  if (adb_connection_socket_ == -2) {
     VLOG(jdwp) << "Not sending ddms data of type "
                << StringPrintf("%c%c%c%c",
                                static_cast<char>(type >> 24),
