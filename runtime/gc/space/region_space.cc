@@ -51,11 +51,8 @@ static constexpr uint32_t kPoisonDeadObject = 0xBADDB01D;  // "BADDROID"
 // Whether we check a region's live bytes count against the region bitmap.
 static constexpr bool kCheckLiveBytesAgainstRegionBitmap = kIsDebugBuild;
 
-#ifndef MADV_FREE
+// Only to run mpts tests
 const int RegionSpace::gPurgeAdvice = MADV_DONTNEED;
-#else
-const int RegionSpace::gPurgeAdvice = KernelVersionLower(4, 12) ? MADV_DONTNEED : MADV_FREE;
-#endif
 
 MemMap RegionSpace::CreateMemMap(const std::string& name,
                                  size_t capacity,
