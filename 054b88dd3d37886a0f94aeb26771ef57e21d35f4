@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cdb4ee12_fa5fca2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T22:53:12Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "a2828f43_2c460deb",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 14,
+        "endChar": 62
+      },
+      "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762ef180_be84925d",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "I\u0027m not sure. I think that it creates a new one each time. In any event this is the same as it is now (GenerateTestAndBranch just makes the jump conditional).\n\nVMarko@ any idea.",
       "parentUuid": "762ef180_be84925d",
+      "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06aecc86_fdea1700",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2756,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T22:53:12Z",
+      "side": 1,
+      "message": "I think the difference now is that deopts are generally in a block all by themselves, so you already had a conditional jump to the deopt block, and now it is immediately followed by another jump. Before, wasn\u0027t it just a conditional jump directly to the slow path code?",
+      "parentUuid": "5bad17e0_55f457a5",
       "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
