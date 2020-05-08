@@ -97,6 +97,7 @@ X86FeaturesUniquePtr X86InstructionSetFeatures::Create(bool x86_64,
 X86FeaturesUniquePtr X86InstructionSetFeatures::FromVariant(
     const std::string& variant, std::string* error_msg ATTRIBUTE_UNUSED,
     bool x86_64) {
+
   bool has_SSSE3 = FindVariantInArray(x86_variants_with_ssse3, arraysize(x86_variants_with_ssse3),
                                       variant);
   bool has_SSE4_1 = FindVariantInArray(x86_variants_with_sse4_1,
@@ -118,8 +119,11 @@ X86FeaturesUniquePtr X86InstructionSetFeatures::FromVariant(
   // Verify that variant is known.
   bool known_variant = FindVariantInArray(x86_known_variants, arraysize(x86_known_variants),
                                           variant);
-  if (!known_variant && variant != "default") {
-    LOG(WARNING) << "Unexpected CPU variant for X86 using defaults: " << variant;
+  if (!known_variant) {
+    if (variant != "default") {
+      LOG(WARNING) << "Unexpected CPU variant for X86 using defaults: " << variant;
+    }
+    return FromCppDefines(x86_64);
   }
 
   return Create(x86_64, has_SSSE3, has_SSE4_1, has_SSE4_2, has_AVX, has_AVX2, has_POPCNT);
