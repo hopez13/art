@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac1e8a8c_e9779cdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T22:41:14Z",
+      "side": 1,
+      "message": "Is there any reason you can\u0027t make the control flow explicit to start with and not have the HDeoptimizeMarker instruction at all?\n\nI guess making it explicit from the beginning could make things a lot more complex, especially for passes that don\u0027t modify the graph structure already.",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 14,
+        "endChar": 62
+      },
+      "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "762ef180_be84925d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2756,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T22:41:14Z",
+      "side": 1,
+      "message": "Does this always create a new slow path, or are some of them shared? If they\u0027re always the same, it\u0027d be nice to be able to just generate them directly in this block without an additional jump.\n\nIf this is doable, I think it makes sense to do it as a later CL instead of doing it in this one.",
+      "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8548400_ad7071a4",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T22:41:14Z",
+      "side": 1,
+      "message": "nit: DeoptimizeGuard",
+      "range": {
+        "startLine": 130,
+        "startChar": 37,
+        "endLine": 130,
+        "endChar": 52
+      },
+      "revId": "054b88dd3d37886a0f94aeb26771ef57e21d35f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
