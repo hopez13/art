@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5496d64f_483f82cf",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-08T16:09:56Z",
+      "side": 1,
+      "message": "Yeah I\u0027m working on a follow up that (1) removes the condition from HDeoptimize and (2) splits deoptimize into 3 types: (1) an unemitable DeoptimizeMarker that is used to keep track of where deopts need to be inserted, (2) an unemitable DeoptimizeGuard that notes the Guarded-Deoptimize case so we can keep track of it and remove it when appropriate, and (3) Deoptimize that is just a terminal instruction with no arguments.",
+      "parentUuid": "d366b00e_4d618c0c",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "335a3c55a2ae6afec9b6d8458a6d4f75d3378f72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b362d22_3c1a4c13",
         "filename": "compiler/optimizing/decondition_deoptimize.h",
         "patchSetId": 4
