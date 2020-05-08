@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d366b00e_4d618c0c",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T15:53:55Z",
+      "side": 1,
+      "message": "A nice cleanup to follow with would be to remove the condition and make all deopt instructions unconditional.",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "335a3c55a2ae6afec9b6d8458a6d4f75d3378f72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b362d22_3c1a4c13",
+        "filename": "compiler/optimizing/decondition_deoptimize.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-08T15:53:55Z",
+      "side": 1,
+      "message": "nit: the empty ... block from above has gone missing.",
+      "revId": "335a3c55a2ae6afec9b6d8458a6d4f75d3378f72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
