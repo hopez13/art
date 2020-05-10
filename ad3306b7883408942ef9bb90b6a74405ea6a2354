@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1add20b7_13872b31",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "AdjustControlFlowDeopts(deoptimizes_)",
+      "range": {
+        "startLine": 567,
+        "startChar": 4,
+        "endLine": 567,
+        "endChar": 30
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03936510_5b074e28",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Doesn\u0027t look like you\u0027re using the condition, and only accessing it through the HDeoptimize (as you should). So you just need to push the deoptimize.",
+      "range": {
+        "startLine": 1730,
+        "startChar": 65,
+        "endLine": 1732,
+        "endChar": 19
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11ae19ac_aa662080",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "ScopedArenaVector\u003cHDeoptimize*\u003e deoptimizes_;",
+      "range": {
+        "startLine": 1943,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 45
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b34c1b7_a1aa27a0",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Create a ScopedArena and make this a ScopedArenaVector\u003cHDeoptimize*\u003e",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 47
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b5077c_8c235bef",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "AdjustControlFlowDeopts()",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d48e46b_d7c5eac0",
+        "filename": "compiler/optimizing/decondition_deoptimize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Drop the BaseDeoptimizationRemover, and make it a standalone method:\nAdjustControlFlowDeopts(const ScopedArenaVector\u003cHDeoptimize*\u003e\u0026 deoptimizes)",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acf94f42_153eaffe",
+        "filename": "compiler/optimizing/decondition_deoptimize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Adding more blocks has memory cost and compile times cost. So does the recomputation of dominator below.\n\nWhat benefits do we expect from making the deoptimize as a control flow instruction?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 80
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0a9962_0396362f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "AdjustControlFlowDeopts.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 28
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c08d751d_8fa62c6c",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Create a ScopedArenaAllocator, and use a ScopedAreaVector\u003cHDeoptimize*\u003e",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 31
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ed67bd_664a9f79",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "No need?",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6258879_9a4d7ee2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "No need for this change?",
+      "range": {
+        "startLine": 2464,
+        "startChar": 0,
+        "endLine": 2465,
+        "endChar": 17
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2adc5acd_d66bb33b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Code is duplicated, undupe.",
+      "range": {
+        "startLine": 2559,
+        "startChar": 0,
+        "endLine": 2586,
+        "endChar": 7
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5cf36aa_39e068a7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "This reads odd, please add comments around it.",
+      "range": {
+        "startLine": 3337,
+        "startChar": 0,
+        "endLine": 3339,
+        "endChar": 3
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28a4da5b_521b0b1b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "This is already supported, see how we do it after inlining. It would be an approximation (just checks if things have changed), but it will cover most of the cases, and you can keep the TODO to tune the \"has changed\" definition.",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 62
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a2a3cd2_e11a9b4a",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "Changes in this file don\u0027t look right. You should still be able to express the tests here.",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39544a17_1e8dd5be",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "You should address this - the line 442 is either obsolete or something is off.",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 3
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a5a7e8_da3daf9e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-10T12:47:04Z",
+      "side": 1,
+      "message": "ditto, see line 890.",
+      "range": {
+        "startLine": 885,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 25
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
