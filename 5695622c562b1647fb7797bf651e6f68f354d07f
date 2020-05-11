@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "831c4a5f_fa031ccb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-11T23:13:55Z",
+      "side": 1,
+      "message": "I filed http://b/156250899 about removing this test, and removing the code to support stripped APKs.",
+      "parentUuid": "984ffb9c_9b1e10e2",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec03a688_206a7c92",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -236,6 +260,30 @@
       "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a8b900f_e7091cc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-11T23:13:55Z",
+      "side": 1,
+      "message": "The gtest worked fine, and is a much cleaner way to test it. Thanks for the suggestion!",
+      "parentUuid": "91bfb9ff_1d44e172",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
