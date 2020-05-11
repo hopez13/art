@@ -40,6 +40,14 @@ public class Main {
     testMissingCritical();
 
     testCriticalSignatures();
+
+    // For direct calls to @CriticalNative from AOT-compiled code, the first call
+    // shall use the resolution method retrieved from the .bss and the second call
+    // should use the find the .bss entry populated with the target method.
+    // Re-run these tests to exercise the second path.
+    testCritical();
+    testMissingCritical();
+    testCriticalSignatures();
   }
 
   static void test() {

@@ -61,11 +61,6 @@ bool IntrinsicLocationsBuilderX86_64::TryDispatch(HInvoke* invoke) {
   return res->Intrinsified();
 }
 
-static void MoveArguments(HInvoke* invoke, CodeGeneratorX86_64* codegen) {
-  InvokeDexCallingConventionVisitorX86_64 calling_convention_visitor;
-  IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
-}
-
 using IntrinsicSlowPathX86_64 = IntrinsicSlowPath<InvokeDexCallingConventionVisitorX86_64>;
 
 // NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
@@ -256,9 +251,14 @@ void IntrinsicCodeGeneratorX86_64::VisitMathSqrt(HInvoke* invoke) {
 }
 
 static void InvokeOutOfLineIntrinsic(CodeGeneratorX86_64* codegen, HInvoke* invoke) {
-  MoveArguments(invoke, codegen);
-
   DCHECK(invoke->IsInvokeStaticOrDirect());
+  if (invoke->AsInvokeStaticOrDirect()->GetCodePtrLocation() ==
+          HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+    // Arguments are moved in `CodeGeneratorX86_64::GenerateStaticOrDirectCall()`.
+  } else {
+    InvokeDexCallingConventionVisitorX86_64 calling_convention_visitor;
+    IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
+  }
   codegen->GenerateStaticOrDirectCall(
       invoke->AsInvokeStaticOrDirect(), Location::RegisterLocation(RDI));
 
@@ -287,6 +287,12 @@ static void CreateSSE41FPToFPLocations(ArenaAllocator* allocator,
   locations->SetOut(Location::FpuRegisterLocation(XMM0));
   // Needs to be RDI for the invoke.
   locations->AddTemp(Location::RegisterLocation(RDI));
+
+  DCHECK(invoke->IsInvokeStaticOrDirect());
+  if (invoke->AsInvokeStaticOrDirect()->GetCodePtrLocation() ==
+          HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+    CodeGeneratorX86_64::BlockNonVolatileXmmRegisters(locations);
+  }
 }
 
 static void GenSSE41FPToFPIntrinsic(CodeGeneratorX86_64* codegen,
@@ -349,6 +355,12 @@ static void CreateSSE41FPToIntLocations(ArenaAllocator* allocator,
   locations->SetOut(Location::RegisterLocation(RAX));
   // Needs to be RDI for the invoke.
   locations->AddTemp(Location::RegisterLocation(RDI));
+
+  DCHECK(invoke->IsInvokeStaticOrDirect());
+  if (invoke->AsInvokeStaticOrDirect()->GetCodePtrLocation() ==
+          HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+    CodeGeneratorX86_64::BlockNonVolatileXmmRegisters(locations);
+  }
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathRoundFloat(HInvoke* invoke) {
@@ -446,12 +458,7 @@ static void CreateFPToFPCallLocations(ArenaAllocator* allocator, HInvoke* invoke
   locations->SetInAt(0, Location::FpuRegisterLocation(calling_convention.GetFpuRegisterAt(0)));
   locations->SetOut(Location::FpuRegisterLocation(XMM0));
 
-  // We have to ensure that the native code doesn't clobber the XMM registers which are
-  // non-volatile for ART, but volatile for Native calls.  This will ensure that they are
-  // saved in the prologue and properly restored.
-  for (FloatRegister fp_reg : non_volatile_xmm_regs) {
-    locations->AddTemp(Location::FpuRegisterLocation(fp_reg));
-  }
+  CodeGeneratorX86_64::BlockNonVolatileXmmRegisters(locations);
 }
 
 static void GenFPToFPCall(HInvoke* invoke, CodeGeneratorX86_64* codegen,
@@ -583,12 +590,7 @@ static void CreateFPFPToFPCallLocations(ArenaAllocator* allocator, HInvoke* invo
   locations->SetInAt(1, Location::FpuRegisterLocation(calling_convention.GetFpuRegisterAt(1)));
   locations->SetOut(Location::FpuRegisterLocation(XMM0));
 
-  // We have to ensure that the native code doesn't clobber the XMM registers which are
-  // non-volatile for ART, but volatile for Native calls.  This will ensure that they are
-  // saved in the prologue and properly restored.
-  for (FloatRegister fp_reg : non_volatile_xmm_regs) {
-    locations->AddTemp(Location::FpuRegisterLocation(fp_reg));
-  }
+  CodeGeneratorX86_64::BlockNonVolatileXmmRegisters(locations);
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathAtan2(HInvoke* invoke) {

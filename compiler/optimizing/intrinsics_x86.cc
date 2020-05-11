@@ -63,11 +63,6 @@ bool IntrinsicLocationsBuilderX86::TryDispatch(HInvoke* invoke) {
   return res->Intrinsified();
 }
 
-static void MoveArguments(HInvoke* invoke, CodeGeneratorX86* codegen) {
-  InvokeDexCallingConventionVisitorX86 calling_convention_visitor;
-  IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
-}
-
 using IntrinsicSlowPathX86 = IntrinsicSlowPath<InvokeDexCallingConventionVisitorX86>;
 
 // NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
@@ -348,9 +343,15 @@ void IntrinsicCodeGeneratorX86::VisitMathSqrt(HInvoke* invoke) {
 }
 
 static void InvokeOutOfLineIntrinsic(CodeGeneratorX86* codegen, HInvoke* invoke) {
-  MoveArguments(invoke, codegen);
-
   DCHECK(invoke->IsInvokeStaticOrDirect());
+  if (invoke->AsInvokeStaticOrDirect()->GetCodePtrLocation() ==
+          HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+    // Arguments are moved in `CodeGeneratorX86::GenerateStaticOrDirectCall()`.
+  } else {
+    InvokeDexCallingConventionVisitorX86 calling_convention_visitor;
+    IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
+  }
+
   codegen->GenerateStaticOrDirectCall(invoke->AsInvokeStaticOrDirect(),
                                       Location::RegisterLocation(EAX));
 

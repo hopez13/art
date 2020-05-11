@@ -1,8 +1,16 @@
 LMain;
 LTest;
+LTest;
+LTestFast;
+LTestCritical;
+LTestMissing;
+LTestMissingFast;
+LTestMissingCritical;
+LCriticalSignatures;
 HSPLMain;->test()V
 HSPLMain;->testFast()V
 HSPLMain;->testCritical()V
 HSPLMain;->testMissing()V
 HSPLMain;->testMissingFast()V
 HSPLMain;->testMissingCritical()V
+HSPLMain;->testCriticalSignatures()V
