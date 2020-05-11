@@ -97,11 +97,6 @@ static void MoveFromReturnRegister(Location trg,
   }
 }
 
-static void MoveArguments(HInvoke* invoke, CodeGeneratorARM64* codegen) {
-  InvokeDexCallingConventionVisitorARM64 calling_convention_visitor;
-  IntrinsicVisitor::MoveArguments(invoke, codegen, &calling_convention_visitor);
-}
-
 // Slow-path for fallback (calling the managed code to handle the intrinsic) in an intrinsified
 // call. This will copy the arguments into the positions for a regular call.
 //
@@ -119,7 +114,14 @@ class IntrinsicSlowPathARM64 : public SlowPathCodeARM64 {
 
     SaveLiveRegisters(codegen, invoke_->GetLocations());
 
-    MoveArguments(invoke_, codegen);
+    if (invoke_->IsInvokeStaticOrDirect() &&
+        invoke_->AsInvokeStaticOrDirect()->GetCodePtrLocation() ==
+            HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+      // Arguments are moved in `CodeGeneratorArm64::GenerateStaticOrDirectCall()`.
+    } else {
+      InvokeDexCallingConventionVisitorARM64 calling_convention_visitor;
+      IntrinsicVisitor::MoveArguments(invoke_, codegen, &calling_convention_visitor);
+    }
 
     {
       // Ensure that between the BLR (emitted by Generate*Call) and RecordPcInfo there
