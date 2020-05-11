@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "984ffb9c_9b1e10e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-11T15:51:33Z",
+      "side": 1,
+      "message": "Ah, great. I\u0027ll remove the test in a separate CL, and try to see if we can stop trying to load stripped APKs as well.",
+      "parentUuid": "7d409df9_c64904d1",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec03a688_206a7c92",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Do you think we could write a gtest instead? You could generate the odex/art file there, remove the art file, and then try to load the odex file and see it fails.",
       "parentUuid": "8a55e0e1_379cb577",
+      "range": {
+        "startLine": 21,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91bfb9ff_1d44e172",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-11T15:51:33Z",
+      "side": 1,
+      "message": "I\u0027ll give it a try and let you know.",
+      "parentUuid": "7ccd7efb_7ab562bf",
       "range": {
         "startLine": 21,
         "startChar": 21,
@@ -391,6 +439,30 @@
       "side": 1,
       "message": "\u003e the OAT files are no longer identical\n\nNo longer identical to what? I\u0027m missing something, why does a new flag makes things non deterministic?",
       "parentUuid": "928ab1c8_15013c14",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 39
+      },
+      "revId": "5695622c562b1647fb7797bf651e6f68f354d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49045232_1e3bf6d9",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-05-11T15:51:33Z",
+      "side": 1,
+      "message": "See https://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat_test.cc;l\u003d1352?q\u003dunload%20f:art%2F\n\nThis test generates an OAT file without class unloading enabled, and another OAT file with class unloading enabled, and then compares that they are byte-for-byte identical. Adding a new key/value to the OAT file changes the contents of the header, so the OAT files would no longer be identical.\n\nThe test previously used app images as a hack to enable or disable the unloading behavior, since it had no other impact on the resulting OAT file. With this change, that is no longer true, so we need another way to control whether to use the unloading behavior.",
+      "parentUuid": "963a76d5_8c88d5e4",
       "range": {
         "startLine": 266,
         "startChar": 0,
