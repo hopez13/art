@@ -18,6 +18,7 @@
 
 #include "arch/arm64/asm_support_arm64.h"
 #include "arch/arm64/instruction_set_features_arm64.h"
+#include "arch/arm64/jni_frame_arm64.h"
 #include "art_method-inl.h"
 #include "base/bit_utils.h"
 #include "base/bit_utils_iterator.h"
@@ -868,6 +869,51 @@ Location InvokeDexCallingConventionVisitorARM64::GetNextLocation(DataType::Type 
 
 Location InvokeDexCallingConventionVisitorARM64::GetMethodLocation() const {
   return LocationFrom(kArtMethodRegister);
+}
+
+Location CriticalNativeCallingConventionVisitorARM64::GetNextLocation(DataType::Type type) {
+  DCHECK_NE(type, DataType::Type::kReference);
+
+  Location location = Location::NoLocation();
+  if (DataType::IsFloatingPointType(type)) {
+    if (fpr_index_ < kParameterFPRegistersLength) {
+      location = LocationFrom(kParameterFPRegisters[fpr_index_]);
+      ++fpr_index_;
+    }
+  } else {
+    // Native ABI uses the same registers as managed, except that the method register RDI
+    // is a normal argument.
+    if (gpr_index_ < 1u + kParameterCoreRegistersLength) {
+      location = LocationFrom(gpr_index_ == 0u ? x0 : kParameterCoreRegisters[gpr_index_ - 1u]);
+      ++gpr_index_;
+    }
+  }
+  if (location.IsInvalid()) {
+    if (DataType::Is64BitType(type)) {
+      location = Location::DoubleStackSlot(offset_);
+    } else {
+      location = Location::StackSlot(offset_);
+    }
+    offset_ += kFramePointerSize;
+
+    if (for_register_allocation_) {
+      // The argument can be in any location, we shall need to move it
+      // to the right stack slot after adjusting the SP.
+      location = Location::Any();
+    }
+  }
+  return location;
+}
+
+Location CriticalNativeCallingConventionVisitorARM64::GetReturnLocation(DataType::Type type) const {
+  // We perform conversion to the managed ABI return register after the call if needed.
+  InvokeDexCallingConventionVisitorARM64 dex_calling_convention;
+  return dex_calling_convention.GetReturnLocation(type);
+}
+
+Location CriticalNativeCallingConventionVisitorARM64::GetMethodLocation() const {
+  // Pass the method in the hidden argument x15.
+  return Location::RegisterLocation(x15.GetCode());
 }
 
 CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
@@ -4296,7 +4342,13 @@ void LocationsBuilderARM64::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* inv
     return;
   }
 
-  HandleInvoke(invoke);
+  if (invoke->GetCodePtrLocation() == HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative) {
+    CriticalNativeCallingConventionVisitorARM64 calling_convention_visitor(
+        /*for_register_allocation=*/ true);
+    CodeGenerator::CreateCommonInvokeLocationSummary(invoke, &calling_convention_visitor);
+  } else {
+    HandleInvoke(invoke);
+  }
 }
 
 static bool TryGenerateIntrinsicCode(HInvoke* invoke, CodeGeneratorARM64* codegen) {
@@ -4328,7 +4380,7 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
       break;
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
-      callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
+      callee_method = invoke->GetLocations()->InAt(invoke->GetCurrentMethodIndex());
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
@@ -4374,6 +4426,19 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
     }
   }
 
+  auto call_code_pointer_member = [&](MemberOffset offset) {
+    // LR = callee_method->member;
+    __ Ldr(lr, MemOperand(XRegisterFrom(callee_method), offset.Int32Value()));
+    {
+      // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
+      ExactAssemblyScope eas(GetVIXLAssembler(),
+                             kInstructionSize,
+                             CodeBufferCheckScope::kExactSize);
+      // lr()
+      __ blr(lr);
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+    }
+  };
   switch (invoke->GetCodePtrLocation()) {
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       {
@@ -4385,20 +4450,56 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
         RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
       }
       break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
-      // LR = callee_method->entry_point_from_quick_compiled_code_;
-      __ Ldr(lr, MemOperand(
-          XRegisterFrom(callee_method),
-          ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArm64PointerSize).Int32Value()));
-      {
-        // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
-        ExactAssemblyScope eas(GetVIXLAssembler(),
-                               kInstructionSize,
-                               CodeBufferCheckScope::kExactSize);
-        // lr()
-        __ blr(lr);
-        RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+    case HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative: {
+      DCHECK(!invoke->GetLocations()->Intrinsified());
+      CriticalNativeCallingConventionVisitorARM64 calling_convention_visitor(
+          /*for_register_allocation=*/ false);
+      HParallelMove parallel_move(GetGraph()->GetAllocator());
+      PrepareCriticalNativeArgumentMoves(invoke, &calling_convention_visitor, &parallel_move);
+      size_t out_frame_size =
+          RoundUp(calling_convention_visitor.GetOffset(), kAapcs64StackAlignment);
+      if (kIsDebugBuild) {
+        ScopedObjectAccess soa(Thread::Current());
+        uint32_t shorty_len;
+        const char* shorty = invoke->GetResolvedMethod()->GetShorty(&shorty_len);
+        DCHECK_EQ(GetCriticalNativeDirectCallFrameSize(shorty, shorty_len), out_frame_size);
       }
+      if (out_frame_size != 0u) {
+        __ Claim(out_frame_size);
+        GetAssembler()->cfi().AdjustCFAOffset(out_frame_size);
+        AdjustCriticalNativeArgumentMoves(out_frame_size, &parallel_move);
+        GetMoveResolver()->EmitNativeCode(&parallel_move);
+      }
+      call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArm64PointerSize));
+      switch (invoke->GetType()) {
+        case DataType::Type::kBool:
+          __ Ubfx(w0, w0, 0, 8);
+          break;
+        case DataType::Type::kInt8:
+          __ Sbfx(w0, w0, 0, 8);
+          break;
+        case DataType::Type::kUint16:
+          __ Ubfx(w0, w0, 0, 16);
+          break;
+        case DataType::Type::kInt16:
+          __ Sbfx(w0, w0, 0, 16);
+          break;
+        default:
+          DCHECK(invoke->GetType() == DataType::Type::kInt32 ||
+                 invoke->GetType() == DataType::Type::kInt64 ||
+                 invoke->GetType() == DataType::Type::kFloat32 ||
+                 invoke->GetType() == DataType::Type::kFloat64 ||
+                 invoke->GetType() == DataType::Type::kVoid) << invoke->GetType();
+          break;
+      }
+      if (out_frame_size != 0u) {
+        __ Drop(out_frame_size);
+        GetAssembler()->cfi().AdjustCFAOffset(-out_frame_size);
+      }
+      break;
+    }
+    case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
+      call_code_pointer_member(ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArm64PointerSize));
       break;
   }
 
