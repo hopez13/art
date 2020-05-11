@@ -93,6 +93,26 @@ class InvokeDexCallingConventionVisitorX86 : public InvokeDexCallingConventionVi
   DISALLOW_COPY_AND_ASSIGN(InvokeDexCallingConventionVisitorX86);
 };
 
+class CriticalNativeCallingConventionVisitorX86 : public InvokeDexCallingConventionVisitor {
+ public:
+  explicit CriticalNativeCallingConventionVisitorX86(bool for_register_allocation)
+      : for_register_allocation_(for_register_allocation) {}
+
+  virtual ~CriticalNativeCallingConventionVisitorX86() {}
+
+  Location GetNextLocation(DataType::Type type) override;
+  Location GetReturnLocation(DataType::Type type) const override;
+  Location GetMethodLocation() const override;
+
+  size_t GetOffset() const { return offset_; }
+
+ private:
+  const bool for_register_allocation_;
+  size_t offset_ = 0u;
+
+  DISALLOW_COPY_AND_ASSIGN(CriticalNativeCallingConventionVisitorX86);
+};
+
 class FieldAccessCallingConventionX86 : public FieldAccessCallingConvention {
  public:
   FieldAccessCallingConventionX86() {}
