@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e317799_4b7eeff5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "I really think that encapsulating the whole process in a dedicated helper-class will ensure that everything remains more nicely organized. I\u0027ll change the name to something less generic than Finalize though (AdjustControlFlow).",
+      "parentUuid": "1add20b7_13872b31",
+      "range": {
+        "startLine": 567,
+        "startChar": 4,
+        "endLine": 567,
+        "endChar": 30
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03936510_5b074e28",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82fdcc02_6ba1ad65",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03936510_5b074e28",
+      "range": {
+        "startLine": 1730,
+        "startChar": 65,
+        "endLine": 1732,
+        "endChar": 19
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5d0d7803_6765e936",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "See above. I think that encapsulating it gives value.",
+      "parentUuid": "11ae19ac_aa662080",
+      "range": {
+        "startLine": 1943,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 45
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b34c1b7_a1aa27a0",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "e2da64b8_12a3f697",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b34c1b7_a1aa27a0",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 47
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b5077c_8c235bef",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 5
@@ -108,6 +204,24 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1083d40_ee03db28",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b5077c_8c235bef",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "341f3b7e_9407bbb0",
+        "filename": "compiler/optimizing/decondition_deoptimize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "I think encapsulating this transform is useful, see other comments.",
+      "parentUuid": "5d48e46b_d7c5eac0",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acf94f42_153eaffe",
         "filename": "compiler/optimizing/decondition_deoptimize.cc",
         "patchSetId": 5
@@ -154,6 +292,30 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6af2a21_916dbd33",
+        "filename": "compiler/optimizing/decondition_deoptimize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "we will be able to use the block ending with an unconditional deoptimize to restore the environment needed for the deoptimize. This will allow us to have deeper optimization around things like LSE by ensuring that we won\u0027t have to allocate and keep around objects only for deoptimizes.",
+      "parentUuid": "acf94f42_153eaffe",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 80
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "21d72d14_88163c53",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0a9962_0396362f",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 28
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c08d751d_8fa62c6c",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 5
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "647c5e40_e53216cc",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c08d751d_8fa62c6c",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 31
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15ed67bd_664a9f79",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 5
@@ -217,6 +427,24 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a62790b1_4490e3ee",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15ed67bd_664a9f79",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "dda6d59d_2e0745ea",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6258879_9a4d7ee2",
+      "range": {
+        "startLine": 2464,
+        "startChar": 0,
+        "endLine": 2465,
+        "endChar": 17
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2adc5acd_d66bb33b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "cd444d6c_dae9d85e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2adc5acd_d66bb33b",
+      "range": {
+        "startLine": 2559,
+        "startChar": 0,
+        "endLine": 2586,
+        "endChar": 7
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5cf36aa_39e068a7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -286,6 +562,30 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd83fdb_67ddbf57",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3339,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5cf36aa_39e068a7",
+      "range": {
+        "startLine": 3337,
+        "startChar": 0,
+        "endLine": 3339,
+        "endChar": 3
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -329,6 +629,24 @@
     },
     {
       "key": {
+        "uuid": "e556feb9_851803fe",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "these are still testing the same things.\n\nThe first there can only be one phi so just check for it.\n\nThe second the phi ends up above the array-gets due to the way the deoptimizes are split and the graph is serialized.",
+      "parentUuid": "0a2a3cd2_e11a9b4a",
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39544a17_1e8dd5be",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 5
@@ -352,6 +670,30 @@
     },
     {
       "key": {
+        "uuid": "bea9862d_a53e966e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "done. This was already really fragile but changing the optimizations meant that LSE was able to (correctly) discover the \u0027obj\u0027 allocation can be eliminated.",
+      "parentUuid": "39544a17_1e8dd5be",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 3
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2a5a7e8_da3daf9e",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 5
@@ -372,6 +714,30 @@
       "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dddb7d4_6bb2b6c6",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "f2a5a7e8_da3daf9e",
+      "range": {
+        "startLine": 885,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 25
+      },
+      "revId": "ad3306b7883408942ef9bb90b6a74405ea6a2354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

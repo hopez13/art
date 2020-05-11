@@ -16,6 +16,24 @@
       "revId": "8103e479d8f8447584582b2b70752029f7087776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b04c824_9f885058",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-05-11T20:45:08Z",
+      "side": 0,
+      "message": "not anymore than it already was.\n\nThe deoptimize was never removed or even moved by the test. It\u0027s just checking that the constructor fence isn\u0027t removed (there are exactly 2 fences both before and after). I will add back in the Deoptimize assert in the new appropriate place though.",
+      "parentUuid": "0eb6e1df_2ec2ceab",
+      "revId": "8103e479d8f8447584582b2b70752029f7087776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
