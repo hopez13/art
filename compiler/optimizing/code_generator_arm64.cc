@@ -4290,7 +4290,7 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
       break;
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
-      callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
+      callee_method = invoke->GetLocations()->InAt(invoke->GetCurrentMethodIndex());
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
@@ -4336,6 +4336,19 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
     }
   }
 
+  auto call_code_pointer_member = [&](MemberOffset offset) {
+    // LR = callee_method->member;
+    __ Ldr(lr, MemOperand(XRegisterFrom(callee_method), offset.Int32Value()));
+    {
+      // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
+      ExactAssemblyScope eas(GetVIXLAssembler(),
+                             kInstructionSize,
+                             CodeBufferCheckScope::kExactSize);
+      // lr()
+      __ blr(lr);
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+    }
+  };
   switch (invoke->GetCodePtrLocation()) {
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       {
@@ -4347,20 +4360,11 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
         RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
       }
       break;
+    case HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative:
+      call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArm64PointerSize));
+      break;
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
-      // LR = callee_method->entry_point_from_quick_compiled_code_;
-      __ Ldr(lr, MemOperand(
-          XRegisterFrom(callee_method),
-          ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArm64PointerSize).Int32Value()));
-      {
-        // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
-        ExactAssemblyScope eas(GetVIXLAssembler(),
-                               kInstructionSize,
-                               CodeBufferCheckScope::kExactSize);
-        // lr()
-        __ blr(lr);
-        RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
-      }
+      call_code_pointer_member(ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArm64PointerSize));
       break;
   }
 

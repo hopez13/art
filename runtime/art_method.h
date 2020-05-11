@@ -587,7 +587,9 @@ class ArtMethod final {
 
   void SetEntryPointFromJni(const void* entrypoint)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK(IsNative());
+    // The resolution method also has a JNI entrypoint for direct calls from
+    // compiled code to the JNI dlsym lookup stub for @CriticalNative.
+    DCHECK(IsNative() || IsRuntimeMethod());
     SetEntryPointFromJniPtrSize(entrypoint, kRuntimePointerSize);
   }
 

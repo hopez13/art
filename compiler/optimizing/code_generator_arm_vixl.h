@@ -853,9 +853,6 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                     uint32_t encoded_data,
                                     /*out*/ std::string* debug_name);
 
-  vixl::aarch32::Register GetInvokeStaticOrDirectExtraParameter(HInvokeStaticOrDirect* invoke,
-                                                                vixl::aarch32::Register temp);
-
   using Uint32ToLiteralMap = ArenaSafeMap<uint32_t, VIXLUInt32Literal*>;
   using StringToLiteralMap = ArenaSafeMap<StringReference,
                                           VIXLUInt32Literal*,

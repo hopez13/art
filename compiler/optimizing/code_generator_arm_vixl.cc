@@ -8860,31 +8860,6 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARMVIXL::GetSupportedInvokeStat
   return desired_dispatch_info;
 }
 
-vixl32::Register CodeGeneratorARMVIXL::GetInvokeStaticOrDirectExtraParameter(
-    HInvokeStaticOrDirect* invoke, vixl32::Register temp) {
-  DCHECK_EQ(invoke->InputCount(), invoke->GetNumberOfArguments() + 1u);
-  Location location = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
-  if (!invoke->GetLocations()->Intrinsified()) {
-    return RegisterFrom(location);
-  }
-  // For intrinsics we allow any location, so it may be on the stack.
-  if (!location.IsRegister()) {
-    GetAssembler()->LoadFromOffset(kLoadWord, temp, sp, location.GetStackIndex());
-    return temp;
-  }
-  // For register locations, check if the register was saved. If so, get it from the stack.
-  // Note: There is a chance that the register was saved but not overwritten, so we could
-  // save one load. However, since this is just an intrinsic slow path we prefer this
-  // simple and more robust approach rather that trying to determine if that's the case.
-  SlowPathCode* slow_path = GetCurrentSlowPath();
-  if (slow_path != nullptr && slow_path->IsCoreRegisterSaved(RegisterFrom(location).GetCode())) {
-    int stack_offset = slow_path->GetStackOffsetOfCoreRegister(RegisterFrom(location).GetCode());
-    GetAssembler()->LoadFromOffset(kLoadWord, temp, sp, stack_offset);
-    return temp;
-  }
-  return RegisterFrom(location);
-}
-
 void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
     HInvokeStaticOrDirect* invoke, Location temp, SlowPathCode* slow_path) {
   Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
@@ -8897,7 +8872,7 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
       break;
     }
     case HInvokeStaticOrDirect::MethodLoadKind::kRecursive:
-      callee_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
+      callee_method = invoke->GetLocations()->InAt(invoke->GetCurrentMethodIndex());
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
@@ -8932,6 +8907,20 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
     }
   }
 
+  auto call_code_pointer_member = [&](MemberOffset offset) {
+    // LR = callee_method->member;
+    GetAssembler()->LoadFromOffset(kLoadWord, lr, RegisterFrom(callee_method), offset.Int32Value());
+    {
+      // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
+      // blx in T32 has only 16bit encoding that's why a stricter check for the scope is used.
+      ExactAssemblyScope aas(GetVIXLAssembler(),
+                             vixl32::k16BitT32InstructionSizeInBytes,
+                             CodeBufferCheckScope::kExactSize);
+      // LR()
+      __ blx(lr);
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+    }
+  };
   switch (invoke->GetCodePtrLocation()) {
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       {
@@ -8943,23 +8932,11 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
         RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
       }
       break;
+    case HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative:
+      call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArmPointerSize));
+      break;
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
-      // LR = callee_method->entry_point_from_quick_compiled_code_
-      GetAssembler()->LoadFromOffset(
-            kLoadWord,
-            lr,
-            RegisterFrom(callee_method),
-            ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArmPointerSize).Int32Value());
-      {
-        // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
-        // blx in T32 has only 16bit encoding that's why a stricter check for the scope is used.
-        ExactAssemblyScope aas(GetVIXLAssembler(),
-                               vixl32::k16BitT32InstructionSizeInBytes,
-                               CodeBufferCheckScope::kExactSize);
-        // LR()
-        __ blx(lr);
-        RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
-      }
+      call_code_pointer_member(ArtMethod::EntryPointFromQuickCompiledCodeOffset(kArmPointerSize));
       break;
   }
 

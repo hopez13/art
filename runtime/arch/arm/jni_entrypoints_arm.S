@@ -80,9 +80,10 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     // (x0 is an arg in native ABI but not considered an arg in managed ABI.)
     strd   r4, r0, [sp]
 
-    // Call artCriticalNativeOutArgsSize(method)
+    // Call artCriticalNativeFrameSize(method, caller_pc)
     mov    r0, r4  // r0 := method (from hidden arg)
-    bl     artCriticalNativeOutArgsSize
+    mov    r1, lr  // r1 := caller_pc
+    bl     artCriticalNativeFrameSize
 
     // Check if we have any stack args.
     cbnz   r0, .Lcritical_has_stack_args
