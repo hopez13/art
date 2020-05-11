@@ -6,6 +6,12 @@ testMissing
 testMissingFast
 testMissingCritical
 testCriticalSignatures
+testCritical
+testMissingCritical
+testCriticalSignatures
+testCriticalNativeClinitCheck passed
+initializingCriticalNativeClinitCheck finished
+testCriticalNativeClinitCheck passed
 JNI_OnLoad called
 test
 testFast
@@ -14,3 +20,9 @@ testMissing
 testMissingFast
 testMissingCritical
 testCriticalSignatures
+testCritical
+testMissingCritical
+testCriticalSignatures
+testCriticalNativeClinitCheck passed
+initializingCriticalNativeClinitCheck finished
+testCriticalNativeClinitCheck passed

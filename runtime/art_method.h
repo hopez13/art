@@ -587,7 +587,9 @@ class ArtMethod final {
 
   void SetEntryPointFromJni(const void* entrypoint)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK(IsNative());
+    // The resolution method also has a JNI entrypoint for direct calls from
+    // compiled code to the JNI dlsym lookup stub for @CriticalNative.
+    DCHECK(IsNative() || IsRuntimeMethod());
     SetEntryPointFromJniPtrSize(entrypoint, kRuntimePointerSize);
   }
 
@@ -837,6 +839,8 @@ class ArtMethod final {
     // Depending on the method type, the data is
     //   - native method: pointer to the JNI function registered to this method
     //                    or a function to resolve the JNI function,
+    //   - resolution method: pointer to a function to resolve the method and
+    //                        the JNI function for @CriticalNative.
     //   - conflict method: ImtConflictTable,
     //   - abstract/interface method: the single-implementation if any,
     //   - proxy method: the original interface method or constructor,
