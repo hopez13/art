@@ -570,6 +570,14 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   static void CreateCommonInvokeLocationSummary(
       HInvoke* invoke, InvokeDexCallingConventionVisitor* visitor);
 
+  static void PrepareCriticalNativeArgumentMoves(
+      HInvokeStaticOrDirect* invoke,
+      /*inout*/InvokeDexCallingConventionVisitor* visitor,
+      /*out*/HParallelMove* parallel_move);
+
+  static void AdjustCriticalNativeArgumentMoves(size_t out_frame_size,
+                                                /*inout*/HParallelMove* parallel_move);
+
   void GenerateInvokeStaticOrDirectRuntimeCall(
       HInvokeStaticOrDirect* invoke, Location temp, SlowPathCode* slow_path);
 

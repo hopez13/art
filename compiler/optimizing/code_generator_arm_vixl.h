@@ -187,6 +187,27 @@ class InvokeDexCallingConventionVisitorARMVIXL : public InvokeDexCallingConventi
   DISALLOW_COPY_AND_ASSIGN(InvokeDexCallingConventionVisitorARMVIXL);
 };
 
+class CriticalNativeCallingConventionVisitorARMVIXL : public InvokeDexCallingConventionVisitor {
+ public:
+  explicit CriticalNativeCallingConventionVisitorARMVIXL(bool for_register_allocation)
+      : for_register_allocation_(for_register_allocation) {}
+
+  virtual ~CriticalNativeCallingConventionVisitorARMVIXL() {}
+
+  Location GetNextLocation(DataType::Type type) override;
+  Location GetReturnLocation(DataType::Type type) const override;
+  Location GetMethodLocation() const override;
+
+  size_t GetOffset() const { return offset_; }
+
+ private:
+  const bool for_register_allocation_;
+  size_t gpr_index_ = 0u;
+  size_t offset_ = 0u;
+
+  DISALLOW_COPY_AND_ASSIGN(CriticalNativeCallingConventionVisitorARMVIXL);
+};
+
 class FieldAccessCallingConventionARMVIXL : public FieldAccessCallingConvention {
  public:
   FieldAccessCallingConventionARMVIXL() {}
@@ -852,9 +873,6 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
   void CompileBakerReadBarrierThunk(ArmVIXLAssembler& assembler,
                                     uint32_t encoded_data,
                                     /*out*/ std::string* debug_name);
-
-  vixl::aarch32::Register GetInvokeStaticOrDirectExtraParameter(HInvokeStaticOrDirect* invoke,
-                                                                vixl::aarch32::Register temp);
 
   using Uint32ToLiteralMap = ArenaSafeMap<uint32_t, VIXLUInt32Literal*>;
   using StringToLiteralMap = ArenaSafeMap<StringReference,
