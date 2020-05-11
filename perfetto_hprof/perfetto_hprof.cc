@@ -733,10 +733,6 @@ extern "C" bool ArtPlugin_Initialize() {
   });
   th.detach();
 
-  art::MutexLock lk(art::Thread::Current(), GetStateMutex());
-  while (g_state == State::kWaitForListener) {
-    GetStateCV().Wait(art::Thread::Current());
-  }
   return true;
 }
 
@@ -751,10 +747,11 @@ extern "C" bool ArtPlugin_Deinitialize() {
 
   art::Thread* self = art::Thread::Current();
   art::MutexLock lk(self, GetStateMutex());
-  if (g_state != State::kWaitForListener) {
-    g_state = State::kUninitialized;
-    GetStateCV().Broadcast(self);
+  while (g_state == State::kWaitForListener) {
+    GetStateCV().Wait(art::Thread::Current());
   }
+  g_state = State::kUninitialized;
+  GetStateCV().Broadcast(self);
   return true;
 }
 
