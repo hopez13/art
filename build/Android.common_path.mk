@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+ifneq ($(HOST_OS),darwin)
 ifndef ART_ANDROID_COMMON_PATH_MK
 ART_ANDROID_COMMON_PATH_MK := true
 
@@ -164,3 +165,4 @@ CONSCRYPT_APEX := com.android.conscrypt
 I18N_APEX := com.android.i18n
 
 endif # ART_ANDROID_COMMON_PATH_MK
+endif # ifneq ($(HOST_OS),darwin)
