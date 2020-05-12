@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0005ec2_66bc4003",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "Maybe also add:\n\n  Test: mmma art/tools/ahat\n\n?",
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8222af9_a4f98d64",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "Suggestion:\n\n  case \"$bpath_module\" in\n    (conscrypt)  apex_module\u003d\"com.android.conscrypt\";;\n    (core-icu4j) apex_module\u003d\"com.android.i18n\";;\n    (*)          apex_module\u003d\"com.android.art\";;\n  esac",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 737,
+        "endChar": 4
+      },
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a859bb69_406b6c82",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "While you\u0027re changing this, could you add `local` before this variable definition?",
+      "range": {
+        "startLine": 618,
+        "startChar": 4,
+        "endLine": 618,
+        "endChar": 14
+      },
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b63dc6db_1950b822",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 619,
+        "startChar": 4,
+        "endLine": 619,
+        "endChar": 11
+      },
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2497d53_b308b8d9",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 631,
+        "startChar": 8,
+        "endLine": 631,
+        "endChar": 17
+      },
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "980379d8_5a4c0e70",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T10:50:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 632,
+        "startChar": 8,
+        "endLine": 632,
+        "endChar": 17
+      },
+      "revId": "92f1bb6a63db3582d8fddf66a5f7b713d18b045d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
