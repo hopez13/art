@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71f0f4e5_9f1528c5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3145,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-05-12T10:15:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54b43997_8e24f4a2",
+      "range": {
+        "startLine": 3145,
+        "startChar": 57,
+        "endLine": 3145,
+        "endChar": 75
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "301146d1_e788ed3d",
         "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d6049c46_9429e42a",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-05-12T10:15:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "301146d1_e788ed3d",
+      "range": {
+        "startLine": 89,
+        "startChar": 17,
+        "endLine": 89,
+        "endChar": 24
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f48dd6b_e01707cb",
         "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2020-05-12T08:44:23Z",
       "side": 1,
       "message": "Btw., this could be shortened to\n\n   ADD xN, xN, xM, lsr #32\n   ASR xN, xN, #34",
+      "range": {
+        "startLine": 114,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ebfd27d_70a0b59d",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-05-12T10:15:41Z",
+      "side": 1,
+      "message": "Thank you for advice.\nThe problem with \u0027add_shift\u0027 is that its latency is 2 clocks.\nIn case of Cortex-A55, a pair of \u0027lsr\u0027 and \u0027add\u0027 can be faster because of dual issue, forwarding paths and two ALUs. I\u0027ll check.",
+      "parentUuid": "0f48dd6b_e01707cb",
       "range": {
         "startLine": 114,
         "startChar": 29,
