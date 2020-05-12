@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "403fa659_e1e054e6",
+        "filename": "test/common/gtest_args.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-12T15:23:39Z",
+      "side": 1,
+      "message": "Well, it has the \u0027extern \"C\"\u0027 which makes it .cc file.\nArguably it could have been .c file and the extern dropped.\n\nAnyway, I move also moved the main() method here... since it was hidden in complete random location up till now, and I think it fits nicely here.  So definitely C++ code now :-)",
+      "parentUuid": "a26c1fd7_55bc3088",
+      "revId": "97613f1cec65a05f644694e519e0613c8560b104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27380e93_c1bee893",
         "filename": "test/common/gtest_args.cc",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "97613f1cec65a05f644694e519e0613c8560b104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48536e8b_af87ca95",
+        "filename": "test/common/gtest_args.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-12T15:23:39Z",
+      "side": 1,
+      "message": "I like it this way.  I means the binaries should also reasonably work as-is when executed manually.",
+      "parentUuid": "27380e93_c1bee893",
+      "range": {
+        "startLine": 21,
+        "startChar": 40,
+        "endLine": 21,
+        "endChar": 70
+      },
+      "revId": "97613f1cec65a05f644694e519e0613c8560b104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
