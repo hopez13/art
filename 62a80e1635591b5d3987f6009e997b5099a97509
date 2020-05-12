@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a83e4f6_546fec8b",
+        "filename": "test/common/gtest_main.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2020-05-12T17:22:08Z",
+      "side": 1,
+      "message": "If you leave this as an extern without defining the function, you can check down below if it\u0027s null before executing. I\u0027ve moved towards doing it this way to avoid the linker using the wrong function.",
+      "range": {
+        "startLine": 39,
+        "startChar": 5,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "62a80e1635591b5d3987f6009e997b5099a97509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
