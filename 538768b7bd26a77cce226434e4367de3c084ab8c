@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b038ed6_7b316cdc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-12T16:44:26Z",
+      "side": 1,
+      "message": "Do we measure it in any way?\n\nI tried running dex2oat under `valgrind --tool\u003dmassif` which is my usual way of measuring memory for C++ programs in the wild, but I get an error:\n\n  Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x92\n  ...                                                         \n  valgrind: m_debuginfo/readdwarf.c:2487 (copy_convert_CfiExpr_tree): Assertion \u0027dstxa\u0027 failed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "538768b7bd26a77cce226434e4367de3c084ab8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f7fc6c9_7324de2a",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-12T16:44:26Z",
+      "side": 1,
+      "message": "For array classes previosly IsResolved() failure for element types resulted in \u0027false\u0027 returned from IsAdmissible(), and now it\u0027s a DCHECK failure. Did you deliberately change this behaviour?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "538768b7bd26a77cce226434e4367de3c084ab8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
