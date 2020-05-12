@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54b43997_8e24f4a2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-12T08:44:23Z",
+      "side": 1,
+      "message": "These are just `temp` in line 3072 and since we assert that the result type is kInt32 and then `AcquireSameSizeAs(out)`, the ASR uses W registers. Please adjust the comment. This also makes the comments in lines 3148-3151 unnecessary.",
+      "range": {
+        "startLine": 3145,
+        "startChar": 57,
+        "endLine": 3145,
+        "endChar": 75
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "301146d1_e788ed3d",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-12T08:44:23Z",
+      "side": 1,
+      "message": "I would prefer `int`.",
+      "range": {
+        "startLine": 89,
+        "startChar": 17,
+        "endLine": 89,
+        "endChar": 24
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f48dd6b_e01707cb",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-12T08:44:23Z",
+      "side": 1,
+      "message": "Btw., this could be shortened to\n\n   ADD xN, xN, xM, lsr #32\n   ASR xN, xN, #34",
+      "range": {
+        "startLine": 114,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
