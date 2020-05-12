@@ -34,6 +34,24 @@
       "revId": "8103e479d8f8447584582b2b70752029f7087776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee513047_32a16984",
+        "filename": "test/476-checker-ctor-fence-redun-elim/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-12T14:55:10Z",
+      "side": 0,
+      "message": "Ah I see - could you add a comment with your findings? These are always useful for next readers of this test.",
+      "parentUuid": "0b04c824_9f885058",
+      "revId": "8103e479d8f8447584582b2b70752029f7087776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
