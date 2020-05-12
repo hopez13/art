@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a69ad536_d723aaf1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-12T16:52:18Z",
+      "side": 1,
+      "message": "I used heaptrack in the past but I did not bother measuring this time. This is a clean up CL that works towards running most `OptimizingUnitTest`s without creating a Runtime.",
+      "parentUuid": "7b038ed6_7b316cdc",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "538768b7bd26a77cce226434e4367de3c084ab8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f7fc6c9_7324de2a",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "538768b7bd26a77cce226434e4367de3c084ab8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bacee139_b2a726db",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-12T16:52:18Z",
+      "side": 1,
+      "message": "Yes, array classes are created visibly initialized and therefore the DCHECK() should never fail.",
+      "parentUuid": "5f7fc6c9_7324de2a",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "538768b7bd26a77cce226434e4367de3c084ab8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
