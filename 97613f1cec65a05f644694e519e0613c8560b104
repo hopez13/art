@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a26c1fd7_55bc3088",
+        "filename": "test/common/gtest_args.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-12T08:32:59Z",
+      "side": 1,
+      "message": "Because this is essentially a C file, shouldn\u0027t its extension be `.c`?",
+      "revId": "97613f1cec65a05f644694e519e0613c8560b104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27380e93_c1bee893",
         "filename": "test/common/gtest_args.cc",
         "patchSetId": 2
