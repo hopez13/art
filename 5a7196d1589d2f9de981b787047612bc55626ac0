@@ -164,6 +164,30 @@
       "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfe33403_a5bf39de",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-05-13T12:05:33Z",
+      "side": 1,
+      "message": "Instead of \u0027ASR xN, xN, #34\u0027 it should be \u0027ASR wN, wN, #2\u0027. Otherwise it does not work. For example the result of -10 / 7 will be 0.\nDividend in a W1 register: 11111111111111111111111111110110.\nIt is as a X1 register: 0000000000000000000000000000000011111111111111111111111111110110.\nMagic*dividend in a X2 register: 000000000000000000000000000010001001001001001001001001001000010\nHigh 32 bits of (Magic*dividend): 00000000000000000000000000000100.\nThe result \u0027add x2, x1, x2, lsr 32\u0027: 0000000000000000000000000000000011111111111111111111111111111010\nThe result \u0027asr x2 x2, #34\u0027: 0\nThe result \u0027add x0, x2, x2, lsr #31\u0027: 0",
+      "parentUuid": "0aa9c55f_a383be9a",
+      "range": {
+        "startLine": 114,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
