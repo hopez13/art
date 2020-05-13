@@ -188,6 +188,30 @@
       "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "362f2103_e966a559",
+        "filename": "test/411-checker-hdiv-hrem-const/src/DivTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-13T12:18:33Z",
+      "side": 1,
+      "message": "Sorry, I made a mistake, it should have been LSL in the shifter operand:\n\n  ADD xN, xN, xM, lsl #32\n  ASR xN, xN, #34  // High 32 bits shall be ignored because it\u0027s typed as kInt32.\n\nwhere xN is the temp register. But it can be done with LSR as you suggested but I would have written it as\n\n  ADD xN, xM, xN, lsr #32  // Note: the xM and xN are exchanged compared to code above.\n  ASR wN, wN, #2  // Note: Working with W-registers here.",
+      "parentUuid": "dfe33403_a5bf39de",
+      "range": {
+        "startLine": 114,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "5a7196d1589d2f9de981b787047612bc55626ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
