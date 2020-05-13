@@ -266,6 +266,7 @@ class OptimizingUnitTestHelper {
   std::vector<HInstruction*> parameters_;
 };
 
+class OptimizingArtTest : public CommonArtTest, public OptimizingUnitTestHelper {};
 class OptimizingUnitTest : public CommonCompilerTest, public OptimizingUnitTestHelper {};
 
 // Naive string diff data type.

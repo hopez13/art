@@ -30,7 +30,7 @@ namespace art {
 /**
  * Fixture class for the constant folding and dce tests.
  */
-class ConstantFoldingTest : public OptimizingUnitTest {
+class ConstantFoldingTest : public OptimizingArtTest {
  public:
   ConstantFoldingTest() : graph_(nullptr) { }
 
