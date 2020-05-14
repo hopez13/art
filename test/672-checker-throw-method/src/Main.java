@@ -98,7 +98,9 @@ public class Main {
   /// CHECK:                InvokeStaticOrDirect [<<Str>>] method_name:Main.doThrow
   /// CHECK: end_block
   static public void doit2(int[] a) {
-    String par = "a";
+    // Being in the boot image means we know the load string cannot throw. Create one that is
+    // unlikely to be there to ensure we handle that case.
+    String par = "stringUnlikelyToBeInBootImage";
     if (a == null)
       doThrow(par);
     for (int i = 0; i < a.length; i++) {
