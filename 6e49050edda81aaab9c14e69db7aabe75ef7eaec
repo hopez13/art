@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7695979d_f8a7ffb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-05-14T19:57:38Z",
+      "side": 1,
+      "message": "add docs: why not?",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "6e49050edda81aaab9c14e69db7aabe75ef7eaec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f05504_8668d77a",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-05-14T19:57:38Z",
+      "side": 1,
+      "message": "This change and the one bellow looks unrelated. Do you need it as part of this CL?",
+      "range": {
+        "startLine": 702,
+        "startChar": 2,
+        "endLine": 707,
+        "endChar": 0
+      },
+      "revId": "6e49050edda81aaab9c14e69db7aabe75ef7eaec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0b4c3a_a019f443",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-05-14T19:57:38Z",
+      "side": 1,
+      "message": "I know this is not the standard right now but:\n- add docs to the flag\n- mention the impact on runtime perf if it\u0027s switched on/off",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 80
+      },
+      "revId": "6e49050edda81aaab9c14e69db7aabe75ef7eaec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
