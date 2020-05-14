@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "14ad1ee2_2c3058f7",
+        "filename": "oatdump/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-14T14:37:11Z",
+      "side": 0,
+      "message": "Done\n\nYes, it dumps all four {host,target}x{32,64}",
+      "parentUuid": "03d871c5_9e289a7b",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48612ecd_be681c27",
         "filename": "test/testrunner/env.py",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d1883815_79f01741",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-14T14:37:11Z",
+      "side": 0,
+      "message": "It was only used in Android.oat.mk which is deleted now.  So it is dead code.\nI believe it was a lever for development to allow tweaking the dex2oat core.art compilation?",
+      "parentUuid": "48612ecd_be681c27",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 89
+      },
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5304d7b0_031efd06",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad6c210f_b94a03aa",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-14T14:37:11Z",
+      "side": 0,
+      "message": "ditto",
+      "parentUuid": "5304d7b0_031efd06",
+      "range": {
+        "startLine": 485,
+        "startChar": 15,
+        "endLine": 485,
+        "endChar": 52
+      },
+      "revId": "cc7b21b2f70fed2a33076600a271dfb5e90f655b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
