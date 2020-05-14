@@ -430,8 +430,8 @@ LOCAL_PATH := art
 
 ART_TEST_MODULES := \
     art_cmdline_tests \
-    art_compiler_host_tests \
     art_compiler_tests \
+    art_compiler_host_tests \
     art_dex2oat_tests \
     art_dexanalyze_tests \
     art_dexdiag_tests \
