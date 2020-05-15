@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4380be0d_efb14330",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-15T08:46:09Z",
+      "side": 1,
+      "message": "Can you give a bit of context for this change? Is this part of a larger effort of using \"data\" property for all apexes?\n\nAlso I\u0027m trying to understand why only those three jars have moved.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "73e1e615f3ed7896c72b09eb50fc9d59da5e80eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31772866_fa446c7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-15T08:46:09Z",
+      "side": 1,
+      "message": "Can you clarify how you tested it? I believe the relevant test is `m test-art-host-gtest`.",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "73e1e615f3ed7896c72b09eb50fc9d59da5e80eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
