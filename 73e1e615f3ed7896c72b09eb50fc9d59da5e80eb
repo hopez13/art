@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f4ec1412_0ac8ced0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-15T11:12:43Z",
+      "side": 1,
+      "message": "Got it, thanks David.",
+      "parentUuid": "42fc52a6_e0d6915e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "73e1e615f3ed7896c72b09eb50fc9d59da5e80eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31772866_fa446c7c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -69,6 +93,30 @@
       "revId": "73e1e615f3ed7896c72b09eb50fc9d59da5e80eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bac8055_eb46c0e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-15T11:12:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "31772866_fa446c7c",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "73e1e615f3ed7896c72b09eb50fc9d59da5e80eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
