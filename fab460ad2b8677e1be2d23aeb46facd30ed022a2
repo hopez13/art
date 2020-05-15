@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "532b870d_c112b693",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-15T09:38:39Z",
+      "side": 1,
+      "message": "Can we attach this method to a place that will avoid the duplication with the other codegens?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 80
+      },
+      "revId": "fab460ad2b8677e1be2d23aeb46facd30ed022a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f53f2f61_8a3d1728",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 4
