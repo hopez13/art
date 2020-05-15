@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81de733f_fa176a1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-15T09:49:33Z",
+      "side": 1,
+      "message": "Could you give a web link to the benchmark source?",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "8f6a7f69d0bdb80faab76276e4a4945c892f18d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33f55bb8_d390034d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-15T09:49:33Z",
+      "side": 1,
+      "message": "Could you analyze which JNI methods ended up being recognized as fast? And what is the proportion of those methods between app and framework?",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "8f6a7f69d0bdb80faab76276e4a4945c892f18d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
