@@ -116,6 +116,30 @@
       "revId": "fab460ad2b8677e1be2d23aeb46facd30ed022a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13684972_7fd68802",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-15T10:35:17Z",
+      "side": 1,
+      "message": "So there is a guarantee that Runtime::Current() is not null for release builds? Then add a comment.\n\nOtherwise I\u0027d change the check to:\n  return runtime !\u003d nullptr \u0026\u0026 runtime-\u003eUseJitCompilation();\nIn debug build, it would be the same as before, and in release mode it would the non-null check.",
+      "parentUuid": "2e726076_0b6c3309",
+      "range": {
+        "startLine": 99,
+        "startChar": 10,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "fab460ad2b8677e1be2d23aeb46facd30ed022a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
