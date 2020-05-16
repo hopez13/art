@@ -22,6 +22,30 @@
       "revId": "2e819ead50ca6a37fd1058a69809e9d639a76f45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "328e04bd_800b1e38",
+        "filename": "test/617-clinit-oome/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-05-16T02:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e2708c7_96db0532",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "2e819ead50ca6a37fd1058a69809e9d639a76f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
