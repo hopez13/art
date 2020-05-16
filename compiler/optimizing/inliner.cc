@@ -482,6 +482,8 @@ ArtMethod* HInliner::FindActualCallTarget(HInvoke* invoke_instruction, bool* cha
       *cha_devirtualize = true;
       actual_method = method;
       LOG_NOTE() << "Try CHA-based inlining of " << actual_method->PrettyMethod();
+    } else {
+      MaybeRecordStat(stats_, MethodCompilationStat::kNotInlinedFailedDevirtualize);
     }
   }
 
@@ -489,11 +491,17 @@ ArtMethod* HInliner::FindActualCallTarget(HInvoke* invoke_instruction, bool* cha
 }
 
 bool HInliner::TryInline(HInvoke* invoke_instruction) {
-  if (invoke_instruction->IsInvokeUnresolved() ||
-      invoke_instruction->IsInvokePolymorphic() ||
-      invoke_instruction->IsInvokeCustom()) {
-    return false;  // Don't bother to move further if we know the method is unresolved or the
-                   // invocation is polymorphic (invoke-{polymorphic,custom}).
+  // Don't bother to move further if we know the method is unresolved or the invocation is
+  // polymorphic (invoke-{polymorphic,custom}).
+  if (invoke_instruction->IsInvokeUnresolved()) {
+    MaybeRecordStat(stats_, MethodCompilationStat::kNotInlinedUnresolved);
+    return false;
+  } else if (invoke_instruction->IsInvokePolymorphic()) {
+    MaybeRecordStat(stats_, MethodCompilationStat::kNotInlinedPolymorphic);
+    return false;
+  } else if (invoke_instruction->IsInvokeCustom()) {
+    MaybeRecordStat(stats_, MethodCompilationStat::kNotInlinedCustom);
+    return false;
   }
 
   ScopedObjectAccess soa(Thread::Current());
