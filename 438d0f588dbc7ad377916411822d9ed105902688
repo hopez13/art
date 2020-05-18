@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1e24b7b_8e26619c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-18T08:53:22Z",
+      "side": 1,
+      "message": "Isn\u0027t this expected if CHA did not end up inlining? We always try to use CHA first.",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 84
+      },
+      "revId": "438d0f588dbc7ad377916411822d9ed105902688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
