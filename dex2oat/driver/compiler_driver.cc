@@ -915,6 +915,10 @@ void CompilerDriver::PreCompile(jobject class_loader,
                                << "Please check the log.";
       _exit(1);
     }
+
+    if (GetCompilerOptions().IsBootImage()) {
+      SetVerified(class_loader, dex_files, timings);
+    }
   }
 
   if (GetCompilerOptions().IsGeneratingImage()) {
