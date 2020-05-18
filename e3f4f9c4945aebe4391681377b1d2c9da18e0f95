@@ -649,6 +649,30 @@
     },
     {
       "key": {
+        "uuid": "d69823e2_6de40cd3",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "OK, so aget/aput would not really benefit from implicit null check. However, this one should clearly be explicit as CBZ is a single instruction (just like LDR) and avoids going through the fault handler.",
+      "parentUuid": "c004fe47_93e6064b",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7e7cd50_66711f33",
         "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
         "patchSetId": 8
@@ -1777,6 +1801,30 @@
     },
     {
       "key": {
+        "uuid": "02e5f13a_f65e6a38",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "Not done in PS10, the \".balign 8\" is a no-op after the \".balign 16\". Adding two \".long 0\" instead would work.",
+      "parentUuid": "648a6eda_60b56be0",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bafb8aa_fe92b37f",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -2799,6 +2847,30 @@
     },
     {
       "key": {
+        "uuid": "af8c1921_2a129d6e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "146e841a_3c41f464",
+      "range": {
+        "startLine": 690,
+        "startChar": 3,
+        "endLine": 691,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77a64fb8_628fd7dc",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -3292,6 +3364,30 @@
     },
     {
       "key": {
+        "uuid": "9df0f1a7_54d45051",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1651,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b84cde5_d5c7fe07",
+      "range": {
+        "startLine": 1651,
+        "startChar": 3,
+        "endLine": 1651,
+        "endChar": 15
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11420863_318a0b63",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -3468,6 +3564,30 @@
       "side": 1,
       "message": "What do you mean \"skip the call\"? Also, using w0 is better than wzr?",
       "parentUuid": "00c87f20_c7a25ce9",
+      "range": {
+        "startLine": 1949,
+        "startChar": 3,
+        "endLine": 1949,
+        "endChar": 13
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e575f915_2e3283a1",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "I mean redirecting the branch right after the `bl artInstanceOfCode`. If w0 is zero, it does not matter whether we store w0 or wzr. (And I prefer to have less code.)",
+      "parentUuid": "7efb6133_1ba1a76f",
       "range": {
         "startLine": 1949,
         "startChar": 3,
@@ -3665,6 +3785,30 @@
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a842216_e53b2a31",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-18T15:43:29Z",
+      "side": 1,
+      "message": "You did not answer the second question. Can we drop this sequence and the `sub x1, x1, #(CALLEE_SAVES_SIZE - 16)` below?",
+      "parentUuid": "3e3d55e2_2714880b",
+      "range": {
+        "startLine": 2015,
+        "startChar": 4,
+        "endLine": 2028,
+        "endChar": 30
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
