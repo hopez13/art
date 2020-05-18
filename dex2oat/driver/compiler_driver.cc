@@ -915,6 +915,10 @@ void CompilerDriver::PreCompile(jobject class_loader,
                                << "Please check the log.";
       _exit(1);
     }
+
+    if (GetCompilerOptions().IsBootImage()) {
+      SetVerified(class_loader, dex_files, timings);
+    }
   }
 
   if (GetCompilerOptions().IsGeneratingImage()) {
@@ -1081,6 +1085,20 @@ void CompilerDriver::LoadImageClasses(TimingLogger* timings,
   // TODO: Implement support for array classes in profiles and remove this workaround. b/148067697
   if (GetCompilerOptions().IsBootImage()) {
     image_classes->insert("[Ljava/io/File;");
+  }
+  if (GetCompilerOptions().IsBootImage()) {
+    image_classes->insert("[[I");
+    image_classes->insert("[[[I");
+    image_classes->insert("[[S");
+    image_classes->insert("[[[B");
+    image_classes->insert("[Ljava/lang/ref/WeakReference;");
+    image_classes->insert("[Ljava/math/MathContext;");
+    image_classes->insert("[Ljava/security/Provider;");
+    image_classes->insert("[Ljava/text/DateFormat;");
+    image_classes->insert("[Ljava/text/Normalizer$Form;");
+    image_classes->insert("[Ljava/time/temporal/IsoFields$Field;");
+    image_classes->insert("[Lsun/security/jca/ProviderConfig;");
+    image_classes->insert("Landroid/net/util/MacAddressUtils;");
   }
 
   TimingLogger::ScopedTiming t("LoadImageClasses", timings);
