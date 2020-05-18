@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acc52b95_eb9fec7a",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-18T15:56:14Z",
+      "side": 1,
+      "message": "Nit: I think we usually follow this style, which makes things more explicit (in the sense that the `CHECK` line can be read as \"optional\"):\n\n  bool result \u003d android::base::ReadFileToString(\"/proc/self/cmdline\", \u0026cmdline);\n  CHECK(result);",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 73
+      },
+      "revId": "d721b8f41822c77bc5e9a53c6c07b32a926a08cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
