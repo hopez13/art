@@ -22,6 +22,30 @@
       "revId": "438d0f588dbc7ad377916411822d9ed105902688",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e95d521_6faa1c06",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-05-18T16:33:48Z",
+      "side": 1,
+      "message": "I want to see how many invokes fail to devirtualize with and without CHA to get an upper bound on additional inlining from devirtualization, thoughts?",
+      "parentUuid": "d1e24b7b_8e26619c",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 84
+      },
+      "revId": "438d0f588dbc7ad377916411822d9ed105902688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
