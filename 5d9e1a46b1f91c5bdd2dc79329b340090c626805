@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d83de68d_8c2fe866",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-19T15:56:32Z",
+      "side": 1,
+      "message": "On https://r.android.com/1314060 I had a bit of trouble with symlinks that sometimes were dangling (because they\u0027re absolute and intended for device) and sometimes not, paired together with that this extraction sometimes need to overwrite files. Cleaning up the PRIVATE_XX_DEPENDENCY variables fixed those symlink cases, so this way it\u0027s consistent regardless whether a symlink is dangling or not.",
+      "range": {
+        "startLine": 600,
+        "startChar": 9,
+        "endLine": 600,
+        "endChar": 27
+      },
+      "revId": "5d9e1a46b1f91c5bdd2dc79329b340090c626805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
