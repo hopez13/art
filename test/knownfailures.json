@@ -695,11 +695,7 @@
     },
     {
         "tests": [
-            "059-finalizer-throw",
-            "074-gc-thrash",
-            "911-get-stack-trace",
-            "913-heaps",
-            "980-redefine-object"
+            "074-gc-thrash"
         ],
         "description": [
             "Interpreter with access checks stack frames are too large and result in",
@@ -710,11 +706,7 @@
     },
     {
         "tests": [
-            "059-finalizer-throw",
-            "074-gc-thrash",
-            "911-get-stack-trace",
-            "913-heaps",
-            "980-redefine-object"
+            "074-gc-thrash"
         ],
         "description": [
             "Interpreter with access checks stack frames are too large and result in",
