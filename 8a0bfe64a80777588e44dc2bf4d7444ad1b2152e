@@ -46,6 +46,52 @@
       "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64d8ff7_1e3f307c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-19T12:23:54Z",
+      "side": 1,
+      "message": "Nit: Maybe change this to `-f`?",
+      "range": {
+        "startLine": 597,
+        "startChar": 9,
+        "endLine": 597,
+        "endChar": 11
+      },
+      "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0777f4b2_2c80c528",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-19T12:23:54Z",
+      "side": 1,
+      "message": "I don\u0027t think option `-d` is supported by `cp` on macOS, but I guess it doesn\u0027t matter here (and I know this usage is not new in this file). Maybe add a comment saying it\u0027s fine because this code is only used on Golem, and won\u0027t run under macOS?",
+      "range": {
+        "startLine": 599,
+        "startChar": 11,
+        "endLine": 599,
+        "endChar": 12
+      },
+      "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
