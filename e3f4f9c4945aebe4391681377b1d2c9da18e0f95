@@ -673,6 +673,30 @@
     },
     {
       "key": {
+        "uuid": "418121f1_0b60a565",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-19T14:23:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d69823e2_6de40cd3",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7e7cd50_66711f33",
         "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
         "patchSetId": 8
@@ -1822,6 +1846,30 @@
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c91ad8f8_ba80df38",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-19T14:23:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e5f13a_f65e6a38",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 24
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -3600,6 +3648,30 @@
     },
     {
       "key": {
+        "uuid": "64f454b2_3a43e6cc",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1949,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-19T14:23:45Z",
+      "side": 1,
+      "message": "Oh I see, that makes the code a lot cleaner. Done.",
+      "parentUuid": "e575f915_2e3283a1",
+      "range": {
+        "startLine": 1949,
+        "startChar": 3,
+        "endLine": 1949,
+        "endChar": 13
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e964c3d1_497a69df",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 8
@@ -3809,6 +3881,30 @@
       "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5e28e2_7ed3ff29",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-19T14:23:45Z",
+      "side": 1,
+      "message": "The OsrData doesn\u0027t contain values of callee-save registers - it only contains values from dex registers.\n\nThe reason we\u0027re saving dex registers here is because the OSR compiled code will not save callee-saves (we\u0027re jumping in the middle of the method), but only restore them. So for the caller of this nterp frame, we need to do this saving here.",
+      "parentUuid": "1a842216_e53b2a31",
+      "range": {
+        "startLine": 2015,
+        "startChar": 4,
+        "endLine": 2028,
+        "endChar": 30
+      },
+      "revId": "e3f4f9c4945aebe4391681377b1d2c9da18e0f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
