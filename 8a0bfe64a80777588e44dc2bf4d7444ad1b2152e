@@ -22,6 +22,30 @@
       "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5cd6ecf_c01af940",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-19T10:44:34Z",
+      "side": 1,
+      "message": "In the 64-bit-only build I noticed that the cp commands that install the 32-bit libs into the \"lib\" dir failed, because it didn\u0027t exist. When it happens those libs aren\u0027t used anyway, so it\u0027s not noticeable there. Still, it only works because relevant dirs \"happen\" to exist at that point, which is brittle.\n\n(Then it\u0027s another matter if both 32 and 64-bit files should be copied out of apex\u0027es when they aren\u0027t applicable.)",
+      "parentUuid": "d24a7147_bc210bc5",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
