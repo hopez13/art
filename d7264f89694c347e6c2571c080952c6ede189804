@@ -22,6 +22,30 @@
       "revId": "d7264f89694c347e6c2571c080952c6ede189804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8dd7ef7_efc2779b",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-19T15:14:54Z",
+      "side": 1,
+      "message": "You cannot really fix this in mem_map.cc. The fix needs to be in the DlOpenOatFile by not doing any allocation from a dl_iterate_phdr callback.\n\nWe can count the number of PT_LOAD entries in DlOpenOatFile::Dlopen() and rewrite the DlOpenOatFile::PreSetup() to pre-allocate std::vector\u003cstd::pair\u003cuintptr_t, uintptr_t\u003e\u003e for the ranges, then collect the ranges using dl_iterate_phdr without doing any allocation, and then create the dummy MemMaps.",
+      "parentUuid": "f3e95788_48f54e0f",
+      "range": {
+        "startLine": 287,
+        "startChar": 28,
+        "endLine": 287,
+        "endChar": 48
+      },
+      "revId": "d7264f89694c347e6c2571c080952c6ede189804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
