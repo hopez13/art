@@ -281,11 +281,13 @@ void MemMap::SetDebugName(void* map_ptr, const char* name, size_t size) {
     return;
   }
 
-  // lock as std::map is not thread-safe
-  std::lock_guard<std::mutex> mu(*mem_maps_lock_);
-
   std::string debug_friendly_name("dalvik-");
   debug_friendly_name += name;
+  // lock as std::map is not thread-safe
+  // To hold the lock after std::string operation so that can avoid a deadlock of linker's
+  // g_dl_mutex
+  std::lock_guard<std::mutex> mu(*mem_maps_lock_);
+
   auto it = debugStrMap.find(debug_friendly_name);
 
   if (it == debugStrMap.end()) {
