@@ -347,7 +347,7 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
   void GenerateResultRemWithAnyConstant(vixl::aarch64::Register out,
                                         vixl::aarch64::Register dividend,
                                         vixl::aarch64::Register quotient,
-                                        int64_t divisor,
+                                        uint64_t divisor,
                                         // This function may acquire a scratch register.
                                         vixl::aarch64::UseScratchRegisterScope* temps_scope);
   void GenerateInt64DivRemWithAnyConstant(HBinaryOperation* instruction);
