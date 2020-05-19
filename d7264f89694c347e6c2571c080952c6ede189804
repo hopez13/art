@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3e95788_48f54e0f",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-19T13:39:37Z",
+      "side": 1,
+      "message": "We want to protect against *any* \"stl allocation operation\", right?  What if the \"insert\" below line 294 requires an allocation too?",
+      "range": {
+        "startLine": 287,
+        "startChar": 28,
+        "endLine": 287,
+        "endChar": 48
+      },
+      "revId": "d7264f89694c347e6c2571c080952c6ede189804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
