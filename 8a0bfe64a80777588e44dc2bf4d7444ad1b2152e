@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6546993f_87fc5565",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-19T15:57:41Z",
+      "side": 1,
+      "message": "Leftover from some fiddling with symlinks. See https://r.android.com/1314064.",
+      "parentUuid": "e64d8ff7_1e3f307c",
+      "range": {
+        "startLine": 597,
+        "startChar": 9,
+        "endLine": 597,
+        "endChar": 11
+      },
+      "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0777f4b2_2c80c528",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -92,6 +116,30 @@
       "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "992bbbba_cdd6e659",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-19T15:57:41Z",
+      "side": 1,
+      "message": "Thanks, added in https://r.android.com/1314064.",
+      "parentUuid": "0777f4b2_2c80c528",
+      "range": {
+        "startLine": 599,
+        "startChar": 11,
+        "endLine": 599,
+        "endChar": 12
+      },
+      "revId": "8a0bfe64a80777588e44dc2bf4d7444ad1b2152e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
