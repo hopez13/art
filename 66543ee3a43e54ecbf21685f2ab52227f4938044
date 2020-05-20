@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "297faa83_d96c7fce",
+        "filename": "runtime/arch/x86_64/instruction_set_features_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-20T08:37:30Z",
+      "side": 1,
+      "message": "The term \"host\" is a bit overloaded. Maybe rename to \"is_runtime_isa\"? (Same in the other files.)",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "66543ee3a43e54ecbf21685f2ab52227f4938044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
