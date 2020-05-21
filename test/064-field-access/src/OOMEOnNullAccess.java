@@ -37,6 +37,12 @@ public class OOMEOnNullAccess {
     static ArrayList<Object> storage = new ArrayList<>(100000);
 
     private static void exhaustJavaHeap(int size) {
+      // Make sure that there is no reclaimable memory in the heap. Otherwise we may throw
+      // OOME to prevent GC thrashing, even if later allocations may succeed.
+      Runtime.getRuntime().gc();
+      System.runFinalization();
+      Runtime.getRuntime().gc();
+
       while (size > 0) {
         try {
           storage.add(new byte[size]);
@@ -52,17 +58,11 @@ public class OOMEOnNullAccess {
         Main.stopJit();
         Main.waitForCompilation();
 
-        // Make sure that there is no reclaimable memory in the heap. Otherwise we may throw
-        // OOME to prevent GC thrashing, even if later allocations may succeed.
-        Runtime.getRuntime().gc();
-        System.runFinalization();
-        Runtime.getRuntime().gc();
-
         int initial_size = 1024 * 1024;
         // Repeat to ensure there is no space left on the heap.
         exhaustJavaHeap(initial_size);
-        exhaustJavaHeap(/*size*/ 8);
-        exhaustJavaHeap(/*size*/ 8);
+        exhaustJavaHeap(/*size*/ 4);
+        exhaustJavaHeap(/*size*/ 4);
 
 
         try {

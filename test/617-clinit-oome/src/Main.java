@@ -16,15 +16,17 @@
 
 public class Main {
   private static int exhaustJavaHeap(Object[] data, int index, int size) {
-    while (true) {
+    // Make sure that there is no reclaimable memory in the heap. Otherwise we may throw
+    // OOME to prevent GC thrashing, even if later allocations may succeed.
+    Runtime.getRuntime().gc();
+    System.runFinalization();
+    Runtime.getRuntime().gc();
+    while (size > 0) {
         try {
             data[index] = new byte[size];
             index++;
         } catch (OutOfMemoryError e) {
             size /= 2;
-            if (size == 0) {
-                break;
-            }
         }
     }
     return index;
@@ -36,18 +38,12 @@ public class Main {
     try {
         System.out.println("Filling heap");
 
-        // Make sure that there is no reclaimable memory in the heap. Otherwise we may throw
-        // OOME to prevent GC thrashing, even if later allocations may succeed.
-        Runtime.getRuntime().gc();
-        System.runFinalization();
-        Runtime.getRuntime().gc();
-
         int index = 0;
         int initial_size = 256 * 1024 * 1024;
         // Repeat to ensure there is no space left on the heap.
         index = exhaustJavaHeap(data, index, initial_size);
-        index = exhaustJavaHeap(data, index, /*size*/ 8);
-        index = exhaustJavaHeap(data, index, /*size*/ 8);
+        index = exhaustJavaHeap(data, index, /*size*/ 4);
+        index = exhaustJavaHeap(data, index, /*size*/ 4);
 
         // Initialize now that the heap is full.
         Other.print();
