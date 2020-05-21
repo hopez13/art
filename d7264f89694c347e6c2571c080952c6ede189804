@@ -46,6 +46,30 @@
       "revId": "d7264f89694c347e6c2571c080952c6ede189804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6db9e5c7_e804304d",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1371486
+      },
+      "writtenOn": "2020-05-21T05:29:43Z",
+      "side": 1,
+      "message": "Yes, you right, we attached another case in issue tracker, and the case is deadlock in a different position. Does Google has a plan to implement the solution?",
+      "parentUuid": "f8dd7ef7_efc2779b",
+      "range": {
+        "startLine": 287,
+        "startChar": 28,
+        "endLine": 287,
+        "endChar": 48
+      },
+      "revId": "d7264f89694c347e6c2571c080952c6ede189804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
