@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003102405",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1177334?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "5e7c9ea4_96ed500f",
+          "description": "Change to \"simulator/code_simulator_arm64.cc\"",
+          "replacements": [
+            {
+              "path": "simulator/code_simulator_arm64.cc",
+              "range": {
+                "startLine": 109,
+                "startChar": 63,
+                "endLine": 109,
+                "endChar": 71
+              },
+              "replacement": "Function"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "c956ca20_7e32d68e",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-22T15:29:46Z",
+      "side": 1,
+      "message": "Common typo found: \"Funciton\" -- should it be \"Function\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 109,
+        "startChar": 63,
+        "endLine": 109,
+        "endChar": 71
+      },
+      "revId": "b4efd8384b4d0b9faa262b4e55a66077368a5275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
