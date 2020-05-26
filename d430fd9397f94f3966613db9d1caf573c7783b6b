@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59a944c5_0961646a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-26T10:45:26Z",
+      "side": 1,
+      "message": "This is not needed, according to the Coreutils manual (https://www.gnu.org/software/coreutils/manual/coreutils.html#String-expressions).",
+      "range": {
+        "startLine": 193,
+        "startChar": 25,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "d430fd9397f94f3966613db9d1caf573c7783b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "775369a0_02ccd1c9",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-05-26T10:45:26Z",
+      "side": 1,
+      "message": "\"in\" (or maybe \"inside\")?",
+      "range": {
+        "startLine": 197,
+        "startChar": 26,
+        "endLine": 197,
+        "endChar": 28
+      },
+      "revId": "d430fd9397f94f3966613db9d1caf573c7783b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
