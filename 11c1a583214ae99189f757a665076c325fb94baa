@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff004f41_02c2c3a6",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-05-26T11:07:52Z",
+      "side": 0,
+      "message": "Just to note, this binary resides in the Runtime APEX which is already unpacked, so we don\u0027t need to do anything. Hence it\u0027s not in PRIVATE_RUNTIME_APEX_DEPENDENCY_FILES.",
+      "range": {
+        "startLine": 99,
+        "startChar": 18,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "11c1a583214ae99189f757a665076c325fb94baa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
