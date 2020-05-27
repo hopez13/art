@@ -439,8 +439,8 @@ public class Main {
   /// CHECK: InstanceFieldSet
   /// CHECK: InstanceFieldGet
 
-  // Loop side effects can kill heap values, stores need to be kept in that case.
-  // TODO DCE after bce eliminates this.
+  // The obj allocation should be eliminated but the obj0 still needs to be
+  // written and read read from.
   static void test21(TestClass obj0) {
     TestClass obj = new TestClass();
     obj0.str = "abc";
@@ -887,8 +887,6 @@ public class Main {
   /// CHECK-NOT: ArraySet
   /// CHECK-NOT: ArrayGet
   private static int testAllocationEliminationOfArray2() {
-    // Cannot eliminate array allocation since array is accessed with non-constant
-    // index (only 3 elements to prevent vectorization of the reduction).
     int[] array = new int[3];
     array[1] = 4;
     array[2] = 7;

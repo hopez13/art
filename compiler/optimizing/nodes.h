@@ -3334,6 +3334,7 @@ class HDeoptimize final : public HVariableInputSizeInstruction {
     return InputCount() == 2;
   }
 
+  // Unconditional deoptimizes should jump straight to the exit block.
   bool IsControlFlow() const override {
     return IsUnconditional();
   }

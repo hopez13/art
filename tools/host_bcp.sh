@@ -80,7 +80,7 @@ for COMPONENT in ${BCPL}; do
     TAIL=${COMPONENT:${#ART_APEX}}
   fi
   if [[ ! -e $HEAD$TAIL ]]; then
-    echo "File does not exist: $HEAD$TAIL"
+    echo "File does not exist: $HEAD$TAIL" >&2
     exit 1
   fi
   BCP="${BCP}:${HEAD}${TAIL}"

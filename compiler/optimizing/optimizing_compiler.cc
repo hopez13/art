@@ -680,6 +680,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     // The codegen has a few assumptions that only the instruction simplifier
     // can satisfy. For example, the code generator does not expect to see a
     // HTypeConversion from a type to the same type.
+    OptDef(OptimizationPass::kConstantFolding,
+           "constant_folding$before_codegen"),
     OptDef(OptimizationPass::kInstructionSimplifier,
            "instruction_simplifier$before_codegen"),
     // Eliminate constructor fences after code sinking to avoid

@@ -92,6 +92,7 @@ const char* const ArenaAllocatorStatsImpl<kCount>::kAllocNames[] = {
   "Verifier     ",
   "CallingConv  ",
   "CHA          ",
+  "Inliner      ",
   "Scheduler    ",
   "Profile      ",
   "SBCloner     ",

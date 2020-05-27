@@ -2556,22 +2556,9 @@ HInstruction* HGraph::InlineInto(HGraph* outer_graph, HInvoke* invoke) {
     for (size_t pred = 0; pred < to->GetPredecessors().size(); ++pred) {
       HBasicBlock* predecessor = to->GetPredecessors()[pred];
       HInstruction* last = predecessor->GetLastInstruction();
-      // Deoptimizes are either 'Deoptimize' or 'Deoptimize' -> 'TryEnd'. Detect both and fixup.
-      if (last->IsDeoptimize()) {
-        // Deoptimize instruction.
-        predecessor->ReplaceSuccessor(to, outer_graph->GetExitBlock());
-        --pred;
-        // We need to re-run dominance information, as the exit block now has
-        // a new dominator.
-        rerun_dominance = true;
-        if (predecessor->GetLoopInformation() != nullptr) {
-          // The exit block and blocks post dominated by the exit block do not belong
-          // to any loop. Because we do not compute the post dominators, we need to re-run
-          // loop analysis to get the loop information correct.
-          rerun_loop_analysis = true;
-        }
-      } else if (last->IsThrow()) {
-        DCHECK(!at->IsTryBlock());
+      // Deoptimizes can be terminal and act as try-end.
+      if (last->IsThrow() || last->IsDeoptimize()) {
+        DCHECK(!at->IsTryBlock() || last->IsDeoptimize());
         predecessor->ReplaceSuccessor(to, outer_graph->GetExitBlock());
         --pred;
         // We need to re-run dominance information, as the exit block now has

@@ -564,7 +564,7 @@ class BCEVisitor : public HGraphVisitor {
     // new taken-test structures (see TransformLoopForDeoptimizationIfNeeded()).
     InsertPhiNodes();
     // Actually split the blocks so we end up with deoptimize blocks.
-    deopt_remover_.Finalize();
+    deopt_remover_.AdjustControlFlow();
 
     // Clear the loop data structures.
     early_exit_loop_.clear();
@@ -573,8 +573,8 @@ class BCEVisitor : public HGraphVisitor {
   }
 
  private:
-  void SavePredicatedDeoptimize(HDeoptimize* deopt, HInstruction* condition) {
-    deopt_remover_.AddPredicatedDeoptimization(deopt, condition);
+  void SavePredicatedDeoptimize(HDeoptimize* deopt) {
+    deopt_remover_.AddPredicatedDeoptimization(deopt);
   }
 
   // Return the map of proven value ranges at the beginning of a basic block.
@@ -1730,7 +1730,7 @@ class BCEVisitor : public HGraphVisitor {
     // Keep track of the deoptimizes we need to remove/split on. Keep the
     // condition separate so we can later eliminate the condition argument from
     // HDeoptimize.
-    SavePredicatedDeoptimize(deoptimize, condition);
+    SavePredicatedDeoptimize(deoptimize);
   }
 
   /** Inserts a deoptimization test right before a bounds check. */
@@ -1747,7 +1747,7 @@ class BCEVisitor : public HGraphVisitor {
     // Keep track of the deoptimizes we need to remove/split on. Keep the
     // condition separate so we can later eliminate the condition argument from
     // HDeoptimize.
-    SavePredicatedDeoptimize(deoptimize, condition);
+    SavePredicatedDeoptimize(deoptimize);
   }
 
   /** Hoists instruction out of the loop to preheader or deoptimization block. */
@@ -1940,7 +1940,7 @@ class BCEVisitor : public HGraphVisitor {
   // Finite loop bookkeeping.
   ScopedArenaSet<uint32_t> finite_loop_;
 
-  ScopedDeoptimizationRemover deopt_remover_;
+  DeoptimizationRemover deopt_remover_;
 
   // Flag that denotes whether dominator-based dynamic elimination has occurred.
   bool has_dom_based_dynamic_bce_;

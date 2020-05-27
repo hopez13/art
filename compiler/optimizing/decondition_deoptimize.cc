@@ -29,17 +29,16 @@
 using android::base::StringPrintf;
 namespace art {
 
-template <typename StorageType>
-void BaseDeoptimizationRemover<StorageType>::Finalize() {
+void DeoptimizationRemover::AdjustControlFlow() {
   if (required_deopts_.empty()) {
     return;
   }
   HGraph* graph = GetGraph();
-  for (const PredicatedDeoptimize& pd : required_deopts_) {
-    HBasicBlock* new_pred = pd.existing_deopt_->GetBlock();
-    HBasicBlock* new_block = new_pred->SplitBefore(pd.existing_deopt_);
+  for (HDeoptimize* pd : required_deopts_) {
+    HBasicBlock* new_pred = pd->GetBlock();
+    HBasicBlock* new_block = new_pred->SplitBefore(pd);
     DCHECK(new_pred->GetLastInstruction()->IsGoto());
-    HInstruction* cond = pd.existing_deopt_->InputAt(0);
+    HInstruction* cond = pd->InputAt(0);
     HInstruction* goto_inst = new_pred->GetLastInstruction();
     HInstruction* if_inst = new (graph->GetAllocator()) HIf(cond);
 
@@ -47,20 +46,20 @@ void BaseDeoptimizationRemover<StorageType>::Finalize() {
 
     // Make a deopt block.
     HBasicBlock* deopt_block =
-        new (graph->GetAllocator()) HBasicBlock(graph, pd.existing_deopt_->GetDexPc());
+        new (graph->GetAllocator()) HBasicBlock(graph, pd->GetDexPc());
     graph->AddBlock(deopt_block);
     HDeoptimize* new_deopt =
         new (graph->GetAllocator()) HDeoptimize(graph->GetAllocator(),
                                                 graph->GetConstant(DataType::Type::kBool, 1),
-                                                pd.existing_deopt_->GetDeoptimizationKind(),
-                                                pd.existing_deopt_->GetDexPc());
+                                                pd->GetDeoptimizationKind(),
+                                                pd->GetDexPc());
     deopt_block->AddInstruction(new_deopt);
-    new_deopt->CopyEnvironmentFrom(pd.existing_deopt_->GetEnvironment());
+    new_deopt->CopyEnvironmentFrom(pd->GetEnvironment());
     deopt_block->AddSuccessor(graph->GetExitBlock());
     new_pred->AddSuccessor(deopt_block);
     // The true branch is the deopt.
     new_pred->SwapSuccessors();
-    new_block->RemoveInstruction(pd.existing_deopt_);
+    new_block->RemoveInstruction(pd);
   }
   GetGraph()->ClearLoopInformation();
   GetGraph()->ClearDominanceInformation();
@@ -68,18 +67,8 @@ void BaseDeoptimizationRemover<StorageType>::Finalize() {
   required_deopts_.clear();
 }
 
-template <typename StorageType>
-void BaseDeoptimizationRemover<StorageType>::AddPredicatedDeoptimization(HDeoptimize* deopt,
-                                                                         HInstruction* condition) {
-  required_deopts_.emplace_back(deopt, condition);
+void DeoptimizationRemover::AddPredicatedDeoptimization(HDeoptimize* deopt) {
+  required_deopts_.push_back(deopt);
 }
-
-// Initialize all the templates.
-template void BaseDeoptimizationRemover<ScopedStorageType>::Finalize();
-template void BaseDeoptimizationRemover<UnscopedStorageType>::Finalize();
-template void BaseDeoptimizationRemover<ScopedStorageType>::AddPredicatedDeoptimization(
-    HDeoptimize* deopt, HInstruction* condition);
-template void BaseDeoptimizationRemover<UnscopedStorageType>::AddPredicatedDeoptimization(
-    HDeoptimize* deopt, HInstruction* condition);
 
 }  // namespace art

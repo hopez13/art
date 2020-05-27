@@ -15,6 +15,7 @@
  */
 
 #include "cha_guard_optimization.h"
+#include "base/scoped_arena_allocator.h"
 #include "decondition_deoptimize.h"
 #include "nodes.h"
 
@@ -36,10 +37,11 @@ class CHAGuardVisitor : HGraphVisitor {
  public:
   explicit CHAGuardVisitor(HGraph* graph)
       : HGraphVisitor(graph),
+        allocator_(graph->GetArenaStack()),
         block_has_cha_guard_(GetGraph()->GetBlocks().size(),
                              0,
-                             graph->GetAllocator()->Adapter(kArenaAllocCHA)),
-        deopt_remover_(graph, kArenaAllocCHA),
+                             allocator_.Adapter(kArenaAllocCHA)),
+        deopt_remover_(graph, allocator_, kArenaAllocCHA),
         instruction_iterator_(nullptr) {
     number_of_guards_to_visit_ = GetGraph()->GetNumberOfCHAGuards();
     DCHECK_NE(number_of_guards_to_visit_, 0u);
@@ -62,12 +64,15 @@ class CHAGuardVisitor : HGraphVisitor {
   // Return true if `flag` is hoisted.
   bool HoistGuard(HShouldDeoptimizeFlag* flag, HInstruction* receiver);
 
+  // Allocator for this pass.
+  ScopedArenaAllocator allocator_;
+
   // Record if each block has any CHA guard. It's updated during the
   // reverse post order visit. Use int instead of bool since ArenaVector
   // does not support bool.
-  ArenaVector<int> block_has_cha_guard_;
+  ScopedArenaVector<int> block_has_cha_guard_;
 
-  UnscopedDeoptimizationRemover deopt_remover_;
+  DeoptimizationRemover deopt_remover_;
 
   // The iterator that's being used for this visitor. Need it to manually
   // advance the iterator due to removing/moving more than one instruction.
@@ -93,7 +98,7 @@ void CHAGuardVisitor::VisitBasicBlock(HBasicBlock* block) {
 }
 
 void CHAGuardVisitor::Finalize() {
-  deopt_remover_.Finalize();
+  deopt_remover_.AdjustControlFlow();
 }
 
 void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
@@ -204,7 +209,7 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
     HInstruction* compare = flag->GetNext();
     DCHECK(compare->IsNotEqual());
     HInstruction* deopt = compare->GetNext();
-    DCHECK(deopt->IsDeoptimize());
+    DCHECK(deopt->IsDeoptimize() || deopt->IsIf());
 
     // Advance instruction iterator first before we move the guard.
     // We need to do it twice since we move three instructions and the
@@ -227,7 +232,7 @@ bool CHAGuardVisitor::HoistGuard(HShouldDeoptimizeFlag* flag,
         suspend->GetEnvironment(), loop_info->GetHeader());
     block_has_cha_guard_[pre_header->GetBlockId()] = 1;
     GetGraph()->IncrementNumberOfCHAGuards();
-    deopt_remover_.AddPredicatedDeoptimization(deoptimize, compare);
+    deopt_remover_.AddPredicatedDeoptimization(deoptimize);
     return true;
   }
   return false;

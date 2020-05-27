@@ -15,7 +15,6 @@
  */
 
 #include "loop_optimization.h"
-#include <ios>
 
 #include "arch/arm/instruction_set_features_arm.h"
 #include "arch/arm64/instruction_set_features_arm64.h"
@@ -2461,8 +2460,7 @@ bool HLoopOptimization::TryAssignLastValue(HLoopInformation* loop_info,
   // Otherwise, it succeeds in a no early-exit loop by generating the
   // proper last value assignment.
   uint32_t use_count = 0;
-  bool ioual = IsOnlyUsedAfterLoop(loop_info, instruction, collect_loop_uses, &use_count);
-  return ioual &&
+  return IsOnlyUsedAfterLoop(loop_info, instruction, collect_loop_uses, &use_count) &&
       (use_count == 0 ||
        (!IsEarlyExit(loop_info) && TryReplaceWithLastValue(loop_info, instruction, block)));
 }

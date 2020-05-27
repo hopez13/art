@@ -79,49 +79,17 @@ namespace art {
 //           +----------->+Exit Block|
 //                        +----------+
 
-// A deoptimize paired with the condition we wish for it to trigger on.
-class PredicatedDeoptimize {
+class DeoptimizationRemover : public ValueObject {
  public:
-  PredicatedDeoptimize() : existing_deopt_(nullptr), condition_(nullptr) {}
-  PredicatedDeoptimize(HDeoptimize* deopt, HInstruction* cond)
-      : existing_deopt_(deopt), condition_(cond) {}
-
-  // Copy and assign.
-  PredicatedDeoptimize(const PredicatedDeoptimize&) = default;
-  PredicatedDeoptimize(PredicatedDeoptimize&&) = default;
-  PredicatedDeoptimize& operator=(const PredicatedDeoptimize&) = default;
-
-  HDeoptimize* const existing_deopt_;
-  HInstruction* const condition_;
-};
-
-class UnscopedStorageType {
- public:
-  using Vector = ArenaVector<PredicatedDeoptimize>;
-};
-
-class ScopedStorageType {
- public:
-  using Vector = ScopedArenaVector<PredicatedDeoptimize>;
-};
-
-template<typename StorageType>
-class BaseDeoptimizationRemover : public ValueObject {
- public:
-  template<typename = std::enable_if<!std::is_same_v<StorageType, UnscopedStorageType>>>
-  BaseDeoptimizationRemover(HGraph* graph, ArenaAllocKind kind)
-      : graph_(graph), required_deopts_(graph->GetAllocator()->Adapter(kind)) {}
-
-  template<typename = std::enable_if<std::is_same_v<StorageType, ScopedStorageType>>>
-  BaseDeoptimizationRemover(HGraph* graph, ScopedArenaAllocator& alloc, ArenaAllocKind kind)
+  DeoptimizationRemover(HGraph* graph, ScopedArenaAllocator& alloc, ArenaAllocKind kind)
       : graph_(graph), required_deopts_(alloc.Adapter(kind)) {}
 
-  ~BaseDeoptimizationRemover() {
+  ~DeoptimizationRemover() {
     DCHECK(required_deopts_.empty());
   }
 
-  void Finalize();
-  void AddPredicatedDeoptimization(HDeoptimize* deopt, HInstruction* condition);
+  void AdjustControlFlow();
+  void AddPredicatedDeoptimization(HDeoptimize* deopt);
 
   HGraph* GetGraph() const {
     return graph_;
@@ -130,11 +98,8 @@ class BaseDeoptimizationRemover : public ValueObject {
  private:
   HGraph* graph_;
 
-  typename StorageType::Vector required_deopts_;
+  ScopedArenaVector<HDeoptimize*> required_deopts_;
 };
-
-using ScopedDeoptimizationRemover = BaseDeoptimizationRemover<ScopedStorageType>;
-using UnscopedDeoptimizationRemover = BaseDeoptimizationRemover<UnscopedStorageType>;
 
 }  // namespace art
 

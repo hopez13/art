@@ -611,16 +611,22 @@ class TestDontOptimizeAcrossEscape {
     /// CHECK-START: void TestDontOptimizeAcrossEscape$Deopt.exercise() constructor_fence_redundancy_elimination (before)
     /// CHECK: <<NewInstance:l\d+>>     NewInstance
     /// CHECK:                          ConstructorFence [<<NewInstance>>]
+    /// CHECK: <<BoundsCheck:z\d+>>     BelowOrEqual
+    /// CHECK:                          If [<<BoundsCheck>>]
     /// CHECK: <<NewInstance2:l\d+>>    NewInstance
     /// CHECK-DAG:                      ConstructorFence [<<NewInstance2>>]
     /// CHECK-NOT:                      ConstructorFence
+    /// CHECK-DAG:                      Deoptimize
 
     /// CHECK-START: void TestDontOptimizeAcrossEscape$Deopt.exercise() constructor_fence_redundancy_elimination (after)
     /// CHECK-DAG: <<NewInstance:l\d+>>   NewInstance
     /// CHECK:                            ConstructorFence [<<NewInstance>>]
+    /// CHECK: <<BoundsCheck:z\d+>>       BelowOrEqual
+    /// CHECK:                            If [<<BoundsCheck>>]
     /// CHECK-DAG: <<NewInstance2:l\d+>>  NewInstance
     /// CHECK-DAG:                        ConstructorFence [<<NewInstance2>>]
     /// CHECK-NOT:                        ConstructorFence
+    /// CHECK-DAG:                        Deoptimize
     @Override
     public void exercise() {
       Base b = new Base();

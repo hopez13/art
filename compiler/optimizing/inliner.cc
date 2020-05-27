@@ -19,6 +19,7 @@
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/logging.h"
+#include "base/scoped_arena_allocator.h"
 #include "builder.h"
 #include "class_linker.h"
 #include "class_root.h"
@@ -136,6 +137,8 @@ bool HInliner::Run() {
     return false;
   }
 
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  deopt_remover_.emplace(graph_, allocator, kArenaAllocInliner);
   bool didInline = false;
 
   // Initialize the number of instructions for the method being compiled. Recursive calls
@@ -196,7 +199,8 @@ bool HInliner::Run() {
     }
   }
 
-  deopt_remover_.Finalize();
+  deopt_remover_->AdjustControlFlow();
+  deopt_remover_.reset();
 
   return didInline;
 }
@@ -925,7 +929,7 @@ void HInliner::AddCHAGuard(HInstruction* invoke_instruction,
   DCHECK_EQ(deopt_flag->InputCount(), 1u);
   deopt->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
   outermost_graph_->IncrementNumberOfCHAGuards();
-  deopt_remover_.AddPredicatedDeoptimization(deopt->AsDeoptimize(), compare);
+  deopt_remover_->AddPredicatedDeoptimization(deopt->AsDeoptimize());
 }
 
 HInstruction* HInliner::AddTypeGuard(HInstruction* receiver,

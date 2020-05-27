@@ -115,7 +115,6 @@ OptimizationPass OptimizationPassByName(const std::string& pass_name);
 struct OptimizationDef {
   OptimizationDef(OptimizationPass p, const char* pn, OptimizationPass d)
       : pass(p), pass_name(pn), depends_on(d) {}
-
   OptimizationPass pass;
   const char* pass_name;
   OptimizationPass depends_on;

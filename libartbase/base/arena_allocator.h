@@ -101,6 +101,7 @@ enum ArenaAllocKind {
   kArenaAllocVerifier,
   kArenaAllocCallingConvention,
   kArenaAllocCHA,
+  kArenaAllocInliner,
   kArenaAllocScheduler,
   kArenaAllocProfile,
   kArenaAllocSuperblockCloner,

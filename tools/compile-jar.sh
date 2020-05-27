@@ -31,10 +31,10 @@ shift
 ISA=$1
 shift
 
-dex2oat \
+dex2oatd64 \
     --runtime-arg -Xms64m --runtime-arg -Xmx512m \
     --boot-image=${OUT}/apex/com.android.art/javalib/boot.art:${OUT}/system/framework/boot-framework.art \
-    $(${ANDROID_BUILD_TOP}/art/tools/host_bcp.sh ${OUT}/system/framework/oat/${ISA}/services.odex --use-first-dir) \
+    $(${ANDROID_BUILD_TOP}/art/tools/host_bcp.sh ${OUT}/system/framework/oat/${ISA}/services.odex --use-first-dir 2>/dev/null) \
     --dex-file=${FILE} --dex-location=/system/framework/${FILE} \
     --oat-file=${OUTPUT} \
     --android-root=${OUT}/system --instruction-set=$ISA \
