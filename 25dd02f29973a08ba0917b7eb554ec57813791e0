@@ -22,6 +22,30 @@
       "revId": "25dd02f29973a08ba0917b7eb554ec57813791e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9c99e33_04bdbab2",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-27T08:33:34Z",
+      "side": 1,
+      "message": "I\u0027d expect kIsTargetFuschia to need to follow some hiddenapi logic - let\u0027s see if fuschia devs see and want to remove the warning.",
+      "parentUuid": "de8a2f08_3de10fcc",
+      "range": {
+        "startLine": 115,
+        "startChar": 26,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "25dd02f29973a08ba0917b7eb554ec57813791e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
