@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2f9034c_d501a2b3",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-28T16:45:11Z",
+      "side": 1,
+      "message": "static",
+      "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3b476d5_5f805dd3",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-28T16:45:11Z",
+      "side": 1,
+      "message": "I\u0027d rather see this between the other #includes at the start of the file. The `#undef INTRINSICS_LIST should be removed.\n\nI see that you have simply followed the pattern from other files that #include this but the pattern is broken. You cannot #include this a second time to get the INTRINSICS_LIST definition again because you did not #undef the header guards.",
+      "range": {
+        "startLine": 1071,
+        "startChar": 0,
+        "endLine": 1071,
+        "endChar": 28
+      },
+      "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c47152_e7d09922",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-28T16:45:11Z",
+      "side": 1,
+      "message": "Only for primary boot image, please.\n\nAnd I think this should be inside the timing scope below. (I could say the same about the hack above but we have a bug for eliminating that one anyway.)",
+      "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "760f549b_acd02857",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-28T16:45:11Z",
+      "side": 1,
+      "message": "Move this next to the AddClassesContainingIntrinsics.",
+      "range": {
+        "startLine": 1171,
+        "startChar": 2,
+        "endLine": 1174,
+        "endChar": 25
+      },
+      "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
