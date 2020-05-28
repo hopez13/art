@@ -22,6 +22,30 @@
       "revId": "f1661daa9cadadc2adcdda7db3cdca21cd9d2a5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc2a9870_5e951481",
+        "filename": "tools/dex2oat_wrapper",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-05-28T16:26:05Z",
+      "side": 1,
+      "message": "Not sure.  It seems that things still often work without any LD_LIBRARY_PATH.\nx86 tends to find it regardless... I am not sure how (still explicit here is better).\nand arm on golem tends to be set in env by golem (also good to keep explicit here so we can simplify golem in future).  So I don\u0027t think default is necessary.\n\nRegradless.  Enforcing --32 or --64 might be good sanity check anyway.",
+      "parentUuid": "465eb394_6d333d70",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "f1661daa9cadadc2adcdda7db3cdca21cd9d2a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
