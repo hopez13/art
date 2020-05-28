@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "465eb394_6d333d70",
+        "filename": "tools/dex2oat_wrapper",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-05-28T13:39:13Z",
+      "side": 1,
+      "message": "We probably need a default if --32 or --64 is not specified? Alternatively, we could make it an error not to provide --32 or --64.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "f1661daa9cadadc2adcdda7db3cdca21cd9d2a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
