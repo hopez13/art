@@ -139,6 +139,30 @@
       "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60328867_3429d2c0",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-05-29T10:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760f549b_acd02857",
+      "range": {
+        "startLine": 1171,
+        "startChar": 2,
+        "endLine": 1174,
+        "endChar": 25
+      },
+      "revId": "687796c45ab0f0d04ae6777ca7e4f4e861f5cbca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
