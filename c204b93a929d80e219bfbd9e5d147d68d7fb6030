@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c79233b6_1410e055",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6442,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-05-29T12:02:59Z",
+      "side": 1,
+      "message": "Nit: I would rather restructure this as:\n\n  if (!m-\u003eGetDexFile()-\u003eSupportsDefaultMethods()) {\n    // FIXME: remove the native restriction which is needed because of b/157718952 [...]\n    if (m-\u003eIsNative()) {\n      // code\n    }\n  }\n\nThis way you can avoid the part of the comment that says \"this code should be ...\".",
+      "range": {
+        "startLine": 6438,
+        "startChar": 0,
+        "endLine": 6442,
+        "endChar": 61
+      },
+      "revId": "c204b93a929d80e219bfbd9e5d147d68d7fb6030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
