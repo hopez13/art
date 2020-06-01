@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3bdf3064_112cc0a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-06-01T14:18:57Z",
+      "side": 1,
+      "message": "I was trying to figure out the source of the benchmark, so here it is :\nhttps://github.com/android-workloads/JACWfA/tree/master/src/main/jni\n\nIt\u0027s also called as jART-Band benchmark internally.",
+      "parentUuid": "81de733f_fa176a1a",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "8f6a7f69d0bdb80faab76276e4a4945c892f18d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33f55bb8_d390034d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2020-05-15T09:49:33Z",
       "side": 1,
       "message": "Could you analyze which JNI methods ended up being recognized as fast? And what is the proportion of those methods between app and framework?",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "8f6a7f69d0bdb80faab76276e4a4945c892f18d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d60fe4e_b37326da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2020-06-01T14:18:57Z",
+      "side": 1,
+      "message": "JNI Methods -\nUCBrowser: Fast(210), NotFast(1050)\nTwitter: Fast(121), NotFast(1039)",
+      "parentUuid": "33f55bb8_d390034d",
       "range": {
         "startLine": 26,
         "startChar": 3,
