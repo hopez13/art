@@ -110,21 +110,30 @@ const char* OptimizationPassName(OptimizationPass pass);
 OptimizationPass OptimizationPassByName(const std::string& pass_name);
 
 // Optimization definition consisting of an optimization pass
-// an optional alternative name (nullptr denotes default), and
-// an optional pass dependence (kNone denotes no dependence).
+// an optional alternative name (nullptr denotes default),
+// an optional pass dependence (kNone denotes no dependence),
+// and an optional flag requesting the optimization pass to
+// be loop friendly (not to perform optimizations which make
+// harder to do loop analysis and optimizations).
 struct OptimizationDef {
-  OptimizationDef(OptimizationPass p, const char* pn, OptimizationPass d)
-      : pass(p), pass_name(pn), depends_on(d) {}
+  OptimizationDef(
+      OptimizationPass p,
+      const char* pn,
+      OptimizationPass d,
+      bool be_loop_fr)
+        : pass(p), pass_name(pn), depends_on(d), be_loop_friendly(be_loop_fr) {}
   OptimizationPass pass;
   const char* pass_name;
   OptimizationPass depends_on;
+  bool be_loop_friendly;
 };
 
 // Helper method for optimization definition array entries.
 inline OptimizationDef OptDef(OptimizationPass pass,
                               const char* pass_name = nullptr,
-                              OptimizationPass depends_on = OptimizationPass::kNone) {
-  return OptimizationDef(pass, pass_name, depends_on);
+                              OptimizationPass depends_on = OptimizationPass::kNone,
+                              bool be_loop_friendly = false) {
+  return OptimizationDef(pass, pass_name, depends_on, be_loop_friendly);
 }
 
 // Helper method to construct series of optimization passes.
