@@ -37,6 +37,9 @@ source build/envsetup.sh >&/dev/null # for get_build_var
 # nothing to create the variables then remove all the other artifacts.
 # Lunch since it seems we cannot find the build-number otherwise.
 lunch aosp_x86-eng
+
+export TARGET_BUILD_APPS=com.android.art
+
 build/soong/soong_ui.bash --make-mode nothing
 
 if [ $? != 0 ]; then
