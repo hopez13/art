@@ -531,6 +531,7 @@ void DumpPerfetto(art::Thread* self) {
             std::map<std::string, uint64_t> interned_fields{{"", 0}};
             std::map<std::string, uint64_t> interned_locations{{"", 0}};
             std::map<uintptr_t, uint64_t> interned_classes{{0, 0}};
+            std::map<uintptr_t, uint64_t> interned_obj{{0, 0}};
 
             std::map<art::RootType, std::vector<art::mirror::Object*>> root_objects;
             RootFinder rcf(&root_objects);
@@ -550,7 +551,7 @@ void DumpPerfetto(art::Thread* self) {
                   root_proto = writer.GetHeapGraph()->add_roots();
                   root_proto->set_root_type(ToProtoType(root_type));
                 }
-                object_ids->Append(reinterpret_cast<uintptr_t>(obj));
+                object_ids->Append(FindOrAppend(&interned_obj, reinterpret_cast<uintptr_t>(obj)));
               }
               root_proto->set_object_ids(*object_ids);
               object_ids->Reset();
@@ -563,7 +564,7 @@ void DumpPerfetto(art::Thread* self) {
 
             art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
                 [&writer, &interned_fields, &interned_locations,
-                &reference_field_ids, &reference_object_ids, &interned_classes](
+                &reference_field_ids, &reference_object_ids, &interned_classes, &interned_obj](
                     art::mirror::Object* obj) REQUIRES_SHARED(art::Locks::mutator_lock_) {
                   if (obj->IsClass()) {
                     art::mirror::Class* klass = obj->AsClass().Ptr();
@@ -599,7 +600,8 @@ void DumpPerfetto(art::Thread* self) {
 
                   perfetto::protos::pbzero::HeapGraphObject* object_proto =
                     writer.GetHeapGraph()->add_objects();
-                  object_proto->set_id(reinterpret_cast<uintptr_t>(obj));
+                  object_proto->set_id(FindOrAppend(&interned_obj,
+                        reinterpret_cast<uintptr_t>(obj)));
                   object_proto->set_type_id(class_id);
                   object_proto->set_self_size(obj->SizeOf());
 
@@ -609,7 +611,8 @@ void DumpPerfetto(art::Thread* self) {
                   obj->VisitReferences(objf, art::VoidFunctor());
                   for (const auto& p : referred_objects) {
                     reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
-                    reference_object_ids->Append(reinterpret_cast<uintptr_t>(p.second));
+                    reference_object_ids->Append(FindOrAppend(&interned_obj,
+                          reinterpret_cast<uintptr_t>(p.second)));
                   }
                   object_proto->set_reference_field_id(*reference_field_ids);
                   object_proto->set_reference_object_id(*reference_object_ids);
