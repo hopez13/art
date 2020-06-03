@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92a64f8d_3b220ae7",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-03T17:08:36Z",
+      "side": 1,
+      "message": "An alternative solution instead of the flag is to add:\n kLoopFriendlyInstructionSimplifier",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 24
+      },
+      "revId": "aa8013376baba1dcca39411306af2b529ad545e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
