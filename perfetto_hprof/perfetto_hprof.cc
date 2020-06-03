@@ -454,6 +454,10 @@ void DumpSmaps(JavaHprofDataSource::TraceContext* ctx) {
   }
 }
 
+uint64_t GetObjectId(const art::mirror::Object* obj) {
+  return reinterpret_cast<uint64_t>(obj) / std::alignment_of<art::mirror::Object>::value;
+}
+
 void DumpPerfetto(art::Thread* self) {
   pid_t parent_pid = getpid();
   LOG(INFO) << "preparing to dump heap for " << parent_pid;
@@ -549,7 +553,7 @@ void DumpPerfetto(art::Thread* self) {
                   root_proto = writer.GetHeapGraph()->add_roots();
                   root_proto->set_root_type(ToProtoType(root_type));
                 }
-                object_ids->Append(reinterpret_cast<uintptr_t>(obj));
+                object_ids->Append(GetObjectId(obj));
               }
               root_proto->set_object_ids(*object_ids);
               object_ids->Reset();
@@ -598,7 +602,7 @@ void DumpPerfetto(art::Thread* self) {
 
                   perfetto::protos::pbzero::HeapGraphObject* object_proto =
                     writer.GetHeapGraph()->add_objects();
-                  object_proto->set_id(reinterpret_cast<uintptr_t>(obj));
+                  object_proto->set_id(GetObjectId(obj));
                   object_proto->set_type_id(class_id);
                   object_proto->set_self_size(obj->SizeOf());
 
@@ -608,7 +612,7 @@ void DumpPerfetto(art::Thread* self) {
                   obj->VisitReferences(objf, art::VoidFunctor());
                   for (const auto& p : referred_objects) {
                     reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
-                    reference_object_ids->Append(reinterpret_cast<uintptr_t>(p.second));
+                    reference_object_ids->Append(GetObjectId(p.second));
                   }
                   object_proto->set_reference_field_id(*reference_field_ids);
                   object_proto->set_reference_object_id(*reference_object_ids);
