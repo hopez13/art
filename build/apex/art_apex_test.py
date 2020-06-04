@@ -545,7 +545,7 @@ class ReleaseChecker:
     self._checker.check_java_library('core-libart')
     self._checker.check_java_library('core-oj')
     self._checker.check_java_library('okhttp')
-    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK'):
+    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK') or isEnvTrue('EMMA_INSTRUMENT_STATIC'):
       # In coverage builds jacoco is added to the list of ART apex jars.
       self._checker.check_java_library('jacocoagent')
 
@@ -587,7 +587,7 @@ class ReleaseChecker:
     self._checker.check_dexpreopt('boot-bouncycastle')
     self._checker.check_dexpreopt('boot-core-libart')
     self._checker.check_dexpreopt('boot-okhttp')
-    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK'):
+    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK') or isEnvTrue('EMMA_INSTRUMENT_STATIC'):
       # In coverage builds the ART boot image includes jacoco.
       self._checker.check_dexpreopt('boot-jacocoagent')
 
