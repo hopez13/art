@@ -31,6 +31,8 @@ if [ ! -d art ]; then
   exit 1
 fi
 
+export TARGET_BUILD_UNBUNDLED=true
+
 source build/envsetup.sh >&/dev/null # for get_build_var
 # Soong needs a bunch of variables set and will not run if they are missing.
 # The default values of these variables is only contained in make, so use

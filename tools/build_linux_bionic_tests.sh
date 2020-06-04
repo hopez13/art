@@ -26,6 +26,8 @@ if [ ! -d art ]; then
   exit 1
 fi
 
+export TARGET_BUILD_UNBUNDLED=true
+
 source build/envsetup.sh >&/dev/null # for get_build_var
 
 out_dir=$(get_build_var OUT_DIR)
