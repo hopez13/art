@@ -169,6 +169,13 @@ class MANAGED Class final : public Object {
     return GetStatus<kVerifyFlags>() == ClassStatus::kRetryVerificationAtRuntime;
   }
 
+  // Returns true if the class has been verified at compile time, but should be
+  // executed with access checks.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  bool IsVerifiedWithAccessChecks() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetStatus<kVerifyFlags>() >= ClassStatus::kVerifiedWithAccessChecks;
+  }
+
   // Returns true if the class has been verified.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsVerified() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1397,6 +1404,15 @@ class MANAGED Class final : public Object {
   void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Only to be used by the image writer, when transitioning a class from
+  // kRetryVerificationAtRuntime to kResolved.
+  void SetStatusUnsafe(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
+  // Helper to set the status without any validity cheks.
+  void SetStatusInternal(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
   // 'Class' Object Fields
   // Order governed by java field ordering. See art::ClassLinker::LinkFields.
 
@@ -1551,6 +1567,7 @@ class MANAGED Class final : public Object {
   ART_FRIEND_TEST(DexCacheTest, TestResolvedFieldAccess);  // For ResolvedFieldAccessTest
   friend struct art::ClassOffsets;  // for verifying offset information
   friend class Object;  // For VisitReferences
+  friend class linker::ImageWriter;  // For SetStatusUnsafe
   DISALLOW_IMPLICIT_CONSTRUCTORS(Class);
 };
 
