@@ -101,6 +101,11 @@ class MANAGED Class final : public Object {
     return enum_cast<ClassStatus>(static_cast<uint32_t>(field_value) >> (32 - 4));
   }
 
+  // Only to be used by the image writer, when transitioning a class from
+  // kRetryVerificationAtRuntime to kResolved.
+  void SetStatusUnsafe(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
   // This is static because 'this' may be moved by GC.
   static void SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
@@ -167,6 +172,13 @@ class MANAGED Class final : public Object {
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool ShouldVerifyAtRuntime() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetStatus<kVerifyFlags>() == ClassStatus::kRetryVerificationAtRuntime;
+  }
+
+  // Returns true if the class has been verified at compile time, but should be
+  // executed with access checks.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  bool IsVerifiedWithAccessChecks() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetStatus<kVerifyFlags>() >= ClassStatus::kVerifiedWithAccessChecks;
   }
 
   // Returns true if the class has been verified.
@@ -1396,6 +1408,10 @@ class MANAGED Class final : public Object {
             typename Visitor>
   void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Helper to set the status without any validity cheks.
+  void SetStatusInternal(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
   // 'Class' Object Fields
   // Order governed by java field ordering. See art::ClassLinker::LinkFields.
