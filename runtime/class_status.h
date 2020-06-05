@@ -82,7 +82,7 @@ enum class ClassStatus : uint8_t {
   kResolved = 7,  // Part of linking.
   kVerifying = 8,  // In the process of being verified.
   kRetryVerificationAtRuntime = 9,  // Compile time verification failed, retry at runtime.
-  kVerifyingAtRuntime = 10,  // Retrying verification at runtime.
+  kVerifiedWithAccessChecks = 10,  // Compile time verification only failed for access checks.
   kVerified = 11,  // Logically part of linking; done pre-init.
   kSuperclassValidated = 12,  // Superclass validation part of init done.
   kInitializing = 13,  // Class init in progress.

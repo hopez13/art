@@ -829,7 +829,7 @@ static void EnsureVerifiedOrVerifyAtRuntime(jobject jclass_loader,
       if (cls == nullptr) {
         soa.Self()->ClearException();
       } else if (&cls->GetDexFile() == dex_file) {
-        DCHECK(cls->IsErroneous() || cls->IsVerified() || cls->ShouldVerifyAtRuntime())
+        DCHECK(cls->IsErroneous() || cls->IsVerified() || cls->ShouldVerifyAtRuntime() || cls->GetStatus() == ClassStatus::kVerifiedWithAccessChecks)
             << cls->PrettyClass()
             << " " << cls->GetStatus();
       }
@@ -2012,7 +2012,8 @@ class VerifyClassVisitor : public CompilationVisitor {
         // Force a soft failure for the VerifierDeps. This is a sanity measure, as
         // the vdex file already records that the class hasn't been resolved. It avoids
         // trying to do future verification optimizations when processing the vdex file.
-        DCHECK(failure_kind == verifier::FailureKind::kNoFailure) << failure_kind;
+        DCHECK(failure_kind == verifier::FailureKind::kNoFailure ||
+               failure_kind == verifier::FailureKind::kAccessChecksFailure) << failure_kind;
         failure_kind = verifier::FailureKind::kSoftFailure;
       }
     } else if (&klass->GetDexFile() != &dex_file) {
@@ -2041,7 +2042,10 @@ class VerifyClassVisitor : public CompilationVisitor {
         manager_->GetCompiler()->AddSoftVerifierFailure();
       }
 
-      CHECK(klass->ShouldVerifyAtRuntime() || klass->IsVerified() || klass->IsErroneous())
+      CHECK(klass->ShouldVerifyAtRuntime()
+            || (klass->GetStatus() == ClassStatus::kVerifiedWithAccessChecks)
+            || klass->IsVerified()
+            || klass->IsErroneous())
           << klass->PrettyDescriptor() << ": state=" << klass->GetStatus();
 
       // Class has a meaningful status for the compiler now, record it.
@@ -2071,6 +2075,8 @@ class VerifyClassVisitor : public CompilationVisitor {
         }
         if (klass->IsVerified()) {
           DCHECK_EQ(failure_kind, verifier::FailureKind::kNoFailure);
+        } else if (klass->GetStatus() == ClassStatus::kVerifiedWithAccessChecks) {
+          DCHECK_EQ(failure_kind, verifier::FailureKind::kAccessChecksFailure);
         } else if (klass->ShouldVerifyAtRuntime()) {
           DCHECK_EQ(failure_kind, verifier::FailureKind::kSoftFailure);
         } else {
@@ -2873,6 +2879,7 @@ void CompilerDriver::RecordClassStatus(const ClassReference& ref, ClassStatus st
     case ClassStatus::kNotReady:
     case ClassStatus::kResolved:
     case ClassStatus::kRetryVerificationAtRuntime:
+    case ClassStatus::kVerifiedWithAccessChecks:
     case ClassStatus::kVerified:
     case ClassStatus::kSuperclassValidated:
     case ClassStatus::kVisiblyInitialized:

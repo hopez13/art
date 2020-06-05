@@ -101,6 +101,9 @@ class MANAGED Class final : public Object {
     return enum_cast<ClassStatus>(static_cast<uint32_t>(field_value) >> (32 - 4));
   }
 
+  void SetStatusUnsafe(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
   // This is static because 'this' may be moved by GC.
   static void SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
@@ -1396,6 +1399,9 @@ class MANAGED Class final : public Object {
             typename Visitor>
   void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SetStatusInternal(ClassStatus new_status)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
   // 'Class' Object Fields
   // Order governed by java field ordering. See art::ClassLinker::LinkFields.

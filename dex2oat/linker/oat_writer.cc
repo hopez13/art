@@ -1008,6 +1008,9 @@ class OatWriter::InitOatClassesMethodVisitor : public DexMethodVisitor {
         status = ClassStatus::kNotReady;
       }
     }
+    if (status == ClassStatus::kRetryVerificationAtRuntime) {
+      status = ClassStatus::kResolved;
+    }
 
     writer_->oat_class_headers_.emplace_back(offset_,
                                              compiled_methods_with_code_,
