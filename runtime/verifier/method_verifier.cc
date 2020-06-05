@@ -5157,6 +5157,14 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
   }
 }
 
+static inline bool CanRuntimeHandleVerificationFailure(uint32_t encountered_failure_types) {
+  constexpr uint32_t unresolved_mask =
+      verifier::VerifyError::VERIFY_ERROR_ACCESS_CLASS
+      | verifier::VerifyError::VERIFY_ERROR_ACCESS_FIELD
+      | verifier::VerifyError::VERIFY_ERROR_ACCESS_METHOD;
+  return (encountered_failure_types & (~unresolved_mask)) == 0;
+}
+
 template <bool kVerifierDebug>
 MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          ClassLinker* class_linker,
@@ -5219,7 +5227,11 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
         LOG(INFO) << verifier.info_messages_.str();
         verifier.Dump(LOG_STREAM(INFO));
       }
-      result.kind = FailureKind::kSoftFailure;
+      if (CanRuntimeHandleVerificationFailure(verifier.encountered_failure_types_)) {
+        result.kind = FailureKind::kAccessChecksFailure;
+      } else {
+        result.kind = FailureKind::kSoftFailure;
+      }
       if (method != nullptr &&
           !CanCompilerHandleVerificationFailure(verifier.encountered_failure_types_)) {
         set_dont_compile = true;
@@ -5519,7 +5531,11 @@ std::ostream& MethodVerifier::Fail(VerifyError error, bool pending_exc) {
           // we don't want to affect the soundness of the code being compiled. Instead, the
           // generated code runs "slow paths" that dynamically perform the verification and cause
           // the behavior to be that akin to an interpreter.
-          error = VERIFY_ERROR_BAD_CLASS_SOFT;
+          if (error != VERIFY_ERROR_ACCESS_CLASS &&
+              error != VERIFY_ERROR_ACCESS_FIELD &&
+              error != VERIFY_ERROR_ACCESS_METHOD) {
+            error = VERIFY_ERROR_BAD_CLASS_SOFT;
+          }
         } else {
           // If we fail again at runtime, mark that this instruction would throw and force this
           // method to be executed using the interpreter with checks.
