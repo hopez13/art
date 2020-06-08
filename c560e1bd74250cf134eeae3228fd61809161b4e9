@@ -22,6 +22,30 @@
       "revId": "c560e1bd74250cf134eeae3228fd61809161b4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ad7e76_4fa4e20f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T16:40:26Z",
+      "side": 0,
+      "message": "Yes, the stale comment is a good hint: we\u0027re not calling RecordPcInfo from here, it\u0027s now paired with the call instruction inside the `Generate{StaticOrDirect,Virtual}Call`.",
+      "parentUuid": "289646ef_a2c08ad5",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 96
+      },
+      "revId": "c560e1bd74250cf134eeae3228fd61809161b4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
