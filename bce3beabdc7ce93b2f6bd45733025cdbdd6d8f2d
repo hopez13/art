@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c71c7daf_cb14ca5d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caa51b84_a1512731",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 27
+      },
+      "revId": "bce3beabdc7ce93b2f6bd45733025cdbdd6d8f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8b008e_f3e382f1",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1bf2951e_78e83037",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8b008e_f3e382f1",
+      "range": {
+        "startLine": 1570,
+        "startChar": 15,
+        "endLine": 1570,
+        "endChar": 34
+      },
+      "revId": "bce3beabdc7ce93b2f6bd45733025cdbdd6d8f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26a94669_d28359cb",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -62,6 +110,24 @@
       "revId": "bce3beabdc7ce93b2f6bd45733025cdbdd6d8f2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4e82058_c29c3131",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a94669_d28359cb",
+      "revId": "bce3beabdc7ce93b2f6bd45733025cdbdd6d8f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
