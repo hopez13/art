@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f83a39f6_e8afc21e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4870,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-08T22:48:40Z",
+      "side": 1,
+      "message": "check",
+      "range": {
+        "startLine": 4870,
+        "startChar": 7,
+        "endLine": 4870,
+        "endChar": 12
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fb9d38_9f552ac3",
+        "filename": "runtime/class_status.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-08T22:48:40Z",
+      "side": 1,
+      "message": "nit: I would replace with Needs or RunWith. \n\n(the first time I read this constant, I read it: I verified it and confirmed the access checks are ok).",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d33c02_26b5882f",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-08T22:48:40Z",
+      "side": 1,
+      "message": "This is a relaxation of the previous assumption: add a doc line when this ends up being true.",
+      "range": {
+        "startLine": 229,
+        "startChar": 28,
+        "endLine": 229,
+        "endChar": 47
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d8d6f3_96eb7718",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-08T22:48:40Z",
+      "side": 1,
+      "message": "I would add explicit docs on how the runtime handles this case. Either on this method or on the enum: kAccessChecksFailure.",
+      "range": {
+        "startLine": 5160,
+        "startChar": 19,
+        "endLine": 5160,
+        "endChar": 54
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
