@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1365a4f7_3c1ac33e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-08T14:59:08Z",
+      "side": 1,
+      "message": "How did you test it? The following outputs a lot of \"jar not found, skip it...\" lines for me when I run the script from $ANDROID_BUILD_TOP as:\n\n $ art/tools/generate-boot-image-profile.sh boot.prof \\\n   --profman-arg --boot-image-sampled-method-threshold\u003d1 \\\n   profiles/0/*/primary.prof",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "740e23ab90b1ec5e70733ae92631565142f75d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a068709_47236eca",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-08T14:59:08Z",
+      "side": 1,
+      "message": "It\u0027s actually a bit more complex than that, boot jars are now colon-separated pairs where the first part before the colon is origin (apex name or \"platform\" or \"system_ext\"), and the second component is jar name. I\u0027d suggest the following instead of the highlighted block of code:\n\n # Boot jars have hidden API access flags which do not pass dex file                                                                                                                                                                            \n # verification. Skip it.                                                                                                                                                                                                                       \n jar_args\u003d()                                                                                                                                                                                                                                    \n boot_jars\u003d$(\"$ANDROID_BUILD_TOP\"/art/tools/bootjars.sh --target)                                                                                                                                                                               \n product_out\u003d$ANDROID_BUILD_TOP/$(get_build_var PRODUCT_OUT)                                                                                                                                                                                    \n for pair in $boot_jars; do                                                                                                                                                                                                                     \n   # format: \u003capex\u003e:\u003cjar\u003e                                                                                                                                                                                                                       \n   words\u003d( $(echo $pair | tr \u0027:\u0027 \u0027 \u0027) )                                                                                                                                                                                                         \n   apex\u003d\"${words[0]}\"                                                                                                                                                                                                                           \n   name\u003d\"${words[1]}\"                                                                                                                                                                                                                           \n   case \"$apex\" in                                                                                                                                                                                                                              \n       platform*)   subdir\u003dsystem/framework ;;                                                                                                                                                                                                  \n       system_ext*) subdir\u003dsystem_ext/framework ;;                                                                                                                                                                                              \n       *)           subdir\u003dapex/$apex/javalib ;;                                                                                                                                                                                                \n   esac                                                                                                                                                                                                                                         \n   filename\u003d\"$product_out/$subdir/$name.jar\"                                                                                                                                                                                                    \n   jar_args+\u003d(\"--apk\u003d$filename\")                                                                                                                                                                                                                \n   jar_args+\u003d(\"--dex-location\u003d$filename\")                                                                                                                                                                                                       \n done                                                                                                                                                                                                                                           \n profman_args+\u003d(\"${jar_args[@]}\")\n\nMaybe this should be separated into a script, e.g. art/tools/bootjars-to-locations.sh.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 32
+      },
+      "revId": "740e23ab90b1ec5e70733ae92631565142f75d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
