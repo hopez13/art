@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c6f2aee_b90eb341",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-06-08T23:18:37Z",
+      "side": 1,
+      "message": "Why is this change necessary?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 4,
+        "endLine": 1015,
+        "endChar": 5
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f83a39f6_e8afc21e",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
