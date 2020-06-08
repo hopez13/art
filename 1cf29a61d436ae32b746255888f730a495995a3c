@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fa41680_74103d37",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "Break after the `||`.",
+      "range": {
+        "startLine": 2049,
+        "startChar": 12,
+        "endLine": 2049,
+        "endChar": 14
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc7f9b0_164ca5f8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "Can the supertype be \"verified with access checks\"?",
+      "range": {
+        "startLine": 4581,
+        "startChar": 11,
+        "endLine": 4581,
+        "endChar": 34
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26e7302c_0242b573",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "The important part is that we do not call EnsureSkipAccessChecksMethods() here.",
+      "range": {
+        "startLine": 4646,
+        "startChar": 8,
+        "endLine": 4646,
+        "endChar": 92
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff6348b2_0de539b1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "This should be a DCHECK_EQ() now.",
+      "range": {
+        "startLine": 4660,
+        "startChar": 4,
+        "endLine": 4660,
+        "endChar": 53
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ba2171_720676a3",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "We usually declare `friend class linker::ImageWriter` to let it access internal methods.",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 40
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "282e5527_bbb7d007",
+        "filename": "runtime/oat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "Could be more specific.",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 56
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "507fca91_d28e0ed1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "Break lines after `|`.",
+      "range": {
+        "startLine": 5163,
+        "startChar": 6,
+        "endLine": 5163,
+        "endChar": 7
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b746e937_3c370f57",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5533,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-08T12:40:43Z",
+      "side": 1,
+      "message": "This comment now looks out out of date.",
+      "range": {
+        "startLine": 5527,
+        "startChar": 10,
+        "endLine": 5533,
+        "endChar": 60
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
