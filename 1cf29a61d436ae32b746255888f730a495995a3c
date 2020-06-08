@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a345bc0_987ac682",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa41680_74103d37",
+      "range": {
+        "startLine": 2049,
+        "startChar": 12,
+        "endLine": 2049,
+        "endChar": 14
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcc7f9b0_164ca5f8",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2d77a5_4139dbcf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "No, at runtime, you can only end up verified/erroneous after the VerifyClass call line 4574.",
+      "parentUuid": "dcc7f9b0_164ca5f8",
+      "range": {
+        "startLine": 4581,
+        "startChar": 11,
+        "endLine": 4581,
+        "endChar": 34
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a56a4bbf_c5bffe75",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e7302c_0242b573",
+      "range": {
+        "startLine": 4646,
+        "startChar": 8,
+        "endLine": 4646,
+        "endChar": 92
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff6348b2_0de539b1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d98ec4_2f22eb13",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4660,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff6348b2_0de539b1",
+      "range": {
+        "startLine": 4660,
+        "startChar": 4,
+        "endLine": 4660,
+        "endChar": 53
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f8581679_8eca3e25",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77ba2171_720676a3",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 40
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "282e5527_bbb7d007",
         "filename": "runtime/oat.h",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f24ae2b8_bdb126fd",
+        "filename": "runtime/oat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "282e5527_bbb7d007",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 56
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7c55a935_56657021",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507fca91_d28e0ed1",
+      "range": {
+        "startLine": 5163,
+        "startChar": 6,
+        "endLine": 5163,
+        "endChar": 7
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b746e937_3c370f57",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07ec04a_57b91ffa",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-08T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b746e937_3c370f57",
+      "range": {
+        "startLine": 5527,
+        "startChar": 10,
+        "endLine": 5533,
+        "endChar": 60
+      },
+      "revId": "1cf29a61d436ae32b746255888f730a495995a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
