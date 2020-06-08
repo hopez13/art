@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "78472e9c_9edd8165",
+        "filename": "test/2035-structural-native-method/src-art/art/Test2035.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-08T20:31:46Z",
+      "side": 1,
+      "message": "By \"having exactly one test\"  you mean having a single dex file?",
+      "parentUuid": "ddb93a38_d4ee83f0",
+      "range": {
+        "startLine": 40,
+        "startChar": 30,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "807a35bc6d59818bdbadca96637342dd21db27d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1edbe22c_1ee2c99a",
         "filename": "test/2035-structural-native-method/src/Main.java",
         "patchSetId": 1
