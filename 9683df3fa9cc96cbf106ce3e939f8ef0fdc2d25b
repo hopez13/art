@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bf7a818_da807f9e",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-09T07:57:11Z",
+      "side": 1,
+      "message": "See comment just above, kRetryVerificationAtRuntime is only an AOT status.",
+      "parentUuid": "1c6f2aee_b90eb341",
+      "range": {
+        "startLine": 1013,
+        "startChar": 4,
+        "endLine": 1015,
+        "endChar": 5
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f83a39f6_e8afc21e",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "515f2c59_a2ee52d2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-09T07:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f83a39f6_e8afc21e",
+      "range": {
+        "startLine": 4870,
+        "startChar": 7,
+        "endLine": 4870,
+        "endChar": 12
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bea6e2a0_2b7af8fe",
+        "filename": "runtime/class_status.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-09T07:57:11Z",
+      "side": 1,
+      "message": "Good point, renamed to kVerifiedNeedsAccessChecks.",
+      "parentUuid": "39fb9d38_9f552ac3",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 27
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58d33c02_26b5882f",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c4bffea8_ecdd3be4",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-09T07:57:11Z",
+      "side": 1,
+      "message": "This is because I now share the code between two paths, (see line 274 in old version),avoiding having to duplicate the shift just above.",
+      "parentUuid": "58d33c02_26b5882f",
+      "range": {
+        "startLine": 229,
+        "startChar": 28,
+        "endLine": 229,
+        "endChar": 47
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58d8d6f3_96eb7718",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 5
@@ -114,6 +210,30 @@
       "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8936895d_d6ba9aef",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-09T07:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d8d6f3_96eb7718",
+      "range": {
+        "startLine": 5160,
+        "startChar": 19,
+        "endLine": 5160,
+        "endChar": 54
+      },
+      "revId": "9683df3fa9cc96cbf106ce3e939f8ef0fdc2d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
