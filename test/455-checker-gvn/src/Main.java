@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import java.lang.reflect.Method;
 
 public class Main {
 
@@ -26,14 +25,20 @@ public class Main {
     System.out.println(directIntrinsic(-5));
   }
 
+  /// CHECK-START: int Main.foo(int, int) GVN (before)
+  /// CHECK: Add
+  /// CHECK: Add
+  /// CHECK: Add
+
+  /// CHECK-START: int Main.foo(int, int) GVN (after)
+  /// CHECK: Add
+  /// CHECK: Add
+  /// CHECK-NOT: Add
+
   public static int foo(int x, int y) {
-   try {
-      Class<?> c = Class.forName("Smali");
-      Method m = c.getMethod("foo", int.class, int.class);
-      return (Integer) m.invoke(null, x, y);
-    } catch (Throwable t) {
-      throw new RuntimeException(t);
-    }
+    int sum1 = x + y;
+    int sum2 = y + x;
+    return sum1 + sum2;
   }
 
   /// CHECK-START: int Main.mulAndIntrinsic() GVN (before)
