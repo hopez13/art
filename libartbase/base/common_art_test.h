@@ -262,10 +262,10 @@ class CommonArtTestImpl {
                                         const std::string& subdir2,
                                         const std::string& subdir3);
 
-  // File location to boot.art, e.g. /apex/com.android.art/javalib/boot.art
+  // File location to core.art, e.g. $ANDROID_HOST_OUT/system/framework/core.art
   static std::string GetCoreArtLocation();
 
-  // File location to boot.oat, e.g. /apex/com.android.art/javalib/boot.oat
+  // File location to core.oat, e.g. $ANDROID_HOST_OUT/system/framework/core.oat
   static std::string GetCoreOatLocation();
 
   std::unique_ptr<const DexFile> LoadExpectSingleDexFile(const char* location);
