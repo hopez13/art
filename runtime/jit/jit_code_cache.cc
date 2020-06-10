@@ -1734,13 +1734,12 @@ bool JitCodeCache::NotifyCompilationOf(ArtMethod* method,
         ClearMethodCounter(method, /*was_warm=*/ false);
         return false;
       }
-    } else {
-      MutexLock mu(self, *Locks::jit_lock_);
-      if (info->IsMethodBeingCompiled(osr)) {
-        return false;
-      }
-      info->SetIsMethodBeingCompiled(true, osr);
     }
+    MutexLock mu(self, *Locks::jit_lock_);
+    if (info->IsMethodBeingCompiled(osr)) {
+      return false;
+    }
+    info->SetIsMethodBeingCompiled(true, osr);
     return true;
   }
 }
