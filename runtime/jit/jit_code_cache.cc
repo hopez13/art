@@ -1739,8 +1739,8 @@ bool JitCodeCache::NotifyCompilationOf(ArtMethod* method,
       if (info->IsMethodBeingCompiled(osr)) {
         return false;
       }
-      info->SetIsMethodBeingCompiled(true, osr);
     }
+    info->SetIsMethodBeingCompiled(true, osr);
     return true;
   }
 }
