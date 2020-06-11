@@ -15,18 +15,22 @@
 package art
 
 import (
+	"path/filepath"
 	"sort"
 	"strings"
 
 	"android/soong/android"
+	"android/soong/cc/config"
 )
 
 var (
-	pctx = android.NewPackageContext("android/soong/art")
+	pctx                  = android.NewPackageContext("android/soong/art")
+	prebuiltToolsForTests = []string{"as", "addr2line", "objdump"}
 )
 
 func init() {
 	android.RegisterMakeVarsProvider(pctx, makeVarsProvider)
+	pctx.Import("android/soong/cc/config")
 }
 
 func makeVarsProvider(ctx android.MakeVarsContext) {
@@ -44,4 +48,31 @@ func makeVarsProvider(ctx android.MakeVarsContext) {
 	for _, name := range testNames {
 		ctx.Strict("ART_TEST_LIST_"+name, strings.Join(testMap[name], " "))
 	}
+
+	// Iterate over the list in deterministic order
+	testcasesContent := testcasesContent(ctx.Config())
+	var keys []string
+	for key := range testcasesContent {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+
+	// Create list of copy commands to install the content of the testcases directory.
+	copy_cmds := []string{}
+	for _, key := range keys {
+		copy_cmds = append(copy_cmds, testcasesContent[key]+":"+key)
+	}
+
+	// Add prebuild tools.
+	for _, cmd := range prebuiltToolsForTests {
+		target := ctx.Config().Targets[android.BuildOs][0]
+		toolchain := config.FindToolchain(target.Os, target.Arch)
+		path, err := ctx.Eval(filepath.Join(toolchain.GccRoot(), "bin", toolchain.GccTriple()+"-"+cmd))
+		if err != nil {
+			panic(err)
+		}
+		copy_cmds = append(copy_cmds, path+":bin/"+toolchain.GccTriple()+"-"+cmd)
+	}
+
+	ctx.Strict("ART_TESTCASES_CONTENT", strings.Join(copy_cmds, " "))
 }
