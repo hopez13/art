@@ -1,7 +1,8 @@
 {
   "presubmit": [
     {
-      "name": "CtsJdwpTestCases"
+      "name": "art_dex2oat_tests",
+      "host": true
     }
   ],
   "postsubmit": [
