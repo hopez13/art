@@ -36,6 +36,8 @@
 #include <poll.h>
 #include <signal.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <libgen.h>
 #include <sys/time.h>
 #include <sys/types.h>
 
@@ -60,18 +62,22 @@
 
 #endif
 
+extern char** environ;
+
 namespace art {
 
 #if defined(__linux__)
 
 using android::base::StringPrintf;
 
-static constexpr bool kUseAddr2line = !kIsTargetBuild;
+static constexpr bool kUseAddr2line = false;  // !kIsTargetBuild;
 
 std::string FindAddr2line() {
   if (!kIsTargetBuild) {
     constexpr const char* kAddr2linePrebuiltPath =
       "/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-addr2line";
+
+
     const char* env_value = getenv("ANDROID_BUILD_TOP");
     if (env_value != nullptr) {
       return std::string(env_value) + kAddr2linePrebuiltPath;
@@ -325,6 +331,10 @@ void DumpNativeStack(std::ostream& os,
                      void* ucontext_ptr,
                      bool skip_frames) {
   // Historical note: This was disabled when running under Valgrind (b/18119146).
+
+  for (char** env = environ; *env != nullptr; env++) {
+    LOG(ERROR) << "Env: " << *env;
+  }
 
   BacktraceMap* map = existing_map;
   std::unique_ptr<BacktraceMap> tmp_map;
