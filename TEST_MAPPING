@@ -8,5 +8,11 @@
     {
       "name": "ArtGtestsTarget"
     }
+  ],
+  "presubmit": [
+    {
+      "name": "art_dex2oat_tests",
+      "host": true
+    }
   ]
 }
