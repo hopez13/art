@@ -419,6 +419,7 @@ art_cc_library_static {
 
 art_cc_test {
     name: "art_dex2oat_tests",
+    test_suites: ["general-tests"],
     defaults: [
         "art_gtest_defaults",
     ],

@@ -53,6 +53,7 @@ art_cc_defaults {
         "art_debug_defaults",
         "art_defaults",
     ],
+    test_suites: ["general-tests"],
 
     shared_libs: [
         "libartd",
