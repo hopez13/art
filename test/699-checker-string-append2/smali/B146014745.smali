@@ -15,10 +15,10 @@
 .class public LB146014745;
 .super Ljava/lang/Object;
 
-## CHECK-START: java.lang.String B146014745.$noinline$testAppend1(java.lang.String, int) instruction_simplifier (before)
+## CHECK-START: java.lang.String B146014745.$noinline$testAppend1(java.lang.String, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-NOT:                  StringBuilderAppend
 
-## CHECK-START: java.lang.String B146014745.$noinline$testAppend1(java.lang.String, int) instruction_simplifier (after)
+## CHECK-START: java.lang.String B146014745.$noinline$testAppend1(java.lang.String, int) loop_friendly_instruction_simplifier (after)
 ## CHECK:                      StringBuilderAppend
 
 .method public static $noinline$testAppend1(Ljava/lang/String;I)Ljava/lang/String;
@@ -40,7 +40,7 @@
     return-object v1
 .end method
 
-## CHECK-START: java.lang.String B146014745.$noinline$testAppend2(java.lang.String, int) instruction_simplifier (after)
+## CHECK-START: java.lang.String B146014745.$noinline$testAppend2(java.lang.String, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                  StringBuilderAppend
 
 .method public static $noinline$testAppend2(Ljava/lang/String;I)Ljava/lang/String;
@@ -63,7 +63,7 @@
     return-object v1
 .end method
 
-## CHECK-START: java.lang.String B146014745.$noinline$testAppend3(java.lang.String, int) instruction_simplifier (after)
+## CHECK-START: java.lang.String B146014745.$noinline$testAppend3(java.lang.String, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                  StringBuilderAppend
 
 .method public static $noinline$testAppend3(Ljava/lang/String;I)Ljava/lang/String;
