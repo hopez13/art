@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a8e8d37_772b2450",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "ok, remove my incorrect comment",
+      "parentUuid": "a4b85952_24a9ad40",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f44be397_adf25733",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-11T11:27:50Z",
       "side": 1,
       "message": "Nice fix, thank you.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 55
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03ec4b8b_a0aff7c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "thank you.",
+      "parentUuid": "f44be397_adf25733",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "19ab3966_fa71003e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "ok, it has been removed from patch3",
+      "parentUuid": "042869c8_72a66c51",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 52
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2c8673_2402c8ec",
         "filename": "tools/generate-boot-image-profile.sh",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "72dff011_c54ac3e4",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "4a2c8673_2402c8ec",
+      "range": {
+        "startLine": 24,
+        "startChar": 120,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b368d3c_e95f4c37",
         "filename": "tools/generate-boot-image-profile.sh",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf08ef7_b3c7a4a3",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "done\nthis code works fine with AndroidR.\nupdate this version in patch3.",
+      "parentUuid": "0b368d3c_e95f4c37",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +271,30 @@
       "writtenOn": "2020-06-11T11:27:50Z",
       "side": 1,
       "message": "Please move this useful rework to a follow-up patch.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9a89cd_943333a8",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1591840
+      },
+      "writtenOn": "2020-06-12T07:36:32Z",
+      "side": 1,
+      "message": "ok， after Calin Juravle updating the profman command line.",
+      "parentUuid": "9ac2b986_e6a9e7bf",
       "range": {
         "startLine": 80,
         "startChar": 0,
