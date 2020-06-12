@@ -23,7 +23,7 @@ public class Main {
   /// CHECK:       Deoptimize
   /// CHECK:       InvokeVirtual method_name:java.lang.String.charAt intrinsic:StringCharAt
 
-  /// CHECK-START: char Main.$noinline$inlineMonomorphic(java.lang.CharSequence) instruction_simplifier$after_inlining (after)
+  /// CHECK-START: char Main.$noinline$inlineMonomorphic(java.lang.CharSequence) loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK:       Deoptimize
   /// CHECK-NOT:   InvokeInterface
   /// CHECK-NOT:   InvokeVirtual
@@ -38,7 +38,7 @@ public class Main {
   /// CHECK-START: char Main.$noinline$knownReceiverType() inliner (after)
   /// CHECK:       InvokeVirtual method_name:java.lang.String.charAt intrinsic:StringCharAt
 
-  /// CHECK-START: char Main.$noinline$knownReceiverType() instruction_simplifier$after_inlining (after)
+  /// CHECK-START: char Main.$noinline$knownReceiverType() loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-NOT:   InvokeInterface
   /// CHECK-NOT:   InvokeVirtual
 
@@ -54,7 +54,7 @@ public class Main {
   /// CHECK:       Deoptimize
   /// CHECK:       InvokeVirtual method_name:java.lang.String.equals intrinsic:StringEquals
 
-  /// CHECK-START: boolean Main.$noinline$stringEquals(java.lang.Object) instruction_simplifier$after_inlining (after)
+  /// CHECK-START: boolean Main.$noinline$stringEquals(java.lang.Object) loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK:       Deoptimize
   /// CHECK:       InvokeVirtual method_name:java.lang.String.equals intrinsic:StringEquals
 

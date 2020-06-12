@@ -78,6 +78,7 @@ enum class OptimizationPass {
   kInstructionSimplifier,
   kInvariantCodeMotion,
   kLoadStoreElimination,
+  kLoopFriendlyInstructionSimplifier,
   kLoopOptimization,
   kScheduling,
   kSelectGenerator,

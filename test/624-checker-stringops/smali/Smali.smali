@@ -44,7 +44,7 @@
     return v1
 .end method
 
-## CHECK-START: int Smali.builderLen2() instruction_simplifier (before)
+## CHECK-START: int Smali.builderLen2() loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance
 ## CHECK-DAG: <<String1:l\d+>> LoadString
 ## CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>]     intrinsic:StringBuilderAppendString
@@ -52,7 +52,7 @@
 ## CHECK-DAG: <<Append2:l\d+>> InvokeVirtual [<<Append1>>,<<String2>>] intrinsic:StringBuilderAppendString
 ## CHECK-DAG:                  InvokeVirtual [<<Append2>>]             intrinsic:StringBuilderLength
 
-## CHECK-START: int Smali.builderLen2() instruction_simplifier (after)
+## CHECK-START: int Smali.builderLen2() loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance
 ## CHECK-DAG: <<String1:l\d+>> LoadString
 ## CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBuilderAppendString
@@ -80,7 +80,7 @@
     return v1
 .end method
 
-## CHECK-START: int Smali.bufferLoopAppender() instruction_simplifier (before)
+## CHECK-START: int Smali.bufferLoopAppender() loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance                                                           loop:none
 ## CHECK-DAG: <<String1:l\d+>> LoadString                                                            loop:<<Loop:B\d+>>
 ## CHECK-DAG: <<Null1:l\d+>>   NullCheck     [<<New>>]                                               loop:<<Loop>>
@@ -92,7 +92,7 @@
 ## CHECK-DAG: <<Null4:l\d+>>   NullCheck     [<<New>>]                                               loop:none
 ## CHECK-DAG:                  InvokeVirtual [<<Null4>>]               intrinsic:StringBufferLength  loop:none
 
-## CHECK-START: int Smali.bufferLoopAppender() instruction_simplifier (after)
+## CHECK-START: int Smali.bufferLoopAppender() loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance                                                       loop:none
 ## CHECK-DAG: <<String1:l\d+>> LoadString                                                        loop:<<Loop:B\d+>>
 ## CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBufferAppend  loop:<<Loop>>
@@ -137,7 +137,7 @@
     return v2
 .end method
 
-## CHECK-START: int Smali.builderLoopAppender() instruction_simplifier (before)
+## CHECK-START: int Smali.builderLoopAppender() loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance                                                                 loop:none
 ## CHECK-DAG: <<String1:l\d+>> LoadString                                                                  loop:<<Loop:B\d+>>
 ## CHECK-DAG: <<Null1:l\d+>>   NullCheck     [<<New>>]                                                     loop:<<Loop>>
@@ -149,7 +149,7 @@
 ## CHECK-DAG: <<Null4:l\d+>>   NullCheck     [<<New>>]                                                     loop:none
 ## CHECK-DAG:                  InvokeVirtual [<<Null4>>]               intrinsic:StringBuilderLength       loop:none
 
-## CHECK-START: int Smali.builderLoopAppender() instruction_simplifier (after)
+## CHECK-START: int Smali.builderLoopAppender() loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG: <<New:l\d+>>     NewInstance                                                             loop:none
 ## CHECK-DAG: <<String1:l\d+>> LoadString                                                              loop:<<Loop:B\d+>>
 ## CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBuilderAppendString loop:<<Loop>>

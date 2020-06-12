@@ -107,10 +107,10 @@ public class Main {
         "Long/-9223372036854775808",  // Long.MIN_VALUE
     };
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndLong(java.lang.String, long) instruction_simplifier (before)
+    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndLong(java.lang.String, long) loop_friendly_instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndLong(java.lang.String, long) instruction_simplifier (after)
+    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndLong(java.lang.String, long) loop_friendly_instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
     public static String $noinline$appendStringAndLong(String s, long l) {
         return new StringBuilder().append(s).append(l).toString();
@@ -169,10 +169,10 @@ public class Main {
         "Int/-2147483648",  // Integer.MIN_VALUE
     };
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndInt(java.lang.String, int) instruction_simplifier (before)
+    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndInt(java.lang.String, int) loop_friendly_instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndInt(java.lang.String, int) instruction_simplifier (after)
+    /// CHECK-START: java.lang.String Main.$noinline$appendStringAndInt(java.lang.String, int) loop_friendly_instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
     public static String $noinline$appendStringAndInt(String s, int i) {
         return new StringBuilder().append(s).append(i).toString();
@@ -201,10 +201,10 @@ public class Main {
         assertEquals("\u0131test\u0131", $noinline$appendStringAndString("\u0131", "test\u0131"));
     }
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendSLILC(java.lang.String, long, int, long, char) instruction_simplifier (before)
+    /// CHECK-START: java.lang.String Main.$noinline$appendSLILC(java.lang.String, long, int, long, char) loop_friendly_instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendSLILC(java.lang.String, long, int, long, char) instruction_simplifier (after)
+    /// CHECK-START: java.lang.String Main.$noinline$appendSLILC(java.lang.String, long, int, long, char) loop_friendly_instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
     public static String $noinline$appendSLILC(String s,
                                                long l1,
@@ -239,10 +239,10 @@ public class Main {
         return sb.append(s).append(i).toString();
     }
 
-    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuter(java.lang.String, int) instruction_simplifier$after_inlining (before)
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuter(java.lang.String, int) loop_friendly_instruction_simplifier$after_inlining (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuter(java.lang.String, int) instruction_simplifier$after_inlining (after)
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuter(java.lang.String, int) loop_friendly_instruction_simplifier$after_inlining (after)
     /// CHECK:                  StringBuilderAppend
     public static String $noinline$testInlineOuter(String s, int i) {
         StringBuilder sb = new StringBuilder();
@@ -253,10 +253,10 @@ public class Main {
         assertEquals("x42", $noinline$testInlineOuter("x", 42));
     }
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (before)
+    /// CHECK-START: java.lang.String Main.$noinline$appendNothing() loop_friendly_instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (after)
+    /// CHECK-START: java.lang.String Main.$noinline$appendNothing() loop_friendly_instruction_simplifier (after)
     /// CHECK-NOT:              StringBuilderAppend
     public static String $noinline$appendNothing() {
         return new StringBuilder().toString();
@@ -266,10 +266,10 @@ public class Main {
         assertEquals("", $noinline$appendNothing());
     }
 
-    /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) instruction_simplifier (before)
+    /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) loop_friendly_instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
-    /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) instruction_simplifier (after)
+    /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) loop_friendly_instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
     public static boolean $noinline$testAppendEquals(String s, int i) {
       // Regression test for b/151107293 .

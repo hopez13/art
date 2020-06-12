@@ -18,10 +18,10 @@ public class Main {
 
   // Check that we don't put a null check in the card marking code.
 
-  /// CHECK-START: void Main.test() instruction_simplifier (before)
+  /// CHECK-START: void Main.test() loop_friendly_instruction_simplifier (before)
   /// CHECK:          ArraySet value_can_be_null:true
 
-  /// CHECK-START: void Main.test() instruction_simplifier (after)
+  /// CHECK-START: void Main.test() loop_friendly_instruction_simplifier (after)
   /// CHECK:          ArraySet value_can_be_null:false
 
   /// CHECK-START-X86: void Main.test() disassembly (after)

@@ -647,7 +647,7 @@ public class Main {
 
   // Each test line below should see one merge.
   //
-  /// CHECK-START: void Main.$opt$validateShiftInt(int, int) instruction_simplifier$after_inlining (before)
+  /// CHECK-START: void Main.$opt$validateShiftInt(int, int) loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK:                            Shl
   /// CHECK:                            Shl
   /// CHECK:                            Shl
@@ -690,7 +690,7 @@ public class Main {
   //
   // Note: simplification after inlining removes `b << 32`, `b >> 32` and `b >>> 32`.
   //
-  /// CHECK-START: void Main.$opt$validateShiftInt(int, int) instruction_simplifier$after_inlining (after)
+  /// CHECK-START: void Main.$opt$validateShiftInt(int, int) loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK:                            Shl
   /// CHECK:                            Shl
   /// CHECK:                            Shl

@@ -58,24 +58,24 @@ public class Main {
    * Tiny programs exercising optimizations of arithmetic identities.
    */
 
-  /// CHECK-START: long Main.$noinline$Add0(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Add0(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Const0:j\d+>>  LongConstant 0
   /// CHECK-DAG:     <<Add:j\d+>>     Add [<<Const0>>,<<Arg>>]
   /// CHECK-DAG:                      Return [<<Add>>]
 
-  /// CHECK-START: long Main.$noinline$Add0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Add0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:                      Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Add0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Add0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Add
 
   public static long $noinline$Add0(long arg) {
     return 0 + arg;
   }
 
-  /// CHECK-START: int Main.$noinline$AddAddSubAddConst(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$AddAddSubAddConst(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
   /// CHECK-DAG:     <<Const2:i\d+>>    IntConstant 2
@@ -87,7 +87,7 @@ public class Main {
   /// CHECK-DAG:     <<Add4:i\d+>>      Add [<<Add3>>,<<Const4>>]
   /// CHECK-DAG:                        Return [<<Add4>>]
 
-  /// CHECK-START: int Main.$noinline$AddAddSubAddConst(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$AddAddSubAddConst(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const4:i\d+>>    IntConstant 4
   /// CHECK-DAG:     <<Add:i\d+>>       Add [<<ArgValue>>,<<Const4>>]
@@ -97,24 +97,24 @@ public class Main {
     return arg + 1 + 2 - 3 + 4;
   }
 
-  /// CHECK-START: int Main.$noinline$AndAllOnes(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$AndAllOnes(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<ConstF:i\d+>>  IntConstant -1
   /// CHECK-DAG:     <<And:i\d+>>     And [<<Arg>>,<<ConstF>>]
   /// CHECK-DAG:                      Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$AndAllOnes(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$AndAllOnes(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>     ParameterValue
   /// CHECK-DAG:                      Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$AndAllOnes(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$AndAllOnes(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                      And
 
   public static int $noinline$AndAllOnes(int arg) {
     return arg & -1;
   }
 
-  /// CHECK-START: int Main.$noinline$UShr28And15(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$UShr28And15(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const28:i\d+>>  IntConstant 28
   /// CHECK-DAG:     <<Const15:i\d+>>  IntConstant 15
@@ -122,20 +122,20 @@ public class Main {
   /// CHECK-DAG:     <<And:i\d+>>      And [<<UShr>>,<<Const15>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$UShr28And15(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$UShr28And15(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const28:i\d+>>  IntConstant 28
   /// CHECK-DAG:     <<UShr:i\d+>>     UShr [<<Arg>>,<<Const28>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: int Main.$noinline$UShr28And15(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$UShr28And15(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       And
 
   public static int $noinline$UShr28And15(int arg) {
     return (arg >>> 28) & 15;
   }
 
-  /// CHECK-START: long Main.$noinline$UShr60And15(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$UShr60And15(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const60:i\d+>>  IntConstant 60
   /// CHECK-DAG:     <<Const15:j\d+>>  LongConstant 15
@@ -143,20 +143,20 @@ public class Main {
   /// CHECK-DAG:     <<And:j\d+>>      And [<<UShr>>,<<Const15>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$UShr60And15(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$UShr60And15(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const60:i\d+>>  IntConstant 60
   /// CHECK-DAG:     <<UShr:j\d+>>     UShr [<<Arg>>,<<Const60>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: long Main.$noinline$UShr60And15(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$UShr60And15(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       And
 
   public static long $noinline$UShr60And15(long arg) {
     return (arg >>> 60) & 15;
   }
 
-  /// CHECK-START: int Main.$noinline$UShr28And7(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$UShr28And7(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const28:i\d+>>  IntConstant 28
   /// CHECK-DAG:     <<Const7:i\d+>>   IntConstant 7
@@ -164,7 +164,7 @@ public class Main {
   /// CHECK-DAG:     <<And:i\d+>>      And [<<UShr>>,<<Const7>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$UShr28And7(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$UShr28And7(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const28:i\d+>>  IntConstant 28
   /// CHECK-DAG:     <<Const7:i\d+>>   IntConstant 7
@@ -176,7 +176,7 @@ public class Main {
     return (arg >>> 28) & 7;
   }
 
-  /// CHECK-START: long Main.$noinline$UShr60And7(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$UShr60And7(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const60:i\d+>>  IntConstant 60
   /// CHECK-DAG:     <<Const7:j\d+>>   LongConstant 7
@@ -184,7 +184,7 @@ public class Main {
   /// CHECK-DAG:     <<And:j\d+>>      And [<<UShr>>,<<Const7>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$UShr60And7(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$UShr60And7(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const60:i\d+>>  IntConstant 60
   /// CHECK-DAG:     <<Const7:j\d+>>   LongConstant 7
@@ -196,7 +196,7 @@ public class Main {
     return (arg >>> 60) & 7;
   }
 
-  /// CHECK-START: int Main.$noinline$Shr24And255(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Shr24And255(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const24:i\d+>>  IntConstant 24
   /// CHECK-DAG:     <<Const255:i\d+>> IntConstant 255
@@ -204,13 +204,13 @@ public class Main {
   /// CHECK-DAG:     <<And:i\d+>>      And [<<Shr>>,<<Const255>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$Shr24And255(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shr24And255(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const24:i\d+>>  IntConstant 24
   /// CHECK-DAG:     <<UShr:i\d+>>     UShr [<<Arg>>,<<Const24>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: int Main.$noinline$Shr24And255(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shr24And255(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
   /// CHECK-NOT:                       And
 
@@ -218,7 +218,7 @@ public class Main {
     return (arg >> 24) & 255;
   }
 
-  /// CHECK-START: int Main.$noinline$Shr25And127(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Shr25And127(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const25:i\d+>>  IntConstant 25
   /// CHECK-DAG:     <<Const127:i\d+>> IntConstant 127
@@ -226,13 +226,13 @@ public class Main {
   /// CHECK-DAG:     <<And:i\d+>>      And [<<Shr>>,<<Const127>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$Shr25And127(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shr25And127(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const25:i\d+>>  IntConstant 25
   /// CHECK-DAG:     <<UShr:i\d+>>     UShr [<<Arg>>,<<Const25>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: int Main.$noinline$Shr25And127(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shr25And127(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
   /// CHECK-NOT:                       And
 
@@ -240,7 +240,7 @@ public class Main {
     return (arg >> 25) & 127;
   }
 
-  /// CHECK-START: long Main.$noinline$Shr56And255(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Shr56And255(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const56:i\d+>>  IntConstant 56
   /// CHECK-DAG:     <<Const255:j\d+>> LongConstant 255
@@ -248,13 +248,13 @@ public class Main {
   /// CHECK-DAG:     <<And:j\d+>>      And [<<Shr>>,<<Const255>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$Shr56And255(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr56And255(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const56:i\d+>>  IntConstant 56
   /// CHECK-DAG:     <<UShr:j\d+>>     UShr [<<Arg>>,<<Const56>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: long Main.$noinline$Shr56And255(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr56And255(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
   /// CHECK-NOT:                       And
 
@@ -262,7 +262,7 @@ public class Main {
     return (arg >> 56) & 255;
   }
 
-  /// CHECK-START: long Main.$noinline$Shr57And127(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Shr57And127(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const57:i\d+>>  IntConstant 57
   /// CHECK-DAG:     <<Const127:j\d+>> LongConstant 127
@@ -270,13 +270,13 @@ public class Main {
   /// CHECK-DAG:     <<And:j\d+>>      And [<<Shr>>,<<Const127>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$Shr57And127(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr57And127(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const57:i\d+>>  IntConstant 57
   /// CHECK-DAG:     <<UShr:j\d+>>     UShr [<<Arg>>,<<Const57>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: long Main.$noinline$Shr57And127(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr57And127(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
   /// CHECK-NOT:                       And
 
@@ -284,7 +284,7 @@ public class Main {
     return (arg >> 57) & 127;
   }
 
-  /// CHECK-START: int Main.$noinline$Shr24And127(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Shr24And127(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const24:i\d+>>  IntConstant 24
   /// CHECK-DAG:     <<Const127:i\d+>> IntConstant 127
@@ -292,7 +292,7 @@ public class Main {
   /// CHECK-DAG:     <<And:i\d+>>      And [<<Shr>>,<<Const127>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$Shr24And127(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shr24And127(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const24:i\d+>>  IntConstant 24
   /// CHECK-DAG:     <<Const127:i\d+>> IntConstant 127
@@ -304,7 +304,7 @@ public class Main {
     return (arg >> 24) & 127;
   }
 
-  /// CHECK-START: long Main.$noinline$Shr56And127(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Shr56And127(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const56:i\d+>>  IntConstant 56
   /// CHECK-DAG:     <<Const127:j\d+>> LongConstant 127
@@ -312,7 +312,7 @@ public class Main {
   /// CHECK-DAG:     <<And:j\d+>>      And [<<Shr>>,<<Const127>>]
   /// CHECK-DAG:                       Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$Shr56And127(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr56And127(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const56:i\d+>>  IntConstant 56
   /// CHECK-DAG:     <<Const127:j\d+>> LongConstant 127
@@ -324,96 +324,96 @@ public class Main {
     return (arg >> 56) & 127;
   }
 
-  /// CHECK-START: long Main.$noinline$Div1(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Div1(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Const1:j\d+>>  LongConstant 1
   /// CHECK-DAG:     <<Div:j\d+>>     Div [<<Arg>>,<<Const1>>]
   /// CHECK-DAG:                      Return [<<Div>>]
 
-  /// CHECK-START: long Main.$noinline$Div1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Div1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:                      Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Div1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Div1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                      Div
 
   public static long $noinline$Div1(long arg) {
     return arg / 1;
   }
 
-  /// CHECK-START: int Main.$noinline$DivN1(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$DivN1(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<ConstN1:i\d+>>  IntConstant -1
   /// CHECK-DAG:     <<Div:i\d+>>      Div [<<Arg>>,<<ConstN1>>]
   /// CHECK-DAG:                       Return [<<Div>>]
 
-  /// CHECK-START: int Main.$noinline$DivN1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$DivN1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg>>]
   /// CHECK-DAG:                       Return [<<Neg>>]
 
-  /// CHECK-START: int Main.$noinline$DivN1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$DivN1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Div
 
   public static int $noinline$DivN1(int arg) {
     return arg / -1;
   }
 
-  /// CHECK-START: long Main.$noinline$Mul1(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Mul1(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Const1:j\d+>>  LongConstant 1
   /// CHECK-DAG:     <<Mul:j\d+>>     Mul [<<Const1>>,<<Arg>>]
   /// CHECK-DAG:                      Return [<<Mul>>]
 
-  /// CHECK-START: long Main.$noinline$Mul1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Mul1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>     ParameterValue
   /// CHECK-DAG:                      Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Mul1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Mul1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Mul
 
   public static long $noinline$Mul1(long arg) {
     return arg * 1;
   }
 
-  /// CHECK-START: int Main.$noinline$MulN1(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$MulN1(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<ConstN1:i\d+>>  IntConstant -1
   /// CHECK-DAG:     <<Mul:i\d+>>      Mul [<<Arg>>,<<ConstN1>>]
   /// CHECK-DAG:                       Return [<<Mul>>]
 
-  /// CHECK-START: int Main.$noinline$MulN1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$MulN1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg>>]
   /// CHECK-DAG:                       Return [<<Neg>>]
 
-  /// CHECK-START: int Main.$noinline$MulN1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$MulN1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Mul
 
   public static int $noinline$MulN1(int arg) {
     return arg * -1;
   }
 
-  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
   /// CHECK-DAG:     <<Const128:j\d+>>  LongConstant 128
   /// CHECK-DAG:     <<Mul:j\d+>>       Mul [<<Const128>>,<<Arg>>]
   /// CHECK-DAG:                        Return [<<Mul>>]
 
-  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
   /// CHECK-DAG:     <<Const7:i\d+>>    IntConstant 7
   /// CHECK-DAG:     <<Shl:j\d+>>       Shl [<<Arg>>,<<Const7>>]
   /// CHECK-DAG:                        Return [<<Shl>>]
 
-  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$MulPowerOfTwo128(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Mul
 
   public static long $noinline$MulPowerOfTwo128(long arg) {
     return arg * 128;
   }
 
-  /// CHECK-START: long Main.$noinline$MulMulMulConst(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$MulMulMulConst(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<ArgValue:j\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const10:j\d+>>   LongConstant 10
   /// CHECK-DAG:     <<Const11:j\d+>>   LongConstant 11
@@ -423,7 +423,7 @@ public class Main {
   /// CHECK-DAG:     <<Mul3:j\d+>>      Mul [<<Mul2>>,<<Const12>>]
   /// CHECK-DAG:                        Return [<<Mul3>>]
 
-  /// CHECK-START: long Main.$noinline$MulMulMulConst(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$MulMulMulConst(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgValue:j\d+>>   ParameterValue
   /// CHECK-DAG:     <<Const1320:j\d+>>  LongConstant 1320
   /// CHECK-DAG:     <<Mul:j\d+>>        Mul [<<ArgValue>>,<<Const1320>>]
@@ -433,126 +433,126 @@ public class Main {
     return 10 * arg * 11 * 12;
   }
 
-  /// CHECK-START: int Main.$noinline$Or0(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Or0(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<Or>>]
 
-  /// CHECK-START: int Main.$noinline$Or0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Or0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$Or0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Or0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Or
 
   public static int $noinline$Or0(int arg) {
     return arg | 0;
   }
 
-  /// CHECK-START: long Main.$noinline$OrSame(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$OrSame(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
   /// CHECK-DAG:     <<Or:j\d+>>        Or [<<Arg>>,<<Arg>>]
   /// CHECK-DAG:                        Return [<<Or>>]
 
-  /// CHECK-START: long Main.$noinline$OrSame(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$OrSame(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$OrSame(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$OrSame(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Or
 
   public static long $noinline$OrSame(long arg) {
     return arg | arg;
   }
 
-  /// CHECK-START: int Main.$noinline$Shl0(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Shl0(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Shl:i\d+>>      Shl [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<Shl>>]
 
-  /// CHECK-START: int Main.$noinline$Shl0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shl0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$Shl0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Shl0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shl
 
   public static int $noinline$Shl0(int arg) {
     return arg << 0;
   }
 
-  /// CHECK-START: long Main.$noinline$Shr0(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Shr0(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Shr:j\d+>>      Shr [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<Shr>>]
 
-  /// CHECK-START: long Main.$noinline$Shr0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Shr0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
 
   public static long $noinline$Shr0(long arg) {
     return arg >> 0;
   }
 
-  /// CHECK-START: long Main.$noinline$Shr64(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Shr64(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const64:i\d+>>  IntConstant 64
   /// CHECK-DAG:     <<Shr:j\d+>>      Shr [<<Arg>>,<<Const64>>]
   /// CHECK-DAG:                       Return [<<Shr>>]
 
-  /// CHECK-START: long Main.$noinline$Shr64(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr64(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Shr64(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Shr64(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Shr
 
   public static long $noinline$Shr64(long arg) {
     return arg >> 64;
   }
 
-  /// CHECK-START: long Main.$noinline$Sub0(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$Sub0(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:j\d+>>   LongConstant 0
   /// CHECK-DAG:     <<Sub:j\d+>>      Sub [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: long Main.$noinline$Sub0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Sub0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$Sub0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$Sub0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Sub
 
   public static long $noinline$Sub0(long arg) {
     return arg - 0;
   }
 
-  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Const0>>,<<Arg>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg>>]
   /// CHECK-DAG:                       Return [<<Neg>>]
 
-  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubAliasNeg(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Sub
 
   public static int $noinline$SubAliasNeg(int arg) {
     return 0 - arg;
   }
 
-  /// CHECK-START: int Main.$noinline$SubAddConst1(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubAddConst1(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const5:i\d+>>    IntConstant 5
   /// CHECK-DAG:     <<Const6:i\d+>>    IntConstant 6
@@ -560,7 +560,7 @@ public class Main {
   /// CHECK-DAG:     <<Add:i\d+>>       Add [<<Sub>>,<<Const6>>]
   /// CHECK-DAG:                        Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$SubAddConst1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubAddConst1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const11:i\d+>>   IntConstant 11
   /// CHECK-DAG:     <<Sub:i\d+>>       Sub [<<Const11>>,<<ArgValue>>]
@@ -570,7 +570,7 @@ public class Main {
     return 5 - arg + 6;
   }
 
-  /// CHECK-START: int Main.$noinline$SubAddConst2(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubAddConst2(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const14:i\d+>>   IntConstant 14
   /// CHECK-DAG:     <<Const13:i\d+>>   IntConstant 13
@@ -578,7 +578,7 @@ public class Main {
   /// CHECK-DAG:     <<Sub:i\d+>>       Sub [<<Const14>>,<<Add>>]
   /// CHECK-DAG:                        Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$SubAddConst2(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubAddConst2(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgValue:i\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
   /// CHECK-DAG:     <<Sub:i\d+>>       Sub [<<Const1>>,<<ArgValue>>]
@@ -588,7 +588,7 @@ public class Main {
     return 14 - (arg + 13);
   }
 
-  /// CHECK-START: long Main.$noinline$SubSubConst(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$SubSubConst(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<ArgValue:j\d+>>  ParameterValue
   /// CHECK-DAG:     <<Const17:j\d+>>   LongConstant 17
   /// CHECK-DAG:     <<Const18:j\d+>>   LongConstant 18
@@ -596,7 +596,7 @@ public class Main {
   /// CHECK-DAG:     <<Sub2:j\d+>>      Sub [<<Const17>>,<<Sub1>>]
   /// CHECK-DAG:                        Return [<<Sub2>>]
 
-  /// CHECK-START: long Main.$noinline$SubSubConst(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$SubSubConst(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgValue:j\d+>>  ParameterValue
   /// CHECK-DAG:     <<ConstM1:j\d+>>   LongConstant -1
   /// CHECK-DAG:     <<Add:j\d+>>       Add [<<ArgValue>>,<<ConstM1>>]
@@ -606,34 +606,34 @@ public class Main {
     return 17 - (18 - arg);
   }
 
-  /// CHECK-START: long Main.$noinline$UShr0(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$UShr0(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<UShr:j\d+>>     UShr [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<UShr>>]
 
-  /// CHECK-START: long Main.$noinline$UShr0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$UShr0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$UShr0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$UShr0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       UShr
 
   public static long $noinline$UShr0(long arg) {
     return arg >>> 0;
   }
 
-  /// CHECK-START: int Main.$noinline$Xor0(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$Xor0(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Xor:i\d+>>      Xor [<<Arg>>,<<Const0>>]
   /// CHECK-DAG:                       Return [<<Xor>>]
 
-  /// CHECK-START: int Main.$noinline$Xor0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Xor0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$Xor0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$Xor0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Xor
 
   public static int $noinline$Xor0(int arg) {
@@ -647,7 +647,7 @@ public class Main {
    * `InstructionSimplifierVisitor::TryMoveNegOnInputsAfterBinop`.
    */
 
-  /// CHECK-START: int Main.$noinline$AddNegs1(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$AddNegs1(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
@@ -655,7 +655,7 @@ public class Main {
   /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Neg1>>,<<Neg2>>]
   /// CHECK-DAG:                       Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$AddNegs1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$AddNegs1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-NOT:                       Neg
@@ -678,7 +678,7 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
@@ -688,7 +688,7 @@ public class Main {
   /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Add1>>,<<Add2>>]
   /// CHECK-DAG:                       Return [<<Or>>]
 
-  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$AddNegs2(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg1>>]
@@ -722,7 +722,7 @@ public class Main {
    * the loop.
    */
 
-  /// CHECK-START: long Main.$noinline$AddNegs3(long, long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$AddNegs3(long, long) loop_friendly_instruction_simplifier (before)
   //  -------------- Arguments and initial negation operations.
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
@@ -734,7 +734,7 @@ public class Main {
   /// CHECK:         <<Add:j\d+>>      Add [<<Neg1>>,<<Neg2>>]
   /// CHECK:                           Goto
 
-  /// CHECK-START: long Main.$noinline$AddNegs3(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$AddNegs3(long, long) loop_friendly_instruction_simplifier (after)
   //  -------------- Arguments and initial negation operations.
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
@@ -763,20 +763,20 @@ public class Main {
    * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitAdd`.
    */
 
-  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg1>>]
   /// CHECK-DAG:     <<Add:j\d+>>      Add [<<Neg>>,<<Arg2>>]
   /// CHECK-DAG:                       Return [<<Add>>]
 
-  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Sub:j\d+>>      Sub [<<Arg2>>,<<Arg1>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$AddNeg1(long, long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Neg
   /// CHECK-NOT:                       Add
 
@@ -793,7 +793,7 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
@@ -802,7 +802,7 @@ public class Main {
   /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
   /// CHECK-DAG:                       Return [<<Res>>]
 
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg2>>]
@@ -811,7 +811,7 @@ public class Main {
   /// CHECK-DAG:     <<Res:j\d+>>      Or [<<Add1>>,<<Add2>>]
   /// CHECK-DAG:                       Return [<<Res>>]
 
-  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$AddNeg2(long, long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Sub
 
   public static long $noinline$AddNeg2(long arg1, long arg2) {
@@ -824,17 +824,17 @@ public class Main {
    * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNeg`.
    */
 
-  /// CHECK-START: long Main.$noinline$NegNeg1(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$NegNeg1(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Neg1:j\d+>>     Neg [<<Arg>>]
   /// CHECK-DAG:     <<Neg2:j\d+>>     Neg [<<Neg1>>]
   /// CHECK-DAG:                       Return [<<Neg2>>]
 
-  /// CHECK-START: long Main.$noinline$NegNeg1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$NegNeg1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$NegNeg1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$NegNeg1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Neg
 
   public static long $noinline$NegNeg1(long arg) {
@@ -848,19 +848,19 @@ public class Main {
    * and in `InstructionSimplifierVisitor::VisitAdd`.
    */
 
-  /// CHECK-START: int Main.$noinline$NegNeg2(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$NegNeg2(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Neg1:i\d+>>     Neg [<<Arg>>]
   /// CHECK-DAG:     <<Neg2:i\d+>>     Neg [<<Neg1>>]
   /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Neg2>>,<<Neg1>>]
   /// CHECK-DAG:                       Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$NegNeg2(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$NegNeg2(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg>>,<<Arg>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$NegNeg2(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$NegNeg2(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Neg
   /// CHECK-NOT:                       Add
 
@@ -882,18 +882,18 @@ public class Main {
    * and in `InstructionSimplifierVisitor::VisitSub`.
    */
 
-  /// CHECK-START: long Main.$noinline$NegNeg3(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$NegNeg3(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:j\d+>>   LongConstant 0
   /// CHECK-DAG:     <<Neg:j\d+>>      Neg [<<Arg>>]
   /// CHECK-DAG:     <<Sub:j\d+>>      Sub [<<Const0>>,<<Neg>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: long Main.$noinline$NegNeg3(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$NegNeg3(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:                       Return [<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$NegNeg3(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$NegNeg3(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Neg
   /// CHECK-NOT:                       Sub
 
@@ -907,20 +907,20 @@ public class Main {
    * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNeg`.
    */
 
-  /// CHECK-START: int Main.$noinline$NegSub1(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$NegSub1(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Sub>>]
   /// CHECK-DAG:                       Return [<<Neg>>]
 
-  /// CHECK-START: int Main.$noinline$NegSub1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$NegSub1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg2>>,<<Arg1>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$NegSub1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$NegSub1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Neg
 
   public static int $noinline$NegSub1(int arg1, int arg2) {
@@ -937,7 +937,7 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$NegSub2(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
@@ -946,7 +946,7 @@ public class Main {
   /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Neg1>>,<<Neg2>>]
   /// CHECK-DAG:                       Return [<<Or>>]
 
-  /// CHECK-START: int Main.$noinline$NegSub2(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$NegSub2(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Arg1>>,<<Arg2>>]
@@ -965,21 +965,21 @@ public class Main {
    * The transformation tested is implemented in `InstructionSimplifierVisitor::VisitSub`.
    */
 
-  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
   /// CHECK-DAG:     <<Sub:i\d+>>      Sub [<<Neg>>,<<Arg2>>]
   /// CHECK-DAG:                       Return [<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Add:i\d+>>      Add [<<Arg1>>,<<Arg2>>]
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Add>>]
   /// CHECK-DAG:                       Return [<<Neg>>]
 
-  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubNeg1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Sub
 
   public static int $noinline$SubNeg1(int arg1, int arg2) {
@@ -996,7 +996,7 @@ public class Main {
    * increasing the register pressure by creating or extending live ranges.
    */
 
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
@@ -1005,7 +1005,7 @@ public class Main {
   /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
   /// CHECK-DAG:                       Return [<<Or>>]
 
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:     <<Neg:i\d+>>      Neg [<<Arg1>>]
@@ -1014,7 +1014,7 @@ public class Main {
   /// CHECK-DAG:     <<Or:i\d+>>       Or [<<Sub1>>,<<Sub2>>]
   /// CHECK-DAG:                       Return [<<Or>>]
 
-  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$SubNeg2(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                       Add
 
   public static int $noinline$SubNeg2(int arg1, int arg2) {
@@ -1029,7 +1029,7 @@ public class Main {
    * the loop.
    */
 
-  /// CHECK-START: long Main.$noinline$SubNeg3(long, long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$SubNeg3(long, long) loop_friendly_instruction_simplifier (before)
   //  -------------- Arguments and initial negation operation.
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
@@ -1040,7 +1040,7 @@ public class Main {
   /// CHECK:         <<Sub:j\d+>>      Sub [<<Neg>>,<<Arg2>>]
   /// CHECK:                           Goto
 
-  /// CHECK-START: long Main.$noinline$SubNeg3(long, long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$SubNeg3(long, long) loop_friendly_instruction_simplifier (after)
   //  -------------- Arguments and initial negation operation.
   /// CHECK-DAG:     <<Arg1:j\d+>>     ParameterValue
   /// CHECK-DAG:     <<Arg2:j\d+>>     ParameterValue
@@ -1087,7 +1087,7 @@ public class Main {
     return arg;
   }
 
-  /// CHECK-START: boolean Main.$noinline$NotEqualBoolVsIntConst(boolean) instruction_simplifier$after_inlining (before)
+  /// CHECK-START: boolean Main.$noinline$NotEqualBoolVsIntConst(boolean) loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:     <<Arg:z\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:     <<Const1:i\d+>>   IntConstant 1
@@ -1109,75 +1109,75 @@ public class Main {
     return (arg ? $inline$ReturnArg(0) : $inline$ReturnArg(1)) == 2;
   }
 
-  /// CHECK-START: float Main.$noinline$Div2(float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$Div2(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const2:f\d+>>   FloatConstant 2
   /// CHECK-DAG:      <<Div:f\d+>>      Div [<<Arg>>,<<Const2>>]
   /// CHECK-DAG:                        Return [<<Div>>]
 
-  /// CHECK-START: float Main.$noinline$Div2(float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$Div2(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstP5:f\d+>>  FloatConstant 0.5
   /// CHECK-DAG:      <<Mul:f\d+>>      Mul [<<Arg>>,<<ConstP5>>]
   /// CHECK-DAG:                        Return [<<Mul>>]
 
-  /// CHECK-START: float Main.$noinline$Div2(float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$Div2(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Div
 
   public static float $noinline$Div2(float arg) {
     return arg / 2.0f;
   }
 
-  /// CHECK-START: double Main.$noinline$Div2(double) instruction_simplifier (before)
+  /// CHECK-START: double Main.$noinline$Div2(double) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:d\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const2:d\d+>>   DoubleConstant 2
   /// CHECK-DAG:      <<Div:d\d+>>      Div [<<Arg>>,<<Const2>>]
   /// CHECK-DAG:                        Return [<<Div>>]
 
-  /// CHECK-START: double Main.$noinline$Div2(double) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$Div2(double) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:d\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstP5:d\d+>>  DoubleConstant 0.5
   /// CHECK-DAG:      <<Mul:d\d+>>      Mul [<<Arg>>,<<ConstP5>>]
   /// CHECK-DAG:                        Return [<<Mul>>]
 
-  /// CHECK-START: double Main.$noinline$Div2(double) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$Div2(double) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Div
   public static double $noinline$Div2(double arg) {
     return arg / 2.0;
   }
 
-  /// CHECK-START: float Main.$noinline$DivMP25(float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$DivMP25(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstMP25:f\d+>>   FloatConstant -0.25
   /// CHECK-DAG:      <<Div:f\d+>>      Div [<<Arg>>,<<ConstMP25>>]
   /// CHECK-DAG:                        Return [<<Div>>]
 
-  /// CHECK-START: float Main.$noinline$DivMP25(float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$DivMP25(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstM4:f\d+>>  FloatConstant -4
   /// CHECK-DAG:      <<Mul:f\d+>>      Mul [<<Arg>>,<<ConstM4>>]
   /// CHECK-DAG:                        Return [<<Mul>>]
 
-  /// CHECK-START: float Main.$noinline$DivMP25(float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$DivMP25(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Div
 
   public static float $noinline$DivMP25(float arg) {
     return arg / -0.25f;
   }
 
-  /// CHECK-START: double Main.$noinline$DivMP25(double) instruction_simplifier (before)
+  /// CHECK-START: double Main.$noinline$DivMP25(double) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:d\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstMP25:d\d+>>   DoubleConstant -0.25
   /// CHECK-DAG:      <<Div:d\d+>>      Div [<<Arg>>,<<ConstMP25>>]
   /// CHECK-DAG:                        Return [<<Div>>]
 
-  /// CHECK-START: double Main.$noinline$DivMP25(double) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$DivMP25(double) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:d\d+>>      ParameterValue
   /// CHECK-DAG:      <<ConstM4:d\d+>>  DoubleConstant -4
   /// CHECK-DAG:      <<Mul:d\d+>>      Mul [<<Arg>>,<<ConstM4>>]
   /// CHECK-DAG:                        Return [<<Mul>>]
 
-  /// CHECK-START: double Main.$noinline$DivMP25(double) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$DivMP25(double) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        Div
   public static double $noinline$DivMP25(double arg) {
     return arg / -0.25f;
@@ -1187,12 +1187,12 @@ public class Main {
    * Test strength reduction of factors of the form (2^n + 1).
    */
 
-  /// CHECK-START: int Main.$noinline$mulPow2Plus1(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$mulPow2Plus1(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:   <<Arg:i\d+>>         ParameterValue
   /// CHECK-DAG:   <<Const9:i\d+>>      IntConstant 9
   /// CHECK:                            Mul [<<Arg>>,<<Const9>>]
 
-  /// CHECK-START: int Main.$noinline$mulPow2Plus1(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$mulPow2Plus1(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:   <<Arg:i\d+>>         ParameterValue
   /// CHECK-DAG:   <<Const3:i\d+>>      IntConstant 3
   /// CHECK:       <<Shift:i\d+>>       Shl [<<Arg>>,<<Const3>>]
@@ -1206,12 +1206,12 @@ public class Main {
    * Test strength reduction of factors of the form (2^n - 1).
    */
 
-  /// CHECK-START: long Main.$noinline$mulPow2Minus1(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$mulPow2Minus1(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:   <<Arg:j\d+>>         ParameterValue
   /// CHECK-DAG:   <<Const31:j\d+>>     LongConstant 31
   /// CHECK:                            Mul [<<Const31>>,<<Arg>>]
 
-  /// CHECK-START: long Main.$noinline$mulPow2Minus1(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$mulPow2Minus1(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:   <<Arg:j\d+>>         ParameterValue
   /// CHECK-DAG:   <<Const5:i\d+>>      IntConstant 5
   /// CHECK:       <<Shift:j\d+>>       Shl [<<Arg>>,<<Const5>>]
@@ -1221,7 +1221,7 @@ public class Main {
     return arg * 31;
   }
 
-  /// CHECK-START: int Main.$noinline$booleanFieldNotEqualOne() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.$noinline$booleanFieldNotEqualOne() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:      <<Const1:i\d+>>   IntConstant 1
   /// CHECK-DAG:      <<Const13:i\d+>>  IntConstant 13
   /// CHECK-DAG:      <<Const54:i\d+>>  IntConstant 54
@@ -1242,7 +1242,7 @@ public class Main {
     return (booleanField == $inline$true()) ? 13 : 54;
   }
 
-  /// CHECK-START: int Main.$noinline$booleanFieldEqualZero() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.$noinline$booleanFieldEqualZero() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:      <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:      <<Const13:i\d+>>  IntConstant 13
   /// CHECK-DAG:      <<Const54:i\d+>>  IntConstant 54
@@ -1263,7 +1263,7 @@ public class Main {
     return (booleanField != $inline$false()) ? 13 : 54;
   }
 
-  /// CHECK-START: int Main.$noinline$intConditionNotEqualOne(int) instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.$noinline$intConditionNotEqualOne(int) loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:      <<Const1:i\d+>>   IntConstant 1
@@ -1293,7 +1293,7 @@ public class Main {
     return ((i > 42) == $inline$true()) ? 13 : 54;
   }
 
-  /// CHECK-START: int Main.$noinline$intConditionEqualZero(int) instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.$noinline$intConditionEqualZero(int) loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const0:i\d+>>   IntConstant 0
   /// CHECK-DAG:      <<Const1:i\d+>>   IntConstant 1
@@ -1357,17 +1357,17 @@ public class Main {
     return ((d > 42.0) != false) ? 13 : 54;
   }
 
-  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Double>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intToDoubleToInt(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        TypeConversion
 
   public static int $noinline$intToDoubleToInt(int value) {
@@ -1375,16 +1375,16 @@ public class Main {
     return (int) (double) value;
   }
 
-  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) instruction_simplifier (before)
+  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      {{i\d+}}          TypeConversion [<<Double>>]
 
-  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) instruction_simplifier (after)
+  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      {{d\d+}}          TypeConversion [<<Arg>>]
 
-  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) instruction_simplifier (after)
+  /// CHECK-START: java.lang.String Main.$noinline$intToDoubleToIntPrint(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:                        TypeConversion
   /// CHECK-NOT:                        TypeConversion
 
@@ -1396,17 +1396,17 @@ public class Main {
     return "d=" + d + ", i=" + i;
   }
 
-  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Double>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$byteToDoubleToInt(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        TypeConversion
 
   public static int $noinline$byteToDoubleToInt(byte value) {
@@ -1414,18 +1414,18 @@ public class Main {
     return (int) (double) value;
   }
 
-  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Double>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$floatToDoubleToInt(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:                        TypeConversion
   /// CHECK-NOT:                        TypeConversion
 
@@ -1434,12 +1434,12 @@ public class Main {
     return (int) (double) value;
   }
 
-  /// CHECK-START: java.lang.String Main.$noinline$floatToDoubleToIntPrint(float) instruction_simplifier (before)
+  /// CHECK-START: java.lang.String Main.$noinline$floatToDoubleToIntPrint(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      {{i\d+}}          TypeConversion [<<Double>>]
 
-  /// CHECK-START: java.lang.String Main.$noinline$floatToDoubleToIntPrint(float) instruction_simplifier (after)
+  /// CHECK-START: java.lang.String Main.$noinline$floatToDoubleToIntPrint(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      {{i\d+}}          TypeConversion [<<Double>>]
@@ -1452,18 +1452,18 @@ public class Main {
     return "d=" + d + ", i=" + i;
   }
 
-  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) instruction_simplifier (before)
+  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Double>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
-  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$byteToDoubleToShort(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        TypeConversion
 
   public static short $noinline$byteToDoubleToShort(byte value) {
@@ -1473,19 +1473,19 @@ public class Main {
     return (short) (double) value;
   }
 
-  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) instruction_simplifier (before)
+  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:c\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Double>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:c\d+>>      ParameterValue
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$charToDoubleToShort(char) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:                        TypeConversion
   /// CHECK-NOT:                        TypeConversion
 
@@ -1496,13 +1496,13 @@ public class Main {
     return (short) (double) value;
   }
 
-  /// CHECK-START: short Main.$noinline$floatToIntToShort(float) instruction_simplifier (before)
+  /// CHECK-START: short Main.$noinline$floatToIntToShort(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$floatToIntToShort(float) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$floatToIntToShort(float) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:f\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Int>>]
@@ -1513,13 +1513,13 @@ public class Main {
     return (short) value;
   }
 
-  /// CHECK-START: int Main.$noinline$intToFloatToInt(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intToFloatToInt(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Float:f\d+>>    TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Float>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$intToFloatToInt(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intToFloatToInt(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Float:f\d+>>    TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Float>>]
@@ -1530,13 +1530,13 @@ public class Main {
     return (int) (float) value;
   }
 
-  /// CHECK-START: double Main.$noinline$longToIntToDouble(long) instruction_simplifier (before)
+  /// CHECK-START: double Main.$noinline$longToIntToDouble(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Double>>]
 
-  /// CHECK-START: double Main.$noinline$longToIntToDouble(long) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$longToIntToDouble(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Int>>]
@@ -1547,13 +1547,13 @@ public class Main {
     return (double) (int) value;
   }
 
-  /// CHECK-START: long Main.$noinline$longToIntToLong(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$longToIntToLong(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Long>>]
 
-  /// CHECK-START: long Main.$noinline$longToIntToLong(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$longToIntToLong(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Int>>]
@@ -1564,13 +1564,13 @@ public class Main {
     return (long) (int) value;
   }
 
-  /// CHECK-START: short Main.$noinline$shortToCharToShort(short) instruction_simplifier (before)
+  /// CHECK-START: short Main.$noinline$shortToCharToShort(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<Char>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$shortToCharToShort(short) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$shortToCharToShort(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
@@ -1579,13 +1579,13 @@ public class Main {
     return (short) (char) value;
   }
 
-  /// CHECK-START: int Main.$noinline$shortToLongToInt(short) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$shortToLongToInt(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Int:i\d+>>      TypeConversion [<<Long>>]
   /// CHECK-DAG:                        Return [<<Int>>]
 
-  /// CHECK-START: int Main.$noinline$shortToLongToInt(short) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$shortToLongToInt(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
 
@@ -1594,13 +1594,13 @@ public class Main {
     return (int) (long) value;
   }
 
-  /// CHECK-START: byte Main.$noinline$shortToCharToByte(short) instruction_simplifier (before)
+  /// CHECK-START: byte Main.$noinline$shortToCharToByte(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<Byte:b\d+>>     TypeConversion [<<Char>>]
   /// CHECK-DAG:                        Return [<<Byte>>]
 
-  /// CHECK-START: byte Main.$noinline$shortToCharToByte(short) instruction_simplifier (after)
+  /// CHECK-START: byte Main.$noinline$shortToCharToByte(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Byte:b\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Byte>>]
@@ -1611,12 +1611,12 @@ public class Main {
     return (byte) (char) value;
   }
 
-  /// CHECK-START: java.lang.String Main.$noinline$shortToCharToBytePrint(short) instruction_simplifier (before)
+  /// CHECK-START: java.lang.String Main.$noinline$shortToCharToBytePrint(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      {{b\d+}}          TypeConversion [<<Char>>]
 
-  /// CHECK-START: java.lang.String Main.$noinline$shortToCharToBytePrint(short) instruction_simplifier (after)
+  /// CHECK-START: java.lang.String Main.$noinline$shortToCharToBytePrint(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      {{b\d+}}          TypeConversion [<<Char>>]
@@ -1629,14 +1629,14 @@ public class Main {
     return "c=" + ((int) c) + ", b=" + ((int) b);  // implicit conversions.
   }
 
-  /// CHECK-START: long Main.$noinline$intAndSmallLongConstant(int) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$intAndSmallLongConstant(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:j\d+>>     LongConstant -12345678
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<And:j\d+>>      And [<<Long>>,<<Mask>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$intAndSmallLongConstant(int) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$intAndSmallLongConstant(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:i\d+>>     IntConstant -12345678
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Arg>>,<<Mask>>]
@@ -1647,14 +1647,14 @@ public class Main {
     return value & -12345678L;  // Shall be simplified (constant is 32-bit).
   }
 
-  /// CHECK-START: long Main.$noinline$intAndLargeLongConstant(int) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$intAndLargeLongConstant(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:j\d+>>     LongConstant 9876543210
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:      <<And:j\d+>>      And [<<Long>>,<<Mask>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$intAndLargeLongConstant(int) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$intAndLargeLongConstant(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:j\d+>>     LongConstant 9876543210
   /// CHECK-DAG:      <<Long:j\d+>>     TypeConversion [<<Arg>>]
@@ -1665,7 +1665,7 @@ public class Main {
     return value & 9876543210L;  // Shall not be simplified (constant is not 32-bit).
   }
 
-  /// CHECK-START: long Main.$noinline$intShr28And15L(int) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$intShr28And15L(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Shift:i\d+>>    IntConstant 28
   /// CHECK-DAG:      <<Mask:j\d+>>     LongConstant 15
@@ -1674,7 +1674,7 @@ public class Main {
   /// CHECK-DAG:      <<And:j\d+>>      And [<<Long>>,<<Mask>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: long Main.$noinline$intShr28And15L(int) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$intShr28And15L(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Shift:i\d+>>    IntConstant 28
   /// CHECK-DAG:      <<Shifted:i\d+>>  UShr [<<Arg>>,<<Shift>>]
@@ -1685,7 +1685,7 @@ public class Main {
     return (value >> 28) & 15L;
   }
 
-  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) instruction_simplifier (before)
+  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:j\d+>>     LongConstant 255
   /// CHECK-DAG:      <<And:j\d+>>      And [<<Mask>>,<<Arg>>]
@@ -1693,31 +1693,31 @@ public class Main {
   /// CHECK-DAG:      <<Byte:b\d+>>     TypeConversion [<<Int>>]
   /// CHECK-DAG:                        Return [<<Byte>>]
 
-  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) instruction_simplifier (after)
+  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:      <<Byte:b\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Byte>>]
 
-  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) instruction_simplifier (after)
+  /// CHECK-START: byte Main.$noinline$longAnd0xffToByte(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
 
   public static byte $noinline$longAnd0xffToByte(long value) {
     return (byte) (value & 0xff);
   }
 
-  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) instruction_simplifier (before)
+  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:i\d+>>     IntConstant 131071
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Mask>>,<<Arg>>]
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<And>>]
   /// CHECK-DAG:                        Return [<<Char>>]
 
-  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) instruction_simplifier (after)
+  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Char:c\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Char>>]
 
-  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) instruction_simplifier (after)
+  /// CHECK-START: char Main.$noinline$intAnd0x1ffffToChar(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
 
   public static char $noinline$intAnd0x1ffffToChar(int value) {
@@ -1725,14 +1725,14 @@ public class Main {
     return (char) (value & 0x1ffff);
   }
 
-  /// CHECK-START: short Main.$noinline$intAnd0x17fffToShort(int) instruction_simplifier (before)
+  /// CHECK-START: short Main.$noinline$intAnd0x17fffToShort(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:i\d+>>     IntConstant 98303
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Mask>>,<<Arg>>]
   /// CHECK-DAG:      <<Short:s\d+>>    TypeConversion [<<And>>]
   /// CHECK-DAG:                        Return [<<Short>>]
 
-  /// CHECK-START: short Main.$noinline$intAnd0x17fffToShort(int) instruction_simplifier (after)
+  /// CHECK-START: short Main.$noinline$intAnd0x17fffToShort(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:i\d+>>     IntConstant 98303
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Mask>>,<<Arg>>]
@@ -1744,7 +1744,7 @@ public class Main {
     return (short) (value & 0x17fff);
   }
 
-  /// CHECK-START: double Main.$noinline$shortAnd0xffffToShortToDouble(short) instruction_simplifier (before)
+  /// CHECK-START: double Main.$noinline$shortAnd0xffffToShortToDouble(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Mask:i\d+>>     IntConstant 65535
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Mask>>,<<Arg>>]
@@ -1752,7 +1752,7 @@ public class Main {
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Same>>]
   /// CHECK-DAG:                        Return [<<Double>>]
 
-  /// CHECK-START: double Main.$noinline$shortAnd0xffffToShortToDouble(short) instruction_simplifier (after)
+  /// CHECK-START: double Main.$noinline$shortAnd0xffffToShortToDouble(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
   /// CHECK-DAG:      <<Double:d\d+>>   TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Double>>]
@@ -1762,12 +1762,12 @@ public class Main {
     return (double) same;
   }
 
-  /// CHECK-START: int Main.$noinline$intReverseCondition(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intReverseCondition(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const42:i\d+>>  IntConstant 42
   /// CHECK-DAG:      <<LE:z\d+>>       LessThanOrEqual [<<Const42>>,<<Arg>>]
 
-  /// CHECK-START: int Main.$noinline$intReverseCondition(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intReverseCondition(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const42:i\d+>>  IntConstant 42
   /// CHECK-DAG:      <<GE:z\d+>>       GreaterThanOrEqual [<<Arg>>,<<Const42>>]
@@ -1776,12 +1776,12 @@ public class Main {
     return (42 > i) ? 13 : 54;
   }
 
-  /// CHECK-START: int Main.$noinline$intReverseConditionNaN(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intReverseConditionNaN(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const42:d\d+>>  DoubleConstant 42
   /// CHECK-DAG:      <<Result:d\d+>>   InvokeStaticOrDirect
   /// CHECK-DAG:      <<CMP:i\d+>>      Compare [<<Const42>>,<<Result>>]
 
-  /// CHECK-START: int Main.$noinline$intReverseConditionNaN(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intReverseConditionNaN(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Const42:d\d+>>  DoubleConstant 42
   /// CHECK-DAG:      <<Result:d\d+>>   InvokeStaticOrDirect
   /// CHECK-DAG:      <<EQ:z\d+>>       Equal [<<Result>>,<<Const42>>]
@@ -1834,7 +1834,7 @@ public class Main {
     }
   }
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftMasking(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftMasking(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const31:i\d+>>  IntConstant 31
@@ -1842,7 +1842,7 @@ public class Main {
   /// CHECK-DAG:      <<Shl:i\d+>>      Shl [<<Value>>,<<And>>]
   /// CHECK-DAG:                        Return [<<Shl>>]
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftMasking(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftMasking(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Shl:i\d+>>      Shl [<<Value>>,<<Shift>>]
@@ -1852,7 +1852,7 @@ public class Main {
     return value << (shift & 31);
   }
 
-  /// CHECK-START: long Main.$noinline$longUnnecessaryShiftMasking(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$longUnnecessaryShiftMasking(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:j\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const63:i\d+>>  IntConstant 63
@@ -1860,7 +1860,7 @@ public class Main {
   /// CHECK-DAG:      <<Shr:j\d+>>      Shr [<<Value>>,<<And>>]
   /// CHECK-DAG:                        Return [<<Shr>>]
 
-  /// CHECK-START: long Main.$noinline$longUnnecessaryShiftMasking(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$longUnnecessaryShiftMasking(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:j\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Shr:j\d+>>      Shr [<<Value>>,<<Shift>>]
@@ -1870,7 +1870,7 @@ public class Main {
     return value >> (shift & 63);
   }
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryWiderShiftMasking(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryWiderShiftMasking(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
@@ -1878,7 +1878,7 @@ public class Main {
   /// CHECK-DAG:      <<UShr:i\d+>>     UShr [<<Value>>,<<And>>]
   /// CHECK-DAG:                        Return [<<UShr>>]
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryWiderShiftMasking(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryWiderShiftMasking(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<UShr:i\d+>>     UShr [<<Value>>,<<Shift>>]
@@ -1888,7 +1888,7 @@ public class Main {
     return value >>> (shift & 0xff);
   }
 
-  /// CHECK-START: long Main.$noinline$longSmallerShiftMasking(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.$noinline$longSmallerShiftMasking(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:j\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const3:i\d+>>   IntConstant 3
@@ -1896,7 +1896,7 @@ public class Main {
   /// CHECK-DAG:      <<Shl:j\d+>>      Shl [<<Value>>,<<And>>]
   /// CHECK-DAG:                        Return [<<Shl>>]
 
-  /// CHECK-START: long Main.$noinline$longSmallerShiftMasking(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.$noinline$longSmallerShiftMasking(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:j\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const3:i\d+>>   IntConstant 3
@@ -1908,7 +1908,7 @@ public class Main {
     return value << (shift & 3);
   }
 
-  /// CHECK-START: int Main.$noinline$otherUseOfUnnecessaryShiftMasking(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$otherUseOfUnnecessaryShiftMasking(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const31:i\d+>>  IntConstant 31
@@ -1917,7 +1917,7 @@ public class Main {
   /// CHECK-DAG:      <<Add:i\d+>>      Add [<<Shr>>,<<And>>]
   /// CHECK-DAG:                        Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$otherUseOfUnnecessaryShiftMasking(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$otherUseOfUnnecessaryShiftMasking(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const31:i\d+>>  IntConstant 31
@@ -1931,7 +1931,7 @@ public class Main {
     return (value >> temp) + temp;
   }
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftModifications(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftModifications(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const32:i\d+>>  IntConstant 32
@@ -1949,7 +1949,7 @@ public class Main {
   /// CHECK-DAG:                        Shl [<<Value>>,<<Sub>>]
   /// CHECK-DAG:                        Shr [<<Value>>,<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftModifications(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intUnnecessaryShiftModifications(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:                        Shl [<<Value>>,<<Shift>>]
@@ -1967,7 +1967,7 @@ public class Main {
            (value >> ((byte) shift));
   }
 
-  /// CHECK-START: int Main.$noinline$intNecessaryShiftModifications(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intNecessaryShiftModifications(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const33:i\d+>>  IntConstant 33
@@ -1983,7 +1983,7 @@ public class Main {
   /// CHECK-DAG:                        UShr [<<Value>>,<<Add>>]
   /// CHECK-DAG:                        Shl [<<Value>>,<<Sub>>]
 
-  /// CHECK-START: int Main.$noinline$intNecessaryShiftModifications(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intNecessaryShiftModifications(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<Value:i\d+>>    ParameterValue
   /// CHECK:          <<Shift:i\d+>>    ParameterValue
   /// CHECK-DAG:      <<Const33:i\d+>>  IntConstant 33
@@ -2007,14 +2007,14 @@ public class Main {
            (value << (shift - c129));  // Needs a named constant to generate Sub.
   }
 
-  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg1(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg1(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:i\d+>>      Add [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:i\d+>>      Sub [<<Sum>>,<<X>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg1(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg1(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:i\d+>>      Add [<<X>>,<<Y>>]
@@ -2025,14 +2025,14 @@ public class Main {
     return sum - x;
   }
 
-  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg2(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg2(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:i\d+>>      Add [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:i\d+>>      Sub [<<Sum>>,<<Y>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg2(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg2(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:i\d+>>      Add [<<X>>,<<Y>>]
@@ -2043,14 +2043,14 @@ public class Main {
     return sum - y;
   }
 
-  /// CHECK-START: int Main.$noinline$intSubAddSimplifyLeft(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intSubAddSimplifyLeft(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:i\d+>>      Sub [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:i\d+>>      Add [<<Sub>>,<<Y>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: int Main.$noinline$intSubAddSimplifyLeft(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intSubAddSimplifyLeft(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:i\d+>>      Sub [<<X>>,<<Y>>]
@@ -2061,14 +2061,14 @@ public class Main {
     return sub + y;
   }
 
-  /// CHECK-START: int Main.$noinline$intSubAddSimplifyRight(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intSubAddSimplifyRight(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:i\d+>>      Sub [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:i\d+>>      Add [<<Y>>,<<Sub>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: int Main.$noinline$intSubAddSimplifyRight(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intSubAddSimplifyRight(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:i\d+>>      Sub [<<X>>,<<Y>>]
@@ -2079,14 +2079,14 @@ public class Main {
     return y + sub;
   }
 
-  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg1(float, float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg1(float, float) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:f\d+>>      Add [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:f\d+>>      Sub [<<Sum>>,<<X>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg1(float, float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg1(float, float) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:f\d+>>      Add [<<X>>,<<Y>>]
@@ -2098,14 +2098,14 @@ public class Main {
     return sum - x;
   }
 
-  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg2(float, float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg2(float, float) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:f\d+>>      Add [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:f\d+>>      Sub [<<Sum>>,<<Y>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg2(float, float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$floatAddSubSimplifyArg2(float, float) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sum:f\d+>>      Add [<<X>>,<<Y>>]
@@ -2117,14 +2117,14 @@ public class Main {
     return sum - y;
   }
 
-  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyLeft(float, float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyLeft(float, float) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:f\d+>>      Sub [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:f\d+>>      Add [<<Sub>>,<<Y>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyLeft(float, float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyLeft(float, float) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:f\d+>>      Sub [<<X>>,<<Y>>]
@@ -2136,14 +2136,14 @@ public class Main {
     return sub + y;
   }
 
-  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyRight(float, float) instruction_simplifier (before)
+  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyRight(float, float) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:f\d+>>      Sub [<<X>>,<<Y>>]
   /// CHECK-DAG:      <<Res:f\d+>>      Add [<<Y>>,<<Sub>>]
   /// CHECK-DAG:                        Return [<<Res>>]
 
-  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyRight(float, float) instruction_simplifier (after)
+  /// CHECK-START: float Main.$noinline$floatSubAddSimplifyRight(float, float) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<X:f\d+>>        ParameterValue
   /// CHECK:          <<Y:f\d+>>        ParameterValue
   /// CHECK-DAG:      <<Sub:f\d+>>      Sub [<<X>>,<<Y>>]
@@ -2155,174 +2155,174 @@ public class Main {
     return y + sub;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      InstanceFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Const255>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:a\d+>>      InstanceFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint8FromInstanceByteField(Main m) {
     return m.instanceByteField & 0xff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Const255>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:a\d+>>      StaticFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromStaticByteField() loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint8FromStaticByteField() {
     return staticByteField & 0xff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      ArrayGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Const255>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:a\d+>>      ArrayGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromByteArray(byte[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint8FromByteArray(byte[] a) {
     return a[0] & 0xff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Cst65535:i\d+>> IntConstant 65535
   /// CHECK-DAG:      <<Get:s\d+>>      InstanceFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Cst65535>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:c\d+>>      InstanceFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromInstanceShortField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint16FromInstanceShortField(Main m) {
     return m.instanceShortField & 0xffff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Cst65535:i\d+>> IntConstant 65535
   /// CHECK-DAG:      <<Get:s\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Cst65535>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:c\d+>>      StaticFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromStaticShortField() loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint16FromStaticShortField() {
     return staticShortField & 0xffff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Cst65535:i\d+>> IntConstant 65535
   /// CHECK-DAG:      <<Get:s\d+>>      ArrayGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Cst65535>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:c\d+>>      ArrayGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint16FromShortArray(short[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getUint16FromShortArray(short[] a) {
     return a[0] & 0xffff;
   }
 
-  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Get:c\d+>>      InstanceFieldGet
   /// CHECK-DAG:      <<Conv:s\d+>>     TypeConversion [<<Get>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:s\d+>>      InstanceFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromInstanceCharField(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getInt16FromInstanceCharField(Main m) {
     return (short) m.instanceCharField;
   }
 
-  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Get:c\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<Conv:s\d+>>     TypeConversion [<<Get>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:s\d+>>      StaticFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromStaticCharField() loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getInt16FromStaticCharField() {
     return (short) staticCharField;
   }
 
-  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Get:c\d+>>      ArrayGet
   /// CHECK-DAG:      <<Conv:s\d+>>     TypeConversion [<<Get>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:s\d+>>      ArrayGet
   /// CHECK-DAG:                        Return [<<Get>>]
 
-  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInt16FromCharArray(char[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        And
   /// CHECK-NOT:                        TypeConversion
   public static int $noinline$getInt16FromCharArray(char[] a) {
     return (short) a[0];
   }
 
-  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Const255>>]
   /// CHECK-DAG:      <<Invoke:i\d+>>   InvokeStaticOrDirect [<<And>>{{(,[ij]\d+)?}}]
   /// CHECK-DAG:                        Return [<<Invoke>>]
 
-  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:a\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<Invoke:i\d+>>   InvokeStaticOrDirect [<<Get>>{{(,[ij]\d+)?}}]
   /// CHECK-DAG:                        Return [<<Invoke>>]
 
-  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG:      <<Get:a\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<Conv:b\d+>>     TypeConversion [<<Get>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() instruction_simplifier$after_inlining (after)
+  /// CHECK-START: int Main.$noinline$byteToUint8AndBack() loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-DAG:      <<Get:b\d+>>      StaticFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
   public static int $noinline$byteToUint8AndBack() {
@@ -2333,25 +2333,25 @@ public class Main {
     return (byte) value;
   }
 
-  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:c\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Const255>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:c\d+>>      StaticFieldGet
   /// CHECK-DAG:      <<Cnv:a\d+>>      TypeConversion [<<Get>>]
   /// CHECK-DAG:                        Return [<<Cnv>>]
 
-  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getStaticCharFieldAnd0xff() loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      {{a\d+}}          StaticFieldGet
   public static int $noinline$getStaticCharFieldAnd0xff() {
     return staticCharField & 0xff;
   }
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Const8:i\d+>>   IntConstant 8
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      InstanceFieldGet
@@ -2360,7 +2360,7 @@ public class Main {
   /// CHECK-DAG:      <<Add:i\d+>>      Add [<<And>>,<<Shl>>]
   /// CHECK-DAG:                        Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Const8:i\d+>>   IntConstant 8
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<Get:b\d+>>      InstanceFieldGet
@@ -2369,7 +2369,7 @@ public class Main {
   /// CHECK-DAG:      <<Add:i\d+>>      Add [<<Cnv>>,<<Shl>>]
   /// CHECK-DAG:                        Return [<<Add>>]
 
-  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      {{a\d+}}          InstanceFieldGet
   public static int $noinline$getUint8FromInstanceByteFieldWithAnotherUse(Main m) {
     byte b = m.instanceByteField;
@@ -2378,14 +2378,14 @@ public class Main {
     return v1 + v2;
   }
 
-  /// CHECK-START: int Main.$noinline$intAnd0xffToChar(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intAnd0xffToChar(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const255:i\d+>> IntConstant 255
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Arg>>,<<Const255>>]
   /// CHECK-DAG:      <<Conv:c\d+>>     TypeConversion [<<And>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$intAnd0xffToChar(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$intAnd0xffToChar(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Conv:a\d+>>     TypeConversion [<<Arg>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
@@ -2393,7 +2393,7 @@ public class Main {
     return (char) (value & 0xff);
   }
 
-  /// CHECK-START: int Main.$noinline$intAnd0x1ffToChar(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$intAnd0x1ffToChar(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const511:i\d+>> IntConstant 511
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Arg>>,<<Const511>>]
@@ -2403,7 +2403,7 @@ public class Main {
   // TODO: Simplify this. Unlike the $noinline$intAnd0xffToChar(), the TypeConversion
   // to `char` is not eliminated despite the result of the And being within the `char` range.
 
-  // CHECK-START: int Main.$noinline$intAnd0x1ffToChar(int) instruction_simplifier (after)
+  // CHECK-START: int Main.$noinline$intAnd0x1ffToChar(int) loop_friendly_instruction_simplifier (after)
   // CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   // CHECK-DAG:      <<Const511:i\d+>> IntConstant 511
   // CHECK-DAG:      <<And:i\d+>>      And [<<Arg>>,<<Const511>>]
@@ -2412,20 +2412,20 @@ public class Main {
     return (char) (value & 0x1ff);
   }
 
-  /// CHECK-START: int Main.$noinline$getInstanceCharFieldAnd0x1ffff(Main) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$getInstanceCharFieldAnd0x1ffff(Main) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Cst1ffff:i\d+>> IntConstant 131071
   /// CHECK-DAG:      <<Get:c\d+>>      InstanceFieldGet
   /// CHECK-DAG:      <<And:i\d+>>      And [<<Get>>,<<Cst1ffff>>]
   /// CHECK-DAG:                        Return [<<And>>]
 
-  /// CHECK-START: int Main.$noinline$getInstanceCharFieldAnd0x1ffff(Main) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$getInstanceCharFieldAnd0x1ffff(Main) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Get:c\d+>>      InstanceFieldGet
   /// CHECK-DAG:                        Return [<<Get>>]
   public static int $noinline$getInstanceCharFieldAnd0x1ffff(Main m) {
     return m.instanceCharField & 0x1ffff;
   }
 
-  /// CHECK-START: int Main.$noinline$bug68142795Byte(byte) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$bug68142795Byte(byte) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:      <<Const:i\d+>>    IntConstant 255
   /// CHECK-DAG:      <<And1:i\d+>>     And [<<Arg>>,<<Const>>]
@@ -2433,14 +2433,14 @@ public class Main {
   /// CHECK-DAG:      <<Conv:b\d+>>     TypeConversion [<<And2>>]
   /// CHECK-DAG:                        Return [<<Conv>>]
 
-  /// CHECK-START: int Main.$noinline$bug68142795Byte(byte) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$bug68142795Byte(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
   public static int $noinline$bug68142795Byte(byte b) {
     return (byte)(0xff & (b & 0xff));
   }
 
-  /// CHECK-START: int Main.$noinline$bug68142795Elaborate(byte) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$bug68142795Elaborate(byte) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:      <<Int255:i\d+>>   IntConstant 255
   /// CHECK-DAG:      <<Long255:j\d+>>  LongConstant 255
@@ -2451,56 +2451,56 @@ public class Main {
   /// CHECK-DAG:      <<Conv3:b\d+>>    TypeConversion [<<Conv2>>]
   /// CHECK-DAG:                        Return [<<Conv3>>]
 
-  /// CHECK-START: int Main.$noinline$bug68142795Elaborate(byte) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$bug68142795Elaborate(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:b\d+>>      ParameterValue
   /// CHECK-DAG:                        Return [<<Arg>>]
   public static int $noinline$bug68142795Elaborate(byte b) {
     return (byte)((int)(((long)(b & 0xff)) & 255L));
   }
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Empty:l\d+>>    LoadString
   /// CHECK-DAG:      <<Equals:i\d+>>   InvokeVirtual [<<Empty>>,<<Arg>>] intrinsic:StringIndexOf
   /// CHECK-DAG:                        Return [<<Equals>>]
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        InvokeVirtual
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOf(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Minus1:i\d+>>   IntConstant -1
   /// CHECK-DAG:                        Return [<<Minus1>>]
   public static int $noinline$emptyStringIndexOf(int ch) {
     return "".indexOf(ch);
   }
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Empty:l\d+>>    LoadString
   /// CHECK-DAG:      <<Equals:i\d+>>   InvokeVirtual [<<Empty>>,<<Arg1>>,<<Arg2>>] intrinsic:StringIndexOfAfter
   /// CHECK-DAG:                        Return [<<Equals>>]
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        InvokeVirtual
 
-  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$emptyStringIndexOfAfter(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Minus1:i\d+>>   IntConstant -1
   /// CHECK-DAG:                        Return [<<Minus1>>]
   public static int $noinline$emptyStringIndexOfAfter(int ch, int fromIndex) {
     return "".indexOf(ch, fromIndex);
   }
 
-  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<Empty:l\d+>>    LoadString
   /// CHECK-DAG:      <<Equals:i\d+>>   InvokeVirtual [<<Empty>>,<<Arg>>] intrinsic:StringIndexOf
   /// CHECK-DAG:                        Return [<<Equals>>]
 
-  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                        InvokeVirtual
 
-  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$singleCharStringIndexOf(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg:i\d+>>      ParameterValue
   /// CHECK-DAG:      <<x:i\d+>>        IntConstant 120
   /// CHECK-DAG:      <<Zero:i\d+>>     IntConstant 0
@@ -2512,14 +2512,14 @@ public class Main {
     return "x".indexOf(ch);
   }
 
-  /// CHECK-START: int Main.$noinline$singleCharStringIndexOfAfter(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.$noinline$singleCharStringIndexOfAfter(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG:      <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Empty:l\d+>>    LoadString
   /// CHECK-DAG:      <<Equals:i\d+>>   InvokeVirtual [<<Empty>>,<<Arg1>>,<<Arg2>>] intrinsic:StringIndexOfAfter
   /// CHECK-DAG:                        Return [<<Equals>>]
 
-  /// CHECK-START: int Main.$noinline$singleCharStringIndexOfAfter(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.$noinline$singleCharStringIndexOfAfter(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:      <<Arg1:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Arg2:i\d+>>     ParameterValue
   /// CHECK-DAG:      <<Empty:l\d+>>    LoadString

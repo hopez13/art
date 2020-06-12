@@ -28,7 +28,7 @@ public class Main {
   /// CHECK:    <<Ret:l\d+>>     BoundType [<<Phi>>] klass:Final
   /// CHECK:                     Return [<<Ret>>]
 
-  /// CHECK-START: Final Main.testKeepCheckCast(java.lang.Object, boolean) instruction_simplifier (after)
+  /// CHECK-START: Final Main.testKeepCheckCast(java.lang.Object, boolean) loop_friendly_instruction_simplifier (after)
   /// CHECK:    <<Phi:l\d+>>     Phi
   /// CHECK:    <<Class:l\d+>>   LoadClass
   /// CHECK:                     CheckCast [<<Phi>>,<<Class>>]

@@ -56,7 +56,7 @@ public class SimdSadShort2 {
     return sad;
   }
 
-  /// CHECK-START: int SimdSadShort2.sadCastedChar2Int(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: int SimdSadShort2.sadCastedChar2Int(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<Cons1:i\d+>>  IntConstant 1                  loop:none
   /// CHECK-DAG: <<Phi2:i\d+>>   Phi [<<Cons0>>,{{i\d+}}]       loop:<<Loop:B\d+>> outer_loop:none
@@ -103,7 +103,7 @@ public class SimdSadShort2 {
     return sad;
   }
 
-  /// CHECK-START: int SimdSadShort2.sadCastedChar2IntAlt(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: int SimdSadShort2.sadCastedChar2IntAlt(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<Cons1:i\d+>>  IntConstant 1                  loop:none
   /// CHECK-DAG: <<Phi2:i\d+>>   Phi [<<Cons0>>,{{i\d+}}]       loop:<<Loop:B\d+>> outer_loop:none
@@ -153,7 +153,7 @@ public class SimdSadShort2 {
     return sad;
   }
 
-  /// CHECK-START: int SimdSadShort2.sadCastedChar2IntAlt2(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: int SimdSadShort2.sadCastedChar2IntAlt2(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<Cons1:i\d+>>  IntConstant 1                  loop:none
   /// CHECK-DAG: <<Phi2:i\d+>>   Phi [<<Cons0>>,{{i\d+}}]       loop:<<Loop:B\d+>> outer_loop:none
@@ -205,7 +205,7 @@ public class SimdSadShort2 {
     return sad;
   }
 
-  /// CHECK-START: long SimdSadShort2.sadCastedChar2Long(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: long SimdSadShort2.sadCastedChar2Long(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<Cons1:i\d+>>  IntConstant 1                  loop:none
   /// CHECK-DAG: <<ConsL:j\d+>>  LongConstant 0                 loop:none
@@ -261,7 +261,7 @@ public class SimdSadShort2 {
     return sad;
   }
 
-  /// CHECK-START: long SimdSadShort2.sadCastedChar2LongAt1(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: long SimdSadShort2.sadCastedChar2LongAt1(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<Cons1:i\d+>>  IntConstant 1                  loop:none
   /// CHECK-DAG: <<ConsL:j\d+>>  LongConstant 1                 loop:none

@@ -15,7 +15,7 @@
  */
 
 public class Main {
-  /// CHECK-START: void Main.InstanceOfPreChecked(java.lang.Object) instruction_simplifier (after)
+  /// CHECK-START: void Main.InstanceOfPreChecked(java.lang.Object) loop_friendly_instruction_simplifier (after)
   /// CHECK:       InstanceOf must_do_null_check:false
   public void InstanceOfPreChecked(Object o) throws Exception {
     o.toString();
@@ -24,7 +24,7 @@ public class Main {
     }
   }
 
-  /// CHECK-START: void Main.InstanceOf(java.lang.Object) instruction_simplifier (after)
+  /// CHECK-START: void Main.InstanceOf(java.lang.Object) loop_friendly_instruction_simplifier (after)
   /// CHECK:       InstanceOf must_do_null_check:true
   public void InstanceOf(Object o) throws Exception {
     if (o instanceof Main) {
@@ -32,14 +32,14 @@ public class Main {
     }
   }
 
-  /// CHECK-START: void Main.CheckCastPreChecked(java.lang.Object) instruction_simplifier (after)
+  /// CHECK-START: void Main.CheckCastPreChecked(java.lang.Object) loop_friendly_instruction_simplifier (after)
   /// CHECK:       CheckCast must_do_null_check:false
   public void CheckCastPreChecked(Object o) {
     o.toString();
     ((Main)o).$noinline$Bar();
   }
 
-  /// CHECK-START: void Main.CheckCast(java.lang.Object) instruction_simplifier (after)
+  /// CHECK-START: void Main.CheckCast(java.lang.Object) loop_friendly_instruction_simplifier (after)
   /// CHECK:       CheckCast must_do_null_check:true
   public void CheckCast(Object o) {
     ((Main)o).$noinline$Bar();

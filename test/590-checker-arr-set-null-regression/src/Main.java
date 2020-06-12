@@ -35,7 +35,7 @@ public class Main {
   /// CHECK-DAG:     <<CheckedIndex:i\d+>>  BoundsCheck [<<Index>>,<<Length>>]
   /// CHECK-DAG:     <<ArraySet:v\d+>>      ArraySet [<<CheckedArray>>,<<CheckedIndex>>,<<CheckedValue>>] needs_type_check:true
 
-  /// CHECK-START: void Main.testArraySetCheckCastNull(Main$Element[]) instruction_simplifier (after)
+  /// CHECK-START: void Main.testArraySetCheckCastNull(Main$Element[]) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                            CheckCast
 
   /// CHECK-START: void Main.testArraySetCheckCastNull(Main$Element[]) prepare_for_register_allocation (before)

@@ -33,7 +33,7 @@ public class Main {
     return 42;
   }
 
-  /// CHECK-START: boolean Main.classEquality1() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: boolean Main.classEquality1() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
   /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
@@ -48,7 +48,7 @@ public class Main {
     return new Main().getClass() == Main.class;
   }
 
-  /// CHECK-START: boolean Main.classEquality2() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: boolean Main.classEquality2() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
   /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
@@ -64,7 +64,7 @@ public class Main {
     return o.getClass() == Main.class;
   }
 
-  /// CHECK-START: boolean Main.classEquality3() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: boolean Main.classEquality3() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
   /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
@@ -79,7 +79,7 @@ public class Main {
     return new Main().getClass() != Main.class;
   }
 
-  /// CHECK-START: boolean Main.classEquality4() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: boolean Main.classEquality4() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
   /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}

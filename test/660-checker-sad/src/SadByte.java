@@ -19,22 +19,22 @@
  */
 public class SadByte {
 
-  /// CHECK-START: int SadByte.sad1(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadByte.sad1(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadByte.sad1(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadByte.sad1(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad1(byte x, byte y) {
     return x >= y ? x - y : y - x;
   }
 
-  /// CHECK-START: int SadByte.sad2(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadByte.sad2(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadByte.sad2(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadByte.sad2(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad2(byte x, byte y) {
@@ -43,11 +43,11 @@ public class SadByte {
     return diff;
   }
 
-  /// CHECK-START: int SadByte.sad3(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadByte.sad3(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadByte.sad3(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadByte.sad3(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad3(byte x, byte y) {
@@ -55,11 +55,11 @@ public class SadByte {
     return diff >= 0 ? diff : -diff;
   }
 
-  /// CHECK-START: int SadByte.sad3Alt(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadByte.sad3Alt(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadByte.sad3Alt(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadByte.sad3Alt(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad3Alt(byte x, byte y) {
@@ -67,11 +67,11 @@ public class SadByte {
     return 0 <= diff ? diff : -diff;
   }
 
-  /// CHECK-START: long SadByte.sadL1(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadByte.sadL1(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadByte.sadL1(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadByte.sadL1(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL1(byte x, byte y) {
@@ -80,11 +80,11 @@ public class SadByte {
     return xl >= yl ? xl - yl : yl - xl;
   }
 
-  /// CHECK-START: long SadByte.sadL2(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadByte.sadL2(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadByte.sadL2(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadByte.sadL2(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL2(byte x, byte y) {
@@ -93,11 +93,11 @@ public class SadByte {
     return diff;
   }
 
-  /// CHECK-START: long SadByte.sadL3(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadByte.sadL3(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadByte.sadL3(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadByte.sadL3(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL3(byte x, byte y) {
@@ -105,11 +105,11 @@ public class SadByte {
     return diff >= 0L ? diff : -diff;
   }
 
-  /// CHECK-START: long SadByte.sadL3Alt(byte, byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadByte.sadL3Alt(byte, byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadByte.sadL3Alt(byte, byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadByte.sadL3Alt(byte, byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL3Alt(byte x, byte y) {

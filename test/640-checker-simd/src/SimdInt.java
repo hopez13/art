@@ -152,13 +152,13 @@ public class SimdInt {
   public static int $opt$inline$IntConstant33()       { return 33; }
   public static int $opt$inline$IntConstantMinus254() { return -254; }
 
-  /// CHECK-START: void SimdInt.shr32() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: void SimdInt.shr32() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Dist:i\d+>> IntConstant 32                        loop:none
   /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:               ArraySet [{{l\d+}},{{i\d+}},<<UShr>>] loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: void SimdInt.shr32() instruction_simplifier$after_inlining (after)
+  /// CHECK-START: void SimdInt.shr32() loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-DAG: <<Get:i\d+>> ArrayGet                             loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG:              ArraySet [{{l\d+}},{{i\d+}},<<Get>>] loop:<<Loop>>      outer_loop:none
   //
@@ -171,13 +171,13 @@ public class SimdInt {
       a[i] >>>= $opt$inline$IntConstant32();  // 0, since & 31
   }
 
-  /// CHECK-START: void SimdInt.shr33() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: void SimdInt.shr33() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Dist:i\d+>> IntConstant 33                        loop:none
   /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:               ArraySet [{{l\d+}},{{i\d+}},<<UShr>>] loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: void SimdInt.shr33() instruction_simplifier$after_inlining (after)
+  /// CHECK-START: void SimdInt.shr33() loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-DAG: <<Dist:i\d+>> IntConstant 1                         loop:none
   /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
@@ -193,13 +193,13 @@ public class SimdInt {
       a[i] >>>= $opt$inline$IntConstant33();  // 1, since & 31
   }
 
-  /// CHECK-START: void SimdInt.shrMinus254() instruction_simplifier$after_inlining (before)
+  /// CHECK-START: void SimdInt.shrMinus254() loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK-DAG: <<Dist:i\d+>> IntConstant -254                      loop:none
   /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:               ArraySet [{{l\d+}},{{i\d+}},<<UShr>>] loop:<<Loop>>      outer_loop:none
   //
-  /// CHECK-START: void SimdInt.shrMinus254() instruction_simplifier$after_inlining (after)
+  /// CHECK-START: void SimdInt.shrMinus254() loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-DAG: <<Dist:i\d+>> IntConstant 2                         loop:none
   /// CHECK-DAG: <<Get:i\d+>>  ArrayGet                              loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: <<UShr:i\d+>> UShr [<<Get>>,<<Dist>>]               loop:<<Loop>>      outer_loop:none

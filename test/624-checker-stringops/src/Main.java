@@ -103,7 +103,7 @@ public class Main {
   // Allows combining of returned "this". Also ensures that similar looking append() calls
   // are not combined somehow through returned result.
   //
-  /// CHECK-START: int Main.bufferLen2() instruction_simplifier (before)
+  /// CHECK-START: int Main.bufferLen2() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance
   /// CHECK-DAG: <<String1:l\d+>> LoadString
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>]  intrinsic:StringBufferAppend
@@ -111,7 +111,7 @@ public class Main {
   /// CHECK-DAG: <<Append2:l\d+>> InvokeVirtual [{{l\d+}},<<String2>>] intrinsic:StringBufferAppend
   /// CHECK-DAG:                  InvokeVirtual [{{l\d+}}]             intrinsic:StringBufferLength
   //
-  /// CHECK-START: int Main.bufferLen2() instruction_simplifier (after)
+  /// CHECK-START: int Main.bufferLen2() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance
   /// CHECK-DAG: <<String1:l\d+>> LoadString
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBufferAppend
@@ -133,7 +133,7 @@ public class Main {
   // Allows combining of returned "this". Also ensures that similar looking append() calls
   // are not combined somehow through returned result.
   //
-  /// CHECK-START: int Main.builderLen2() instruction_simplifier (before)
+  /// CHECK-START: int Main.builderLen2() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance
   /// CHECK-DAG: <<String1:l\d+>> LoadString
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>]  intrinsic:StringBuilderAppendString
@@ -141,7 +141,7 @@ public class Main {
   /// CHECK-DAG: <<Append2:l\d+>> InvokeVirtual [{{l\d+}},<<String2>>] intrinsic:StringBuilderAppendString
   /// CHECK-DAG:                  InvokeVirtual [{{l\d+}}]             intrinsic:StringBuilderLength
   //
-  /// CHECK-START: int Main.builderLen2() instruction_simplifier (after)
+  /// CHECK-START: int Main.builderLen2() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance
   /// CHECK-DAG: <<String1:l\d+>> LoadString
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBuilderAppendString
@@ -162,7 +162,7 @@ public class Main {
   //
   // Similar situation in a loop.
   //
-  /// CHECK-START: int Main.bufferLoopAppender() instruction_simplifier (before)
+  /// CHECK-START: int Main.bufferLoopAppender() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance                                                         loop:none
   /// CHECK-DAG: <<String1:l\d+>> LoadString                                                          loop:<<Loop:B\d+>>
   /// CHECK-DAG: <<Null1:l\d+>>   NullCheck     [<<New>>]                                             loop:<<Loop>>
@@ -173,7 +173,7 @@ public class Main {
   /// CHECK-DAG: <<Append3:l\d+>> InvokeVirtual [{{l\d+}},<<String3>>]  intrinsic:StringBufferAppend  loop:<<Loop>>
   /// CHECK-DAG:                  InvokeVirtual [{{l\d+}}]              intrinsic:StringBufferLength  loop:none
   //
-  /// CHECK-START: int Main.bufferLoopAppender() instruction_simplifier (after)
+  /// CHECK-START: int Main.bufferLoopAppender() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance                                                       loop:none
   /// CHECK-DAG: <<String1:l\d+>> LoadString                                                        loop:<<Loop:B\d+>>
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBufferAppend  loop:<<Loop>>
@@ -199,7 +199,7 @@ public class Main {
   //
   // Similar situation in a loop.
   //
-  /// CHECK-START: int Main.builderLoopAppender() instruction_simplifier (before)
+  /// CHECK-START: int Main.builderLoopAppender() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance                                                               loop:none
   /// CHECK-DAG: <<String1:l\d+>> LoadString                                                                loop:<<Loop:B\d+>>
   /// CHECK-DAG: <<Null1:l\d+>>   NullCheck     [<<New>>]                                                   loop:<<Loop>>
@@ -210,7 +210,7 @@ public class Main {
   /// CHECK-DAG: <<Append3:l\d+>> InvokeVirtual [{{l\d+}},<<String3>>]  intrinsic:StringBuilderAppendString loop:<<Loop>>
   /// CHECK-DAG:                  InvokeVirtual [{{l\d+}}]              intrinsic:StringBuilderLength       loop:none
   //
-  /// CHECK-START: int Main.builderLoopAppender() instruction_simplifier (after)
+  /// CHECK-START: int Main.builderLoopAppender() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<New:l\d+>>     NewInstance                                                             loop:none
   /// CHECK-DAG: <<String1:l\d+>> LoadString                                                              loop:<<Loop:B\d+>>
   /// CHECK-DAG: <<Append1:l\d+>> InvokeVirtual [<<New>>,<<String1>>] intrinsic:StringBuilderAppendString loop:<<Loop>>
@@ -236,7 +236,7 @@ public class Main {
   //
   // All calls in the loop-body and thus loop can be eliminated.
   //
-  /// CHECK-START: int Main.bufferDeadLoop() instruction_simplifier (before)
+  /// CHECK-START: int Main.bufferDeadLoop() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: Phi                                              loop:<<Loop:B\d+>>
   /// CHECK-DAG: InvokeVirtual intrinsic:StringBufferToString     loop:<<Loop>>
   /// CHECK-DAG: InvokeVirtual intrinsic:StringStringIndexOfAfter loop:<<Loop>>
@@ -257,7 +257,7 @@ public class Main {
   //
   // All calls in the loop-body and thus loop can be eliminated.
   //
-  /// CHECK-START: int Main.builderDeadLoop() instruction_simplifier (before)
+  /// CHECK-START: int Main.builderDeadLoop() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: Phi                                              loop:<<Loop:B\d+>>
   /// CHECK-DAG: InvokeVirtual intrinsic:StringBuilderToString    loop:<<Loop>>
   /// CHECK-DAG: InvokeVirtual intrinsic:StringStringIndexOfAfter loop:<<Loop>>
@@ -278,10 +278,10 @@ public class Main {
   // Regression b/33656359: StringBuffer x is passed to constructor of String
   // (this caused old code to crash due to missing nullptr check).
   //
-  /// CHECK-START: void Main.doesNothing() instruction_simplifier (before)
+  /// CHECK-START: void Main.doesNothing() loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: InvokeVirtual intrinsic:StringBufferToString
   //
-  /// CHECK-START: void Main.doesNothing() instruction_simplifier (after)
+  /// CHECK-START: void Main.doesNothing() loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: InvokeVirtual intrinsic:StringBufferToString
   static void doesNothing() {
     StringBuffer x = new StringBuffer();

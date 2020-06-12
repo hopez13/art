@@ -22,7 +22,7 @@ public class TestCompare {
   /// CHECK-DAG:     <<Cmp:i\d+>>    Compare [<<ArgX>>,<<Zero>>]
   /// CHECK-DAG:                     GreaterThanOrEqual [<<Cmp>>,<<Zero>>]
 
-  /// CHECK-START: void TestCompare.$opt$noinline$testReplaceInputWithItself(int) instruction_simplifier (after)
+  /// CHECK-START: void TestCompare.$opt$noinline$testReplaceInputWithItself(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG:     <<ArgX:i\d+>>   ParameterValue
   /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
   /// CHECK-DAG:                     GreaterThanOrEqual [<<ArgX>>,<<Zero>>]

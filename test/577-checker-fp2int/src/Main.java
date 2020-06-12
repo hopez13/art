@@ -16,11 +16,11 @@
 
 public class Main {
 
-  /// CHECK-START: int Main.f2int(float) instruction_simplifier (before)
+  /// CHECK-START: int Main.f2int(float) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Result:i\d+>> InvokeStaticOrDirect intrinsic:FloatFloatToIntBits
   /// CHECK-DAG: Return [<<Result>>]
   //
-  /// CHECK-START: int Main.f2int(float) instruction_simplifier (after)
+  /// CHECK-START: int Main.f2int(float) loop_friendly_instruction_simplifier (after)
   // Note: The ArtMethod* (typed as int or long) is optional after sharpening.
   /// CHECK-DAG: <<Raw:i\d+>> InvokeStaticOrDirect [<<Arg:f\d+>>{{(,[ij]\d+)?}}] intrinsic:FloatFloatToRawIntBits
   /// CHECK-DAG: <<Cond:z\d+>> NotEqual [<<Arg>>,<<Arg>>]
@@ -30,11 +30,11 @@ public class Main {
     return Float.floatToIntBits(f);
   }
 
-  /// CHECK-START: long Main.d2long(double) instruction_simplifier (before)
+  /// CHECK-START: long Main.d2long(double) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Result:j\d+>> InvokeStaticOrDirect intrinsic:DoubleDoubleToLongBits
   /// CHECK-DAG: Return [<<Result>>]
   //
-  /// CHECK-START: long Main.d2long(double) instruction_simplifier (after)
+  /// CHECK-START: long Main.d2long(double) loop_friendly_instruction_simplifier (after)
   // Note: The ArtMethod* (typed as int or long) is optional after sharpening.
   /// CHECK-DAG: <<Raw:j\d+>> InvokeStaticOrDirect [<<Arg:d\d+>>{{(,[ij]\d+)?}}] intrinsic:DoubleDoubleToRawLongBits
   /// CHECK-DAG: <<Cond:z\d+>> NotEqual [<<Arg>>,<<Arg>>]

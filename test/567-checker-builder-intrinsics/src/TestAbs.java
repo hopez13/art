@@ -49,7 +49,7 @@ public class TestAbs {
   // Types.
   //
 
-  /// CHECK-START: int TestAbs.abs1(int) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs1(int) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> GreaterThanOrEqual [<<Par>>,<<Zer>>]
@@ -57,18 +57,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Neg>>,<<Par>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs1(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs1(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs1(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs1(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs1(int a) {
     return a < 0 ? -a : a;
   }
 
-  /// CHECK-START: int TestAbs.abs2(int) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs2(int) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> GreaterThan [<<Par>>,<<Zer>>]
@@ -76,18 +76,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Neg>>,<<Par>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs2(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs2(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs2(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs2(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs2(int a) {
     return a <= 0 ? -a : a;
   }
 
-  /// CHECK-START: int TestAbs.abs3(int) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs3(int) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> LessThanOrEqual [<<Par>>,<<Zer>>]
@@ -95,18 +95,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Par>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs3(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs3(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs3(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs3(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs3(int a) {
     return a > 0 ? a : -a;
   }
 
-  /// CHECK-START: int TestAbs.abs4(int) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs4(int) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> LessThan [<<Par>>,<<Zer>>]
@@ -114,18 +114,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Par>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs4(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs4(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:i\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs4(int) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs4(int) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs4(int a) {
     return a >= 0 ? a : -a;
   }
 
-  /// CHECK-START: int TestAbs.abs5(short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs5(short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:s\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> LessThan [<<Par>>,<<Zer>>]
@@ -133,18 +133,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Par>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs5(short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs5(short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:s\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs5(short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs5(short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs5(short a) {
     return a >= 0 ? a : -a;
   }
 
-  /// CHECK-START: int TestAbs.abs6(byte) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs6(byte) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:b\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> LessThan [<<Par>>,<<Zer>>]
@@ -152,18 +152,18 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Par>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs6(byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs6(byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:b\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs6(byte) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs6(byte) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs6(byte a) {
     return a >= 0 ? a : -a;
   }
 
-  /// CHECK-START: long TestAbs.abs7(long) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long TestAbs.abs7(long) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Par:j\d+>> ParameterValue
   /// CHECK-DAG: <<Zer:j\d+>> LongConstant 0
   /// CHECK-DAG: <<Cnd:z\d+>> LessThan [<<Par>>,<<Zer>>]
@@ -171,12 +171,12 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:j\d+>> Select [<<Par>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: long TestAbs.abs7(long) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long TestAbs.abs7(long) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Par:j\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:j\d+>> Abs [<<Par>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: long TestAbs.abs7(long) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long TestAbs.abs7(long) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static long abs7(long a) {
     return a >= 0 ? a : -a;
@@ -186,7 +186,7 @@ public class TestAbs {
   // Complications.
   //
 
-  /// CHECK-START: int TestAbs.abs0(int[]) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int TestAbs.abs0(int[]) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Zer:i\d+>> IntConstant 0
   /// CHECK-DAG: <<Arr:i\d+>> ArrayGet [{{l\d+}},{{i\d+}}]
   /// CHECK-DAG: <<Cnd:z\d+>> LessThan [<<Arr>>,<<Zer>>]
@@ -194,12 +194,12 @@ public class TestAbs {
   /// CHECK-DAG: <<Sel:i\d+>> Select [<<Arr>>,<<Neg>>,<<Cnd>>]
   /// CHECK-DAG:              Return [<<Sel>>]
   //
-  /// CHECK-START: int TestAbs.abs0(int[]) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs0(int[]) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Arr:i\d+>> ArrayGet [{{l\d+}},{{i\d+}}]
   /// CHECK-DAG: <<Abs:i\d+>> Abs [<<Arr>>]
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.abs0(int[]) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int TestAbs.abs0(int[]) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-NOT:              Select
   public static int abs0(int[] a) {
     return a[0] >= 0 ? a[0] : -a[0];
@@ -209,52 +209,52 @@ public class TestAbs {
   // Nop zero extension.
   //
 
-  /// CHECK-START: int TestAbs.zabs1(byte) instruction_simplifier (before)
+  /// CHECK-START: int TestAbs.zabs1(byte) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Par:b\d+>> ParameterValue
   /// CHECK-DAG: <<Msk:i\d+>> IntConstant 255
   /// CHECK-DAG: <<And:i\d+>> [<<Par>>,<<Msk>>]
   /// CHECK-DAG: <<Abs:i\d+>> Abs
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.zabs1(byte) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs1(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<Par:b\d+>> ParameterValue
   /// CHECK-DAG: <<Cnv:a\d+>> TypeConversion [<<Par>>]
   /// CHECK-DAG:              Return [<<Cnv>>]
   //
-  /// CHECK-START: int TestAbs.zabs1(byte) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs1(byte) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:              Abs
   public static int zabs1(byte a) {
     return Math.abs(a & 0xff);
   }
 
-  /// CHECK-START: int TestAbs.zabs2(short) instruction_simplifier (before)
+  /// CHECK-START: int TestAbs.zabs2(short) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Par:s\d+>> ParameterValue
   /// CHECK-DAG: <<Msk:i\d+>> IntConstant 65535
   /// CHECK-DAG: <<And:i\d+>> [<<Msk>>,<<Par>>]
   /// CHECK-DAG: <<Abs:i\d+>> Abs
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.zabs2(short) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs2(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<Par:s\d+>> ParameterValue
   /// CHECK-DAG: <<Cnv:c\d+>> TypeConversion [<<Par>>]
   /// CHECK-DAG:              Return [<<Cnv>>]
   //
-  /// CHECK-START: int TestAbs.zabs2(short) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs2(short) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:              Abs
   public static int zabs2(short a) {
     return Math.abs(a & 0xffff);
   }
 
-  /// CHECK-START: int TestAbs.zabs3(char) instruction_simplifier (before)
+  /// CHECK-START: int TestAbs.zabs3(char) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<Par:c\d+>> ParameterValue
   /// CHECK-DAG: <<Abs:i\d+>> Abs
   /// CHECK-DAG:              Return [<<Abs>>]
   //
-  /// CHECK-START: int TestAbs.zabs3(char) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs3(char) loop_friendly_instruction_simplifier (after)
   /// CHECK-DAG: <<Par:c\d+>> ParameterValue
   /// CHECK-DAG:              Return [<<Par>>]
   //
-  /// CHECK-START: int TestAbs.zabs3(char) instruction_simplifier (after)
+  /// CHECK-START: int TestAbs.zabs3(char) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:              Abs
   public static int zabs3(char a) {
     return Math.abs(a);

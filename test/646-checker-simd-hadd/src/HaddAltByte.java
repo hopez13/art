@@ -51,7 +51,7 @@ public class HaddAltByte {
     }
   }
 
-  /// CHECK-START: void HaddAltByte.halving_add_unsigned(byte[], byte[], byte[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltByte.halving_add_unsigned(byte[], byte[], byte[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<I255:i\d+>> IntConstant 255                     loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -109,7 +109,7 @@ public class HaddAltByte {
     }
   }
 
-  /// CHECK-START: void HaddAltByte.rounding_halving_add_unsigned(byte[], byte[], byte[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltByte.rounding_halving_add_unsigned(byte[], byte[], byte[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<I255:i\d+>> IntConstant 255                     loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -169,7 +169,7 @@ public class HaddAltByte {
     }
   }
 
-  /// CHECK-START: void HaddAltByte.halving_add_unsigned_constant(byte[], byte[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltByte.halving_add_unsigned_constant(byte[], byte[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<I255:i\d+>> IntConstant 255                     loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none

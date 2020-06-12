@@ -40,16 +40,21 @@ class InstructionSimplifier : public HOptimization {
   InstructionSimplifier(HGraph* graph,
                         CodeGenerator* codegen,
                         OptimizingCompilerStats* stats = nullptr,
-                        const char* name = kInstructionSimplifierPassName)
+                        const char* name = kInstructionSimplifierPassName,
+                        bool be_loop_friendly = false)
       : HOptimization(graph, name, stats),
-        codegen_(codegen) {}
+        codegen_(codegen),
+        be_loop_friendly_(be_loop_friendly) {}
 
   static constexpr const char* kInstructionSimplifierPassName = "instruction_simplifier";
+  static constexpr const char* kLoopFriendlyInstructionSimplifierPassName =
+      "loop_friendly_instruction_simplifier";
 
   bool Run() override;
 
  private:
   CodeGenerator* codegen_;
+  bool be_loop_friendly_;
 
   DISALLOW_COPY_AND_ASSIGN(InstructionSimplifier);
 };

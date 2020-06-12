@@ -19,22 +19,22 @@
  */
 public class SadShort {
 
-  /// CHECK-START: int SadShort.sad1(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadShort.sad1(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadShort.sad1(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadShort.sad1(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad1(short x, short y) {
     return x >= y ? x - y : y - x;
   }
 
-  /// CHECK-START: int SadShort.sad2(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadShort.sad2(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadShort.sad2(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadShort.sad2(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad2(short x, short y) {
@@ -43,11 +43,11 @@ public class SadShort {
     return diff;
   }
 
-  /// CHECK-START: int SadShort.sad3(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadShort.sad3(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadShort.sad3(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadShort.sad3(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad3(short x, short y) {
@@ -55,11 +55,11 @@ public class SadShort {
     return diff >= 0 ? diff : -diff;
   }
 
-  /// CHECK-START: int SadShort.sad3Alt(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: int SadShort.sad3Alt(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:i\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: int SadShort.sad3Alt(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: int SadShort.sad3Alt(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:i\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static int sad3Alt(short x, short y) {
@@ -67,11 +67,11 @@ public class SadShort {
     return 0 <= diff ? diff : -diff;
   }
 
-  /// CHECK-START: long SadShort.sadL1(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadShort.sadL1(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadShort.sadL1(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadShort.sadL1(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL1(short x, short y) {
@@ -80,11 +80,11 @@ public class SadShort {
     return xl >= yl ? xl - yl : yl - xl;
   }
 
-  /// CHECK-START: long SadShort.sadL2(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadShort.sadL2(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadShort.sadL2(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadShort.sadL2(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL2(short x, short y) {
@@ -93,11 +93,11 @@ public class SadShort {
     return diff;
   }
 
-  /// CHECK-START: long SadShort.sadL3(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadShort.sadL3(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadShort.sadL3(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadShort.sadL3(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL3(short x, short y) {
@@ -105,11 +105,11 @@ public class SadShort {
     return diff >= 0L ? diff : -diff;
   }
 
-  /// CHECK-START: long SadShort.sadL3Alt(short, short) instruction_simplifier$after_gvn (before)
+  /// CHECK-START: long SadShort.sadL3Alt(short, short) loop_friendly_instruction_simplifier$after_gvn (before)
   /// CHECK-DAG: <<Select:j\d+>> Select
   /// CHECK-DAG:                 Return [<<Select>>]
   //
-  /// CHECK-START: long SadShort.sadL3Alt(short, short) instruction_simplifier$after_gvn (after)
+  /// CHECK-START: long SadShort.sadL3Alt(short, short) loop_friendly_instruction_simplifier$after_gvn (after)
   /// CHECK-DAG: <<Intrin:j\d+>> Abs
   /// CHECK-DAG:                 Return [<<Intrin>>]
   static long sadL3Alt(short x, short y) {

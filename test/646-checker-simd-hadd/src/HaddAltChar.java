@@ -51,7 +51,7 @@ public class HaddAltChar {
     }
   }
 
-  /// CHECK-START: void HaddAltChar.halving_add_also_unsigned(char[], char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltChar.halving_add_also_unsigned(char[], char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<IMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -113,7 +113,7 @@ public class HaddAltChar {
     }
   }
 
-  /// CHECK-START: void HaddAltChar.rounding_halving_add_also_unsigned(char[], char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltChar.rounding_halving_add_also_unsigned(char[], char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<IMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -176,7 +176,7 @@ public class HaddAltChar {
     }
   }
 
-  /// CHECK-START: void HaddAltChar.halving_add_also_unsigned_constant(char[], char[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddAltChar.halving_add_also_unsigned_constant(char[], char[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<UMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none

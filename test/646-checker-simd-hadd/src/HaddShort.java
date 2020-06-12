@@ -79,7 +79,7 @@ public class HaddShort {
     }
   }
 
-  /// CHECK-START: void HaddShort.halving_add_unsigned(short[], short[], short[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddShort.halving_add_unsigned(short[], short[], short[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<UMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -219,7 +219,7 @@ public class HaddShort {
     }
   }
 
-  /// CHECK-START: void HaddShort.rounding_halving_add_unsigned(short[], short[], short[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddShort.rounding_halving_add_unsigned(short[], short[], short[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<UMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -258,7 +258,7 @@ public class HaddShort {
     }
   }
 
-  /// CHECK-START: void HaddShort.rounding_halving_add_unsigned_alt(short[], short[], short[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddShort.rounding_halving_add_unsigned_alt(short[], short[], short[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<UMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none
@@ -321,7 +321,7 @@ public class HaddShort {
     }
   }
 
-  /// CHECK-START: void HaddShort.halving_add_unsigned_constant(short[], short[]) instruction_simplifier (before)
+  /// CHECK-START: void HaddShort.halving_add_unsigned_constant(short[], short[]) loop_friendly_instruction_simplifier (before)
   /// CHECK-DAG: <<I1:i\d+>>   IntConstant 1                       loop:none
   /// CHECK-DAG: <<UMAX:i\d+>> IntConstant 65535                   loop:none
   /// CHECK-DAG: <<Phi:i\d+>>  Phi                                 loop:<<Loop:B\d+>> outer_loop:none

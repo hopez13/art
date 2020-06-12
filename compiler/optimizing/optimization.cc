@@ -83,6 +83,8 @@ const char* OptimizationPassName(OptimizationPass pass) {
       return HInliner::kInlinerPassName;
     case OptimizationPass::kSelectGenerator:
       return HSelectGenerator::kSelectGeneratorPassName;
+    case OptimizationPass::kLoopFriendlyInstructionSimplifier:
+      return InstructionSimplifier::kLoopFriendlyInstructionSimplifierPassName;
     case OptimizationPass::kInstructionSimplifier:
       return InstructionSimplifier::kInstructionSimplifierPassName;
     case OptimizationPass::kCHAGuardOptimization:
@@ -136,6 +138,7 @@ OptimizationPass OptimizationPassByName(const std::string& pass_name) {
   X(OptimizationPass::kInstructionSimplifier);
   X(OptimizationPass::kInvariantCodeMotion);
   X(OptimizationPass::kLoadStoreElimination);
+  X(OptimizationPass::kLoopFriendlyInstructionSimplifier);
   X(OptimizationPass::kLoopOptimization);
   X(OptimizationPass::kScheduling);
   X(OptimizationPass::kSelectGenerator);
@@ -247,6 +250,13 @@ ArenaVector<HOptimization*> ConstructOptimizations(
         break;
       case OptimizationPass::kInstructionSimplifier:
         opt = new (allocator) InstructionSimplifier(graph, codegen, stats, pass_name);
+        break;
+      case OptimizationPass::kLoopFriendlyInstructionSimplifier:
+        opt = new (allocator) InstructionSimplifier(graph,
+                                                    codegen,
+                                                    stats,
+                                                    pass_name,
+                                                    /* be_loop_friendly = */ true);
         break;
       case OptimizationPass::kCHAGuardOptimization:
         opt = new (allocator) CHAGuardOptimization(graph, pass_name);

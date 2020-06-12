@@ -15,18 +15,18 @@
 .class public LSmaliTests2;
 .super Ljava/lang/Object;
 
-## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
 ## CHECK-DAG:     <<ConstF:i\d+>>   IntConstant -1
 ## CHECK-DAG:     <<Xor:i\d+>>      Xor [<<Arg>>,<<ConstF>>]
 ## CHECK-DAG:                       Return [<<Xor>>]
 
-## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
 ## CHECK-DAG:     <<Not:i\d+>>      Not [<<Arg>>]
 ## CHECK-DAG:                       Return [<<Not>>]
 
-## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$XorAllOnes(int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                       Xor
 
 # Original java source:
@@ -47,18 +47,18 @@
 # Test simplification of the `~~var` pattern.
 # The transformation tested is implemented in `InstructionSimplifierVisitor::VisitNot`.
 
-## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) instruction_simplifier (before)
+## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:     <<Arg:j\d+>>       ParameterValue
 ## CHECK-DAG:     <<ConstNeg1:j\d+>> LongConstant -1
 ## CHECK-DAG:     <<Not1:j\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
 ## CHECK-DAG:     <<Not2:j\d+>>      Xor [<<Not1>>,<<ConstNeg1>>]
 ## CHECK-DAG:                        Return [<<Not2>>]
 
-## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
 ## CHECK-DAG:                       Return [<<Arg>>]
 
-## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests2.$noinline$NotNot1(long) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                       Xor
 
 # Original java source:
@@ -79,7 +79,7 @@
     return-wide v0
 .end method
 
-## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:     <<Arg:i\d+>>       ParameterValue
 ## CHECK-DAG:     <<ConstNeg1:i\d+>> IntConstant -1
 ## CHECK-DAG:     <<Not1:i\d+>>      Xor [<<Arg>>,<<ConstNeg1>>]
@@ -87,17 +87,17 @@
 ## CHECK-DAG:     <<Add:i\d+>>       Add [<<Not2>>,<<Not1>>]
 ## CHECK-DAG:                        Return [<<Add>>]
 
-## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
 ## CHECK-DAG:     <<Not:i\d+>>      Not [<<Arg>>]
 ## CHECK-DAG:     <<Add:i\d+>>      Add [<<Arg>>,<<Not>>]
 ## CHECK-DAG:                       Return [<<Add>>]
 
-## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) loop_friendly_instruction_simplifier (after)
 ## CHECK:                           Not
 ## CHECK-NOT:                       Not
 
-## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$NotNot2(int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                       Xor
 
 # Original java source:
@@ -149,17 +149,17 @@
 # both negations can be removed but we only expect the simplifier to
 # remove the second.
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier (before)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
 ## CHECK-DAG:     <<Const1:i\d+>>    IntConstant 0
 ## CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:SmaliTests2.NegateValue
 ## CHECK-DAG:     <<NotResult:z\d+>> NotEqual [<<Result>>,<<Const1>>]
 ## CHECK-DAG:                        If [<<NotResult>>]
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier (after)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                        NotEqual
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier (after)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
 ## CHECK-DAG:     <<Result:z\d+>>    InvokeStaticOrDirect method_name:SmaliTests2.NegateValue
 ## CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
@@ -167,7 +167,7 @@
 ## CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
 ## CHECK-DAG:                        Return [<<Phi>>]
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) loop_friendly_instruction_simplifier$after_inlining (before)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
 ## CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
 ## CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
@@ -175,7 +175,7 @@
 ## CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
 ## CHECK-DAG:                        Return [<<Phi>>]
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier$after_gvn (after)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) loop_friendly_instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
 ## CHECK-DAG:                        Return [<<Arg>>]
 
@@ -206,7 +206,7 @@
     goto :goto_7
 .end method
 
-## CHECK-START: int SmaliTests2.$noinline$bug68142795Short(short) instruction_simplifier (before)
+## CHECK-START: int SmaliTests2.$noinline$bug68142795Short(short) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
 ## CHECK-DAG:      <<Const:i\d+>>    IntConstant 65535
 ## CHECK-DAG:      <<And1:i\d+>>     And [<<Arg>>,<<Const>>]
@@ -214,7 +214,7 @@
 ## CHECK-DAG:      <<Conv:s\d+>>     TypeConversion [<<And2>>]
 ## CHECK-DAG:                        Return [<<Conv>>]
 
-## CHECK-START: int SmaliTests2.$noinline$bug68142795Short(short) instruction_simplifier (after)
+## CHECK-START: int SmaliTests2.$noinline$bug68142795Short(short) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:      <<Arg:s\d+>>      ParameterValue
 ## CHECK-DAG:                        Return [<<Arg>>]
 
@@ -253,7 +253,7 @@
     return v0
 .end method
 
-## CHECK-START: int SmaliTests2.$noinline$bug68142795Boolean(boolean) instruction_simplifier$after_inlining (before)
+## CHECK-START: int SmaliTests2.$noinline$bug68142795Boolean(boolean) loop_friendly_instruction_simplifier$after_inlining (before)
 ## CHECK-DAG:      <<Arg:z\d+>>      ParameterValue
 ## CHECK-DAG:      <<Const0:i\d+>>   IntConstant 0
 ## CHECK-DAG:      <<Const1:i\d+>>   IntConstant 1
@@ -264,7 +264,7 @@
 ## CHECK-DAG:      <<Conv:b\d+>>     TypeConversion [<<And>>]
 ## CHECK-DAG:                        Return [<<Conv>>]
 
-## CHECK-START: int SmaliTests2.$noinline$bug68142795Boolean(boolean) instruction_simplifier$after_gvn (after)
+## CHECK-START: int SmaliTests2.$noinline$bug68142795Boolean(boolean) loop_friendly_instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:      <<Arg:z\d+>>      ParameterValue
 ## CHECK-DAG:                        Return [<<Arg>>]
 

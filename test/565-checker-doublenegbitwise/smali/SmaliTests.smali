@@ -19,7 +19,7 @@
 # Test transformation of Not/Not/And into Or/Not.
 #
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Not1:i\d+>>        Not [<<P1>>]
@@ -27,18 +27,18 @@
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<And>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<P1>>,<<P2>>]
 ## CHECK-DAG:       <<Not:i\d+>>         Not [<<Or>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOr(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            And
 .method public static $opt$noinline$andToOr(II)I
     .registers 4
@@ -67,7 +67,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOr(boolean, boolean) instruction_simplifier (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOr(boolean, boolean) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const1:i\d+>>      IntConstant 1
@@ -76,7 +76,7 @@
 ## CHECK-DAG:       <<And:i\d+>>         And [<<NotP1>>,<<NotP2>>]
 ## CHECK-DAG:                            Return [<<And>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOr(boolean, boolean) instruction_simplifier (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOr(boolean, boolean) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Cond1>>,<<Cond2>>]
@@ -111,7 +111,7 @@
 
 # Test transformation of Not/Not/Or into And/Not.
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) instruction_simplifier (before)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<Not1:j\d+>>        Not [<<P1>>]
@@ -119,18 +119,18 @@
 ## CHECK-DAG:       <<Or:j\d+>>          Or [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<And:j\d+>>         And [<<P1>>,<<P2>>]
 ## CHECK-DAG:       <<Not:j\d+>>         Not [<<And>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAnd(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 .method public static $opt$noinline$orToAnd(JJ)J
     .registers 8
@@ -158,7 +158,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAnd(boolean, boolean) instruction_simplifier (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAnd(boolean, boolean) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const1:i\d+>>      IntConstant 1
@@ -167,7 +167,7 @@
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<NotP1>>,<<NotP2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAnd(boolean, boolean) instruction_simplifier (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAnd(boolean, boolean) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Cond1>>,<<Cond2>>]
@@ -205,7 +205,7 @@
 # This is a regression test. The initial logic was inserting the new bitwise
 # operation incorrectly.
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Cst1:i\d+>>        IntConstant 1
@@ -216,7 +216,7 @@
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Cst1:i\d+>>        IntConstant 1
@@ -226,11 +226,11 @@
 ## CHECK-DAG:       <<Not:i\d+>>         Not [<<And>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAway(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 .method public static $opt$noinline$regressInputsAway(II)I
     .registers 7
@@ -262,7 +262,7 @@
 # Test transformation of Not/Not/Xor into Xor.
 
 # See first note above.
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Not1:i\d+>>        Not [<<P1>>]
@@ -270,13 +270,13 @@
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<P1>>,<<P2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXor(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Not
 .method public static $opt$noinline$notXorToXor(II)I
     .registers 4
@@ -304,7 +304,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXor(boolean, boolean) instruction_simplifier (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXor(boolean, boolean) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const1:i\d+>>      IntConstant 1
@@ -313,7 +313,7 @@
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<NotP1>>,<<NotP2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXor(boolean, boolean) instruction_simplifier (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXor(boolean, boolean) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Cond1>>,<<Cond2>>]
@@ -343,7 +343,7 @@
 
 # Check that no transformation is done when one Not has multiple uses.
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<One:i\d+>>         IntConstant 1
@@ -354,7 +354,7 @@
 ## CHECK-DAG:       <<Add:i\d+>>         Add [<<And2>>,<<And1>>]
 ## CHECK-DAG:                            Return [<<Add>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<One:i\d+>>         IntConstant 1
@@ -365,7 +365,7 @@
 ## CHECK-DAG:       <<Add:i\d+>>         Add [<<And2>>,<<And1>>]
 ## CHECK-DAG:                            Return [<<Add>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUses(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 .method public static $opt$noinline$notMultipleUses(II)I
     .registers 5
@@ -407,9 +407,9 @@
 
 # Test transformation of Not/Not/And into Or/Not.
 
-# Note: before the instruction_simplifier pass, Xor's are used instead of
+# Note: before the loop_friendly_instruction_simplifier pass, Xor's are used instead of
 # Not's (the simplification happens during the same pass).
-## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<CstM1:i\d+>>       IntConstant -1
@@ -418,18 +418,18 @@
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<And>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<P1>>,<<P2>>]
 ## CHECK-DAG:       <<Not:i\d+>>         Not [<<Or>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$andToOrV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            And
 
 # Original java source:
@@ -474,7 +474,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$after_gvn (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const0:i\d+>>      IntConstant 0
@@ -484,7 +484,7 @@
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<And>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Cond1>>,<<Cond2>>]
@@ -556,7 +556,7 @@
 
 # See note above.
 # The second Xor has its arguments reversed for no obvious reason.
-## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) instruction_simplifier (before)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<CstM1:j\d+>>       LongConstant -1
@@ -565,18 +565,18 @@
 ## CHECK-DAG:       <<Or:j\d+>>          Or [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:j\d+>>          ParameterValue
 ## CHECK-DAG:       <<And:j\d+>>         And [<<P1>>,<<P2>>]
 ## CHECK-DAG:       <<Not:j\d+>>         Not [<<And>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) instruction_simplifier (after)
+## CHECK-START: long SmaliTests.$opt$noinline$orToAndV2(long, long) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 
 # Original java source:
@@ -622,7 +622,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$after_gvn (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const0:i\d+>>      IntConstant 0
@@ -632,7 +632,7 @@
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Cond1>>,<<Cond2>>]
@@ -705,7 +705,7 @@
 # This is a regression test. The initial logic was inserting the new bitwise
 # operation incorrectly.
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Cst1:i\d+>>        IntConstant 1
@@ -717,7 +717,7 @@
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Cst1:i\d+>>        IntConstant 1
@@ -727,11 +727,11 @@
 ## CHECK-DAG:       <<Not:i\d+>>         Not [<<And>>]
 ## CHECK-DAG:                            Return [<<Not>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:                            Not
 ## CHECK-NOT:                            Not
 
-## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$regressInputsAwayV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 
 # Original java source:
@@ -789,7 +789,7 @@
 # Test transformation of Not/Not/Xor into Xor.
 
 # See first note above.
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<CstM1:i\d+>>       IntConstant -1
@@ -798,13 +798,13 @@
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Not1>>,<<Not2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<P1>>,<<P2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notXorToXorV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Not
 
 # Original java source:
@@ -849,7 +849,7 @@
 # follows the optimization of `HSelect` to `HBooleanNot` occurring in the
 # same pass.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$after_gvn (before)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (before)
 ## CHECK-DAG:       <<P1:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:z\d+>>          ParameterValue
 ## CHECK-DAG:       <<Const0:i\d+>>      IntConstant 0
@@ -859,7 +859,7 @@
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) loop_friendly_instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Cond1>>,<<Cond2>>]
@@ -924,7 +924,7 @@
 
 # Check that no transformation is done when one Not has multiple uses.
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) instruction_simplifier (before)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) loop_friendly_instruction_simplifier (before)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<CstM1:i\d+>>       IntConstant -1
@@ -936,7 +936,7 @@
 ## CHECK-DAG:       <<Add:i\d+>>         Add [<<And2>>,<<And1>>]
 ## CHECK-DAG:                            Return [<<Add>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-DAG:       <<P1:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<P2:i\d+>>          ParameterValue
 ## CHECK-DAG:       <<One:i\d+>>         IntConstant 1
@@ -947,7 +947,7 @@
 ## CHECK-DAG:       <<Add:i\d+>>         Add [<<And2>>,<<And1>>]
 ## CHECK-DAG:                            Return [<<Add>>]
 
-## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) instruction_simplifier (after)
+## CHECK-START: int SmaliTests.$opt$noinline$notMultipleUsesV2(int, int) loop_friendly_instruction_simplifier (after)
 ## CHECK-NOT:                            Or
 
 # Original java source:

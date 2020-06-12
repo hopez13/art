@@ -226,7 +226,7 @@ public class Main {
   /// CHECK-DAG:  <<Phi:i\d+>>      Phi [<<Char>>,<<Int>>]
   /// CHECK-DAG:                    Return [<<Phi>>]
 
-  /// CHECK-START: char Main.$opt$noinline$stringCharAtCatchPhiReturn(java.lang.String, int) instruction_simplifier (after)
+  /// CHECK-START: char Main.$opt$noinline$stringCharAtCatchPhiReturn(java.lang.String, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:                    InvokeVirtual intrinsic:StringCharAt
 
   static public char $opt$noinline$stringCharAtCatchPhiReturn(String s, int pos) {
@@ -314,7 +314,7 @@ public class Main {
     return sum;
   }
 
-  /// CHECK-START: boolean Main.stringEqualsSame() instruction_simplifier (before)
+  /// CHECK-START: boolean Main.stringEqualsSame() loop_friendly_instruction_simplifier (before)
   /// CHECK:      InvokeStaticOrDirect
 
   /// CHECK-START: boolean Main.stringEqualsSame() register (before)

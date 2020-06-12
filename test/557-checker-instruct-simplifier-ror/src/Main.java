@@ -30,7 +30,7 @@ public class Main {
 
   //  (i >>> #distance) | (i << #(reg_bits - distance))
 
-  /// CHECK-START: int Main.ror_int_constant_c_c(int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_constant_c_c(int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Const30:i\d+>>      IntConstant 30
@@ -39,26 +39,26 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.ror_int_constant_c_c(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_constant_c_c(int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Const2>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_constant_c_c(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_constant_c_c(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_constant_c_c(int value) {
     return (value >>> 2) | (value << 30);
   }
 
-  /// CHECK-START: int Main.ror_int_constant_c_c_0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_constant_c_c_0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Const2>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_constant_c_c_0(int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_constant_c_c_0(int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_constant_c_c_0(int value) {
@@ -67,7 +67,7 @@ public class Main {
 
   //  (j >>> #distance) | (j << #(reg_bits - distance))
 
-  /// CHECK-START: long Main.ror_long_constant_c_c(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.ror_long_constant_c_c(long) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Const62:i\d+>>      IntConstant 62
@@ -76,20 +76,20 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.ror_long_constant_c_c(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_constant_c_c(long) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Const2>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.ror_long_constant_c_c(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_constant_c_c(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static long ror_long_constant_c_c(long value) {
     return (value >>> 2) | (value << 62);
   }
 
-  /// CHECK-START: long Main.ror_long_constant_c_c_0(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_constant_c_c_0(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      Ror
   public static long ror_long_constant_c_c_0(long value) {
     return (value >>> 2) | (value << 30);
@@ -97,7 +97,7 @@ public class Main {
 
   //  (i >>> #distance) | (i << #-distance)
 
-  /// CHECK-START: int Main.ror_int_constant_c_negc(int) instruction_simplifier$after_inlining (before)
+  /// CHECK-START: int Main.ror_int_constant_c_negc(int) loop_friendly_instruction_simplifier$after_inlining (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<ConstNeg2:i\d+>>    IntConstant -2
@@ -106,13 +106,13 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.ror_int_constant_c_negc(int) instruction_simplifier$after_inlining (after)
+  /// CHECK-START: int Main.ror_int_constant_c_negc(int) loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Const2>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_constant_c_negc(int) instruction_simplifier$after_inlining (after)
+  /// CHECK-START: int Main.ror_int_constant_c_negc(int) loop_friendly_instruction_simplifier$after_inlining (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_constant_c_negc(int value) {
@@ -125,7 +125,7 @@ public class Main {
 
   //  (j >>> #distance) | (j << #-distance)
 
-  /// CHECK-START: long Main.ror_long_constant_c_negc(long) instruction_simplifier (before)
+  /// CHECK-START: long Main.ror_long_constant_c_negc(long) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<ConstNeg2:i\d+>>    IntConstant -2
@@ -134,13 +134,13 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.ror_long_constant_c_negc(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_constant_c_negc(long) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<Const2:i\d+>>       IntConstant 2
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Const2>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.ror_long_constant_c_negc(long) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_constant_c_negc(long) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static long ror_long_constant_c_negc(long value) {
@@ -149,7 +149,7 @@ public class Main {
 
   //  (i >>> distance) | (i << (#reg_bits - distance)
 
-  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const32:i\d+>>      IntConstant 32
@@ -159,13 +159,13 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<ArgDistance>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_csubv(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   /// CHECK-NOT:      Sub
@@ -176,7 +176,7 @@ public class Main {
   //  (distance = x - y)
   //  (i >>> distance) | (i << (#reg_bits - distance)
 
-  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -188,7 +188,7 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -196,11 +196,11 @@ public class Main {
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<SubDistance>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          Sub
   /// CHECK-NOT:      Sub
 
-  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_subv_csubv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_subv_csubv(int value, int x, int y) {
@@ -208,7 +208,7 @@ public class Main {
     return (value >>> distance) | (value << (32 - distance));
   }
 
-  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -221,7 +221,7 @@ public class Main {
   /// CHECK:          <<Add:i\d+>>          Add [<<Or>>,<<Sub32>>]
   /// CHECK:                                Return [<<Add>>]
 
-  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -232,7 +232,7 @@ public class Main {
   /// CHECK:          <<Add:i\d+>>          Add [<<Ror>>,<<Sub32>>]
   /// CHECK:                                Return [<<Add>>]
 
-  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_subv_csubv_env(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_subv_csubv_env(int value, int x, int y) {
@@ -243,7 +243,7 @@ public class Main {
 
   //  (j >>> distance) | (j << (#reg_bits - distance)
 
-  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const64:i\d+>>      IntConstant 64
@@ -253,13 +253,13 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<ArgDistance>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_reg_v_csubv(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   /// CHECK-NOT:      Sub
@@ -267,13 +267,13 @@ public class Main {
     return (value >>> distance) | (value << (64 - distance));
   }
 
-  /// CHECK-START: long Main.ror_long_reg_v_csubv_0(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_reg_v_csubv_0(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      Ror
   public static long ror_long_reg_v_csubv_0(long value, int distance) {
     return (value >>> distance) | (value << (32 - distance));
   }
 
-  /// CHECK-START: long Main.ror_long_subv_csubv_0(long, int, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_subv_csubv_0(long, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      Ror
   public static long ror_long_subv_csubv_0(long value, int x, int y) {
     int distance = x - y;
@@ -282,7 +282,7 @@ public class Main {
 
   //  (i >>> (#reg_bits - distance)) | (i << distance)
 
-  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const32:i\d+>>      IntConstant 32
@@ -292,7 +292,7 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const32:i\d+>>      IntConstant 32
@@ -300,7 +300,7 @@ public class Main {
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Sub>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_reg_csubv_v(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int rol_int_reg_csubv_v(int value, int distance) {
@@ -310,7 +310,7 @@ public class Main {
   //  (distance = x - y)
   //  (i >>> (#reg_bits - distance)) | (i << distance)
 
-  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -322,7 +322,7 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgX:i\d+>>         ParameterValue
   /// CHECK:          <<ArgY:i\d+>>         ParameterValue
@@ -332,11 +332,11 @@ public class Main {
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Sub>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          Sub
   /// CHECK:          Sub
 
-  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_csubv_subv(int, int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int rol_int_csubv_subv(int value, int x, int y) {
@@ -346,7 +346,7 @@ public class Main {
 
   //  (j >>> (#reg_bits - distance)) | (j << distance)
 
-  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const64:i\d+>>      IntConstant 64
@@ -356,7 +356,7 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Const64:i\d+>>      IntConstant 64
@@ -364,14 +364,14 @@ public class Main {
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Sub>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_csubv_v(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static long rol_long_reg_csubv_v(long value, int distance) {
     return (value >>> (64 - distance)) | (value << distance);
   }
 
-  /// CHECK-START: long Main.rol_long_reg_csubv_v_0(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_csubv_v_0(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      Ror
   public static long rol_long_reg_csubv_v_0(long value, int distance) {
     return (value >>> (32 - distance)) | (value << distance);
@@ -379,7 +379,7 @@ public class Main {
 
   //  (i >>> distance) | (i << -distance) (i.e. libcore's Integer.rotateRight)
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<UShr:i\d+>>         UShr [<<ArgValue>>,<<ArgDistance>>]
@@ -388,13 +388,13 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<ArgDistance>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_negv(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   /// CHECK-NOT:      Neg
@@ -402,7 +402,7 @@ public class Main {
     return (value >>> distance) | (value << -distance);
   }
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<Neg:i\d+>>          Neg [<<ArgDistance>>]
@@ -412,14 +412,14 @@ public class Main {
   /// CHECK:          <<Add:i\d+>>          Add [<<Or>>,<<Neg>>]
   /// CHECK:                                Return [<<Add>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<ArgDistance>>]
   /// CHECK:          <<Sub:i\d+>>          Sub [<<Ror>>,<<ArgDistance>>]
   /// CHECK:                                Return [<<Sub>>]
 
-  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.ror_int_reg_v_negv_env(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int ror_int_reg_v_negv_env(int value, int distance) {
@@ -429,7 +429,7 @@ public class Main {
 
   //  (j >>> distance) | (j << -distance) (i.e. libcore's Long.rotateRight)
 
-  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<UShr:j\d+>>         UShr [<<ArgValue>>,<<ArgDistance>>]
@@ -438,13 +438,13 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<UShr>>,<<Shl>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<ArgDistance>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.ror_long_reg_v_negv(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   /// CHECK-NOT:      Neg
@@ -454,7 +454,7 @@ public class Main {
 
   //  (i << distance) | (i >>> -distance) (i.e. libcore's Integer.rotateLeft)
 
-  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) instruction_simplifier (before)
+  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<Neg:i\d+>>          Neg [<<ArgDistance>>]
@@ -463,14 +463,14 @@ public class Main {
   /// CHECK:          <<Or:i\d+>>           Or [<<Shl>>,<<UShr>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:i\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Neg:i\d+>>          Neg [<<ArgDistance>>]
   /// CHECK:          <<Ror:i\d+>>          Ror [<<ArgValue>>,<<Neg>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) instruction_simplifier (after)
+  /// CHECK-START: int Main.rol_int_reg_negv_v(int, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static int rol_int_reg_negv_v(int value, int distance) {
@@ -479,7 +479,7 @@ public class Main {
 
   //  (j << distance) | (j >>> -distance) (i.e. libcore's Long.rotateLeft)
 
-  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<Neg:i\d+>>          Neg [<<ArgDistance>>]
@@ -488,14 +488,14 @@ public class Main {
   /// CHECK:          <<Or:j\d+>>           Or [<<Shl>>,<<UShr>>]
   /// CHECK:                                Return [<<Or>>]
 
-  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Neg:i\d+>>          Neg [<<ArgDistance>>]
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Neg>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_negv_v(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:      UShr
   /// CHECK-NOT:      Shl
   public static long rol_long_reg_negv_v(long value, int distance) {
@@ -504,7 +504,7 @@ public class Main {
 
   //  (j << distance) + (j >>> -distance)
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<Neg:i\d+>>          Neg [<<ArgDistance>>]
@@ -513,14 +513,14 @@ public class Main {
   /// CHECK:          <<Add:j\d+>>          Add [<<Shl>>,<<UShr>>]
   /// CHECK:                                Return [<<Add>>]
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Neg:i\d+>>          Neg [<<ArgDistance>>]
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Neg>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_add(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:  Add
   /// CHECK-NOT:  Shl
   /// CHECK-NOT:  UShr
@@ -530,7 +530,7 @@ public class Main {
 
   //  (j << distance) ^ (j >>> -distance)
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) instruction_simplifier (before)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) loop_friendly_instruction_simplifier (before)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK-DAG:      <<Neg:i\d+>>          Neg [<<ArgDistance>>]
@@ -539,14 +539,14 @@ public class Main {
   /// CHECK:          <<Xor:j\d+>>          Xor [<<Shl>>,<<UShr>>]
   /// CHECK:                                Return [<<Xor>>]
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK:          <<ArgValue:j\d+>>     ParameterValue
   /// CHECK:          <<ArgDistance:i\d+>>  ParameterValue
   /// CHECK:          <<Neg:i\d+>>          Neg [<<ArgDistance>>]
   /// CHECK:          <<Ror:j\d+>>          Ror [<<ArgValue>>,<<Neg>>]
   /// CHECK:                                Return [<<Ror>>]
 
-  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) instruction_simplifier (after)
+  /// CHECK-START: long Main.rol_long_reg_v_negv_xor(long, int) loop_friendly_instruction_simplifier (after)
   /// CHECK-NOT:  Xor
   /// CHECK-NOT:  Shl
   /// CHECK-NOT:  UShr
