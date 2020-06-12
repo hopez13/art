@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "94c82700_2eba3c6d",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-12T02:13:13Z",
+      "side": 1,
+      "message": "This does not work anymore. The boot image profile generation has change. I will upload the AOSP patches for reference.",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 124
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ac2b986_e6a9e7bf",
         "filename": "tools/generate-boot-image-profile.sh",
         "patchSetId": 2
