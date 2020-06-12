@@ -68,6 +68,30 @@
       "revId": "fcda6e5c1481f307935505927a13d8c19c0897d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e565d78a_cfd4b23f",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-12T16:41:01Z",
+      "side": 1,
+      "message": "Do you mean not to introduce the string \"loop_friendly_instruction_simplifier\"? \nOr not to have OptimizationPass::kLoopFriendlyInstructionSimplifier at all?\n\nCurrently I added the string to show the impact on tests. So it is an open question whether the loop_friendly mode needs to be reflected in the CFG dump.",
+      "parentUuid": "03a11b6d_f3a23643",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 56
+      },
+      "revId": "fcda6e5c1481f307935505927a13d8c19c0897d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
