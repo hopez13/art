@@ -41,6 +41,8 @@ function setup_die {
 [[ -n "$ANDROID_PRODUCT_OUT" ]] || setup_die
 [[ -n "$ANDROID_HOST_OUT" ]] || setup_die
 
+export TARGET_BUILD_UNBUNDLED=true
+
 flattened_apex_p=$($ANDROID_BUILD_TOP/build/soong/soong_ui.bash --dumpvar-mode TARGET_FLATTEN_APEX)\
   || setup_die
 
