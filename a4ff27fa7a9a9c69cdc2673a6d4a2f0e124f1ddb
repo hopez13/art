@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec56f903_c1dd2c93",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-14T19:54:46Z",
+      "side": 1,
+      "message": "I decided to use \u0027Aggressive\u0027 instead of \u0027LoopFriendly\u0027 to hide the details inside the instruction simplifier.",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 59
+      },
+      "revId": "a4ff27fa7a9a9c69cdc2673a6d4a2f0e124f1ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
