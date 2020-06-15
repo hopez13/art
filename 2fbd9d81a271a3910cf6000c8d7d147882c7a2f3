@@ -977,6 +977,30 @@
     },
     {
       "key": {
+        "uuid": "f39ec4ac_e07ebb0e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4779,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-15T13:53:56Z",
+      "side": 1,
+      "message": "Then maybe add that GetSpecialInputIndexUnchecked should only be called by HasSpecialInput?",
+      "parentUuid": "ca4b914f_83c79d4e",
+      "range": {
+        "startLine": 4779,
+        "startChar": 9,
+        "endLine": 4779,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "811f4de4_c0e619ed",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -1017,6 +1041,53 @@
         "startChar": 0,
         "endLine": 3618,
         "endChar": 61
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9789d390_07d83177",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-15T13:53:56Z",
+      "side": 1,
+      "message": "I guess FixupStaticTrampolines being the method is enough of a comment that we only look at direct methods here.",
+      "parentUuid": "85327465_67a89f2a",
+      "range": {
+        "startLine": 3616,
+        "startChar": 0,
+        "endLine": 3618,
+        "endChar": 61
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a156e9c7_9a8f49a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3619,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-15T13:53:56Z",
+      "side": 1,
+      "message": "test m.IsStatic() ?",
+      "range": {
+        "startLine": 3619,
+        "startChar": 49,
+        "endLine": 3619,
+        "endChar": 50
       },
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
