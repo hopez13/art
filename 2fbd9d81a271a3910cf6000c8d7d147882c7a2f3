@@ -1001,6 +1001,30 @@
     },
     {
       "key": {
+        "uuid": "89060234_5f261fc9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T16:21:07Z",
+      "side": 1,
+      "message": "It is called by the GetSpecialInputIndex() after doing the check and then only by HasSpecialInput() and AddSpecialInput() which cannot call the checked version.\n\nI could make the \"Unchecked\" functions (including GetCurrentMethodIndexUnchecked()) private but that would move them far from all the related code.",
+      "parentUuid": "f39ec4ac_e07ebb0e",
+      "range": {
+        "startLine": 4779,
+        "startChar": 9,
+        "endLine": 4779,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "811f4de4_c0e619ed",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -1072,6 +1096,30 @@
     },
     {
       "key": {
+        "uuid": "95cd7703_249218ee",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T16:21:07Z",
+      "side": 1,
+      "message": "I think so.",
+      "parentUuid": "9789d390_07d83177",
+      "range": {
+        "startLine": 3616,
+        "startChar": 0,
+        "endLine": 3618,
+        "endChar": 61
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a156e9c7_9a8f49a6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -1092,6 +1140,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b828f88_2fed3fa4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T16:21:07Z",
+      "side": 1,
+      "message": "That seems unnecessary, non-static methods should not be annotated as @CriticalNative. And even if they were, it would not be a problem here as we would just unnecessarily lock and then release the mutex.",
+      "parentUuid": "a156e9c7_9a8f49a6",
+      "range": {
+        "startLine": 3619,
+        "startChar": 49,
+        "endLine": 3619,
+        "endChar": 50
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
