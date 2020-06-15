@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f57116ed_d5452219",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T09:13:35Z",
+      "side": 1,
+      "message": "ContainsElement() was written with the std::vector\u003c\u003e in mind. It is O(n) and therefore unsuitable for std::set\u003c\u003e (and similar containers) unless you add an overload for that. You should use `current_osr_compilations_.count(method) !\u003d 0u` instead.\n\n(The fact that the \"n\" in \"O(n)\" is the number of threads here and therefore usually 1 should not be used to spread sub-optimal patterns.)",
+      "range": {
+        "startLine": 1313,
+        "startChar": 15,
+        "endLine": 1313,
+        "endChar": 30
+      },
+      "revId": "0e277ebc7ac58752dabd18a760df334b99c5a984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e87680fc_3963132c",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T09:13:35Z",
+      "side": 1,
+      "message": "Do we allow compiling different types at the same time? If not, I would prefer an std::map\u003cArtMethod*, JitCompilationType\u003e.",
+      "revId": "0e277ebc7ac58752dabd18a760df334b99c5a984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
