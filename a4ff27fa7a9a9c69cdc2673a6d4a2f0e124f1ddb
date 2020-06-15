@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "887cfaf6_110f1619",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-15T15:08:43Z",
+      "side": 1,
+      "message": "1. Rems which are not in loops are always optimized.\n2. Hand optimized HRem.\n\nSee test/449-checker-bce-rem/src/Main.java for examples.",
+      "parentUuid": "86ae3a75_2f0b4231",
+      "revId": "a4ff27fa7a9a9c69cdc2673a6d4a2f0e124f1ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82b8de3e_a0cd2fc4",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2020-06-15T13:43:54Z",
       "side": 1,
       "message": "I was also looking into why we want this: what pass will be unhappy if were to always run those optimizations.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 81
+      },
+      "revId": "a4ff27fa7a9a9c69cdc2673a6d4a2f0e124f1ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cbf440f_8838d1b4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-15T15:08:43Z",
+      "side": 1,
+      "message": "HInductionVarAnalysis and HLoopOptimization.",
+      "parentUuid": "82b8de3e_a0cd2fc4",
       "range": {
         "startLine": 129,
         "startChar": 0,
