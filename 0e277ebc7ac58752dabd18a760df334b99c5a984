@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bff7dc4_86240d93",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-15T09:59:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f57116ed_d5452219",
+      "range": {
+        "startLine": 1313,
+        "startChar": 15,
+        "endLine": 1313,
+        "endChar": 30
+      },
+      "revId": "0e277ebc7ac58752dabd18a760df334b99c5a984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e87680fc_3963132c",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2020-06-15T09:13:35Z",
       "side": 1,
       "message": "Do we allow compiling different types at the same time? If not, I would prefer an std::map\u003cArtMethod*, JitCompilationType\u003e.",
+      "revId": "0e277ebc7ac58752dabd18a760df334b99c5a984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "585e09a7_0f70a8cb",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-15T09:59:59Z",
+      "side": 1,
+      "message": "Yes, there could be different compilations at the same time (either with multiple JIT threads, or the jit at first use configuration).",
+      "parentUuid": "e87680fc_3963132c",
       "revId": "0e277ebc7ac58752dabd18a760df334b99c5a984",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
