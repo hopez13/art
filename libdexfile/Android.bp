@@ -24,6 +24,8 @@ cc_defaults {
         "//prebuilts:__subpackages__",
     ],
     host_supported: true,
+    // TODO(b/153609531): remove when no longer needed.
+    native_bridge_supported: true,
     srcs: [
         "dex/art_dex_file_loader.cc",
         "dex/compact_dex_file.cc",
@@ -268,6 +270,8 @@ cc_library_headers {
     name: "libdexfile_external_headers",
     visibility: ["//visibility:public"],
     host_supported: true,
+    // TODO(b/153609531): remove when no longer needed.
+    native_bridge_supported: true,
     header_libs: ["libbase_headers"],
     export_header_lib_headers: ["libbase_headers"],
     export_include_dirs: ["external/include"],
@@ -301,6 +305,8 @@ cc_library_headers {
 cc_defaults {
     name: "libdexfile_external-defaults",
     host_supported: true,
+    // TODO(b/153609531): remove when no longer needed.
+    native_bridge_supported: true,
     srcs: [
         "external/dex_file_ext.cc",
     ],
@@ -385,6 +391,8 @@ cc_library {
     name: "libdexfile_support",
     visibility: ["//visibility:public"],
     host_supported: true,
+    // TODO(b/153609531): remove when no longer needed.
+    native_bridge_supported: true,
     srcs: [
         "external/dex_file_supp.cc",
     ],
