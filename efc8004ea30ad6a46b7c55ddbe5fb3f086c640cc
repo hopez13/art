@@ -16,6 +16,24 @@
       "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d56f7bf_4374ba1d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5075,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 0,
+      "message": "They are no longer valid. This is related to the rewrite in nodes.h that allows having the current method argument and the special input at the same time.",
+      "parentUuid": "cb9d54ad_f2171985",
+      "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

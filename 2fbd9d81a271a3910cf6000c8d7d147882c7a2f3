@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a7dfaa7_a2a8eb96",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0e818fa_3ffc8b2d",
+      "range": {
+        "startLine": 513,
+        "startChar": 6,
+        "endLine": 513,
+        "endChar": 86
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75e05310_4461a501",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5abaacf_9f7ba45d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "The `visitor-\u003eGetNextLocation(.)` call modifies the visitor.",
+      "parentUuid": "75e05310_4461a501",
+      "range": {
+        "startLine": 527,
+        "startChar": 4,
+        "endLine": 527,
+        "endChar": 13
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fcc9e50d_04a3683c",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "We\u0027re adding moves to the `parallel_move`.",
+      "parentUuid": "5db20ea0_f5ff2672",
+      "range": {
+        "startLine": 528,
+        "startChar": 6,
+        "endLine": 528,
+        "endChar": 9
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cdfeecd_7154cb5e",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7659e9d0_4dfd88f0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cdfeecd_7154cb5e",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 88
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "735db78d_d49c63ac",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8da05c4d_7600d835",
+      "range": {
+        "startLine": 543,
+        "startChar": 34,
+        "endLine": 543,
+        "endChar": 75
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634ce00b_c0ccb9d6",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 8
@@ -137,6 +257,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f1e7e8e_8e76c85e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "We\u0027re modifying the moves held by the `parallel_move`.",
+      "parentUuid": "634ce00b_c0ccb9d6",
+      "range": {
+        "startLine": 544,
+        "startChar": 54,
+        "endLine": 544,
+        "endChar": 63
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "54c8f68e_042c5d9f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Referenced \"generating the call\" in the new comment on `for_register_allocation_` which supersedes this comment. Removed this comment.",
+      "parentUuid": "3e4d5394_e239e77f",
+      "range": {
+        "startLine": 901,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 56
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46f7a378_22a59ddb",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 8
@@ -183,6 +351,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d89ac4b1_3db7781a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f7a378_22a59ddb",
+      "range": {
+        "startLine": 4475,
+        "startChar": 0,
+        "endLine": 4485,
+        "endChar": 33
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "aad99f08_c3bb5654",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d199fd7a_2eb7a1ea",
+      "range": {
+        "startLine": 248,
+        "startChar": 13,
+        "endLine": 248,
+        "endChar": 37
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f742db08_2c2bff26",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 8
@@ -229,6 +445,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6eb1c99_18eb3cb0",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f742db08_2c2bff26",
+      "range": {
+        "startLine": 251,
+        "startChar": 9,
+        "endLine": 251,
+        "endChar": 16
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "11943e91_398d80a1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9469eb32_73e2fe62",
+      "range": {
+        "startLine": 2442,
+        "startChar": 84,
+        "endLine": 2442,
+        "endChar": 87
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c56a6af_b38af547",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 8
@@ -275,6 +539,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3dde71f_83f95b00",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 9047,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done with a short comment. I see no reason to fully document the native and managed ABI mismatch here.",
+      "parentUuid": "1c56a6af_b38af547",
+      "range": {
+        "startLine": 9042,
+        "startChar": 0,
+        "endLine": 9047,
+        "endChar": 16
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "42c605eb_b73267be",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "873e54f2_fa85fea9",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38cb5d54_57ffff9c",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 8
@@ -315,6 +627,24 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd38b200_a401ea02",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Referenced \"generating the call\" in the new comment on `for_register_allocation_` which supersedes this comment. Removed this comment.",
+      "parentUuid": "38cb5d54_57ffff9c",
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "d77cd866_b7e97c43",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5080,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b771f97c_0eb80aa0",
+      "range": {
+        "startLine": 5080,
+        "startChar": 0,
+        "endLine": 5080,
+        "endChar": 44
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1dd3c21_ad740d4b",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 8
@@ -361,6 +715,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32c5585c_59ef2f0f",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1dd3c21_ad740d4b",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -387,6 +765,30 @@
     },
     {
       "key": {
+        "uuid": "bb050916_154b4656",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "827ad2d8_33a89b4a",
+      "range": {
+        "startLine": 111,
+        "startChar": 9,
+        "endLine": 111,
+        "endChar": 16
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5e90707_5056bb8f",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 8
@@ -407,6 +809,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5a828e_f1f47c1e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5e90707_5056bb8f",
+      "range": {
+        "startLine": 983,
+        "startChar": 39,
+        "endLine": 983,
+        "endChar": 43
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -433,6 +859,30 @@
     },
     {
       "key": {
+        "uuid": "80177d83_0156d40c",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa2cfa59_b5f52fd0",
+      "range": {
+        "startLine": 96,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 37
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72898abd_d0d5b85b",
         "filename": "compiler/optimizing/code_generator_x86_64.h",
         "patchSetId": 8
@@ -453,6 +903,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbcd8d4e_e0599c9c",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72898abd_d0d5b85b",
+      "range": {
+        "startLine": 99,
+        "startChar": 9,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -479,6 +953,30 @@
     },
     {
       "key": {
+        "uuid": "ca4b914f_83c79d4e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "To avoid an infinite recursion between GetSpecialInputIndex() and HasSpecialInput(). I don\u0027t think this needs an extra comment.",
+      "parentUuid": "4d286b65_c2c7efec",
+      "range": {
+        "startLine": 4779,
+        "startChar": 9,
+        "endLine": 4779,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "811f4de4_c0e619ed",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -490,6 +988,30 @@
       "writtenOn": "2020-06-15T09:42:11Z",
       "side": 1,
       "message": "Could you add a check here that virtual methods are not critical native?",
+      "range": {
+        "startLine": 3616,
+        "startChar": 0,
+        "endLine": 3618,
+        "endChar": 61
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85327465_67a89f2a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "I\u0027d rather not. We\u0027re not preventing virtual methods from being declared @CriticalNative. If you want to add such checks, please file a new bug and specify what behavior you want for invalid @CriticalNative methods. (LinkageError?)",
+      "parentUuid": "811f4de4_c0e619ed",
       "range": {
         "startLine": 3616,
         "startChar": 0,
@@ -525,6 +1047,30 @@
     },
     {
       "key": {
+        "uuid": "2ac03428_970af1e1",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f5602b6_bcbe51a1",
+      "range": {
+        "startLine": 222,
+        "startChar": 5,
+        "endLine": 222,
+        "endChar": 30
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca8192a1_4f7cd7a6",
         "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
         "patchSetId": 8
@@ -548,6 +1094,30 @@
     },
     {
       "key": {
+        "uuid": "60201202_2dbad405",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done. Note that the `self-\u003eGetCurrentMethod(.)` call above also effectively performs the inline info decoding seen in lines 152-162.",
+      "parentUuid": "ca8192a1_4f7cd7a6",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db5beb72_771ff499",
         "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
         "patchSetId": 8
@@ -568,6 +1138,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08de58d7_373e8c5d",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-15T12:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db5beb72_771ff499",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 24
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
