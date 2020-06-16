@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "372b6be7_5546d47f",
+        "filename": "test/455-checker-gvn/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-16T12:35:31Z",
+      "side": 1,
+      "message": "nit: add one line",
+      "revId": "a1061e91aab09614be07893a467ba6907ac58dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c7e7c5_8b10261d",
+        "filename": "test/455-checker-gvn/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-16T12:35:31Z",
+      "side": 1,
+      "message": "Can you add a comment why there are four deoptimizes?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 23
+      },
+      "revId": "a1061e91aab09614be07893a467ba6907ac58dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7add5869_2c67d555",
+        "filename": "test/455-checker-gvn/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-16T12:35:31Z",
+      "side": 1,
+      "message": "This looks likely to get recognized by the compiler once the LSE is sophisticated enough, right? Maybe pass the array as an argument to $noinline$deoptimizeArray?",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 26
+      },
+      "revId": "a1061e91aab09614be07893a467ba6907ac58dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
