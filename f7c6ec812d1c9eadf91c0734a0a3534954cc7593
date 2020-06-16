@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "3961e9e3_83d31c47",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-16T07:02:15Z",
+      "side": 1,
+      "message": "Feel free to merge if this looks good to you. My changes rewrite this script completely though as it makes use of the boot.zip archive. I haven\u0027t gotten the chance to upload yet, but hopefully I will be able to do it soon.",
+      "parentUuid": "bfcdc6c1_92b3a6d7",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 124
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ac2b986_e6a9e7bf",
         "filename": "tools/generate-boot-image-profile.sh",
         "patchSetId": 2
