@@ -22,6 +22,30 @@
       "revId": "644ba16026e446d72e3c7670e0f20d19e4dc9a60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "653e0bce_93eb20cc",
+        "filename": "test/455-checker-gvn/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-06-16T17:48:56Z",
+      "side": 1,
+      "message": "It doesn\u0027t trigger otherwise. I think it has to do with BCE interacting with null-check. In any case, it doesn\u0027t end up creating the deoptimizes, leaving just repeated bounds-checks in the loops.\n\nAs I said in the comment this example shows some pretty major optimization failures and this is just one of them.",
+      "parentUuid": "c85e7d92_8cdf5720",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 5
+      },
+      "revId": "644ba16026e446d72e3c7670e0f20d19e4dc9a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
