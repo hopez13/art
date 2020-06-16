@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e690f265_53c90d00",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-16T12:39:12Z",
+      "side": 1,
+      "message": "So this CL is functionally two changes? This file, and the rest? Can you split it into two CLs?",
+      "parentUuid": "887cfaf6_110f1619",
+      "revId": "a4ff27fa7a9a9c69cdc2673a6d4a2f0e124f1ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82b8de3e_a0cd2fc4",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "HInductionVarAnalysis and HLoopOptimization.",
       "parentUuid": "82b8de3e_a0cd2fc4",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 81
+      },
+      "revId": "a4ff27fa7a9a9c69cdc2673a6d4a2f0e124f1ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5a839ca_9f717483",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-16T12:39:12Z",
+      "side": 1,
+      "message": "Can you add that as a comment?",
+      "parentUuid": "6cbf440f_8838d1b4",
       "range": {
         "startLine": 129,
         "startChar": 0,
