@@ -17,8 +17,6 @@
 
 # Run ART APEX tests.
 
-SCRIPT_DIR=$(dirname $0)
-
 # Status of whole test script.
 exit_status=0
 # Status of current test suite.
@@ -33,6 +31,10 @@ function die {
   exit 1
 }
 
+if [ ! -d art ]; then
+  die "Script needs to be run at the root of the android tree"
+fi
+
 function setup_die {
   die "You need to source and lunch before you can use this script."
 }
@@ -40,6 +42,12 @@ function setup_die {
 [[ -n "$ANDROID_BUILD_TOP" ]] || setup_die
 [[ -n "$ANDROID_PRODUCT_OUT" ]] || setup_die
 [[ -n "$ANDROID_HOST_OUT" ]] || setup_die
+
+# Switch the build system to unbundled mode in the reduced manifest branch.
+# TODO(b/159109002): Clean this up.
+if [ ! -d frameworks/base ]; then
+  export TARGET_BUILD_UNBUNDLED=true
+fi
 
 flattened_apex_p=$($ANDROID_BUILD_TOP/build/soong/soong_ui.bash --dumpvar-mode TARGET_FLATTEN_APEX)\
   || setup_die
@@ -108,13 +116,13 @@ function maybe_list_apex_contents_apex {
   # List the contents of the apex in list form.
   if $list_image_files_p; then
     say "Listing image files"
-    $SCRIPT_DIR/art_apex_test.py --list ${print_options[@]} $@
+    art/build/apex/art_apex_test.py --list ${print_options[@]} $@
   fi
 
   # List the contents of the apex in tree form.
   if $print_image_tree_p; then
     say "Printing image tree"
-    $SCRIPT_DIR/art_apex_test.py --tree ${print_options[@]} $@
+    art/build/apex/art_apex_test.py --tree ${print_options[@]} $@
   fi
 }
 
@@ -186,7 +194,7 @@ for apex_module in ${apex_modules[@]}; do
   maybe_list_apex_contents_apex $art_apex_test_args $apex_path
 
   # Run tests on APEX package.
-  $SCRIPT_DIR/art_apex_test.py $art_apex_test_args $test_only_args $apex_path \
+  art/build/apex/art_apex_test.py $art_apex_test_args $test_only_args $apex_path \
     || fail_check "Checks failed on $apex_module"
 
   # Clean up.
