@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "5c455afe_a5ef8ec4",
+        "filename": "tools/generate-boot-image-profile.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-16T08:43:15Z",
+      "side": 1,
+      "message": "Ok, I see. Let\u0027s have the current patch for now as it is better than the current state.",
+      "parentUuid": "3961e9e3_83d31c47",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 124
+      },
+      "revId": "f7c6ec812d1c9eadf91c0734a0a3534954cc7593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ac2b986_e6a9e7bf",
         "filename": "tools/generate-boot-image-profile.sh",
         "patchSetId": 2
