@@ -34,6 +34,23 @@
       "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a55a55ea_c6353c69",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-16T16:47:54Z",
+      "side": 0,
+      "message": "Was there reason to remove those? (considering they are caller-save, I don\u0027t mind the removal)",
+      "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

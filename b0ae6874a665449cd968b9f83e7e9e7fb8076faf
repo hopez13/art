@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4de796ac_7dee58f1",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-16T16:47:54Z",
+      "side": 1,
+      "message": "The frame size is guaranteed multiple of 8?",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaeaa796_0daec8e6",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-16T16:47:54Z",
+      "side": 1,
+      "message": "Are those CFI expressions needed for unwinding?\nOr are you just trying to be a good CFI citizen?\n\nIt seems correct to me.",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53bf7f6c_03b73ca0",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-16T16:47:54Z",
+      "side": 1,
+      "message": "Should we have helper to \"save caller-save regs\"?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 50
+      },
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23956b9e_becdf53e",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-16T16:47:54Z",
+      "side": 1,
+      "message": "Why the move, rather rather then copy?  To avoid dynamic stack frame?\n\nActually, why copy at all?  Couldn\u0027t we just pass pointer to stack args to the C++ method?",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
