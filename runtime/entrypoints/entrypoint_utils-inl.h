@@ -363,17 +363,28 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
     if (UNLIKELY(is_set && !resolved_field->CanBeChangedBy(referrer))) {
       ThrowIllegalAccessErrorFinalField(referrer, resolved_field);
       return nullptr;  // Failure.
-    } else {
-      if (UNLIKELY(resolved_field->IsPrimitiveType() != is_primitive ||
-                   resolved_field->FieldSize() != expected_size)) {
-        self->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",
-                                 "Attempted read of %zd-bit %s on field '%s'",
-                                 expected_size * (32 / sizeof(int32_t)),
-                                 is_primitive ? "primitive" : "non-primitive",
-                                 resolved_field->PrettyField(true).c_str());
-        return nullptr;  // Failure.
-      }
     }
+    if (UNLIKELY(resolved_field->IsPrimitiveType() != is_primitive ||
+                 resolved_field->FieldSize() != expected_size)) {
+      self->ThrowNewExceptionF("Ljava/lang/NoSuchFieldError;",
+                               "Attempted read of %zd-bit %s on field '%s'",
+                               expected_size * (32 / sizeof(int32_t)),
+                               is_primitive ? "primitive" : "non-primitive",
+                               resolved_field->PrettyField(true).c_str());
+      return nullptr;  // Failure.
+    }
+    // Put the field and class in a handlescope before the call to ResolveType.
+    StackHandleScope<1> hs(self);
+    HandleWrapperObjPtr<mirror::Class> h_fields_class(hs.NewHandleWrapper(&fields_class));
+    StackArtFieldHandleScope<1> rhs(self);
+    ReflectiveHandle<ArtField> resolved_field_handle(rhs.NewHandle(resolved_field));
+    if (resolved_field->ResolveType().IsNull()) {
+      // ArtField::ResolveType() may fail as evidenced with a dexing bug (b/78788577).
+      self->AssertPendingException();
+      return nullptr;  // Failure
+    }
+    // Update the field in case it has moved.
+    resolved_field = resolved_field_handle.Get();
   }
   if (!is_static) {
     // instance fields must be being accessed on an initialized class

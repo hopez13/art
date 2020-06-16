@@ -26,6 +26,12 @@
 .end method
 
 .method public static constructor <clinit>()V
+    .registers 0
+    invoke-static {}, LBadField;->test()V
+    return-void
+.end method
+
+.method public static test()V
     .registers 1
     new-instance v0, Ljava/lang/Object;
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
