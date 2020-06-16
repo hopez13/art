@@ -26,7 +26,13 @@ if [ ! -d art ]; then
   exit 1
 fi
 
-soong_args="TARGET_BUILD_UNBUNDLED=true"
+soong_args=""
+
+# Switch the build system to unbundled mode in the reduced manifest branch.
+# TODO(b/159109002): Clean this up.
+if [ ! -d frameworks/base ]; then
+  soong_args="$soong_args TARGET_BUILD_UNBUNDLED=true"
+fi
 
 source build/envsetup.sh >&/dev/null # for get_build_var
 
