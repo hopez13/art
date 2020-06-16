@@ -22,6 +22,30 @@
       "revId": "1ebc6e1fb474395398d6f7eab81ee565e1cfe01f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21414674_5e9f2204",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-16T15:38:02Z",
+      "side": 1,
+      "message": "Yes, they are valid. The microbenchmark:\n  private static void divrem(long[] b) {\n    int n \u003d b.length;\n    long li \u003d 0;\n    for (int i \u003d 0; i \u003c n; i +\u003d 2, ++li) {\n      b[i]   \u003d li / 18;\n      b[i+1] \u003d li % 18;\n    }\n  }\nAs you can see Div/Rem are in a loop, so they are not touched till loop analysis/optimizations are done.",
+      "parentUuid": "e310e84c_7007b393",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "1ebc6e1fb474395398d6f7eab81ee565e1cfe01f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
