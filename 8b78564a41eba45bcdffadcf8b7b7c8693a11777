@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f49375d2_ea9892a4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 4491,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T13:33:24Z",
+      "side": 1,
+      "message": "Same comment about explicitly listing valid cases.",
+      "range": {
+        "startLine": 4486,
+        "startChar": 0,
+        "endLine": 4491,
+        "endChar": 82
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01791ee5_babfde28",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 8930,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T13:33:24Z",
+      "side": 1,
+      "message": "I have trouble understanding what this code is doing. Why does it check reg and not next_reg? Why does the loop break at 4? Why is the check at line 8932 not performed for some \u0027D\u0027 args (because of the early break at line 8929)? From what I can see all previous implementations just returned desired_dispatch_info, so I have nothing to compare against.",
+      "range": {
+        "startLine": 8928,
+        "startChar": 0,
+        "endLine": 8930,
+        "endChar": 9
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d8ba24_fff84589",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 9056,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T13:33:24Z",
+      "side": 1,
+      "message": "IMO this should explicitly list valid cases. If the list changes, DCHECK would have to be patched anyway (and most likely forgotten):\n\n  case DataType::Type::kBool:\n  ...\n  case DataType::Type::kFloat64:\n    break;\n  default:\n    DCHECK(false) \u003c\u003c invoke-\u003eGetType();\n    break;",
+      "range": {
+        "startLine": 9047,
+        "startChar": 0,
+        "endLine": 9056,
+        "endChar": 82
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
