@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fbcdaf05_feb3659e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-17T19:16:52Z",
+      "side": 1,
+      "message": "Thanks for the clarifications. It still means that all these libraries end up in /system/lib, in addition to their normal instances in /apex/com.android.art?\n\nI assume APEX updatability still isn\u0027t a factor for native_bridge use cases. Even so, if the above is correct then it\u0027s a setup I doubt we\u0027d be able to support. One reason is the different linker namespace configuration, another is the risk of ODR issues.\n\nWould it be possible to bridge the native ABI from libdexfile_external.so to the guest and use native_bridge_supported on libdexfile_support only? It\u0027s a C interface that is fairly small: https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/external/include/art_api/dex_file_external.h\n\nI might also mention that it\u0027s easy to create a dummy libdexfile_support that does nothing and depends on nothing (-DNO_DEXFILE_SUPPORT), as a stop-gap fix to decouple this from the rest.",
+      "parentUuid": "9e8affea_5c749262",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e16f644d_362cbe60",
         "filename": "libartbase/Android.bp",
         "patchSetId": 2
