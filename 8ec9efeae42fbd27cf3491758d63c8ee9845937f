@@ -70,6 +70,30 @@
       "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b611be08_5367ebec",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-17T18:12:18Z",
+      "side": 1,
+      "message": "We could check the exit status of `linkerconfig`, and have it be non zero when:\n1. there are warnings;\n2. the option to make warning fatal (à la `-Werror`) is set.",
+      "parentUuid": "a885d45a_4e819797",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 96
+      },
+      "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
