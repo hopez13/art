@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b5f00457_f1e4b4d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1069991
+      },
+      "writtenOn": "2020-06-17T19:42:33Z",
+      "side": 1,
+      "message": "They end up in the /system/lib/arm and /system/lib/arm64 (like all native_bridge libraries), never in /system/lib\n\nAPEX is not a problem because currently all devices where native_bridge is used are updated regularly (actually none of them are bare-metal devices).\n\nThere are no risk of ODR vilation not just because they go into a different directory, but mainly because they are for a different CPU arch: arm vs x86.\n\nBionic linker would never accept library of wrong arch, it would continue to look for a different one of suitable arch.\n\nAs for bridging native library to guest - yes, this is possible and we are doing that with many libraries (like libEGL), but currently this involves building two libraries: both original one (for arm architecture) and so-called \"stub\" library used to cross the bridge.\n\nIt\u0027s because of http://b/145028007 - we are working on it... but it takes longer than we hoped.\n\nI think dummy library would work just fine for our use-case, too: we only need libdexfile_support because libbacktrace depends on it - and I\u0027m pretty sure it\u0027s not actually used when everything works correctly.",
+      "parentUuid": "fbcdaf05_feb3659e",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e16f644d_362cbe60",
         "filename": "libartbase/Android.bp",
         "patchSetId": 2
