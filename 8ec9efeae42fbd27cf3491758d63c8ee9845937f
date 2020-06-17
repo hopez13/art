@@ -46,6 +46,30 @@
       "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a885d45a_4e819797",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-06-17T18:08:16Z",
+      "side": 1,
+      "message": "How can I promote warnings to errors? linkerconfig uses android-base/logging.h and LOG(WARNING) macros. \n\nI\u0027d like to follow the common practice instead of implementing my own logging utility.",
+      "parentUuid": "9095d68a_d95a4c78",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 96
+      },
+      "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
