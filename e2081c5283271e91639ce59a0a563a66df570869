@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22c043c9_ff32fcf4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T15:06:24Z",
+      "side": 1,
+      "message": "Replacing the user of an instruction you\u0027re visiting messes up the HInstructionIterator we\u0027re using for the visiting, the `next_` member could now point to the removed instruction.\n\nYou should do this transformation when visiting the subsequent SUB and preferably in the ARM-specific simplifier as this is useless for x86.",
+      "range": {
+        "startLine": 1888,
+        "startChar": 8,
+        "endLine": 1888,
+        "endChar": 61
+      },
+      "revId": "e2081c5283271e91639ce59a0a563a66df570869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
