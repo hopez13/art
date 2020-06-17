@@ -196,22 +196,39 @@ public class Main {
   // A test case to check:
   //  If there is HDiv with the same inputs as HRem, it is reused.
   //
-  /// CHECK-START: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier (before)
-  /// CHECK:           Div
-  /// CHECK:           Rem
-  //
-  /// CHECK-START: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier (after)
+  /// CHECK-START-ARM64: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier_arm64 (before)
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
   /// CHECK-NEXT:      Sub
   //
+  /// CHECK-START-ARM64: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier_arm64 (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
   /// CHECK-START-ARM64: long Main.$noinline$IntDivRemBy7(int) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #34
   /// CHECK-NEXT:            cinc w{{\d+}}, w{{\d+}}, mi
-  /// CHECK:                 lsl w{{\d+}}, w{{\d+}}, #3
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
+  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}, lsl #3
+  /// CHECK:                 add w{{\d+}}, w{{\d+}}, w{{\d+}}
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier_arm (before)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      Shl
+  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Sub
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemBy7(int) instruction_simplifier_arm (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemBy7(int) disassembly (after)
+  /// CHECK:                 asrs r{{\d+}}, #2
+  /// CHECK-NEXT:            sub  r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  /// CHECK:                 sub  r{{\d+}}, r{{\d+}}, r{{\d+}}, lsl #3
+  /// CHECK:                 adds r{{\d+}}, r{{\d+}}, r{{\d+}}
   private static long $noinline$IntDivRemBy7(int v) {
     int q = v / 7;
     int r = v % 7;
@@ -243,22 +260,39 @@ public class Main {
   // A test case to check:
   //  If there is HDiv with the same inputs as HRem, it is reused.
   //
-  /// CHECK-START: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier (before)
-  /// CHECK:           Div
-  /// CHECK:           Rem
-  //
-  /// CHECK-START: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier (after)
+  /// CHECK-START-ARM64: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier_arm64 (before)
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
   /// CHECK-NEXT:      Sub
   //
+  /// CHECK-START-ARM64: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier_arm64 (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
   /// CHECK-START-ARM64: long Main.$noinline$IntDivRemByMaxInt(int) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #61
   /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
-  /// CHECK:                 lsl w{{\d+}}, w{{\d+}}, #31
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
+  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}, lsl #31
+  /// CHECK:                 add w{{\d+}}, w{{\d+}}, w{{\d+}}
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier_arm (before)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      Shl
+  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Sub
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemByMaxInt(int) instruction_simplifier_arm (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
+  /// CHECK-START-ARM: long Main.$noinline$IntDivRemByMaxInt(int) disassembly (after)
+  /// CHECK:                 asrs r{{\d+}}, #29
+  /// CHECK-NEXT:            sub  r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  /// CHECK:                 sub  r{{\d+}}, r{{\d+}}, r{{\d+}}, lsl #31
+  /// CHECK:                 adds r{{\d+}}, r{{\d+}}, r{{\d+}}
   private static long $noinline$IntDivRemByMaxInt(int v) {
     int q = v / Integer.MAX_VALUE;
     int r = v % Integer.MAX_VALUE;
@@ -580,22 +614,33 @@ public class Main {
   // A test case to check:
   //  If there is HDiv with the same inputs as HRem, it is reused.
   //
-  /// CHECK-START: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier (before)
-  /// CHECK:           Div
-  /// CHECK:           Rem
-  //
-  /// CHECK-START: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier (after)
+  /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier_arm64 (before)
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
   /// CHECK-NEXT:      Sub
   //
+  /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier_arm64 (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
   /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemBy7(long) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #1
   /// CHECK-NEXT:            add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
-  /// CHECK:                 lsl x{{\d+}}, x{{\d+}}, #3
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}, lsl #3
+  /// CHECK:                 add x{{\d+}}, x{{\d+}}, x{{\d+}}
+  //
+  /// CHECK-START-ARM: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier_arm (before)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      Shl
+  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Sub
+  //
+  /// CHECK-START-ARM: long[] Main.$noinline$LongDivRemBy7(long) instruction_simplifier_arm (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
   private static long[] $noinline$LongDivRemBy7(long v) {
     long q = v / 7L;
     long r = v % 7L;
@@ -627,22 +672,33 @@ public class Main {
   // A test case to check:
   //  If there is HDiv with the same inputs as HRem, it is reused.
   //
-  /// CHECK-START: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier (before)
-  /// CHECK:           Div
-  /// CHECK:           Rem
-  //
-  /// CHECK-START: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier (after)
+  /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier_arm64 (before)
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
   /// CHECK-NEXT:      Sub
   //
+  /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier_arm64 (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
+  //
   /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemByMaxLong(long) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #61
   /// CHECK-NEXT:            add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
-  /// CHECK:                 lsl x{{\d+}}, x{{\d+}}, #63
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}, lsl #63
+  /// CHECK:                 add x{{\d+}}, x{{\d+}}, x{{\d+}}
+  //
+  /// CHECK-START-ARM: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier_arm (before)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      Shl
+  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Sub
+  //
+  /// CHECK-START-ARM: long[] Main.$noinline$LongDivRemByMaxLong(long) instruction_simplifier_arm (after)
+  /// CHECK:           Div
+  /// CHECK-NEXT:      DataProcWithShifterOp
+  /// CHECK-NEXT:      Add
   private static long[] $noinline$LongDivRemByMaxLong(long v) {
     long q = v / Long.MAX_VALUE;
     long r = v % Long.MAX_VALUE;

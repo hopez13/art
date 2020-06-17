@@ -47,6 +47,18 @@ inline bool HasShifterOperand(HInstruction* instr, InstructionSet isa) {
   return res;
 }
 
+// Check the specified sub is the last operation of the sequence:
+//   t1 = Shl
+//   t2 = Sub(t1, *)
+//   t3 = Sub(*, t2)
+inline bool IsSubRightSubLeftShl(HSub *sub) {
+  if (HSub* right = sub->GetRight()->AsSub()) {
+    return right->GetLeft()->IsShl();
+  } else {
+    return false;
+  }
+}
+
 }  // namespace helpers
 
 bool TryCombineMultiplyAccumulate(HMul* mul, InstructionSet isa);
@@ -60,6 +72,12 @@ bool TryExtractArrayAccessAddress(HInstruction* access,
                                   size_t data_offset);
 
 bool TryExtractVecArrayAccessAddress(HVecMemoryOperation* access, HInstruction* index);
+
+// Try to replace
+//   Sub(c, Sub(a, b))
+// with
+//   Add(c, Sub(b, a))
+bool TryReplaceSubSubWithSubAdd(HSub* last_sub);
 
 }  // namespace art
 
