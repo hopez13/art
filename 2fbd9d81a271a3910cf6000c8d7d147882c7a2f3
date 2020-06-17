@@ -1025,6 +1025,30 @@
     },
     {
       "key": {
+        "uuid": "53d1e70b_07383e02",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "Marking as resolved. Reopen if you want me to take action.",
+      "parentUuid": "89060234_5f261fc9",
+      "range": {
+        "startLine": 4779,
+        "startChar": 9,
+        "endLine": 4779,
+        "endChar": 38
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "811f4de4_c0e619ed",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 8
@@ -1117,6 +1141,30 @@
       "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddd80368_ce9c861f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "Marking as resolved. Reopen if you want me to take action.",
+      "parentUuid": "95cd7703_249218ee",
+      "range": {
+        "startLine": 3616,
+        "startChar": 0,
+        "endLine": 3618,
+        "endChar": 61
+      },
+      "revId": "2fbd9d81a271a3910cf6000c8d7d147882c7a2f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

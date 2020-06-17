@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ef8ca89_0c256c47",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "Yes, according to AAPCS. See also kAapcsStackAlignment in jni_frame_arm.h .",
+      "parentUuid": "4de796ac_7dee58f1",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaeaa796_0daec8e6",
         "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
         "patchSetId": 13
@@ -33,6 +51,24 @@
       "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "553a0279_4084eccd",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "Removed r1-r3.\n\nThe rest is necessary as some C++ code in the stack could have saved LR in one of these registers. (Note that our current implementation of art_quick_invoke_stub_internal saves these registers, so we\u0027re protected when crossing the native/managed boundary, but that\u0027s strictly speaking not necessary if all the callees have correct CFI. So I don\u0027t want to rely on that.)",
+      "parentUuid": "eaeaa796_0daec8e6",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "c6c8409d_91a07612",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "We could refactor this to share code with `art_jni_dlsym_lookup_stub` but there would be a difference that we\u0027re saving x29 there and need a .cfi_rel_offset for that while the x15 here does not need that. So, I\u0027ll leave it as is for now.",
+      "parentUuid": "53bf7f6c_03b73ca0",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 50
+      },
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23956b9e_becdf53e",
         "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
         "patchSetId": 13
@@ -73,6 +133,24 @@
       "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d39dae2_6aa021e8",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 1,
+      "message": "We need to make space for the managed frame (SaveRefsAndArgs), so the stack args need to go somewhere else. And \"move\" instead of \"copy\" because the source and destination range can overlap. This is covered by the test 178 when we pass tons of arguments to a @CriticalNative method.",
+      "parentUuid": "23956b9e_becdf53e",
+      "revId": "b0ae6874a665449cd968b9f83e7e9e7fb8076faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

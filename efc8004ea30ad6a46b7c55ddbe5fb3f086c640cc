@@ -51,6 +51,24 @@
       "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb354b59_5b974f62",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T09:45:14Z",
+      "side": 0,
+      "message": "Just that they are unnecessary. And arm64 does not have CFI directives for them either.",
+      "parentUuid": "a55a55ea_c6353c69",
+      "revId": "efc8004ea30ad6a46b7c55ddbe5fb3f086c640cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
