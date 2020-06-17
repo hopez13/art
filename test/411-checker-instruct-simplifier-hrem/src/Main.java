@@ -204,14 +204,13 @@ public class Main {
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
-  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Add
   //
   /// CHECK-START-ARM64: long Main.$noinline$IntDivRemBy7(int) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #34
   /// CHECK-NEXT:            cinc w{{\d+}}, w{{\d+}}, mi
-  /// CHECK:                 lsl w{{\d+}}, w{{\d+}}, #3
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
+  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}, lsl #3
+  /// CHECK:                 add w{{\d+}}, w{{\d+}}, w{{\d+}}
   private static long $noinline$IntDivRemBy7(int v) {
     int q = v / 7;
     int r = v % 7;
@@ -251,14 +250,13 @@ public class Main {
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
-  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Add
   //
   /// CHECK-START-ARM64: long Main.$noinline$IntDivRemByMaxInt(int) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #61
   /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
-  /// CHECK:                 lsl w{{\d+}}, w{{\d+}}, #31
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
-  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}
+  /// CHECK:                 sub w{{\d+}}, w{{\d+}}, w{{\d+}}, lsl #31
+  /// CHECK:                 add w{{\d+}}, w{{\d+}}, w{{\d+}}
   private static long $noinline$IntDivRemByMaxInt(int v) {
     int q = v / Integer.MAX_VALUE;
     int r = v % Integer.MAX_VALUE;
@@ -588,14 +586,13 @@ public class Main {
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
-  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Add
   //
   /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemBy7(long) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #1
   /// CHECK-NEXT:            add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
-  /// CHECK:                 lsl x{{\d+}}, x{{\d+}}, #3
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}, lsl #3
+  /// CHECK:                 add x{{\d+}}, x{{\d+}}, x{{\d+}}
   private static long[] $noinline$LongDivRemBy7(long v) {
     long q = v / 7L;
     long r = v % 7L;
@@ -635,14 +632,13 @@ public class Main {
   /// CHECK:           Div
   /// CHECK-NEXT:      Shl
   /// CHECK-NEXT:      Sub
-  /// CHECK-NEXT:      Sub
+  /// CHECK-NEXT:      Add
   //
   /// CHECK-START-ARM64: long[] Main.$noinline$LongDivRemByMaxLong(long) disassembly (after)
   /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #61
   /// CHECK-NEXT:            add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
-  /// CHECK:                 lsl x{{\d+}}, x{{\d+}}, #63
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
-  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK:                 sub x{{\d+}}, x{{\d+}}, x{{\d+}}, lsl #63
+  /// CHECK:                 add x{{\d+}}, x{{\d+}}, x{{\d+}}
   private static long[] $noinline$LongDivRemByMaxLong(long v) {
     long q = v / Long.MAX_VALUE;
     long r = v % Long.MAX_VALUE;

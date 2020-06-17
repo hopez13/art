@@ -1861,11 +1861,37 @@ void InstructionSimplifierVisitor::VisitMul(HMul* instruction) {
       // into
       //    SHL tmp, src, n
       //    SUB dst, tmp, src
+      //
+      // If MUL is only used in SUB like:
+      //    MUL tmp, a, (2^n - 1)
+      //    SUB dst, b, tmp
+      // It is transformed into
+      //    SHL tmp1, a, n
+      //    SUB tmp2, a, tmp1
+      //    ADD dst, b, tmp2
+      // This form allows to merge SHL and SUB together.
       HShl* shl = new (allocator) HShl(type,
                                        input_other,
                                        GetGraph()->GetIntConstant(WhichPowerOf2(factor + 1)));
-      HSub* sub = new (allocator) HSub(type, shl, input_other);
 
+      HInstruction* sub_left_input = nullptr;
+      HInstruction* sub_right_input = nullptr;
+
+      const HUseList<HInstruction*>& instruction_uses = instruction->GetUses();
+      if (instruction_uses.HasExactlyOneElement() &&
+          instruction_uses.front().GetUser()->IsSub() &&
+          instruction_uses.front().GetUser()->InputAt(1) == instruction) {
+        sub_left_input = input_other;
+        sub_right_input = shl;
+        HSub* sub_mul = instruction_uses.front().GetUser()->AsSub();
+        HAdd* add = new (allocator) HAdd(type, sub_mul->GetLeft(), sub_mul->GetRight());
+        block->ReplaceAndRemoveInstructionWith(sub_mul, add);
+      } else {
+        sub_left_input = shl;
+        sub_right_input = input_other;
+      }
+
+      HSub* sub = new (allocator) HSub(type, sub_left_input, sub_right_input);
       block->InsertInstructionBefore(shl, instruction);
       block->ReplaceAndRemoveInstructionWith(instruction, sub);
       RecordSimplification();
