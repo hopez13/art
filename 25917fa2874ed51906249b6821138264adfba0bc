@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3e2706d_c30afc7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-17T15:13:56Z",
+      "side": 1,
+      "message": "I\u0027m trying to understand the implications of this. Does it mean that libdexfile_support, libdexfile_external and all its dependencies are compiled for the host (read x86) arch and end up somewhere in /system/lib? And that is besides the ordinary libs in /system/apex/com.android.art/lib?\n\nIf so, there could be a potential for ODR violations between the two sets of libs?",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16f644d_362cbe60",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-17T15:13:56Z",
+      "side": 1,
+      "message": "This happens when renderscript is retired, or some other condition?",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
