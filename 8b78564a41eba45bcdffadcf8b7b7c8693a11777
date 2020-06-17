@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "511752aa_eed0d35e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 8930,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T14:36:14Z",
+      "side": 1,
+      "message": "Thanks for the explanation.\n\nSo, this function prevents a floating-point argument from being passed in a register, which is forbidden by soft-float ABI, right? Can you rewrite the comment to explicitly say that? Maybe it\u0027s worth adding a named constant for 4u.\n\nI would probably rewrite the code as:\n\n    for (uint32_t i \u003d 1; i !\u003d shorty_len; ++i) {\n      if (shorty[i] \u003d\u003d \u0027D\u0027 || shorty[i] \u003d\u003d \u0027J\u0027) {\n        // 64-Bit arguments (double, long) are \"aligned\" to even-numbered registers.\n        reg \u003d RoundUp(reg, 2u);\n        reg +\u003d 2u;\n      } else {\n        reg +\u003d 1u;\n      }\n      if (reg \u003e\u003d 4u) {\n        // This and the rest of args do not fit in argument registers r0-r3.\n        break;\n      }\n      if (shorty[i] \u003d\u003d \u0027D\u0027 || shorty[i] \u003d\u003d \u0027F\u0027) {\n        // Floating-point arg is passed in a register, which is forbidden by soft-float ABI.\n        // Fall back to managed ABI.\n        HInvokeStaticOrDirect::DispatchInfo dispatch_info \u003d desired_dispatch_info;\n        dispatch_info.code_ptr_location \u003d HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;\n        return dispatch_info;\n      }\n    }\n\nIt\u0027s a bit shorter and has fewer exits from the loop.",
+      "parentUuid": "cf098bb3_72fdd8ab",
+      "range": {
+        "startLine": 8928,
+        "startChar": 0,
+        "endLine": 8930,
+        "endChar": 9
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77d8ba24_fff84589",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 15
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Done and removed the duplicate kFloat{32,64}.",
       "parentUuid": "77d8ba24_fff84589",
+      "range": {
+        "startLine": 9047,
+        "startChar": 0,
+        "endLine": 9056,
+        "endChar": 82
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdfb53f_9d218318",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 9056,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T14:36:14Z",
+      "side": 1,
+      "message": "Thanks, I didn\u0027t notice the duplication.",
+      "parentUuid": "dc2f06a7_59f3493c",
       "range": {
         "startLine": 9047,
         "startChar": 0,
