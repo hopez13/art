@@ -22,6 +22,30 @@
       "revId": "289bd1cccdb3aa37e2d129980f5c151f52f84897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3626f184_3c4434a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-06-17T23:24:15Z",
+      "side": 1,
+      "message": "yes. We would never eliminate deoptimize instructions even when they are provably dead, this fixes that issue.",
+      "parentUuid": "d282c7ed_6bd11ca3",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "289bd1cccdb3aa37e2d129980f5c151f52f84897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
