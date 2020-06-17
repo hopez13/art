@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e87c6bf_698ff7bb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3029,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T15:35:13Z",
+      "side": 1,
+      "message": "How is this and similar changes related to your change?",
+      "range": {
+        "startLine": 3029,
+        "startChar": 12,
+        "endLine": 3029,
+        "endChar": 49
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d617b45_bd96dc42",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T15:35:13Z",
+      "side": 1,
+      "message": "Why 16 here? As I understand 16 is XMM size, but FSTPS/MOVSS assume m32, and FSTPL/MOVSD assume m64, no? So at most 8 is needed for floating-point conversion.",
+      "range": {
+        "startLine": 5082,
+        "startChar": 25,
+        "endLine": 5082,
+        "endChar": 28
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

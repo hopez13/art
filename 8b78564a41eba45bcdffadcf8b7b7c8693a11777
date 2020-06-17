@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "c4f6e727_06a72703",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 8930,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T15:35:13Z",
+      "side": 1,
+      "message": "Right. Well than (last attempt at simplification):\n\n    for (uint32_t i \u003d 1; i !\u003d shorty_len; ++i) {\n      size_t next_reg \u003d reg + 1u;\n      if (shorty[i] \u003d\u003d \u0027D\u0027 || shorty[i] \u003d\u003d \u0027J\u0027) {\n        reg \u003d RoundUp(reg, 2u);\n        next_reg \u003d reg + 2u;\n      }\n      if (reg \u003d\u003d 4u) {\n        break;\n      }\n      reg \u003d next_reg;\n\n      if (shorty[i] \u003d\u003d \u0027D\u0027 || shorty[i] \u003d\u003d \u0027F\u0027) {\n        HInvokeStaticOrDirect::DispatchInfo dispatch_info \u003d desired_dispatch_info;\n        dispatch_info.code_ptr_location \u003d HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;\n        return dispatch_info;\n      }\n    }",
+      "parentUuid": "4dd47e6b_bae667c7",
+      "range": {
+        "startLine": 8928,
+        "startChar": 0,
+        "endLine": 8930,
+        "endChar": 9
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77d8ba24_fff84589",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 15
