@@ -45,6 +45,29 @@
       "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51871d91_0fccac27",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-17T16:59:35Z",
+      "side": 1,
+      "message": "It is a bit confusing that both r0 and r4 are used as induction variables --- for me using r4 and cmp instead of subs would be easier to understand. Also, is there a reason why subs goes before strd?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
