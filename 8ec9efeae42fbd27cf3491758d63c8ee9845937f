@@ -22,6 +22,30 @@
       "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9095d68a_d95a4c78",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-17T18:00:09Z",
+      "side": 1,
+      "message": "\u003e More importantly, it\u0027d be good to be able to promote the linkerconfig warnings to errors, so we won\u0027t miss them. Either implicitly when it\u0027s compiled for host, or explicitly with an argument. WDYT?\n\nPromoting warnings to errors with an command-line option SGTM.",
+      "parentUuid": "34c575a2_67416a5b",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 96
+      },
+      "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
