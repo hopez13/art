@@ -22,6 +22,30 @@
       "revId": "e2081c5283271e91639ce59a0a563a66df570869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6ac2d96_1eb06457",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T15:14:51Z",
+      "side": 1,
+      "message": "(It is actually very weird for HInstructionIterator to keep a pointer to the next instruction, iterators should not really do that. As keeping the pointer to the next instruction is needed for the operation of HGraphVisitor::VisitBasicBlock(), that\u0027s the function that should be responsible for keeping an _iterator_ to the next instruction. I\u0027m thinking about cleaning that up.)",
+      "parentUuid": "22c043c9_ff32fcf4",
+      "range": {
+        "startLine": 1888,
+        "startChar": 8,
+        "endLine": 1888,
+        "endChar": 61
+      },
+      "revId": "e2081c5283271e91639ce59a0a563a66df570869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
