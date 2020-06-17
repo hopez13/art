@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e8affea_5c749262",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1069991
+      },
+      "writtenOn": "2020-06-17T16:20:43Z",
+      "side": 1,
+      "message": "No. \"native_bridge_supported: true\" allows soong to build library for guest architecture (arm usually), not for native architecture (x86).\n\nNative x86 libraries are untouched in that scenario.\n\nThis is done that way because out of hundreds of libraries and programs compiled natively only a handful need native_bridge version (mostly public ones exposed in NDK).\n\nRenderScript needs about 40 different libraies from 20 different projects, though.",
+      "parentUuid": "d3e2706d_c30afc7a",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e16f644d_362cbe60",
         "filename": "libartbase/Android.bp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "25917fa2874ed51906249b6821138264adfba0bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53cc36b_6ee743c0",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1069991
+      },
+      "writtenOn": "2020-06-17T16:20:43Z",
+      "side": 1,
+      "message": "Yes, this could be removed when renderscript is removed.\n\nIn theory we may try to introduce \"proxy\" library which would redirect work from arm library to x86 library.\n\nWe try to avoid that if possible, though: marshalling function calls between two architectures is not easy.",
+      "parentUuid": "e16f644d_362cbe60",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
