@@ -34,6 +34,24 @@
       "revId": "ef898425c975f150caaed077ca204fa86b951e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e53a579_6ea2d307",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-17T08:46:09Z",
+      "side": 0,
+      "message": "It\u0027s a template, so it\u0027s fine as is for ODR.",
+      "parentUuid": "03006ba8_ebafa980",
+      "revId": "ef898425c975f150caaed077ca204fa86b951e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
