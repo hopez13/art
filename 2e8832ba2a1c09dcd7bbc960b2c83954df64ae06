@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0f94dcf_40735d5a",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-18T08:56:59Z",
+      "side": 1,
+      "message": "If my understanding is correct no, as the AOT code wouldn\u0027t compile something where there may be typing issues.",
+      "parentUuid": "86c67932_3652d7a3",
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a515bcad_a3179f5e",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "797ed8a8_9e137776",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-18T08:56:59Z",
+      "side": 1,
+      "message": "I agree, but didn\u0027t want to have such a rewrite as part of this CL, which is fixing a bug.",
+      "parentUuid": "a515bcad_a3179f5e",
+      "range": {
+        "startLine": 159,
+        "startChar": 37,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b18a2a1d_674be75a",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -56,6 +98,24 @@
       "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75bc9ee4_4a4d8be0",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-18T08:56:59Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "b18a2a1d_674be75a",
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
