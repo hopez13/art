@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd408497_7a98e04f",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 0,
+      "message": "Please keep this architecture-independent checker block.",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 4
+      },
+      "revId": "0d60a2b1eaa2cd2ec3481e49578b77405353efa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efe4fd1_3d5eb5a0",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 0,
+      "message": "I think this should also stay as architecture-independent check for \"instruction_simplifier (after)\". And I see no reason to repeat that as \"instruction_simplifier_arm{,64} (before)\"",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 208,
+        "endChar": 4
+      },
+      "revId": "0d60a2b1eaa2cd2ec3481e49578b77405353efa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b88fb3f5_dbfb12a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 1,
+      "message": "Capital \"S\" for consistency.",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "3160dde31a353642a685fc6c0d00aeb1039881c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be88da38_7fd18aa1",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 1,
+      "message": "We\u0027re avoiding implicit conversions to bool. Pull the definition of `right` on its own line.\n\nAnd I\u0027m generaly not too fond of the use of \"As\u003cKind\u003e() !\u003d nullptr\" and prefer to see explicit \"Is\u003cKind\u003e()\":\n\n  HInstruction* right \u003d sub-\u003eGetRight();\n  return right-\u003eIsSub() \u0026\u0026 right-\u003eAsSub()-\u003eGetLeft()-\u003eIsShl();",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "3160dde31a353642a685fc6c0d00aeb1039881c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00755433_b9fc7b43",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 1,
+      "message": "I would make this optional, i.e. \"{{s?}}\", as it depends on register allocation.\n\nSame several times below.",
+      "range": {
+        "startLine": 228,
+        "startChar": 32,
+        "endLine": 228,
+        "endChar": 33
+      },
+      "revId": "3160dde31a353642a685fc6c0d00aeb1039881c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e193227_8a733bab",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:01:33Z",
+      "side": 1,
+      "message": "No ARM disassembly after?",
+      "revId": "3160dde31a353642a685fc6c0d00aeb1039881c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
