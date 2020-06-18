@@ -166,6 +166,30 @@
       "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a7bd32_0510614b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-06-18T14:54:50Z",
+      "side": 1,
+      "message": "Done.\n\nAnd filed a bug(b/159322103) for linkerconfig\u0027s change.",
+      "parentUuid": "27fa3fc9_66bf67a3",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 96
+      },
+      "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
