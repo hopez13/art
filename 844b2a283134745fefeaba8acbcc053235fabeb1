@@ -70,6 +70,98 @@
       "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a632116d_6b6b67ab",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T16:00:11Z",
+      "side": 1,
+      "message": "Same comment about LITERAL vs MACRO_LITERAL.",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 16
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856a0488_17a7b4e4",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T16:00:11Z",
+      "side": 1,
+      "message": "You don\u0027t care about the distinction between LITERAL and MACRO_LITERAL here and in DECREASE_FRAME (do we still build on __APPLE__)? If not, maybe get rid of MACRO_LITERAL in a follow-up CL?",
+      "range": {
+        "startLine": 216,
+        "startChar": 9,
+        "endLine": 216,
+        "endChar": 16
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b73a5fd_2e307cdd",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T16:00:11Z",
+      "side": 1,
+      "message": "Could atomics have different alignment guarantees?\nQuick search found http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4013.html by Hans, but it\u0027s old.",
+      "range": {
+        "startLine": 305,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 83
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b3c5b3_12ded601",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T16:00:11Z",
+      "side": 1,
+      "message": "Nit: DW_OP_BREG\u003cb\u003e to align with the comment to CFI_EXPRESSION_BREG_2",
+      "range": {
+        "startLine": 58,
+        "startChar": 47,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
