@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "2bfcec1c_177fc488",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1069991
+      },
+      "writtenOn": "2020-06-18T23:37:03Z",
+      "side": 1,
+      "message": "That\u0027s true that having two libraries is awkward - that\u0027s why we decide on case-bu-case basis if we would like to have two libraries it one.\n\nIn that case I think having NO_LIBDEXFILE_SUPPORT is fine: since we have arm library here and x86 art I\u0027m not sure dex stack frames could even be observed!\n\nI think we may try to support them at some point but definitely now now.",
+      "parentUuid": "0d9203e6_756cb587",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e16f644d_362cbe60",
         "filename": "libartbase/Android.bp",
         "patchSetId": 2
