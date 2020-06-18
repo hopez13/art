@@ -46,6 +46,30 @@
       "revId": "e2081c5283271e91639ce59a0a563a66df570869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d58329_013b3422",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-18T15:38:18Z",
+      "side": 1,
+      "message": "Moved to ARM/ARM64 simplifiers.",
+      "parentUuid": "a6ac2d96_1eb06457",
+      "range": {
+        "startLine": 1888,
+        "startChar": 8,
+        "endLine": 1888,
+        "endChar": 61
+      },
+      "revId": "e2081c5283271e91639ce59a0a563a66df570869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
