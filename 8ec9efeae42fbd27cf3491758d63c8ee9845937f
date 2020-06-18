@@ -142,6 +142,30 @@
       "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27fa3fc9_66bf67a3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-18T14:32:20Z",
+      "side": 1,
+      "message": "Yep, sounds good.\n\nCan we copy $ANDROID_PRODUCT_OUT/system/etc wholesale here? I don\u0027t see any significant downsides with it, it\u0027s a small directory.",
+      "parentUuid": "dfc13e18_08ec0bd7",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 96
+      },
+      "revId": "8ec9efeae42fbd27cf3491758d63c8ee9845937f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
