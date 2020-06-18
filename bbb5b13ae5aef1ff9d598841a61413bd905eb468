@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a59925e_43375bef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T16:30:29Z",
+      "side": 1,
+      "message": "Do you think it\u0027s the extra registers backup/restore on arm64 that explains smaller performance gain compared to arm?\n\nI wonder if specializing and inlining artCriticalNativeFrameSize for different cases would help (it doesn\u0027t look very simple to me, although I assume ISA switches are compiled away).",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "bbb5b13ae5aef1ff9d598841a61413bd905eb468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
