@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "6eb40cf9_f8260fb3",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a632116d_6b6b67ab",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 16
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "856a0488_17a7b4e4",
         "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
         "patchSetId": 18
@@ -116,6 +140,30 @@
       "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3856e817_07654ae7",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:17:54Z",
+      "side": 1,
+      "message": "Done. (Nice catch! I don\u0027t want to see a revert because of a broken Mac build.)",
+      "parentUuid": "856a0488_17a7b4e4",
+      "range": {
+        "startLine": 216,
+        "startChar": 9,
+        "endLine": 216,
+        "endChar": 16
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -142,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "2bfe01a6_fe8714b4",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:17:54Z",
+      "side": 1,
+      "message": "Even if the `ArtMethod*` had weaker alignment requirements than `std::atomic\u003cArtMethod*\u003e`, we\u0027re explicitly aligning it in the .bss section anyway. And I guess alignment requirement is never bigger than sizeof(). So as long as this check holds, the store below is OK. (And we\u0027re not running on architectures where this check would fail.)",
+      "parentUuid": "9b73a5fd_2e307cdd",
+      "range": {
+        "startLine": 305,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 83
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5b3c5b3_12ded601",
         "filename": "runtime/interpreter/cfi_asm_support.h",
         "patchSetId": 18
@@ -162,6 +234,30 @@
       "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec04c502_69717740",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5b3c5b3_12ded601",
+      "range": {
+        "startLine": 58,
+        "startChar": 47,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
