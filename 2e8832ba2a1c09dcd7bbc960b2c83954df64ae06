@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86c67932_3652d7a3",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T08:50:52Z",
+      "side": 1,
+      "message": "Should we also do a type check here?",
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a515bcad_a3179f5e",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T08:50:52Z",
+      "side": 1,
+      "message": "This looks confusing but it is indeed correct. FindIstanceField\u003c\u003e() should not be responsible for throwing NPE as it makes this code very difficult to read.",
+      "range": {
+        "startLine": 159,
+        "startChar": 37,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b18a2a1d_674be75a",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T08:50:52Z",
+      "side": 1,
+      "message": "Type check?",
+      "revId": "2e8832ba2a1c09dcd7bbc960b2c83954df64ae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
