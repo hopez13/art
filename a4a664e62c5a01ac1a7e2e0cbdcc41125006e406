@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003494194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1343218?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "07d4cab7_33430c83",
+          "description": "Change to \"tools/boot-image-profile-generate.sh\"",
+          "replacements": [
+            {
+              "path": "tools/boot-image-profile-generate.sh",
+              "range": {
+                "startLine": 90,
+                "startChar": 6,
+                "endLine": 90,
+                "endChar": 14
+              },
+              "replacement": "threshold"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "12e54aaf_ba7ce598",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-18T03:05:10Z",
+      "side": 1,
+      "message": "Common typo found: \"treshold\" -- should it be \"threshold\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 14
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003494194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1343218?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "69ab0477_983b8e8b",
+          "description": "Change to \"tools/boot-image-profile-generate.sh\"",
+          "replacements": [
+            {
+              "path": "tools/boot-image-profile-generate.sh",
+              "range": {
+                "startLine": 97,
+                "startChar": 20,
+                "endLine": 97,
+                "endChar": 31
+              },
+              "replacement": "identified"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "efeda4d4_81337ceb",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-18T03:05:10Z",
+      "side": 1,
+      "message": "Common typo found: \"indentified\" -- should it be \"identified\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 31
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
