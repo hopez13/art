@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0d9203e6_756cb587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-18T14:21:46Z",
+      "side": 1,
+      "message": "\u003e They end up in the /system/lib/arm and /system/lib/arm64 (like all native_bridge libraries), never in /system/lib\n\nSure, I meant generally somewhere in /system, or really anywhere that\u0027s not in /apex/com.android.art where we have the expected linker namespace setup.\n\nRegarding ODR\u0027s, the assumption that there\u0027s a single instance of an object in the process breaks, even though the objects are in different architectures and in many ways \"invisible\" to each other. Whether this matters or not depends on how the assumption is used, but it might matter.\n\n\u003e I think dummy library would work just fine for our use-case, too /.../\n\nGood, can we pursue that for now then? If you\u0027re only coming from libbacktrace then I think the best way is to just add a native_bridge target clause there with -DNO_LIBDEXFILE_SUPPORT in it - there are a few already: https://cs.android.com/android/platform/superproject/+/master:system/core/libbacktrace/Android.bp;l\u003d117-122;drc\u003ded96fe1d305d7842e21dc8dc9255bcf7e3139e7d That way I think this CL can be dropped altogether.\n\nOtherwise basically the same approach on libdexfile_support should do the trick.\n\nThe effect of this is of course that stack unwinding wouldn\u0027t provide function and offset for dex stack frames, but it wouldn\u0027t error out either.",
+      "parentUuid": "b5f00457_f1e4b4d7",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "25917fa2874ed51906249b6821138264adfba0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e16f644d_362cbe60",
         "filename": "libartbase/Android.bp",
         "patchSetId": 2
