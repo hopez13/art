@@ -1,0 +1,803 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ef1b59e_bac3f8bd",
+        "filename": "tools/boot-image-profile-configure-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "$0 ?",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 56
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a88045_089d057d",
+        "filename": "tools/boot-image-profile-configure-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$1\" ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea553992_0ab570b7",
+        "filename": "tools/boot-image-profile-configure-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$ANDROID_BUILD_TOP\" ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5542d43c_b80c18f2",
+        "filename": "tools/boot-image-profile-configure-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_BOOT_ZIP\" ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 45
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d139fd0_5e23ae4c",
+        "filename": "tools/boot-image-profile-configure-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$ANDROID_PRODUCT_OUT\"/boot.zip ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e534c42_0e444816",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "$0 ?",
+      "range": {
+        "startLine": 29,
+        "startChar": 17,
+        "endLine": 29,
+        "endChar": 47
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3187f9d4_44c346ce",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a6eae2a_f557b9c3",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$1\" ?",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c0a77b_50761567",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$2\" ?",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f44644bb_48d3c7c0",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$3\" ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 10
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2348136b_a514abae",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_DIR\" ?",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1c969ed_2dd6a708",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_DIR\" ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee928076_3e79d3f2",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_DIR\" ?",
+      "range": {
+        "startLine": 45,
+        "startChar": 18,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0c4a8d_ac440c50",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$ANDROID_BUILD_TOP\" ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f3b162a_acf113b6",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "range": {
+        "startLine": 59,
+        "startChar": 41,
+        "endLine": 59,
+        "endChar": 50
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5afeca7d_384cf2cc",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "range": {
+        "startLine": 62,
+        "startChar": 15,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeb94b5a_7210075c",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$BOOT_UNZIP_DIR\" ?",
+      "range": {
+        "startLine": 63,
+        "startChar": 9,
+        "endLine": 63,
+        "endChar": 24
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e0d8feb_6692df98",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$BOOT_UNZIP_DIR\" ?",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb3377f_420e7c27",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$BOOT_UNZIP_DIR\" ?",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 33
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a301fa5f_6a784fc7",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$BOOT_ZIP\" ?",
+      "range": {
+        "startLine": 67,
+        "startChar": 9,
+        "endLine": 67,
+        "endChar": 18
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea60f79_38341947",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$BOOT_UNZIP_DIR\" ?",
+      "range": {
+        "startLine": 67,
+        "startChar": 22,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd88044d_2cd81e56",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "jar_args+\u003d(\"--apk\u003d$entry\") ?",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 27
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9199b7f5_20962bad",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "jar_args+\u003d(\"--apk\u003d$entry\") ?",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a69328b_55dffdb1",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "range": {
+        "startLine": 100,
+        "startChar": 17,
+        "endLine": 100,
+        "endChar": 26
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee049a1_3723e15b",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_BOOT_PROFILE\" ?",
+      "range": {
+        "startLine": 101,
+        "startChar": 21,
+        "endLine": 101,
+        "endChar": 38
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7441deee_a5396bec",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_PRELOADED_CLASSES\" ?",
+      "range": {
+        "startLine": 102,
+        "startChar": 31,
+        "endLine": 102,
+        "endChar": 53
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed82c6b_6c542cb7",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$PRELOADED_BLACKLIST\" ?",
+      "range": {
+        "startLine": 103,
+        "startChar": 32,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f11f9784_abedfbf2",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"${profman_args[@]}\" ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eae92931_411ae95f",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "range": {
+        "startLine": 115,
+        "startChar": 17,
+        "endLine": 115,
+        "endChar": 26
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2946393f_e4238fba",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$OUT_SYSTEM_SERVER\" ?",
+      "range": {
+        "startLine": 116,
+        "startChar": 21,
+        "endLine": 116,
+        "endChar": 39
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc384efe_4cca0c2a",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$SYSTEM_SERVER_JAR\" ?",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0bb26f_b3b9e177",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"Preloaded classes count: $(wc -l $OUT_PRELOADED_CLASSES)\" ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 64
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6f6af1b_a1a9e5f8",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"System server profile methods+classes count: $(wc -l $OUT_SYSTEM_SERVER)\" ?\n(note the \"System\" typo)",
+      "range": {
+        "startLine": 126,
+        "startChar": 5,
+        "endLine": 126,
+        "endChar": 80
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f66a0178_1ce9c9b5",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "CLEAN_UP\u003d\"${CLEAN_UP:-true}\" to allow overriding?",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 13
+      },
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b6f96ed_df03c785",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T10:13:03Z",
+      "side": 1,
+      "message": "\"$WORK_DIR\" ?",
+      "revId": "a4a664e62c5a01ac1a7e2e0cbdcc41125006e406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
