@@ -22,6 +22,30 @@
       "revId": "bbb5b13ae5aef1ff9d598841a61413bd905eb468",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e0210e_8c73b26d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T16:39:25Z",
+      "side": 1,
+      "message": "For the \"6\", I\u0027d guess the gains are better on ARM than ARM64 because the compiled stub that we\u0027re avoiding had more work to do on ARM, including moving stack args. For the non-6 (i.e. no-args case), I don\u0027t know, we would have to look at the disassembly.\n\nartCriticalNativeFrameSize is irrelevant for the benchmark as it can be called a few times but once the class is visibly initialized we\u0027re completely avoiding it.",
+      "parentUuid": "6a59925e_43375bef",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "bbb5b13ae5aef1ff9d598841a61413bd905eb468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
