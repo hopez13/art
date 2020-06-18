@@ -22,6 +22,30 @@
       "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b1b022_06c0e18c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 9028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T14:10:41Z",
+      "side": 1,
+      "message": "OK, I\u0027ll deduplicate by creating a helper template, I was thinking about doing that anyway. But note that the GetCriticalNativeDirectCallFrameSize() actually comes from 4 different namespaces, namely art::arm, art::arm64, art::x86 and art::x86_64.",
+      "parentUuid": "3dd20dcb_63d81fbd",
+      "range": {
+        "startLine": 9023,
+        "startChar": 0,
+        "endLine": 9028,
+        "endChar": 7
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
