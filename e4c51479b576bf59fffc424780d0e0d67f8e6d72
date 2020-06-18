@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8c547e46_e5dd376b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T09:12:36Z",
+      "side": 1,
+      "message": "Once I started fixing the EmitMove() and it needed extra CFI directives, I decided to fix them for the whole file.",
+      "parentUuid": "8e87c6bf_698ff7bb",
+      "range": {
+        "startLine": 3029,
+        "startChar": 12,
+        "endLine": 3029,
+        "endChar": 49
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d617b45_bd96dc42",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 17
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8235385f_c7a06fce",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T09:12:36Z",
+      "side": 1,
+      "message": "I arbitrarily kept SP aligned to kNativeStackAlignment. But that\u0027s unnecessary and we do not do that in other places, so I reduced this to 8 in PS18.",
+      "parentUuid": "9d617b45_bd96dc42",
+      "range": {
+        "startLine": 5082,
+        "startChar": 25,
+        "endLine": 5082,
+        "endChar": 28
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51871d91_0fccac27",
         "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
         "patchSetId": 17
@@ -68,6 +116,30 @@
       "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a0530e9_26bc03f9",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T09:12:36Z",
+      "side": 1,
+      "message": "This version is faster and you shall find similar patterns in highly optimized memcpy implementation. (Maybe I\u0027m optimizing something that does not need to be fast but I tend to do that anyway.)",
+      "parentUuid": "51871d91_0fccac27",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "e4c51479b576bf59fffc424780d0e0d67f8e6d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "9a125706_f031042d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 8930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-18T09:12:36Z",
+      "side": 1,
+      "message": "Done. Reading an extra character from shorty is OK. (But I prefer to keep the `reg \u003d next_reg` at the end of the loop body.)",
+      "parentUuid": "c4f6e727_06a72703",
+      "range": {
+        "startLine": 8928,
+        "startChar": 0,
+        "endLine": 8930,
+        "endChar": 9
+      },
+      "revId": "8b78564a41eba45bcdffadcf8b7b7c8693a11777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77d8ba24_fff84589",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 15
