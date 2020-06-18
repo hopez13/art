@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dd20dcb_63d81fbd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 9028,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-18T14:03:23Z",
+      "side": 1,
+      "message": "This check is repeated four times for different arches, may be worth deduplicating.",
+      "range": {
+        "startLine": 9023,
+        "startChar": 0,
+        "endLine": 9028,
+        "endChar": 7
+      },
+      "revId": "844b2a283134745fefeaba8acbcc053235fabeb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
