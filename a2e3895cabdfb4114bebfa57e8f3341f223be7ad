@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98bfae78_052f36d3",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T08:47:03Z",
+      "side": 1,
+      "message": "The shifter-operand instructions should not set flags as they do not have a 16-bit flag-setting variants to make the code smaller for FlagsUpdate::DontCare. OTOH, you could argue that vixl could choose the flag-setting instruction anyway if you DontCare. So, it\u0027s up to you if you want to keep this.",
+      "range": {
+        "startLine": 227,
+        "startChar": 30,
+        "endLine": 227,
+        "endChar": 36
+      },
+      "revId": "a2e3895cabdfb4114bebfa57e8f3341f223be7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f8b5eec_005a947e",
+        "filename": "test/411-checker-instruct-simplifier-hrem/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T08:47:03Z",
+      "side": 1,
+      "message": "Wrong method name. (Copy-paste error when undoing the changes from PS2.)",
+      "range": {
+        "startLine": 613,
+        "startChar": 19,
+        "endLine": 613,
+        "endChar": 61
+      },
+      "revId": "a2e3895cabdfb4114bebfa57e8f3341f223be7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
