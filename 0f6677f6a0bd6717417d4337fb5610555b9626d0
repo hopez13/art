@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003517638",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1343218?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "c24d4fe4_6b73f439",
+          "description": "Change to \"tools/boot-image-profile-generate.sh\"",
+          "replacements": [
+            {
+              "path": "tools/boot-image-profile-generate.sh",
+              "range": {
+                "startLine": 18,
+                "startChar": 79,
+                "endLine": 18,
+                "endChar": 87
+              },
+              "replacement": "platform"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "00f0c085_bc224327",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-19T01:21:35Z",
+      "side": 1,
+      "message": "Common typo found: \"platfrom\" -- should it be \"platform\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 18,
+        "startChar": 79,
+        "endLine": 18,
+        "endChar": 87
+      },
+      "revId": "0f6677f6a0bd6717417d4337fb5610555b9626d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003517638",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1343218?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "26a5f13c_3193b287",
+          "description": "Change to \"tools/boot-image-profile-generate.sh\"",
+          "replacements": [
+            {
+              "path": "tools/boot-image-profile-generate.sh",
+              "range": {
+                "startLine": 28,
+                "startChar": 17,
+                "endLine": 28,
+                "endChar": 27
+              },
+              "replacement": "recommended"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a8897593_ff0d8ce8",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-19T01:21:35Z",
+      "side": 1,
+      "message": "Common typo found: \"recomended\" -- should it be \"recommended\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "0f6677f6a0bd6717417d4337fb5610555b9626d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003517638",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1343218?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "cd889558_a8e72961",
+          "description": "Change to \"tools/boot-image-profile-generate.sh\"",
+          "replacements": [
+            {
+              "path": "tools/boot-image-profile-generate.sh",
+              "range": {
+                "startLine": 61,
+                "startChar": 19,
+                "endLine": 61,
+                "endChar": 25
+              },
+              "replacement": "input"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f0849a07_9dd77a00",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-19T01:21:35Z",
+      "side": 1,
+      "message": "Common typo found: \"intput\" -- should it be \"input\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "0f6677f6a0bd6717417d4337fb5610555b9626d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
