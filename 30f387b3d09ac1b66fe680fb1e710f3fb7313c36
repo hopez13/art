@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f511813_28c64b5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T16:17:28Z",
+      "side": 1,
+      "message": "No, not at the moment. We have some CFI checks but they do not include baseline.",
+      "parentUuid": "0df8a84e_bf9a71a0",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0bfe83d_05efda85",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587ef849_2dc407b6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T16:17:28Z",
+      "side": 1,
+      "message": "This restores the original order in https://android-review.googlesource.com/1321919 up to PS18. The refactoring in PS19 reversed the order so that we could reuse more code but that was a bit unnatural and had to do with the fact that we can prepare the move locations as if the SP was adjusted before actually adjusting the SP.",
+      "parentUuid": "d0bfe83d_05efda85",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 32
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b48d9f78_f81f5935",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2091,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T16:17:28Z",
+      "side": 1,
+      "message": "They are: \"Also fix CFI in MaybeIncrementHotness() for arm/arm64/x86.\"",
+      "parentUuid": "7651793a_fe32e8f2",
+      "range": {
+        "startLine": 2091,
+        "startChar": 6,
+        "endLine": 2091,
+        "endChar": 58
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1346cb6_aecbe85d",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7374667_74437cfe",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-19T16:17:28Z",
+      "side": 1,
+      "message": "Out of scope for this CL. Feel free to add that if you think it\u0027s important.",
+      "parentUuid": "b1346cb6_aecbe85d",
+      "range": {
+        "startLine": 2124,
+        "startChar": 8,
+        "endLine": 2124,
+        "endChar": 79
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
