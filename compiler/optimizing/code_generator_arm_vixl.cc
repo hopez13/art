@@ -2240,8 +2240,7 @@ void CodeGeneratorARMVIXL::GenerateFrameEntry() {
       __ Push(RegisterList(MaxInt<uint32_t>(fp_spills_offset / kArmWordSize)));
       GetAssembler()->cfi().AdjustCFAOffset(fp_spills_offset);
     } else {
-      __ Sub(sp, sp, dchecked_integral_cast<int32_t>(fp_spills_offset));
-      GetAssembler()->cfi().AdjustCFAOffset(fp_spills_offset);
+      IncreaseFrame(fp_spills_offset);
       if (RequiresCurrentMethod()) {
         GetAssembler()->StoreToOffset(kStoreWord, kMethodRegister, sp, 0);
       }
@@ -2297,8 +2296,7 @@ void CodeGeneratorARMVIXL::GenerateFrameExit() {
     }
   } else {
     GetAssembler()->cfi().RememberState();
-    __ Add(sp, sp, fp_spills_offset);
-    GetAssembler()->cfi().AdjustCFAOffset(-dchecked_integral_cast<int32_t>(fp_spills_offset));
+    DecreaseFrame(fp_spills_offset);
     if (fpu_spill_mask_ != 0) {
       uint32_t first = LeastSignificantBit(fpu_spill_mask_);
 
@@ -2993,6 +2991,16 @@ void LocationsBuilderARMVIXL::VisitNativeDebugInfo(HNativeDebugInfo* info) {
 
 void InstructionCodeGeneratorARMVIXL::VisitNativeDebugInfo(HNativeDebugInfo*) {
   // MaybeRecordNativeDebugInfo is already called implicitly in CodeGenerator::Compile.
+}
+
+void CodeGeneratorARMVIXL::IncreaseFrame(size_t adjustment) {
+  __ Claim(adjustment);
+  GetAssembler()->cfi().AdjustCFAOffset(adjustment);
+}
+
+void CodeGeneratorARMVIXL::DecreaseFrame(size_t adjustment) {
+  __ Drop(adjustment);
+  GetAssembler()->cfi().AdjustCFAOffset(-adjustment);
 }
 
 void CodeGeneratorARMVIXL::GenerateNop() {
@@ -9013,16 +9021,10 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
       }
       break;
     case HInvokeStaticOrDirect::CodePtrLocation::kCallCriticalNative: {
-      HParallelMove parallel_move(GetGraph()->GetAllocator());
       size_t out_frame_size =
           PrepareCriticalNativeCall<CriticalNativeCallingConventionVisitorARMVIXL,
                                     kAapcsStackAlignment,
-                                    GetCriticalNativeDirectCallFrameSize>(invoke, &parallel_move);
-      if (out_frame_size != 0u) {
-        __ Claim(out_frame_size);
-        GetAssembler()->cfi().AdjustCFAOffset(out_frame_size);
-        GetMoveResolver()->EmitNativeCode(&parallel_move);
-      }
+                                    GetCriticalNativeDirectCallFrameSize>(invoke);
       call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArmPointerSize));
       // Move the result when needed due to native and managed ABI mismatch.
       switch (invoke->GetType()) {
@@ -9045,8 +9047,7 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
           break;
       }
       if (out_frame_size != 0u) {
-        __ Drop(out_frame_size);
-        GetAssembler()->cfi().AdjustCFAOffset(-out_frame_size);
+        DecreaseFrame(out_frame_size);
       }
       break;
     }
