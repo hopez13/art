@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0df8a84e_bf9a71a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-19T15:53:00Z",
+      "side": 1,
+      "message": "Do we test it, and how?",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0bfe83d_05efda85",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-19T15:53:00Z",
+      "side": 1,
+      "message": "It seems that increase frame has moved and now is done before the following for-loop at lines 554-562 (doesn\u0027t it matter for the loop?). It is still before EmitNativeCode, but previously it was after PrepareCriticalNativeCall.",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 32
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7651793a_fe32e8f2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2091,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-19T15:53:00Z",
+      "side": 1,
+      "message": "Functional changes in this file are not mentioned in commit message.",
+      "range": {
+        "startLine": 2091,
+        "startChar": 6,
+        "endLine": 2091,
+        "endChar": 58
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1346cb6_aecbe85d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-19T15:53:00Z",
+      "side": 1,
+      "message": "May be worth adding a DCHECK in AdjustCFAOffset to ensure that offset is less than some plausible value (very large offset would likely indicate an unexpected integer cast/promotion).",
+      "range": {
+        "startLine": 2124,
+        "startChar": 8,
+        "endLine": 2124,
+        "endChar": 79
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
