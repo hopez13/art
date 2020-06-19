@@ -57,6 +57,7 @@
 using android::base::unique_fd;
 
 namespace art {
+std::string DescribeInterpreterCacheUse();
 namespace jit {
 
 static constexpr bool kEnableOnStackReplacement = true;
@@ -858,6 +859,9 @@ class JitDoneCompilingProfileTask final : public SelfDeletingTask {
       }
     }
 
+    LOG(ERROR) << "VMARKO: JitDoneCompilingProfileTask done, is_zygote: "
+        << Runtime::Current()->IsZygote()
+        << " InterpreterCache usage: " << DescribeInterpreterCacheUse();
     if (Runtime::Current()->IsZygote()) {
       // Record that we are done compiling the profile.
       Runtime::Current()->GetJit()->GetCodeCache()->GetZygoteMap()->SetCompilationState(

@@ -266,7 +266,9 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
       return false;
     }
     if (!IsNterpSupported()) {
-      tls_cache->Set(inst, reinterpret_cast<size_t>(resolved_method));
+      bool avoidable = (resolved_method->GetDeclaringClass() == sf_method->GetDeclaringClass()) &&
+          (type == kStatic || type == kDirect || type == kVirtual);
+      tls_cache->Set(inst, reinterpret_cast<size_t>(resolved_method), avoidable);
     }
   }
 

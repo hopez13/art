@@ -72,19 +72,19 @@ void CheckNterpAsmConstants() {
 }
 
 template<typename T>
-inline void UpdateCache(Thread* self, uint16_t* dex_pc_ptr, T value) {
+inline void UpdateCache(Thread* self, uint16_t* dex_pc_ptr, T value, bool avoidable) {
   DCHECK(kUseReadBarrier) << "Nterp only works with read barriers";
   // For simplicity, only update the cache if weak ref accesses are enabled. If
   // they are disabled, this means the GC is processing the cache, and is
   // reading it concurrently.
   if (self->GetWeakRefAccessEnabled()) {
-    self->GetInterpreterCache()->Set(dex_pc_ptr, value);
+    self->GetInterpreterCache()->Set(dex_pc_ptr, value, avoidable);
   }
 }
 
 template<typename T>
-inline void UpdateCache(Thread* self, uint16_t* dex_pc_ptr, T* value) {
-  UpdateCache(self, dex_pc_ptr, reinterpret_cast<size_t>(value));
+inline void UpdateCache(Thread* self, uint16_t* dex_pc_ptr, T* value, bool avoidable) {
+  UpdateCache(self, dex_pc_ptr, reinterpret_cast<size_t>(value), avoidable);
 }
 
 extern "C" const dex::CodeItem* NterpGetCodeItem(ArtMethod* method)
@@ -254,7 +254,7 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_
       return resolved_method->GetMethodIndex() | (1U << 31);
     } else {
       DCHECK(resolved_method->GetDeclaringClass()->IsInterface());
-      UpdateCache(self, dex_pc_ptr, resolved_method->GetImtIndex());
+      UpdateCache(self, dex_pc_ptr, resolved_method->GetImtIndex(), /*avoidable=*/ false);
       return resolved_method->GetImtIndex();
     }
   } else if (resolved_method->GetDeclaringClass()->IsStringClass()
@@ -267,10 +267,10 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_
     // calls.
     return reinterpret_cast<size_t>(resolved_method) | 1;
   } else if (invoke_type == kVirtual) {
-    UpdateCache(self, dex_pc_ptr, resolved_method->GetMethodIndex());
+    UpdateCache(self, dex_pc_ptr, resolved_method->GetMethodIndex(), /*avoidable=*/ false);
     return resolved_method->GetMethodIndex();
   } else {
-    UpdateCache(self, dex_pc_ptr, resolved_method);
+    UpdateCache(self, dex_pc_ptr, resolved_method, /*avoidable=*/ false);
     return reinterpret_cast<size_t>(resolved_method);
   }
 }
@@ -351,7 +351,8 @@ extern "C" size_t NterpGetStaticField(Thread* self, ArtMethod* caller, uint16_t*
     // check for it.
     return reinterpret_cast<size_t>(resolved_field) | 1;
   } else {
-    UpdateCache(self, dex_pc_ptr, resolved_field);
+    // bool avoidable = resolved_field->GetDeclaringClass() == caller->GetDeclaringClass();
+    UpdateCache(self, dex_pc_ptr, resolved_field, /*avoidable=*/ false);
     return reinterpret_cast<size_t>(resolved_field);
   }
 }
@@ -379,7 +380,8 @@ extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
     // of volatile.
     return -resolved_field->GetOffset().Uint32Value();
   }
-  UpdateCache(self, dex_pc_ptr, resolved_field->GetOffset().Uint32Value());
+  bool avoidable = resolved_field->GetDeclaringClass() == caller->GetDeclaringClass();
+  UpdateCache(self, dex_pc_ptr, resolved_field->GetOffset().Uint32Value(), avoidable);
   return resolved_field->GetOffset().Uint32Value();
 }
 
@@ -428,13 +430,13 @@ extern "C" mirror::Object* NterpGetClassOrAllocateObject(Thread* self,
     } else {
       if (!c->IsFinalizable() && c->IsInstantiable()) {
         // Cache non-finalizable classes for next calls.
-        UpdateCache(self, dex_pc_ptr, c.Ptr());
+        UpdateCache(self, dex_pc_ptr, c.Ptr(), /*avoidable=*/ false);
       }
       return AllocObjectFromCode(c, self, allocator_type).Ptr();
     }
   } else {
     // For all other cases, cache the class.
-    UpdateCache(self, dex_pc_ptr, c.Ptr());
+    UpdateCache(self, dex_pc_ptr, c.Ptr(), /*avoidable=*/ false);
   }
   return c.Ptr();
 }
@@ -455,7 +457,7 @@ extern "C" mirror::Object* NterpLoadObject(Thread* self, ArtMethod* caller, uint
         DCHECK(self->IsExceptionPending());
         return nullptr;
       }
-      UpdateCache(self, dex_pc_ptr, str.Ptr());
+      UpdateCache(self, dex_pc_ptr, str.Ptr(), /*avoidable=*/ false);
       return str.Ptr();
     }
     case Instruction::CONST_METHOD_HANDLE: {

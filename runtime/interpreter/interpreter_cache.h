@@ -19,6 +19,7 @@
 
 #include <array>
 #include <atomic>
+#include <bitset>
 
 #include "base/bit_utils.h"
 #include "base/macros.h"
@@ -57,27 +58,19 @@ class ALIGNED(16) InterpreterCache {
     // We can not use the Clear() method since the constructor will not
     // be called from the owning thread.
     data_.fill(Entry{});
+    data2_.fill(Entry{});
   }
 
   // Clear the whole cache. It requires the owning thread for DCHECKs.
   void Clear(Thread* owning_thread);
 
-  ALWAYS_INLINE bool Get(const void* key, /* out */ size_t* value) {
-    DCHECK(IsCalledFromOwningThread());
-    Entry& entry = data_[IndexOf(key)];
-    if (LIKELY(entry.first == key)) {
-      *value = entry.second;
-      return true;
-    }
-    return false;
-  }
+  bool Get(const void* key, /* out */ size_t* value);
 
-  ALWAYS_INLINE void Set(const void* key, size_t value) {
-    DCHECK(IsCalledFromOwningThread());
-    data_[IndexOf(key)] = Entry{key, value};
-  }
+  void Set(const void* key, size_t value, bool avoidable);
 
   std::array<Entry, kSize>& GetArray() {
+    data2_.fill(Entry{});
+    data2_active_.reset();
     return data_;
   }
 
@@ -92,6 +85,9 @@ class ALIGNED(16) InterpreterCache {
   }
 
   std::array<Entry, kSize> data_;
+
+  std::array<Entry, kSize> data2_;
+  std::bitset<kSize> data2_active_;
 };
 
 }  // namespace art

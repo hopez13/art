@@ -803,9 +803,11 @@ ALWAYS_INLINE bool MterpFieldAccessFast(Instruction* inst,
           // Only non-volatile fields are allowed in the thread-local cache.
           if (LIKELY(!field->IsVolatile())) {
             if (kIsStatic) {
-              tls_cache->Set(inst, reinterpret_cast<uintptr_t>(field));
+              bool avoidable = field->GetDeclaringClass() == referrer->GetDeclaringClass();
+              tls_cache->Set(inst, reinterpret_cast<uintptr_t>(field), avoidable);
             } else {
-              tls_cache->Set(inst, field->GetOffset().SizeValue());
+              bool avoidable = field->GetDeclaringClass() == referrer->GetDeclaringClass();
+              tls_cache->Set(inst, field->GetOffset().SizeValue(), avoidable);
             }
           }
           MterpFieldAccess<PrimType, kAccessType>(
