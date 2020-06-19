@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac176cb9_84c7c4d2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 3029,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-19T08:58:00Z",
+      "side": 1,
+      "message": "As for the ideas for a follow-up CL, should we have something like INCREASE_FRAME/DECREASE_FRAME, as it is easy to forget AdjustCFAOffset?",
+      "range": {
+        "startLine": 3028,
+        "startChar": 0,
+        "endLine": 3029,
+        "endChar": 49
+      },
+      "revId": "86c8752f64629325026945cd4eabd1dcea224acb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
