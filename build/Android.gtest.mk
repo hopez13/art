@@ -138,7 +138,7 @@ ART_TEST_HOST_GTEST_RULES :=
 ART_TEST_TARGET_GTEST$(ART_PHONY_TEST_TARGET_SUFFIX)_RULES :=
 ART_TEST_TARGET_GTEST$(2ND_ART_PHONY_TEST_TARGET_SUFFIX)_RULES :=
 ART_TEST_TARGET_GTEST_RULES :=
-ART_TEST_HOST_GTEST_DEPENDENCIES :=
+ART_TEST_HOST_GTEST_DEPENDENCIES := 
 ART_TEST_TARGET_GTEST_DEPENDENCIES :=
 
 ART_GTEST_TARGET_ANDROID_ROOT := '/system'
@@ -174,6 +174,7 @@ define define-art-gtest-rule-host
   # Dependencies for all host gtests.
   gtest_deps := $$(ART_HOST_DEX_DEPENDENCIES) \
     $$(ART_TEST_HOST_GTEST_DEPENDENCIES) \
+	$$(HOST_OUT)/$$(I18N_APEX)/etc \
     $$(HOST_BOOT_IMAGE_JARS) \
     $$($(3)ART_HOST_OUT_SHARED_LIBRARIES)/libicu_jni$$(ART_HOST_SHLIB_EXTENSION) \
     $$($(3)ART_HOST_OUT_SHARED_LIBRARIES)/libjavacore$$(ART_HOST_SHLIB_EXTENSION) \
@@ -252,7 +253,7 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-ART_TEST_HOST_GTEST_DEPENDENCIES :=
+ART_TEST_HOST_GTEST_DEPENDENCIES := $(host-i18n-data-file)
 ART_TEST_TARGET_GTEST_DEPENDENCIES := $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test
@@ -304,7 +305,7 @@ endef  # define-art-gtest-host-both
 ifeq ($(ART_BUILD_TARGET),true)
   $(foreach name,$(ART_TARGET_GTEST_NAMES), $(eval $(call add-art-gtest-dependencies,$(name),)))
   ART_TEST_TARGET_GTEST_DEPENDENCIES += \
-    libicu_jni.com.android.i18n \
+    com.android.i18n \
     libjavacore.com.android.art.testing \
     libopenjdkd.com.android.art.testing \
     com.android.art.testing \
