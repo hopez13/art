@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd39e23a_b464dd65",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-06-22T16:28:08Z",
+      "side": 1,
+      "message": "please only select one. Before the test is executed in sandbox, these 2 test zips will be extracted to the same testcases dir and duplicated files will be overwritten.",
+      "range": {
+        "startLine": 52,
+        "startChar": 29,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "41668bdcab13afc4749c2c2c989a52c0b717b4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
