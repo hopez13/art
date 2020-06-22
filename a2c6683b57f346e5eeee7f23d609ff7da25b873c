@@ -46,6 +46,30 @@
       "revId": "a2c6683b57f346e5eeee7f23d609ff7da25b873c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfa8850d_ce25309b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-22T14:06:13Z",
+      "side": 1,
+      "message": "Ok, then it was as I thought - Gerrit \"revert\" action that sent it out for review prematurely.\n\nBtw, with https://r.android.com/1344561 my Bionic SDK reland topic is ready again. Our topics conflict, and I think whichever goes in first needs a couple of days of soak time before we try the other.\n\nSo which should go first? If mine then https://r.android.com/1343521 needs to be reverted too so I can create a correct prebuilt drop.",
+      "parentUuid": "5e0bfda8_1e198be0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "a2c6683b57f346e5eeee7f23d609ff7da25b873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
