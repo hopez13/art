@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42a94935_a7e5bc8b",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-22T15:00:22Z",
+      "side": 1,
+      "message": "Can this be moved to a separate shell script/function to avoid repetition?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "48b46ab8203a2227591d170e03623b0c5032ac19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
