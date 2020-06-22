@@ -117,6 +117,30 @@
       "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feb73440_f06732b0",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-22T19:00:50Z",
+      "side": 0,
+      "message": "I meant line 51 in PS7, i.e. my change (which became line 49 in PS8). Indeed line 51 in the base also lacks $ANDROID_BUILD_TOP, but that\u0027s unrelated to this.\n\n\u003e Let\u0027s do it in a follow-up.\n\nAgreed, thanks.",
+      "parentUuid": "a30a3e98_baf9b438",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
