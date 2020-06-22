@@ -92,6 +92,30 @@
       "revId": "192adfa1d17173c22d6873c17982d6823b2ed096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c69405a_836212ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-06-22T15:47:34Z",
+      "side": 1,
+      "message": "The hits/misses ratio is around 7x and 2x for zygote and system server, respectively. The difference is not really surprising when you consider that the system server is doing a lot of initialization and likely going through a lot of code just once.",
+      "parentUuid": "f4c85e77_e79bac05",
+      "range": {
+        "startLine": 32,
+        "startChar": 53,
+        "endLine": 33,
+        "endChar": 38
+      },
+      "revId": "192adfa1d17173c22d6873c17982d6823b2ed096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
