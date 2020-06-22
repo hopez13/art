@@ -22,6 +22,29 @@
       "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5260141c_e7937244",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-06-22T15:02:17Z",
+      "side": 0,
+      "message": "This doesn\u0027t look like it\u0027s covered by the commit message and makes this change larger than it needs to be.\n\nIt looks like L51 needed $ANDROID_BUILD_TOP prefixing the \"build/soong/soong_ui.bash\" command.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

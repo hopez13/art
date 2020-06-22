@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0451041f_b673e3bd",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-06-22T15:02:17Z",
+      "side": 1,
+      "message": "Alternatively, other scripts here pushd $ANDROID_BUILD_TOP.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "48b46ab8203a2227591d170e03623b0c5032ac19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42a94935_a7e5bc8b",
         "filename": "tools/build_linux_bionic.sh",
         "patchSetId": 7
