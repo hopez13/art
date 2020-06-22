@@ -45,6 +45,54 @@
       "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66f92be7_16a45c8e",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-22T15:45:30Z",
+      "side": 0,
+      "message": "Added $ANDROID_BUILD_TOP to line 51 instead.",
+      "parentUuid": "5260141c_e7937244",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56b6b1a8_3dc8004a",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-22T15:45:30Z",
+      "side": 0,
+      "message": "Because the test I added only works from the top of the build tree, but now solved as per Orion\u0027s suggestion instead.\n\n(To answer in a wider perspective, there are plenty of scripts that only run from the top of the build tree, and since I prefer consistency so I thought this could be changed in the same fashion too.)",
+      "parentUuid": "b1385e2f_117df1d0",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
