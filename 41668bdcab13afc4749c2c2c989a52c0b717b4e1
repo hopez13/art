@@ -46,6 +46,30 @@
       "revId": "41668bdcab13afc4749c2c2c989a52c0b717b4e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da5599d6_9e779a84",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-06-22T17:18:18Z",
+      "side": 1,
+      "message": "no, it won\u0027t introduce test failure for duplicated content.",
+      "parentUuid": "8a266866_11d4171e",
+      "range": {
+        "startLine": 52,
+        "startChar": 29,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "41668bdcab13afc4749c2c2c989a52c0b717b4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
