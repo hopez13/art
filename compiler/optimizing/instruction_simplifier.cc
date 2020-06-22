@@ -326,6 +326,27 @@ bool InstructionSimplifierVisitor::TryCombineVecMultiplyAccumulate(HVecMul* mul)
   return false;
 }
 
+static inline bool IsUnsignedTypePromotionUsingShifts(HBinaryOperation* shift) {
+  DCHECK(shift->IsShl() || shift->IsShr() || shift->IsUShr());
+  if (!shift->IsUShr()) {
+    return false;
+  }
+
+  HInstruction* value = shift->GetLeft();
+  if (!value->IsShl() || !value->GetUses().HasExactlyOneElement()) {
+    return false;
+  }
+
+  HIntConstant* shift_amount = shift->GetRight()->AsIntConstant();
+  if (shift_amount != value->InputAt(1)) {
+    return false;
+  }
+
+  HInstruction* original_value = value->InputAt(0);
+  return (shift_amount->GetValue() + DataType::Size(original_value->GetType()) * kBitsPerByte) ==
+          DataType::Size(shift->GetType()) * kBitsPerByte;
+}
+
 void InstructionSimplifierVisitor::VisitShift(HBinaryOperation* instruction) {
   DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr());
   HInstruction* shift_amount = instruction->GetRight();
@@ -356,6 +377,19 @@ void InstructionSimplifierVisitor::VisitShift(HBinaryOperation* instruction) {
       // optimizations do not need to special case for such situations.
       DCHECK_EQ(shift_amount->GetType(), DataType::Type::kInt32);
       instruction->ReplaceInput(GetGraph()->GetIntConstant(masked_cst), /* index= */ 1);
+      RecordSimplification();
+      return;
+    } else if (value->GetType() == DataType::Type::kInt32 &&
+               IsUnsignedTypePromotionUsingShifts(instruction)) {
+      int32_t shift_amount_value = shift_amount->AsIntConstant()->GetValue();
+      HInstruction* original_value = value->InputAt(0);
+      HInstruction* and_with_mask = new (GetGraph()->GetAllocator()) HAnd(
+          instruction->GetType(),
+          original_value,
+          GetGraph()->GetIntConstant(static_cast<uint32_t>(-1) >> shift_amount_value));
+      HBasicBlock* basic_block = instruction->GetBlock();
+      basic_block->RemoveInstruction(value);
+      basic_block->ReplaceAndRemoveInstructionWith(instruction, and_with_mask);
       RecordSimplification();
       return;
     }
