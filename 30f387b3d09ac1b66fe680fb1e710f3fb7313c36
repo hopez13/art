@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a5db7d73_1f22edd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-22T15:59:30Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "13385574_7f818441",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "30f387b3d09ac1b66fe680fb1e710f3fb7313c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bfe83d_05efda85",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
