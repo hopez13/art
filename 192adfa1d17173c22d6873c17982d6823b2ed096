@@ -140,6 +140,30 @@
       "revId": "192adfa1d17173c22d6873c17982d6823b2ed096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5e8b9d3_909a3e41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-23T11:11:30Z",
+      "side": 1,
+      "message": "Note that reasonably high miss ratio is somewhat intended, since the shared dex-cache is just a couple instructions away.\n\nConflicts in the dex-cache are an issue though.  I have local WIP CL to make the dex-cache dynamically sized and thus avoids repeated resolving.",
+      "parentUuid": "191e677a_2b352657",
+      "range": {
+        "startLine": 32,
+        "startChar": 53,
+        "endLine": 33,
+        "endChar": 38
+      },
+      "revId": "192adfa1d17173c22d6873c17982d6823b2ed096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
