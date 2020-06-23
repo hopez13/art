@@ -16,6 +16,29 @@
       "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfd173dc_bfc05bbe",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-23T14:21:31Z",
+      "side": 1,
+      "message": "IIUC, this means we\u0027ll have to adjust our testing strategy in the long run? (We still use APEX flattening on the ART Buildbot, right?)",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
