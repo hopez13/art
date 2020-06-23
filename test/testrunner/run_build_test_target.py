@@ -60,6 +60,7 @@ target = target_config[options.build_target]
 n_threads = options.n_threads
 custom_env = target.get('env', {})
 custom_env['SOONG_ALLOW_MISSING_DEPENDENCIES'] = 'true'
+custom_env['TARGET_BUILD_UNBUNDLED'] = 'true'
 print(custom_env)
 os.environ.update(custom_env)
 

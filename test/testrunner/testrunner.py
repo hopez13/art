@@ -998,6 +998,7 @@ def setup_env_for_build_target(build_target, parser, options):
   """
   os.environ.update(build_target['env'])
   os.environ['SOONG_ALLOW_MISSING_DEPENDENCIES'] = 'true'
+  os.environ['TARGET_BUILD_UNBUNDLED'] = 'true'
   print_text('%s\n' % (str(os.environ)))
 
   target_options = vars(parser.parse_args(build_target['flags']))
