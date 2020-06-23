@@ -39,6 +39,30 @@
       "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c73e4a0c_39abf0c4",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-23T14:51:17Z",
+      "side": 1,
+      "message": "It might be fixable, because I don\u0027t see why it has to be this way. I had a quick look at it but couldn\u0027t find anything so it\u0027d require some digging.\n\n\u003e (We still use APEX flattening on the ART Buildbot, right?)\n\nActually, do we? buildbot-build.sh unpacks .apex files, so what is the flattening used for?\n\nIf we do still need it I\u0027m happy opening a ticket on myself to track down this problem.",
+      "parentUuid": "bfd173dc_bfc05bbe",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
