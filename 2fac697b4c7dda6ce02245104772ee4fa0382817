@@ -63,6 +63,30 @@
       "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e19e9d_b0781ea7",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-23T15:02:46Z",
+      "side": 1,
+      "message": "You\u0027re right, I guess flattening is kind of a no-op in this context then. I\u0027ll have a look at that.",
+      "parentUuid": "c73e4a0c_39abf0c4",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "2fac697b4c7dda6ce02245104772ee4fa0382817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
