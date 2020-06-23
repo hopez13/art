@@ -39,6 +39,9 @@ class ReferenceTypePropagation : public HOptimization {
   // Visit a single instruction.
   void Visit(HInstruction* instruction);
 
+  // Visit instructions and process dependencies between them.
+  void Visit(ArrayRef<HInstruction* const> instructions);
+
   bool Run() override;
 
   // Returns true if klass is admissible to the propagation: non-null and resolved.
