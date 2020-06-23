@@ -22,6 +22,30 @@
       "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae469b18_832bc475",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-23T14:56:24Z",
+      "side": 1,
+      "message": "Hopefully, yes. nfuller@ opened b/159613340 as a result of a discussion on my attempt at fixing it in https://r.android.com/1343520. It\u0027s not entirely clear to me whether this can go away after that is fixed, or if Bionic will just assume there\u0027s a /system/usr/share/zoneinfo/tzdata.",
+      "parentUuid": "0ada3be3_5d4a976d",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 4
+      },
+      "revId": "34763c34173cab8c99978a38f0bf3fb5fc0031d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
