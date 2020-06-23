@@ -20,7 +20,6 @@
 #include "load_store_elimination.h"
 #include "nodes.h"
 #include "optimizing_unit_test.h"
-#include "side_effects_analysis.h"
 
 #include "gtest/gtest.h"
 
@@ -30,9 +29,7 @@ class LoadStoreEliminationTest : public OptimizingUnitTest {
  public:
   void PerformLSE() {
     graph_->BuildDominatorTree();
-    SideEffectsAnalysis side_effects(graph_);
-    side_effects.Run();
-    LoadStoreElimination lse(graph_, side_effects, /*stats=*/ nullptr);
+    LoadStoreElimination lse(graph_, /*stats=*/ nullptr);
     lse.Run();
     EXPECT_TRUE(CheckGraphSkipRefTypeInfoChecks());
   }
