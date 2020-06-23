@@ -63,6 +63,8 @@
 ## CHECK-DAG:                     StaticFieldSet
 ## CHECK-DAG:                     StaticFieldGet
 ## CHECK-DAG:                     StaticFieldSet
+## CHECK-DAG:                     TypeConversion
+## CHECK-DAG:                     Phi
 ## CHECK-DAG:                     StaticFieldGet
 
 ## CHECK-START: int StoreLoad.test3(int) load_store_elimination (after)
@@ -70,7 +72,20 @@
 ## CHECK-DAG:                     StaticFieldSet
 ## CHECK-DAG:                     TypeConversion
 ## CHECK-DAG:                     StaticFieldSet
-## CHECK-DAG:                     StaticFieldGet
+## CHECK-DAG:                     Phi
+## CHECK-DAG:                     Phi
+
+## CHECK-START: int StoreLoad.test3(int) load_store_elimination (after)
+## CHECK:                         Phi
+## CHECK:                         Phi
+## CHECK-NOT:                     Phi
+
+## CHECK-START: int StoreLoad.test3(int) load_store_elimination (after)
+## CHECK:                         TypeConversion
+## CHECK-NOT:                     TypeConversion
+
+## CHECK-START: int StoreLoad.test3(int) load_store_elimination (after)
+## CHECK-NOT:                     StaticFieldGet
 .method public static test3(I)I
     .registers 3
     const/4 v0, 0
