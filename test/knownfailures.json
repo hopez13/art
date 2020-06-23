@@ -368,7 +368,7 @@
         "env_vars": {"ART_READ_BARRIER_TYPE": "TABLELOOKUP"}
     },
     {
-        "tests": ["530-checker-lse",
+        "tests": ["530-checker-lse1",
                   "530-checker-lse2",
                   "030-bad-finalizer",
                   "080-oom-throw",
