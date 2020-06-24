@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003605418",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1349062?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "247a0f3a_921b9fa9",
+          "description": "Change to \"openjdkjvmti/transform.cc\"",
+          "replacements": [
+            {
+              "path": "openjdkjvmti/transform.cc",
+              "range": {
+                "startLine": 98,
+                "startChar": 17,
+                "endLine": 98,
+                "endChar": 27
+              },
+              "replacement": "separately"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d5cf4f67_72a420f3",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-24T16:02:03Z",
+      "side": 1,
+      "message": "Common typo found: \"seperately\" -- should it be \"separately\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 98,
+        "startChar": 17,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "1e30ea4f5848e906033c0ae3fb5acfc9eeba4099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
