@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07c6cd45_88ea5fcd",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-06-24T03:50:29Z",
+      "side": 1,
+      "message": "The problem is this. \nAs this is a host binary, we shall include BUILD_HOST_EXECUTABLE\nOnly then it can trigger the logic in core/binary.mk:\nhttps://source.corp.google.com/android/build/make/core/binary.mk;l\u003d1174\n\nThere are 2 issues:\n1. BUILD_HOST_EXECUTABLE is deprecated, though there is a way to override it:\nhttps://source.corp.google.com/android/build/make/core/deprecation.mk;l\u003d28\n\n2. The build will fail due to some collision, e.g.,\nart/build/Android.gtest.mk:59: error: overriding commands for target `out/host/linux-x86/obj/NATIVE_TESTS/art_common_intermediates/art_common.txt\u0027, previously defined at build/make/core/host_executable_internal.mk:43\n\nI think that can be solved with some proper cleanup.",
+      "range": {
+        "startLine": 55,
+        "startChar": 24,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "aa3fe19a3a4f942d3794f4ee49f96134ad338188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
