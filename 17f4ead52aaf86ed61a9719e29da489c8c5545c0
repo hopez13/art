@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ada4b0c_2972f444",
+        "filename": "runtime/verifier/class_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-06-24T13:48:45Z",
+      "side": 1,
+      "message": "Limit this to only when VLOG_IS_ON(verifier)",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 39
+      },
+      "revId": "17f4ead52aaf86ed61a9719e29da489c8c5545c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
