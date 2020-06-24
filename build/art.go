@@ -294,6 +294,7 @@ func addTestcasesFile(ctx android.InstallHookContext) {
 	defer artTestMutex.Unlock()
 
 	if ctx.Os().Class == android.Host {
+		// TODO: Use install path
 		path := ctx.Path().ToMakePath().String()
 		parts := strings.Split(path, "/")
 		// Keep last two parts of the path (e.g. bin/dex2oat).

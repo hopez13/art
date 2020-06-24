@@ -35,6 +35,12 @@ art_cc_library {
         "libbase",
     ],
     target: {
+        host: {
+            ldflags: [
+                "-Wl,-rpath,$ORIGIN/../art_common/out/host/linux-x86/lib64",
+                "-Wl,--enable-new-dtags",
+            ],
+        },
         android: {
             srcs: [
                 "library_namespaces.cpp",
