@@ -537,30 +537,6 @@ void DumpPerfetto(art::Thread* self) {
             std::map<std::string, uint64_t> interned_locations{{"", 0}};
             std::map<uintptr_t, uint64_t> interned_classes{{0, 0}};
 
-            std::map<art::RootType, std::vector<art::mirror::Object*>> root_objects;
-            RootFinder rcf(&root_objects);
-            art::Runtime::Current()->VisitRoots(&rcf);
-            std::unique_ptr<protozero::PackedVarInt> object_ids(
-                new protozero::PackedVarInt);
-            for (const auto& p : root_objects) {
-              const art::RootType root_type = p.first;
-              const std::vector<art::mirror::Object*>& children = p.second;
-              perfetto::protos::pbzero::HeapGraphRoot* root_proto =
-                writer.GetHeapGraph()->add_roots();
-              root_proto->set_root_type(ToProtoType(root_type));
-              for (art::mirror::Object* obj : children) {
-                if (writer.will_create_new_packet()) {
-                  root_proto->set_object_ids(*object_ids);
-                  object_ids->Reset();
-                  root_proto = writer.GetHeapGraph()->add_roots();
-                  root_proto->set_root_type(ToProtoType(root_type));
-                }
-                object_ids->Append(GetObjectId(obj));
-              }
-              root_proto->set_object_ids(*object_ids);
-              object_ids->Reset();
-            }
-
             std::unique_ptr<protozero::PackedVarInt> reference_field_ids(
                 new protozero::PackedVarInt);
             std::unique_ptr<protozero::PackedVarInt> reference_object_ids(
@@ -643,6 +619,30 @@ void DumpPerfetto(art::Thread* self) {
                                   str.size());
             }
 
+            std::map<art::RootType, std::vector<art::mirror::Object*>> root_objects;
+            RootFinder rcf(&root_objects);
+            art::Runtime::Current()->VisitRoots(&rcf);
+            std::unique_ptr<protozero::PackedVarInt> object_ids(
+                new protozero::PackedVarInt);
+            for (const auto& p : root_objects) {
+              const art::RootType root_type = p.first;
+              const std::vector<art::mirror::Object*>& children = p.second;
+              perfetto::protos::pbzero::HeapGraphRoot* root_proto =
+                writer.GetHeapGraph()->add_roots();
+              root_proto->set_root_type(ToProtoType(root_type));
+              for (art::mirror::Object* obj : children) {
+                if (writer.will_create_new_packet()) {
+                  root_proto->set_object_ids(*object_ids);
+                  object_ids->Reset();
+                  root_proto = writer.GetHeapGraph()->add_roots();
+                  root_proto->set_root_type(ToProtoType(root_type));
+                }
+                object_ids->Append(GetObjectId(obj));
+              }
+              root_proto->set_object_ids(*object_ids);
+              object_ids->Reset();
+            }
+ 
             writer.Finalize();
 
             ctx.Flush([] {
