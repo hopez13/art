@@ -15,18 +15,22 @@
 package art
 
 import (
+	"path/filepath"
 	"sort"
 	"strings"
 
 	"android/soong/android"
+	"android/soong/cc/config"
 )
 
 var (
-	pctx = android.NewPackageContext("android/soong/art")
+	pctx                  = android.NewPackageContext("android/soong/art")
+	prebuiltToolsForTests = []string{"as", "addr2line", "objdump"}
 )
 
 func init() {
 	android.RegisterMakeVarsProvider(pctx, makeVarsProvider)
+	pctx.Import("android/soong/cc/config")
 }
 
 func makeVarsProvider(ctx android.MakeVarsContext) {
@@ -52,4 +56,17 @@ func makeVarsProvider(ctx android.MakeVarsContext) {
 		copy_cmds = append(copy_cmds, testcasesContent[key]+":"+key)
 	}
 	ctx.Strict("ART_TESTCASES_CONTENT", strings.Join(copy_cmds, " "))
+
+	// Add prebuild tools.
+	copy_cmds = []string{}
+	for _, cmd := range prebuiltToolsForTests {
+		target := ctx.Config().Targets[android.BuildOs][0]
+		toolchain := config.FindToolchain(target.Os, target.Arch)
+		path, err := ctx.Eval(filepath.Join(toolchain.GccRoot(), "bin", toolchain.GccTriple()+"-"+cmd))
+		if err != nil {
+			panic(err)
+		}
+		copy_cmds = append(copy_cmds, path+":"+path)
+	}
+	ctx.Strict("ART_TESTCASES_PREBUILT_CONTENT", strings.Join(copy_cmds, " "))
 }
