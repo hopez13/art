@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "204f2f78_d4d33be1",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-24T12:00:59Z",
+      "side": 1,
+      "message": "Added this to address https://android-build.googleplex.com/builds/pending/P15301171/art-test/latest/view/logs/build_error.log on http://ag/11883267.",
+      "revId": "43828828851399d3641d816a4fcbad20ebb4c426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddb2fec6_20eb20f1",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-24T12:00:59Z",
+      "side": 1,
+      "message": "Added this for consistency. However I haven\u0027t been able to test this code path with an existing build target, because it assumes both build_target[\u0027env\u0027] and build_target[\u0027flags\u0027] and there\u0027s no target_config with that (any more). Hence I suspect this is dead code that ought to be removed, but that\u0027s another story.",
+      "revId": "43828828851399d3641d816a4fcbad20ebb4c426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
