@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3ba63f3_c52c9037",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-24T17:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a90de481_eed849b8",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 9
+      },
+      "revId": "5e0c70f1503137b87622b33369ac19ededd8b3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b8a10ff_41ab9496",
         "filename": "build/makevars.go",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "5e0c70f1503137b87622b33369ac19ededd8b3a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb0afe5a_398772f4",
+        "filename": "build/makevars.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-24T17:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b8a10ff_41ab9496",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 19
+      },
+      "revId": "5e0c70f1503137b87622b33369ac19ededd8b3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
