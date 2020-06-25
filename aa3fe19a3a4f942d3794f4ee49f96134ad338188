@@ -22,6 +22,30 @@
       "revId": "aa3fe19a3a4f942d3794f4ee49f96134ad338188",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729e0d3f_f5b43cb2",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-25T17:52:22Z",
+      "side": 1,
+      "message": "I have used \u0027ldflags\u0027 to point the tests to the lib directory in art_common.\nThat seems easier (at least for now), then the build system path.",
+      "parentUuid": "07c6cd45_88ea5fcd",
+      "range": {
+        "startLine": 55,
+        "startChar": 24,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "aa3fe19a3a4f942d3794f4ee49f96134ad338188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
