@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5fad75b3_3357a06f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T12:35:21Z",
+      "side": 1,
+      "message": "Yes, the hotness increments on lookups resolve the issue. Done for following-up with an arm64 only fix.",
+      "parentUuid": "fe9c4153_342950a6",
+      "range": {
+        "startLine": 7,
+        "startChar": 46,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a50c7b7c_1bc0a6ce",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "105ac9ac_c9886ed6",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T12:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a50c7b7c_1bc0a6ce",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 30
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4fbd1eb7_101d6542",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T12:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e497de9a_c0566c0f",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86286019_d542968e",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5e0ebf3_c75458a6",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T12:35:21Z",
+      "side": 1,
+      "message": "This is to ensure that if someone wants to change the mask, there are two places to update (they will hit the compilation errors on those two locations).",
+      "parentUuid": "86286019_d542968e",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 6
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
