@@ -69,6 +69,30 @@
       "revId": "f822e835a438ad71b03f683e699c829fe674b93f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf0719f_1671d178",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T16:17:21Z",
+      "side": 1,
+      "message": "Essentially:\nexport CUSTOM_TARGET_LINKER\u003d/ssd/android/standalone3/out/target/product/silvermont/system/bin/linker\nexport ART_TARGET_LINUX\u003dtrue\nm -j32 build-art-target-golem\nsudo echo 1893 \u003e /proc/sys/kernel/ns_last_pid; // So that we can have a 32bit pid, required by bionic\nANDROID_I18N_ROOT\u003d$PWD/out/target/product/silvermont/system/apex/com.android.i18n ANDROID_TZDATA_ROOT\u003d$PWD/out/target/product/silvermont/system/etc/tzdata_module ./out/target/product/silvermont/system/bin/art --32 -Ximage:$PWD/out/target/product/silvermont/system/apex/com.android.art/javalib/boot.art  -cp /ssd/android/standalone8/Foo.dex Foo",
+      "parentUuid": "f5f65216_913b6ba0",
+      "range": {
+        "startLine": 12,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "f822e835a438ad71b03f683e699c829fe674b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
