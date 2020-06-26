@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe9c4153_342950a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-26T11:24:05Z",
+      "side": 1,
+      "message": "Perhaps better to do this as a separate CL, just in case you\u0027ll have to revert?\n\nCan you remind me why we disabled Nterp on arm64? (Maybe reference a bug or a CL that disabled it.) Are we re-enabling it now because of hotness fixes?",
+      "range": {
+        "startLine": 7,
+        "startChar": 46,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a50c7b7c_1bc0a6ce",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-26T11:24:05Z",
+      "side": 1,
+      "message": "It is unclear if the arithmetic should be modulo UINT16_MAX or modulo kNterpHotnessMask (as suggested by line 85). Also, I would rather use uint32_t to handle overflow, or add a comment \"wrapped up on overflow\".\n\nWhy do we use uint16_t arithmetic for counters anyway? Why not uint32_t?",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 30
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e497de9a_c0566c0f",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-26T11:24:05Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86286019_d542968e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-26T11:24:05Z",
+      "side": 1,
+      "message": "This is a preprocessor check, and NTERP_HOTNESS_MASK is defined in the scope of all file. What is the point of repeating the check as if it had procedure lexical scope?",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 6
+      },
+      "revId": "5a49a1ec88c4e77b30feab76951b1461925be341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
