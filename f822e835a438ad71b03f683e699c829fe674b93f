@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "626deb10_a68b3704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-26T13:04:27Z",
+      "side": 1,
+      "message": "These aren\u0027t Bionic libraries though. In fact, libsigchain.so is an ART library. How come it started failing with the Bionic prebuilt? Or alternatively, how did it work before?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "f822e835a438ad71b03f683e699c829fe674b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
