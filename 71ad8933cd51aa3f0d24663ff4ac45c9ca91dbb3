@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79b5c11e_d28271af",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91a9278_7905ef29",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9b55cfa_732e364b",
         "filename": "build/makevars.go",
         "patchSetId": 20
@@ -45,6 +69,30 @@
       "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1380bc9_be8e31ed",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Tuples (and tuple assignment) are first-class citizens in go.\nThey are often the only way to do thing.  E.g. see \"_, cmd :\u003d ...\" above or \"result, err :\u003d ...\" below.",
+      "parentUuid": "e9b55cfa_732e364b",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 66
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "1a455a09_3833b72f",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c292e97_0b7c860a",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a125849e_2f2c327a",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1db5ae29_7ea5bea5",
+      "range": {
+        "startLine": 74,
+        "startChar": 47,
+        "endLine": 74,
+        "endChar": 51
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5f6c442_76a22f32",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 20
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "95173e28_c6715dab",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Yes, we don\u0027t run the tests on Darwin.  We can not even build them anymore.",
+      "parentUuid": "f5f6c442_76a22f32",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 144,
+        "endChar": 71
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "210b2a7c_5357b12b",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 20
@@ -137,6 +257,30 @@
       "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "778b5f40_bfd1fe8f",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-06-26T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "210b2a7c_5357b12b",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 66
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
