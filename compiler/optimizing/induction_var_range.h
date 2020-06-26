@@ -347,6 +347,10 @@ class InductionVarRange {
   DISALLOW_COPY_AND_ASSIGN(InductionVarRange);
 };
 
+// Detects an instruction that is >= 0. As long as the value is carried by
+// a single instruction, arithmetic wrap-around cannot occur.
+bool IsGEZero(HInstruction* instruction);
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_INDUCTION_VAR_RANGE_H_

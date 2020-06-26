@@ -18,6 +18,7 @@
 
 #include <android-base/logging.h>
 
+#include "induction_var_range.h"
 #include "nodes.h"
 
 namespace art {
@@ -98,6 +99,17 @@ void CalculateMagicAndShiftForDivRem(int64_t divisor, bool is_long,
 
 bool IsBooleanValueOrMaterializedCondition(HInstruction* cond_input) {
   return !cond_input->IsCondition() || !cond_input->IsEmittedAtUseSite();
+}
+
+bool HasNonNegativeResultOrMinInt(HInstruction* instruction) {
+  // 1. The instruction itself has always a non-negative result or the min value of
+  //    the integral type if the intruction has the integral type.
+  // 2. TODO: The instruction can be an expression which uses an induction variable.
+  //    Induction variable often start from 0 and are only increased. Such an
+  //    expression might be always non-negative.
+  return instruction->IsAbs() ||
+         IsInt64Value(instruction, DataType::MinValueOfIntegralType(instruction->GetType())) ||
+         IsGEZero(instruction);
 }
 
 }  // namespace art

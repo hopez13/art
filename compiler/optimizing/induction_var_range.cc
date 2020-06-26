@@ -70,11 +70,7 @@ static int64_t IntPow(int64_t b, int64_t e, /*out*/ bool* overflow) {
   return pow;
 }
 
-/**
- * Detects an instruction that is >= 0. As long as the value is carried by
- * a single instruction, arithmetic wrap-around cannot occur.
- */
-static bool IsGEZero(HInstruction* instruction) {
+bool IsGEZero(HInstruction* instruction) {
   DCHECK(instruction != nullptr);
   if (instruction->IsArrayLength()) {
     return true;
