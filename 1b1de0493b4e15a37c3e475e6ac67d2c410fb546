@@ -45,6 +45,30 @@
       "revId": "1b1de0493b4e15a37c3e475e6ac67d2c410fb546",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4efdf2dc_96e408e9",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-06-26T19:09:40Z",
+      "side": 1,
+      "message": "Ok, switched to /bin/sh in the hashbang, and relaunch with bash just in case /bin/sh actually isn\u0027t bash on host.",
+      "parentUuid": "869249fd_867daee2",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "1b1de0493b4e15a37c3e475e6ac67d2c410fb546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
