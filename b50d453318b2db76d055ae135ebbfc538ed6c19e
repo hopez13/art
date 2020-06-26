@@ -46,6 +46,30 @@
       "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26a68f51_a4e9efd4",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T13:42:16Z",
+      "side": 0,
+      "message": "ACtually you\u0027re right, we still want to handle APK without dex files and say kNoDexOptNeeded. PS6 renames HasOriginalDexFiles to HasDexFiles.",
+      "parentUuid": "ffb512ea_57412ef9",
+      "range": {
+        "startLine": 205,
+        "startChar": 62,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
