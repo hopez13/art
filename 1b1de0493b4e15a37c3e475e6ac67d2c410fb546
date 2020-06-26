@@ -22,6 +22,29 @@
       "revId": "1b1de0493b4e15a37c3e475e6ac67d2c410fb546",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "869249fd_867daee2",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T17:08:28Z",
+      "side": 1,
+      "message": "I think this will break on-device runs, see lines 16-18.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "1b1de0493b4e15a37c3e475e6ac67d2c410fb546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
