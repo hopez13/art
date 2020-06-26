@@ -22,6 +22,30 @@
       "revId": "f822e835a438ad71b03f683e699c829fe674b93f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0f8adec_3f101941",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T13:08:22Z",
+      "side": 1,
+      "message": "My understanding is that by compiling bionic from sources before, we somehow compiled those libraries in /system, and we did not need to extract them from the art apex.",
+      "parentUuid": "626deb10_a68b3704",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "f822e835a438ad71b03f683e699c829fe674b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
