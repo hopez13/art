@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8fc732a8_c0cdfd1b",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T14:21:11Z",
+      "side": 1,
+      "message": "Yes, I know. :) But that syntax was not particularly needed here, and I was wondering about that choice. LGTM.",
+      "parentUuid": "e1380bc9_be8e31ed",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 66
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1db5ae29_7ea5bea5",
         "filename": "build/makevars.go",
         "patchSetId": 20
