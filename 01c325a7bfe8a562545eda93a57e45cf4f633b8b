@@ -22,6 +22,30 @@
       "revId": "01c325a7bfe8a562545eda93a57e45cf4f633b8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "493b423e_6f919686",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T13:47:36Z",
+      "side": 1,
+      "message": "Ack, will do in a follow-up CL to keep this a clean revert.",
+      "parentUuid": "dcf701ea_54e9df55",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "01c325a7bfe8a562545eda93a57e45cf4f633b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
