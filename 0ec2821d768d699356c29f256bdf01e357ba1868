@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea70230f_58e0791c",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T09:30:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "143a2680_bc3ff439",
+      "range": {
+        "startLine": 182,
+        "startChar": 65,
+        "endLine": 182,
+        "endChar": 75
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f5a4409_026272ad",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-06-26T06:29:02Z",
       "side": 1,
       "message": "here the dex_files will he empty.\n\nif we just dup the code from the end here with an early return, it might make this method much more readable (than a huge else block)",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 7
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9589193e_70ec5de7",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T09:30:04Z",
+      "side": 1,
+      "message": "Are you sure they will be empty? The old code will load the dex_location, and I\u0027ve preserved that.",
+      "parentUuid": "9f5a4409_026272ad",
       "range": {
         "startLine": 232,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4000c9f8_f9cdf02b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T09:30:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21855bc6_c4fb3b42",
+      "range": {
+        "startLine": 294,
+        "startChar": 26,
+        "endLine": 294,
+        "endChar": 32
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d962aca_45678dcb",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a0c8084_9f0b1ed9",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T09:30:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d962aca_45678dcb",
+      "range": {
+        "startLine": 377,
+        "startChar": 100,
+        "endLine": 377,
+        "endChar": 102
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

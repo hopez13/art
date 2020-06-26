@@ -22,6 +22,30 @@
       "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffb512ea_57412ef9",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-26T09:30:04Z",
+      "side": 0,
+      "message": "Yeah, I expect that oat_file_assistant doesn\u0027t need to be involved with apks that don\u0027t have dex files.",
+      "parentUuid": "d47cc50e_f783478d",
+      "range": {
+        "startLine": 205,
+        "startChar": 62,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
