@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f91a9278_7905ef29",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "prebuilt?",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b55cfa_732e364b",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "This feels strange (but I\u0027m no Go style expert); I would have expected the following to be the canonical style:\n\n  gccRoot :\u003d toolchain.GccRoot()\n  gccTriple :\u003d toolchain.GccTriple()",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 66
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1db5ae29_7ea5bea5",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "need",
+      "range": {
+        "startLine": 74,
+        "startChar": 47,
+        "endLine": 74,
+        "endChar": 51
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c292e97_0b7c860a",
+        "filename": "build/makevars.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "Different",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5f6c442_76a22f32",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "It looks like this new logic dropped the Darwin case; is this on purpose?",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 144,
+        "endChar": 71
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210b2a7c_5357b12b",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-26T12:22:51Z",
+      "side": 1,
+      "message": "Maybe add a comment to explain this case?",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 66
+      },
+      "revId": "71ad8933cd51aa3f0d24663ff4ac45c9ca91dbb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
