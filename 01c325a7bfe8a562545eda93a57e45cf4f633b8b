@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf701ea_54e9df55",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-06-26T13:39:39Z",
+      "side": 1,
+      "message": "Can you add a comment about why the arch doesn\u0027t need to be checked here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "01c325a7bfe8a562545eda93a57e45cf4f633b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
