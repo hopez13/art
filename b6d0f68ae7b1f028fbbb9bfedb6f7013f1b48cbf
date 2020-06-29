@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22a0519c_629ffc4d",
+        "filename": "tools/buildbot-setup-device.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-29T07:46:08Z",
+      "side": 1,
+      "message": "Isn\u0027t this the device /system/bin? If yes, this isn\u0027t going to work in chroot.",
+      "range": {
+        "startLine": 178,
+        "startChar": 18,
+        "endLine": 178,
+        "endChar": 28
+      },
+      "revId": "b6d0f68ae7b1f028fbbb9bfedb6f7013f1b48cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
