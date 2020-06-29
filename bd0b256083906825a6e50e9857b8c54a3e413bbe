@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c71cf28b_cc382ae9",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-06-29T08:32:34Z",
+      "side": 1,
+      "message": "I don\u0027t understand why it is called \"hotness mask\" if it is not a bit mask, but a threshold.",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 37
+      },
+      "revId": "bd0b256083906825a6e50e9857b8c54a3e413bbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
