@@ -22,6 +22,30 @@
       "revId": "bd0b256083906825a6e50e9857b8c54a3e413bbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41155afe_4f3a4201",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-29T08:39:36Z",
+      "side": 1,
+      "message": "Yeah, I agree the name is confusing, we\u0027re using it as a mask in the nterp code, but also as a threshold. As we start using more nterp, this is likely going to be refined.",
+      "parentUuid": "c71cf28b_cc382ae9",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 37
+      },
+      "revId": "bd0b256083906825a6e50e9857b8c54a3e413bbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
