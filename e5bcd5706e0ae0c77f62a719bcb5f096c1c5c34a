@@ -22,6 +22,30 @@
       "revId": "e5bcd5706e0ae0c77f62a719bcb5f096c1c5c34a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26642c3d_9ca34ba4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-30T14:43:36Z",
+      "side": 1,
+      "message": "No good answer here really, a good number is one that doesn\u0027t regress benchmarks. The smaller the number the better - 0xf did address the Contacts regression while preserving the Maps transition to recents performance.",
+      "parentUuid": "4cfa2c7f_6885c41b",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "e5bcd5706e0ae0c77f62a719bcb5f096c1c5c34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
