@@ -70,6 +70,30 @@
       "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "461a3d12_f4fc01c9",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-30T21:24:41Z",
+      "side": 0,
+      "message": "Yep, we still need to handle those cases (apks without dex files).",
+      "parentUuid": "26a68f51_a4e9efd4",
+      "range": {
+        "startLine": 205,
+        "startChar": 62,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "b50d453318b2db76d055ae135ebbfc538ed6c19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

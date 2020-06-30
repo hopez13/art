@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "63543baa_58e942bb",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-30T21:24:41Z",
+      "side": 1,
+      "message": "In the new code: if the else branch is not taken then no-one populates the array. Given that\u0027s the bulk of this method I\u0027d say to favor readability.",
+      "parentUuid": "9589193e_70ec5de7",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 7
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21855bc6_c4fb3b42",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3

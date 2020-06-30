@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "318a8604_ef7788ab",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-30T21:24:41Z",
+      "side": 1,
+      "message": "Unrelated to this CL: it\u0027s shady that we populate the dex files array while loading the image (from the point of view of reading and understanding the logic)",
+      "range": {
+        "startLine": 295,
+        "startChar": 75,
+        "endLine": 295,
+        "endChar": 93
+      },
+      "revId": "f17691cb62cec26c572d26d745262e1b661e047a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc460fb2_f9ef10a2",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-30T21:24:41Z",
+      "side": 1,
+      "message": "this is a weird alignment and hard to read.",
+      "range": {
+        "startLine": 376,
+        "startChar": 8,
+        "endLine": 377,
+        "endChar": 12
+      },
+      "revId": "f17691cb62cec26c572d26d745262e1b661e047a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109486f9_cd2ea4a3",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-06-30T21:24:41Z",
+      "side": 1,
+      "message": "Since you are here, could you add a comment when this can be empty?",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 26
+      },
+      "revId": "f17691cb62cec26c572d26d745262e1b661e047a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
