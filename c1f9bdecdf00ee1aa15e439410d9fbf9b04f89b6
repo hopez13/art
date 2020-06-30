@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "239bff6f_2f7d81a3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4230,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-30T16:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7972d4bb_e60d6cba",
+      "range": {
+        "startLine": 4230,
+        "startChar": 11,
+        "endLine": 4230,
+        "endChar": 69
+      },
+      "revId": "c1f9bdecdf00ee1aa15e439410d9fbf9b04f89b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a197f055_63cb8497",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "c1f9bdecdf00ee1aa15e439410d9fbf9b04f89b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e8bb05_766cad3f",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-06-30T16:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a197f055_63cb8497",
+      "revId": "c1f9bdecdf00ee1aa15e439410d9fbf9b04f89b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
