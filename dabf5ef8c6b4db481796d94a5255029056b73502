@@ -22,6 +22,30 @@
       "revId": "dabf5ef8c6b4db481796d94a5255029056b73502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ce6b5a0_9efbc757",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-06-30T16:38:54Z",
+      "side": 1,
+      "message": "Sure; changed to `art-run-tests` in PS2. Eventually, these tests should be part of the `postsubmit` group, and later the `presubmit` group.",
+      "parentUuid": "163c3fbf_2949c89f",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "dabf5ef8c6b4db481796d94a5255029056b73502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
