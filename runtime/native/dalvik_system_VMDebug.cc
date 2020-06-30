@@ -161,16 +161,6 @@ static void VMDebug_stopMethodTracing(JNIEnv*, jclass) {
   Trace::Stop();
 }
 
-static void VMDebug_startEmulatorTracing(JNIEnv*, jclass) {
-  UNIMPLEMENTED(WARNING);
-  // dvmEmulatorTraceStart();
-}
-
-static void VMDebug_stopEmulatorTracing(JNIEnv*, jclass) {
-  UNIMPLEMENTED(WARNING);
-  // dvmEmulatorTraceStop();
-}
-
 static jboolean VMDebug_isDebuggerConnected(JNIEnv*, jclass) {
   // This function will be replaced by the debugger when it's connected. See
   // external/oj-libjdwp/src/share/vmDebug.c for implementation when debugger is connected.
