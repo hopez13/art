@@ -73,6 +73,9 @@
     .endif
     cmp     w1, w3                      // compare unsigned index, length
     bcs     common_errArrayIndex        // index >= length, bail
+    .if $is_object
+    EXPORT_PC                           // Export PC before overwriting it.
+    .endif
     FETCH_ADVANCE_INST 2                // advance rPC, load rINST
     .if $wide
     GET_VREG_WIDE x2, w9                // x2<- vAA
@@ -82,7 +85,6 @@
     .if $wide
     $store  x2, [x0, #$data_offset]     // vBB[vCC]<- x2
     .elseif $is_object
-    EXPORT_PC
     bl art_quick_aput_obj
     .else
     $store  w2, [x0, #$data_offset]     // vBB[vCC]<- w2
