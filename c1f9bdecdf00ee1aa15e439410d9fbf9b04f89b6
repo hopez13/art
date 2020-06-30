@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7972d4bb_e60d6cba",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-30T15:32:11Z",
+      "side": 1,
+      "message": "This is always the case, you shouldn\u0027t need to check.",
+      "range": {
+        "startLine": 4230,
+        "startChar": 11,
+        "endLine": 4230,
+        "endChar": 69
+      },
+      "revId": "c1f9bdecdf00ee1aa15e439410d9fbf9b04f89b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a197f055_63cb8497",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-06-30T15:32:11Z",
+      "side": 1,
+      "message": "Looks like this could be moved to a _utils.h file, or to nodes.h?",
+      "revId": "c1f9bdecdf00ee1aa15e439410d9fbf9b04f89b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
