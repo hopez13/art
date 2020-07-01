@@ -25,8 +25,11 @@
 #include "runtime.h"
 
 extern "C" bool GetInitialArgs(const char*** args, size_t* num_args) {
-  static const char* initial_args[] = {"--deadline_threshold_ms=1200000",  // hwasan takes ~10min.
-                                       "--slow_threshold_ms=300000"};
+  static const char* initial_args[] = {
+      "--deadline_threshold_ms=1200000",  // hwasan takes ~10min.
+      "--slow_threshold_ms=300000",
+      // "--no_isolate",  // local debugging: Run tests single-threaded in the main process.
+  };
   *args = initial_args;
   *num_args = 2;
   return true;
