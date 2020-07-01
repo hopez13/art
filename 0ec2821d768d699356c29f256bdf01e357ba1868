@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d56d97d5_425a7499",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-01T11:28:10Z",
+      "side": 1,
+      "message": "If the else branch is not taken, we\u0027ll execute, then the dex files check later below will say empty and we\u0027ll create the dex files (yes, I agree that method hasn\u0027t been written with readability in mind....).",
+      "parentUuid": "63543baa_58e942bb",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 7
+      },
+      "revId": "0ec2821d768d699356c29f256bdf01e357ba1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21855bc6_c4fb3b42",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
