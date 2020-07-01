@@ -1,0 +1,7 @@
+java_test {
+    name: "art-run-test-004-SignalTest",
+    defaults: ["art-run-test-defaults"],
+    srcs: [
+        "src/**/*.java",
+    ],
+}

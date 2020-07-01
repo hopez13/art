@@ -29,6 +29,7 @@ public class Main {
         return true;
     }
 
+    @SuppressWarnings("SelfAssignment")
     public static void main(String[] args) {
       boolean b=false;
 

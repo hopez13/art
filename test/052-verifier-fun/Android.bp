@@ -1,0 +1,7 @@
+java_test {
+    name: "art-run-test-052-verifier-fun",
+    defaults: ["art-run-test-defaults"],
+    srcs: [
+        "src/**/*.java",
+    ],
+}

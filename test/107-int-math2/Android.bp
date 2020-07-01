@@ -1,0 +1,7 @@
+java_test {
+    name: "art-run-test-107-int-math2",
+    defaults: ["art-run-test-defaults"],
+    srcs: [
+        "src/**/*.java",
+    ],
+}

@@ -45,14 +45,17 @@ public class Main {
         }
     }
 
+    @SuppressWarnings("InfiniteRecursion")
     private static void stackOverflowTestSub0() {
         stackOverflowTestSub0();
     }
 
+    @SuppressWarnings("InfiniteRecursion")
     private static void stackOverflowTestSub3(double pad1, double pad2, double pad3) {
         stackOverflowTestSub3(pad1, pad2, pad3);
     }
 
+    @SuppressWarnings("InfiniteRecursion")
     private static void stackOverflowTestSub10(double pad1, double pad2, double pad3, double pad4,
                                                double pad5, double pad6, double pad7, double pad8,
                                                double pad9, double pad10) {

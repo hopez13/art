@@ -18,6 +18,7 @@
  * Test math exceptions
  */
 public class Main {
+    @SuppressWarnings("ConstantOverflow")
     public static void math_014() {
         int expectedThrows = 2;
         int i;

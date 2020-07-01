@@ -19,6 +19,7 @@ public class Main {
     private static native void terminateSignalTest();
     private static native int testSignal();
 
+    @SuppressWarnings("InfiniteRecursion")
     private static void stackOverflow() {
         stackOverflow();
     }

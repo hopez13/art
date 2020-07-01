@@ -96,6 +96,7 @@ public class Main {
     /*
      * Check return type merge.
      */
+    @SuppressWarnings("ComparingThisWithNull")
     private Type[] typeTest() {
         if(this == null) {
             return (Class<?>[])null;

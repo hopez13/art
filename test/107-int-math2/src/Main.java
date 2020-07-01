@@ -121,6 +121,7 @@ class Main extends IntMathBase {
         throw new NullPointerException();
     }
 
+    @SuppressWarnings("ThrowNull")
     static void throwImplicitNullPointerException() {
       throw null;
     }
@@ -568,6 +569,7 @@ class Main extends IntMathBase {
     /*
      * Test the integer comparisons in various ways.
      */
+    @SuppressWarnings("SelfAssignment")
     static int testIntCompare(int minus, int plus, int plus2, int zero) {
         int res = 1111;
 
@@ -617,6 +619,7 @@ class Main extends IntMathBase {
      *
      * minus=-5, alsoMinus=0xFFFFFFFF00000009, plus=4, alsoPlus=8
      */
+    @SuppressWarnings("SelfAssignment")
     static int testLongCompare(long minus, long alsoMinus, long plus,
                                long alsoPlus) {
         int res = 2222;

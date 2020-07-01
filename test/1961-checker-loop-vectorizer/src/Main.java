@@ -23,6 +23,7 @@ public class Main {
   /// CHECK-NOT: DivZeroCheck
   /// CHECK-START: void Main.$noinline$testDivZeroCheck() loop_optimization (after)
   /// CHECK: DivZeroCheck
+  @SuppressWarnings("ConstantOverflow")
   public static void $noinline$testDivZeroCheck() {
     int[] a = new int[10];
     for (int i = 0; i < a.length; ++i) {
