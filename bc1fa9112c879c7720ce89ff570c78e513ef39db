@@ -46,6 +46,30 @@
       "revId": "bc1fa9112c879c7720ce89ff570c78e513ef39db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83efc800_88bc0210",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-01T16:27:51Z",
+      "side": 1,
+      "message": "Yeah, I guess this is part of the initialization.\n\nYou\u0027ve removed this line in the latest PS, does that mean you worked around it?",
+      "parentUuid": "5106408f_76d5cea9",
+      "range": {
+        "startLine": 44,
+        "startChar": 77,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "bc1fa9112c879c7720ce89ff570c78e513ef39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
