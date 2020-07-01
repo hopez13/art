@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8baaa73_1d3658ab",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-01T14:58:22Z",
+      "side": 1,
+      "message": "We shouldn\u0027t put the ICU version here, as the file will change with another version. Can you take the etc/ directory instead?",
+      "range": {
+        "startLine": 44,
+        "startChar": 77,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "bc1fa9112c879c7720ce89ff570c78e513ef39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
