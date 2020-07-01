@@ -16,6 +16,24 @@
       "revId": "2eb96855fdb1ab88c16974a5a9483a2cbd0eab50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37843ae0_a418ea45",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-01T15:41:47Z",
+      "side": 1,
+      "message": "Well... that is where the prebuilt is - it is scary, but at least it is clear.\n\nIt does seem much better than running \"bash -c find -name objdump\" over the prebuilts dir.\n\nI am very tempted to just make it $HOST_OUT/bin (and make it responsibility of the build to copy/link appropriate prebuilt there; as that is what is needed for remote tests anyway).",
+      "parentUuid": "64320ac9_c9e04cc8",
+      "revId": "2eb96855fdb1ab88c16974a5a9483a2cbd0eab50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
