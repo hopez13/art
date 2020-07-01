@@ -22,6 +22,30 @@
       "revId": "bc1fa9112c879c7720ce89ff570c78e513ef39db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5106408f_76d5cea9",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-01T15:50:21Z",
+      "side": 1,
+      "message": "Make can only copy files (this also creates dependency on that file).\nIf we could copy directories the last month would have been much easier :-)\n\n1) Do you know if there is some generic way to refer to particular file?\n2) Do you know if we definitely need it for running ART tests?",
+      "parentUuid": "d8baaa73_1d3658ab",
+      "range": {
+        "startLine": 44,
+        "startChar": 77,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "bc1fa9112c879c7720ce89ff570c78e513ef39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
