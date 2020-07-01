@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003703905",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1353906?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "967fd261_d693bf49",
+          "description": "Change to \"compiler/utils/assembler_test_base.h\"",
+          "replacements": [
+            {
+              "path": "compiler/utils/assembler_test_base.h",
+              "range": {
+                "startLine": 125,
+                "startChar": 41,
+                "endLine": 125,
+                "endChar": 53
+              },
+              "replacement": "smaller than"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "3f54d78d_ba252adf",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T12:29:00Z",
+      "side": 1,
+      "message": "Common typo found: \"smaller then\" -- should it be \"smaller than\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 125,
+        "startChar": 41,
+        "endLine": 125,
+        "endChar": 53
+      },
+      "revId": "0d28b22a4ce7033b971f786eb969410697144868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
