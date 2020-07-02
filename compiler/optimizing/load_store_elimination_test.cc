@@ -217,6 +217,7 @@ class LoadStoreEliminationTest : public OptimizingUnitTest {
                                                          index,
                                                          data,
                                                          DataType::Type::kInt32,
+                                                         GetAllocator(),
                                                          0);
     block->InsertInstructionBefore(store, block->GetLastInstruction());
     return store;

@@ -1743,6 +1743,7 @@ HInstanceFieldSet* HInliner::CreateInstanceFieldSet(uint32_t field_index,
       field_index,
       resolved_field->GetDeclaringClass()->GetDexClassDefIndex(),
       *referrer->GetDexFile(),
+      graph_->GetAllocator(),
       // Read barrier generates a runtime call in slow path and we need a valid
       // dex pc for the associated stack map. 0 is bogus but valid. Bug: 26854537.
       /* dex_pc= */ 0);

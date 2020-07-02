@@ -1754,8 +1754,13 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
     DCHECK(vector_mode_ == kSequential);
     if (opb != nullptr) {
       DataType::Type component_type = org->AsArraySet()->GetComponentType();
-      vector = new (global_allocator_) HArraySet(
-          org->InputAt(0), opa, opb, component_type, org->GetSideEffects(), dex_pc);
+      vector = new (global_allocator_) HArraySet(org->InputAt(0),
+                                                 opa,
+                                                 opb,
+                                                 component_type,
+                                                 global_allocator_,
+                                                 org->GetSideEffects(),
+                                                 dex_pc);
     } else  {
       bool is_string_char_at = org->AsArrayGet()->IsStringCharAt();
       vector = new (global_allocator_) HArrayGet(

@@ -54,9 +54,9 @@ TEST_F(LoadStoreAnalysisTest, ArrayHeapLocations) {
   HInstruction* array_get1 = new (GetAllocator()) HArrayGet(array, c1, DataType::Type::kInt32, 0);
   HInstruction* array_get2 = new (GetAllocator()) HArrayGet(array, c2, DataType::Type::kInt32, 0);
   HInstruction* array_set1 =
-      new (GetAllocator()) HArraySet(array, c1, c3, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, c1, c3, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* array_set2 =
-      new (GetAllocator()) HArraySet(array, index, c3, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, index, c3, DataType::Type::kInt32, GetAllocator(), 0);
   entry->AddInstruction(array);
   entry->AddInstruction(index);
   entry->AddInstruction(array_get1);
@@ -137,6 +137,7 @@ TEST_F(LoadStoreAnalysisTest, FieldHeapLocations) {
                                                                           kUnknownFieldIndex,
                                                                           kUnknownClassDefIndex,
                                                                           graph_->GetDexFile(),
+                                                                          GetAllocator(),
                                                                           0);
   HInstanceFieldGet* get_field10 = new (GetAllocator()) HInstanceFieldGet(object,
                                                                           nullptr,
@@ -210,20 +211,22 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexAliasingTest) {
   HInstruction* sub1 = new (GetAllocator()) HSub(DataType::Type::kInt32, index, c1);
   HInstruction* sub_neg1 = new (GetAllocator()) HSub(DataType::Type::kInt32, index, c_neg1);
   HInstruction* rev_sub1 = new (GetAllocator()) HSub(DataType::Type::kInt32, c1, index);
-  HInstruction* arr_set1 = new (GetAllocator()) HArraySet(array, c0, c0, DataType::Type::kInt32, 0);
-  HInstruction* arr_set2 = new (GetAllocator()) HArraySet(array, c1, c0, DataType::Type::kInt32, 0);
+  HInstruction* arr_set1 =
+      new (GetAllocator()) HArraySet(array, c0, c0, DataType::Type::kInt32, GetAllocator(), 0);
+  HInstruction* arr_set2 =
+      new (GetAllocator()) HArraySet(array, c1, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set3 =
-      new (GetAllocator()) HArraySet(array, add0, c0, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, add0, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set4 =
-      new (GetAllocator()) HArraySet(array, add1, c0, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, add1, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set5 =
-      new (GetAllocator()) HArraySet(array, sub0, c0, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, sub0, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set6 =
-      new (GetAllocator()) HArraySet(array, sub1, c0, DataType::Type::kInt32, 0);
-  HInstruction* arr_set7 =
-      new (GetAllocator()) HArraySet(array, rev_sub1, c0, DataType::Type::kInt32, 0);
-  HInstruction* arr_set8 =
-      new (GetAllocator()) HArraySet(array, sub_neg1, c0, DataType::Type::kInt32, 0);
+      new (GetAllocator()) HArraySet(array, sub1, c0, DataType::Type::kInt32, GetAllocator(), 0);
+  HInstruction* arr_set7 = new (GetAllocator())
+      HArraySet(array, rev_sub1, c0, DataType::Type::kInt32, GetAllocator(), 0);
+  HInstruction* arr_set8 = new (GetAllocator())
+      HArraySet(array, sub_neg1, c0, DataType::Type::kInt32, GetAllocator(), 0);
 
   entry->AddInstruction(array);
   entry->AddInstruction(index);
@@ -303,16 +306,19 @@ TEST_F(LoadStoreAnalysisTest, ArrayAliasingTest) {
                                                            c0,
                                                            c0,
                                                            DataType::Type::kInt32,
+                                                           GetAllocator(),
                                                            0);
   HInstruction* arr_set_1 = new (GetAllocator()) HArraySet(array,
                                                            c1,
                                                            c0,
                                                            DataType::Type::kInt32,
+                                                           GetAllocator(),
                                                            0);
   HInstruction* arr_set_i = new (GetAllocator()) HArraySet(array,
                                                            index,
                                                            c0,
                                                            DataType::Type::kInt32,
+                                                           GetAllocator(),
                                                            0);
 
   HVecOperation* v1 = new (GetAllocator()) HVecReplicateScalar(GetAllocator(),
@@ -519,18 +525,18 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexCalculationOverflowTest) {
   HInstruction* sub_0x80000000 = new (GetAllocator()) HSub(
       DataType::Type::kInt32, index, c_0x80000000);
   HInstruction* arr_set_1 = new (GetAllocator()) HArraySet(
-      array, add_0x80000000, c0, DataType::Type::kInt32, 0);
+      array, add_0x80000000, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set_2 = new (GetAllocator()) HArraySet(
-      array, sub_0x80000000, c0, DataType::Type::kInt32, 0);
+      array, sub_0x80000000, c0, DataType::Type::kInt32, GetAllocator(), 0);
 
   // `index+0x10` and `index-0xFFFFFFF0` array indices MAY alias.
   HInstruction* add_0x10 = new (GetAllocator()) HAdd(DataType::Type::kInt32, index, c_0x10);
   HInstruction* sub_0xFFFFFFF0 = new (GetAllocator()) HSub(
       DataType::Type::kInt32, index, c_0xFFFFFFF0);
   HInstruction* arr_set_3 = new (GetAllocator()) HArraySet(
-      array, add_0x10, c0, DataType::Type::kInt32, 0);
+      array, add_0x10, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set_4 = new (GetAllocator()) HArraySet(
-      array, sub_0xFFFFFFF0, c0, DataType::Type::kInt32, 0);
+      array, sub_0xFFFFFFF0, c0, DataType::Type::kInt32, GetAllocator(), 0);
 
   // `index+0x7FFFFFFF` and `index-0x80000001` array indices MAY alias.
   HInstruction* add_0x7FFFFFFF = new (GetAllocator()) HAdd(
@@ -538,17 +544,17 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexCalculationOverflowTest) {
   HInstruction* sub_0x80000001 = new (GetAllocator()) HSub(
       DataType::Type::kInt32, index, c_0x80000001);
   HInstruction* arr_set_5 = new (GetAllocator()) HArraySet(
-      array, add_0x7FFFFFFF, c0, DataType::Type::kInt32, 0);
+      array, add_0x7FFFFFFF, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set_6 = new (GetAllocator()) HArraySet(
-      array, sub_0x80000001, c0, DataType::Type::kInt32, 0);
+      array, sub_0x80000001, c0, DataType::Type::kInt32, GetAllocator(), 0);
 
   // `index+0` and `index-0` array indices MAY alias.
   HInstruction* add_0 = new (GetAllocator()) HAdd(DataType::Type::kInt32, index, c0);
   HInstruction* sub_0 = new (GetAllocator()) HSub(DataType::Type::kInt32, index, c0);
   HInstruction* arr_set_7 = new (GetAllocator()) HArraySet(
-      array, add_0, c0, DataType::Type::kInt32, 0);
+      array, add_0, c0, DataType::Type::kInt32, GetAllocator(), 0);
   HInstruction* arr_set_8 = new (GetAllocator()) HArraySet(
-      array, sub_0, c0, DataType::Type::kInt32, 0);
+      array, sub_0, c0, DataType::Type::kInt32, GetAllocator(), 0);
 
   entry->AddInstruction(array);
   entry->AddInstruction(index);

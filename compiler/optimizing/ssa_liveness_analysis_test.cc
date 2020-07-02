@@ -113,8 +113,8 @@ TEST_F(SsaLivenessAnalysisTest, TestAput) {
                                                                      bounds_check);
   bounds_check_env->CopyFrom(ArrayRef<HInstruction* const>(args));
   bounds_check->SetRawEnvironment(bounds_check_env);
-  HInstruction* array_set =
-      new (GetAllocator()) HArraySet(array, index, value, DataType::Type::kInt32, /* dex_pc= */ 0);
+  HInstruction* array_set = new (GetAllocator()) HArraySet(
+                  array, index, value, DataType::Type::kInt32, GetAllocator(), /* dex_pc= */ 0);
   block->AddInstruction(array_set);
 
   graph_->BuildDominatorTree();
@@ -186,8 +186,8 @@ TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
                                                                    deoptimize);
   deoptimize_env->CopyFrom(ArrayRef<HInstruction* const>(args));
   deoptimize->SetRawEnvironment(deoptimize_env);
-  HInstruction* array_set =
-      new (GetAllocator()) HArraySet(array, index, value, DataType::Type::kInt32, /* dex_pc= */ 0);
+  HInstruction* array_set = new (GetAllocator()) HArraySet(
+                  array, index, value, DataType::Type::kInt32, GetAllocator(), /* dex_pc= */ 0);
   block->AddInstruction(array_set);
 
   graph_->BuildDominatorTree();

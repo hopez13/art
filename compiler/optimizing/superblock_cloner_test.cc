@@ -86,7 +86,7 @@ class SuperblockClonerTest : public OptimizingUnitTest {
         new (GetAllocator()) HArrayGet(null_check, bounds_check, DataType::Type::kInt32, dex_pc);
     HInstruction* add =  new (GetAllocator()) HAdd(DataType::Type::kInt32, array_get, const_1);
     HInstruction* array_set = new (GetAllocator()) HArraySet(
-        null_check, bounds_check, add, DataType::Type::kInt32, dex_pc);
+        null_check, bounds_check, add, DataType::Type::kInt32, GetAllocator(), dex_pc);
     HInstruction* induction_inc = new (GetAllocator()) HAdd(DataType::Type::kInt32, phi, const_1);
 
     loop_body->AddInstruction(null_check);

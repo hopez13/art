@@ -131,7 +131,7 @@ TEST_F(LICMTest, FieldHoisting) {
   loop_body_->InsertInstructionBefore(get_field, loop_body_->GetLastInstruction());
   HInstruction* set_field = new (GetAllocator()) HInstanceFieldSet(
       parameter_, int_constant_, nullptr, DataType::Type::kInt32, MemberOffset(20),
-      false, kUnknownFieldIndex, kUnknownClassDefIndex, graph_->GetDexFile(), 0);
+      false, kUnknownFieldIndex, kUnknownClassDefIndex, graph_->GetDexFile(), GetAllocator(), 0);
   loop_body_->InsertInstructionBefore(set_field, loop_body_->GetLastInstruction());
 
   EXPECT_EQ(get_field->GetBlock(), loop_body_);
@@ -165,6 +165,7 @@ TEST_F(LICMTest, NoFieldHoisting) {
                                                                    kUnknownFieldIndex,
                                                                    kUnknownClassDefIndex,
                                                                    graph_->GetDexFile(),
+                                                                   GetAllocator(),
                                                                    0);
   loop_body_->InsertInstructionBefore(set_field, loop_body_->GetLastInstruction());
 
@@ -183,7 +184,7 @@ TEST_F(LICMTest, ArrayHoisting) {
       parameter_, int_constant_, DataType::Type::kInt32, 0);
   loop_body_->InsertInstructionBefore(get_array, loop_body_->GetLastInstruction());
   HInstruction* set_array = new (GetAllocator()) HArraySet(
-      parameter_, int_constant_, float_constant_, DataType::Type::kFloat32, 0);
+      parameter_, int_constant_, float_constant_, DataType::Type::kFloat32, GetAllocator(), 0);
   loop_body_->InsertInstructionBefore(set_array, loop_body_->GetLastInstruction());
 
   EXPECT_EQ(get_array->GetBlock(), loop_body_);
@@ -201,7 +202,7 @@ TEST_F(LICMTest, NoArrayHoisting) {
       parameter_, int_constant_, DataType::Type::kFloat32, 0);
   loop_body_->InsertInstructionBefore(get_array, loop_body_->GetLastInstruction());
   HInstruction* set_array = new (GetAllocator()) HArraySet(
-      parameter_, get_array, float_constant_, DataType::Type::kFloat32, 0);
+      parameter_, get_array, float_constant_, DataType::Type::kFloat32, GetAllocator(), 0);
   loop_body_->InsertInstructionBefore(set_array, loop_body_->GetLastInstruction());
 
   EXPECT_EQ(get_array->GetBlock(), loop_body_);

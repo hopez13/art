@@ -5962,7 +5962,7 @@ class HInstanceFieldGet final : public HExpression<1> {
   const FieldInfo field_info_;
 };
 
-class HInstanceFieldSet final : public HExpression<2> {
+class HInstanceFieldSet final : public HVariableInputSizeInstruction {
  public:
   HInstanceFieldSet(HInstruction* object,
                     HInstruction* value,
@@ -5973,10 +5973,14 @@ class HInstanceFieldSet final : public HExpression<2> {
                     uint32_t field_idx,
                     uint16_t declaring_class_def_index,
                     const DexFile& dex_file,
+                    ArenaAllocator* allocator,
                     uint32_t dex_pc)
-      : HExpression(kInstanceFieldSet,
-                    SideEffects::FieldWriteOfType(field_type, is_volatile),
-                    dex_pc),
+      : HVariableInputSizeInstruction(kInstanceFieldSet,
+                                      SideEffects::FieldWriteOfType(field_type, is_volatile),
+                                      dex_pc,
+                                      allocator,
+                                      kNumberOfRegularInputs,
+                                      kArenaAllocMisc),
         field_info_(field,
                     field_offset,
                     field_type,
@@ -6013,6 +6017,8 @@ class HInstanceFieldSet final : public HExpression<2> {
   static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagValueCanBeNull + 1;
   static_assert(kNumberOfInstanceFieldSetPackedBits <= kMaxNumberOfPackedBits,
                 "Too many packed fields.");
+
+  static constexpr size_t kNumberOfRegularInputs = 2;
 
   const FieldInfo field_info_;
 };
@@ -6108,17 +6114,19 @@ class HArrayGet final : public HExpression<2> {
                 "Too many packed fields.");
 };
 
-class HArraySet final : public HExpression<3> {
+class HArraySet final : public HVariableInputSizeInstruction {
  public:
   HArraySet(HInstruction* array,
             HInstruction* index,
             HInstruction* value,
             DataType::Type expected_component_type,
+            ArenaAllocator* allocator,
             uint32_t dex_pc)
       : HArraySet(array,
                   index,
                   value,
                   expected_component_type,
+                  allocator,
                   // Make a best guess for side effects now, may be refined during SSA building.
                   ComputeSideEffects(GetComponentType(value->GetType(), expected_component_type)),
                   dex_pc) {
@@ -6128,9 +6136,15 @@ class HArraySet final : public HExpression<3> {
             HInstruction* index,
             HInstruction* value,
             DataType::Type expected_component_type,
+            ArenaAllocator* allocator,
             SideEffects side_effects,
             uint32_t dex_pc)
-      : HExpression(kArraySet, side_effects, dex_pc) {
+      : HVariableInputSizeInstruction(kArraySet,
+                                      side_effects,
+                                      dex_pc,
+                                      allocator,
+                                      kNumberOfRegularInputs,
+                                      kArenaAllocMisc) {
     SetPackedField<ExpectedComponentTypeField>(expected_component_type);
     SetPackedFlag<kFlagNeedsTypeCheck>(value->GetType() == DataType::Type::kReference);
     SetPackedFlag<kFlagValueCanBeNull>(true);
@@ -6223,6 +6237,7 @@ class HArraySet final : public HExpression<3> {
   static constexpr size_t kNumberOfArraySetPackedBits =
       kFlagStaticTypeOfArrayIsObjectArray + 1;
   static_assert(kNumberOfArraySetPackedBits <= kMaxNumberOfPackedBits, "Too many packed fields.");
+  static constexpr size_t kNumberOfRegularInputs = 3;
   using ExpectedComponentTypeField =
       BitField<DataType::Type, kFieldExpectedComponentType, kFieldExpectedComponentTypeSize>;
 };
@@ -6947,7 +6962,7 @@ class HStaticFieldGet final : public HExpression<1> {
   const FieldInfo field_info_;
 };
 
-class HStaticFieldSet final : public HExpression<2> {
+class HStaticFieldSet final : public HVariableInputSizeInstruction {
  public:
   HStaticFieldSet(HInstruction* cls,
                   HInstruction* value,
@@ -6958,10 +6973,14 @@ class HStaticFieldSet final : public HExpression<2> {
                   uint32_t field_idx,
                   uint16_t declaring_class_def_index,
                   const DexFile& dex_file,
+                  ArenaAllocator* allocator,
                   uint32_t dex_pc)
-      : HExpression(kStaticFieldSet,
-                    SideEffects::FieldWriteOfType(field_type, is_volatile),
-                    dex_pc),
+      : HVariableInputSizeInstruction(kStaticFieldSet,
+                                      SideEffects::FieldWriteOfType(field_type, is_volatile),
+                                      dex_pc,
+                                      allocator,
+                                      kNumberOfRegularInputs,
+                                      kArenaAllocMisc),
         field_info_(field,
                     field_offset,
                     field_type,
@@ -6994,6 +7013,8 @@ class HStaticFieldSet final : public HExpression<2> {
   static constexpr size_t kNumberOfStaticFieldSetPackedBits = kFlagValueCanBeNull + 1;
   static_assert(kNumberOfStaticFieldSetPackedBits <= kMaxNumberOfPackedBits,
                 "Too many packed fields.");
+
+  static constexpr size_t kNumberOfRegularInputs = 2;
 
   const FieldInfo field_info_;
 };

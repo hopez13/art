@@ -105,12 +105,12 @@ class SchedulerTest : public OptimizingUnitTest {
     HInstruction* div = new (GetAllocator()) HDiv(DataType::Type::kInt32, add1, div_check, 0);
     HInstruction* array_get1 =
         new (GetAllocator()) HArrayGet(array, add1, DataType::Type::kInt32, 0);
-    HInstruction* array_set1 =
-        new (GetAllocator()) HArraySet(array, add1, add2, DataType::Type::kInt32, 0);
-    HInstruction* array_get2 =
-        new (GetAllocator()) HArrayGet(array, add1, DataType::Type::kInt32, 0);
-    HInstruction* array_set2 =
-        new (GetAllocator()) HArraySet(array, add1, add2, DataType::Type::kInt32, 0);
+    HInstruction* array_set1 = new (GetAllocator()) HArraySet(
+                                    array, add1, add2, DataType::Type::kInt32, GetAllocator(), 0);
+    HInstruction* array_get2 = new (GetAllocator()) HArrayGet(
+                                    array, add1, DataType::Type::kInt32, 0);
+    HInstruction* array_set2 = new (GetAllocator()) HArraySet(
+                                    array, add1, add2, DataType::Type::kInt32, GetAllocator(), 0);
 
     DCHECK(div_check->CanThrow());
 
@@ -227,19 +227,21 @@ class SchedulerTest : public OptimizingUnitTest {
     HInstruction* sub0 = new (GetAllocator()) HSub(DataType::Type::kInt32, i, c0);
     HInstruction* sub1 = new (GetAllocator()) HSub(DataType::Type::kInt32, i, c1);
     HInstruction* arr_set_0 =
-        new (GetAllocator()) HArraySet(arr, c0, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, c0, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstruction* arr_set_1 =
-        new (GetAllocator()) HArraySet(arr, c1, c0, DataType::Type::kInt32, 0);
-    HInstruction* arr_set_i = new (GetAllocator()) HArraySet(arr, i, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, c1, c0, DataType::Type::kInt32, GetAllocator(), 0);
+    HInstruction* arr_set_i =
+        new (GetAllocator()) HArraySet(arr, i, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstruction* arr_set_add0 =
-        new (GetAllocator()) HArraySet(arr, add0, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, add0, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstruction* arr_set_add1 =
-        new (GetAllocator()) HArraySet(arr, add1, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, add1, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstruction* arr_set_sub0 =
-        new (GetAllocator()) HArraySet(arr, sub0, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, sub0, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstruction* arr_set_sub1 =
-        new (GetAllocator()) HArraySet(arr, sub1, c0, DataType::Type::kInt32, 0);
-    HInstruction* arr_set_j = new (GetAllocator()) HArraySet(arr, j, c0, DataType::Type::kInt32, 0);
+        new (GetAllocator()) HArraySet(arr, sub1, c0, DataType::Type::kInt32, GetAllocator(), 0);
+    HInstruction* arr_set_j =
+        new (GetAllocator()) HArraySet(arr, j, c0, DataType::Type::kInt32, GetAllocator(), 0);
     HInstanceFieldSet* set_field10 = new (GetAllocator()) HInstanceFieldSet(object,
                                                                             c1,
                                                                             nullptr,
@@ -249,6 +251,7 @@ class SchedulerTest : public OptimizingUnitTest {
                                                                             kUnknownFieldIndex,
                                                                             kUnknownClassDefIndex,
                                                                             graph_->GetDexFile(),
+                                                                            GetAllocator(),
                                                                             0);
 
     HInstruction* block_instructions[] = {arr,

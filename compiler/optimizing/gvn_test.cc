@@ -80,6 +80,7 @@ TEST_F(GVNTest, LocalFieldElimination) {
                                                                kUnknownFieldIndex,
                                                                kUnknownClassDefIndex,
                                                                graph->GetDexFile(),
+                                                               GetAllocator(),
                                                                0));
   block->AddInstruction(new (GetAllocator()) HInstanceFieldGet(parameter,
                                                                nullptr,
@@ -247,6 +248,7 @@ TEST_F(GVNTest, LoopFieldElimination) {
                                                                    kUnknownFieldIndex,
                                                                    kUnknownClassDefIndex,
                                                                    graph->GetDexFile(),
+                                                                   GetAllocator(),
                                                                    0));
   HInstruction* field_set = loop_body->GetLastInstruction();
   loop_body->AddInstruction(new (GetAllocator()) HInstanceFieldGet(parameter,
@@ -368,6 +370,7 @@ TEST_F(GVNTest, LoopSideEffects) {
                                                                  kUnknownFieldIndex,
                                                                  kUnknownClassDefIndex,
                                                                  graph->GetDexFile(),
+                                                                 GetAllocator(),
                                                                  0));
 
     SideEffectsAnalysis side_effects(graph);
@@ -393,6 +396,7 @@ TEST_F(GVNTest, LoopSideEffects) {
                                                kUnknownFieldIndex,
                                                kUnknownClassDefIndex,
                                                graph->GetDexFile(),
+                                               GetAllocator(),
                                                0),
         outer_loop_body->GetLastInstruction());
 
@@ -419,6 +423,7 @@ TEST_F(GVNTest, LoopSideEffects) {
                                                kUnknownFieldIndex,
                                                kUnknownClassDefIndex,
                                                graph->GetDexFile(),
+                                               GetAllocator(),
                                                0),
         inner_loop_body->GetLastInstruction());
 

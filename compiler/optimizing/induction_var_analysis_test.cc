@@ -163,7 +163,7 @@ class InductionVarAnalysisTest : public OptimizingUnitTest {
     // ArraySet is given a float value in order to avoid SsaBuilder typing
     // it from the array's non-existent reference type info.
     return InsertInstruction(new (GetAllocator()) HArraySet(
-        parameter_, subscript, float_constant0_, DataType::Type::kFloat32, 0), d);
+        parameter_, subscript, float_constant0_, DataType::Type::kFloat32, GetAllocator(), 0), d);
   }
 
   // Returns induction information of instruction in loop at depth d.

@@ -92,7 +92,7 @@ TEST_F(BoundsCheckEliminationTest, NarrowingRangeArrayBoundsElimination) {
   HBoundsCheck* bounds_check2 = new (GetAllocator())
       HBoundsCheck(parameter2, array_length, 0);
   HArraySet* array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check2, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check2, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block2->AddInstruction(null_check);
   block2->AddInstruction(array_length);
   block2->AddInstruction(bounds_check2);
@@ -116,7 +116,7 @@ TEST_F(BoundsCheckEliminationTest, NarrowingRangeArrayBoundsElimination) {
   HBoundsCheck* bounds_check4 = new (GetAllocator())
       HBoundsCheck(parameter2, array_length, 0);
   array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check4, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check4, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block4->AddInstruction(null_check);
   block4->AddInstruction(array_length);
   block4->AddInstruction(bounds_check4);
@@ -129,7 +129,7 @@ TEST_F(BoundsCheckEliminationTest, NarrowingRangeArrayBoundsElimination) {
   HBoundsCheck* bounds_check5 = new (GetAllocator())
       HBoundsCheck(parameter2, array_length, 0);
   array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check5, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check5, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block5->AddInstruction(null_check);
   block5->AddInstruction(array_length);
   block5->AddInstruction(bounds_check5);
@@ -202,7 +202,7 @@ TEST_F(BoundsCheckEliminationTest, OverflowArrayBoundsElimination) {
   HBoundsCheck* bounds_check = new (GetAllocator())
       HBoundsCheck(add, array_length, 0);
   HArraySet* array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block3->AddInstruction(bounds_check);
   block3->AddInstruction(array_set);
 
@@ -269,7 +269,7 @@ TEST_F(BoundsCheckEliminationTest, UnderflowArrayBoundsElimination) {
   HBoundsCheck* bounds_check = new (GetAllocator())
       HBoundsCheck(sub2, array_length, 0);
   HArraySet* array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block3->AddInstruction(bounds_check);
   block3->AddInstruction(array_set);
 
@@ -312,7 +312,7 @@ TEST_F(BoundsCheckEliminationTest, ConstantArrayBoundsElimination) {
   HBoundsCheck* bounds_check6 = new (GetAllocator())
       HBoundsCheck(constant_6, array_length, 0);
   HInstruction* array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check6, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check6, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block->AddInstruction(null_check);
   block->AddInstruction(array_length);
   block->AddInstruction(bounds_check6);
@@ -323,7 +323,7 @@ TEST_F(BoundsCheckEliminationTest, ConstantArrayBoundsElimination) {
   HBoundsCheck* bounds_check5 = new (GetAllocator())
       HBoundsCheck(constant_5, array_length, 0);
   array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check5, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check5, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block->AddInstruction(null_check);
   block->AddInstruction(array_length);
   block->AddInstruction(bounds_check5);
@@ -334,7 +334,7 @@ TEST_F(BoundsCheckEliminationTest, ConstantArrayBoundsElimination) {
   HBoundsCheck* bounds_check4 = new (GetAllocator())
       HBoundsCheck(constant_4, array_length, 0);
   array_set = new (GetAllocator()) HArraySet(
-    null_check, bounds_check4, constant_1, DataType::Type::kInt32, 0);
+    null_check, bounds_check4, constant_1, DataType::Type::kInt32, GetAllocator(), 0);
   block->AddInstruction(null_check);
   block->AddInstruction(array_length);
   block->AddInstruction(bounds_check4);
@@ -410,7 +410,7 @@ static HInstruction* BuildSSAGraph1(HGraph* graph,
   array_length = new (allocator) HArrayLength(null_check, 0);
   HInstruction* bounds_check = new (allocator) HBoundsCheck(phi, array_length, 0);
   HInstruction* array_set = new (allocator) HArraySet(
-      null_check, bounds_check, constant_10, DataType::Type::kInt32, 0);
+      null_check, bounds_check, constant_10, DataType::Type::kInt32, allocator, 0);
 
   HInstruction* add = new (allocator) HAdd(DataType::Type::kInt32, phi, constant_increment);
   loop_body->AddInstruction(null_check);
@@ -527,7 +527,7 @@ static HInstruction* BuildSSAGraph2(HGraph *graph,
   array_length = new (allocator) HArrayLength(null_check, 0);
   HInstruction* bounds_check = new (allocator) HBoundsCheck(add, array_length, 0);
   HInstruction* array_set = new (allocator) HArraySet(
-      null_check, bounds_check, constant_10, DataType::Type::kInt32, 0);
+      null_check, bounds_check, constant_10, DataType::Type::kInt32, allocator, 0);
   HInstruction* add_phi = new (allocator) HAdd(DataType::Type::kInt32, phi, constant_increment);
   loop_body->AddInstruction(add);
   loop_body->AddInstruction(null_check);
@@ -635,7 +635,7 @@ static HInstruction* BuildSSAGraph3(HGraph* graph,
   HArrayLength* array_length = new (allocator) HArrayLength(null_check, 0);
   HInstruction* bounds_check = new (allocator) HBoundsCheck(phi, array_length, 0);
   HInstruction* array_set = new (allocator) HArraySet(
-      null_check, bounds_check, constant_10, DataType::Type::kInt32, 0);
+      null_check, bounds_check, constant_10, DataType::Type::kInt32, allocator, 0);
   HInstruction* add = new (allocator) HAdd(DataType::Type::kInt32, phi, constant_increment);
   loop_body->AddInstruction(null_check);
   loop_body->AddInstruction(array_length);
@@ -740,7 +740,7 @@ static HInstruction* BuildSSAGraph4(HGraph* graph,
       HAdd(DataType::Type::kInt32, sub, constant_minus_1);
   HInstruction* bounds_check = new (allocator) HBoundsCheck(add_minus_1, array_length, 0);
   HInstruction* array_set = new (allocator) HArraySet(
-      null_check, bounds_check, constant_10, DataType::Type::kInt32, 0);
+      null_check, bounds_check, constant_10, DataType::Type::kInt32, allocator, 0);
   HInstruction* add = new (allocator) HAdd(DataType::Type::kInt32, phi, constant_1);
   loop_body->AddInstruction(null_check);
   loop_body->AddInstruction(array_length);
@@ -899,7 +899,7 @@ TEST_F(BoundsCheckEliminationTest, BubbleSortArrayBoundsElimination) {
   array_length = new (GetAllocator()) HArrayLength(null_check, 0);
   HInstruction* bounds_check5 = new (GetAllocator()) HBoundsCheck(j_plus_1, array_length, 0);
   HArraySet* array_set_j_plus_1 = new (GetAllocator())
-      HArraySet(null_check, bounds_check5, array_get_j, DataType::Type::kInt32, 0);
+      HArraySet(null_check, bounds_check5, array_get_j, DataType::Type::kInt32, GetAllocator(), 0);
   inner_body_swap->AddInstruction(null_check);
   inner_body_swap->AddInstruction(array_length);
   inner_body_swap->AddInstruction(bounds_check5);
@@ -908,8 +908,8 @@ TEST_F(BoundsCheckEliminationTest, BubbleSortArrayBoundsElimination) {
   null_check = new (GetAllocator()) HNullCheck(parameter, 0);
   array_length = new (GetAllocator()) HArrayLength(null_check, 0);
   HInstruction* bounds_check6 = new (GetAllocator()) HBoundsCheck(phi_j, array_length, 0);
-  HArraySet* array_set_j = new (GetAllocator())
-      HArraySet(null_check, bounds_check6, array_get_j_plus_1, DataType::Type::kInt32, 0);
+  HArraySet* array_set_j = new (GetAllocator()) HArraySet(
+      null_check, bounds_check6, array_get_j_plus_1, DataType::Type::kInt32, GetAllocator(), 0);
   inner_body_swap->AddInstruction(null_check);
   inner_body_swap->AddInstruction(array_length);
   inner_body_swap->AddInstruction(bounds_check6);
@@ -1012,7 +1012,7 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
   HRem* i_mod_10 = new (GetAllocator()) HRem(DataType::Type::kInt32, phi, constant_10, 0);
   HBoundsCheck* bounds_check_i_mod_10 = new (GetAllocator()) HBoundsCheck(i_mod_10, constant_10, 0);
   HInstruction* array_set = new (GetAllocator()) HArraySet(
-      new_array, bounds_check_i_mod_10, constant_10, DataType::Type::kInt32, 0);
+      new_array, bounds_check_i_mod_10, constant_10, DataType::Type::kInt32, GetAllocator(), 0);
   loop_body->AddInstruction(i_mod_10);
   loop_body->AddInstruction(bounds_check_i_mod_10);
   loop_body->AddInstruction(array_set);
@@ -1021,7 +1021,7 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
   HRem* i_mod_1 = new (GetAllocator()) HRem(DataType::Type::kInt32, phi, constant_1, 0);
   HBoundsCheck* bounds_check_i_mod_1 = new (GetAllocator()) HBoundsCheck(i_mod_1, constant_10, 0);
   array_set = new (GetAllocator()) HArraySet(
-      new_array, bounds_check_i_mod_1, constant_10, DataType::Type::kInt32, 0);
+      new_array, bounds_check_i_mod_1, constant_10, DataType::Type::kInt32, GetAllocator(), 0);
   loop_body->AddInstruction(i_mod_1);
   loop_body->AddInstruction(bounds_check_i_mod_1);
   loop_body->AddInstruction(array_set);
@@ -1031,7 +1031,7 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
   HBoundsCheck* bounds_check_i_mod_200 = new (GetAllocator()) HBoundsCheck(
       i_mod_200, constant_10, 0);
   array_set = new (GetAllocator()) HArraySet(
-      new_array, bounds_check_i_mod_200, constant_10, DataType::Type::kInt32, 0);
+      new_array, bounds_check_i_mod_200, constant_10, DataType::Type::kInt32, GetAllocator(), 0);
   loop_body->AddInstruction(i_mod_200);
   loop_body->AddInstruction(bounds_check_i_mod_200);
   loop_body->AddInstruction(array_set);
@@ -1041,8 +1041,12 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
       DataType::Type::kInt32, phi, constant_minus_10, 0);
   HBoundsCheck* bounds_check_i_mod_minus_10 = new (GetAllocator()) HBoundsCheck(
       i_mod_minus_10, constant_10, 0);
-  array_set = new (GetAllocator()) HArraySet(
-      new_array, bounds_check_i_mod_minus_10, constant_10, DataType::Type::kInt32, 0);
+  array_set = new (GetAllocator()) HArraySet(new_array,
+                                             bounds_check_i_mod_minus_10,
+                                             constant_10,
+                                             DataType::Type::kInt32,
+                                             GetAllocator(),
+                                             0);
   loop_body->AddInstruction(i_mod_minus_10);
   loop_body->AddInstruction(bounds_check_i_mod_minus_10);
   loop_body->AddInstruction(array_set);
@@ -1054,8 +1058,12 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
       DataType::Type::kInt32, phi, array_length, 0);
   HBoundsCheck* bounds_check_i_mod_array_len = new (GetAllocator()) HBoundsCheck(
       i_mod_array_length, array_length, 0);
-  array_set = new (GetAllocator()) HArraySet(
-      null_check, bounds_check_i_mod_array_len, constant_10, DataType::Type::kInt32, 0);
+  array_set = new (GetAllocator()) HArraySet(null_check,
+                                             bounds_check_i_mod_array_len,
+                                             constant_10,
+                                             DataType::Type::kInt32,
+                                             GetAllocator(),
+                                             0);
   loop_body->AddInstruction(null_check);
   loop_body->AddInstruction(array_length);
   loop_body->AddInstruction(i_mod_array_length);
@@ -1066,8 +1074,12 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
   HRem* param_i_mod_10 = new (GetAllocator()) HRem(DataType::Type::kInt32, param_i, constant_10, 0);
   HBoundsCheck* bounds_check_param_i_mod_10 = new (GetAllocator()) HBoundsCheck(
       param_i_mod_10, constant_10, 0);
-  array_set = new (GetAllocator()) HArraySet(
-      new_array, bounds_check_param_i_mod_10, constant_10, DataType::Type::kInt32, 0);
+  array_set = new (GetAllocator()) HArraySet(new_array,
+                                             bounds_check_param_i_mod_10,
+                                             constant_10,
+                                             DataType::Type::kInt32,
+                                             GetAllocator(),
+                                             0);
   loop_body->AddInstruction(param_i_mod_10);
   loop_body->AddInstruction(bounds_check_param_i_mod_10);
   loop_body->AddInstruction(array_set);
@@ -1079,8 +1091,12 @@ TEST_F(BoundsCheckEliminationTest, ModArrayBoundsElimination) {
       DataType::Type::kInt32, param_i, array_length, 0);
   HBoundsCheck* bounds_check_param_i_mod_array_len = new (GetAllocator()) HBoundsCheck(
       param_i_mod_array_length, array_length, 0);
-  array_set = new (GetAllocator()) HArraySet(
-      null_check, bounds_check_param_i_mod_array_len, constant_10, DataType::Type::kInt32, 0);
+  array_set = new (GetAllocator()) HArraySet(null_check,
+                                             bounds_check_param_i_mod_array_len,
+                                             constant_10,
+                                             DataType::Type::kInt32,
+                                             GetAllocator(),
+                                             0);
   loop_body->AddInstruction(null_check);
   loop_body->AddInstruction(array_length);
   loop_body->AddInstruction(param_i_mod_array_length);

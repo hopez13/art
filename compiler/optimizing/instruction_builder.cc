@@ -1939,6 +1939,7 @@ bool HInstructionBuilder::BuildInstanceFieldAccess(const Instruction& instructio
                                                      field_index,
                                                      class_def_index,
                                                      *dex_file_,
+                                                     allocator_,
                                                      dex_pc);
     }
     AppendInstruction(field_set);
@@ -2123,6 +2124,7 @@ void HInstructionBuilder::BuildStaticFieldAccess(const Instruction& instruction,
                                                        field_index,
                                                        class_def_index,
                                                        *dex_file_,
+                                                       allocator_,
                                                        dex_pc));
   } else {
     AppendInstruction(new (allocator_) HStaticFieldGet(cls,
@@ -2191,7 +2193,12 @@ void HInstructionBuilder::BuildArrayAccess(const Instruction& instruction,
   if (is_put) {
     HInstruction* value = LoadLocal(source_or_dest_reg, anticipated_type);
     // TODO: Insert a type check node if the type is Object.
-    HArraySet* aset = new (allocator_) HArraySet(object, index, value, anticipated_type, dex_pc);
+    HArraySet* aset = new (allocator_) HArraySet(object,
+                                                 index,
+                                                 value,
+                                                 anticipated_type,
+                                                 allocator_,
+                                                 dex_pc);
     ssa_builder_->MaybeAddAmbiguousArraySet(aset);
     AppendInstruction(aset);
   } else {
@@ -2236,7 +2243,7 @@ HNewArray* HInstructionBuilder::BuildFilledNewArray(uint32_t dex_pc,
   for (size_t i = 0; i < number_of_operands; ++i) {
     HInstruction* value = LoadLocal(operands.GetOperand(i), type);
     HInstruction* index = graph_->GetIntConstant(i, dex_pc);
-    HArraySet* aset = new (allocator_) HArraySet(new_array, index, value, type, dex_pc);
+    HArraySet* aset = new (allocator_) HArraySet(new_array, index, value, type, allocator_, dex_pc);
     ssa_builder_->MaybeAddAmbiguousArraySet(aset);
     AppendInstruction(aset);
   }
@@ -2254,7 +2261,8 @@ void HInstructionBuilder::BuildFillArrayData(HInstruction* object,
   for (uint32_t i = 0; i < element_count; ++i) {
     HInstruction* index = graph_->GetIntConstant(i, dex_pc);
     HInstruction* value = graph_->GetIntConstant(data[i], dex_pc);
-    HArraySet* aset = new (allocator_) HArraySet(object, index, value, anticipated_type, dex_pc);
+    HArraySet* aset = new (allocator_) HArraySet(
+        object, index, value, anticipated_type, allocator_, dex_pc);
     ssa_builder_->MaybeAddAmbiguousArraySet(aset);
     AppendInstruction(aset);
   }
@@ -2324,8 +2332,8 @@ void HInstructionBuilder::BuildFillWideArrayData(HInstruction* object,
   for (uint32_t i = 0; i < element_count; ++i) {
     HInstruction* index = graph_->GetIntConstant(i, dex_pc);
     HInstruction* value = graph_->GetLongConstant(data[i], dex_pc);
-    HArraySet* aset =
-        new (allocator_) HArraySet(object, index, value, DataType::Type::kInt64, dex_pc);
+    HArraySet* aset = new (allocator_) HArraySet(
+        object, index, value, DataType::Type::kInt64, allocator_, dex_pc);
     ssa_builder_->MaybeAddAmbiguousArraySet(aset);
     AppendInstruction(aset);
   }
