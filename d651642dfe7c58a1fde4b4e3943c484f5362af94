@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c73a4ea_84563cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-02T16:19:00Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e \u003e Patch Set 1:\n\u003e \u003e \n\u003e \u003e \u003e Patch Set 1:\n\u003e \u003e \u003e \n\u003e \u003e \u003e Alternatively, could we avoid running error-prone on these files? All of these things flagged by error-prone are intentional, and I wouldn\u0027t want to put a burden on ART engineers writing tests to have to understand error-prone.\n\u003e \u003e \n\u003e \u003e ErrorProne checks are performed via the `m javac-check RUN_ERROR_PRONE\u003dtrue` build invocation. AFAIU, there\u0027s no mechanism to disable ErrorProne checks for given Java Soong modules in the build system. Do we want to implement one? Adding Colin and Dan to the discussion.\n\u003e \u003e \n\u003e \u003e My personal view is that adding annotations to locally disable some of the ErrorProne checks is lightweight and simpler than adding another property to the build system. Also, adding new annotations is not very difficult: ErrorProne errors are caught by presubmit builds, and the error logs contain the name of the warning to disable.\n\u003e \n\u003e You could put in a defaults module used by all the tests:\n\u003e \n\u003e     errorprone: {\n\u003e         javacflags: [\"-XepDisableAllChecks\"],\n\u003e     },\n\nThanks Colin, will try this.\n",
+      "revId": "d651642dfe7c58a1fde4b4e3943c484f5362af94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
