@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc4da05d_b97439e6",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-02T13:28:20Z",
+      "side": 1,
+      "message": "Maybe add a comment that `$(icu_data_file)` is expected to contain a single file path? Or better, add a check:\n\n  ifneq ($(words $(icu_data_file)),1)\n    $(error Expected a single ICU data file, got \"$(icu_data_file)\")\n  endif",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "eef3d87e0951d9347d70f5086d9e2755c2b932da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
