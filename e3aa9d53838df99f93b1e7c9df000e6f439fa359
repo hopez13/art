@@ -22,6 +22,30 @@
       "revId": "e3aa9d53838df99f93b1e7c9df000e6f439fa359",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a315a13e_2dc8f53a",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-02T10:41:47Z",
+      "side": 1,
+      "message": "icu-data_host_i18n_apex is a module name.  Do you know if I can extract the string \"icudt66l.dat\" from it.  Or could we make that string public in the linked makefile?",
+      "parentUuid": "948d3874_141f8883",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "e3aa9d53838df99f93b1e7c9df000e6f439fa359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
