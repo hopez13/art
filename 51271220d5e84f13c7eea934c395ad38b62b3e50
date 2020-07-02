@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003725923",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1354583?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "9833a578_02efc0e2",
+          "description": "Change to \"compiler/optimizing/code_generator_arm_vixl.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/code_generator_arm_vixl.cc",
+              "range": {
+                "startLine": 4334,
+                "startChar": 70,
+                "endLine": 4334,
+                "endChar": 79
+              },
+              "replacement": "less than"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d67000e1_753a94f7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4334,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-02T16:21:34Z",
+      "side": 1,
+      "message": "Common typo found: \"less then\" -- should it be \"less than\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 4334,
+        "startChar": 70,
+        "endLine": 4334,
+        "endChar": 79
+      },
+      "revId": "51271220d5e84f13c7eea934c395ad38b62b3e50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
