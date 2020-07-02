@@ -68,10 +68,6 @@ namespace art {
 
 using android::base::StringPrintf;
 
-static jfloat VMRuntime_getTargetHeapUtilization(JNIEnv*, jobject) {
-  return Runtime::Current()->GetHeap()->GetTargetHeapUtilization();
-}
-
 static void VMRuntime_nativeSetTargetHeapUtilization(JNIEnv*, jobject, jfloat target) {
   Runtime::Current()->GetHeap()->SetTargetHeapUtilization(target);
 }
@@ -719,11 +715,6 @@ static void VMRuntime_setProcessDataDirectory(JNIEnv* env, jclass, jstring java_
   Runtime::Current()->SetProcessDataDirectory(data_dir.c_str());
 }
 
-static jboolean VMRuntime_hasBootImageSpaces(JNIEnv* env ATTRIBUTE_UNUSED,
-                                             jclass klass ATTRIBUTE_UNUSED) {
-  return Runtime::Current()->GetHeap()->HasBootImageSpace() ? JNI_TRUE : JNI_FALSE;
-}
-
 static void VMRuntime_bootCompleted(JNIEnv* env ATTRIBUTE_UNUSED,
                                     jclass klass ATTRIBUTE_UNUSED) {
   jit::Jit* jit = Runtime::Current()->GetJit();
@@ -780,10 +771,8 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, clearGrowthLimit, "()V"),
   NATIVE_METHOD(VMRuntime, concurrentGC, "()V"),
   NATIVE_METHOD(VMRuntime, disableJitCompilation, "()V"),
-  FAST_NATIVE_METHOD(VMRuntime, hasBootImageSpaces, "()Z"),  // Could be CRITICAL.
   NATIVE_METHOD(VMRuntime, setHiddenApiExemptions, "([Ljava/lang/String;)V"),
   NATIVE_METHOD(VMRuntime, setHiddenApiAccessLogSamplingRate, "(I)V"),
-  NATIVE_METHOD(VMRuntime, getTargetHeapUtilization, "()F"),
   FAST_NATIVE_METHOD(VMRuntime, isNativeDebuggable, "()Z"),
   NATIVE_METHOD(VMRuntime, isJavaDebuggable, "()Z"),
   NATIVE_METHOD(VMRuntime, nativeSetTargetHeapUtilization, "(F)V"),
