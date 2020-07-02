@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "948d3874_141f8883",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2020-07-02T09:41:14Z",
+      "side": 1,
+      "message": "can you use wildcard or the target icu-data_host_i18n_apex to capture the .dat file here? the ICU version increases every half-year\nhttps://cs.android.com/android/platform/superproject/+/master:external/icu/icu4c/source/stubdata/Android.mk;l\u003d24?q\u003dicudt%20file:.mk",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "e3aa9d53838df99f93b1e7c9df000e6f439fa359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
