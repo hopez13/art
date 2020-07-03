@@ -21,7 +21,7 @@
  */
 #include "asm_support.h"
 #include "arch/arm64/asm_support_arm64.S"
-#include "interpreter/cfi_asm_support.h"
+#include "interpreter/cfi_asm_support.S"
 
 /**
  * ARM64 Runtime register usage conventions.
@@ -363,7 +363,7 @@ END \name
     .cfi_def_cfa_register x13
     mov sp, x14
     str x13, [\refs, #-8]
-    CFI_DEFINE_CFA_DEREF(\cfi_refs, -8, CALLEE_SAVES_SIZE)
+    CFI_DEF_CFA_BREG_PLUS_UCONST \cfi_refs, -8, CALLEE_SAVES_SIZE
 
     // Put nulls in reference frame.
     cbz ip, 2f
@@ -573,7 +573,7 @@ END \name
    // Start executing the method.
    mov xFP, xNEW_FP
    mov xREFS, xNEW_REFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, CALLEE_SAVES_SIZE)
+   CFI_DEF_CFA_BREG_PLUS_UCONST CFI_REFS, -8, CALLEE_SAVES_SIZE
    START_EXECUTING_INSTRUCTIONS
 .endm
 
@@ -621,7 +621,7 @@ END \name
    .endif
    mov xFP, xNEW_FP
    mov xREFS, xNEW_REFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, CALLEE_SAVES_SIZE)
+   CFI_DEF_CFA_BREG_PLUS_UCONST CFI_REFS, -8, CALLEE_SAVES_SIZE
    START_EXECUTING_INSTRUCTIONS
 .endm
 
