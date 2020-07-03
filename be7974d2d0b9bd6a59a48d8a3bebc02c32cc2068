@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10ba3928_68e75a87",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-03T12:11:39Z",
+      "side": 1,
+      "message": "Agreed; replaced with `run_test`.",
+      "parentUuid": "e6e7d53e_3359ab67",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "be7974d2d0b9bd6a59a48d8a3bebc02c32cc2068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "350f3d04_5071a97e",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 23
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-03T11:26:03Z",
       "side": 1,
       "message": "nit: Could make this one-line? It\u0027s the pattern that I associate with .bp files for one line lists, but appreciate bpfmt is happy either way.\n\n$ mgrep \u0027srcs: \\[\".*\"]\u0027 | grep \"\\*\" | wc -l\n1795",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 6
+      },
+      "revId": "be7974d2d0b9bd6a59a48d8a3bebc02c32cc2068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b58e641_c51ed396",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 23
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-03T12:11:39Z",
+      "side": 1,
+      "message": "Fair enough. :)",
+      "parentUuid": "350f3d04_5071a97e",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c3c26ce_5f65e212",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 23
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-03T12:11:39Z",
+      "side": 1,
+      "message": "I didn\u0027t know about that syntax, thanks!\n\nI initially tried \n\n  $((++num_gen_bp_files))\n\nbut as it expands to the result of the arithmetic operation, the shell complained about it not being a valid command, hence the `:` before it.",
+      "parentUuid": "6491d80b_ca1a2e4a",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "be7974d2d0b9bd6a59a48d8a3bebc02c32cc2068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f27cc92c_827dd1c4",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 23
@@ -82,6 +154,30 @@
       "writtenOn": "2020-07-03T11:26:03Z",
       "side": 1,
       "message": "Fine as-is, but \"[^0-9][0-9]*-\" might be less of a future surprise.",
+      "range": {
+        "startLine": 76,
+        "startChar": 40,
+        "endLine": 76,
+        "endChar": 50
+      },
+      "revId": "be7974d2d0b9bd6a59a48d8a3bebc02c32cc2068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d910f182_4bd4a7fb",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 23
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-03T12:11:39Z",
+      "side": 1,
+      "message": "I went for:\n\n  \u0027^[0-9]{3,}-\u0027\n\nas a compromise.",
+      "parentUuid": "f27cc92c_827dd1c4",
       "range": {
         "startLine": 76,
         "startChar": 40,
