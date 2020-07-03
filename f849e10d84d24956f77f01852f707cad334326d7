@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4d73467_90a8a9a6",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T11:24:49Z",
+      "side": 1,
+      "message": "Is it supposed to be used for only x86/x86_64 targets? And only on Linux?\nWhy not to use $ANDROID_TOOLCHAIN? When I use \u0027lunch armv8-eng\u0027 it is set to:\n\nANDROID_TOOLCHAIN\u003d/work01/aosp/google-art/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin\n\nIt can be read from the environment or be passed as a macro to the compiler during a build.",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7ae433_0549c1e0",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T11:24:49Z",
+      "side": 1,
+      "message": "This expression is used three times. Maybe, call it as \u0027test_file_name_base\u0027?",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 66
+      },
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa2e5b9_b2b51b1b",
+        "filename": "test/common/gtest_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T11:24:49Z",
+      "side": 1,
+      "message": "If it\u0027s intentionally commented out, maybe it should be removed?",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
