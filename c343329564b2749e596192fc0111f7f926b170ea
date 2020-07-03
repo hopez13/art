@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d468c841_86fa801a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-03T10:45:54Z",
+      "side": 1,
+      "message": "Looks similar to the issues in ClassLinker::ResolveMethod() attributed to b/73760543 .",
+      "revId": "c343329564b2749e596192fc0111f7f926b170ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
