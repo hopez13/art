@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a67e9e94_820bfb87",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T12:12:20Z",
+      "side": 1,
+      "message": "\u003e That is different path than the one in the variable though, right? (those tests need to disassemble x86, not aarch64)\n\nSorry, don\u0027t know all details how it is run. Is it run during arm/arm64 testing?\n\nMaybe to add \u0027TODO\u0027 or \u0027FIXME\u0027?",
+      "parentUuid": "04c09462_500462e6",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3a7ae433_0549c1e0",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 3
@@ -84,6 +102,30 @@
     },
     {
       "key": {
+        "uuid": "9ef48ce3_6b53299a",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T12:12:20Z",
+      "side": 1,
+      "message": "IMHO: As usually for a repeated expression, any changes in it will require to update all its uses. I think two times are Okey. Three times might need to be considered. \n\nWhat about the lambda:\n\nauto test_file_name \u003d [this, \u0026test_name](const char* ext) {\n  return scratch_dir_-\u003eGetPath() + test_name + ext;\n};",
+      "parentUuid": "d061ff62_d84a0c8b",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 66
+      },
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffa2e5b9_b2b51b1b",
         "filename": "test/common/gtest_main.cc",
         "patchSetId": 3
@@ -116,6 +158,24 @@
       "revId": "f849e10d84d24956f77f01852f707cad334326d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58bd0512_02554f75",
+        "filename": "test/common/gtest_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-03T12:12:20Z",
+      "side": 1,
+      "message": "This is not clear. What about this:\n\nstatic constexpr bool enable_no_isolate \u003d false;\n\nstatic const char* initial_args[] \u003d {\n      \"--deadline_threshold_ms\u003d1200000\",  // hwasan takes ~10min.\n      \"--slow_threshold_ms\u003d300000\",\n      \"--no_isolate\",  // local debugging: Run tests single-threaded in the main process.\n};\n*args \u003d initial_args;\n*num_args \u003d (enable_no_isolate) ? 3 : 2;",
+      "parentUuid": "659aef39_f1b5e97c",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
