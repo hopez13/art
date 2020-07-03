@@ -1581,7 +1581,8 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(BitwiseNegatedRight, Instruction)                                   \
   M(DataProcWithShifterOp, Instruction)                                 \
   M(MultiplyAccumulate, Instruction)                                    \
-  M(IntermediateAddressIndex, Instruction)
+  M(IntermediateAddressIndex, Instruction)                              \
+  M(GCCardTableLoad, Instruction)
 #endif
 
 #define FOR_EACH_CONCRETE_INSTRUCTION_ARM(M)
@@ -6007,12 +6008,33 @@ class HInstanceFieldSet final : public HVariableInputSizeInstruction {
   bool GetValueCanBeNull() const { return GetPackedFlag<kFlagValueCanBeNull>(); }
   void ClearValueCanBeNull() { SetPackedFlag<kFlagValueCanBeNull>(false); }
 
+  // Get the index of the special input.
+  size_t GetGCCardTableInputIndex() const {
+    DCHECK(HasGCCardTableInput());
+    return GetGCCardTableInputIndexUnchecked();
+  }
+
+  // Check if the method has a special input.
+  bool HasGCCardTableInput() const {
+    return InputCount() > kNumberOfRegularInputs;
+  }
+
+  void AddGCCardTableInput(HInstruction* input) {
+    // We allow only one special input.
+    DCHECK(!HasGCCardTableInput());
+    AddInput(input);
+  }
+
   DECLARE_INSTRUCTION(InstanceFieldSet);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(InstanceFieldSet);
 
  private:
+  static constexpr size_t GetGCCardTableInputIndexUnchecked() {
+    return kNumberOfRegularInputs;
+  }
+
   static constexpr size_t kFlagValueCanBeNull = kNumberOfGenericPackedBits;
   static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagValueCanBeNull + 1;
   static_assert(kNumberOfInstanceFieldSetPackedBits <= kMaxNumberOfPackedBits,
@@ -6219,12 +6241,33 @@ class HArraySet final : public HVariableInputSizeInstruction {
                                                       : SideEffects::None();
   }
 
+  size_t GetGCCardTableInputIndex() const {
+    DCHECK(HasGCCardTableInput());
+    return GetGCCardTableInputIndexUnchecked();
+  }
+
+  // Check if the method has a special input.
+  bool HasGCCardTableInput() const {
+    return InputCount() > kNumberOfRegularInputs;
+  }
+
+  void AddGCCardTableInput(HInstruction* input) {
+    // We allow only one special input.
+    DCHECK(!HasGCCardTableInput());
+    AddInput(input);
+  }
+
   DECLARE_INSTRUCTION(ArraySet);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(ArraySet);
 
  private:
+  // Get the index of the special input.
+  static constexpr size_t GetGCCardTableInputIndexUnchecked() {
+    return kNumberOfRegularInputs;
+  }
+
   static constexpr size_t kFieldExpectedComponentType = kNumberOfGenericPackedBits;
   static constexpr size_t kFieldExpectedComponentTypeSize =
       MinimumBitsToStore(static_cast<size_t>(DataType::Type::kLast));
@@ -7003,12 +7046,33 @@ class HStaticFieldSet final : public HVariableInputSizeInstruction {
   bool GetValueCanBeNull() const { return GetPackedFlag<kFlagValueCanBeNull>(); }
   void ClearValueCanBeNull() { SetPackedFlag<kFlagValueCanBeNull>(false); }
 
+  // Get the index of the special input.
+  size_t GetGCCardTableInputIndex() const {
+    DCHECK(HasGCCardTableInput());
+    return GetGCCardTableInputIndexUnchecked();
+  }
+
+  // Check if the method has a special input.
+  bool HasGCCardTableInput() const {
+    return InputCount() > kNumberOfRegularInputs;
+  }
+
+  void AddGCCardTableInput(HInstruction* input) {
+    // We allow only one special input.
+    DCHECK(!HasGCCardTableInput());
+    AddInput(input);
+  }
+
   DECLARE_INSTRUCTION(StaticFieldSet);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(StaticFieldSet);
 
  private:
+  static constexpr size_t GetGCCardTableInputIndexUnchecked() {
+    return kNumberOfRegularInputs;
+  }
+
   static constexpr size_t kFlagValueCanBeNull = kNumberOfGenericPackedBits;
   static constexpr size_t kNumberOfStaticFieldSetPackedBits = kFlagValueCanBeNull + 1;
   static_assert(kNumberOfStaticFieldSetPackedBits <= kMaxNumberOfPackedBits,

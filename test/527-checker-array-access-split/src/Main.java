@@ -593,11 +593,14 @@ public class Main {
   /// CHECK:                        ArrayGet [<<IntAddr1>>,{{i\d+}}]
   /// CHECK: <<IntAddr2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
   /// CHECK:                        ArrayGet [<<IntAddr2>>,{{i\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
+  /// CHECK: <<GCCTabLoad1:j\d+>>   GCCardTableLoad
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad1>>]
   /// CHECK: <<IntAddr3:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
   /// CHECK:                        ArrayGet [<<IntAddr3>>,{{i\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
+  /// CHECK: <<GCCTabLoad2:j\d+>>   GCCardTableLoad
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad2>>]
+  /// CHECK: <<GCCTabLoad3:j\d+>>   GCCardTableLoad
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad3>>]
   //
   /// CHECK-NOT:                    IntermediateAddress
 
@@ -608,11 +611,12 @@ public class Main {
   /// CHECK: <<IntAddr1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
   /// CHECK:                        ArrayGet [<<IntAddr1>>,{{i\d+}}]
   /// CHECK:                        ArrayGet [<<IntAddr1>>,{{i\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
+  /// CHECK: <<GCCTabLoad1:j\d+>>   GCCardTableLoad
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad1>>]
   /// CHECK: <<IntAddr3:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
   /// CHECK:                        ArrayGet [<<IntAddr3>>,{{i\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
-  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}}]
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad1>>]
+  /// CHECK:                        ArraySet [<<Array>>,{{i\d+}},{{l\d+}},<<GCCTabLoad1>>]
   //
   /// CHECK-NOT:                    IntermediateAddress
   public final static int checkObjectArrayGet(int index, Integer[] a, Integer[] b) {

@@ -253,6 +253,26 @@ class HDataProcWithShifterOp final : public HExpression<2> {
 
 std::ostream& operator<<(std::ostream& os, const HDataProcWithShifterOp::OpKind op);
 
+// Instruction representing the loading of the GC Card Table.
+// Subsequently used as input for HArraySet/HInstanceFieldSet/HStaticFieldSet.
+class HGCCardTableLoad final : public HExpression<0> {
+ public:
+  explicit HGCCardTableLoad(uint32_t dex_pc)
+      : HExpression(kGCCardTableLoad, DataType::Type::kInt64, SideEffects::None(), dex_pc) {
+  }
+
+  bool IsClonable() const override { return true; }
+  bool CanBeMoved() const override { return true; }
+  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const override {
+    return true;
+  }
+
+  DECLARE_INSTRUCTION(GCCardTableLoad);
+
+ private:
+  DEFAULT_COPY_CONSTRUCTOR(GCCardTableLoad);
+};
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_NODES_SHARED_H_

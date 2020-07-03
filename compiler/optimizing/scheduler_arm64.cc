@@ -53,6 +53,10 @@ void SchedulingLatencyVisitorARM64::VisitIntermediateAddressIndex(
   last_visited_latency_ = kArm64DataProcWithShifterOpLatency + 2;
 }
 
+void SchedulingLatencyVisitorARM64::VisitGCCardTableLoad(HGCCardTableLoad* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArm64MemoryLoadLatency;
+}
+
 void SchedulingLatencyVisitorARM64::VisitMultiplyAccumulate(HMultiplyAccumulate* ATTRIBUTE_UNUSED) {
   last_visited_latency_ = kArm64MulIntegerLatency;
 }

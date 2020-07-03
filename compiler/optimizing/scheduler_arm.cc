@@ -622,6 +622,10 @@ void SchedulingLatencyVisitorARM::VisitIntermediateAddressIndex(
   UNIMPLEMENTED(FATAL) << "IntermediateAddressIndex is not implemented for ARM";
 }
 
+void SchedulingLatencyVisitorARM::VisitGCCardTableLoad(HGCCardTableLoad* ATTRIBUTE_UNUSED) {
+  UNIMPLEMENTED(FATAL) << "GCCardTableLoad is not implemented for ARM";
+}
+
 void SchedulingLatencyVisitorARM::VisitMultiplyAccumulate(HMultiplyAccumulate* ATTRIBUTE_UNUSED) {
   last_visited_latency_ = kArmMulIntegerLatency;
 }

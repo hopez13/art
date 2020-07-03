@@ -6878,6 +6878,14 @@ void InstructionCodeGeneratorARMVIXL::VisitIntermediateAddressIndex(
   LOG(FATAL) << "Unreachable " << instruction->GetId();
 }
 
+void LocationsBuilderARMVIXL::VisitGCCardTableLoad(HGCCardTableLoad* ATTRIBUTE_UNUSED) {
+  UNIMPLEMENTED(FATAL) << "GCCardTableLoad is not implemented for ARM";
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitGCCardTableLoad(HGCCardTableLoad* ATTRIBUTE_UNUSED) {
+  UNIMPLEMENTED(FATAL) << "GCCardTableLoad is not implemented for ARM";
+}
+
 void LocationsBuilderARMVIXL::VisitBoundsCheck(HBoundsCheck* instruction) {
   RegisterSet caller_saves = RegisterSet::Empty();
   InvokeRuntimeCallingConventionARMVIXL calling_convention;

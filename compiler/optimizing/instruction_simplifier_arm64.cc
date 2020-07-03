@@ -45,6 +45,8 @@ class InstructionSimplifierArm64Visitor : public HGraphVisitor {
   bool TryMergeIntoShifterOperand(HInstruction* use,
                                   HInstruction* bitfield_op,
                                   bool do_merge);
+  bool TryExtractGCCardTableLoad(HVariableInputSizeInstruction *instruction);
+
   bool CanMergeIntoShifterOperand(HInstruction* use, HInstruction* bitfield_op) {
     return TryMergeIntoShifterOperand(use, bitfield_op, /* do_merge= */ false);
   }
@@ -73,6 +75,8 @@ class InstructionSimplifierArm64Visitor : public HGraphVisitor {
   void VisitAnd(HAnd* instruction) override;
   void VisitArrayGet(HArrayGet* instruction) override;
   void VisitArraySet(HArraySet* instruction) override;
+  void VisitStaticFieldSet(HStaticFieldSet* instruction) override;
+  void VisitInstanceFieldSet(HInstanceFieldSet* instruction) override;
   void VisitMul(HMul* instruction) override;
   void VisitOr(HOr* instruction) override;
   void VisitShl(HShl* instruction) override;
@@ -190,6 +194,48 @@ bool InstructionSimplifierArm64Visitor::TryMergeIntoUsersShifterOperand(HInstruc
   return true;
 }
 
+bool InstructionSimplifierArm64Visitor::TryExtractGCCardTableLoad(
+    HVariableInputSizeInstruction *access) {
+  DCHECK(access->IsArraySet() || access->IsStaticFieldSet() || access->IsInstanceFieldSet());
+
+  DataType::Type value_type;
+  bool has_special_input = false;
+
+  if (access->IsArraySet()) {
+    value_type = access->AsArraySet()->GetValue()->GetType();
+    has_special_input = access->AsArraySet()->HasGCCardTableInput();
+  } else if (access->IsStaticFieldSet()) {
+    value_type = access->AsStaticFieldSet()->GetValue()->GetType();
+    has_special_input = access->AsStaticFieldSet()->HasGCCardTableInput();
+  } else if (access->IsInstanceFieldSet()) {
+    value_type = access->AsInstanceFieldSet()->GetValue()->GetType();
+    has_special_input = access->AsInstanceFieldSet()->HasGCCardTableInput();
+  } else {
+    return false;
+  }
+
+  if (value_type != DataType::Type::kReference || has_special_input) {
+    return false;
+  }
+
+  HBasicBlock* access_block = access->GetBlock();
+
+  HGCCardTableLoad *table_load =
+      new (GetGraph()->GetAllocator()) HGCCardTableLoad(access->GetDexPc());
+
+  access_block->InsertInstructionBefore(table_load, access);
+
+  if (access->IsArraySet()) {
+    access->AsArraySet()->AddGCCardTableInput(table_load);
+  } else if (access->IsStaticFieldSet()) {
+    access->AsStaticFieldSet()->AddGCCardTableInput(table_load);
+  } else if (access->IsInstanceFieldSet()) {
+    access->AsInstanceFieldSet()->AddGCCardTableInput(table_load);
+  }
+
+  return true;
+}
+
 void InstructionSimplifierArm64Visitor::VisitAnd(HAnd* instruction) {
   if (TryMergeNegatedInput(instruction)) {
     RecordSimplification();
@@ -213,6 +259,21 @@ void InstructionSimplifierArm64Visitor::VisitArraySet(HArraySet* instruction) {
                                    instruction->GetArray(),
                                    instruction->GetIndex(),
                                    data_offset)) {
+    RecordSimplification();
+  }
+  if (TryExtractGCCardTableLoad(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitStaticFieldSet(HStaticFieldSet* instruction) {
+  if (TryExtractGCCardTableLoad(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
+  if (TryExtractGCCardTableLoad(instruction)) {
     RecordSimplification();
   }
 }

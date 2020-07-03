@@ -1319,15 +1319,29 @@ void CodeGeneratorARM64::AddLocationAsTemp(Location location, LocationSummary* l
 }
 
 void CodeGeneratorARM64::MarkGCCard(Register object, Register value, bool value_can_be_null) {
+  Register card;
+
+  MarkGCCard(object, value, card, value_can_be_null, /* load_gc_card_table */ true);
+}
+
+void CodeGeneratorARM64::MarkGCCard(Register object,
+                                    Register value,
+                                    Register card,
+                                    bool value_can_be_null,
+                                    bool load_gc_card_table) {
   UseScratchRegisterScope temps(GetVIXLAssembler());
-  Register card = temps.AcquireX();
   Register temp = temps.AcquireW();   // Index within the CardTable - 32bit.
   vixl::aarch64::Label done;
   if (value_can_be_null) {
     __ Cbz(value, &done);
   }
-  // Load the address of the card table into `card`.
-  __ Ldr(card, MemOperand(tr, Thread::CardTableOffset<kArm64PointerSize>().Int32Value()));
+
+  if (load_gc_card_table) {
+    card = temps.AcquireX();
+    // Load the address of the card table into `card`.
+    __ Ldr(card, MemOperand(tr, Thread::CardTableOffset<kArm64PointerSize>().Int32Value()));
+  }
+
   // Calculate the offset (in the card table) of the card corresponding to
   // `object`.
   __ Lsr(temp, object, gc::accounting::CardTable::kCardShift);
@@ -2063,9 +2077,27 @@ void InstructionCodeGeneratorARM64::HandleFieldGet(HInstruction* instruction,
   }
 }
 
+static bool MaybeGetGCCardTableInputIndex(HInstruction* instruction, size_t* index) {
+  if (instruction->IsArraySet() && instruction->AsArraySet()->HasGCCardTableInput()) {
+    *index = instruction->AsArraySet()->GetGCCardTableInputIndex();
+    return true;
+  }
+  if (instruction->IsInstanceFieldSet() && instruction->AsInstanceFieldSet()->HasGCCardTableInput()) {
+    *index = instruction->AsInstanceFieldSet()->GetGCCardTableInputIndex();
+    return true;
+  }
+  if (instruction->IsStaticFieldSet() && instruction->AsStaticFieldSet()->HasGCCardTableInput()) {
+    *index = instruction->AsStaticFieldSet()->GetGCCardTableInputIndex();
+    return true;
+  }
+
+  return false;
+}
+
 void LocationsBuilderARM64::HandleFieldSet(HInstruction* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  size_t index = 0;
   locations->SetInAt(0, Location::RequiresRegister());
   if (IsConstantZeroBitPattern(instruction->InputAt(1))) {
     locations->SetInAt(1, Location::ConstantLocation(instruction->InputAt(1)->AsConstant()));
@@ -2073,6 +2105,10 @@ void LocationsBuilderARM64::HandleFieldSet(HInstruction* instruction) {
     locations->SetInAt(1, Location::RequiresFpuRegister());
   } else {
     locations->SetInAt(1, Location::RequiresRegister());
+  }
+
+  if (MaybeGetGCCardTableInputIndex(instruction, &index)) {
+    locations->SetInAt(index, Location::RequiresRegister());
   }
 }
 
@@ -2112,7 +2148,18 @@ void InstructionCodeGeneratorARM64::HandleFieldSet(HInstruction* instruction,
   }
 
   if (CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction->InputAt(1))) {
-    codegen_->MarkGCCard(obj, Register(value), value_can_be_null);
+    size_t special_index = 0;
+    if (MaybeGetGCCardTableInputIndex(instruction, &special_index)) {
+      codegen_->MarkGCCard(obj,
+                           Register(value),
+                           InputRegisterAt(instruction, special_index),
+                           value_can_be_null,
+                           /* load_gc_card_table */ false);
+    } else {
+      codegen_->MarkGCCard(obj,
+                           Register(value),
+                           value_can_be_null);
+    }
   }
 }
 
@@ -2397,6 +2444,18 @@ void InstructionCodeGeneratorARM64::VisitIntermediateAddressIndex(
   }
 }
 
+void LocationsBuilderARM64::VisitGCCardTableLoad(HGCCardTableLoad* instruction) {
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorARM64::VisitGCCardTableLoad(HGCCardTableLoad* instruction) {
+  // Load the address of the card table.
+  __ Ldr(OutputRegister(instruction),
+         MemOperand(tr, Thread::CardTableOffset<kArm64PointerSize>().Int32Value()));
+}
+
 void LocationsBuilderARM64::VisitMultiplyAccumulate(HMultiplyAccumulate* instr) {
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(instr, LocationSummary::kNoCall);
@@ -2647,6 +2706,7 @@ void InstructionCodeGeneratorARM64::VisitArrayLength(HArrayLength* instruction) 
 void LocationsBuilderARM64::VisitArraySet(HArraySet* instruction) {
   DataType::Type value_type = instruction->GetComponentType();
 
+  size_t index = 0;
   bool needs_type_check = instruction->NeedsTypeCheck();
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
       instruction,
@@ -2659,6 +2719,10 @@ void LocationsBuilderARM64::VisitArraySet(HArraySet* instruction) {
     locations->SetInAt(2, Location::RequiresFpuRegister());
   } else {
     locations->SetInAt(2, Location::RequiresRegister());
+  }
+
+  if (MaybeGetGCCardTableInputIndex(instruction, &index)) {
+    locations->SetInAt(index, Location::RequiresRegister());
   }
 }
 
@@ -2711,6 +2775,8 @@ void InstructionCodeGeneratorARM64::VisitArraySet(HArraySet* instruction) {
   } else {
     DCHECK(!instruction->GetArray()->IsIntermediateAddress());
 
+
+    size_t gccard_table_index = 0;
     bool can_value_be_null = instruction->GetValueCanBeNull();
     vixl::aarch64::Label do_store;
     if (can_value_be_null) {
@@ -2773,7 +2839,17 @@ void InstructionCodeGeneratorARM64::VisitArraySet(HArraySet* instruction) {
       }
     }
 
-    codegen_->MarkGCCard(array, value.W(), /* value_can_be_null= */ false);
+    if (MaybeGetGCCardTableInputIndex(instruction, &gccard_table_index)) {
+      codegen_->MarkGCCard(array,
+                           value.W(),
+                           InputRegisterAt(instruction, gccard_table_index),
+                           /* value_can_be_null= */ false,
+                           /* load_gc_card_table */ false);
+    } else {
+      codegen_->MarkGCCard(array,
+                           value.W(),
+                           /* value_can_be_null= */ false);
+    }
 
     if (can_value_be_null) {
       DCHECK(do_store.IsLinked());

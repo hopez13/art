@@ -97,7 +97,8 @@ class SchedulingLatencyVisitorARM : public SchedulingLatencyVisitor {
   M(MultiplyAccumulate, unused)                  \
   M(IntermediateAddress, unused)                 \
   M(IntermediateAddressIndex, unused)            \
-  M(DataProcWithShifterOp, unused)
+  M(DataProcWithShifterOp, unused)               \
+  M(GCCardTableLoad, unused)
 
 #define DECLARE_VISIT_INSTRUCTION(type, unused)  \
   void Visit##type(H##type* instruction) override;

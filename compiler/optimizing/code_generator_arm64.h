@@ -587,6 +587,19 @@ class CodeGeneratorARM64 : public CodeGenerator {
                   vixl::aarch64::Register value,
                   bool value_can_be_null);
 
+  // This overload is introduced in order to handle the situation when the loading of the GC Card
+  // Table has been hoisted up in order to optimize HArraySet/HInstanceFieldSet/HStaticFieldSet
+  // instructions:
+  // `card` represents the register that in such situation holds the value from the loading of
+  // the GC Card Table.
+  // `load_gc_card_table` is used to determine whether the GC Card Table needs to be loaded
+  // (and thus disregard the value held by `card`) or if we use card instead.
+  void MarkGCCard(vixl::aarch64::Register object,
+                  vixl::aarch64::Register value,
+                  vixl::aarch64::Register card,
+                  bool value_can_be_null,
+                  bool load_gc_card_table);
+
   void GenerateMemoryBarrier(MemBarrierKind kind);
 
   // Register allocation.
