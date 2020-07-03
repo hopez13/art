@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4daa18de_5c7f2c83",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-07-03T14:52:09Z",
+      "side": 1,
+      "message": "So now there are only two original phis, great! Could you add a CHECK-NOT to check there are no extra phis?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 42
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "849e4b62_2273a466",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-07-03T14:52:09Z",
+      "side": 1,
+      "message": "If the loop *is* gonna be unrolled could you add a minimum checker set? (e.g. counting loops, PHIs, ArrayGets or similar)?\n\nHere and in below.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 44
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4eb1062_5d865d97",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-07-03T14:52:09Z",
+      "side": 1,
+      "message": "In theory those instructions could be introduced by other optimizations (e.g. dynamic BCE); I would suggest to check that there is only one loop instead (by looking at \"loop:{{B\\d+}} and Phis) for the negative tests.\n\nHere and below.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
