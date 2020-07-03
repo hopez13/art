@@ -16,6 +16,24 @@
       "revId": "c343329564b2749e596192fc0111f7f926b170ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b63fd81_6cea2839",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-03T13:09:29Z",
+      "side": 1,
+      "message": "Yeah, still mysterious but I hope b/160292234 can help.",
+      "parentUuid": "d468c841_86fa801a",
+      "revId": "c343329564b2749e596192fc0111f7f926b170ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
