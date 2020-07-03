@@ -305,8 +305,8 @@ bool OatFileAssistant::LoadDexFiles(
   return true;
 }
 
-bool OatFileAssistant::HasDexFiles() {
-  ScopedTrace trace("HasDexFiles");
+bool OatFileAssistant::HasOriginalDexFiles() {
+  ScopedTrace trace("HasOriginalDexFiles");
   // Ensure GetRequiredDexChecksums has been run so that
   // has_original_dex_files_ is initialized. We don't care about the result of
   // GetRequiredDexChecksums.
@@ -633,7 +633,20 @@ bool OatFileAssistant::ValidateBootClassPathChecksums(const OatFile& oat_file) {
   if (!result) {
     VLOG(oat) << "Failed to verify checksums of oat file " << oat_file.GetLocation()
         << " error: " << error_msg;
-    return false;
+
+    if (HasOriginalDexFiles()) {
+      return false;
+    }
+
+    // If there is no original dex file to fall back to, grudgingly accept
+    // the oat file. This could technically lead to crashes, but there's no
+    // way we could find a better oat file to use for this dex location,
+    // and it's better than being stuck in a boot loop with no way out.
+    // The problem will hopefully resolve itself the next time the runtime
+    // starts up.
+    LOG(WARNING) << "Dex location " << dex_location_ << " does not seem to include dex file. "
+        << "Allow oat file use. This is potentially dangerous.";
+    return true;
   }
 
   // This checksum has been validated, so save it.
@@ -668,6 +681,13 @@ OatFileAssistant::OatFileInfo& OatFileAssistant::GetBestInfo() {
   // (that doesn't need relocation).
   if (odex_.Status() == kOatUpToDate) {
     return odex_;
+  }
+
+  // The oat file is not usable and the odex file is not up to date.
+  // However we have access to the original dex file which means we can make
+  // the oat location up to date.
+  if (HasOriginalDexFiles()) {
+    return oat_;
   }
 
   // We got into the worst situation here:
@@ -802,10 +822,10 @@ OatFileAssistant::DexOptNeeded OatFileAssistant::OatFileInfo::GetDexOptNeeded(
     }
   }
 
-  if (oat_file_assistant_->HasDexFiles()) {
+  if (oat_file_assistant_->HasOriginalDexFiles()) {
     return kDex2OatFromScratch;
   } else {
-    // No dex file, there is nothing we need to do.
+    // Otherwise there is nothing we can do, even if we want to.
     return kNoDexOptNeeded;
   }
 }
@@ -949,6 +969,27 @@ std::unique_ptr<OatFile> OatFileAssistant::OatFileInfo::ReleaseFileForUse() {
     return ReleaseFile();
   }
 
+  VLOG(oat) << "Oat File Assistant: No relocated oat file found,"
+    << " attempting to fall back to interpreting oat file instead.";
+
+  switch (Status()) {
+    case kOatBootImageOutOfDate:
+      // OutOfDate may be either a mismatched image, or a missing image.
+      if (oat_file_assistant_->HasOriginalDexFiles()) {
+        // If there are original dex files, it is better to use them (to avoid a potential
+        // quickening mismatch because the boot image changed).
+        break;
+      }
+      // If we do not accept the oat file, we may not have access to dex bytecode at all. Grudgingly
+      // go forward.
+      FALLTHROUGH_INTENDED;
+
+    case kOatUpToDate:
+    case kOatCannotOpen:
+    case kOatDexOutOfDate:
+      break;
+  }
+
   return std::unique_ptr<OatFile>();
 }
 
@@ -989,8 +1030,11 @@ void OatFileAssistant::GetOptimizationStatus(
     case kOatBootImageOutOfDate:
       FALLTHROUGH_INTENDED;
     case kOatDexOutOfDate:
-      DCHECK(oat_file_assistant.HasDexFiles());
-      *out_compilation_filter = "run-from-apk-fallback";
+      if (oat_file_assistant.HasOriginalDexFiles()) {
+        *out_compilation_filter = "run-from-apk-fallback";
+      } else {
+        *out_compilation_filter = "run-from-vdex-fallback";
+      }
       return;
   }
   LOG(FATAL) << "Unreachable";

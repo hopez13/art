@@ -200,8 +200,11 @@ class OatFileAssistant {
                            const std::string& dex_location,
                            std::vector<std::unique_ptr<const DexFile>>* out_dex_files);
 
-  // Returns whether this is an apk/zip wit a classes.dex entry.
-  bool HasDexFiles();
+  // Returns true if there are dex files in the original dex location that can
+  // be compiled with dex2oat for this dex location.
+  // Returns false if there is no original dex file, or if the original dex
+  // file is an apk/zip without a classes.dex entry.
+  bool HasOriginalDexFiles();
 
   // If the dex file has been installed with a compiled oat file alongside
   // it, the compiled oat file will have the extension .odex, and is referred
