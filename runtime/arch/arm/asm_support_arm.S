@@ -18,7 +18,7 @@
 #define ART_RUNTIME_ARCH_ARM_ASM_SUPPORT_ARM_S_
 
 #include "asm_support_arm.h"
-#include "interpreter/cfi_asm_support.h"
+#include "interpreter/cfi_asm_support.S"
 
 // Define special registers.
 

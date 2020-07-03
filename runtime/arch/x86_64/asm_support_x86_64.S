@@ -18,7 +18,7 @@
 #define ART_RUNTIME_ARCH_X86_64_ASM_SUPPORT_X86_64_S_
 
 #include "asm_support_x86_64.h"
-#include "interpreter/cfi_asm_support.h"
+#include "interpreter/cfi_asm_support.S"
 
 // Regular gas(1) & current clang/llvm assembler support named macro parameters.
 #define MACRO0(macro_name) .macro macro_name

@@ -85,7 +85,7 @@ unspecified registers or condition codes.
  * to expand the macros into assembler assignment statements.
  */
 #include "asm_support.h"
-#include "interpreter/cfi_asm_support.h"
+#include "interpreter/cfi_asm_support.S"
 
 #define LITERAL(value) $$(value)
 

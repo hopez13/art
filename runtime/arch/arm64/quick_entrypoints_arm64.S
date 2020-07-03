@@ -15,7 +15,7 @@
  */
 
 #include "asm_support_arm64.S"
-#include "interpreter/cfi_asm_support.h"
+#include "interpreter/cfi_asm_support.S"
 
 #include "arch/quick_alloc_entrypoints.S"
 
