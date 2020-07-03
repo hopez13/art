@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003737091",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1355117?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "203d63bb_e9fd6593",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 1487,
+                "startChar": 58,
+                "endLine": 1487,
+                "endChar": 68
+              },
+              "replacement": "guaranteed"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7a81c88b_e1e56b52",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-03T16:07:10Z",
+      "side": 1,
+      "message": "Common typo found: \"guarenteed\" -- should it be \"guaranteed\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 58,
+        "endLine": 1487,
+        "endChar": 68
+      },
+      "revId": "81386f164eeee89d4b5309ab16520f793708f9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003737091",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1355117?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "aeb8269e_efe7eece",
+          "description": "Change to \"test/530-checker-lse1/src/Main.java\"",
+          "replacements": [
+            {
+              "path": "test/530-checker-lse1/src/Main.java",
+              "range": {
+                "startLine": 1501,
+                "startChar": 54,
+                "endLine": 1501,
+                "endChar": 60
+              },
+              "replacement": "default"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b25bda7d_7163a002",
+        "filename": "test/530-checker-lse1/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-03T16:07:10Z",
+      "side": 1,
+      "message": "Common typo found: \"defaut\" -- should it be \"default\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 54,
+        "endLine": 1501,
+        "endChar": 60
+      },
+      "revId": "81386f164eeee89d4b5309ab16520f793708f9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
