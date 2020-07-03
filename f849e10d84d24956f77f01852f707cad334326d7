@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "04c09462_500462e6",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-03T11:33:30Z",
+      "side": 1,
+      "message": "That is different path than the one in the variable though, right? (those tests need to disassemble x86, not aarch64)\n\nEither way, I will try to improve the situation in follow-up CLs when I move to LLVM tools.",
+      "parentUuid": "b4d73467_90a8a9a6",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a7ae433_0549c1e0",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "d061ff62_d84a0c8b",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-03T11:33:30Z",
+      "side": 1,
+      "message": "Could do... not sure.  It would not save much code and it would be neither directory, nor filename.",
+      "parentUuid": "3a7ae433_0549c1e0",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 66
+      },
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffa2e5b9_b2b51b1b",
         "filename": "test/common/gtest_main.cc",
         "patchSetId": 3
@@ -56,6 +98,24 @@
       "revId": "f849e10d84d24956f77f01852f707cad334326d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659aef39_f1b5e97c",
+        "filename": "test/common/gtest_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-03T11:33:30Z",
+      "side": 1,
+      "message": "That is intentionally left over so it is easy during the development to uncomment.",
+      "parentUuid": "ffa2e5b9_b2b51b1b",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
