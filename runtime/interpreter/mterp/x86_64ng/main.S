@@ -305,7 +305,7 @@ END_FUNCTION \name
     CFI_DEF_CFA_REGISTER(r11)
     movq %r10, %rsp
     movq %r11, -8(\refs)
-    CFI_DEFINE_CFA_DEREF(\cfi_refs, -8, (6 + 4 + 1) * 8)
+    CFI_DEF_CFA_BREG_PLUS_UCONST_1_1(\cfi_refs, -8, (6 + 4 + 1) * 8)
 
     // Put nulls in reference frame.
     testl %ebx, %ebx
@@ -895,7 +895,7 @@ END_FUNCTION \name
    // Start executing the method.
    movq rNEW_FP, rFP
    movq rNEW_REFS, rREFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, (6 + 4 + 1) * 8)
+   CFI_DEF_CFA_BREG_PLUS_UCONST_1_1(CFI_REFS, -8, (6 + 4 + 1) * 8)
    START_EXECUTING_INSTRUCTIONS
 .endm
 
@@ -941,7 +941,7 @@ END_FUNCTION \name
    .endif
    movq rNEW_FP, rFP
    movq rNEW_REFS, rREFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, (6 + 4 + 1) * 8)
+   CFI_DEF_CFA_BREG_PLUS_UCONST_1_1(CFI_REFS, -8, (6 + 4 + 1) * 8)
    START_EXECUTING_INSTRUCTIONS
 .endm
 
