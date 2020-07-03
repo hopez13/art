@@ -51,6 +51,13 @@
     0x06 /* DW_OP_DEREF */,                                                    \
     0x23 /* DW_OP_plus_uconst */, size
 
+  // A specific version for a size of 160, used for arm64.
+  #define CFI_DEFINE_CFA_DEREF_SIZE_160(reg, offset) .cfi_escape               \
+    0x0f /* DW_CFA_expression */, 7 /* size */,                                \
+    0x92 /* bregx */, reg, (offset & 0x7F),                                    \
+    0x06 /* DW_OP_DEREF */,                                                    \
+    0x23 /* DW_OP_plus_uconst */,  0b10100000, 0b00000001
+
   #define CFI_EXPRESSION_BREG_1(n, b, offset) .cfi_escape       \
       0x10,                       /* DW_CFA_expression */       \
       n,                          /* rule for register n */     \

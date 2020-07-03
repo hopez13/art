@@ -103,6 +103,11 @@
 // +8 for the ArtMethod of the caller.
 #define OFFSET_TO_FIRST_ARGUMENT_IN_STACK (CALLEE_SAVES_SIZE + 8)
 
+#if CALLEE_SAVES_SIZE != 160
+#error "CFI directives in this file expect a size of 160 for callee saves, \
+        look for CFI_DEFINE_CFA_DEREF_SIZE_160"
+#endif
+
 /*
  * Fetch the next instruction from xPC into wINST.  Does not advance xPC.
  */
@@ -363,7 +368,7 @@ END \name
     .cfi_def_cfa_register x13
     mov sp, x14
     str x13, [\refs, #-8]
-    CFI_DEFINE_CFA_DEREF(\cfi_refs, -8, CALLEE_SAVES_SIZE)
+    CFI_DEFINE_CFA_DEREF_SIZE_160(\cfi_refs, -8)
 
     // Put nulls in reference frame.
     cbz ip, 2f
@@ -573,7 +578,7 @@ END \name
    // Start executing the method.
    mov xFP, xNEW_FP
    mov xREFS, xNEW_REFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, CALLEE_SAVES_SIZE)
+   CFI_DEFINE_CFA_DEREF_SIZE_160(CFI_REFS, -8)
    START_EXECUTING_INSTRUCTIONS
 .endm
 
@@ -621,7 +626,7 @@ END \name
    .endif
    mov xFP, xNEW_FP
    mov xREFS, xNEW_REFS
-   CFI_DEFINE_CFA_DEREF(CFI_REFS, -8, CALLEE_SAVES_SIZE)
+   CFI_DEFINE_CFA_DEREF_SIZE_160(CFI_REFS, -8)
    START_EXECUTING_INSTRUCTIONS
 .endm
 
