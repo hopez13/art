@@ -42,6 +42,9 @@
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
 
+#include "javavmsupervision_callbacks.h"
+using namespace android::os::statistics;
+
 namespace art {
 
 using android::base::StringPrintf;
@@ -98,6 +101,9 @@ Monitor::Monitor(Thread* self, Thread* owner, ObjPtr<mirror::Object> obj, int32_
       obj_(GcRoot<mirror::Object>(obj)),
       wait_set_(nullptr),
       wake_set_(nullptr),
+      condition_wait_count_with_supervision_(0),
+      lock_wait_set_(nullptr),
+      lock_wait_count_with_supervision_(0),
       hash_code_(hash_code),
       lock_owner_(nullptr),
       lock_owner_method_(nullptr),
@@ -127,6 +133,9 @@ Monitor::Monitor(Thread* self,
       obj_(GcRoot<mirror::Object>(obj)),
       wait_set_(nullptr),
       wake_set_(nullptr),
+      condition_wait_count_with_supervision_(0),
+      lock_wait_set_(nullptr),
+      lock_wait_count_with_supervision_(0),
       hash_code_(hash_code),
       lock_owner_(nullptr),
       lock_owner_method_(nullptr),
@@ -153,6 +162,20 @@ int32_t Monitor::GetHashCode() {
   }
   DCHECK(HasHashCode());
   return hc;
+}
+
+inline bool IsPerfSupervisionOn() {
+  return Runtime::Current()->GetJavaVMSupervisionCallBacks() != nullptr &&
+    Runtime::Current()->GetJavaVMSupervisionCallBacks()->isPerfSupervisionOn();
+}
+
+inline int64_t GetCoarseUptimeMillis() {
+  JavaVMSupervisionCallBacks *pJavaVMSupervisionCallBacks = Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr && pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    return pJavaVMSupervisionCallBacks->getUptimeMillisFast();
+  } else {
+    return (int64_t) MilliTime();
+  }
 }
 
 void Monitor::SetLockingMethod(Thread* owner) {
@@ -280,6 +303,11 @@ void Monitor::AppendToWaitSet(Thread* thread) {
   // the monitor by the time this method is called.
   DCHECK(thread != nullptr);
   DCHECK(thread->GetWaitNext() == nullptr) << thread->GetWaitNext();
+
+  if (thread->IsConditionSupervisionEnabled()) {
+    condition_wait_count_with_supervision_++;
+  }
+
   if (wait_set_ == nullptr) {
     wait_set_ = thread;
     return;
@@ -296,6 +324,11 @@ void Monitor::AppendToWaitSet(Thread* thread) {
 void Monitor::RemoveFromWaitSet(Thread *thread) {
   DCHECK(owner_ == Thread::Current());
   DCHECK(thread != nullptr);
+
+  if (thread->IsConditionSupervisionEnabled()) {
+    condition_wait_count_with_supervision_--;
+  }
+
   auto remove = [&](Thread*& set){
     if (set != nullptr) {
       if (set == thread) {
@@ -416,6 +449,124 @@ std::string Monitor::PrettyContentionInfo(const std::string& owner_name,
   return oss.str();
 }
 
+void Monitor::AppendToLockWaitSet(Thread* self) {
+  DCHECK(owner_ != self);
+  DCHECK(self->GetLockWaitNext() == nullptr);
+
+  if (self->IsLockSupervisionEnabled()) {
+    lock_wait_count_with_supervision_++;
+  }
+
+  if (lock_wait_set_ == nullptr) {
+    lock_wait_set_ = self;
+    return;
+  }
+
+  // push_back.
+  Thread* t = lock_wait_set_;
+  while (t->GetLockWaitNext() != nullptr) {
+    t = t->GetLockWaitNext();
+  }
+  t->SetLockWaitNext(self);
+}
+
+void Monitor::RemoveFromLockWaitSet(Thread *self) {
+  DCHECK(owner_ != self);
+
+  if (self->IsLockSupervisionEnabled()) {
+    lock_wait_count_with_supervision_--;
+  }
+
+  if (lock_wait_set_ == nullptr) {
+    return;
+  }
+
+  if (lock_wait_set_ == self) {
+    lock_wait_set_ = self->GetLockWaitNext();
+    self->SetLockWaitNext(nullptr);
+    return;
+  }
+
+  Thread* t = lock_wait_set_;
+  while (t->GetLockWaitNext() != nullptr) {
+    if (t->GetLockWaitNext() == self) {
+      t->SetLockWaitNext(self->GetLockWaitNext());
+      self->SetLockWaitNext(nullptr);
+      return;
+    }
+    t = t->GetLockWaitNext();
+  }
+}
+
+void Monitor::ReportLockReleased(Thread *self, Monitor *monitor,
+  int64_t locking_start_uptime_ms,  int64_t unlock_uptime_ms)
+{
+  if (self->GetPeer() == nullptr ||
+      self->IsExceptionPending() ||
+      locking_start_uptime_ms == 0) {
+    return;
+  }
+  JavaVMSupervisionCallBacks* pJavaVMSupervisionCallBacks =
+    Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr &&
+      pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    pJavaVMSupervisionCallBacks->reportLockReleased(self->GetJniEnv(),
+      (int64_t)monitor, locking_start_uptime_ms, unlock_uptime_ms);
+  }
+}
+
+void Monitor::ReportLockAccquired(Thread* self, Monitor *monitor,
+  int64_t begin_accquire_lock_uptime_ms, int64_t lock_accquired_uptime_ms)
+{
+  if (self->GetPeer() == nullptr ||
+      self->IsExceptionPending() ||
+      begin_accquire_lock_uptime_ms == 0) {
+    return;
+  }
+  JavaVMSupervisionCallBacks* pJavaVMSupervisionCallBacks =
+    Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr &&
+      pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    pJavaVMSupervisionCallBacks->reportLockAccquired(self->GetJniEnv(),
+      (int64_t)monitor, begin_accquire_lock_uptime_ms, lock_accquired_uptime_ms);
+  }
+}
+
+void Monitor::ReportConditionAwaken(Thread *self, Monitor* monitor,
+  int32_t peer_thread_id, int64_t peer_wait_begin_uptime_ms, int64_t notify_uptime_ms)
+{
+  if (self->GetPeer() == nullptr ||
+      self->IsExceptionPending() ||
+      peer_wait_begin_uptime_ms == 0) {
+    return;
+  }
+  JavaVMSupervisionCallBacks* pJavaVMSupervisionCallBacks =
+    Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr &&
+      pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    pJavaVMSupervisionCallBacks->reportConditionAwaken(self->GetJniEnv(),
+      (int64_t)monitor, peer_thread_id, peer_wait_begin_uptime_ms, notify_uptime_ms);
+  }
+}
+
+void Monitor::ReportConditionSatisfied(Thread* self, Monitor *monitor,
+  int64_t wait_start_ms, int64_t wait_awaken_ms, int32_t awaken_reason)
+  REQUIRES_SHARED(Locks::mutator_lock_)
+{
+  if (self->GetPeer() == nullptr ||
+      self->IsExceptionPending() ||
+      wait_start_ms == 0) {
+    return;
+  }
+  JavaVMSupervisionCallBacks* pJavaVMSupervisionCallBacks =
+    Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr &&
+      pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    pJavaVMSupervisionCallBacks->reportConditionSatisfied(self->GetJniEnv(),
+      (int64_t)monitor, awaken_reason, wait_start_ms, wait_awaken_ms);
+  }
+}
+
 bool Monitor::TryLock(Thread* self, bool spin) {
   Thread *owner = owner_.load(std::memory_order_relaxed);
   if (owner == self) {
@@ -441,8 +592,15 @@ bool Monitor::TryLock(Thread* self, bool spin) {
 
 template <LockReason reason>
 void Monitor::Lock(Thread* self) {
+  int32_t contention_count = 0;
+  int64_t first_time_wait_ms = 0;
+  int64_t local_locking_start_uptime_ms = 0;
+  bool isMonitorSupervisionEnabled = IsPerfSupervisionOn() && self->IsPerfSupervisionOn();
   bool called_monitors_callback = false;
   if (TryLock(self, /*spin=*/ true)) {
+      if (lock_count_ == 0 && isMonitorSupervisionEnabled) {
+        local_locking_start_uptime_ms = locking_start_uptime_ms_;
+      }
     // TODO: This preserves original behavior. Correct?
     if (called_monitors_callback) {
       CHECK(reason == LockReason::kForLock);
@@ -452,8 +610,12 @@ void Monitor::Lock(Thread* self) {
   }
   // Contended; not reentrant. We hold no locks, so tread carefully.
   const bool log_contention = (lock_profiling_threshold_ != 0);
-  uint64_t wait_start_ms = log_contention ? MilliTime() : 0;
-
+  //uint64_t wait_start_ms = log_contention ? MilliTime() : 0;
+  uint64_t wait_start_ms = (log_contention || isMonitorSupervisionEnabled) ? GetCoarseUptimeMillis() : 0;
+  contention_count++;
+  if (first_time_wait_ms == 0) {
+    first_time_wait_ms = (int64_t)wait_start_ms;
+  }
   Thread *orig_owner = nullptr;
   ArtMethod* owners_method;
   uint32_t owners_dex_pc;
@@ -746,8 +908,22 @@ bool Monitor::Unlock(Thread* self) {
     CheckLockOwnerRequest(self);
     AtraceMonitorUnlock();
     if (lock_count_ == 0) {
+      bool need_supervision = false;
+      int64_t locking_start_uptime_ms = locking_start_uptime_ms_;
+      int64_t unlock_uptime_ms = 0;
+      if (lock_wait_count_with_supervision_ > 0 &&
+        lock_wait_set_ != nullptr &&
+        self->IsPerfSupervisionOn()) {
+        need_supervision = true;
+        unlock_uptime_ms = GetCoarseUptimeMillis();
+      }
+      locking_start_uptime_ms_ = 0;
+
       owner_.store(nullptr, std::memory_order_relaxed);
       SignalWaiterAndReleaseMonitorLock(self);
+      if (need_supervision) {
+        ReportLockReleased(self, this, locking_start_uptime_ms, unlock_uptime_ms);
+      }
     } else {
       --lock_count_;
       DCHECK(monitor_lock_.IsExclusiveHeld(self));
@@ -825,6 +1001,11 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
   DCHECK(self != nullptr);
   DCHECK(why == kTimedWaiting || why == kWaiting || why == kSleeping);
 
+  bool isMonitorSupervisionEnabled = IsPerfSupervisionOn() && self->IsPerfSupervisionOn();
+  bool need_supervision = false;
+  int64_t locking_start_uptime_ms = 0;
+  int64_t wait_start_ms = 0;
+
   // Make sure that we hold the lock.
   if (owner_.load(std::memory_order_relaxed) != self) {
     ThrowIllegalMonitorStateExceptionF("object not locked by thread before wait()");
@@ -844,6 +1025,21 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
     return;
   }
 
+  locking_start_uptime_ms = locking_start_uptime_ms_;
+  if (isMonitorSupervisionEnabled) {
+    wait_start_ms = GetCoarseUptimeMillis();
+    if (lock_wait_count_with_supervision_ > 0 &&
+      lock_wait_set_ != nullptr &&
+      self->IsPerfSupervisionOn()) {
+      need_supervision = true;
+    }
+  }
+  if (need_supervision) {
+    monitor_lock_.Unlock(self);
+    ReportLockReleased(self, this, locking_start_uptime_ms, wait_start_ms);
+    monitor_lock_.Lock(self);
+  }
+
   CheckLockOwnerRequest(self);
 
   /*
@@ -857,6 +1053,10 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
                           // nesting, but that is enough for the visualization, and corresponds to
                           // the single Lock() we do afterwards.
   AtraceMonitorLock(self, GetObject(), /* is_wait= */ true);
+
+  if (isMonitorSupervisionEnabled) {
+    self->EnterConditionWait(isMonitorSupervisionEnabled, wait_start_ms);
+  }
 
   bool was_interrupted = false;
   bool timed_out = false;
@@ -936,6 +1136,11 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
   // We just slept, tell the runtime callbacks about this.
   Runtime::Current()->GetRuntimeCallbacks()->MonitorWaitFinished(this, timed_out);
 
+  int64_t wait_awaken_ms = 0;
+  if (isMonitorSupervisionEnabled) {
+    wait_awaken_ms = GetCoarseUptimeMillis();
+  }
+
   // Re-acquire the monitor and lock.
   Lock<LockReason::kForWait>(self);
   lock_count_ = prev_lock_count;
@@ -944,10 +1149,25 @@ void Monitor::Wait(Thread* self, int64_t ms, int32_t ns,
 
   num_waiters_.fetch_sub(1, std::memory_order_relaxed);
   RemoveFromWaitSet(self);
+
+  if (isMonitorSupervisionEnabled) {
+    self->ExitConditionWait();
+  }
+
+  if (isMonitorSupervisionEnabled) {
+    ReportConditionSatisfied(self, this, wait_start_ms, wait_awaken_ms,
+      was_interrupted ? COMDITION_AWAKEN_INTERRUPTED : (timed_out ? COMDITION_AWAKEN_TIMEDOUT : CONDITION_AWAKEN_NOTIFIED));
+  }
+
 }
 
 void Monitor::Notify(Thread* self) {
   DCHECK(self != nullptr);
+  bool need_supervision = false;
+  int32_t peer_thread_id = 0;
+  int64_t peer_wait_begin_uptime_ms = 0;
+  int64_t notify_uptime_ms = 0;
+  {
   // Make sure that we hold the lock.
   if (owner_.load(std::memory_order_relaxed) != self) {
     ThrowIllegalMonitorStateExceptionF("object not locked by thread before notify()");
@@ -956,18 +1176,43 @@ void Monitor::Notify(Thread* self) {
   // Move one thread from waiters to wake set
   Thread* to_move = wait_set_;
   if (to_move != nullptr) {
+    if (condition_wait_count_with_supervision_ > 0 &&
+      self->IsPerfSupervisionOn()) {
+      need_supervision = true;
+      peer_thread_id = to_move->GetTid();
+      peer_wait_begin_uptime_ms = to_move->ConditionWaitEnterUptimeMs();
+      notify_uptime_ms = GetCoarseUptimeMillis();
+    }
     wait_set_ = to_move->GetWaitNext();
     to_move->SetWaitNext(wake_set_);
     wake_set_ = to_move;
   }
+
+  }
+  if (need_supervision) {
+    ReportConditionAwaken(self, this, peer_thread_id, peer_wait_begin_uptime_ms, notify_uptime_ms);
+  }
+
 }
 
 void Monitor::NotifyAll(Thread* self) {
   DCHECK(self != nullptr);
+  bool need_supervision = false;
+  int64_t peer_wait_begin_uptime_ms = 0;
+  int64_t notify_uptime_ms = 0;
+  {
   // Make sure that we hold the lock.
   if (owner_.load(std::memory_order_relaxed) != self) {
     ThrowIllegalMonitorStateExceptionF("object not locked by thread before notifyAll()");
     return;
+  }
+
+  if (condition_wait_count_with_supervision_ > 0 &&
+    wait_set_ != nullptr &&
+    self->IsPerfSupervisionOn()) {
+    need_supervision = true;
+    peer_wait_begin_uptime_ms = wait_set_->ConditionWaitEnterUptimeMs();
+    notify_uptime_ms = GetCoarseUptimeMillis();
   }
 
   // Move all threads from waiters to wake set
@@ -975,15 +1220,29 @@ void Monitor::NotifyAll(Thread* self) {
   if (to_move != nullptr) {
     wait_set_ = nullptr;
     Thread* move_to = wake_set_;
+    //if (move_to == nullptr) {
+    //  wake_set_ = to_move;
+    //  return;
+    //}
+    //while (move_to->GetWaitNext() != nullptr) {
+    //  move_to = move_to->GetWaitNext();
+    //}
+    //move_to->SetWaitNext(to_move);
     if (move_to == nullptr) {
       wake_set_ = to_move;
-      return;
+    } else {
+      while (move_to->GetWaitNext() != nullptr) {
+        move_to = move_to->GetWaitNext();
+      }
+      move_to->SetWaitNext(to_move);
     }
-    while (move_to->GetWaitNext() != nullptr) {
-      move_to = move_to->GetWaitNext();
-    }
-    move_to->SetWaitNext(to_move);
   }
+
+  }
+  if (need_supervision) {
+    ReportConditionAwaken(self, this, 0, peer_wait_begin_uptime_ms, notify_uptime_ms);
+  }
+
 }
 
 bool Monitor::Deflate(Thread* self, ObjPtr<mirror::Object> obj) {
@@ -1184,6 +1443,7 @@ ObjPtr<mirror::Object> Monitor::MonitorEnter(Thread* self,
 #else
             // Can't inflate from non-owning thread. Keep waiting. Bad for power, but this code
             // isn't used on-device.
+            contention_count = 0;
             should_inflate = true;
             usleep(10);
 #endif

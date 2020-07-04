@@ -230,6 +230,15 @@ class Monitor {
       ACQUIRE(monitor_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Links a thread into a monitor's wait lock set
+  void AppendToLockWaitSet(Thread* self)
+      REQUIRES(monitor_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Unlinks a thread from a monitor's wait lock set
+  void RemoveFromLockWaitSet(Thread* self)
+      REQUIRES(monitor_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool Unlock(Thread* thread)
       RELEASE(monitor_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -304,6 +313,22 @@ class Monitor {
       REQUIRES_SHARED(Locks::mutator_lock_);
   ALWAYS_INLINE static void AtraceMonitorUnlock();
 
+  static void ReportLockReleased(Thread *self, Monitor *monitor,
+    int64_t locking_start_uptime_ms,  int64_t unlock_uptime_ms)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void ReportLockAccquired(Thread* self, Monitor *monitor,
+    int64_t begin_accquire_lock_uptime_ms, int64_t lock_accquired_uptime_ms)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void ReportConditionAwaken(Thread *self, Monitor* monitor,
+    int32_t peer_thread_id, int64_t peer_wait_begin_uptime_ms, int64_t notify_uptime_ms)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void ReportConditionSatisfied(Thread* self, Monitor *monitor,
+    int64_t wait_start_ms, int64_t wait_awaken_ms, int32_t awaken_reason)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
   static uint32_t lock_profiling_threshold_;
   static uint32_t stack_dump_lock_profiling_threshold_;
   static bool capture_method_eagerly_;
@@ -338,6 +363,11 @@ class Monitor {
 
   // Threads that were waiting on this monitor, but are now contending on it.
   Thread* wake_set_ GUARDED_BY(monitor_lock_);
+
+  int32_t condition_wait_count_with_supervision_ GUARDED_BY(monitor_lock_);
+  // Threads currently waiting on locking the monitor
+  Thread* lock_wait_set_ GUARDED_BY(monitor_lock_);
+  int32_t lock_wait_count_with_supervision_ GUARDED_BY(monitor_lock_);
 
   // Stored object hash code, generated lazily by GetHashCode.
   AtomicInteger hash_code_;
@@ -412,6 +442,8 @@ class Monitor {
   // Check for and act on a pending lock_owner_request_
   void CheckLockOwnerRequest(Thread* self)
       REQUIRES(monitor_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  int64_t locking_start_uptime_ms_ GUARDED_BY(monitor_lock_);
 
   // The denser encoded version of this monitor as stored in the lock word.
   MonitorId monitor_id_;

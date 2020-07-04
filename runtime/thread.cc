@@ -120,6 +120,9 @@
 #endif
 #endif  // ART_USE_FUTEXES
 
+#include "javavmsupervision_callbacks.h"
+using namespace android::os::statistics;
+
 namespace art {
 
 using android::base::StringAppendV;
@@ -1057,6 +1060,7 @@ Thread* Thread::Attach(const char* thread_name,
       if (thread_name != nullptr) {
         self->tlsPtr_.name->assign(thread_name);
         ::art::SetThreadName(thread_name);
+        self->shared_thread_name_ = std::make_shared<std::string>(thread_name);
       } else if (self->GetJniEnv()->IsCheckJniEnabled()) {
         LOG(WARNING) << *Thread::Current() << " attached without supplying a name";
       }
@@ -1223,6 +1227,7 @@ void Thread::InitPeer(ScopedObjectAccessAlreadyRunnable& soa,
 
 void Thread::SetThreadName(const char* name) {
   tlsPtr_.name->assign(name);
+  shared_thread_name_ = std::make_shared<std::string>(*(tlsPtr_.name));
   ::art::SetThreadName(name);
   Dbg::DdmSendThreadNotification(this, CHUNK_TYPE("THNM"));
 }
@@ -2287,10 +2292,21 @@ void Thread::NotifyThreadGroup(ScopedObjectAccessAlreadyRunnable& soa, jobject t
                                       thread_jobject.get());
 }
 
+// Thread::Thread(bool daemon)
+//     : tls32_(daemon),
+//       wait_monitor_(nullptr),
+//       is_runtime_thread_(false) {
 Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
-      is_runtime_thread_(false) {
+      is_runtime_thread_(false),
+      is_perf_supervision_on_(true),
+      lock_supervision_enabled_(false),
+      enter_lock_wait_uptime_ms_(0),
+      tlsLockWaitNext_(nullptr),
+      condition_supervision_enabled_(false),
+      enter_cond_wait_uptime_ms_(0),
+      jni_invocation_depth_(0) {
   wait_mutex_ = new Mutex("a thread wait mutex", LockLevel::kThreadWaitLock);
   wait_cond_ = new ConditionVariable("a thread wait condition variable", *wait_mutex_);
   tlsPtr_.instrumentation_stack =
@@ -2491,6 +2507,8 @@ Thread::~Thread() {
   delete tlsPtr_.instrumentation_stack;
   delete tlsPtr_.name;
   delete tlsPtr_.deps_or_stack_trace_sample.stack_trace_sample;
+
+  shared_thread_name_.reset();
 
   Runtime::Current()->GetHeap()->AssertThreadLocalBuffersAreRevoked(this);
 
@@ -2908,6 +2926,325 @@ static ObjPtr<mirror::StackTraceElement> CreateStackTraceElement(
                                           line_number);
 }
 
+struct CurrentClassVisitor : public StackVisitor {
+    CurrentClassVisitor(Thread* thread, Context* context)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      : StackVisitor(thread, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+        this_class_(nullptr) {}
+  bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* m = GetMethod();
+    if (m->IsRuntimeMethod()) {
+      // Continue if this is a runtime method.
+      return true;
+    }
+    this_class_ = m->GetDeclaringClass().Ptr();
+    return false;
+  }
+  mirror::Class* this_class_;
+};
+
+jclass Thread::GetCurrentClass(const ScopedObjectAccessAlreadyRunnable& soa) {
+  CurrentClassVisitor visitor(const_cast<Thread*>(this), nullptr);
+  visitor.WalkStack(false);
+  return visitor.this_class_ == nullptr ?
+    nullptr : soa.AddLocalReference<jclass>(visitor.this_class_);
+}
+
+class BuildDeepLimitedInternalStackTraceVisitor : public StackVisitor {
+ public:
+  BuildDeepLimitedInternalStackTraceVisitor(Thread* self,
+    int32_t desired_depth, ArtMethod** methods_buffer, uint32_t *dex_pcs)
+    : StackVisitor(self, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+      self_(self),
+      desired_depth_(desired_depth),
+      methods_buffer_(methods_buffer),
+      dex_pcs_(dex_pcs),
+      pointer_size_(Runtime::Current()->GetClassLinker()->GetImagePointerSize()),
+      count_(0) {}
+
+  inline void beginWalkStack() ACQUIRE(Roles::uninterruptible_) {
+    // Acquire uninterruptible_ in all paths.
+    const char* last_no_suspend_cause = self_->StartAssertNoThreadSuspension("Building internal stack trace");
+    // If We are called from native, use non-transactional mode.
+    CHECK(last_no_suspend_cause == nullptr) << last_no_suspend_cause;
+  }
+
+  inline void endWalkStack() RELEASE(Roles::uninterruptible_) {
+    self_->EndAssertNoThreadSuspension(nullptr);
+  }
+
+  bool VisitFrame() REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* m = GetMethod();
+    if (m != nullptr && !m->IsRuntimeMethod()) {
+      methods_buffer_[count_] = m;
+      dex_pcs_[count_] = m->IsProxyMethod() ? dex::kDexNoIndex : GetDexPc();
+      ++count_;
+    }
+    return count_ < desired_depth_;
+  }
+
+  inline int32_t GetDepth() {
+    return count_;
+  }
+
+  ObjPtr<mirror::ObjectArray<mirror::Object>> CreateInternalStackTrace()
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    // Allocate method trace as an object array where the first element is a pointer array that
+    // contains the ArtMethod pointers and dex PCs. The rest of the elements are the declaring
+    // class of the ArtMethod pointers.
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    StackHandleScope<1> hs(self_);
+    ObjPtr<mirror::Class> array_class = GetClassRoot<mirror::ObjectArray<mirror::Object>>(class_linker);
+    // The first element is the methods and dex pc array, the other elements are declaring classes
+    // for the methods to ensure classes in the stack trace don't get unloaded.
+    Handle<mirror::ObjectArray<mirror::Object>> trace(
+        hs.NewHandle(
+            mirror::ObjectArray<mirror::Object>::Alloc(hs.Self(), array_class, desired_depth_ + 1)));
+    if (trace.Get() == nullptr) {
+      self_->AssertPendingOOMException();
+      return nullptr;
+    }
+    ObjPtr<mirror::PointerArray> methods_and_pcs = class_linker->AllocPointerArray(self_, desired_depth_ * 2);
+    if (methods_and_pcs == nullptr) {
+      self_->AssertPendingOOMException();
+      return nullptr;
+    }
+    trace->Set(0, methods_and_pcs);
+
+    FillInInternalStackTrace(trace.Get());
+    return trace.Get();
+  }
+
+  void FillInInternalStackTrace(ObjPtr<mirror::ObjectArray<mirror::Object>> dest_traces)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    const int length = dest_traces->GetLength() - 1;
+    int count = count_;
+    if (count > length) count = length;
+    ObjPtr<mirror::PointerArray> const dest_method_traces = ObjPtr<mirror::PointerArray>::DownCast(dest_traces->Get(0));
+    for (int i = 0; i < count; i++) {
+      dest_method_traces->SetElementPtrSize<false, true>(i, methods_buffer_[i], pointer_size_);
+      dest_method_traces->SetElementPtrSize<false, true>(length + i, dex_pcs_[i], pointer_size_);
+      dest_traces->SetWithoutChecks<false, false, kVerifyNone>(i + 1, methods_buffer_[i]->GetDeclaringClass());
+    }
+  }
+
+ private:
+  Thread* const self_;
+  int32_t desired_depth_;
+  // How many more frames to skip.
+  ArtMethod** methods_buffer_;
+  uint32_t * dex_pcs_;
+  // For cross compilation.
+  const PointerSize pointer_size_;
+  // Current position down stack trace.
+  int32_t count_;
+
+  DISALLOW_COPY_AND_ASSIGN(BuildDeepLimitedInternalStackTraceVisitor);
+};
+
+jobject Thread::CreateInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa,
+  int32_t desired_depth, ArtMethod** methods, uint32_t *dex_pcs, int32_t *result_depth) const {
+
+  // Build internal stack trace.
+  BuildDeepLimitedInternalStackTraceVisitor build_trace_visitor(
+    soa.Self(), desired_depth, methods, dex_pcs);
+  build_trace_visitor.beginWalkStack();
+  build_trace_visitor.WalkStack();
+  build_trace_visitor.endWalkStack();
+  if (result_depth != nullptr) {
+    *result_depth = build_trace_visitor.GetDepth();
+  }
+  ObjPtr<mirror::ObjectArray<mirror::Object>> trace = build_trace_visitor.CreateInternalStackTrace();
+  if (trace == nullptr) {
+    return nullptr;
+  } else {
+    return soa.AddLocalReference<jobject>(trace);
+  }
+}
+
+jobject Thread::CreateEmptyInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa,
+  int32_t depth) {
+  // Allocate method trace as an object array where the first element is a pointer array that
+  // contains the ArtMethod pointers and dex PCs. The rest of the elements are the declaring
+  // class of the ArtMethod pointers.
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  StackHandleScope<1> hs(soa.Self());
+  ObjPtr<mirror::Class> array_class = GetClassRoot<mirror::ObjectArray<mirror::Object>>(class_linker);
+  // The first element is the methods and dex pc array, the other elements are declaring classes
+  // for the methods to ensure classes in the stack trace don't get unloaded.
+  Handle<mirror::ObjectArray<mirror::Object>> trace(
+      hs.NewHandle(
+          mirror::ObjectArray<mirror::Object>::Alloc(hs.Self(), array_class, depth + 1)));
+  if (trace.Get() == nullptr) {
+    soa.Self()->AssertPendingOOMException();
+    return nullptr;
+  }
+  ObjPtr<mirror::PointerArray> methods_and_pcs = class_linker->AllocPointerArray(soa.Self(), depth * 2);
+  if (methods_and_pcs == nullptr) {
+    soa.Self()->AssertPendingOOMException();
+    return nullptr;
+  }
+
+  trace->Set(0, methods_and_pcs);
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  for (int i = 0; i < depth; i++) {
+    methods_and_pcs->SetElementPtrSize<false, true>(i, (ArtMethod *)nullptr, pointer_size);
+    methods_and_pcs->SetElementPtrSize<false, true>(depth + i, dex::kDexNoIndex, pointer_size);
+    trace->SetWithoutChecks<false, false, kVerifyNone>(i + 1, nullptr);
+  }
+
+  return soa.AddLocalReference<jobject>(trace.Get());
+}
+
+void Thread::FillInInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa, jobject dest,
+  int32_t desired_depth, ArtMethod** methods, uint32_t *dex_pcs) const {
+  if (dest == nullptr) return;
+  // Build internal stack trace.
+  BuildDeepLimitedInternalStackTraceVisitor build_trace_visitor(
+    soa.Self(), desired_depth, methods, dex_pcs);
+  build_trace_visitor.beginWalkStack();
+  build_trace_visitor.WalkStack();
+  build_trace_visitor.endWalkStack();
+  ObjPtr<mirror::ObjectArray<mirror::Object>> dest_traces =
+      soa.Decode<mirror::Object>(dest)->AsObjectArray<mirror::Object>();
+  build_trace_visitor.FillInInternalStackTrace(dest_traces);
+}
+
+void Thread::ResetInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa, jobject dest) {
+  if (dest == nullptr) return;
+  ObjPtr<mirror::ObjectArray<mirror::Object>> dest_traces =
+      soa.Decode<mirror::Object>(dest)->AsObjectArray<mirror::Object>();
+  int length = dest_traces->GetLength() - 1;
+  ObjPtr<mirror::PointerArray> const dest_method_traces = ObjPtr<mirror::PointerArray>::DownCast(dest_traces->Get(0));
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  for (int i = 0; i < length; i++) {
+    dest_method_traces->SetElementPtrSize<false, true>(i, (ArtMethod *)nullptr, pointer_size);
+    dest_method_traces->SetElementPtrSize<false, true>(length + i, dex::kDexNoIndex, pointer_size);
+    dest_traces->SetWithoutChecks<false, false, kVerifyNone>(i + 1, nullptr);
+  }
+}
+
+jobject Thread::CloneInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa, jobject src) {
+  if (src == nullptr) return nullptr;
+
+  ObjPtr<mirror::ObjectArray<mirror::Object>> src_traces =
+      soa.Decode<mirror::Object>(src)->AsObjectArray<mirror::Object>();
+  int length = src_traces->GetLength() - 1;
+  ObjPtr<mirror::PointerArray> const src_method_traces = ObjPtr<mirror::PointerArray>::DownCast(src_traces->Get(0));
+
+  jobject dest = CreateEmptyInternalStackTrace(soa, length);
+  if (dest == nullptr) {
+    return nullptr;
+  }
+
+  ObjPtr<mirror::ObjectArray<mirror::Object>> dest_traces =
+      soa.Decode<mirror::Object>(dest)->AsObjectArray<mirror::Object>();
+  ObjPtr<mirror::PointerArray> const dest_method_traces = ObjPtr<mirror::PointerArray>::DownCast(dest_traces->Get(0));
+
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  for (int i = 0; i < length; i++) {
+    dest_method_traces->SetElementPtrSize<false, true>(i,
+      src_method_traces->GetElementPtrSize<ArtMethod *>(i, pointer_size), pointer_size);
+    dest_method_traces->SetElementPtrSize<false, true>(length + i,
+      src_method_traces->GetElementPtrSize<uint64_t>(length + i, pointer_size), pointer_size);
+    dest_traces->SetWithoutChecks<false, false, kVerifyNone>(i + 1,
+      src_traces->GetWithoutChecks(i + 1));
+  }
+
+  return dest;
+}
+
+static int32_t GetInternalStackTraceDepth(const ScopedObjectAccessAlreadyRunnable& soa,
+  jobject internal) REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (internal == nullptr) return 0;
+  ObjPtr<mirror::ObjectArray<mirror::Object>> decoded_traces =
+    soa.Decode<mirror::Object>(internal)->AsObjectArray<mirror::Object>();
+  int32_t length = decoded_traces->GetLength() - 1;
+  ObjPtr<mirror::PointerArray> const method_traces = ObjPtr<mirror::PointerArray>::DownCast(decoded_traces->Get(0));
+  int32_t depth = 0;
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  for (int32_t i = 0; i < length; i++) {
+    ArtMethod*  method = method_traces->GetElementPtrSize<ArtMethod*>(i, pointer_size);
+    if (method == nullptr) {
+      break;
+    }
+    depth++;
+  }
+  return depth;
+}
+
+jobjectArray Thread::ResolveClassesOfInternalStackTrace(
+    const ScopedObjectAccessAlreadyRunnable& soa,
+    jobject internal,
+    jobjectArray output_array,
+    int* stack_depth) {
+  int32_t depth = GetInternalStackTraceDepth(soa, internal);
+  DCHECK_GE(depth, 0);
+
+  ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+
+  jobjectArray result;
+  if (output_array != nullptr) {
+    result = output_array;
+    const int32_t classes_length =
+        soa.Decode<mirror::ObjectArray<mirror::Class>>(result)->GetLength();
+    depth = std::min(depth, classes_length);
+  } else {
+    ObjPtr<mirror::ObjectArray<mirror::Class>> java_classes =
+        mirror::ObjectArray<mirror::Class>::Alloc(soa.Self(), GetClassRoot<mirror::ObjectArray<mirror::Class>>(class_linker), depth);
+    if (java_classes == nullptr) {
+      return nullptr;
+    }
+    result = soa.AddLocalReference<jobjectArray>(java_classes);
+  }
+
+  if (stack_depth != nullptr) {
+    *stack_depth = depth;
+  }
+
+  ObjPtr<mirror::ObjectArray<mirror::Class>> java_classes =
+      soa.Decode<mirror::ObjectArray<mirror::Class>>(result);
+  ObjPtr<mirror::ObjectArray<mirror::Object>> decoded_traces =
+      soa.Decode<mirror::Object>(internal)->AsObjectArray<mirror::Object>();
+  for (int32_t i = 0; i < depth; i++) {
+    java_classes->SetWithoutChecks<false, false, kVerifyNone>(i, ObjPtr<mirror::Class>((mirror::Class *)(decoded_traces->GetWithoutChecks(i + 1).Ptr())));
+  }
+  return result;
+}
+
+void Thread::beginJniMethodInvocation() {
+  jni_invocation_depth_++;
+  if (jni_invocation_depth_ > MAX_JNI_INVOCATION_SUPERVISION_DEPTH) {
+    return;
+  }
+  struct JavaVMSupervisionCallBacks * gCallbacks = Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (gCallbacks != nullptr && gCallbacks->isPerfSupervisionOn()) {
+    const int32_t pos = jni_invocation_depth_ - 1;
+    jni_invocation_beginuptimemillis_[pos] = gCallbacks->getUptimeMillisFast();
+    jni_invocation_reportedtimemillis_[pos] = 0;
+  }
+}
+
+void Thread::endJniMethodInvocation() {
+  if (jni_invocation_depth_ == 0) {
+    return;
+  }
+  jni_invocation_depth_--;
+  if (jni_invocation_depth_ >= MAX_JNI_INVOCATION_SUPERVISION_DEPTH) {
+    return;
+  }
+  struct JavaVMSupervisionCallBacks * gCallbacks = Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (gCallbacks != nullptr && gCallbacks->isPerfSupervisionOn()) {
+    const int32_t pos = jni_invocation_depth_;
+    int64_t beinUptimeMillis = jni_invocation_beginuptimemillis_[pos];
+    int64_t endUptimeMillis = gCallbacks->getUptimeMillisFast();
+    gCallbacks->reportJniMethodInvocation(GetJniEnv(), beinUptimeMillis, endUptimeMillis, jni_invocation_reportedtimemillis_[pos]);
+    if (pos > 0) {
+      jni_invocation_reportedtimemillis_[pos - 1] += jni_invocation_reportedtimemillis_[pos];
+    }
+  }
+}
+
 jobjectArray Thread::InternalStackTraceToStackTraceElementArray(
     const ScopedObjectAccessAlreadyRunnable& soa,
     jobject internal,
@@ -2915,7 +3252,9 @@ jobjectArray Thread::InternalStackTraceToStackTraceElementArray(
     int* stack_depth) {
   // Decode the internal stack trace into the depth, method trace and PC trace.
   // Subtract one for the methods and PC trace.
-  int32_t depth = soa.Decode<mirror::Array>(internal)->GetLength() - 1;
+
+  // int32_t depth = soa.Decode<mirror::Array>(internal)->GetLength() - 1;
+  int32_t depth = GetInternalStackTraceDepth(soa, internal);
   DCHECK_GE(depth, 0);
 
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();

@@ -179,6 +179,9 @@
 #include "asm_defines.def"
 #undef ASM_DEFINE
 
+#include "javavmsupervision_callbacks.h"
+using namespace android::os::statistics;
+
 namespace art {
 
 // If a signal isn't handled properly, enable a handler that attempts to dump the Java stack.
@@ -195,6 +198,72 @@ static constexpr double kNormalMaxLoadFactor = 0.7;
 static constexpr double kExtraDefaultHeapGrowthMultiplier = kUseReadBarrier ? 1.0 : 0.0;
 
 Runtime* Runtime::instance_ = nullptr;
+
+#define STACK_TRACE_LENGTH 16
+
+static void SetThreadPerfSupervisionOn(JNIEnv* env, bool isOn) {
+  ThreadForEnv(env)->SetPerfSupervisionOn(isOn);
+}
+
+static bool IsThreadPerfSupervisionOn(JNIEnv* env) {
+  return ThreadForEnv(env)->IsPerfSupervisionOn();
+}
+
+void getThreadInfo(JNIEnv* env,
+  int32_t& thread_id, std::shared_ptr<std::string>& thread_name) {
+  Thread* self = ThreadForEnv(env);
+  thread_id = self->GetTid();
+  self->GetThreadName(thread_name);
+}
+
+static jclass getCurrentClass(JNIEnv* env) {
+  ScopedObjectAccess soa(env);
+  return soa.Self()->GetCurrentClass(soa);
+}
+
+static jobject createJavaStackBackTrace(JNIEnv* env, bool needFillIn) {
+  ScopedObjectAccess soa(env);
+  if (needFillIn) {
+    ArtMethod *methods[STACK_TRACE_LENGTH];
+    uint32_t dex_pcs[STACK_TRACE_LENGTH];
+    return soa.Self()->CreateInternalStackTrace(soa, STACK_TRACE_LENGTH, methods, dex_pcs);
+  } else {
+    return Thread::CreateEmptyInternalStackTrace(soa, STACK_TRACE_LENGTH);
+  }
+}
+
+static void fillInJavaStackBackTrace(JNIEnv* env, jobject stackBackTrace) {
+  ArtMethod *methods[STACK_TRACE_LENGTH];
+  uint32_t dex_pcs[STACK_TRACE_LENGTH];
+  ScopedObjectAccess soa(env);
+  soa.Self()->FillInInternalStackTrace(soa, stackBackTrace, STACK_TRACE_LENGTH, methods, dex_pcs);
+}
+
+static void resetJavaStackBackTrace(JNIEnv* env, jobject stackBackTrace) {
+  ScopedObjectAccess soa(env);
+  Thread::ResetInternalStackTrace(soa, stackBackTrace);
+}
+
+static jobject cloneJavaStackBackTrace(JNIEnv* env, jobject stackBackTrace) {
+  ScopedObjectAccess soa(env);
+  return Thread::CloneInternalStackTrace(soa, stackBackTrace);
+}
+
+static jobjectArray resolveJavaStackTrace(JNIEnv* env, jobject stackBackTrace) {
+  if (stackBackTrace == nullptr) {
+    return nullptr;
+  }
+  ScopedObjectAccess soa(env);
+  return Thread::InternalStackTraceToStackTraceElementArray(soa, stackBackTrace);
+}
+
+static jobjectArray resolveClassesOfBackTrace(JNIEnv* env, jobject stackBackTrace) {
+  if (stackBackTrace == nullptr) {
+    return nullptr;
+  }
+  ScopedObjectAccess soa(env);
+  return Thread::ResolveClassesOfInternalStackTrace(soa, stackBackTrace);
+}
 
 struct TraceConfig {
   Trace::TraceMode trace_mode;
@@ -259,6 +328,7 @@ Runtime::Runtime()
       vfprintf_(nullptr),
       exit_(nullptr),
       abort_(nullptr),
+      javavmsupervision_callbacks_(nullptr),
       stats_enabled_(false),
       is_running_on_memory_tool_(kRunningOnMemoryTool),
       instrumentation_(),
@@ -1291,6 +1361,21 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   vfprintf_ = runtime_options.GetOrDefault(Opt::HookVfprintf);
   exit_ = runtime_options.GetOrDefault(Opt::HookExit);
   abort_ = runtime_options.GetOrDefault(Opt::HookAbort);
+
+  javavmsupervision_callbacks_ = reinterpret_cast<struct JavaVMSupervisionCallBacks*>(runtime_options.GetOrDefault(Opt::JavaVMSupervisionCallBacksPtr));
+  if (javavmsupervision_callbacks_ != nullptr) {
+    javavmsupervision_vminterface_.setThreadPerfSupervisionOn = SetThreadPerfSupervisionOn;
+    javavmsupervision_vminterface_.isThreadPerfSupervisionOn = IsThreadPerfSupervisionOn;
+    javavmsupervision_vminterface_.getThreadInfo = getThreadInfo;
+    javavmsupervision_vminterface_.getCurrentClass = getCurrentClass;
+    javavmsupervision_vminterface_.createJavaStackBackTrace = createJavaStackBackTrace;
+    javavmsupervision_vminterface_.fillInJavaStackBackTrace = fillInJavaStackBackTrace;
+    javavmsupervision_vminterface_.resetJavaStackBackTrace = resetJavaStackBackTrace;
+    javavmsupervision_vminterface_.cloneJavaStackBackTrace = cloneJavaStackBackTrace;
+    javavmsupervision_vminterface_.resolveJavaStackTrace = resolveJavaStackTrace;
+    javavmsupervision_vminterface_.resolveClassesOfBackTrace = resolveClassesOfBackTrace;
+    javavmsupervision_callbacks_->exportJavaVMInterface(&javavmsupervision_vminterface_);
+  }
 
   default_stack_size_ = runtime_options.GetOrDefault(Opt::StackSize);
 

@@ -36,6 +36,9 @@
 #include "cmdline_parser.h"
 #include "runtime_options.h"
 
+#include "javavmsupervision_callbacks.h"
+using namespace android::os::statistics;
+
 namespace art {
 
 using MemoryKiB = Memory<1024>;
@@ -487,7 +490,14 @@ bool ParsedOptions::ProcessSpecialOptions(const RuntimeOptions& options,
         runtime_options->Set(M::HookAbort, hook_abort);
       }
       hook_abort_ = hook_abort;
-    } else {
+    } else if (option == "javavmsupervisioncallbacks") {
+      struct JavaVMSupervisionCallBacks* javavmsupervision_callbacks =
+          reinterpret_cast<struct JavaVMSupervisionCallBacks*>(const_cast<void*>(options[i].second));
+      if (runtime_options != nullptr) {
+        runtime_options->Set(M::JavaVMSupervisionCallBacksPtr, javavmsupervision_callbacks);
+      }
+    }
+    else {
       // It is a regular option, that doesn't have a known 'second' value.
       // Push it on to the regular options which will be parsed by our parser.
       if (out_options != nullptr) {

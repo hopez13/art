@@ -80,6 +80,8 @@ class MethodVerifier;
 class VerifierDeps;
 }  // namespace verifier
 
+#define MAX_JNI_INVOCATION_SUPERVISION_DEPTH 5
+
 class ArtMethod;
 class BaseMutex;
 class ClassLinker;
@@ -425,6 +427,10 @@ class Thread {
   // allocation, or locking.
   void GetThreadName(std::string& name) const;
 
+  void GetThreadName(std::shared_ptr<std::string>& name) {
+    name = shared_thread_name_;
+  }
+
   // Sets the thread's name.
   void SetThreadName(const char* name) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -576,6 +582,42 @@ class Thread {
     tlsPtr_.monitor_enter_object = obj;
   }
 
+  void SetPerfSupervisionOn(bool isOn) {
+    is_perf_supervision_on_ = isOn;
+  }
+
+  bool IsPerfSupervisionOn() {
+    return is_perf_supervision_on_;
+  }
+
+  Thread* GetLockWaitNext() const {
+    return tlsLockWaitNext_;
+  }
+
+  void SetLockWaitNext(Thread* next) {
+    tlsLockWaitNext_ = next;
+  }
+
+  void EnterLockWait(bool lock_supervision_enabled, int64_t enter_wait_uptime_ms)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    lock_supervision_enabled_ = lock_supervision_enabled;
+    enter_lock_wait_uptime_ms_ = enter_wait_uptime_ms;
+  }
+
+  void ExitLockWait()
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    lock_supervision_enabled_ = false;
+    enter_lock_wait_uptime_ms_ = 0;
+  }
+
+  bool IsLockSupervisionEnabled() {
+    return lock_supervision_enabled_;
+  }
+
+  int64_t LockWaitEnterUptimeMs() {
+    return enter_lock_wait_uptime_ms_;
+  }
+
   // Implements java.lang.Thread.interrupted.
   bool Interrupted();
   // Implements java.lang.Thread.isInterrupted.
@@ -621,6 +663,26 @@ class Thread {
     wait_monitor_ = mon;
   }
 
+  void EnterConditionWait(bool condition_supervision_enabled, int64_t enter_wait_uptime_ms)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    condition_supervision_enabled_ = condition_supervision_enabled;
+    enter_cond_wait_uptime_ms_ = enter_wait_uptime_ms;
+  }
+
+  void ExitConditionWait()
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+    condition_supervision_enabled_ = false;
+    enter_cond_wait_uptime_ms_ = 0;
+  }
+
+  bool IsConditionSupervisionEnabled() {
+    return condition_supervision_enabled_;
+  }
+
+  int64_t ConditionWaitEnterUptimeMs() {
+    return enter_cond_wait_uptime_ms_;
+  }
+
   // Waiter link-list support.
   Thread* GetWaitNext() const {
     return tlsPtr_.wait_next;
@@ -640,6 +702,35 @@ class Thread {
   // and space efficient to compute than the StackTraceElement[].
   jobject CreateInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa) const
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  jclass GetCurrentClass(const ScopedObjectAccessAlreadyRunnable& soa)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  jobject CreateInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa,
+      int32_t desired_depth, ArtMethod** methods, uint32_t *dex_pcs, int32_t *result_depth = nullptr) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static jobject CreateEmptyInternalStackTrace(
+      const ScopedObjectAccessAlreadyRunnable& soa, int32_t depth)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void FillInInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa,
+      jobject dest, int32_t desired_depth, ArtMethod** methods, uint32_t *dex_pcs) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void ResetInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa, jobject dest)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static jobject CloneInternalStackTrace(const ScopedObjectAccessAlreadyRunnable& soa, jobject src)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static jobjectArray ResolveClassesOfInternalStackTrace(
+      const ScopedObjectAccessAlreadyRunnable& soa, jobject internal,
+      jobjectArray output_array = nullptr, int* stack_depth = nullptr)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void beginJniMethodInvocation();
+  void endJniMethodInvocation();
 
   // Convert an internal stack trace representation (returned by CreateInternalStackTrace) to a
   // StackTraceElement[]. If output_array is null, a new array is created, otherwise as many
@@ -1884,6 +1975,21 @@ class Thread {
   // Set during execution of JNI methods that get field and method id's as part of determining if
   // the caller is allowed to access all fields and methods in the Core Platform API.
   uint32_t core_platform_api_cookie_ = 0;
+
+  std::shared_ptr<std::string> shared_thread_name_;
+
+  bool is_perf_supervision_on_;
+
+  bool lock_supervision_enabled_;
+  int64_t enter_lock_wait_uptime_ms_;
+  Thread *tlsLockWaitNext_;
+
+  bool condition_supervision_enabled_;
+  int64_t enter_cond_wait_uptime_ms_;
+
+  int64_t jni_invocation_beginuptimemillis_[MAX_JNI_INVOCATION_SUPERVISION_DEPTH];
+  int32_t jni_invocation_reportedtimemillis_[MAX_JNI_INVOCATION_SUPERVISION_DEPTH];
+  int32_t jni_invocation_depth_;
 
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.

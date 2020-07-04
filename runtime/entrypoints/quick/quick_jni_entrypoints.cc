@@ -73,6 +73,7 @@ extern uint32_t JniMethodStart(Thread* self) {
   //       Or ban synchronized @FastNative outright to avoid the extra check here?
   DCHECK(!native_method->IsFastNative() || native_method->IsSynchronized());
   if (!native_method->IsFastNative()) {
+    self->beginJniMethodInvocation();
     // When not fast JNI we transition out of runnable.
     self->TransitionFromRunnableToSuspended(kNative);
   }
@@ -90,6 +91,7 @@ static void GoToRunnable(Thread* self) NO_THREAD_SAFETY_ANALYSIS {
   bool is_fast = native_method->IsFastNative();
   if (!is_fast) {
     self->TransitionFromSuspendedToRunnable();
+    self->endJniMethodInvocation();
   } else {
     GoToRunnableFast(self);
   }

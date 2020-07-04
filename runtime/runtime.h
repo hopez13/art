@@ -47,6 +47,8 @@
 #include "reflective_value_visitor.h"
 #include "runtime_stats.h"
 
+#include "javavmsupervision_callbacks.h"
+
 namespace art {
 
 namespace gc {
@@ -968,6 +970,10 @@ class Runtime {
     return image_space_loading_order_;
   }
 
+  struct android::os::statistics::JavaVMSupervisionCallBacks* GetJavaVMSupervisionCallBacks() {
+    return javavmsupervision_callbacks_;
+  }
+
   bool IsVerifierMissingKThrowFatal() const {
     return verifier_missing_kthrow_fatal_;
   }
@@ -1140,6 +1146,8 @@ class Runtime {
   jint (*vfprintf_)(FILE* stream, const char* format, va_list ap);
   void (*exit_)(jint status);
   void (*abort_)();
+  struct android::os::statistics::JavaVMSupervisionCallBacks* javavmsupervision_callbacks_;
+  struct android::os::statistics::JavaVMInterface javavmsupervision_vminterface_;
 
   bool stats_enabled_;
   RuntimeStats stats_;
