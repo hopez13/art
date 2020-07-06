@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9446be6e_a57262b9",
+        "filename": "runtime/interpreter/cfi_asm_support.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T13:45:34Z",
+      "side": 1,
+      "message": "So what is the distinction between the .S and .h file?\nWhy not keep all the related code in just one file?",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95017421_8c8074ec",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T13:45:34Z",
+      "side": 1,
+      "message": "Rather than have two variants, we could just always use the 2-byte encoding, to simplify the code.  I am not sure if Vladimir agrees though?",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc3fa6ca_275c0938",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T13:45:34Z",
+      "side": 1,
+      "message": "Running the tests in interpreter didn\u0027t catch the issue, but this extra pass does?",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
