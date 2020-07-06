@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f900f5cf_545b3861",
+        "filename": "runtime/interpreter/cfi_asm_support.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-06T14:37:47Z",
+      "side": 1,
+      "message": "Done - now that we have a .micro, I\u0027ve renamed the file to .S.",
+      "parentUuid": "9446be6e_a57262b9",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95017421_8c8074ec",
         "filename": "runtime/interpreter/cfi_asm_support.h",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-07-06T13:45:34Z",
       "side": 1,
       "message": "Rather than have two variants, we could just always use the 2-byte encoding, to simplify the code.  I am not sure if Vladimir agrees though?",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24b13df0_706ccc72",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-06T14:37:47Z",
+      "side": 1,
+      "message": "We have precedent for _1 and _2, so I\u0027m fine continuing this way.",
+      "parentUuid": "95017421_8c8074ec",
       "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0289402b_4e7f6dcc",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-06T14:37:47Z",
+      "side": 1,
+      "message": "That\u0027s right.",
+      "parentUuid": "bc3fa6ca_275c0938",
+      "revId": "a0c47c988c76f4013605e1eb63f7da52d9105b59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
