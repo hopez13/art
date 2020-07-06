@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74dfc93e_236919a3",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T08:33:06Z",
+      "side": 1,
+      "message": "This should be DW_CFA_def_cfa_expression. (And copy-pasted below.)",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "c336f5743c7b8a34d868a1611d7cad8ecb3bfd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9258344f_b4cd9156",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T08:33:06Z",
+      "side": 1,
+      "message": "Do not hard-code the size. Provide one-byte and two-byte encoding #defines and an assembler macro, just like the CFI_EXPRESSION_BREG. Given that both offset and size need LEB128 encoding, I would give these #defines two suffixes, i.e. CFI_DEFINE_CFA_DEREF_1_1 and CFI_DEFINE_CFA_DEREF_1_2.\n\n(Though I would also completely rename it to CFI_DEF_CFA_BREG_PLUS_UCONST_\u003cm\u003e_\u003cn\u003e.)",
+      "revId": "c336f5743c7b8a34d868a1611d7cad8ecb3bfd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c2ee06_2b0f0e98",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T08:33:06Z",
+      "side": 1,
+      "message": "Does this not just exit, ignoring the rest of the expression?",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "c336f5743c7b8a34d868a1611d7cad8ecb3bfd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
