@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b8b5d6c_d3f423c4",
+        "filename": "runtime/interpreter/cfi_asm_support.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T15:09:58Z",
+      "side": 1,
+      "message": "If you\u0027re going to use .macro on x86/x86-64, you should also remove the MACRO{0,1,2,3,4,5} and END_MACRO #defines. So far I haven\u0027t done that and that\u0027s why I have kept these helpers in asm_support_\u003carch\u003e.S .",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 6
+      },
+      "revId": "294b534d5956dc37ac95c4600139de632a24679e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
