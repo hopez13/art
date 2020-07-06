@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "007ee5a8_bb9da812",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T10:02:53Z",
+      "side": 1,
+      "message": "You could add a macro that checks the offset/size and selects appropriate expression. See https://android-review.googlesource.com/c/platform/art/+/1321919/21/runtime/arch/arm/asm_support_arm.S#41 .",
+      "range": {
+        "startLine": 576,
+        "startChar": 3,
+        "endLine": 576,
+        "endChar": 35
+      },
+      "revId": "22f94f902738a474befcd687a54aa6556a388433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -128,6 +128,30 @@
       "revId": "c336f5743c7b8a34d868a1611d7cad8ecb3bfd6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a03441f5_b9a946b1",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-06T10:02:53Z",
+      "side": 1,
+      "message": "I think I understand this after I did some experiments. Enclosing \"exit \u003cn\u003e\" in parentheses makes it run in a subshell and return the given status, thus only the subshell exits, not the actual script. So this is a way to set the exit status without actually exitting.",
+      "parentUuid": "762e1374_8043b879",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "c336f5743c7b8a34d868a1611d7cad8ecb3bfd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
