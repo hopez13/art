@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "1a20b0b0_6f1ef453",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T11:49:24Z",
+      "side": 1,
+      "message": "It is only used for x86.  ARM tests do not use this.",
+      "parentUuid": "a67e9e94_820bfb87",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a7ae433_0549c1e0",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 3
@@ -126,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "466ecb4d_808607b9",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T11:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ef48ce3_6b53299a",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 66
+      },
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffa2e5b9_b2b51b1b",
         "filename": "test/common/gtest_main.cc",
         "patchSetId": 3
@@ -176,6 +218,24 @@
       "revId": "f849e10d84d24956f77f01852f707cad334326d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b33de32b_8ad1c23b",
+        "filename": "test/common/gtest_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-06T11:49:24Z",
+      "side": 1,
+      "message": "Done (removed)",
+      "parentUuid": "58bd0512_02554f75",
+      "revId": "f849e10d84d24956f77f01852f707cad334326d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
