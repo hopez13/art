@@ -34,6 +34,46 @@
       "revId": "bf04c8ebaf1b79878c223653917f6d4e73fe2230",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b45a2fe7_07600627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-07T14:19:30Z",
+      "side": 1,
+      "message": "Just a thing missed during reviewing the parent CL\n\nThe rest LGTM.\n",
+      "revId": "bf04c8ebaf1b79878c223653917f6d4e73fe2230",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "726bc7ea_825cc144",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-07T14:19:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be \u0027const std::string\u0026\u0027 ?",
+      "range": {
+        "startLine": 187,
+        "startChar": 17,
+        "endLine": 187,
+        "endChar": 43
+      },
+      "revId": "bf04c8ebaf1b79878c223653917f6d4e73fe2230",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
