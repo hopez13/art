@@ -106,6 +106,7 @@
   V(IntegerRotateRight, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "rotateRight", "(II)I") \
   V(IntegerRotateLeft, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "rotateLeft", "(II)I") \
   V(IntegerSignum, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "signum", "(I)I") \
+  V(IntegerDivideUnsigned, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kCanThrow, "Ljava/lang/Integer;", "divideUnsigned", "(II)I") \
   V(LongReverse, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "reverse", "(J)J") \
   V(LongReverseBytes, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "reverseBytes", "(J)J") \
   V(LongBitCount, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "bitCount", "(J)I") \

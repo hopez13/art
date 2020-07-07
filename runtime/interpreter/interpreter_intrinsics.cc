@@ -429,6 +429,7 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
   Intrinsics intrinsic = static_cast<Intrinsics>(called_method->GetIntrinsic());
   bool res = false;  // Assume failure
   switch (intrinsic) {
+    UNIMPLEMENTED_CASE(IntegerDivideUnsigned /* (II)I */)
     UNIMPLEMENTED_CASE(DoubleDoubleToRawLongBits /* (D)J */)
     UNIMPLEMENTED_CASE(DoubleDoubleToLongBits /* (D)J */)
     UNIMPLEMENTED_CASE(DoubleIsInfinite /* (D)Z */)
