@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "f67a950b_0bbbf02b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "Can you also add a test stanza here to show how you test this CL? [normally goes after the bug stanza(s)]\n\nTest: art/test.py --host --32 -r 082-inline-execute",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb6cb209_3c3c1cb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "JFYI: the bug stanzas here mean these bugs will be updated when the change lands in the Android code base.\n\nIt\u0027s up to you, but I normally just include the internal bug here and update the public one when I\u0027m happy that it\u0027s solved.",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "560fdc83_f3ced1f6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -30,6 +76,23 @@
       "writtenOn": "2020-07-07T15:29:34Z",
       "side": 1,
       "message": "Nice start :)",
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd9df9aa_71bdec1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "Excellent progress.\n\nThere are some minor comments here, but good work!",
       "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -70,6 +133,24 @@
         "endLine": 3031,
         "endChar": 28
       },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c16f19f_74b9098f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "NB there a few places we violate this, but that\u0027s usually places like macro lists (that are also in this CL).",
+      "parentUuid": "1c1e8023_2e55eb36",
       "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -122,6 +203,29 @@
     },
     {
       "key": {
+        "uuid": "f94deceb_9943d592",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3055,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "Can you add a comment here along the lines of \"Check if divisor is zero, bail to managed implementation to handle.\"",
+      "range": {
+        "startLine": 3055,
+        "startChar": 0,
+        "endLine": 3055,
+        "endChar": 35
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b241cb7e_ce60d57e",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 1
@@ -138,6 +242,75 @@
         "startChar": 7,
         "endLine": 726,
         "endChar": 11
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4495f8f4_9f0497be",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "Suggest moving this down to the end of these UNIMPLEMENTED_CASES so it\u0027s next to the other Integer intrinsics.",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 432,
+        "endChar": 57
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4408765_2df2de5b",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "These seem to be approximately alpha sorted, this could go after IntegerCompare.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 138
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c08a06bc_c637757d",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-07T16:23:31Z",
+      "side": 1,
+      "message": "This could just have an Assert.failed(\"Unreachable\") after the divideUnsigned and remove the boolean thrown.",
+      "range": {
+        "startLine": 1393,
+        "startChar": 0,
+        "endLine": 1399,
+        "endChar": 30
       },
       "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
