@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "beafffc3_6ce44ca7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-07T16:23:23Z",
+      "side": 1,
+      "message": "Add the following here:\n\n    Test: Added a test to 082-inline-execute.",
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "560fdc83_f3ced1f6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -30,6 +47,98 @@
       "writtenOn": "2020-07-07T15:29:34Z",
       "side": 1,
       "message": "nit: line too long (should be max 100).",
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ae66b5d_80bb5f36",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-07T16:23:23Z",
+      "side": 1,
+      "message": "ART style is to consider the \"*\" as part of the type, i.e.\n\n  LocationSummary* locations \u003d ...\n\nSame for other variables below.",
+      "range": {
+        "startLine": 3031,
+        "startChar": 2,
+        "endLine": 3031,
+        "endChar": 28
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99c52a4e_fa4c18cb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-07T16:23:23Z",
+      "side": 1,
+      "message": "Initialize the variable immediately. (There is no reason to have separate declaration and initialization here.)",
+      "range": {
+        "startLine": 3045,
+        "startChar": 11,
+        "endLine": 3045,
+        "endChar": 14
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b938f6b7_683cb0f3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3046,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-07T16:23:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3046,
+        "startChar": 11,
+        "endLine": 3046,
+        "endChar": 21
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b241cb7e_ce60d57e",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-07T16:23:23Z",
+      "side": 1,
+      "message": "Please add a test to assembler_x86_test.cc .",
+      "range": {
+        "startLine": 726,
+        "startChar": 7,
+        "endLine": 726,
+        "endChar": 11
+      },
       "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
