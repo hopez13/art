@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "560fdc83_f3ced1f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-07T15:29:34Z",
+      "side": 1,
+      "message": "Nice start :)",
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c1e8023_2e55eb36",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-07T15:29:34Z",
+      "side": 1,
+      "message": "nit: line too long (should be max 100).",
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
