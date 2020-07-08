@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9b5eb4be_72a5fa26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-08T13:25:17Z",
+      "side": 1,
+      "message": "Hi Orion,\n\nThank you for the links. I have recently significantly improved ARM32/ARM64 code generation when a divisor is a constant. This includes unsigned div/rem cases. The x86/x86_64 code generation does not have them. I don\u0027t mind to have the intrinsic. I can add support of it to ARM32/ARM64. Should I do this?\nBTW, the author of the blog post has a common misconception about that \u0027a / 2\u0027 is the same as \u0027v \u003e\u003e 1\u0027. This is only true for unsigned types.",
+      "parentUuid": "c075a6a3_025a001b",
+      "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a685d6f_51cf7f9f",
         "filename": "runtime/image.cc",
         "patchSetId": 2
