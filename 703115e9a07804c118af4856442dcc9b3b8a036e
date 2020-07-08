@@ -36,6 +36,46 @@
     },
     {
       "key": {
+        "uuid": "e83caf58_b2b062ed",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-08T17:18:53Z",
+      "side": 1,
+      "message": "Also add\n\n  #include \"base/os.h\"\n\n(for `OS::FileExists`, `OS::OpenFileForReading` and `OS::CreateEmptyFile`)?",
+      "revId": "703115e9a07804c118af4856442dcc9b3b8a036e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fdf5ebe_6861fe37",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-08T17:18:53Z",
+      "side": 1,
+      "message": "ScratchDir?",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "703115e9a07804c118af4856442dcc9b3b8a036e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09495f87_38b204c6",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 5
@@ -80,6 +120,52 @@
       "revId": "703115e9a07804c118af4856442dcc9b3b8a036e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "345196fe_8d55c5e5",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-08T17:18:53Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*IsElf64\u003d*/true",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "703115e9a07804c118af4856442dcc9b3b8a036e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d7fb40_a7b68f8d",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-08T17:18:53Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*IsElf64\u003d*/false",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "703115e9a07804c118af4856442dcc9b3b8a036e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
