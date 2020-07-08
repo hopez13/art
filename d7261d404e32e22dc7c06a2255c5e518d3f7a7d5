@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25105c80_56b029e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-08T13:43:12Z",
+      "side": 1,
+      "message": "David, is this feasible? We need some path forward for the VIXL patches, but considering the amount of work you did on ART tests and the testing image, it may be easier to re-add core.art manually or to rework VIXL patches to use boot.art.",
+      "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
