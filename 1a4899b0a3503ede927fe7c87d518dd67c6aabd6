@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "46462edb_f1e34145",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-08T09:41:01Z",
+      "side": 1,
+      "message": "I thought this would be trivial copy-paste-edit but we don\u0027t have a test for idivl() either, so it needs to be done from scratch. I\u0027m OK with leaving that for later.",
+      "parentUuid": "b241cb7e_ce60d57e",
+      "range": {
+        "startLine": 726,
+        "startChar": 7,
+        "endLine": 726,
+        "endChar": 11
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4495f8f4_9f0497be",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
