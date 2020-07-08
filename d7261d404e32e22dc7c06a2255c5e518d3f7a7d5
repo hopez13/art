@@ -50,6 +50,24 @@
       "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "890e2039_594e9aa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-08T14:40:18Z",
+      "side": 1,
+      "message": "This patch has been waiting for review for very long, and the context was provided on the weekly ARM sync meeting (sorry for not communicating it to you properly and on time). The VIXL patches (there is a whole stack of them) in their current shape need core.art for testing (they have been written before your changes, and since we meddled with review they got out of date). We definitely want to merge VIXL changes, including test, but I hope it won\u0027t be much effort to make them use boot.art.\n\nI\u0027m trying the boot.art path locally, just wanted to confirm with you that rolling back to core.art is not something you consider feasible.",
+      "parentUuid": "fc95710b_4016d571",
+      "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
