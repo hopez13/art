@@ -111,6 +111,30 @@
       "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec6cc442_51e007c9",
+        "filename": "runtime/image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-07-08T13:25:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a685d6f_51cf7f9f",
+      "range": {
+        "startLine": 32,
+        "startChar": 74,
+        "endLine": 32,
+        "endChar": 87
+      },
+      "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
