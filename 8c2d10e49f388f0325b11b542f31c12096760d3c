@@ -34,6 +34,24 @@
       "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c075a6a3_025a001b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-08T12:47:08Z",
+      "side": 1,
+      "message": "Hi Evgeny, this work is motivated by:\n\n  https://issuetracker.google.com/issues/154693569\n\nwhich in turn probably comes from:\n\n  https://jakewharton.com/which-is-better-on-android-divide-by-two-or-shift-by-one/ \n\nWe\u0027re using it as a warm-up project for Andra\u0027s internship.\n\nWe debated whether to replace with HDiv or implement as an an instrinsic, but we felt instrinsic was probably sufficient and low risk: existing code might be surprised by unsigned types.\n\nThere isn\u0027t widespread usage of Integer.divideUnsigned() (or Long.divideUnsigned()). AFAIK, the only actual usage on Android is with openjdk\u0027s java.util.stream.LongStream.\n\nNot averse to a future change taking the direction you are suggesting.",
+      "parentUuid": "e3074c57_966f4c38",
+      "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
