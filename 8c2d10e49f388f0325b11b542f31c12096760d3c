@@ -16,6 +16,24 @@
       "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3074c57_966f4c38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-08T12:18:56Z",
+      "side": 1,
+      "message": "Out of curiosity, is Integer.divideUnsigned inlined?\nI\u0027ve been working on recognition of non-negative dividends. If everything is inlined, it is not difficult to detect that dividend and divisor are non-negative.\nThere is \u0027IsGEZero(HInstruction* instruction)\u0027 where the logic can be added.",
+      "parentUuid": "1583872a_c2f94470",
+      "revId": "8c2d10e49f388f0325b11b542f31c12096760d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
