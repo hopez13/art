@@ -68,6 +68,23 @@
       "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ab5cd5d_3fbe7f82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-08T14:49:04Z",
+      "side": 1,
+      "message": "Yeah, I assume the revert is for convenience.\nSwitching from core.art to boot.art should be just a matter of adjusting to the correct path.\nI would strongly prefer not to resurrect core.art.\nLet me know if I can help.",
+      "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
