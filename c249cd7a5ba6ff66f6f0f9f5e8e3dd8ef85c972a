@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "787a5fcb_aa5de591",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-08T14:07:42Z",
+      "side": 1,
+      "message": "I think Orion wanted this inside the try-block. Then you can drop the \"return\" from the catch block. (And you can also rename the exception to \"expected\".)",
+      "range": {
+        "startLine": 1402,
+        "startChar": 4,
+        "endLine": 1402,
+        "endChar": 31
+      },
+      "revId": "c249cd7a5ba6ff66f6f0f9f5e8e3dd8ef85c972a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
