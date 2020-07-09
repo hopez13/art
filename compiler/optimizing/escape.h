@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_ESCAPE_H_
 #define ART_COMPILER_OPTIMIZING_ESCAPE_H_
 
+#include <functional>
+
 namespace art {
 
 class HInstruction;
@@ -52,16 +54,35 @@ class HInstruction;
  * analysis is applied to the user instead.
  */
 void CalculateEscape(HInstruction* reference,
+                     std::function<bool(HInstruction*, HInstruction*)>& no_escape,
+                     /*out*/ bool* is_singleton,
+                     /*out*/ bool* is_singleton_and_not_returned,
+                     /*out*/ bool* is_singleton_and_not_deopt_visible);
+
+void CalculateEscape(HInstruction* reference,
                      bool (*no_escape)(HInstruction*, HInstruction*),
                      /*out*/ bool* is_singleton,
                      /*out*/ bool* is_singleton_and_not_returned,
                      /*out*/ bool* is_singleton_and_not_deopt_visible);
 
 /*
+ * Performs escape analysis and visits each escape of the reference. Does not try to calculate any
+ * overall information about the method. Escapes are calculated in the same way as CalculateEscape.
+ *
+ * The escape_visitor should return true to continue visiting, false otherwise.
+ */
+void VisitEscapes(HInstruction* reference,
+                  std::function<bool(HInstruction* /* escape */)>& escape_visitor);
+
+/*
  * Convenience method for testing the singleton and not returned properties at once.
  * Callers should be aware that this method invokes the full analysis at each call.
  */
-bool DoesNotEscape(HInstruction* reference, bool (*no_escape)(HInstruction*, HInstruction*));
+bool DoesNotEscape(HInstruction* reference,
+                   std::function<bool(HInstruction*, HInstruction*)>& no_escape);
+
+bool DoesNotEscape(HInstruction* reference,
+                   bool(*no_escape)(HInstruction*, HInstruction*));
 
 }  // namespace art
 
