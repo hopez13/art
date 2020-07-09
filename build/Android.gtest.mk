@@ -62,6 +62,8 @@ $(LOCAL_BUILT_MODULE):
 	@mkdir -p $(dir $@)
 	echo "This directory contains common data and tools needed for ART host tests" > $@
 
+HOST_TESTCASES_ART_COMMON := $(LOCAL_INSTALLED_MODULE)
+
 my_files :=
 include $(CLEAR_VARS)
 ###################################################################################################
@@ -256,7 +258,7 @@ endif
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
 
-ART_TEST_HOST_GTEST_DEPENDENCIES := $(host-i18n-data-file)
+ART_TEST_HOST_GTEST_DEPENDENCIES := $(HOST_TESTCASES_ART_COMMON) $(host-i18n-data-file)
 ART_TEST_TARGET_GTEST_DEPENDENCIES := $(TESTING_ART_APEX)
 
 # Add the additional dependencies for the specified test

@@ -171,6 +171,12 @@ TEST(InstructionSetFeaturesTest, FeaturesFromAssembly) {
   // Check we get the same instruction set features using assembly tests.
   std::unique_ptr<const InstructionSetFeatures> assembly_features(
       InstructionSetFeatures::FromAssembly());
+#ifdef __ARM_ARCH_8A__
+  LOG(ERROR) << "__ARM_ARCH_8A__ = " << __ARM_ARCH_8A__;
+#endif
+#ifdef __ARM_FEATURE_LPAE
+  LOG(ERROR) << "__ARM_FEATURE_LPAE = " << __ARM_FEATURE_LPAE;
+#endif
   EXPECT_TRUE(assembly_features->HasAtLeast(instruction_set_features.get()))
       << "Assembly features: " << *assembly_features.get()
       << "\nFeatures from build: " << *instruction_set_features.get();
