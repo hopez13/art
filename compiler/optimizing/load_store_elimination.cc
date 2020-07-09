@@ -413,10 +413,25 @@ class LSEVisitor : public HGraphDelegateVisitor {
       ReferenceInfo* ref_info = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
       HInstruction* ref = ref_info->GetReference();
       HInstruction* singleton_ref = nullptr;
+      bool singleton = false;
+      bool partial = false;
       if (ref_info->IsSingleton()) {
         // We do more analysis based on singleton's liveness when merging
         // heap values for such cases.
+        singleton = true;
         singleton_ref = ref;
+      } else if (ref_info->IsPartialSingleton()) {
+        partial = true;
+        // If all predecessors don't come from escaping paths then we are fine
+        // to remove loads, since the object can't have escaped yet.
+        auto exclusions = ref_info->GetNoEscapeSubgraph()->GetExcludedCohorts();
+        if (std::none_of(exclusions.cbegin(),
+                         exclusions.cend(),
+                         [&](const ExecutionSubgraph::ExcludedCohort& exclusion) {
+                           return exclusion.PrecedesBlock(block);
+                         })) {
+          singleton_ref = ref;
+        }
       }
 
       for (HBasicBlock* predecessor : predecessors) {
@@ -473,7 +488,7 @@ class LSEVisitor : public HGraphDelegateVisitor {
           // (1) if this block consists of a sole return, or
           // (2) if this block returns and a usable merged value is obtained
           //     (loads prior to the return will always use that value).
-        } else if (!IsStore(merged_value)) {
+        } else if (!IsStore(merged_value) || partial) {
           // We don't track merged value as a store anymore. We have to
           // hold the stores in predecessors live here.
           for (HBasicBlock* predecessor : predecessors) {
@@ -931,7 +946,7 @@ bool LoadStoreElimination::Run() {
     return false;
   }
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {

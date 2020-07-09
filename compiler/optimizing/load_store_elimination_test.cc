@@ -533,6 +533,77 @@ TEST_F(LoadStoreEliminationTest, MergePredecessorVecStores) {
   ASSERT_FALSE(IsRemoved(vstore4));
 }
 
+// Transform
+// a = new int[10];
+// a[0] = 0
+// if (...)
+//   foo(a);
+// else
+//   a[0] = 1
+// arr[i] = a[0]
+//
+// into
+//
+// a = new int[10]
+// if (...)
+//   foo(a)
+//   res_l = a[0]
+// else
+//   res_r = 1
+// arr[0] = phi(res_l, res_r)
+//
+// The code-sinking will move the allocation down.
+TEST_F(LoadStoreEliminationTest, PartialEscape) {
+  HBasicBlock* upper;
+  HBasicBlock* left;
+  HBasicBlock* right;
+  HBasicBlock* down;
+  std::tie(upper, left, right, down) = CreateDiamondShapedCFG();
+
+  HSuspendCheck* suspend = new (GetAllocator()) HSuspendCheck();
+  upper->InsertInstructionBefore(suspend, upper->GetLastInstruction());
+  ArenaVector<HInstruction*> suspend_locals({array_, nullptr, nullptr},
+                                            GetAllocator()->Adapter(kArenaAllocInstruction));
+  ManuallyBuildEnvFor(suspend, &suspend_locals);
+
+  HInstruction* const0 = graph_->GetIntConstant(0);
+  HInstruction* const1 = graph_->GetIntConstant(1);
+  // pre-header: new_array = new int[];
+  // upper: array_[0] = 0;
+  HInstruction* const128 = graph_->GetIntConstant(128);
+  HInstruction* new_array = new (GetAllocator()) HNewArray(const0, const128, 0, 0);
+  upper->InsertInstructionBefore(new_array, upper->GetLastInstruction());
+  ManuallyBuildEnvFor(new_array, &suspend_locals);
+
+  AddArraySet(upper, new_array, const0, const0);
+
+  // left: invoke(new_array)
+  HInvoke* invoke = new (GetAllocator())
+      HInvokeUnresolved(GetAllocator(), 1, DataType::Type::kVoid, 0, 0x1337, InvokeType::kStatic);
+  invoke->SetRawInputAt(0, new_array);
+  left->InsertInstructionBefore(invoke, left->GetLastInstruction());
+  ManuallyBuildEnvFor(invoke, &suspend_locals);
+
+  // right: a[0] = 1;
+  HInstruction* set_right = AddArraySet(right, new_array, const0, const1);
+
+  // down: array_[0] = new_array[]
+  HInstruction* val0 = AddArrayGet(down, new_array, const0);
+  HInstruction* store = AddArraySet(down, array_, const0, val0);
+
+  PerformLSE();
+
+  ASSERT_TRUE(val0->GetBlock() == left);
+  ASSERT_TRUE(IsRemoved(set_right));
+  ASSERT_FALSE(IsRemoved(invoke));
+  ASSERT_TRUE(invoke->GetBlock() == left);
+  ASSERT_FALSE(IsRemoved(new_array));
+  ASSERT_FALSE(IsRemoved(store));
+  // ASSERT_TRUE(IsRemoved(vstore2));
+  // ASSERT_FALSE(IsRemoved(vstore3));
+  // ASSERT_FALSE(IsRemoved(vstore4));
+}
+
 // Check that merging works correctly when there are ArraySets in predecessors.
 //
 //          a[i] = 1

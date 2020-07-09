@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_OPTIMIZING_ESCAPE_H_
 #define ART_COMPILER_OPTIMIZING_ESCAPE_H_
 
+#include "optimizing/nodes.h"
 namespace art {
 
 class HInstruction;
@@ -51,6 +52,17 @@ class HInstruction;
  * value false means the client cannot provide a definite answer and built-in escape
  * analysis is applied to the user instead.
  */
+// TODO Simple POC BS. Use No-escape(reference, user) function to filter out
+// uses in assumed untaken branch. Run multiple times. Yeet values only on one side.
+void CalculateEscape(HInstruction* reference,
+                     std::function<bool(HInstruction*, HInstruction*)>& no_escape,
+                     /*out*/ bool* is_singleton,
+                     /*out*/ bool* is_singleton_and_not_returned,
+                     /*out*/ bool* is_singleton_and_not_deopt_visible);
+
+void VisitEscapes(HInstruction* reference,
+                  std::function<bool(HInstruction* /* escape */)>& escape_visitor);
+
 void CalculateEscape(HInstruction* reference,
                      bool (*no_escape)(HInstruction*, HInstruction*),
                      /*out*/ bool* is_singleton,
@@ -61,7 +73,11 @@ void CalculateEscape(HInstruction* reference,
  * Convenience method for testing the singleton and not returned properties at once.
  * Callers should be aware that this method invokes the full analysis at each call.
  */
-bool DoesNotEscape(HInstruction* reference, bool (*no_escape)(HInstruction*, HInstruction*));
+bool DoesNotEscape(HInstruction* reference,
+                   std::function<bool(HInstruction*, HInstruction*)>& no_escape);
+
+bool DoesNotEscape(HInstruction* reference,
+                   bool(*no_escape)(HInstruction*, HInstruction*));
 
 }  // namespace art
 
