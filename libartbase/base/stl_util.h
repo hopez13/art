@@ -229,6 +229,14 @@ static inline IterationRange<ZipLeftIter<IterLeft, IterRight>> ZipLeft(
                         ZipLeftIter(iter_left.end(), iter_right.end()));
 }
 
+static inline IterationRange<CountIter> Range(size_t start, size_t end) {
+  return IterationRange(CountIter(start), CountIter(end));
+}
+
+static inline IterationRange<CountIter> Range(size_t end) {
+  return Range(0, end);
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_STL_UTIL_H_

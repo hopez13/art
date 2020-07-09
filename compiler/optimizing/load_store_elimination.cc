@@ -21,6 +21,7 @@
 #include "base/scoped_arena_containers.h"
 #include "escape.h"
 #include "load_store_analysis.h"
+#include "optimizing/optimizing_compiler_stats.h"
 #include "side_effects_analysis.h"
 
 /**
@@ -399,10 +400,27 @@ class LSEVisitor : public HGraphDelegateVisitor {
       ReferenceInfo* ref_info = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
       HInstruction* ref = ref_info->GetReference();
       HInstruction* singleton_ref = nullptr;
+      bool singleton = false;
+      bool partial = false;
+      bool partial_removable = false;
       if (ref_info->IsSingleton()) {
         // We do more analysis based on singleton's liveness when merging
         // heap values for such cases.
+        singleton = true;
         singleton_ref = ref;
+      } else if (ref_info->IsPartialSingleton()) {
+        partial = true;
+        // If all predecessors don't come from escaping paths then we are fine
+        // to remove loads and stores, since the object can't have escaped yet.
+        auto exclusions = ref_info->GetNoEscapeSubgraph()->GetExcludedCohorts();
+        if (std::none_of(exclusions.cbegin(),
+                         exclusions.cend(),
+                         [&](const ExecutionSubgraph::ExcludedCohort& exclusion) {
+                           return exclusion.ContainsBlock(block) || exclusion.PrecedesBlock(block) || exclusion.SucceedsBlock(block);
+                         })) {
+          singleton_ref = ref;
+          partial_removable = true;
+        }
       }
 
       for (HBasicBlock* predecessor : predecessors) {
@@ -459,6 +477,10 @@ class LSEVisitor : public HGraphDelegateVisitor {
           // (1) if this block consists of a sole return, or
           // (2) if this block returns and a usable merged value is obtained
           //     (loads prior to the return will always use that value).
+        } else if (partial_removable) {
+          // This value doesn't escape anywhere before or after this block. We don't need
+          // to store it or any of its predecessors.
+          MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
         } else if (!IsStore(merged_value)) {
           // We don't track merged value as a store anymore. We have to
           // hold the stores in predecessors live here.
@@ -492,6 +514,8 @@ class LSEVisitor : public HGraphDelegateVisitor {
                merged_value->GetBlock()->Dominates(block));
         if (merged_value != kUnknownHeapValue) {
           heap_values[i] = merged_value;
+          MaybeRecordStat(stats_, partial ? MethodCompilationStat::kPartialLoadRemoved : (singleton ? MethodCompilationStat::kNonPartialLoadRemoved : MethodCompilationStat::kNonSingletonLoadRemoved));
+          // TODO
         } else {
           // Stores in different predecessors may be storing the same value.
           heap_values[i] = merged_store_value;
@@ -919,8 +943,11 @@ bool LoadStoreElimination::Run() {
     // Skip this optimization.
     return false;
   }
+  // TODO NO BAD TIME
+  graph_->ClearReachabilityInformation();
+  graph_->ComputeReachabilityInformation();
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator, true);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
