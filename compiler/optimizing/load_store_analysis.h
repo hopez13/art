@@ -17,29 +17,398 @@
 #ifndef ART_COMPILER_OPTIMIZING_LOAD_STORE_ANALYSIS_H_
 #define ART_COMPILER_OPTIMIZING_LOAD_STORE_ANALYSIS_H_
 
+#include <array>
+#include <cstdio>
+#include <deque>
+#include <sstream>
+#include <unordered_map>
+#include <unordered_set>
+
+#include "base/arena_allocator.h"
+#include "base/arena_containers.h"
+#include "base/array_slice.h"
 #include "base/bit_vector-inl.h"
+#include "base/iteration_range.h"
+#include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
+#include "base/stl_util.h"
 #include "escape.h"
 #include "nodes.h"
 #include "optimization.h"
+#include "optimizing/optimizing_compiler_stats.h"
+#include "scoped_thread_state_change.h"
 
 namespace art {
+// A representation of a particular section of the graph. Only some executions
+// might go through this subgraph. The graph is split into an excluded and included area.
+class ExecutionSubgraph : public ArenaObject<kArenaAllocLSA> {
+ public:
+  // A set of connected blocks which are connected and all unreachable.
+  struct ExcludedCohort : public ArenaObject<kArenaAllocLSA> {
+   public:
+    ExcludedCohort(ExcludedCohort&&) = default;
+    ExcludedCohort(const ExcludedCohort&) = delete;
+    explicit ExcludedCohort(ScopedArenaAllocator* allocator)
+        : entry_blocks_(std::less<const HBasicBlock*>(), allocator->Adapter(kArenaAllocLSA)),
+          exit_blocks_(std::less<const HBasicBlock*>(), allocator->Adapter(kArenaAllocLSA)),
+          blocks_(std::less<const HBasicBlock*>(), allocator->Adapter(kArenaAllocLSA)) {}
+
+    ~ExcludedCohort() = default;
+
+    // Blocks that have predecessors outside of the cohort. These blocks will
+    // need to have PHIs/control-flow added to create the escaping value.
+    const ScopedArenaSet<const HBasicBlock*>& GetEntryBlocks() const {
+      return entry_blocks_;
+    }
+    // Blocks that have successors outside of the cohort. The successors of
+    // these blocks will need to have PHI's to restore state.
+    const ScopedArenaSet<const HBasicBlock*>& GetExitBlocks() const {
+      return exit_blocks_;
+    }
+    // All blocks in the cohort.
+    const ScopedArenaSet<const HBasicBlock*>& GetBlocks() const {
+      return blocks_;
+    }
+
+    bool operator==(const ExcludedCohort& other) const {
+      return blocks_ == other.blocks_;
+    }
+
+    bool ContainsBlock(const HBasicBlock* blk) const {
+      return GetBlocks().find(blk) != GetBlocks().end();
+    }
+
+    bool SucceedsBlock(const HBasicBlock* blk) const {
+      if (ContainsBlock(blk)) {
+        return false;
+      }
+      return std::any_of(
+          GetEntryBlocks().cbegin(), GetEntryBlocks().cend(), [&](auto entry) -> bool {
+            return blk->GetGraph()->PathBetween(blk, entry);
+          });
+    }
+    bool PrecedesBlock(const HBasicBlock* blk) const {
+      if (ContainsBlock(blk)) {
+        return false;
+      }
+      return std::any_of(GetExitBlocks().cbegin(), GetExitBlocks().cend(), [&](auto exit) -> bool {
+        return blk->GetGraph()->PathBetween(exit, blk);
+      });
+    }
+
+    void Dump(std::ostream& os) const;
+
+   private:
+    ExcludedCohort() = delete;
+
+    // TODO Avoid creating manually memory managed sets.
+    ScopedArenaSet<const HBasicBlock*> entry_blocks_;
+    ScopedArenaSet<const HBasicBlock*> exit_blocks_;
+    ScopedArenaSet<const HBasicBlock*> blocks_;
+
+    friend class ExecutionSubgraph;
+    friend class LoadStoreAnalysisTest;
+  };
+
+  // The number of successors we can track on a single block. Graphs which
+  // contain a block with a branching factor greater than this will not be
+  // analysed.
+  static constexpr uint32_t kMaxFilterableSuccessors = 8;
+
+  ExecutionSubgraph(HGraph* graph, ScopedArenaAllocator* allocator)
+      : graph_(graph),
+        allocator_(allocator),
+        allowed_successors_(std::less<const HBasicBlock*>(), allocator_->Adapter(kArenaAllocLSA)),
+        unreachable_blocks_(allocator_->Adapter(kArenaAllocLSA)),
+        valid_(std::all_of(graph->GetBlocks().begin(),
+                           graph->GetBlocks().end(),
+                           [](HBasicBlock* it) {
+                             return it == nullptr ||
+                                    it->GetSuccessors().size() < kMaxFilterableSuccessors;
+                           })),
+        needs_prune_(false) {}
+
+  void Invalidate() {
+    valid_ = false;
+  }
+
+  bool ContainsBlock(const HBasicBlock* blk) const {
+    DCHECK(!needs_prune_);
+    if (!valid_) {
+      return false;
+    }
+    return unreachable_blocks_.find(blk) == unreachable_blocks_.end();
+  }
+
+  void RemoveBlock(const HBasicBlock* to_remove) {
+    if (!valid_) {
+      return;
+    }
+    unreachable_blocks_.insert(to_remove);
+    for (HBasicBlock* pred : to_remove->GetPredecessors()) {
+      std::bitset<kMaxFilterableSuccessors> set;
+      for (auto [succ, i] : ZipCount(MakeIterationRange(pred->GetSuccessors()))) {
+        if (succ != to_remove) {
+          set.set(i);
+        } else {
+          set.reset(i);
+        }
+      }
+      LimitBlockSuccessors(pred, set);
+    }
+  }
+
+  void Finalize() {
+    Prune();
+    RemoveConcavity();
+  }
+
+  const ScopedArenaSet<const HBasicBlock*>& GetUnreachableBlocks() const {
+    return unreachable_blocks_;
+  }
+
+  // Returns true if all allowed execution paths from start eventually reach 'end' (or diverge).
+  bool IsValid() const {
+    return valid_;
+  }
+
+  ArrayRef<const ExcludedCohort> GetExcludedCohorts() const {
+    DCHECK(!valid_ || !needs_prune_);
+    if (!valid_ || unreachable_blocks_.empty()) {
+      return ArrayRef<const ExcludedCohort>();
+    } else {
+      return ArrayRef<const ExcludedCohort>(excluded_list_->data(), excluded_list_->size());
+    }
+  }
+
+  // Returns an iterator over reachable blocks (filtered as we go). This is primarially for testing.
+  // NB This is auto because it makes it simpler to write. The type is
+  // FilterIterator<typeof(graph_->GetBlocks().begin()), typeof([this](HBasicBlock* v) -> bool)>
+  auto ReachableBlocks() const {
+    return Filter(MakeIterationRange(graph_->GetBlocks()), [this](HBasicBlock* v) -> bool {
+      static_assert(std::is_same_v<typeof(this), const ExecutionSubgraph*>, "Bad substitution");
+      return v != nullptr && ContainsBlock(v);
+    });
+  }
+
+ private:
+  std::bitset<kMaxFilterableSuccessors> GetAllowedSuccessors(const HBasicBlock* blk) const {
+    auto it = allowed_successors_.find(blk);
+    if (it == allowed_successors_.end()) {
+      return ~(std::bitset<kMaxFilterableSuccessors>());
+    } else {
+      return it->second;
+    }
+  }
+
+  void RemoveConcavity() {
+    if (!valid_) {
+      return;
+    }
+    DCHECK(!needs_prune_);
+    std::unordered_set<const HBasicBlock*> initial_unreachable(GetUnreachableBlocks().begin(), GetUnreachableBlocks().end());
+    for (auto blk : graph_->GetBlocks()) {
+      if (initial_unreachable.find(blk) != initial_unreachable.end()) {
+        continue;
+      }
+      for (auto skipped1 : initial_unreachable) {
+        if (LIKELY(!graph_->PathBetween(skipped1, blk))) {
+          continue;
+        }
+        for (auto skipped2 : initial_unreachable) {
+          if (graph_->PathBetween(blk, skipped2)) {
+            RemoveBlock(blk);
+          }
+        }
+      }
+    }
+    Prune();
+  }
+
+  // Removes sink nodes.
+  void Prune() {
+    if (!valid_) {
+      return;
+    }
+    needs_prune_ = false;
+    // Grab blocks further up the tree.
+    // TODO Using the block-id might be better to avoid allocation.
+    std::unordered_map<const HBasicBlock*, std::bitset<kMaxFilterableSuccessors>> results;
+    std::unordered_set<const HBasicBlock*> visiting;
+    unreachable_blocks_.clear();
+    results[graph_->GetExitBlock()] = ~(std::bitset<kMaxFilterableSuccessors>());
+    // Fills up the 'results' map with what we need to add to update
+    // allowed_successors to in order to prune sink nodes.
+    std::function<bool(const HBasicBlock*)> reaches_end = [&](const HBasicBlock* blk) {
+      auto it = results.find(blk);
+      if (visiting.find(blk) != visiting.end()) {
+        // We are in a loop so the block is live.
+        return true;
+      } else if (it != results.end()) {
+        CHECK(it->second.any() || unreachable_blocks_.find(it->first) != unreachable_blocks_.end());
+        return it->second.any();
+      }
+      visiting.insert(blk);
+      // what we currently allow.
+      std::bitset<kMaxFilterableSuccessors> succ_bitmap = GetAllowedSuccessors(blk);
+      // The new allowed successors. We use visiting to break loops so we don't
+      // need to figure out how many bits to turn on.
+      std::bitset<kMaxFilterableSuccessors>& result =
+          results.emplace(blk, std::bitset<kMaxFilterableSuccessors>()).first->second;
+      for (auto [succ, i] :
+           ZipCount(MakeIterationRange(blk->GetSuccessors().begin(), blk->GetSuccessors().end()))) {
+        if (succ_bitmap.test(i) && reaches_end(succ)) {
+          result.set(i);
+        }
+      }
+      visiting.erase(blk);
+      bool res = result.any();
+      if (!res) {
+        // If this is a sink block it will be removed from the successors of all
+        // its predecessors and made unreachable.
+        CHECK(blk != nullptr);
+        unreachable_blocks_.insert(blk);
+      }
+      return res;
+    };
+    bool start_reaches_end = reaches_end(graph_->GetEntryBlock());
+    if (!start_reaches_end) {
+      valid_ = false;
+      return;
+    }
+    for (const HBasicBlock* blk : graph_->GetBlocks()) {
+      if (blk != nullptr && results.find(blk) == results.end() && blk != graph_->GetEntryBlock()) {
+        // We never visited this block, must be unreachable.
+        unreachable_blocks_.insert(blk);
+      }
+    }
+    results.erase(graph_->GetExitBlock());
+    allowed_successors_.clear();
+    for (auto [b, v] : results) {
+      if (v.count() != b->GetSuccessors().size()) {
+        allowed_successors_.Put(b, v);
+      }
+    }
+    RecalculateExcludedCohort();
+  }
+
+  void LimitBlockSuccessors(const HBasicBlock* block,
+                            std::bitset<kMaxFilterableSuccessors> allowed) {
+    needs_prune_ = true;
+    allowed_successors_.GetOrCreate(
+        block, []() { return ~std::bitset<kMaxFilterableSuccessors>(); }) &= allowed;
+  }
+
+  void RecalculateExcludedCohort() {
+    DCHECK(!needs_prune_);
+    excluded_list_.emplace(allocator_->Adapter(kArenaAllocLSA));
+    ScopedArenaVector<ExcludedCohort>& res = excluded_list_.value();
+    // Make a copy of unreachable_blocks_;
+    std::set<const HBasicBlock*> unreachable(unreachable_blocks_.begin(),
+                                             unreachable_blocks_.end());
+    // Split cohorts with union-find
+    while (!unreachable.empty()) {
+      res.emplace_back(allocator_);
+      ExcludedCohort& cohort = res.back();
+      std::queue<const HBasicBlock*> worklist;
+      // Select a random node
+      const HBasicBlock* first = *unreachable.begin();
+      worklist.push(first);
+      do {
+        // Flood-fill both forwards and backwards.
+        const HBasicBlock* cur = worklist.front();
+        worklist.pop();
+        if (unreachable.find(cur) == unreachable.end()) {
+          // Already visited or reachable somewhere else.
+          continue;
+        }
+        unreachable.erase(cur);
+        if (cur == nullptr) {
+          continue;
+        }
+        cohort.blocks_.insert(cur);
+        // don't bother filtering here, it's done next go-around
+        for (const HBasicBlock* pred : cur->GetPredecessors()) {
+          worklist.push(pred);
+        }
+        for (const HBasicBlock* succ : cur->GetSuccessors()) {
+          worklist.push(succ);
+        }
+      } while (!worklist.empty());
+      // res.emplace_back(std::move(cohort));
+    }
+    // Figure out entry & exit nodes.
+    for (ExcludedCohort& cohort : res) {
+      CHECK_GT(cohort.GetBlocks().size(), 0u);
+      auto is_external = [&](const HBasicBlock* ext) -> bool {
+        return cohort.blocks_.find(ext) == cohort.blocks_.end();
+      };
+      for (const HBasicBlock* blk : cohort.blocks_) {
+        auto preds = blk->GetPredecessors();
+        auto succs = blk->GetSuccessors();
+        if (std::any_of(preds.cbegin(), preds.cend(), is_external)) {
+          cohort.entry_blocks_.insert(blk);
+        }
+        if (std::any_of(succs.cbegin(), succs.cend(), is_external)) {
+          cohort.exit_blocks_.insert(blk);
+        }
+      }
+    }
+  }
+
+  HGraph* graph_;
+  ScopedArenaAllocator* allocator_;
+  ScopedArenaSafeMap<const HBasicBlock*, std::bitset<kMaxFilterableSuccessors>> allowed_successors_;
+  ScopedArenaSet<const HBasicBlock*> unreachable_blocks_;
+  mutable std::optional<ScopedArenaVector<ExcludedCohort>> excluded_list_;
+  bool valid_;
+  bool needs_prune_;
+
+  DISALLOW_COPY_AND_ASSIGN(ExecutionSubgraph);
+};
+
+std::ostream& operator<<(std::ostream& os, const ExecutionSubgraph::ExcludedCohort& ex);
 
 // A ReferenceInfo contains additional info about a reference such as
 // whether it's a singleton, returned, etc.
-class ReferenceInfo : public ArenaObject<kArenaAllocLSA> {
+class ReferenceInfo : public DeletableArenaObject<kArenaAllocLSA> {
  public:
-  ReferenceInfo(HInstruction* reference, size_t pos)
+  ReferenceInfo(HInstruction* reference, ScopedArenaAllocator* allocator, size_t pos, bool for_elimination)
       : reference_(reference),
         position_(pos),
         is_singleton_(true),
         is_singleton_and_not_returned_(true),
-        is_singleton_and_not_deopt_visible_(true) {
+        is_singleton_and_not_deopt_visible_(true),
+        subgraph_(reference->GetBlock()->GetGraph(), allocator) {
+    // TODO We can do this in one pass.
+    // TODO NewArray is possible but will need to get a handle on how to deal with the dynamic loads
+    // for now just ignore it.
+    bool can_be_partial =
+        for_elimination && (/* reference_->IsNewArray() || */ reference_->IsNewInstance());
+    if (can_be_partial) {
+      FuncEscapeVisitor func([&](HInstruction* inst) {
+        return HandleEscapes(inst);
+      });
+      VisitEscapes(reference_, func);
+    }
     CalculateEscape(reference_,
                     nullptr,
                     &is_singleton_,
                     &is_singleton_and_not_returned_,
                     &is_singleton_and_not_deopt_visible_);
+    if (can_be_partial) {
+      // subgraph_.Prune();
+      // This is to mark writes to partially escaped values as also part of the escaped subset.
+      // TODO We could avoid this if we had a 'ConditionalWrite' instruction.
+      PrunePartialEscapeWrites();
+      subgraph_.Finalize();
+    } else {
+      subgraph_.Invalidate();
+    }
+  }
+
+  const ExecutionSubgraph* GetNoEscapeSubgraph() const {
+    return &subgraph_;
   }
 
   HInstruction* GetReference() const {
@@ -57,6 +426,14 @@ class ReferenceInfo : public ArenaObject<kArenaAllocLSA> {
     return is_singleton_;
   }
 
+  // This is a singleton and there are paths that don't escape the method
+  bool IsPartialSingleton() const {
+    auto ref = GetReference();
+    // TODO NewArray is possible but will need to get a handle on how to deal with the dynamic loads
+    // for now just ignore it.
+    return (/* ref->IsNewArray() || */ ref->IsNewInstance()) && GetNoEscapeSubgraph()->IsValid();
+  }
+
   // Returns true if reference_ is a singleton and not returned to the caller or
   // used as an environment local of an HDeoptimize instruction.
   // The allocation and stores into reference_ may be eliminated for such cases.
@@ -72,6 +449,45 @@ class ReferenceInfo : public ArenaObject<kArenaAllocLSA> {
   }
 
  private:
+  bool HandleEscapes(HInstruction* escape) {
+    subgraph_.RemoveBlock(escape->GetBlock());
+    return true;
+  }
+
+  // Make sure we mark any writes/potential writes to heap-locations within partially
+  // escaped values as escaping.
+  void PrunePartialEscapeWrites() {
+    if (!subgraph_.IsValid()) {
+      // All paths escape.
+      return;
+    }
+    std::unordered_set<const HBasicBlock*> additional_exclusions;
+    for (const HUseListNode<HInstruction*>& use : reference_->GetUses()) {
+      const HInstruction* user = use.GetUser();
+      if (additional_exclusions.find(user->GetBlock()) == additional_exclusions.end() &&
+          subgraph_.GetUnreachableBlocks().find(user->GetBlock()) ==
+              subgraph_.GetUnreachableBlocks().end() &&
+          (user->IsUnresolvedInstanceFieldSet() || user->IsUnresolvedStaticFieldSet() ||
+           user->IsInstanceFieldSet() || user->IsStaticFieldSet() || user->IsArraySet()) &&
+          (reference_ == user->InputAt(0)) &&
+          std::any_of(subgraph_.GetUnreachableBlocks().cbegin(),
+                      subgraph_.GetUnreachableBlocks().cend(),
+                      [&](const HBasicBlock* excluded) -> bool {
+                        return reference_->GetBlock()->GetGraph()->PathBetween(excluded,
+                                                                               user->GetBlock());
+                      })) {
+        // This object had memory written to it somewhere, if it escaped along
+        // some paths prior to the current block this write also counts as an
+        additional_exclusions.insert(user->GetBlock());
+      }
+    }
+    if (UNLIKELY(!additional_exclusions.empty())) {
+      for (auto exc : additional_exclusions) {
+        subgraph_.RemoveBlock(exc);
+      }
+    }
+  }
+
   HInstruction* const reference_;
   const size_t position_;  // position in HeapLocationCollector's ref_info_array_.
 
@@ -81,6 +497,8 @@ class ReferenceInfo : public ArenaObject<kArenaAllocLSA> {
   bool is_singleton_and_not_returned_;
   // Is singleton and not used as an environment local of HDeoptimize.
   bool is_singleton_and_not_deopt_visible_;
+
+  ExecutionSubgraph subgraph_;
 
   DISALLOW_COPY_AND_ASSIGN(ReferenceInfo);
 };
@@ -174,7 +592,7 @@ class HeapLocationCollector : public HGraphVisitor {
   // aliasing matrix of 8 heap locations.
   static constexpr uint32_t kInitialAliasingMatrixBitVectorSize = 32;
 
-  explicit HeapLocationCollector(HGraph* graph, ScopedArenaAllocator* allocator)
+  explicit HeapLocationCollector(HGraph* graph, ScopedArenaAllocator* allocator, bool for_elimination = true)
       : HGraphVisitor(graph),
         allocator_(allocator),
         ref_info_array_(allocator->Adapter(kArenaAllocLSA)),
@@ -185,12 +603,18 @@ class HeapLocationCollector : public HGraphVisitor {
                          kArenaAllocLSA),
         has_heap_stores_(false),
         has_volatile_(false),
-        has_monitor_operations_(false) {
+        has_monitor_operations_(false),
+        for_elimination_(for_elimination) {
     aliasing_matrix_.ClearAllBits();
+  }
+
+  ~HeapLocationCollector() {
+    CleanUp();
   }
 
   void CleanUp() {
     heap_locations_.clear();
+    STLDeleteContainerPointers(ref_info_array_.begin(), ref_info_array_.end());
     ref_info_array_.clear();
   }
 
@@ -301,6 +725,53 @@ class HeapLocationCollector : public HGraphVisitor {
       }
     }
     return kHeapLocationNotFound;
+  }
+
+  bool InstructionEligibleForLSERemoval(HInstruction* inst) {
+    if (inst->IsNewInstance()) {
+      return !inst->AsNewInstance()->NeedsChecks();
+    } else if (inst->IsNewArray()) {
+      return inst->AsNewArray()->GetLength()->IsIntConstant() &&
+             inst->AsNewArray()->GetLength()->AsIntConstant()->GetValue() >= 0 &&
+             std::all_of(inst->GetUses().cbegin(),
+                         inst->GetUses().cend(),
+                         [&](const HUseListNode<HInstruction*>& user) {
+                           if (user.GetUser()->IsArrayGet() || user.GetUser()->IsArraySet()) {
+                             return user.GetUser()->InputAt(1)->IsIntConstant();
+                           }
+                           return true;
+                         });
+    } else {
+      return false;
+    }
+  }
+
+  // Get some estimated statistics based on our analysis.
+  void DumpReferenceStats(OptimizingCompilerStats* stats) {
+    if (stats == nullptr) {
+      return;
+    }
+    std::vector<bool> seen_instructions(GetGraph()->GetCurrentInstructionId(), false);
+    for (auto hl : heap_locations_) {
+      auto ri = hl->GetReferenceInfo();
+      if (ri == nullptr || seen_instructions[ri->GetReference()->GetId()]) {
+        continue;
+      }
+      auto instruction = ri->GetReference();
+      seen_instructions[instruction->GetId()] = true;
+      if (ri->IsSingletonAndRemovable()) {
+        if (InstructionEligibleForLSERemoval(instruction)) {
+          MaybeRecordStat(stats, MethodCompilationStat::kFullLSEPossible);
+        } else {
+          MaybeRecordStat(stats, MethodCompilationStat::kFullLSEPossibleWithExtendedChecks);
+        }
+      }
+      if (ri->IsPartialSingleton() && instruction->IsNewInstance() &&
+          !ri->GetNoEscapeSubgraph()->GetExcludedCohorts().empty() &&
+          InstructionEligibleForLSERemoval(instruction)) {
+        MaybeRecordStat(stats, MethodCompilationStat::kPartialLSEPossible);
+      }
+    }
   }
 
   // Returns true if heap_locations_[index1] and heap_locations_[index2] may alias.
@@ -417,7 +888,7 @@ class HeapLocationCollector : public HGraphVisitor {
     ReferenceInfo* ref_info = FindReferenceInfoOf(instruction);
     if (ref_info == nullptr) {
       size_t pos = ref_info_array_.size();
-      ref_info = new (allocator_) ReferenceInfo(instruction, pos);
+      ref_info = new (allocator_) ReferenceInfo(instruction, allocator_, pos, for_elimination_);
       ref_info_array_.push_back(ref_info);
     }
     return ref_info;
@@ -554,15 +1025,22 @@ class HeapLocationCollector : public HGraphVisitor {
                             // alias analysis and won't be as effective.
   bool has_volatile_;       // If there are volatile field accesses.
   bool has_monitor_operations_;    // If there are monitor operations.
+  bool for_elimination_;
 
   DISALLOW_COPY_AND_ASSIGN(HeapLocationCollector);
 };
 
 class LoadStoreAnalysis {
  public:
-  explicit LoadStoreAnalysis(HGraph* graph, ScopedArenaAllocator* local_allocator)
-    : graph_(graph),
-      heap_location_collector_(graph, local_allocator) {}
+  // For elimination controls whether we should keep track of escapes at a per-block level for
+  // partial LSE.
+  explicit LoadStoreAnalysis(HGraph* graph,
+                             OptimizingCompilerStats* stats,
+                             ScopedArenaAllocator* local_allocator,
+                             bool for_elimination = true)
+      : graph_(graph),
+        stats_(stats),
+        heap_location_collector_(graph, local_allocator, for_elimination) {}
 
   const HeapLocationCollector& GetHeapLocationCollector() const {
     return heap_location_collector_;
@@ -572,6 +1050,7 @@ class LoadStoreAnalysis {
 
  private:
   HGraph* graph_;
+  OptimizingCompilerStats* stats_;
   HeapLocationCollector heap_location_collector_;
 
   DISALLOW_COPY_AND_ASSIGN(LoadStoreAnalysis);
