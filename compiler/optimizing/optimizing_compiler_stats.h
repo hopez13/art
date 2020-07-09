@@ -108,6 +108,14 @@ enum class MethodCompilationStat {
   kConstructorFenceRemovedCFRE,
   kBitstringTypeCheck,
   kJitOutOfMemoryForCommit,
+  kFullLSEAllocationRemoved,
+  kFullLSEPossible,
+  kFullLSEPossibleWithExtendedChecks,
+  kNonPartialLoadRemoved,
+  kNonSingletonLoadRemoved,
+  kPartialLSEPossible,
+  kPartialLoadRemoved,
+  kPartialStoreRemoved,
   kLastStat
 };
 std::ostream& operator<<(std::ostream& os, MethodCompilationStat rhs);

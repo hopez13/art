@@ -50,8 +50,8 @@ inline IterationRange<Iter> MakeIterationRange(const Iter& begin_it, const Iter&
 }
 
 template<typename List>
-inline IterationRange<typename List::iterator> MakeIterationRange(List& list) {
-  return IterationRange<typename List::iterator>(list.begin(), list.end());
+inline auto MakeIterationRange(List& list) {
+  return MakeIterationRange(list.begin(), list.end());
 }
 
 template <typename Iter>
