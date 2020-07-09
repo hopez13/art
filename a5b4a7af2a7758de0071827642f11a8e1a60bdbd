@@ -39,6 +39,30 @@
       "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fe4e4c8_b16ed134",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-09T15:02:00Z",
+      "side": 1,
+      "message": "Not really. The 32-bit DIV uses EDX:EAX. And there is no reason to use the 64-bit DIV for the 32-bit divideUnsigned.",
+      "parentUuid": "4fd367b9_d3f1d38f",
+      "range": {
+        "startLine": 2693,
+        "startChar": 1,
+        "endLine": 2693,
+        "endChar": 40
+      },
+      "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
