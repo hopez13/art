@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dffc719a_d7ad84d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-09T13:14:09Z",
+      "side": 1,
+      "message": "PS4 is rebased and slightly reworked. Changes since PS3:\n\n- use the ART boot image in the testing APEX com.android.art.testing instead of the former core.art\n- make a few tweaks to make art-apex-tester pass the check (it checks the contents of the ART APEX which now contain additional libs for the simulator)\n- fix a typo in README.simulator.md\n- disable a few more tests that crash ART with \"illegal instruction\"\n\nOtherwise the test specified in commit message passed locally for targets aosp_arm64-userdebug and aosp_walleye-userdebug. I\u0027m starting presubmit and more tests.\n\nDavid, Martin, Roland, Vladimir: PTAL (I\u0027m going to merge this if the tests are in order).",
+      "revId": "d136b6c56511bcebb900a356ee75008e5b1492d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
