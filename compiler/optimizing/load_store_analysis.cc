@@ -15,6 +15,7 @@
  */
 
 #include "load_store_analysis.h"
+#include "exec_utils.h"
 
 namespace art {
 
@@ -172,6 +173,7 @@ bool LoadStoreAnalysis::Run() {
   }
 
   heap_location_collector_.BuildAliasingMatrix();
+  heap_location_collector_.DumpReferenceStats(stats_);
   return true;
 }
 
