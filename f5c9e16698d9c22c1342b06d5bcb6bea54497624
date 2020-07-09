@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4477d8eb_d0b9f2a7",
+        "filename": "compiler/debug/dwarf/dwarf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-09T11:29:24Z",
+      "side": 1,
+      "message": "Maybe {0} is indeed invalid.  GNU objdump didn\u0027t bother parsing the expression so it didn\u0027t matter.",
+      "parentUuid": "44cb0a19_ba9c8dd5",
+      "range": {
+        "startLine": 71,
+        "startChar": 44,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e789091_7abb4713",
         "filename": "compiler/debug/dwarf/dwarf_test.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bea6863_2814dc0c",
+        "filename": "compiler/debug/dwarf/dwarf_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-09T11:29:24Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "2e789091_7abb4713",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
