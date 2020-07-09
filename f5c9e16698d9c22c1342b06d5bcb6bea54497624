@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44cb0a19_ba9c8dd5",
+        "filename": "compiler/debug/dwarf/dwarf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-09T11:01:22Z",
+      "side": 1,
+      "message": "Here and below it is worth to mention that \u0027decoding error\u0027 is due to limitations of llvm-dwarfdump, not because data is invalid. Maybe it should be marked with \u0027FIXME:\u0027.",
+      "range": {
+        "startLine": 71,
+        "startChar": 44,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e789091_7abb4713",
+        "filename": "compiler/debug/dwarf/dwarf_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-09T11:01:22Z",
+      "side": 1,
+      "message": "std::replace(str.begin(), str.end(), \u0027\\t\u0027, \u0027 \u0027);",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50595653_bb6ee330",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-09T11:01:22Z",
+      "side": 1,
+      "message": "gnueabi",
+      "range": {
+        "startLine": 153,
+        "startChar": 86,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1938da_5931ee2e",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-09T11:01:22Z",
+      "side": 1,
+      "message": "Why not to use \u0027llvm-binutils-stable\u0027 which uses symlinks? \nI understand you need clang. So the symlinks can be parsed to get a real path where clang can be found. An alternative solution is to include llvm-mc into llvm-binutils-stable. \u0027llvm-mc\u0027 is LLVM integrated assembler.",
+      "range": {
+        "startLine": 304,
+        "startChar": 76,
+        "endLine": 304,
+        "endChar": 90
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
