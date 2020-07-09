@@ -21,6 +21,7 @@
 #include <array>
 #include <type_traits>
 
+#include "base/arena_allocator.h"
 #include "base/arena_bit_vector.h"
 #include "base/arena_containers.h"
 #include "base/arena_object.h"
@@ -387,6 +388,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         blocks_(allocator->Adapter(kArenaAllocBlockList)),
         reverse_post_order_(allocator->Adapter(kArenaAllocReversePostOrder)),
         linear_order_(allocator->Adapter(kArenaAllocLinearOrder)),
+        reachability_graph_(allocator, 0, true, kArenaAllocReachabilityGraph),
         entry_block_(nullptr),
         exit_block_(nullptr),
         maximum_number_of_out_vregs_(0),
@@ -442,6 +444,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   void ComputeDominanceInformation();
   void ClearDominanceInformation();
+  void ComputeReachabilityInformation();
+  void ClearReachabilityInformation();
   void ClearLoopInformation();
   void FindBackEdges(ArenaBitVector* visited);
   GraphAnalysisResult BuildDominatorTree();
@@ -590,6 +594,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     has_bounds_checks_ = value;
   }
 
+  // Returns true if dest is reachable from source, using either blocks or block-ids.
+  bool PathBetween(const HBasicBlock* source, const HBasicBlock* dest) const;
+  bool PathBetween(uint32_t source_id, uint32_t dest_id) const;
+
   // Is the code known to be robust against eliminating dead references
   // and the effects of early finalization?
   bool IsDeadReferenceSafe() const { return dead_reference_safe_; }
@@ -697,6 +705,39 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   void SetNumberOfCHAGuards(uint32_t num) { number_of_cha_guards_ = num; }
   void IncrementNumberOfCHAGuards() { number_of_cha_guards_++; }
 
+  class BlockIdToBlockTransformer {
+   public:
+    BlockIdToBlockTransformer(BlockIdToBlockTransformer&&) = default;
+    BlockIdToBlockTransformer(const BlockIdToBlockTransformer&) = default;
+
+    const HGraph* GetGraph() const {
+      return graph_;
+    }
+
+    HBasicBlock* GetBlock(uint32_t id) const {
+      DCHECK_LT(id, graph_->GetBlocks().size()) << graph_->PrettyMethod();
+      HBasicBlock* blk = graph_->GetBlocks()[id];
+      DCHECK(blk != nullptr);
+      return blk;
+    }
+
+    HBasicBlock* operator()(uint32_t id) const {
+      return GetBlock(id);
+    }
+
+   private:
+    explicit BlockIdToBlockTransformer(const HGraph* graph) : graph_(graph) {}
+
+    const HGraph* const graph_;
+
+    friend class HGraph;
+  };
+
+  // Returns a functor that transforms block-ids to the corresponding block in this graph.
+  BlockIdToBlockTransformer GetBlockIdTransformer() const {
+    return BlockIdToBlockTransformer(this);
+  }
+
  private:
   void RemoveInstructionsAsUsersFromDeadBlocks(const ArenaBitVector& visited) const;
   void RemoveDeadBlocks(const ArenaBitVector& visited);
@@ -745,6 +786,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // List of blocks to perform a linear order tree traversal. Unlike the reverse
   // post order, this order is not incrementally kept up-to-date.
   ArenaVector<HBasicBlock*> linear_order_;
+
+  // Reachability graph for checking connectedness between nodes. Acts as a partitioned vector where
+  // each RoundUp(blocks_.size(), BitVector::kWordBits) is the reachability of each node.
+  ArenaBitVector reachability_graph_;
 
   HBasicBlock* entry_block_;
   HBasicBlock* exit_block_;
