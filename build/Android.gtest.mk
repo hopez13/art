@@ -62,6 +62,8 @@ $(LOCAL_BUILT_MODULE):
 	@mkdir -p $(dir $@)
 	echo "This directory contains common data and tools needed for ART host tests" > $@
 
+HOST_TESTCASES_ART_COMMON := $(LOCAL_INSTALLED_MODULE)
+
 my_files :=
 include $(CLEAR_VARS)
 ###################################################################################################
