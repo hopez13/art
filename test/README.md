@@ -140,6 +140,20 @@ $ art/test.py --host -r -t 001-HelloWorld
 $ art/test.py --target -r -t 001-HelloWorld
 ```
 
+## Running one gtest on the build host
+
+```sh
+$ find out/host/ -type f -name art_runtime_tests  # Find the path of the test.
+$ out/host/linux-x86/nativetest/art_runtime_tests/art_runtime_tests
+```
+
+Add "--no_isolate" to run the tests one by one in single process (disable forking).
+Add "--gtest_filter=..." to select specific sub-test(s) to run.
+Prefix by "gdb --args " to run the test in gdb.
+
+## Running tests in forrest
+
+See http://go/art-tests-help
 
 # ART Continuous Integration
 
