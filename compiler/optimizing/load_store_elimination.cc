@@ -15,6 +15,8 @@
  */
 
 #include "load_store_elimination.h"
+#include <ios>
+#include <sstream>
 
 #include "base/arena_bit_vector.h"
 #include "base/array_ref.h"
@@ -24,6 +26,9 @@
 #include "escape.h"
 #include "load_store_analysis.h"
 #include "reference_type_propagation.h"
+#include "optimizing/nodes.h"
+#include "optimizing/optimizing_compiler_stats.h"
+#include "side_effects_analysis.h"
 
 /**
  * The general algorithm of load-store elimination (LSE).
@@ -2090,7 +2095,26 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
             }
           } else {
             DCHECK(IsStore(stored_by.GetInstruction()));
-            kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            auto instruction = stored_by.GetInstruction();
+            auto hv = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
+            CHECK(hv != nullptr) << "No heap value for "  << instruction->DebugName()
+                        << " id: " << instruction->GetId()
+                        << " block: " << instruction->GetBlock()->GetBlockId();
+            auto sg = hv->GetNoEscapeSubgraph();
+            // TODO Can I make this more general? Probs.
+            if (hv->IsPartialSingleton() &&
+                std::none_of(sg->GetExcludedCohorts().cbegin(),
+                             sg->GetExcludedCohorts().cend(),
+                             [&](const ExecutionSubgraph::ExcludedCohort& ex) {
+                               // Make sure we haven't yet and never will escape.
+                               return ex.PrecedesBlock(predecessor) ||
+                                      ex.ContainsBlock(predecessor) ||
+                                      ex.SucceedsBlock(predecessor);
+                             })) {
+              MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
+            } else {
+              kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            }
           }
         }
       }
@@ -2265,6 +2289,7 @@ void LSEVisitor::Run() {
     if (!new_instance->HasNonEnvironmentUses()) {
       new_instance->RemoveEnvironmentUsers();
       new_instance->GetBlock()->RemoveInstruction(new_instance);
+      MaybeRecordStat(stats_, MethodCompilationStat::kFullLSEAllocationRemoved);
     }
   }
 }
@@ -2276,8 +2301,10 @@ bool LoadStoreElimination::Run() {
     // Skip this optimization.
     return false;
   }
+  graph_->ClearReachabilityInformation();
+  graph_->ComputeReachabilityInformation();
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator, true);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
