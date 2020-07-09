@@ -81,11 +81,12 @@ void VisitEscapes(HInstruction* reference, EscapeVisitor& escape_visitor) {
   }
 }
 
-void CalculateEscape(HInstruction* reference,
-                     NoEscapeCheck& no_escape,
-                     /*out*/ bool* is_singleton,
-                     /*out*/ bool* is_singleton_and_not_returned,
-                     /*out*/ bool* is_singleton_and_not_deopt_visible) {
+void CalculateAndVisitSingletonEscape(HInstruction* reference,
+                                      NoEscapeCheck& no_escape,
+                                      EscapeVisitor& ev,
+                                      /*out*/ bool* is_singleton,
+                                      /*out*/ bool* is_singleton_and_not_returned,
+                                      /*out*/ bool* is_singleton_and_not_deopt_visible) {
   // For references not allocated in the method, don't assume anything.
   if (!reference->IsNewInstance() && !reference->IsNewArray()) {
     *is_singleton = false;
@@ -103,7 +104,7 @@ void CalculateEscape(HInstruction* reference,
     *is_singleton_and_not_returned = false;
   }
 
-  LambdaEscapeVisitor visitor([&](HInstruction* escape) -> bool {
+  auto base_visit = [&](HInstruction* escape) -> bool {
     if (escape == reference || no_escape(reference, escape)) {
       // Ignore already known inherent escapes and escapes client supplied
       // analysis knows is safe. Continue on.
@@ -124,8 +125,25 @@ void CalculateEscape(HInstruction* reference,
       *is_singleton_and_not_deopt_visible = false;
       return false;
     }
-  });
+  };
+  LambdaEscapeVisitor visitor([&](auto escape) { return ev(escape) || base_visit(escape); });
   VisitEscapes(reference, visitor);
+}
+
+void CalculateEscape(HInstruction* reference,
+                     NoEscapeCheck& no_escape,
+                     /*out*/ bool* is_singleton,
+                     /*out*/ bool* is_singleton_and_not_returned,
+                     /*out*/ bool* is_singleton_and_not_deopt_visible) {
+  // The visitor itself doesn't care about seeing anything so return false. The iteration will
+  // end when calculate-escape thinks it's done.
+  LambdaEscapeVisitor ev([](auto f ATTRIBUTE_UNUSED) { return false; });
+  return CalculateAndVisitSingletonEscape(reference,
+                                          no_escape,
+                                          ev,
+                                          is_singleton,
+                                          is_singleton_and_not_returned,
+                                          is_singleton_and_not_deopt_visible);
 }
 
 bool DoesNotEscape(HInstruction* reference, NoEscapeCheck& no_escape) {
