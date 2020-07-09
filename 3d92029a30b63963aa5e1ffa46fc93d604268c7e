@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f35b0b0_d9330b80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-09T16:51:14Z",
+      "side": 1,
+      "message": "A few more tweaks in Android.bp files related to release/debug flavors and linking (one of the gtests revealed that in the previous patch set there was a clash between libartbase.so and libartbased.so that were both loaded at the same time).",
+      "revId": "3d92029a30b63963aa5e1ffa46fc93d604268c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
