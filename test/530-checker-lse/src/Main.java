@@ -84,6 +84,12 @@ interface Filter {
 
 public class Main {
 
+  static Object ESCAPE = null;
+  static void $noinline$Escape(TestClass o) {
+    ESCAPE = o;
+    o.next.i++;
+  }
+
   /// CHECK-START: double Main.calcCircleArea(double) load_store_elimination (before)
   /// CHECK: NewInstance
   /// CHECK: InstanceFieldSet
@@ -3728,6 +3734,53 @@ public class Main {
     return t;
   }
 
+  private static boolean $noinline$getBoolean(boolean val) {
+    return val;
+  }
+
+  /// CHECK-START: int Main.testPartialEscape1(TestClass, boolean) load_store_elimination (before)
+  /// CHECK:         ParameterValue
+  /// CHECK:         NewInstance
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InstanceFieldSet
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         InstanceFieldSet
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         Phi
+  /// CHECK-NOT:     InvokeStaticOrDirect
+  /// CHECK-NOT:     InstanceFieldSet
+  /// CHECK-NOT:     InstanceFieldGet
+  /// CHECK-START: int Main.testPartialEscape1(TestClass, boolean) load_store_elimination (after)
+  /// CHECK:         ParameterValue
+  /// CHECK:         NewInstance
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InstanceFieldSet
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         InstanceFieldGet
+  /// CHECK:         Phi
+  /// CHECK-NOT:     InvokeStaticOrDirect
+  /// CHECK-NOT:     InstanceFieldSet
+  /// CHECK-NOT:     InstanceFieldGet
+  private static int testPartialEscape1(TestClass obj, boolean escape) {
+    TestClass i = new SubTestClass();
+    int res;
+    if ($noinline$getBoolean(escape)) {
+      i.next = obj;
+      $noinline$Escape(i);
+      res = i.next.i;
+    } else {
+      i.next = obj;
+      res = i.next.i;
+    }
+    return res;
+  }
+
+
   private static void $noinline$clobberObservables() {}
 
   static void assertLongEquals(long result, long expected) {
@@ -4129,5 +4182,7 @@ public class Main {
     assertIntEquals(testNestedLoop8(new TestClass(), 3), 0);
     assertLongEquals(testOverlapLoop(10), 34l);
     assertLongEquals(testOverlapLoop(50), 7778742049l);
+    assertIntEquals(testPartialEscape1(new TestClass(), true), 1);
+    assertIntEquals(testPartialEscape1(new TestClass(), false), 0);
   }
 }

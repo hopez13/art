@@ -226,10 +226,21 @@ class BitVector {
     return storage_size_ * kWordBytes;
   }
 
+  size_t GetBitSizeOf() const {
+    return storage_size_ * kWordBits;
+  }
+
   /**
    * @return the highest bit set, -1 if none are set
    */
   int GetHighestBitSet() const;
+
+  /**
+   * @return true if there are any bits set, false otherwise.
+   */
+  bool IsAnyBitSet() const {
+    return GetHighestBitSet() != -1;
+  }
 
   // Minimum number of bits required to store this vector, 0 if none are set.
   size_t GetNumberOfBits() const {
