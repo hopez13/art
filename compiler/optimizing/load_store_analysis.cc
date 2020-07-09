@@ -15,12 +15,55 @@
  */
 
 #include "load_store_analysis.h"
+#include "exec_utils.h"
 
 namespace art {
 
 // A cap for the number of heap locations to prevent pathological time/space consumption.
 // The number of heap locations for most of the methods stays below this threshold.
 constexpr size_t kMaxNumberOfHeapLocations = 32;
+
+std::ostream& operator<<(std::ostream& os, const ExecutionSubgraph::ExcludedCohort& ex) {
+  ex.Dump(os);
+  return os;
+}
+
+void ExecutionSubgraph::ExcludedCohort::Dump(std::ostream &os) const {
+  auto dump = [&](auto arr) {
+    os << "[";
+    bool first = true;
+    for (auto b : arr) {
+      if (!first) {
+        os << ", ";
+      }
+      first = false;
+      os << b->GetBlockId();
+    }
+    os << "]";
+  };
+  auto dump_blocks = [&]() {
+    os << "[";
+    bool first = true;
+    for (auto b : Blocks()) {
+      if (!entry_blocks_.IsBitSet(b->GetBlockId()) && !exit_blocks_.IsBitSet(b->GetBlockId())) {
+        if (!first) {
+          os << ", ";
+        }
+        first = false;
+        os << b->GetBlockId();
+      }
+    }
+    os << "]";
+  };
+
+  os << "{ entry: ";
+  dump(EntryBlocks());
+  os << ", interior: ";
+  dump_blocks();
+  os << ", exit: ";
+  dump(ExitBlocks());
+  os << "}";
+}
 
 // Test if two integer ranges [l1,h1] and [l2,h2] overlap.
 // Note that the ranges are inclusive on both ends.
@@ -166,12 +209,12 @@ bool LoadStoreAnalysis::Run() {
   if (heap_location_collector_.HasVolatile() || heap_location_collector_.HasMonitorOps()) {
     // Don't do load/store elimination if the method has volatile field accesses or
     // monitor operations, for now.
-    // TODO: do it right.
     heap_location_collector_.CleanUp();
     return false;
   }
 
   heap_location_collector_.BuildAliasingMatrix();
+  heap_location_collector_.DumpReferenceStats(stats_);
   return true;
 }
 

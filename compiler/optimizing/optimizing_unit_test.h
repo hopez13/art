@@ -317,7 +317,9 @@ class AdjacencyListGraph {
       HBasicBlock* dest_blk = name_to_block_.GetOrCreate(dest, create_block);
       src_blk->AddSuccessor(dest_blk);
     }
+    graph_->ClearReachabilityInformation();
     graph_->ComputeDominanceInformation();
+    graph_->ComputeReachabilityInformation();
     for (auto [name, blk] : name_to_block_) {
       block_to_name_.Put(blk, name);
     }
