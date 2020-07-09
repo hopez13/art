@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61b0fb7c_c50d9655",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-09T23:38:12Z",
+      "side": 0,
+      "message": "I assume this line confirms that __ARM_ARCH_8A__ implies __ARM_FEATURE_LPAE ?",
+      "revId": "ed651031dce64bd475971db132bb673a0a289bc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
