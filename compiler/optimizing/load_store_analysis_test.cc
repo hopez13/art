@@ -15,16 +15,42 @@
  */
 
 #include "load_store_analysis.h"
-#include "nodes.h"
-#include "optimizing_unit_test.h"
 
+#include <array>
+#include <string_view>
+#include <unordered_map>
+#include <unordered_set>
+
+#include "base/scoped_arena_allocator.h"
+#include "class_root.h"
+#include "dex/dex_file_types.h"
+#include "dex/method_reference.h"
+#include "entrypoints/quick/quick_entrypoints_enum.h"
 #include "gtest/gtest.h"
+#include "handle.h"
+#include "handle_scope.h"
+#include "nodes.h"
+#include "optimizing/data_type.h"
+#include "optimizing_unit_test.h"
+#include "scoped_thread_state_change.h"
 
 namespace art {
 
+using BlockSet = std::unordered_set<const HBasicBlock*>;
+
 class LoadStoreAnalysisTest : public OptimizingUnitTest {
  public:
-  LoadStoreAnalysisTest() : graph_(CreateGraph()) { }
+  LoadStoreAnalysisTest() : graph_(CreateGraph()) {}
+
+  AdjacencyListGraph SetupFromAdjacencyList(
+      const std::string_view entry_name,
+      const std::string_view exit_name,
+      const std::vector<AdjacencyListGraph::Edge>& adj) {
+    return AdjacencyListGraph(graph_, GetAllocator(), entry_name, exit_name, adj);
+  }
+
+  bool IsValidSubgraph(const ExecutionSubgraph* esg);
+  bool IsValidSubgraph(const ExecutionSubgraph& esg);
 
   HGraph* graph_;
 };
@@ -244,7 +270,7 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexAliasingTest) {
   entry->AddInstruction(arr_set8);  // array[i-(-1)] = c0
 
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/false);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
 
@@ -411,7 +437,7 @@ TEST_F(LoadStoreAnalysisTest, ArrayAliasingTest) {
   entry->AddInstruction(vstore_i_add6_vlen2);
 
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/false);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
 
@@ -570,7 +596,7 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexCalculationOverflowTest) {
   entry->AddInstruction(arr_set_8);
 
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/false);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
 
@@ -676,6 +702,1434 @@ TEST_F(LoadStoreAnalysisTest, TestHuntOriginalRef) {
   ASSERT_EQ(loc1, loc2);
   ASSERT_EQ(loc1, loc3);
   ASSERT_EQ(loc1, loc4);
+}
+
+bool LoadStoreAnalysisTest::IsValidSubgraph(const ExecutionSubgraph* esg) {
+  bool reached_end = false;
+  std::queue<const HBasicBlock*> worklist;
+  std::unordered_set<const HBasicBlock*> visited;
+  worklist.push(graph_->GetEntryBlock());
+  while (!worklist.empty()) {
+    const HBasicBlock* cur = worklist.front();
+    worklist.pop();
+    if (visited.find(cur) != visited.end()) {
+      continue;
+    } else {
+      visited.insert(cur);
+    }
+    if (cur == graph_->GetExitBlock()) {
+      reached_end = true;
+      continue;
+    }
+    bool has_succ = false;
+    for (const HBasicBlock* succ : cur->GetSuccessors()) {
+      if (succ == nullptr || !esg->ContainsBlock(succ)) {
+        continue;
+      }
+      has_succ = true;
+      worklist.push(succ);
+    }
+    if (!has_succ) {
+      // We aren't at the end and have nowhere to go so fail.
+      return false;
+    }
+  }
+  return reached_end;
+}
+
+bool LoadStoreAnalysisTest::IsValidSubgraph(const ExecutionSubgraph& esg) {
+  return IsValidSubgraph(&esg);
+}
+
+// +-------+       +-------+
+// | right | <--   | entry |
+// +-------+       +-------+
+//   |               |
+//   |               |
+//   |               v
+//   |           + - - - - - +
+//   |           '  removed  '
+//   |           '           '
+//   |           ' +-------+ '
+//   |           ' | left  | '
+//   |           ' +-------+ '
+//   |           '           '
+//   |           + - - - - - +
+//   |               |
+//   |               |
+//   |               v
+//   |             +-------+
+//   +--------->   | exit  |
+//                 +-------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphBasic) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("left"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+  esg.RemoveBlock(blks.Get("right"));
+  esg.Finalize();
+  std::unordered_set<const HBasicBlock*> contents_2(esg.ReachableBlocks().begin(),
+                                                    esg.ReachableBlocks().end());
+  ASSERT_EQ(contents_2.size(), 0u);
+}
+
+//                   +-------+         +-------+
+//                   | right |   <--   | entry |
+//                   +-------+         +-------+
+//                     |                 |
+//                     |                 |
+//                     |                 v
+//                     |             + - - - - - - - - - - - - - - - - - - - -+
+//                     |             '             indirectly_removed         '
+//                     |             '                                        '
+//                     |             ' +-------+                      +-----+ '
+//                     |             ' |  l1   | -------------------> | l1r | '
+//                     |             ' +-------+                      +-----+ '
+//                     |             '   |                              |     '
+//                     |             '   |                              |     '
+//                     |             '   v                              |     '
+//                     |             ' +-------+                        |     '
+//                     |             ' |  l1l  |                        |     '
+//                     |             ' +-------+                        |     '
+//                     |             '   |                              |     '
+//                     |             '   |                              |     '
+//                     |             '   |                              |     '
+// + - - - - - - - -+  |      +- - -     |                              |     '
+// '                '  |      +-         v                              |     '
+// ' +-----+           |               +----------------+               |     '
+// ' | l2r | <---------+-------------- |  l2 (removed)  | <-------------+     '
+// ' +-----+           |               +----------------+                     '
+// '   |            '  |      +-         |                                    '
+// '   |       - - -+  |      +- - -     |         - - - - - - - - - - - - - -+
+// '   |     '         |             '   |       '
+// '   |     '         |             '   |       '
+// '   |     '         |             '   v       '
+// '   |     '         |             ' +-------+ '
+// '   |     '         |             ' |  l2l  | '
+// '   |     '         |             ' +-------+ '
+// '   |     '         |             '   |       '
+// '   |     '         |             '   |       '
+// '   |     '         |             '   |       '
+// '   |       - - -+  |      +- - -     |       '
+// '   |            '  |      +-         v       '
+// '   |               |               +-------+ '
+// '   +---------------+-------------> |  l3   | '
+// '                   |               +-------+ '
+// '                '  |      +-                 '
+// + - - - - - - - -+  |      +- - - - - - - - - +
+//                     |                 |
+//                     |                 |
+//                     |                 v
+//                     |               +-------+
+//                     +----------->   | exit  |
+//                                     +-------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphPropagation) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "l1" },
+                                                   { "l1", "l1l" },
+                                                   { "l1", "l1r" },
+                                                   { "l1l", "l2" },
+                                                   { "l1r", "l2" },
+                                                   { "l2", "l2l" },
+                                                   { "l2", "l2r" },
+                                                   { "l2l", "l3" },
+                                                   { "l2r", "l3" },
+                                                   { "l3", "exit" },
+                                                   { "entry", "right" },
+                                                   { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("l2"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  // ASSERT_EQ(contents.size(), 3u);
+  // Not present, no path through.
+  ASSERT_TRUE(contents.find(blks.Get("l1")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l2")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l3")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l1l")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l1r")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l2l")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l2r")) == contents.end());
+
+  // present, path through.
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// +------------------------------------+
+// |                                    |
+// |  +-------+       +-------+         |
+// |  | right | <--   | entry |         |
+// |  +-------+       +-------+         |
+// |    |               |               |
+// |    |               |               |
+// |    |               v               |
+// |    |             +-------+       +--------+
+// +----+--------->   |  l1   |   --> | l1loop |
+//      |             +-------+       +--------+
+//      |               |
+//      |               |
+//      |               v
+//      |           +- - - - - -+
+//      |           '  removed  '
+//      |           '           '
+//      |           ' +-------+ '
+//      |           ' |  l2   | '
+//      |           ' +-------+ '
+//      |           '           '
+//      |           +- - - - - -+
+//      |               |
+//      |               |
+//      |               v
+//      |             +-------+
+//      +--------->   | exit  |
+//                    +-------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphPropagationLoop) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "l1" },
+                                                   { "l1", "l2" },
+                                                   { "l1", "l1loop" },
+                                                   { "l1loop", "l1" },
+                                                   { "l2", "exit" },
+                                                   { "entry", "right" },
+                                                   { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("l2"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 5u);
+
+  // Not present, no path through.
+  ASSERT_TRUE(contents.find(blks.Get("l2")) == contents.end());
+
+  // present, path through.
+  // Since the loop can diverge we should leave it in the execution subgraph.
+  ASSERT_TRUE(contents.find(blks.Get("l1")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l1loop")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// +--------------------------------+
+// |                                |
+// |  +-------+     +-------+       |
+// |  | right | <-- | entry |       |
+// |  +-------+     +-------+       |
+// |    |             |             |
+// |    |             |             |
+// |    |             v             |
+// |    |           +-------+     +--------+
+// +----+---------> |  l1   | --> | l1loop |
+//      |           +-------+     +--------+
+//      |             |
+//      |             |
+//      |             v
+//      |           +-------+
+//      |           |  l2   |
+//      |           +-------+
+//      |             |
+//      |             |
+//      |             v
+//      |           +-------+
+//      +---------> | exit  |
+//                  +-------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphPropagationLoop2) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "l1" },
+                                                   { "l1", "l2" },
+                                                   { "l1", "l1loop" },
+                                                   { "l1loop", "l1" },
+                                                   { "l2", "exit" },
+                                                   { "entry", "right" },
+                                                   { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("l1"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+
+  // Not present, no path through.
+  ASSERT_TRUE(contents.find(blks.Get("l1")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l1loop")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l2")) == contents.end());
+
+  // present, path through.
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// +--------------------------------+
+// |                                |
+// |  +-------+     +-------+       |
+// |  | right | <-- | entry |       |
+// |  +-------+     +-------+       |
+// |    |             |             |
+// |    |             |             |
+// |    |             v             |
+// |    |           +-------+     +--------+
+// +----+---------> |  l1   | --> | l1loop |
+//      |           +-------+     +--------+
+//      |             |
+//      |             |
+//      |             v
+//      |           +-------+
+//      |           |  l2   |
+//      |           +-------+
+//      |             |
+//      |             |
+//      |             v
+//      |           +-------+
+//      +---------> | exit  |
+//                  +-------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphPropagationLoop3) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "l1" },
+                                                   { "l1", "l2" },
+                                                   { "l1", "l1loop" },
+                                                   { "l1loop", "l1" },
+                                                   { "l2", "exit" },
+                                                   { "entry", "right" },
+                                                   { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("l1loop"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+
+  // Not present, no path through. If we got to l1 loop then we must merge back
+  // with l1 and l2 so they're bad too.
+  ASSERT_TRUE(contents.find(blks.Get("l1loop")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l1")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("l2")) == contents.end());
+
+  // present, path through.
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphInvalid) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("left"));
+  esg.RemoveBlock(blks.Get("right"));
+  esg.Finalize();
+
+  ASSERT_FALSE(esg.IsValid());
+  ASSERT_FALSE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+}
+// Sibling branches are disconnected.
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphExclusions) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "a" },
+                                                   { "entry", "b" },
+                                                   { "entry", "c" },
+                                                   { "a", "exit" },
+                                                   { "b", "exit" },
+                                                   { "c", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("a"));
+  esg.RemoveBlock(blks.Get("c"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  // Not present, no path through.
+  ASSERT_TRUE(contents.find(blks.Get("a")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c")) == contents.end());
+
+  // present, path through.
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("b")) != contents.end());
+
+  ArraySlice<const ExecutionSubgraph::ExcludedCohort> exclusions(esg.GetExcludedCohorts());
+  ASSERT_EQ(exclusions.size(), 2u);
+  std::unordered_set<const HBasicBlock*> exclude_a({ blks.Get("a") });
+  std::unordered_set<const HBasicBlock*> exclude_c({ blks.Get("c") });
+  ASSERT_TRUE(std::find_if(exclusions.cbegin(),
+                           exclusions.cend(),
+                           [&](const ExecutionSubgraph::ExcludedCohort& it) {
+                             return it.GetBlocks() == exclude_a;
+                           }) != exclusions.cend());
+  ASSERT_TRUE(std::find_if(exclusions.cbegin(),
+                           exclusions.cend(),
+                           [&](const ExecutionSubgraph::ExcludedCohort& it) {
+                             return it.GetBlocks() == exclude_c;
+                           }) != exclusions.cend());
+}
+
+// Sibling branches are disconnected.
+//                                      +- - - - - - - - - - - - - - - - - - - - - - +
+//                                      '                      remove_c              '
+//                                      '                                            '
+//                                      ' +-----------+                              '
+//                                      ' | c_begin_2 | -------------------------+   '
+//                                      ' +-----------+                          |   '
+//                                      '                                        |   '
+//                                      +- - - - - - - - - - - - - - - - - -     |   '
+//                                          ^                                '   |   '
+//                                          |                                '   |   '
+//                                          |                                '   |   '
+//                   + - - - - - -+                                          '   |   '
+//                   '  remove_a  '                                          '   |   '
+//                   '            '                                          '   |   '
+//                   ' +--------+ '       +-----------+                 +---+'   |   '
+//                   ' | **a**  | ' <--   |   entry   |   -->           | b |'   |   '
+//                   ' +--------+ '       +-----------+                 +---+'   |   '
+//                   '            '                                          '   |   '
+//                   + - - - - - -+                                          '   |   '
+//                       |                  |                             |  '   |   '
+//                       |                  |                             |  '   |   '
+//                       |                  v                             |  '   |   '
+//                       |              +- - - - - - - -+                 |  '   |   '
+//                       |              '               '                 |  '   |   '
+//                       |              ' +-----------+ '                 |  '   |   '
+//                       |              ' | c_begin_1 | '                 |  '   |   '
+//                       |              ' +-----------+ '                 |  '   |   '
+//                       |              '   |           '                 |  '   |   '
+//                       |              '   |           '                 |  '   |   '
+//                       |              '   |           '                 |  '   |   '
+// + - - - - - - - - -+  |       + - - -    |            - - - - - - - +  |  '   |   '
+// '                  '  |       +          v                          '  |  +   |   '
+// ' +---------+         |                +-----------+                   |      |   '
+// ' | c_end_2 | <-------+--------------- | **c_mid** | <-----------------+------+   '
+// ' +---------+         |                +-----------+                   |          '
+// '                  '  |       +          |                          '  |  +       '
+// + - - - - - - - - -+  |       + - - -    |            - - - - - - - +  |  + - - - +
+//     |                 |              '   |           '                 |
+//     |                 |              '   |           '                 |
+//     |                 |              '   v           '                 |
+//     |                 |              ' +-----------+ '                 |
+//     |                 |              ' |  c_end_1  | '                 |
+//     |                 |              ' +-----------+ '                 |
+//     |                 |              '               '                 |
+//     |                 |              +- - - - - - - -+                 |
+//     |                 |                  |                             |
+//     |                 |                  |                             |
+//     |                 |                  v                             v
+//     |                 |                +---------------------------------+
+//     |                 +------------>   |              exit               |
+//     |                                  +---------------------------------+
+//     |                                    ^
+//     +------------------------------------+
+TEST_F(LoadStoreAnalysisTest, ExecutionSubgraphExclusionExtended) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "a" },
+                                                   { "entry", "b" },
+                                                   { "entry", "c_begin_1" },
+                                                   { "entry", "c_begin_2" },
+                                                   { "c_begin_1", "c_mid" },
+                                                   { "c_begin_2", "c_mid" },
+                                                   { "c_mid", "c_end_1" },
+                                                   { "c_mid", "c_end_2" },
+                                                   { "a", "exit" },
+                                                   { "b", "exit" },
+                                                   { "c_end_1", "exit" },
+                                                   { "c_end_2", "exit" } }));
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("a"));
+  esg.RemoveBlock(blks.Get("c_mid"));
+  esg.Finalize();
+  ASSERT_TRUE(esg.IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  // Not present, no path through.
+  ASSERT_TRUE(contents.find(blks.Get("a")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c_begin_1")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c_begin_2")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c_mid")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c_end_1")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("c_end_2")) == contents.end());
+
+  // present, path through.
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("b")) != contents.end());
+
+  ArraySlice<const ExecutionSubgraph::ExcludedCohort> exclusions(esg.GetExcludedCohorts());
+  ASSERT_EQ(exclusions.size(), 2u);
+  BlockSet exclude_a({ blks.Get("a") });
+  BlockSet exclude_c({ blks.Get("c_begin_1"),
+                       blks.Get("c_begin_2"),
+                       blks.Get("c_mid"),
+                       blks.Get("c_end_1"),
+                       blks.Get("c_end_2") });
+  ASSERT_TRUE(std::find_if(exclusions.cbegin(),
+                           exclusions.cend(),
+                           [&](const ExecutionSubgraph::ExcludedCohort& it) {
+                             return it.GetBlocks() == exclude_a;
+                           }) != exclusions.cend());
+  ASSERT_TRUE(
+      std::find_if(
+          exclusions.cbegin(), exclusions.cend(), [&](const ExecutionSubgraph::ExcludedCohort& it) {
+            return it.GetBlocks() == exclude_c &&
+                   BlockSet({ blks.Get("c_begin_1"), blks.Get("c_begin_2") }) ==
+                       it.GetEntryBlocks() &&
+                   BlockSet({ blks.Get("c_end_1"), blks.Get("c_end_2") }) == it.GetExitBlocks();
+          }) != exclusions.cend());
+}
+
+static bool AreExclusionsIndependent(const ExecutionSubgraph* esg) {
+  auto excluded = esg->GetExcludedCohorts();
+  if (excluded.size() < 2) {
+    return true;
+  }
+  // auto is_connected = [&](const HBasicBlock* first, const HBasicBlock* second) -> bool {
+  //   // TODO We can do this better
+  //   std::unordered_set<const HBasicBlock*> visited;
+  //   std::queue<const HBasicBlock*> worklist;
+  //   worklist.push(first);
+  //   do {
+  //     const HBasicBlock* cur = worklist.front();
+  //     visited.insert(cur);
+  //     worklist.pop();
+  //     if (cur == second) {
+  //       return true;
+  //     }
+  //     for (auto blk : cur->GetSuccessors()) {
+  //       if (visited.find(blk) == visited.end()) {
+  //         worklist.push(blk);
+  //       }
+  //     }
+  //   } while (!worklist.empty());
+  //   return false;
+  // };
+  for (auto first = excluded.begin(); first != (--excluded.end()); ++first) {
+    for (auto second = (first + 1); second != excluded.end(); ++second) {
+      for (auto entry : first->GetEntryBlocks()) {
+        for (auto exit : second->GetExitBlocks()) {
+          if (exit->GetGraph()->PathBetween(exit, entry)) {
+            return false;
+          }
+        }
+      }
+      for (auto entry : second->GetEntryBlocks()) {
+        for (auto exit : first->GetExitBlocks()) {
+          if (exit->GetGraph()->PathBetween(exit, entry)) {
+            return false;
+          }
+        }
+      }
+    }
+  }
+  return true;
+}
+
+// // ENTRY
+// arr = new arr;
+// if (parameter_value) {
+//   // LEFT
+//   call_func(arr);
+// } else {
+//   // RIGHT
+//   arr.field = 1;
+// }
+// // EXIT
+// arr.field;
+TEST_F(LoadStoreAnalysisTest, PartialEscape) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* left = blks.Get("left");
+  HBasicBlock* right = blks.Get("right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value);
+  entry->AddInstruction(bool_value);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(write_right);
+  right->AddInstruction(goto_right);
+
+  HInstruction* read_final = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                    nullptr,
+                                                                    DataType::Type::kInt32,
+                                                                    MemberOffset(10),
+                                                                    false,
+                                                                    0,
+                                                                    0,
+                                                                    graph_->GetDexFile(),
+                                                                    0);
+  exit->AddInstruction(read_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_TRUE(esg->IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  ASSERT_TRUE(AreExclusionsIndependent(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// // ENTRY
+// arr = new arr;
+// if (parameter_value) {
+//   // LEFT
+//   call_func(arr);
+// } else {
+//   // RIGHT
+//   arr.field = 1;
+// }
+// // EXIT
+// arr.field2;
+TEST_F(LoadStoreAnalysisTest, PartialEscape2) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* left = blks.Get("left");
+  HBasicBlock* right = blks.Get("right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value);
+  entry->AddInstruction(bool_value);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(write_right);
+  right->AddInstruction(goto_right);
+
+  HInstruction* read_final = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                    nullptr,
+                                                                    DataType::Type::kInt32,
+                                                                    MemberOffset(16),
+                                                                    false,
+                                                                    0,
+                                                                    0,
+                                                                    graph_->GetDexFile(),
+                                                                    0);
+  exit->AddInstruction(read_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_TRUE(esg->IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  ASSERT_TRUE(AreExclusionsIndependent(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// // ENTRY
+// arr = new arr;
+// arr.field = 10;
+// if (parameter_value) {
+//   // LEFT
+//   call_func(arr);
+// } else {
+//   // RIGHT
+//   arr.field = 20;
+// }
+// // EXIT
+// arr.field;
+TEST_F(LoadStoreAnalysisTest, PartialEscape3) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* left = blks.Get("left");
+  HBasicBlock* right = blks.Get("right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* c10 = graph_->GetIntConstant(10);
+  HInstruction* c20 = graph_->GetIntConstant(20);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+
+  HInstruction* write_entry = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c10,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value);
+  entry->AddInstruction(bool_value);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(write_entry);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c20,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(write_right);
+  right->AddInstruction(goto_right);
+
+  HInstruction* read_final = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                    nullptr,
+                                                                    DataType::Type::kInt32,
+                                                                    MemberOffset(10),
+                                                                    false,
+                                                                    0,
+                                                                    0,
+                                                                    graph_->GetDexFile(),
+                                                                    0);
+  exit->AddInstruction(read_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_TRUE(esg->IsValid());
+  ASSERT_TRUE(IsValidSubgraph(esg));
+  ASSERT_TRUE(AreExclusionsIndependent(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 3u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+
+  ASSERT_TRUE(contents.find(blks.Get("right")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) != contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
+}
+
+// // ENTRY
+// arr = new Arr();
+// if (parameter_value) {
+//   // LEFT
+//   call_func(arr);
+// } else {
+//   // RIGHT
+//   arr.f1 = 1;
+// }
+// // EXIT
+// // This write prevents LSE since we don't know if it escapes through the call_func.
+// arr.f2 = 0;
+TEST_F(LoadStoreAnalysisTest, TotalEscapeAdjacent) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* left = blks.Get("left");
+  HBasicBlock* right = blks.Get("right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value);
+  entry->AddInstruction(bool_value);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(write_right);
+  right->AddInstruction(goto_right);
+
+  HInstruction* write_final = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(16),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  exit->AddInstruction(write_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_FALSE(esg->IsValid()) << esg->GetExcludedCohorts();
+  ASSERT_FALSE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("right")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) == contents.end());
+}
+
+// // ENTRY
+// arr = new Arr();
+// if (parameter_value) {
+//   // LEFT
+//   call_func(arr);
+// } else {
+//   // RIGHT
+//   arr[0] = 1;
+//   call_func2(arr);
+// }
+// // EXIT
+// arr[0];
+TEST_F(LoadStoreAnalysisTest, TotalEscape) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList(
+      "entry",
+      "exit",
+      { { "entry", "left" }, { "entry", "right" }, { "left", "exit" }, { "right", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* left = blks.Get("left");
+  HBasicBlock* right = blks.Get("right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value);
+  entry->AddInstruction(bool_value);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+
+  HInstruction* call_right = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  call_right->AsInvoke()->SetRawInputAt(0, new_inst);
+  right->AddInstruction(write_right);
+  right->AddInstruction(call_right);
+  right->AddInstruction(goto_right);
+
+  HInstruction* read_final = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                    nullptr,
+                                                                    DataType::Type::kInt32,
+                                                                    MemberOffset(10),
+                                                                    false,
+                                                                    0,
+                                                                    0,
+                                                                    graph_->GetDexFile(),
+                                                                    0);
+  exit->AddInstruction(read_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_FALSE(esg->IsValid());
+  ASSERT_FALSE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("right")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("entry")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) == contents.end());
+}
+
+// // ENTRY
+// arr = new Arr();
+// arr.foo = 0;
+// // EXIT
+// return arr;
+TEST_F(LoadStoreAnalysisTest, TotalEscape2) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry", "exit", { { "entry", "exit" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+
+  HInstruction* write_start = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_inst = new (GetAllocator()) HGoto();
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(write_start);
+  entry->AddInstruction(goto_inst);
+
+  HInstruction* return_final = new (GetAllocator()) HReturn(new_inst);
+  exit->AddInstruction(return_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_FALSE(esg->IsValid());
+  ASSERT_FALSE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+  ASSERT_TRUE(contents.find(blks.Get("entry")) == contents.end());
+  ASSERT_TRUE(contents.find(blks.Get("exit")) == contents.end());
+}
+
+// // ENTRY
+// arr = new Arr();
+// if (parameter_value) {
+//   // HIGH_LEFT
+//   call_func(arr);
+// } else {
+//   // HIGH_RIGHT
+//   arr[0] = 1;
+// }
+// // MID
+// arr[0] *= 2;
+// if (parameter_value2) {
+//   // LOW_LEFT
+//   call_func(arr);
+// } else {
+//   // LOW_RIGHT
+//   arr[0] = 1;
+// }
+// // EXIT
+// arr[0]
+TEST_F(LoadStoreAnalysisTest, DoubleDiamondEscape) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "high_left" },
+                                                   { "entry", "high_right" },
+                                                   { "low_left", "exit" },
+                                                   { "low_right", "exit" },
+                                                   { "high_right", "mid" },
+                                                   { "high_left", "mid" },
+                                                   { "mid", "low_left" },
+                                                   { "mid", "low_right" } }));
+  HBasicBlock* entry = blks.Get("entry");
+  HBasicBlock* high_left = blks.Get("high_left");
+  HBasicBlock* high_right = blks.Get("high_right");
+  HBasicBlock* mid = blks.Get("mid");
+  HBasicBlock* low_left = blks.Get("low_left");
+  HBasicBlock* low_right = blks.Get("low_right");
+  HBasicBlock* exit = blks.Get("exit");
+
+  HInstruction* bool_value1 = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* bool_value2 = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 2, DataType::Type::kBool);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* c2 = graph_->GetIntConstant(2);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* if_inst = new (GetAllocator()) HIf(bool_value1);
+  entry->AddInstruction(bool_value1);
+  entry->AddInstruction(bool_value2);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(if_inst);
+
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  call_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  high_left->AddInstruction(call_left);
+  high_left->AddInstruction(goto_left);
+
+  HInstruction* write_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                     c0,
+                                                                     nullptr,
+                                                                     DataType::Type::kInt32,
+                                                                     MemberOffset(10),
+                                                                     false,
+                                                                     0,
+                                                                     0,
+                                                                     graph_->GetDexFile(),
+                                                                     0);
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  high_right->AddInstruction(write_right);
+  high_right->AddInstruction(goto_right);
+
+  HInstruction* read_mid = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                  nullptr,
+                                                                  DataType::Type::kInt32,
+                                                                  MemberOffset(10),
+                                                                  false,
+                                                                  0,
+                                                                  0,
+                                                                  graph_->GetDexFile(),
+                                                                  0);
+  HInstruction* mul_mid = new (GetAllocator()) HMul(DataType::Type::kInt32, read_mid, c2);
+  HInstruction* write_mid = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                   mul_mid,
+                                                                   nullptr,
+                                                                   DataType::Type::kInt32,
+                                                                   MemberOffset(10),
+                                                                   false,
+                                                                   0,
+                                                                   0,
+                                                                   graph_->GetDexFile(),
+                                                                   0);
+  HInstruction* if_mid = new (GetAllocator()) HIf(bool_value2);
+  mid->AddInstruction(read_mid);
+  mid->AddInstruction(mul_mid);
+  mid->AddInstruction(write_mid);
+  mid->AddInstruction(if_mid);
+
+  HInstruction* call_low_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            0,
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            { nullptr, 0 },
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_low_left = new (GetAllocator()) HGoto();
+  call_low_left->AsInvoke()->SetRawInputAt(0, new_inst);
+  low_left->AddInstruction(call_low_left);
+  low_left->AddInstruction(goto_low_left);
+
+  HInstruction* write_low_right = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                                         c0,
+                                                                         nullptr,
+                                                                         DataType::Type::kInt32,
+                                                                         MemberOffset(10),
+                                                                         false,
+                                                                         0,
+                                                                         0,
+                                                                         graph_->GetDexFile(),
+                                                                         0);
+  HInstruction* goto_low_right = new (GetAllocator()) HGoto();
+  low_right->AddInstruction(write_low_right);
+  low_right->AddInstruction(goto_low_right);
+
+  HInstruction* read_final = new (GetAllocator()) HInstanceFieldGet(new_inst,
+                                                                    nullptr,
+                                                                    DataType::Type::kInt32,
+                                                                    MemberOffset(10),
+                                                                    false,
+                                                                    0,
+                                                                    0,
+                                                                    graph_->GetDexFile(),
+                                                                    0);
+  exit->AddInstruction(read_final);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+
+  ASSERT_FALSE(esg->IsValid());
+  ASSERT_FALSE(IsValidSubgraph(esg));
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+}
+
+//    ┌───────┐     ┌────────────┐
+// ┌─ │ right │ ◀── │   entry    │
+// │  └───────┘     └────────────┘
+// │                  │
+// │                  │
+// │                  ▼
+// │                ┌────────────┐
+// │                │  esc_top   │
+// │                └────────────┘
+// │                  │
+// │                  │
+// │                  ▼
+// │                ┌────────────┐
+// └──────────────▶ │   middle   │ ─┐
+//                  └────────────┘  │
+//                    │             │
+//                    │             │
+//                    ▼             │
+//                  ┌────────────┐  │
+//                  │ esc_bottom │  │
+//                  └────────────┘  │
+//                    │             │
+//                    │             │
+//                    ▼             │
+//                  ┌────────────┐  │
+//                  │    exit    │ ◀┘
+//                  └────────────┘
+TEST_F(LoadStoreAnalysisTest, InAndOutEscape) {
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 { { "entry", "esc_top" },
+                                                   { "entry", "right" },
+                                                   { "esc_top", "middle" },
+                                                   { "right", "middle" },
+                                                   { "middle", "exit" },
+                                                   { "middle", "esc_bottom" },
+                                                   { "esc_bottom", "exit" } }));
+
+  ScopedArenaAllocator saa(graph_->GetArenaStack());
+  ExecutionSubgraph esg(graph_);
+  esg.RemoveBlock(blks.Get("esc_top"));
+  esg.RemoveBlock(blks.Get("esc_bottom"));
+  esg.Finalize();
+
+  std::unordered_set<const HBasicBlock*> contents(esg.ReachableBlocks().begin(),
+                                                  esg.ReachableBlocks().end());
+  ASSERT_EQ(contents.size(), 0u);
+  ASSERT_FALSE(esg.IsValid());
+  ASSERT_FALSE(IsValidSubgraph(esg));
+
+  ASSERT_EQ(contents.size(), 0u);
 }
 
 }  // namespace art

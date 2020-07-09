@@ -15,15 +15,20 @@
  */
 
 #include "load_store_elimination.h"
+#include <ios>
 
 #include "base/arena_bit_vector.h"
 #include "base/array_ref.h"
 #include "base/bit_vector-inl.h"
+#include "base/bit_vector.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "escape.h"
 #include "load_store_analysis.h"
+#include "nodes.h"
+#include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
+#include "side_effects_analysis.h"
 
 /**
  * The general algorithm of load-store elimination (LSE).
@@ -567,7 +572,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
         // We use this function when reading a location with unknown value and
         // therefore we cannot know what exact store wrote that unknown value.
         // But we can have a phi placeholder here marking multiple stores to keep.
-        DCHECK(!heap_values[i].stored_by.IsInstruction());
+        DCHECK(!heap_values[i].stored_by.IsInstruction() || heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo()->IsPartialSingleton());
         KeepStores(heap_values[i].stored_by);
         heap_values[i].stored_by = Value::Unknown();
       } else if (heap_location_collector_.MayAlias(i, loc_index)) {
@@ -1288,6 +1293,16 @@ void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
     // This acts like GVN but with better aliasing analysis.
     record.value = Value::ForInstruction(instruction);
     KeepStoresIfAliasedToLocation(heap_values, idx);
+    if (heap_location_collector_.GetHeapLocation(idx)->GetReferenceInfo()->IsPartialSingleton()) {
+      // We must be after a partial escape (since otherwise we'd have a real value). Prevent partial
+      // writes from being cleared since we'll need to actually do the read.
+      // TODO We should record this and handle it better. Depending on the location we might be able
+      // to move the read up or only conditionally read the value.
+      // LOG(INFO) << "Keeping store for " << idx << " " << instruction->DebugName() << "@" << instruction->GetId();
+      for (HBasicBlock* pred : instruction->GetBlock()->GetPredecessors()) {
+        KeepStoresIfAliasedToLocation(heap_values_for_[pred->GetBlockId()], idx);
+      }
+    }
   } else if (record.value.NeedsLoopPhi()) {
     // We do not know yet if the value is known for all back edges. Record for future processing.
     loads_requiring_loop_phi_.insert(std::make_pair(instruction, record));
@@ -2046,6 +2061,10 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
     work_queue.push_back(index);
   }
   const ArenaVector<HBasicBlock*>& blocks = GetGraph()->GetBlocks();
+  std::optional<ArenaBitVector> not_kept_stores;
+  if (stats_) {
+    not_kept_stores.emplace(GetGraph()->GetAllocator(), kept_stores_.GetBitSizeOf(), false, ArenaAllocKind::kArenaAllocLSE);
+  }
   while (!work_queue.empty()) {
     const PhiPlaceholder* phi_placeholder = &phi_placeholders_[work_queue.back()];
     work_queue.pop_back();
@@ -2074,11 +2093,46 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
             }
           } else {
             DCHECK(IsStore(stored_by.GetInstruction()));
-            kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            ReferenceInfo* ri = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
+            DCHECK(ri != nullptr) << "No heap value for " << stored_by.GetInstruction()->DebugName()
+                                  << " id: " << stored_by.GetInstruction()->GetId() << " block: "
+                                  << stored_by.GetInstruction()->GetBlock()->GetBlockId();
+            const ExecutionSubgraph* sg = ri->GetNoEscapeSubgraph();
+            if (ri->IsPartialSingleton() &&
+                std::none_of(sg->GetExcludedCohorts().cbegin(),
+                             sg->GetExcludedCohorts().cend(),
+                             [&](const ExecutionSubgraph::ExcludedCohort& ex) -> bool {
+                               // Make sure we haven't yet and never will escape.
+                               return ex.PrecedesBlock(predecessor) ||
+                                      ex.ContainsBlock(predecessor) ||
+                                      ex.SucceedsBlock(predecessor);
+                             })) {
+              if (not_kept_stores) {
+                not_kept_stores->SetBit(i);
+                LOG(INFO) << "Method " << GetGraph()->PrettyMethod() << " not kept " << stored_by.GetInstruction()->GetId();
+              }
+              // MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
+            } else {
+              kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            }
           }
         }
       }
     }
+  }
+  if (not_kept_stores) {
+    // a - b := (a & ~b)
+    not_kept_stores->Subtract(&kept_stores_);
+    auto num_removed = not_kept_stores->NumSetBits();
+    MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved, num_removed);
+    if (num_removed > 0) {
+      LOG(INFO) << "Method " << GetGraph()->PrettyMethod() << " removed " << num_removed;
+    }
+    // for (size_t i = 0; i < kept_stores_.GetBitSizeOf(); ++i) {
+    //   if (not_kept_stores->IsBitSet(i) && !kept_stores_.IsBitSet(i)) {
+    //     MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
+    //   }
+    // }
   }
 }
 
@@ -2250,6 +2304,7 @@ void LSEVisitor::Run() {
     if (!new_instance->HasNonEnvironmentUses()) {
       new_instance->RemoveEnvironmentUsers();
       new_instance->GetBlock()->RemoveInstruction(new_instance);
+      MaybeRecordStat(stats_, MethodCompilationStat::kFullLSEAllocationRemoved);
     }
   }
 }
@@ -2261,8 +2316,14 @@ bool LoadStoreElimination::Run() {
     // Skip this optimization.
     return false;
   }
+  // We need to be able to determine reachability. Clear it just to be safe but
+  // this should initally be empty.
+  graph_->ClearReachabilityInformation();
+  // This is O(blocks^3) time complexity. It means we can query reachability in
+  // O(1) though.
+  graph_->ComputeReachabilityInformation();
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator, /*for_elimination=*/true);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
