@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_ESCAPE_H_
 #define ART_COMPILER_OPTIMIZING_ESCAPE_H_
 
+#include <functional>
+
 namespace art {
 
 class HInstruction;
@@ -25,6 +27,47 @@ class HInstruction;
  * Methods related to escape analysis, i.e. determining whether an object
  * allocation is visible outside ('escapes') its immediate method context.
  */
+
+class EscapeVisitor {
+ public:
+  virtual ~EscapeVisitor() {}
+  virtual bool Visit(HInstruction* escape) = 0;
+  bool operator()(HInstruction* user) {
+    return Visit(user);
+  }
+};
+
+template <typename F>
+class FuncEscapeVisitor : public EscapeVisitor {
+ public:
+  explicit FuncEscapeVisitor(F f) : func_(f) {}
+  bool Visit(HInstruction* escape) override {
+    return func_(escape);
+  }
+
+ private:
+  F func_;
+};
+
+class NoEscapeCheck {
+ public:
+  virtual ~NoEscapeCheck() {}
+  virtual bool NoEscape(HInstruction* reference, HInstruction* user) = 0;
+  bool operator()(HInstruction* ref, HInstruction* user) {
+    return NoEscape(ref, user);
+  }
+};
+template <typename F>
+class FuncNoEscapeCheck : public NoEscapeCheck {
+ public:
+  explicit FuncNoEscapeCheck(F f) : func_(f) {}
+  bool NoEscape(HInstruction* ref, HInstruction* user) {
+    return func_(ref, user);
+  }
+
+ private:
+  F func_;
+};
 
 /*
  * Performs escape analysis on the given instruction, typically a reference to an
@@ -52,16 +95,44 @@ class HInstruction;
  * analysis is applied to the user instead.
  */
 void CalculateEscape(HInstruction* reference,
-                     bool (*no_escape)(HInstruction*, HInstruction*),
+                     NoEscapeCheck& no_escape,
                      /*out*/ bool* is_singleton,
                      /*out*/ bool* is_singleton_and_not_returned,
                      /*out*/ bool* is_singleton_and_not_deopt_visible);
+
+inline void CalculateEscape(HInstruction* reference,
+                            bool (*no_escape)(HInstruction*, HInstruction*),
+                            /*out*/ bool* is_singleton,
+                            /*out*/ bool* is_singleton_and_not_returned,
+                            /*out*/ bool* is_singleton_and_not_deopt_visible) {
+  FuncNoEscapeCheck esc(no_escape);
+  FuncNoEscapeCheck noop_esc([](HInstruction*, HInstruction*) { return false; });
+  CalculateEscape(reference,
+                  no_escape == nullptr ? static_cast<NoEscapeCheck&>(noop_esc) : esc,
+                  is_singleton,
+                  is_singleton_and_not_returned,
+                  is_singleton_and_not_deopt_visible);
+}
+
+/*
+ * Performs escape analysis and visits each escape of the reference. Does not try to calculate any
+ * overall information about the method. Escapes are calculated in the same way as CalculateEscape.
+ *
+ * The escape_visitor should return true to continue visiting, false otherwise.
+ */
+void VisitEscapes(HInstruction* reference, EscapeVisitor& escape_visitor);
 
 /*
  * Convenience method for testing the singleton and not returned properties at once.
  * Callers should be aware that this method invokes the full analysis at each call.
  */
-bool DoesNotEscape(HInstruction* reference, bool (*no_escape)(HInstruction*, HInstruction*));
+bool DoesNotEscape(HInstruction* reference, NoEscapeCheck& no_escape);
+
+inline bool DoesNotEscape(HInstruction* reference,
+                          bool (*no_escape)(HInstruction*, HInstruction*)) {
+  FuncNoEscapeCheck<typeof(no_escape)> esc(no_escape);
+  return DoesNotEscape(reference, esc);
+}
 
 }  // namespace art
 
