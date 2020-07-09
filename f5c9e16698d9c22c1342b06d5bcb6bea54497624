@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9a551f19_6e601fcd",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-09T11:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50595653_bb6ee330",
+      "range": {
+        "startLine": 153,
+        "startChar": 86,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c1938da_5931ee2e",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 1
@@ -130,6 +154,30 @@
       "writtenOn": "2020-07-09T11:01:22Z",
       "side": 1,
       "message": "Why not to use \u0027llvm-binutils-stable\u0027 which uses symlinks? \nI understand you need clang. So the symlinks can be parsed to get a real path where clang can be found. An alternative solution is to include llvm-mc into llvm-binutils-stable. \u0027llvm-mc\u0027 is LLVM integrated assembler.",
+      "range": {
+        "startLine": 304,
+        "startChar": 76,
+        "endLine": 304,
+        "endChar": 90
+      },
+      "revId": "f5c9e16698d9c22c1342b06d5bcb6bea54497624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "190a9b67_b0093daf",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-09T11:30:10Z",
+      "side": 1,
+      "message": "I considered both of those.  The answers I got from Stephen were:\n\u003e We don\u0027t provide a \"stable\" version of Clang or any other tools via symlink because symlinks often break build tools that don\u0027t notice that files have changed. The only reason for `llvm-binutils-stable` is for people to use those in the terminal for debugging purposes.\n\u003e You should use `clang` for any assembly. `llvm-mc` isn\u0027t command line compatible with `as` either, and does many more different things that might change/break over time.\n\nAdditionally, note that I need to copy all needed utils to testscases, so symlinks don\u0027t really solve much.",
+      "parentUuid": "4c1938da_5931ee2e",
       "range": {
         "startLine": 304,
         "startChar": 76,
