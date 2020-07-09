@@ -88,6 +88,34 @@ static bool CanBinaryOpsAlias(const HBinaryOperation* idx1,
   return CanIntegerRangesOverlap(l1, h1, l2, h2);
 }
 
+void HeapLocationCollector::DumpReferenceStats(OptimizingCompilerStats* stats) {
+  if (stats == nullptr) {
+    return;
+  }
+  std::vector<bool> seen_instructions(GetGraph()->GetCurrentInstructionId(), false);
+  for (auto hl : heap_locations_) {
+    auto ri = hl->GetReferenceInfo();
+    if (ri == nullptr || seen_instructions[ri->GetReference()->GetId()]) {
+      continue;
+    }
+    auto instruction = ri->GetReference();
+    seen_instructions[instruction->GetId()] = true;
+    if (ri->IsSingletonAndRemovable()) {
+      if (InstructionEligibleForLSERemoval(instruction)) {
+        MaybeRecordStat(stats, MethodCompilationStat::kFullLSEPossible);
+      }
+    }
+    // TODO This is an estimate of the number of allocations we will be able
+    // to (partially) remove. As additional work is done this can be refined.
+    if (ri->IsPartialSingleton() && instruction->IsNewInstance() &&
+        ri->GetNoEscapeSubgraph()->ContainsBlock(instruction->GetBlock()) &&
+        !ri->GetNoEscapeSubgraph()->GetExcludedCohorts().empty() &&
+        InstructionEligibleForLSERemoval(instruction)) {
+      MaybeRecordStat(stats, MethodCompilationStat::kPartialLSEPossible);
+    }
+  }
+}
+
 bool HeapLocationCollector::CanArrayElementsAlias(const HInstruction* idx1,
                                                   const size_t vector_length1,
                                                   const HInstruction* idx2,
@@ -172,6 +200,7 @@ bool LoadStoreAnalysis::Run() {
   }
 
   heap_location_collector_.BuildAliasingMatrix();
+  heap_location_collector_.DumpReferenceStats(stats_);
   return true;
 }
 

@@ -49,8 +49,8 @@ class ArenaBitVector : public BitVector, public ArenaObject<kArenaAllocGrowableB
                  ArenaAllocKind kind = kArenaAllocGrowableBitMap);
   ~ArenaBitVector() {}
 
- private:
-  DISALLOW_COPY_AND_ASSIGN(ArenaBitVector);
+  ArenaBitVector(ArenaBitVector&&) = default;
+  ArenaBitVector(const ArenaBitVector&) = delete;
 };
 
 }  // namespace art
