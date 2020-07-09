@@ -23,7 +23,10 @@
 #include "base/scoped_arena_containers.h"
 #include "escape.h"
 #include "load_store_analysis.h"
+#include "nodes.h"
+#include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
+#include "side_effects_analysis.h"
 
 /**
  * The general algorithm of load-store elimination (LSE).
@@ -2090,7 +2093,24 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
             }
           } else {
             DCHECK(IsStore(stored_by.GetInstruction()));
-            kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            ReferenceInfo* ri = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
+            DCHECK(ri != nullptr) << "No heap value for " << stored_by.GetInstruction()->DebugName()
+                                  << " id: " << stored_by.GetInstruction()->GetId() << " block: "
+                                  << stored_by.GetInstruction()->GetBlock()->GetBlockId();
+            const ExecutionSubgraph* sg = ri->GetNoEscapeSubgraph();
+            if (ri->IsPartialSingleton() &&
+                std::none_of(sg->GetExcludedCohorts().cbegin(),
+                             sg->GetExcludedCohorts().cend(),
+                             [&](const ExecutionSubgraph::ExcludedCohort& ex) -> bool {
+                               // Make sure we haven't yet and never will escape.
+                               return ex.PrecedesBlock(predecessor) ||
+                                      ex.ContainsBlock(predecessor) ||
+                                      ex.SucceedsBlock(predecessor);
+                             })) {
+              MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
+            } else {
+              kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            }
           }
         }
       }
@@ -2265,6 +2285,7 @@ void LSEVisitor::Run() {
     if (!new_instance->HasNonEnvironmentUses()) {
       new_instance->RemoveEnvironmentUsers();
       new_instance->GetBlock()->RemoveInstruction(new_instance);
+      MaybeRecordStat(stats_, MethodCompilationStat::kFullLSEAllocationRemoved);
     }
   }
 }
@@ -2276,8 +2297,14 @@ bool LoadStoreElimination::Run() {
     // Skip this optimization.
     return false;
   }
+  // We need to be able to determine reachability. Clear it just to be safe but
+  // this should initally be empty.
+  graph_->ClearReachabilityInformation();
+  // This is O(blocks^3) time complexity. It means we can query reachability in
+  // O(1) though.
+  graph_->ComputeReachabilityInformation();
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator, /*for_elimination=*/true);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
