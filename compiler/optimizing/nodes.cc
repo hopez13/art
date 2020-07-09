@@ -15,11 +15,13 @@
  */
 #include "nodes.h"
 
+#include <algorithm>
 #include <cfloat>
 
 #include "art_method-inl.h"
 #include "base/bit_utils.h"
 #include "base/bit_vector-inl.h"
+#include "base/iteration_range.h"
 #include "base/logging.h"
 #include "base/stl_util.h"
 #include "class_linker-inl.h"
@@ -261,6 +263,68 @@ static bool UpdateDominatorOfSuccessor(HBasicBlock* block, HBasicBlock* successo
     successor->SetDominator(new_dominator);
     return true;
   }
+}
+
+bool HGraph::PathBetween(const HBasicBlock* source, const HBasicBlock* dest) const {
+  DCHECK(!reachability_graph_.empty());
+  DCHECK_EQ(reachability_graph_.size(), blocks_.size() * blocks_.size());
+  if (source == nullptr || dest == nullptr) {
+    return false;
+  }
+  size_t source_idx = source->GetBlockId();
+  size_t dest_idx = dest->GetBlockId();
+  DCHECK_NE(source_idx, blocks_.size()) << "source not present in graph!";
+  DCHECK_NE(dest_idx, blocks_.size()) << "dest not present in graph!";
+  return reachability_graph_[source_idx * blocks_.size() + dest_idx];
+}
+
+void HGraph::ComputeReachabilityInformation() {
+  DCHECK(reachability_graph_.empty());
+  const size_t block_size = blocks_.size();
+  // Acts as |N| x |N| graph for WFI Algo.
+  reachability_graph_.resize(block_size * block_size);
+  ScopedArenaAllocator allocator(GetArenaStack());
+  auto get_idx = [&](const HBasicBlock* blk) -> size_t {
+    DCHECK(blk != nullptr);
+    DCHECK_EQ(static_cast<uint32_t>(std::distance(
+                  blocks_.cbegin(), std::find(blocks_.cbegin(), blocks_.cend(), blk))),
+              blk->GetBlockId());
+    return blk->GetBlockId();
+  };
+  auto add_edge = [&](size_t source, size_t dest) -> void {
+    reachability_graph_[source * block_size + dest] = true;
+  };
+  auto has_edge = [&](size_t source, size_t dest) -> bool {
+    return reachability_graph_[source * block_size + dest];
+  };
+  for (auto [blk, idx] : ZipCount(MakeIterationRange(blocks_))) {
+    if (blk == nullptr) {
+      continue;
+    }
+    // NB We don't put self-links here so we can detect loop'd blocks.
+    for (auto succ : blk->GetSuccessors()) {
+      if (succ == nullptr) {
+        continue;
+      }
+      add_edge(idx, get_idx(succ));
+    }
+  }
+  for (auto k : Range(block_size)) {
+    for (auto i : Range(block_size)) {
+      if (!has_edge(i, k)) {
+        continue;
+      }
+      for (auto j : Range(block_size)) {
+        if (has_edge(k, j)) {
+          add_edge(i, j);
+        }
+      }
+    }
+  }
+}
+
+void HGraph::ClearReachabilityInformation() {
+  reachability_graph_.clear();
 }
 
 void HGraph::ComputeDominanceInformation() {
