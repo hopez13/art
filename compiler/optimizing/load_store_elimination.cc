@@ -15,6 +15,8 @@
  */
 
 #include "load_store_elimination.h"
+#include <ios>
+#include <sstream>
 
 #include "base/arena_bit_vector.h"
 #include "base/array_ref.h"
@@ -24,6 +26,9 @@
 #include "escape.h"
 #include "load_store_analysis.h"
 #include "reference_type_propagation.h"
+#include "optimizing/nodes.h"
+#include "optimizing/optimizing_compiler_stats.h"
+#include "side_effects_analysis.h"
 
 /**
  * The general algorithm of load-store elimination (LSE).
@@ -551,6 +556,15 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   void KeepStores(Value value) {
     if (value.IsUnknown()) {
       return;
+    }
+    if (value.IsInstruction()) {
+      auto instruction = value.GetInstruction();
+    //   LOG(INFO) << "store being kept " << value.GetInstruction()->DebugName() << " id: " << value.GetInstruction()->GetId() << " block: " << value.GetInstruction()->GetBlock()->GetBlockId();
+              LOG(INFO) << "store being kept in method " << GetGraph()->PrettyMethod() << " store is " << instruction->DebugName()
+                        << " id: " << instruction->GetId()
+                        << " block: " << instruction->GetBlock()->GetBlockId();
+    // } else {
+    //   LOG(INFO) << "Non-instruction store being kept: blk-id: " << value.GetPhiPlaceholder()->GetBlockId() << " loc: " << value.GetPhiPlaceholder()->GetHeapLocation();
     }
     if (value.NeedsPhi()) {
       phi_placeholders_to_search_for_kept_stores_.SetBit(PhiPlaceholderIndex(value));
@@ -1350,6 +1364,7 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
     HandleExit(instruction->GetBlock());
     // We cannot remove a possibly throwing store.
     // After marking it as kept, it does not matter if we track it in `stored_by` or not.
+    // LOG(INFO) << "store being kept " << instruction->DebugName() << " id: " << instruction->GetId() << " block: " << instruction->GetBlock()->GetBlockId();
     kept_stores_.SetBit(instruction->GetId());
   }
 
@@ -2081,6 +2096,7 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
       size_t end = is_back_edge ? heap_values.size() : idx + 1u;
       for (size_t i = start; i != end; ++i) {
         Value stored_by = heap_values[i].stored_by;
+        Value used_by = heap_values[i].value;
         if (!stored_by.IsUnknown() && (i == idx || heap_location_collector_.MayAlias(i, idx))) {
           if (stored_by.NeedsPhi()) {
             size_t phi_placeholder_index = PhiPlaceholderIndex(stored_by);
@@ -2090,7 +2106,43 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
             }
           } else {
             DCHECK(IsStore(stored_by.GetInstruction()));
-            kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            auto instruction = stored_by.GetInstruction();
+            auto hv = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
+            CHECK(hv != nullptr) << "No heap value for "  << instruction->DebugName()
+                        << " id: " << instruction->GetId()
+                        << " block: " << instruction->GetBlock()->GetBlockId();
+            auto sg = hv->GetNoEscapeSubgraph();
+            // TODO Can I make this more general? Probs.
+            if (hv->IsPartialSingleton() &&
+                // std::none_of(
+                //     excl.begin(), excl.end(), [&](const ExecutionSubgraph::ExcludedCohort& ex) {
+                //       return ex.PrecedesBlock(block) || ex.ContainsBlock(block) ||
+                //       ex.SucceedsBlock(block);
+                //     }) &&
+                std::none_of(sg->GetExcludedCohorts().cbegin(),
+                             sg->GetExcludedCohorts().cend(),
+                             [&](const ExecutionSubgraph::ExcludedCohort& ex) {
+                               // Make sure we haven't yet and never will escape.
+                               return ex.PrecedesBlock(predecessor) ||
+                                      ex.ContainsBlock(predecessor) ||
+                                      ex.SucceedsBlock(predecessor);
+                             })) {
+              LOG(INFO) << "Not keeping store for method: " << GetGraph()->PrettyMethod()
+                        << " store is " << instruction->DebugName()
+                        << " id: " << instruction->GetId()
+                        << " block: " << instruction->GetBlock()->GetBlockId()
+                        << " get is " << used_by.GetInstruction()->DebugName()
+                        << " id: " << used_by.GetInstruction()->GetId()
+                        << " had " << sg->GetExcludedCohorts() << " exclusions "
+                        << " pred block is " << predecessor->GetBlockId();
+              MaybeRecordStat(stats_, MethodCompilationStat::kPartialStoreRemoved);
+            } else {
+              LOG(INFO) << "store being kept in method " << GetGraph()->PrettyMethod()
+                        << " store is " << instruction->DebugName()
+                        << " id: " << instruction->GetId()
+                        << " block: " << instruction->GetBlock()->GetBlockId();
+              kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+            }
           }
         }
       }
@@ -2265,6 +2317,7 @@ void LSEVisitor::Run() {
     if (!new_instance->HasNonEnvironmentUses()) {
       new_instance->RemoveEnvironmentUsers();
       new_instance->GetBlock()->RemoveInstruction(new_instance);
+      MaybeRecordStat(stats_, MethodCompilationStat::kFullLSEAllocationRemoved);
     }
   }
 }
@@ -2276,8 +2329,10 @@ bool LoadStoreElimination::Run() {
     // Skip this optimization.
     return false;
   }
+  graph_->ClearReachabilityInformation();
+  graph_->ComputeReachabilityInformation();
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  LoadStoreAnalysis lsa(graph_, &allocator);
+  LoadStoreAnalysis lsa(graph_, stats_, &allocator, true);
   lsa.Run();
   const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
   if (heap_location_collector.GetNumberOfHeapLocations() == 0) {
