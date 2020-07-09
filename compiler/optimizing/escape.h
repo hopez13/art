@@ -110,6 +110,13 @@ void CalculateEscape(HInstruction* reference,
                      /*out*/ bool* is_singleton_and_not_returned,
                      /*out*/ bool* is_singleton_and_not_deopt_visible);
 
+void CalculateAndVisitSingletonEscape(HInstruction* reference,
+                                      NoEscapeCheck& no_escape,
+                                      EscapeVisitor& ev,
+                                      /*out*/ bool* is_singleton,
+                                      /*out*/ bool* is_singleton_and_not_returned,
+                                      /*out*/ bool* is_singleton_and_not_deopt_visible);
+
 inline void CalculateEscape(HInstruction* reference,
                             bool (*no_escape_fn)(HInstruction*, HInstruction*),
                             /*out*/ bool* is_singleton,
