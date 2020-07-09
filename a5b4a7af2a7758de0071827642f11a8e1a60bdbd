@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b88e11b_329ce9e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-09T14:55:37Z",
+      "side": 1,
+      "message": "lgtm with 1 comment",
+      "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fd367b9_d3f1d38f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-09T14:55:37Z",
+      "side": 1,
+      "message": "This comment is misleading as that\u0027s 32-bit.\n\nrdx:rax is the dividend; quotient stored in RAX, remainder in RDX.",
+      "range": {
+        "startLine": 2693,
+        "startChar": 1,
+        "endLine": 2693,
+        "endChar": 40
+      },
+      "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
