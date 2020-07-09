@@ -63,6 +63,30 @@
       "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "009d2d1d_eaba1c40",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-09T15:05:45Z",
+      "side": 1,
+      "message": "Ah, I see, this is an ART assemblerism allowing the use of the 64-bit register names in place of the 32-bit ones. Fine.",
+      "parentUuid": "9fe4e4c8_b16ed134",
+      "range": {
+        "startLine": 2693,
+        "startChar": 1,
+        "endLine": 2693,
+        "endChar": 40
+      },
+      "revId": "a5b4a7af2a7758de0071827642f11a8e1a60bdbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
