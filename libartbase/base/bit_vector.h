@@ -33,6 +33,9 @@ class Allocator;
  */
 class BitVector {
  public:
+  static constexpr uint32_t kWordBytes = sizeof(uint32_t);
+  static constexpr uint32_t kWordBits = kWordBytes * 8;
+
   class IndexContainer;
 
   /**
@@ -226,10 +229,21 @@ class BitVector {
     return storage_size_ * kWordBytes;
   }
 
+  size_t GetBitSizeOf() const {
+    return storage_size_ * kWordBits;
+  }
+
   /**
    * @return the highest bit set, -1 if none are set
    */
   int GetHighestBitSet() const;
+
+  /**
+   * @return true if there are any bits set, false otherwise.
+   */
+  bool IsAnyBitSet() const {
+    return GetHighestBitSet() != -1;
+  }
 
   // Minimum number of bits required to store this vector, 0 if none are set.
   size_t GetNumberOfBits() const {
@@ -280,9 +294,6 @@ class BitVector {
   static constexpr uint32_t BitMask(uint32_t idx) {
     return 1 << (idx & 0x1f);
   }
-
-  static constexpr uint32_t kWordBytes = sizeof(uint32_t);
-  static constexpr uint32_t kWordBits = kWordBytes * 8;
 
   uint32_t*  storage_;            // The storage for the bit vector.
   uint32_t   storage_size_;       // Current size, in 32-bit words.
