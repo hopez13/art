@@ -37,8 +37,10 @@ template <typename T, typename Alloc = std::allocator<T>>
 class dchecked_vector : private std::vector<T, Alloc> {
  private:
   // std::vector<> has a slightly different specialization for bool. We don't provide that.
-  static_assert(!std::is_same<T, bool>::value, "Not implemented for bool.");
+  // static_assert(!std::is_same<T, bool>::value, "Not implemented for bool.");
   using Base = std::vector<T, Alloc>;
+
+  static constexpr bool kIsBoolVector = std::is_same_v<T, bool>;
 
  public:
   using typename Base::value_type;
@@ -116,7 +118,21 @@ class dchecked_vector : private std::vector<T, Alloc> {
 
   // Element access: inherited.
   // Note: Deliberately not providing at().
-  using Base::data;
+  pointer data() noexcept {
+    if constexpr (kIsBoolVector) {
+      static_assert(!kIsBoolVector, "No data() on vector<bool>");
+    } else {
+      return Base::data();
+    }
+  }
+
+  const_pointer data() const noexcept {
+    if constexpr (kIsBoolVector) {
+      static_assert(!kIsBoolVector, "No data() on vector<bool>");
+    } else {
+      return Base::data();
+    }
+  }
 
   // Element access: subscript operator. Check index.
   reference operator[](size_type n) {

@@ -149,16 +149,23 @@ bool HeapLocationCollector::CanArrayElementsAlias(const HInstruction* idx1,
 }
 
 bool LoadStoreAnalysis::Run() {
+  // TODO Only do this if needed.
+  if (for_elimination_) {
+    graph_->ClearReachabilityInformation();
+    graph_->ComputeReachabilityInformation();
+  }
   for (HBasicBlock* block : graph_->GetReversePostOrder()) {
     heap_location_collector_.VisitBasicBlock(block);
   }
 
   if (heap_location_collector_.GetNumberOfHeapLocations() > kMaxNumberOfHeapLocations) {
+    LOG(INFO) << "Too many heap locs for " << graph_->GetMethodName();
     // Bail out if there are too many heap locations to deal with.
     heap_location_collector_.CleanUp();
     return false;
   }
   if (!heap_location_collector_.HasHeapStores()) {
+    LOG(INFO) << "no store for " << graph_->GetMethodName();
     // Without heap stores, this pass would act mostly as GVN on heap accesses.
     heap_location_collector_.CleanUp();
     return false;
@@ -167,11 +174,13 @@ bool LoadStoreAnalysis::Run() {
     // Don't do load/store elimination if the method has volatile field accesses or
     // monitor operations, for now.
     // TODO: do it right.
+    LOG(INFO) << "volatile or monitor for " << graph_->GetMethodName();
     heap_location_collector_.CleanUp();
     return false;
   }
 
   heap_location_collector_.BuildAliasingMatrix();
+  heap_location_collector_.DumpReferenceStats(stats_);
   return true;
 }
 
