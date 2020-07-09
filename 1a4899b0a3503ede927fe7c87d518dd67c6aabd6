@@ -633,6 +633,30 @@
     },
     {
       "key": {
+        "uuid": "38f6d1ad_0b2607a3",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-09T10:05:05Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/1358324",
+      "parentUuid": "46462edb_f1e34145",
+      "range": {
+        "startLine": 726,
+        "startChar": 7,
+        "endLine": 726,
+        "endChar": 11
+      },
+      "revId": "1a4899b0a3503ede927fe7c87d518dd67c6aabd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4495f8f4_9f0497be",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
