@@ -93,6 +93,30 @@
       "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d95456c4_62fbc912",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-10T14:20:49Z",
+      "side": 1,
+      "message": "\u003e I would like to keep it simple in this CL, but I might address it in separate CL.\n\nUnfortunately, this checks that ISA is exactly armv8-a. The macro is not set if ISA is armv8.2-a. \n\n\u003e \n\u003e Evgeny - do you know what the rules are for atomic ldrd/strd.  I can not find any documentation online.  When can we rely on it?  Is it all ARCH \u003e\u003d 8, or all ARCH \u003e\u003d 8A, or does the arch 8 not imply the guarantee?\n\nIf ARCH \u003d\u003d 7A it is guaranteed only if LPAE is supported. This is currently covered by the fake macro __ARM_FEATURE_LPAE.\n\nIf ARCH \u003e\u003d 8A, it is guaranteed: https://developer.arm.com/documentation/ddi0487/latest\n\nE2.2 Atomicity in the Arm architecture\nE2.2.1 Requirements for single-copy atomicity\n...\nLDRD and STRD accesses to 64-bit aligned locations are 64-bit single-copy atomic as seen by translation table walks and accesses to translation tables.\n\n\u003e \n\u003e Do you know if there is way we can empirically test for it in assembly (as is the intention of the this method).\n\nNo, I don\u0027t know. I know that it can be checked using kernel HWCAP_LPAE:\nhttps://android.googlesource.com/kernel/common/+/refs/heads/android-mainline/arch/arm/include/uapi/asm/hwcap.h",
+      "parentUuid": "b65b1e14_4f8265cf",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
