@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57d5e7b3_12bcdb33",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "\"when running on Android\"?",
+      "range": {
+        "startLine": 306,
+        "startChar": 58,
+        "endLine": 306,
+        "endChar": 65
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "042a029b_e61b477f",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "I\u0027d put this into a TODO.",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91fd004_b2c0ca05",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "Is this a temporary workaround? If so, I think this warrants a TODO.",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aae6ca7_36da72db",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "Maybe use `has_armv8a` instead?",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a229ec0_b9f096e2",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "Suggestion: Maybe use `std::filesystem::create_directory` instead?",
+      "range": {
+        "startLine": 636,
+        "startChar": 2,
+        "endLine": 636,
+        "endChar": 7
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e52fe788_d7c1e61a",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "Could the new logic still be guarded by\n\n  if (!kIsTargetBuild) {\n    // ...\n\n?\n\nIf not, I\u0027d recommend introducing a `kIsTargetAndroid` constant in libartbase/base/globals.h.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 26
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c35f493_0d09b2f3",
+        "filename": "test/README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T13:56:39Z",
+      "side": 1,
+      "message": "This README.md file is public, but this information is only relevant for Googlers; maybe we should move it somewhere else?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
