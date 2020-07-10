@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6f0cc7d_bcc6dd75",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T11:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9b68243_a844230d",
+      "range": {
+        "startLine": 61,
+        "startChar": 22,
+        "endLine": 61,
+        "endChar": 31
+      },
+      "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2758cbd5_464a5acc",
         "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b65b1e14_4f8265cf",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T11:17:40Z",
+      "side": 1,
+      "message": "I would like to keep it simple in this CL, but I might address it in separate CL.\n\nEvgeny - do you know what the rules are for atomic ldrd/strd.  I can not find any documentation online.  When can we rely on it?  Is it all ARCH \u003e\u003d 8, or all ARCH \u003e\u003d 8A, or does the arch 8 not imply the guarantee?\n\nDo you know if there is way we can empirically test for it in assembly (as is the intention of the this method).",
+      "parentUuid": "2758cbd5_464a5acc",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
