@@ -85,6 +85,24 @@
       "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3bedce1_b712e5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2020-07-10T10:04:00Z",
+      "side": 1,
+      "message": "Hi David, yes, this revert CL was for convinience, for allowing us keep on running/testing VIXL simualtor patch.\nSince in the latest VIXL simulator CL, we have removed the dependency on core.art, this CL should be abandonned.\n\nThanks",
+      "parentUuid": "8ab5cd5d_3fbe7f82",
+      "revId": "d7261d404e32e22dc7c06a2255c5e518d3f7a7d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
