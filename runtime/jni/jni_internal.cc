@@ -2536,8 +2536,17 @@ class JNI {
   }
 
   static jlong GetDirectBufferCapacity(JNIEnv* env, jobject java_buffer) {
-    // Check if |java_buffer| is a direct buffer, bail if not.
-    if (GetDirectBufferAddress(env, java_buffer) == nullptr) {
+    if (java_buffer == nullptr) {
+      return -1;
+    }
+
+    if (!IsInstanceOf(env, java_buffer, WellKnownClasses::java_nio_Buffer)) {
+      return -1;
+    }
+
+    jboolean direct = env->CallBooleanMethod(java_buffer,
+                                             WellKnownClasses::java_nio_Buffer_isDirect);
+    if (!direct) {
       return -1;
     }
 
