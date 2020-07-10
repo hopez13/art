@@ -39,6 +39,30 @@
       "revId": "3d92029a30b63963aa5e1ffa46fc93d604268c7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5406750_e9c56ff4",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-10T10:22:29Z",
+      "side": 1,
+      "message": "Hi Xueliang!\n\nYes, I hope we can merge it (otherwise it will keep getting out of date as we add new changes) and begin testing/reviewing SVE patches on top of it. Perhaps I should wait a few weeks for Nicolas to return from vacations, but there are build/test issues with this PS, so it will take some time anyway. Also, as I understand, the VIXL update in ${AOSP}/external/vixl has not been merged yet, and it is also needed for the SVE patches.\n\nCurrently there are a few gtests failing:\n- test-art-host-gtest-art_compiler_tests64, this is due to unstarted runtime\n- test-art-host-gtest-art_runtime_tests{32,64} (subtest EntrypointsOrderTest.ThreadOffsets), failing the following check:\n  __builtin_offsetof(Thread, tlsPtr_ . simulator) - __builtin_offsetof(Thread, tlsPtr_ . async_exception) \u003d\u003d (sizeof(void*))",
+      "parentUuid": "73e89c8b_e9fb1128",
+      "range": {
+        "startLine": 687,
+        "startChar": 8,
+        "endLine": 687,
+        "endChar": 97
+      },
+      "revId": "3d92029a30b63963aa5e1ffa46fc93d604268c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
