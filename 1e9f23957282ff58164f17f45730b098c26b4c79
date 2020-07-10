@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9b68243_a844230d",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-10T09:40:52Z",
+      "side": 1,
+      "message": "Maybe add a comment, why the test is disabled.",
+      "range": {
+        "startLine": 61,
+        "startChar": 22,
+        "endLine": 61,
+        "endChar": 31
+      },
+      "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2758cbd5_464a5acc",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-07-10T09:40:52Z",
+      "side": 1,
+      "message": "(__ARM_ARCH \u003e\u003d 8 \u0026\u0026 __ARM_PROFILE \u003d\u003d \u0027A\u0027)\nThis will include support 8.1a, 8.2a etc.",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "1e9f23957282ff58164f17f45730b098c26b4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
