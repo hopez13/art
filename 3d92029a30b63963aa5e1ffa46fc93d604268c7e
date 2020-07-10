@@ -16,6 +16,29 @@
       "revId": "3d92029a30b63963aa5e1ffa46fc93d604268c7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73e89c8b_e9fb1128",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2020-07-10T09:58:51Z",
+      "side": 1,
+      "message": "Hi Ulya,\nThanks a lot for your work.\nI also figured out my previous CL\u0027s dependency on core.art was due to this line. Changing to \u0027--boot boot.art\u0027 option should work.\n\nDo you plan to land this CL in ART soon?\n\nJust FYI, I plan to spend more effort on investigating stage2 of VIXL simulator in Q3\u002720: how to properly support stackwalk so that more test cases can pass.",
+      "range": {
+        "startLine": 687,
+        "startChar": 8,
+        "endLine": 687,
+        "endChar": 97
+      },
+      "revId": "3d92029a30b63963aa5e1ffa46fc93d604268c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
