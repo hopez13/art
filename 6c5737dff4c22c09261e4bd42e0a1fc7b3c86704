@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6475d9b7_079229a3",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d5e7b3_12bcdb33",
+      "range": {
+        "startLine": 306,
+        "startChar": 58,
+        "endLine": 306,
+        "endChar": 65
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "042a029b_e61b477f",
         "filename": "libartbase/base/file_utils_test.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d89b5f6c_41819ef1",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "042a029b_e61b477f",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "327f8f42_8d857c54",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "The above line intentionally fails, and sets error_msg... \n...which was confusing sine it is left set for below tests.",
+      "parentUuid": "f91fd004_b2c0ca05",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aae6ca7_36da72db",
         "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
         "patchSetId": 7
@@ -91,6 +163,30 @@
       "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1efc2c13_4dfe3716",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "I would like to keep the #if consistent with the other one in FromCppDefines.\nI am leaving further debate clean-up for separate CL (b/160858100)",
+      "parentUuid": "6aae6ca7_36da72db",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "19a3fa0d_7a91d01c",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a229ec0_b9f096e2",
+      "range": {
+        "startLine": 636,
+        "startChar": 2,
+        "endLine": 636,
+        "endChar": 7
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e52fe788_d7c1e61a",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 7
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "3b5327a5_0c29a338",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "ART_CLANG_PATH is only defined on host, so it needs to be guarded by #if\nI preferred the more explicit, rather trying to default ART_CLANG_PATH to invalid string.",
+      "parentUuid": "e52fe788_d7c1e61a",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 26
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c35f493_0d09b2f3",
         "filename": "test/README.md",
         "patchSetId": 7
@@ -160,6 +304,30 @@
       "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "983f7a28_e8442c58",
+        "filename": "test/README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-10T14:18:08Z",
+      "side": 1,
+      "message": "Done.  I guess will try to add it directly as link to the test page. TBD",
+      "parentUuid": "5c35f493_0d09b2f3",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
