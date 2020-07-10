@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79311629_c85ea04f",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T09:05:27Z",
+      "side": 1,
+      "message": "It\u0027d be nice if could derive this value from `ClangDefaultVersion` in `build/soong/cc/config/global.go`; maybe we could add a `genrule` in the build system producing a C++ header containing that value/path (perhaps in a different CL)?",
+      "range": {
+        "startLine": 304,
+        "startChar": 76,
+        "endLine": 304,
+        "endChar": 90
+      },
+      "revId": "ed651031dce64bd475971db132bb673a0a289bc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
