@@ -2536,8 +2536,21 @@ class JNI {
   }
 
   static jlong GetDirectBufferCapacity(JNIEnv* env, jobject java_buffer) {
-    // Check if |java_buffer| is a direct buffer, bail if not.
-    if (GetDirectBufferAddress(env, java_buffer) == nullptr) {
+    if (java_buffer == nullptr) {
+      return -1;
+    }
+
+    if (!IsInstanceOf(env, java_buffer, WellKnownClasses::java_nio_Buffer)) {
+      return -1;
+    }
+
+    // When checking the buffer capacity, it's important to note that a zero-sized direct buffer
+    // may have a null address so unlike GetDirectBufferAddress() we explicitly need to call
+    // Buffer.isDirect() to determine if the buffer is direct. One path that does this is
+    // FileChannel.map() if the file size is zero.
+    jboolean direct = env->CallBooleanMethod(java_buffer,
+                                             WellKnownClasses::java_nio_Buffer_isDirect);
+    if (!direct) {
       return -1;
     }
 
