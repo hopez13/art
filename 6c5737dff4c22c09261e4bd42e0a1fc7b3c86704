@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d2356aa0_1c1f2534",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T14:34:53Z",
+      "side": 1,
+      "message": "I see; thanks for fixing this. I think we should try and avoid reusing variables for different purposes in general (even in tests).",
+      "parentUuid": "327f8f42_8d857c54",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aae6ca7_36da72db",
         "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
         "patchSetId": 7
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "I would like to keep the #if consistent with the other one in FromCppDefines.\nI am leaving further debate clean-up for separate CL (b/160858100)",
       "parentUuid": "6aae6ca7_36da72db",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 29
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cf4aea1_5d3566b4",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T14:34:53Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "1efc2c13_4dfe3716",
       "range": {
         "startLine": 260,
         "startChar": 4,
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "ART_CLANG_PATH is only defined on host, so it needs to be guarded by #if\nI preferred the more explicit, rather trying to default ART_CLANG_PATH to invalid string.",
       "parentUuid": "e52fe788_d7c1e61a",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 26
+      },
+      "revId": "6c5737dff4c22c09261e4bd42e0a1fc7b3c86704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3fa36a_af9291d9",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-10T14:34:53Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "3b5327a5_0c29a338",
       "range": {
         "startLine": 72,
         "startChar": 0,
