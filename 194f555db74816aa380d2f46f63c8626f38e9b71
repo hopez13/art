@@ -22,6 +22,30 @@
       "revId": "194f555db74816aa380d2f46f63c8626f38e9b71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c840c10e_f3744cc1",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-13T16:00:05Z",
+      "side": 1,
+      "message": "Right, apologies. I did explicitly try make it so that it just works, but I missed this.\n\nIs there a specific reason you are running the tests from build intermediates (out/soong/host/linux-x86/nativetest) rather than the output dir (out/host/linux-x86/nativetest)?  I assume you just picked one at random?\n\nPresumably I should make sure it can work from this path as well, or explicitly add error message to tell people to use the other path.  Any preference?\n\nAnother thing I am still trying to solve is that running from \"testcases\" directory manually also does not necessarily work depending on what has been build.",
+      "parentUuid": "810fa000_0a82ecfe",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 60
+      },
+      "revId": "194f555db74816aa380d2f46f63c8626f38e9b71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
