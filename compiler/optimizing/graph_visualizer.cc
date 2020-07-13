@@ -20,10 +20,13 @@
 
 #include <cctype>
 #include <sstream>
+#include <string>
 
 #include "android-base/stringprintf.h"
 #include "art_method.h"
 #include "base/intrusive_forward_list.h"
+#include "base/scoped_arena_allocator.h"
+#include "base/scoped_arena_containers.h"
 #include "bounds_check_elimination.h"
 #include "builder.h"
 #include "code_generator.h"
@@ -739,6 +742,33 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
     }
   }
 
+  void PrintLIRInstructions(const HInstructionList& instructions) {
+    for (HInstructionIterator it(instructions); !it.Done(); it.Advance()) {
+        HInstruction* instruction = it.Current();
+        if (instruction->IsParallelMove()) {
+          // TODO: printing a parallel move hides the following instruction in
+          // c1visualizer's intervals view, as they both have the same lifetime
+          // position
+          continue;
+        }
+
+        output_ << instruction->GetLifetimePosition() << " " << instruction->DebugName();
+
+        LocationSummary* locations = instruction->GetLocations();
+        if (locations != nullptr) {
+          StringList inputs;
+          for (size_t i = 0; i < locations->GetInputCount(); ++i) {
+            DumpLocation(inputs.NewEntryStream(), locations->InAt(i));
+          }
+
+          output_ << " " << inputs << "->";
+          DumpLocation(output_, locations->Out());
+        }
+
+        output_ << " " << kEndInstructionMarker << "\n";
+    }
+  }
+
   void DumpStartOfDisassemblyBlock(const char* block_name,
                                    int predecessor_index,
                                    int successor_index) {
@@ -805,6 +835,78 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
     DumpEndOfDisassemblyBlock();
   }
 
+  void DumpIntervals() {
+    // 1. Build a map of location strings to live intervals
+    ScopedArenaAllocator allocator(GetGraph()->GetArenaStack());
+    ScopedArenaUnorderedMap<std::string, ScopedArenaVector<LiveInterval*>> locations(
+        allocator.Adapter(kArenaAllocMisc));
+    ScopedArenaVector<std::string> insertion_order(allocator.Adapter(kArenaAllocMisc));
+
+    for (HBasicBlock* block : GetGraph()->GetLinearOrder()) {
+      for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+        HInstruction* instruction = it.Current();
+        if (!instruction->HasLiveInterval()) {
+          continue;
+        }
+
+        LiveInterval* interval = instruction->GetLiveInterval();
+        if (interval->GetRegister() == kNoRegister) {
+          continue;
+        }
+
+        std::ostringstream stream;
+        DumpLocation(stream, instruction->GetLocations()->Out());
+        std::string location = stream.str();
+
+        auto search = locations.find(location);
+        if (search != locations.end()) {
+          search->second.push_back(interval);
+        } else {
+          ScopedArenaVector<LiveInterval*> intervals(allocator.Adapter(kArenaAllocMisc));
+          intervals.push_back(interval);
+          locations.insert(std::make_pair(location, intervals));
+          insertion_order.push_back(location);
+        }
+      }
+    }
+
+    // 2. Dump live ranges for each location
+    size_t index = 0;
+    for (auto location : insertion_order) {
+      // Example interval line from OpenJDK's C1:
+      // Number Type  Register  Parent Hint Ranges Uses (optional) Spill State
+      // 0      fixed "[rsi|I]" 0      -1   [0, 4[ 6 M 8 M 12 M    "no definition"
+      //
+      // OpenJDK's C1 IntervalUseKind enum values:
+      // - N (noUse)
+      // - L (loopEndMarker)
+      // - S (shouldHaveRegister)
+      // - M (mustHaveRegister)
+
+      // TODO: type
+      output_ << index << " type \"[" << location << "]\" " << index << " -1 ";
+
+      for (auto interval : locations.at(location)) {
+        LiveRange* current = interval->GetFirstRange();
+        while (current != nullptr) {
+          output_ << "[" << current->GetStart() << ", " << current->GetEnd() << "[ ";
+          current = current->GetNext();
+        }
+      }
+
+      for (auto interval : locations.at(location)) {
+        const UsePositionList& uses = interval->GetUses();
+        for (auto& use : uses) {
+          output_ << use.GetPosition() << " M ";
+        }
+      }
+
+      // TODO: spill state
+      output_ << "\"spill state\"\n";
+      index++;
+    }
+  }
+
   void Run() {
     StartTag("cfg");
     std::string pass_desc = std::string(pass_name_)
@@ -821,6 +923,14 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
       DumpDisassemblyBlockForSlowPaths();
     }
     EndTag("cfg");
+
+    if (IsPass(RegisterAllocator::kRegisterAllocatorPassName) && is_after_pass_) {
+      StartTag("intervals");
+      PrintProperty("name", pass_desc.c_str());
+      DumpIntervals();
+      EndTag("intervals");
+    }
+
     Flush();
   }
 
@@ -870,6 +980,13 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
     PrintInstructions(block->GetPhis());
     PrintInstructions(block->GetInstructions());
     EndTag("HIR");
+
+    if (IsPass(RegisterAllocator::kRegisterAllocatorPassName) && is_after_pass_) {
+      StartTag("LIR");
+      PrintLIRInstructions(block->GetInstructions());
+      EndTag("LIR");
+    }
+
     EndTag("block");
   }
 
