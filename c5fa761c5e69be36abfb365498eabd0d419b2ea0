@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89c69165_08a11ef5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-13T09:37:11Z",
+      "side": 1,
+      "message": "This needs to be merged together with https://r.android.com/1360538, correct? (Then it is necessary to set the same Gerrit \"topic\" on both CLs to make them tested and submitted as one patch set. You can do it by clicking \"ADD TOPIC\" below the reviewers list, or let me know and I will do it.)\n\nAnd this is independent of the VIXL simulator CL https://r.android.com/1177334, right?",
+      "revId": "c5fa761c5e69be36abfb365498eabd0d419b2ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
