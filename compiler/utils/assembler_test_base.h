@@ -135,22 +135,24 @@ class AssemblerTestBase : public testing::Test {
   }
 
   virtual std::vector<std::string> GetAssemblerCommand() {
-    switch (GetIsa()) {
+    InstructionSet isa = GetIsa();
+    switch (isa) {
       case InstructionSet::kX86:
-        return {FindTool("as"), "--32"};
+        return {FindTool("clang"), "--compile", "-target", "i386-linux-gnu"};
       case InstructionSet::kX86_64:
-        return {FindTool("as"), "--64"};
+        return {FindTool("clang"), "--compile", "-target", "x86_64-linux-gnu"};
       default:
-        return {FindTool("as")};
+        LOG(FATAL) << "Unknown instruction set: " << isa;
+        UNREACHABLE();
     }
   }
 
   virtual std::vector<std::string> GetDisassemblerCommand() {
     switch (GetIsa()) {
       case InstructionSet::kThumb2:
-        return {FindTool("objdump"), "--disassemble", "-M", "force-thumb"};
+        return {FindTool("llvm-objdump"), "--disassemble", "-triple", "thumbv7a-linux-gnueabi"};
       default:
-        return {FindTool("objdump"), "--disassemble", "--no-show-raw-insn"};
+        return {FindTool("llvm-objdump"), "--disassemble", "--no-show-raw-insn"};
     }
   }
 
@@ -233,15 +235,23 @@ class AssemblerTestBase : public testing::Test {
     return getcwd(temp, 1024) ? std::string(temp) + "/" : std::string("");
   }
 
-  std::string Replace(const std::string& str, const std::string& from, const std::string& to) {
+  std::string Replace(const std::string& str,
+                      const std::string& from,
+                      const std::string& to,
+                      bool remove_rest_of_line = false) {
     std::string output;
     size_t pos = 0;
     for (auto match = str.find(from); match != str.npos; match = str.find(from, pos)) {
       output += str.substr(pos, match - pos);
       output += to;
       pos = match + from.size();
+      if (remove_rest_of_line) {
+        pos = str.find('\n', pos);
+      }
     }
-    output += str.substr(pos, str.size() - pos);
+    if (pos != str.npos) {
+      output += str.substr(pos, str.size() - pos);
+    }
     return output;
   }
 
