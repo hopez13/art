@@ -46,6 +46,30 @@
       "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe891f7d_285aded1",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-14T16:24:53Z",
+      "side": 1,
+      "message": "Sorry if I wasn\u0027t clear; what I meant is that the list of `#include` was already in the correct order before that change: the style guide says that C headers are supposed to be listed before C++ ones (and these two lists of `#includes` should be separated by a blank line, which was already missing).",
+      "parentUuid": "05ee8b11_2de05cfb",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
