@@ -70,6 +70,30 @@
       "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc849b5_833877fd",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:08:16Z",
+      "side": 1,
+      "message": "Ah, I missed the C / C++ distinction.  I just dully sorted the block.\nI added the missing blank line to fix it.",
+      "parentUuid": "fe891f7d_285aded1",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
