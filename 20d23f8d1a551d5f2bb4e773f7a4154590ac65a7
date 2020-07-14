@@ -16,6 +16,70 @@
       "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "911c7153_5d28df15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2020-07-14T14:10:43Z",
+      "side": 1,
+      "message": "Hi Ulya,\nYour changes look good to me. PS11 works on my side (with the same 28% passrate).\nUsing ANDROID_PRODUCT_OUT is OK, however I found I need to use a slightly different boot.art path to make it work (see my comment in run-test).\n\nOverall, I think this CL is more polished, it\u0027ll be great to see this feature land in ART.\n\nThanks\nXueliang",
+      "parentUuid": "187c3a4c_c8ad8a8f",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20e10e72_494023fe",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2020-07-14T14:10:43Z",
+      "side": 1,
+      "message": "Nit: I think the \u0027--optimizing\u0027 option can be added here, to avoid running the tests in intrp and jit which the simualtor mode doesn\u0027t support.\n\n  ./art/test.py --simulate-arm64 --run-test --optimizing",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 43
+      },
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "330bc417_93c8a9ca",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2020-07-14T14:10:43Z",
+      "side": 1,
+      "message": "I\u0027ve tested, using ANDROID_PRODUCT_OUT is OK. However the boot.art path that works in my env is:\n\n   \"${ANDROID_PRODUCT_OUT}/system/apex/com.android.art.testing/javalib/boot.art\"\n                          ^^^^^^^^\n\nBy the way, I found when ART/dex2oat cannot find the correct boot image given by --boot, the error message is very confusing and hard to link to incorrect path error. I think maybe this can be improved in other CLs. For example, here is the message I got:\n\n  dex2oatd64 E 07-14 14:50:44 12659 12659 image_space.cc:3703] Could not create image space with image file \u0027/data/workspace/linaro/out/target/product/armv8/incorrect_path/system/apex/com.android.art.testing/javalib/boot.art\u0027. Attempting to fall back to imageless running. Error was: Cannot compile image to /tmp/xueliang/test-12313/dalvik-cache/arm64/data@workspace@linaro@out@target@product@armv8@incorrect_path@system@apex@com.android.art.testing@javalib@boot.art: Image compilation disabled.\n  dex2oatd64 F 07-14 14:50:44 12659 12659 image_writer.cc:3644] Check failed: compiler_options.IsBootImage() \u003d\u003d boot_image_begin_ \u003d\u003d 0u (compiler_options.IsBootImage()\u003d0, boot_image_begin_ \u003d\u003d 0u\u003d1)",
+      "range": {
+        "startLine": 687,
+        "startChar": 26,
+        "endLine": 687,
+        "endChar": 96
+      },
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
