@@ -16,6 +16,23 @@
       "revId": "ebb03bd804d1e689e8132e624cd9f8eaa9556fed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "928f611f_6aa8a490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "I have couple random small questions.\n\nI think it would be also good to get +1 from Vladimir or Nicolas (but he is on holiday now).\n\n\nGeneric high-level question: So the general idea to insert the simulator seems to be to force execution in interpreter and then add the simulator path there, right?  It does seem to add bunch or special cases all over the place.\n\nI am wondering, have you considered adding an entry-point what would do the transition from x86-to-arm?  That is, ArtMethods would be set to this entrypoint, and thus most code could just call it as usual.  Is there a catch with this approach?\n\n",
+      "revId": "ebb03bd804d1e689e8132e624cd9f8eaa9556fed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

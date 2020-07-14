@@ -37,6 +37,108 @@
     },
     {
       "key": {
+        "uuid": "9350138f_6e4cecb1",
+        "filename": "compiler/optimizing/codegen_test_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "Why are the quick entrypoints needed?  In particular, shouldn\u0027t they be need if and only if they are needed without the simulator anyway?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1d3f8c8_fbaa8a13",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "Can we also add condition so that this code is compiled only on host builds?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d87c64ca_ba2a65f4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2193,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "Why JNI stub?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cab0787_573adb9a",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "Why add the options that do not work?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b477049_72f660a2",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "What is the difference between 2) and 3) ?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed5263d6_b7d061aa",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T17:33:33Z",
+      "side": 1,
+      "message": "Is the simulator shipped in the apex?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20e10e72_494023fe",
         "filename": "test/README.simulator.md",
         "patchSetId": 11
