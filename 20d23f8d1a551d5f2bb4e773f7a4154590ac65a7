@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "38ab0adc_789efbe1",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-14T16:19:44Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "20e10e72_494023fe",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 43
+      },
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "330bc417_93c8a9ca",
         "filename": "test/run-test",
         "patchSetId": 11
@@ -80,6 +104,30 @@
       "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a4838c5_f6dba699",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-14T16:19:44Z",
+      "side": 1,
+      "message": "I changed to ${ANDROID_PRODUCT_OUT}/system/apex/com.android.art.testing/javalib/boot.art in PS12. I\u0027m not sure why you don\u0027t have the path without \"system\" (could be related to using flattened APEX), but the path with \"system\" works in both cases.\n\nAs for the cryptic error message, I agree (everyone is puzzled when seeing this for the first time). I think it\u0027s related to the workflow we used to have a while ago, with a boot image in dalvik cache. I filed a bug (b/161235967) for it.",
+      "parentUuid": "330bc417_93c8a9ca",
+      "range": {
+        "startLine": 687,
+        "startChar": 26,
+        "endLine": 687,
+        "endChar": 96
+      },
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
