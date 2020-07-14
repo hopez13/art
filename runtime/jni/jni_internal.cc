@@ -2542,7 +2542,7 @@ class JNI {
     }
 
     // Fast-path check for whether buffer is direct: if buffer has an address it is direct.
-    if (UNLIKELY(env->GetLongField(java_buffer, WellKnownClasses::java_nio_Buffer_address) != 0L)) {
+    if (UNLIKELY(env->GetLongField(java_buffer, WellKnownClasses::java_nio_Buffer_address) == 0L)) {
       // When checking the buffer capacity, it's important to note that a zero-sized direct buffer
       // may have a null address field. This means we can't tell whether it is direct or not based
       // just on the address, we need to call Buffer.isDirect() to be sure. One path that creates
