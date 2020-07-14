@@ -46,6 +46,30 @@
       "revId": "6662e167944a973647702037d78b951a6e94c757",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c70d0aa_170dcb9b",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-07-14T14:06:16Z",
+      "side": 1,
+      "message": "Thanks, I was not aware there std has regex.",
+      "parentUuid": "fdeb5957_4546f0c9",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 85
+      },
+      "revId": "6662e167944a973647702037d78b951a6e94c757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
