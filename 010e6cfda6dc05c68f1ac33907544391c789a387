@@ -94,6 +94,30 @@
       "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc18d1c_1d9c2c8b",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-14T17:09:13Z",
+      "side": 1,
+      "message": "Thanks, LGTM.",
+      "parentUuid": "cfc849b5_833877fd",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "010e6cfda6dc05c68f1ac33907544391c789a387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
