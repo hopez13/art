@@ -22,6 +22,30 @@
       "revId": "6662e167944a973647702037d78b951a6e94c757",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdeb5957_4546f0c9",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-14T11:10:50Z",
+      "side": 1,
+      "message": "Sorry, I meant:\n\n  disassembly \u003d std::regex_replace(disassembly, \" \u003c\\\\.text\\\\+.*\", \"\");",
+      "parentUuid": "e2170d79_60cb7213",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 85
+      },
+      "revId": "6662e167944a973647702037d78b951a6e94c757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
