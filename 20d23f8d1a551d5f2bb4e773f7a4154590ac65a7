@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "187c3a4c_c8ad8a8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-14T09:09:02Z",
+      "side": 1,
+      "message": "Hi Xueliang,\n\nThe latest patch set has passed all presubmit tests and the new VIXL simulator tests (28% coverage), so this CL is close to be merged. Can you check that my changes didn\u0027t break things on ARM side? In particular, I removed SIMULATOR_TARGET_OUT and replaced it with ANDROID_PRODUCT_OUT that I think is always set with `source build/envsetup.sh`. But this may affect your workflow.\n\nThe summary of other changes I did on top of your PS3 (you can see it by choosing \"PS3\" instead of \"Base\" in Gerrit diff UI):\n\n- For interpreter-only mode, set native entrypoints only if running under simulator, otherwise interpreter tests fail (in runtime/class_linker.cc)\n- Disable codegen gtest under emulator, as the emulator requires started runtime and gtests run without runtime (in compiler/optimizing/codegen_test_utils.h)\n- Rearranged Android.bp files to avoid collision in debug and non-debug libraries, added missing include directory\n- Added simulator libs in build/apex/art_apex_test.py (script that checks APEX contents)\n- Fixed some debug checks (in runtime/entrypoints_order_test.cc)\n- Changed SIMULATOR_TARGET_OUT to ANDROID_PRODUCT_OUT\n- Disabled more run-tests, as they now hit illegal instruction\n- Use boot.art instead of core.art\n\nLet me know if PS11 works for you.\n",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
