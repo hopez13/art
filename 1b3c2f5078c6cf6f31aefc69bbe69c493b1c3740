@@ -208,6 +208,30 @@
     },
     {
       "key": {
+        "uuid": "be1590ca_58707638",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T16:58:12Z",
+      "side": 1,
+      "message": "That fixes it (so the \u003cvoid, void\u003e specialization is not needed). I realized that the compilation failed only for host, and I checked target the previous time.",
+      "parentUuid": "01c12fc7_e0a72067",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 4
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a720d893_167333fd",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
