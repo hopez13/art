@@ -33,6 +33,24 @@
       "revId": "ebb03bd804d1e689e8132e624cd9f8eaa9556fed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "911875d2_2ef7d33d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T08:46:47Z",
+      "side": 1,
+      "message": "As the commit message says:\n\n  Future work will be supporting proper stack frame layout between\n  simulator and quick entrypoints, so that stack walk,\n  QuickArgumentVisitor, deoptimization, etc can be supported.\n\n(See also the comment by Xueliang to PS6 about his planned to work on this in Q3\u002720.)",
+      "parentUuid": "928f611f_6aa8a490",
+      "revId": "ebb03bd804d1e689e8132e624cd9f8eaa9556fed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
