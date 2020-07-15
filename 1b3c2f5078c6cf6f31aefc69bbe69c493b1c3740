@@ -16,6 +16,144 @@
       "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bc1913c_26eb5979",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "This looks weird. But understand the desire to not slow down release builds.",
+      "range": {
+        "startLine": 484,
+        "startChar": 4,
+        "endLine": 492,
+        "endChar": 17
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b3de11_4a0e5236",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 13
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 23
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44c5c8a5_022d28eb",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "Do we really need this? It seems to me that the previous partial specialization should be enough with an empty \"P...\".",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 4
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a720d893_167333fd",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "result-\u003eSetD()",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 42
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35e7aabd_52f86e12",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "result-\u003eSetF()",
+      "range": {
+        "startLine": 284,
+        "startChar": 6,
+        "endLine": 284,
+        "endChar": 41
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49d50cff_20388237",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T14:07:12Z",
+      "side": 1,
+      "message": "result-\u003eSetJ()",
+      "range": {
+        "startLine": 288,
+        "startChar": 6,
+        "endLine": 288,
+        "endChar": 43
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
