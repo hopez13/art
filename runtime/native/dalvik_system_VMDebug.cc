@@ -415,6 +415,10 @@ static void VMDebug_getHeapSpaceStats(JNIEnv* env, jclass, jlongArray data) {
         gc::space::BumpPointerSpace* bump_pointer_space = space->AsBumpPointerSpace();
         allocSize += bump_pointer_space->Size();
         allocUsed += bump_pointer_space->GetBytesAllocated();
+      } else if (space->IsRegionSpace()) {
+        gc::space::RegionSpace* region_space = space->AsRegionSpace();
+        allocSize += region_space->Size() / 2;
+        allocUsed += region_space->GetBytesAllocated();
       }
     }
     for (gc::space::DiscontinuousSpace* space : heap->GetDiscontinuousSpaces()) {
