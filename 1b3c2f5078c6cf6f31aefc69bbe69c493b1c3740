@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "d6cb9405_651361e2",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 13
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T14:22:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b3de11_4a0e5236",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 23
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c5c8a5_022d28eb",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
@@ -85,6 +109,30 @@
       "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0710ad6a_06f5b35f",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T14:22:04Z",
+      "side": 1,
+      "message": "Removed (the code compiles).",
+      "parentUuid": "44c5c8a5_022d28eb",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 4
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "75fac9d4_2c828532",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T14:22:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a720d893_167333fd",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 42
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e7aabd_52f86e12",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
@@ -134,6 +206,30 @@
     },
     {
       "key": {
+        "uuid": "1d751e95_d29a961a",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T14:22:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e7aabd_52f86e12",
+      "range": {
+        "startLine": 284,
+        "startChar": 6,
+        "endLine": 284,
+        "endChar": 41
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49d50cff_20388237",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
@@ -154,6 +250,30 @@
       "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f956b5cf_dd1db861",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T14:22:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49d50cff_20388237",
+      "range": {
+        "startLine": 288,
+        "startChar": 6,
+        "endLine": 288,
+        "endChar": 43
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
