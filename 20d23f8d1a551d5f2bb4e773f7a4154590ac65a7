@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "65360124_9c4b0645",
+        "filename": "compiler/optimizing/codegen_test_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T12:46:26Z",
+      "side": 1,
+      "message": "Quick entrypoints are needed to run any instructions under simulator. This is how the simulator works: it runs instructions and then jumps to ART code to check if pTestSuspend is set (see VisitUnconditionalBranchToRegister implementation in art/simulator/code_simulator_arm64.cc). When running under simulator, quick entrypoints are initialized specifically for the simulator, even if not needed for a normal run (see Thread::InitTlsEntryPoints() in art/runtime/thread.cc).\n\nMechanically removing the \"runtime exists\" precondition causes a DCHECK failure in `m test-art-host-gtest-art_compiler_tests64` (in case you want to reproduce and play with it):\n\n  code_simulator_arm64.cc:102: Check failed: qpoints_ !\u003d nullptr\n\nThe check fails because quick entrypoints are initialized when the runtime is started, and it has not started in this case. The relevant part of stacktrace is:\n\n \u003d\u003e art::arm64::CustomSimulator::VisitUnconditionalBranchToRegister\n    vixl::aarch64::Decoder::VisitUnconditionalBranchToRegister\n    vixl::aarch64::Simulator::ExecuteInstruction\n    vixl::aarch64::Simulator::Run()\n    ...",
+      "parentUuid": "9350138f_6e4cecb1",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1d3f8c8_fbaa8a13",
         "filename": "runtime/art_method.cc",
         "patchSetId": 11
@@ -82,6 +100,24 @@
       "writtenOn": "2020-07-14T17:33:33Z",
       "side": 1,
       "message": "Why JNI stub?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9dfb17_80a3725a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2193,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T12:46:26Z",
+      "side": 1,
+      "message": "I think it\u0027s related to my above comment about the need for quick entrypoints when running under simulator. Mechanically removing this condition results in failed run-tests under simulator.",
+      "parentUuid": "d87c64ca_ba2a65f4",
       "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -136,6 +172,24 @@
       "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eb8b869_3e5da18e",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T12:46:26Z",
+      "side": 1,
+      "message": "Good question, I don\u0027t see why it should be. I removed it in PS13, locally all the tests pass, let\u0027s see if treehugger passes.",
+      "parentUuid": "ed5263d6_b7d061aa",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
