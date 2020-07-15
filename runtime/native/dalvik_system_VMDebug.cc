@@ -415,6 +415,15 @@ static void VMDebug_getHeapSpaceStats(JNIEnv* env, jclass, jlongArray data) {
         gc::space::BumpPointerSpace* bump_pointer_space = space->AsBumpPointerSpace();
         allocSize += bump_pointer_space->Size();
         allocUsed += bump_pointer_space->GetBytesAllocated();
+      } else if (space->IsRegionSpace()) {
+        gc::space::RegionSpace* region_space = space->AsRegionSpace();
+        //when using concurrent copy collector, the corresponding allocation 
+        //space uses region space. 
+        //The space we actually apply for includes from space and to space, 
+        //and their sum is twice the actual available space.
+        //so here we need to divide by 2 to get the actual space size that can be used.
+        allocSize += region_space->Size() / 2;
+        allocUsed += region_space->GetBytesAllocated();
       }
     }
     for (gc::space::DiscontinuousSpace* space : heap->GetDiscontinuousSpaces()) {
