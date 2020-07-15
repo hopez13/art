@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "e5fb7648_adbf9143",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T15:57:04Z",
+      "side": 1,
+      "message": "Turns out this specialization was needed, compilation failed on presubmit (see e.g. https://android-build.googleplex.com/builds/pending/P15685841/art-test/latest/view/logs/build_error.log).\n\nBringing it back in PS16.",
+      "parentUuid": "0710ad6a_06f5b35f",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 4
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a720d893_167333fd",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
