@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "99b6dee3_7187aa87",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T15:31:09Z",
+      "side": 1,
+      "message": "What do you mean by an \"on host build\"? If you mean `art/tools/buildbot-build.sh --host`, then 1) I\u0027m not sure we can distinguish it programmatically from `art/tools/buildbot-build.sh --target`, and 2) simulator requires to build both for target and for host, because it needs things like boot image compiled for ARM64. Or do you mean to check it\u0027s not running in zygote / system server?\n\nNote that Runtime::SimulatorMode() is a static inline method that returns false on non-debug builds, so there is not much risk it will slow down release builds.",
+      "parentUuid": "f1d3f8c8_fbaa8a13",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d87c64ca_ba2a65f4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 11
@@ -141,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7713d870_39d6477b",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T15:31:09Z",
+      "side": 1,
+      "message": "I don\u0027t see a reason. Let\u0027s remove everything except kNone and kArm64.",
+      "parentUuid": "3cab0787_573adb9a",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b477049_72f660a2",
         "filename": "runtime/runtime.h",
         "patchSetId": 11
@@ -152,6 +188,24 @@
       "writtenOn": "2020-07-14T17:33:33Z",
       "side": 1,
       "message": "What is the difference between 2) and 3) ?",
+      "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c0a85a5_a5fe5ba5",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-15T15:31:09Z",
+      "side": 1,
+      "message": "As I understand, 2) and 3) are different in simulator mode: simulate_isa_ may be set to kNone to force-disable simulator. Currently there is an allowlist of methods that enable simulation (see CodeSimulatorArm64::CanSimulate in art/simulator/code_simulator_arm64.cc for all preconditions).",
+      "parentUuid": "1b477049_72f660a2",
       "revId": "20d23f8d1a551d5f2bb4e773f7a4154590ac65a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
