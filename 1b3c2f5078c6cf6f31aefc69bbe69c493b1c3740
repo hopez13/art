@@ -184,6 +184,30 @@
     },
     {
       "key": {
+        "uuid": "01c12fc7_e0a72067",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-15T16:13:36Z",
+      "side": 1,
+      "message": "What if we also change the \"RuntimeCallHelper\u003cvoid, void\u003e\" to \"RuntimeCallHelper\u003cvoid\u003e\" below?",
+      "parentUuid": "e5fb7648_adbf9143",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 4
+      },
+      "revId": "1b3c2f5078c6cf6f31aefc69bbe69c493b1c3740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a720d893_167333fd",
         "filename": "simulator/code_simulator_arm64.cc",
         "patchSetId": 13
