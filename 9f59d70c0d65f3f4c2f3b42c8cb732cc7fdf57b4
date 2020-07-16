@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4e83b0c0_753bc59f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T13:00:45Z",
+      "side": 1,
+      "message": "Ok, just please don\u0027t forget about that follow-up. It\u0027d be good to strengthen the non-testing APEX checks so that this lib can\u0027t slip into them undetected.",
+      "parentUuid": "264e717d_7b1883e2",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 77
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cf81739_77269292",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 17
@@ -495,6 +519,30 @@
       "side": 1,
       "message": "I kept the numbered list (all these steps are loosely related as parts of the \"quick user guide\"), but fixed the indentation as you suggested, and the numbered list is now ordered properly.",
       "parentUuid": "375a5a11_cd27543a",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb6672d_26bd7bf2",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T13:00:45Z",
+      "side": 1,
+      "message": "My thought was that it\u0027d be better to end the \"quick user guide\" at step 3 and then have separate sections for all the other things one can do after it. But sure, it works either way.",
+      "parentUuid": "16068f35_404a4b7c",
       "range": {
         "startLine": 39,
         "startChar": 0,
