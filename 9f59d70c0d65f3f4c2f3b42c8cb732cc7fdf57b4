@@ -1,0 +1,308 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae9a8299_885fe32a",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Do these actually end up in a release APEX? Can you move them to TestingChecker?\n\nHmm, we don\u0027t have that yet, but it should be straightforward to add.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 77
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf81739_77269292",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 695,
+        "startChar": 0,
+        "endLine": 696,
+        "endChar": 78
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21f3ad6_13e0caff",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Why not let headers live in include/?",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "323f3767_f11ccecf",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Do you need this?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a400adf_42b860ee",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979e6b80_9d609668",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Suggest keeping stuff like this to the commit message - it gets stale very quickly here.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d614f791_a34ff0dc",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "This indentation is too shallow to make the markdown render properly. You can check the formatted version from the gitiles link when you focus on the file in Gerrit.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 2
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf32600_48209644",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "There need to be empty lines in places like this to avoid markdown running them into single paragraphs.",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6975905a_078132cd",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 25,
+        "startChar": 40,
+        "endLine": 25,
+        "endChar": 49
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae592be_f72222d7",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Spello: \"simulator\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "375a5a11_cd27543a",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Numbering is out of order. Actually, from here down it\u0027s no longer a sequence that has to be followed in order, so I suggest changing the remaining list items to subheaders (on the same level as the \"Quick user guide\").",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2a3c08_59656fb1",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "A few words and/or a link to explain what this is would be nice.",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ae6d638_b79180ac",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Use sub-sub-header.",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdd98315_f714d98b",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-07-16T00:05:14Z",
+      "side": 1,
+      "message": "Dito.",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
