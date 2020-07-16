@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "264e717d_7b1883e2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "libart(d)-simulator is not needed in the apex (after addressing David\u0027s comments), I removed it.\n\nlibart(d)-simulator-contained is needed for the tests. Adding TestingChecker is a good idea, but let\u0027s do it in a follow-up CL as there might be more stuff that needs to be moved around, unrelated to this CL.",
+      "parentUuid": "ae9a8299_885fe32a",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 77
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9cf81739_77269292",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 17
@@ -45,6 +69,30 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ec0d2a7_92660eb2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Addressed in the previous comment.",
+      "parentUuid": "9cf81739_77269292",
+      "range": {
+        "startLine": 695,
+        "startChar": 0,
+        "endLine": 696,
+        "endChar": 78
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d4d992e3_4a383054",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Hmm, I added this because I had a build failure. But then I changed .bp files a few times, and now I can remove this and no longer have a failure. Let\u0027s remove.",
+      "parentUuid": "e21f3ad6_13e0caff",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "323f3767_f11ccecf",
         "filename": "simulator/Android.bp",
         "patchSetId": 17
@@ -91,6 +163,30 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8acfc623_ed54a37c",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Yes, simulator headers are needed for libart, and it is apex-available.",
+      "parentUuid": "323f3767_f11ccecf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1de45e4d_3ed77980",
+        "filename": "simulator/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "As I understand, currently libart(d)-simulator-container is needed by libart(d) because of the headers (because the header lib is not properly separated). And libart(d) is apex-available. There is a comment at line 93 indicating that proper separation is planned in the future.",
+      "parentUuid": "3a400adf_42b860ee",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "979e6b80_9d609668",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -137,6 +257,30 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a63b955_ee495360",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "979e6b80_9d609668",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e2584c90_22890ae9",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Fixed, thanks. You have a very sharp eye! (I don\u0027t know where to click to render markdown on Gerrit, so I used https://marked.googleplex.com)",
+      "parentUuid": "d614f791_a34ff0dc",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 2
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bf32600_48209644",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -177,6 +345,24 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cba9e96e_7f77442c",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bf32600_48209644",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "084902d3_8dfb49ca",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6975905a_078132cd",
+      "range": {
+        "startLine": 25,
+        "startChar": 40,
+        "endLine": 25,
+        "endChar": 49
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dae592be_f72222d7",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -223,6 +433,30 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104868e2_9f759bc8",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dae592be_f72222d7",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "16068f35_404a4b7c",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "I kept the numbered list (all these steps are loosely related as parts of the \"quick user guide\"), but fixed the indentation as you suggested, and the numbered list is now ordered properly.",
+      "parentUuid": "375a5a11_cd27543a",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c2a3c08_59656fb1",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "d477d161_d2188a7e",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "I replaced with \"control flow graph\", and the command below says how to generate it.",
+      "parentUuid": "6c2a3c08_59656fb1",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae6d638_b79180ac",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -289,6 +571,24 @@
     },
     {
       "key": {
+        "uuid": "c4e1184f_bda0d575",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae6d638_b79180ac",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdd98315_f714d98b",
         "filename": "test/README.simulator.md",
         "patchSetId": 17
@@ -303,6 +603,24 @@
       "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f432c3e_e54daae9",
+        "filename": "test/README.simulator.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-16T11:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd98315_f714d98b",
+      "revId": "9f59d70c0d65f3f4c2f3b42c8cb732cc7fdf57b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
