@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a41419e0_ca572ab2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-17T16:09:55Z",
+      "side": 1,
+      "message": "Added a test in PS3.",
+      "parentUuid": "1a5a8424_c2ffa922",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 31
+      },
+      "revId": "3f08d0becb57957b4224bb1e4df9313a293d936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "730cca79_72cf8115",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "3f08d0becb57957b4224bb1e4df9313a293d936e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d3a06ff_38255eee",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-17T16:09:55Z",
+      "side": 1,
+      "message": "Added comments and CHECK statements.",
+      "parentUuid": "730cca79_72cf8115",
+      "range": {
+        "startLine": 684,
+        "startChar": 6,
+        "endLine": 684,
+        "endChar": 21
+      },
+      "revId": "3f08d0becb57957b4224bb1e4df9313a293d936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
