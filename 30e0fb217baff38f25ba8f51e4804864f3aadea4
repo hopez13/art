@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003918893",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1364822?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "4c97ae08_09a93b17",
+          "description": "Change to \"test/530-checker-lse/src/Main.java\"",
+          "replacements": [
+            {
+              "path": "test/530-checker-lse/src/Main.java",
+              "range": {
+                "startLine": 689,
+                "startChar": 25,
+                "endLine": 689,
+                "endChar": 30
+              },
+              "replacement": "really"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "8d3b919a_1c9ff86e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-17T16:03:44Z",
+      "side": 1,
+      "message": "Common typo found: \"realy\" -- should it be \"really\"?\nor relay\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 689,
+        "startChar": 25,
+        "endLine": 689,
+        "endChar": 30
+      },
+      "revId": "30e0fb217baff38f25ba8f51e4804864f3aadea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
