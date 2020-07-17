@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1ca7fc5_0dc9df36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-17T14:25:48Z",
+      "side": 1,
+      "message": "Thanks for fixing this Martin. I noticed this when rebuilding ART:\n\n  ninja: Missing `restat`? An output file is older than the most recent input:\n   output: out/host/linux-x86/com.android.i18n/etc\n    input: out/host/linux-x86/bin/deapexer\n",
+      "revId": "5387f4ea5bdeef67d661bbe63d9726e66b5ec88f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
