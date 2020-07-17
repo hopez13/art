@@ -42,6 +42,7 @@ class TestClass {
   volatile int k;
   TestClass next;
   String str;
+  byte b;
   static int si;
   static TestClass sTestClassObj;
 }
@@ -637,6 +638,52 @@ public class Main {
       a = obj.floatField;
     }
     return a;
+  }
+
+  /// CHECK-START: int Main.$noinline$testConversion1(TestClass, int) load_store_elimination (before)
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+
+  /// CHECK-START: int Main.$noinline$testConversion1(TestClass, int) load_store_elimination (after)
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     TypeConversion
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+  static int $noinline$testConversion1(TestClass obj, int x) {
+    obj.i = x;
+    if ((x & 1) != 0) {
+      obj.b = (byte) x;
+      obj.i = obj.b;
+    }
+    return obj.i;
+  }
+
+  /// CHECK-START: int Main.$noinline$testConversion2(TestClass, int) load_store_elimination (before)
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+
+  /// CHECK-START: int Main.$noinline$testConversion2(TestClass, int) load_store_elimination (after)
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     TypeConversion
+  /// CHECK-DAG:                     InstanceFieldSet
+  /// CHECK-DAG:                     InstanceFieldGet
+  static int $noinline$testConversion2(TestClass obj, int x) {
+    int tmp = 0;
+    obj.i = x;
+    if ((x & 1) != 0) {
+      obj.b = (byte) x;
+      obj.i = obj.b;
+      tmp = (byte) x;
+    }
+    return obj.i + tmp;
   }
 
   /// CHECK-START: void Main.testFinalizable() load_store_elimination (before)
@@ -1366,6 +1413,11 @@ public class Main {
     assertFloatEquals(mF, 0f);
     assertDoubleEquals(Math.PI * Math.PI * Math.PI, getCircleArea(Math.PI, true));
     assertDoubleEquals(0d, getCircleArea(Math.PI, false));
+
+    assertIntEquals($noinline$testConversion1(new TestClass(), 300), 300);
+    assertIntEquals($noinline$testConversion1(new TestClass(), 301), 45);
+    assertIntEquals($noinline$testConversion2(new TestClass(), 300), 300);
+    assertIntEquals($noinline$testConversion2(new TestClass(), 301), 90);
 
     int[] iarray = {0, 0, 0};
     double[] darray = {0d, 0d, 0d};
