@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003917544",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1364822?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "76abc6eb_eb730785",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 192,
+                "startChar": 58,
+                "endLine": 192,
+                "endChar": 68
+              },
+              "replacement": "guaranteed"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d32062e6_25ea1cd8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-17T13:52:54Z",
+      "side": 1,
+      "message": "Common typo found: \"guarenteed\" -- should it be \"guaranteed\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 192,
+        "startChar": 58,
+        "endLine": 192,
+        "endChar": 68
+      },
+      "revId": "b8c2134c01a492c12e8ba25d677c11a37de08dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
