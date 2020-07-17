@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a5a8424_c2ffa922",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-17T14:54:00Z",
+      "side": 1,
+      "message": "Is this covered by tests?",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 31
+      },
+      "revId": "3f08d0becb57957b4224bb1e4df9313a293d936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "730cca79_72cf8115",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-17T14:54:00Z",
+      "side": 1,
+      "message": "Is this a test for reuse logic in compiler/optimizing/load_store_elimination.cc:133? Then maybe add a small comment and/or another load not dominated by the above type conversion. (I didn\u0027t check if any other existing tests already cover this.)",
+      "range": {
+        "startLine": 684,
+        "startChar": 6,
+        "endLine": 684,
+        "endChar": 21
+      },
+      "revId": "3f08d0becb57957b4224bb1e4df9313a293d936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
