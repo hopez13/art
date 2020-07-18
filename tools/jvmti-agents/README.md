@@ -13,5 +13,6 @@ runtime. Most of these work on both the RI and ART, on both host and device.
 * [liblistextensions](./list-extensions)
 * [libforceredefine](./simple-force-redefine)
 * [litifast](./ti-fast)
+* [libtypecount](./typecount)
 * [libtitrace](./titrace)
 * [libwrapagentproperties](./wrapagentproperties)
