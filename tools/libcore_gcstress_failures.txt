@@ -46,5 +46,13 @@
           "libcore.java.util.CalendarTest#testAllDefaultCalendar_Gregorian",
           "org.apache.harmony.tests.java.util.regex.MatcherTest#testAllCodePoints_P",
           "org.apache.harmony.tests.java.util.regex.MatcherTest#testAllCodePoints_p"]
+},
+{
+  description: "Timeouts.",
+  result: EXEC_FAILED,
+  bug: 161420453,
+  modes: [host],
+  names: ["libcore.java.text.DecimalFormatTest#testCurrencySymbolSpacing",
+          "libcore.java.text.SimpleDateFormatTest#testLocales"]
 }
 ]
