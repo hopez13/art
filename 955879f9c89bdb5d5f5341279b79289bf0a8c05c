@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fe98fa90_ea3cff1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-20T17:43:11Z",
+      "side": 1,
+      "message": "SGTM, modulo Artem\u0027s comment in https://android-review.googlesource.com/c/platform/art/+/1367118/1/compiler/optimizing/intrinsics_utils.h#b76.\n\nDo we plan to also implement an intrinsic for `Long.divideUnsigned()`?\n",
+      "revId": "955879f9c89bdb5d5f5341279b79289bf0a8c05c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3467c533_6832745b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
