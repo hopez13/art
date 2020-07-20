@@ -275,6 +275,16 @@ static void CreateIntToIntLocations(ArenaAllocator* allocator, HInvoke* invoke) 
   locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
 }
 
+static void CreateIntIntToIntLocations(
+    ArenaAllocator* allocator,
+    HInvoke* invoke,
+    LocationSummary::CallKind call_kind = LocationSummary::kNoCall) {
+  LocationSummary* locations = new (allocator) LocationSummary(invoke, call_kind, kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+}
+
 static void CreateLongToLongLocationsWithOverlap(ArenaAllocator* allocator, HInvoke* invoke) {
   LocationSummary* locations =
       new (allocator) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
@@ -3013,11 +3023,32 @@ void IntrinsicLocationsBuilderARMVIXL::VisitReachabilityFence(HInvoke* invoke) {
 
 void IntrinsicCodeGeneratorARMVIXL::VisitReachabilityFence(HInvoke* invoke ATTRIBUTE_UNUSED) { }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  CreateIntIntToIntLocations(allocator_, invoke, LocationSummary::kCallOnSlowPath);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  ArmVIXLAssembler* assembler = GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+  vixl32::Register divisor = RegisterFrom(locations->InAt(0));
+  vixl32::Register dividend = RegisterFrom(locations->InAt(1));
+  vixl32::Register out = RegisterFrom(locations->Out());
+
+  // Check if divisor is zero, bail to managed implementation to handle.
+  SlowPathCodeARMVIXL* slow_path =
+      new (codegen_->GetScopedAllocator()) IntrinsicSlowPathARMVIXL(invoke);
+  codegen_->AddSlowPath(slow_path);
+  __ CompareAndBranchIfZero(dividend, slow_path->GetEntryLabel());
+
+  __ Udiv(out, divisor, dividend);
+
+  __ Bind(slow_path->GetExitLabel());
+}
+
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundDouble)   // Could be done by changing rounding mode, maybe?
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeCASLong)     // High register pressure.
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, SystemArrayCopyChar)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, ReferenceGetReferent)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, IntegerDivideUnsigned)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, CRC32Update)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, CRC32UpdateBytes)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, CRC32UpdateByteBuffer)
