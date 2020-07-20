@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e7082b9_259ad7ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "A few nits from someone unfamiliar with that part of the project :)",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d0eeb2_44dde20d",
+        "filename": "tools/jvmti-agents/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "Nit: there is a missing \"b\" here.",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7ac448f_2f5290cd",
+        "filename": "tools/jvmti-agents/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "Nit: this should be after `libtitrace` to keep the list sorted.",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "476442a6_74b38d47",
+        "filename": "tools/jvmti-agents/type-counts/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "Nit: this should be a level 2 heading.",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dea30e2_c1c2b522",
+        "filename": "tools/jvmti-agents/type-counts/count-types.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `libtypecounts.so`?",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d9caa0_7dd840ec",
+        "filename": "tools/jvmti-agents/type-counts/count-types.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-07-20T11:37:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "29eefd7e9f9b63866810d8125f5039dd98ff93dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
