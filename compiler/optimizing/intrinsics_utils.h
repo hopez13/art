@@ -76,7 +76,13 @@ class IntrinsicSlowPath : public TSlowPathCode {
     Location out = invoke_->GetLocations()->Out();
     if (out.IsValid()) {
       DCHECK(out.IsRegisterKind());  // TODO: Replace this when we support output in memory.
-      DCHECK(!invoke_->GetLocations()->GetLiveRegisters()->OverlapsRegisters(out));
+
+      // We want to double-check that we don't overwrite a live register with the return
+      // value. The check is not needed for Location::kNoOutputOverlap case when one of the
+      // input register can be safely reused for the output value.
+      if (invoke_->GetLocations()->OutputCanOverlapWithInputs()) {
+        DCHECK(!invoke_->GetLocations()->GetLiveRegisters()->OverlapsRegisters(out));
+      }
       codegen->MoveFromReturnRegister(out, invoke_->GetType());
     }
 

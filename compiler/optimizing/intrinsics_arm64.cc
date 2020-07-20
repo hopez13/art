@@ -227,9 +227,11 @@ static void CreateIntToIntLocations(ArenaAllocator* allocator, HInvoke* invoke) 
   locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
 }
 
-static void CreateIntIntToIntLocations(ArenaAllocator* allocator, HInvoke* invoke) {
-  LocationSummary* locations =
-      new (allocator) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+static void CreateIntIntToIntLocations(
+    ArenaAllocator* allocator,
+    HInvoke* invoke,
+    LocationSummary::CallKind call_kind = LocationSummary::kNoCall) {
+  LocationSummary* locations = new (allocator) LocationSummary(invoke, call_kind, kIntrinsified);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
   locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
@@ -3424,8 +3426,29 @@ void IntrinsicCodeGeneratorARM64::VisitVarHandleGet(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+void IntrinsicLocationsBuilderARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  CreateIntIntToIntLocations(allocator_, invoke, LocationSummary::kCallOnSlowPath);
+}
+
+void IntrinsicCodeGeneratorARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  LocationSummary* locations = invoke->GetLocations();
+  MacroAssembler* masm = GetVIXLAssembler();
+  Register dividend = WRegisterFrom(locations->InAt(0));
+  Register divisor = WRegisterFrom(locations->InAt(1));
+  Register out = WRegisterFrom(locations->Out());
+
+  // Check if divisor is zero, bail to managed implementation to handle.
+  SlowPathCodeARM64* slow_path =
+      new (codegen_->GetScopedAllocator()) IntrinsicSlowPathARM64(invoke);
+  codegen_->AddSlowPath(slow_path);
+  __ Cbz(divisor, slow_path->GetEntryLabel());
+
+  __ Udiv(out, dividend, divisor);
+
+  __ Bind(slow_path->GetExitLabel());
+}
+
 UNIMPLEMENTED_INTRINSIC(ARM64, ReferenceGetReferent)
-UNIMPLEMENTED_INTRINSIC(ARM64, IntegerDivideUnsigned)
 
 UNIMPLEMENTED_INTRINSIC(ARM64, StringStringIndexOf);
 UNIMPLEMENTED_INTRINSIC(ARM64, StringStringIndexOfAfter);
