@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c28cb47a_2d2d45cb",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-07-20T12:06:37Z",
+      "side": 0,
+      "message": "Could you elaborate/comment a bit why this check is not needed any more please?\n\nIn my understanding for the divideUnsigned intrinsic we will not return from the SlowPath so it doesn\u0027t really matter here. But lets imagine we could (or consider other intrinsics which return an int and go to a slow path):\n\n  private static int divide(int x) {\n    int res \u003d Integer.divideUnsigned(100, x);\n    return res + x;\n  }\n\n    0    1    i4      InvokeStaticOrDirect [i3,i0] dex_pc:2 dex_file_index:35 method_name:java.lang.Integer.divideUnsigned always_throws:false method_load_kind:BootImageRelRo intrinsic:IntegerDivideUnsigned clinit_check:none env:[[i3,i0]] loop:none\n                      0x0000001c: 34000101\tcbz w1, #+0x20 (addr 0x3c)\n                      0x00000020: 1ac10800\tudiv w0, w0, w1\n\n    0    0    disasm  IntrinsicSlowPath\n                      0x0000003c: a90107e0\tstp x0, x1, [sp, #16]\n                      0x00000040: aa0103e2\tmov x2, x1\n                      0x00000044: aa0003e1\tmov x1, x0\n                      0x00000048: 90000000\tadrp x0, #+0x0 (addr 0x0)\n                      0x0000004c: b9400000\tldr w0, [x0]\n                      0x00000050: f940101e\tldr lr, [x0, #32]\n                      0x00000054: d63f03c0\tblr lr\n                      0x00000058: a94107e0\tldp x0, x1, [sp, #16]\n                      0x0000005c: 17fffff2\tb #-0x38 (addr 0x24)\n\n\nIs it correct that registers x0, x1 are alive, they will be restored so the return value in w0 will be overwritten in this case?",
+      "revId": "32846611b22619e8823e69daa91ac078dafce62a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

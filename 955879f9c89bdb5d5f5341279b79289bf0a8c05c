@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3467c533_6832745b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3345,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-07-20T12:06:37Z",
+      "side": 1,
+      "message": "1. Am I right that using specific IntrinsicSlowPath (instead of possibly kQuickThrowDivZero) is needed to have the exact stack frame as if the call was not intrinsified?\n\n2. IntrinsicSlowPath is generic and supports returning from it - restoring live registers and branching back to the code. In this case I assume we will not return from the slow path; I guess there are other intrinsics with the same trait. Do you think it could be reasonable to have a NoReturnIntrinsicSlowPath to reduce the code size?",
+      "range": {
+        "startLine": 3345,
+        "startChar": 43,
+        "endLine": 3345,
+        "endChar": 65
+      },
+      "revId": "955879f9c89bdb5d5f5341279b79289bf0a8c05c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
