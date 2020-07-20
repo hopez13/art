@@ -3342,6 +3342,28 @@ void IntrinsicCodeGeneratorARM64::VisitFP16LessEquals(HInvoke* invoke) {
   GenerateFP16Compare(invoke, codegen_, masm, ls);
 }
 
+void IntrinsicLocationsBuilderARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  CreateIntIntToIntSlowPathCallLocations(allocator_, invoke);
+}
+
+void IntrinsicCodeGeneratorARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
+  LocationSummary* locations = invoke->GetLocations();
+  MacroAssembler* masm = GetVIXLAssembler();
+  Register dividend = WRegisterFrom(locations->InAt(0));
+  Register divisor = WRegisterFrom(locations->InAt(1));
+  Register out = WRegisterFrom(locations->Out());
+
+  // Check if divisor is zero, bail to managed implementation to handle.
+  SlowPathCodeARM64* slow_path =
+      new (codegen_->GetScopedAllocator()) IntrinsicSlowPathARM64(invoke);
+  codegen_->AddSlowPath(slow_path);
+  __ Cbz(divisor, slow_path->GetEntryLabel());
+
+  __ Udiv(out, dividend, divisor);
+
+  __ Bind(slow_path->GetExitLabel());
+}
+
 // Check access mode and the primitive type from VarHandle.varType.
 // The `var_type_no_rb`, if valid, shall be filled with VarHandle.varType read without read barrier.
 static void GenerateVarHandleAccessModeAndVarTypeChecks(HInvoke* invoke,
@@ -3705,28 +3727,6 @@ void IntrinsicCodeGeneratorARM64::VisitVarHandleSet(HInvoke* invoke) {
   if (CodeGenerator::StoreNeedsWriteBarrier(value_type, invoke->InputAt(value_index))) {
     codegen_->MarkGCCard(object, Register(value), /*value_can_be_null=*/ true);
   }
-
-  __ Bind(slow_path->GetExitLabel());
-}
-
-void IntrinsicLocationsBuilderARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
-  CreateIntIntToIntSlowPathCallLocations(allocator_, invoke);
-}
-
-void IntrinsicCodeGeneratorARM64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
-  LocationSummary* locations = invoke->GetLocations();
-  MacroAssembler* masm = GetVIXLAssembler();
-  Register dividend = WRegisterFrom(locations->InAt(0));
-  Register divisor = WRegisterFrom(locations->InAt(1));
-  Register out = WRegisterFrom(locations->Out());
-
-  // Check if divisor is zero, bail to managed implementation to handle.
-  SlowPathCodeARM64* slow_path =
-      new (codegen_->GetScopedAllocator()) IntrinsicSlowPathARM64(invoke);
-  codegen_->AddSlowPath(slow_path);
-  __ Cbz(divisor, slow_path->GetEntryLabel());
-
-  __ Udiv(out, dividend, divisor);
 
   __ Bind(slow_path->GetExitLabel());
 }
