@@ -73,7 +73,6 @@ class IntrinsicSlowPath : public TSlowPathCode {
     Location out = invoke_->GetLocations()->Out();
     if (out.IsValid()) {
       DCHECK(out.IsRegister());  // TODO: Replace this when we support output in memory.
-      DCHECK(!invoke_->GetLocations()->GetLiveRegisters()->ContainsCoreRegister(out.reg()));
       codegen->MoveFromReturnRegister(out, invoke_->GetType());
     }
 
