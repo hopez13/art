@@ -16,6 +16,24 @@
       "revId": "32846611b22619e8823e69daa91ac078dafce62a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d8009ad_2c17ec24",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-20T13:40:51Z",
+      "side": 0,
+      "message": "Thanks for catching this. I guess we should instead exclude the out register from live registers.",
+      "parentUuid": "c28cb47a_2d2d45cb",
+      "revId": "32846611b22619e8823e69daa91ac078dafce62a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

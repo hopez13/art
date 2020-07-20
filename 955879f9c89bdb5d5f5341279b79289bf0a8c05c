@@ -22,6 +22,30 @@
       "revId": "955879f9c89bdb5d5f5341279b79289bf0a8c05c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d9fd905_2e08a7c7",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-20T13:40:51Z",
+      "side": 1,
+      "message": "I don\u0027t think we care about the exact stack trace for division by zero. This was just the simplest thing to do. The other option is to replace the invoke with HDivZeroCheck+HDiv in the InstructionBuilder but then we need to review all optimization passes that may look at Div to make sure that they handle unsigned division correctly.\n\nAs long as there are no other intrinsics that would have a slow path with no return, I\u0027d rather avoid introducing NoReturnIntrinsicSlowPath. (And do the replacement in InstructionBuilder if we ever find the time.)",
+      "parentUuid": "3467c533_6832745b",
+      "range": {
+        "startLine": 3345,
+        "startChar": 43,
+        "endLine": 3345,
+        "endChar": 65
+      },
+      "revId": "955879f9c89bdb5d5f5341279b79289bf0a8c05c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
