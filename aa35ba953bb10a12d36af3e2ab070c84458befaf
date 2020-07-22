@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1888539d_7ec0ff77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-07-22T03:14:14Z",
+      "side": 1,
+      "message": "Incorrect means not clearing enough? Clearing too much should always be safe I think.",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "aa35ba953bb10a12d36af3e2ab070c84458befaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "92081437_8f954aab",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
