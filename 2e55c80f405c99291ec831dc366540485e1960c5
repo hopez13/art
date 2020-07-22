@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0a28d27_e933455e",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-22T00:42:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37ab9028_a963f6f2",
+      "range": {
+        "startLine": 2847,
+        "startChar": 9,
+        "endLine": 2847,
+        "endChar": 14
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d41e4f12_43abd0eb",
         "filename": "openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f2cc437f_6bd6e239",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-22T00:42:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d41e4f12_43abd0eb",
+      "range": {
+        "startLine": 2848,
+        "startChar": 9,
+        "endLine": 2848,
+        "endChar": 18
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "176dd638_bac70904",
         "filename": "openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dbb6de9_f340d9d0",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2855,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-22T00:42:21Z",
+      "side": 1,
+      "message": "The connection to the dex-cache is where we call this in line 2893.\n\nMade comment clearer.",
+      "parentUuid": "176dd638_bac70904",
+      "range": {
+        "startLine": 2855,
+        "startChar": 18,
+        "endLine": 2855,
+        "endChar": 24
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
