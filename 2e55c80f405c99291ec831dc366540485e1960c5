@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ab9028_a963f6f2",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-07-22T00:36:22Z",
+      "side": 1,
+      "message": "expand the name",
+      "range": {
+        "startLine": 2847,
+        "startChar": 9,
+        "endLine": 2847,
+        "endChar": 14
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41e4f12_43abd0eb",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-07-22T00:36:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2848,
+        "startChar": 9,
+        "endLine": 2848,
+        "endChar": 18
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "176dd638_bac70904",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2855,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-07-22T00:36:22Z",
+      "side": 1,
+      "message": "I can see that now you are looking at all updated classes and not just at one (was that one - replacement - in the previous code, the last one modified?). But I don\u0027t see the connection with the dex-cache as you describe in the commit message.",
+      "range": {
+        "startLine": 2855,
+        "startChar": 18,
+        "endLine": 2855,
+        "endChar": 24
+      },
+      "revId": "2e55c80f405c99291ec831dc366540485e1960c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
