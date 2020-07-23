@@ -70,6 +70,24 @@
       "revId": "a0b0cbd814f9acf0af176a2c1805e1d15d1f5ee6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35bd5ae_e713c17a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-23T08:24:42Z",
+      "side": 1,
+      "message": "You may want to add --gtest_filter\u003d\u0027*OatFileAssistantTest*\u0027 or even more specific filter.",
+      "parentUuid": "7a0b58a2_dcd64214",
+      "revId": "a0b0cbd814f9acf0af176a2c1805e1d15d1f5ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
