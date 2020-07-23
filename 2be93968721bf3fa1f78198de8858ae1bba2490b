@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b3ed2235_1c45b542",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-23T09:33:13Z",
+      "side": 1,
+      "message": "title too long",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 77
+      },
+      "revId": "2be93968721bf3fa1f78198de8858ae1bba2490b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6865e582_0f147e1a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -16,6 +39,29 @@
       "revId": "2be93968721bf3fa1f78198de8858ae1bba2490b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29508127_4f21d603",
+        "filename": "tools/hiddenapi/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-23T09:33:13Z",
+      "side": 1,
+      "message": "There are hundreds of instances of blacklist, greylist, whitelist under art/. A point fix here isn\u0027t helping us keep consistent documentation (code, docs here, sac, dac). Please drop this from this change, we will fix it (b/161336379).",
+      "range": {
+        "startLine": 5,
+        "startChar": 68,
+        "endLine": 5,
+        "endChar": 94
+      },
+      "revId": "2be93968721bf3fa1f78198de8858ae1bba2490b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
