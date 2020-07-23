@@ -33,6 +33,29 @@
       "revId": "989f2f01611f0060b781438a98662c4dba2553f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fe5f2c9_a02bbd81",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-07-23T17:04:46Z",
+      "side": 1,
+      "message": "Surprised theres nothing that does this in libdexfile utf.h",
+      "range": {
+        "startLine": 392,
+        "startChar": 14,
+        "endLine": 392,
+        "endChar": 23
+      },
+      "revId": "989f2f01611f0060b781438a98662c4dba2553f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
