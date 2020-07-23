@@ -16,6 +16,24 @@
       "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13e112ce_d081cf54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-23T20:07:58Z",
+      "side": 1,
+      "message": "Somewhat less spammy at ~35% of log lines (for the random non-gcstress run I found) but still pretty noticeable.\n\nIMO we should just remove it everywhere. In libcore tests these don\u0027t tell us very much, especially since we will still print it if the GC takes an exceptionally long time.",
+      "parentUuid": "76626f08_df24092b",
+      "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
