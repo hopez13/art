@@ -52,6 +52,24 @@
       "revId": "a0b0cbd814f9acf0af176a2c1805e1d15d1f5ee6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a0b58a2_dcd64214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-23T01:19:48Z",
+      "side": 1,
+      "message": "somewhere on go/dalvik probably.\n\nIn this case you can use `m test-art-host-gtest` to run our native test suite.\n\nTo simply run the failing tests you can use `m test-art-host-gtest-art_runtime_tests32` and `m test-art-host-gtest-art_runtime_tests32`.\n\nThe actual gtest binary is in \n `$ANDROID_HOST_OUT/nativetest{64,}/art_runtime_tests/art_runtime_tests` if you want to run it manually.",
+      "parentUuid": "7c96d7cc_989a074b",
+      "revId": "a0b0cbd814f9acf0af176a2c1805e1d15d1f5ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
