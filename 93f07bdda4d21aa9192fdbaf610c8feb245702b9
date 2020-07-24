@@ -123,6 +123,24 @@
       "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "712687d1_6304486a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-07-24T17:48:05Z",
+      "side": 1,
+      "message": "I think we should keep them. Often times when GC related (OOME, app not responding etc) bugs come up, I rely on these one-line messages to get an idea of what state the heap/GC is in. Logging explicit GCs in particular is also potentially helpful.\nIf we ever receive a performance regression issue and on analyzing logcat realize there are too many \u0027explicit GCs\u0027 message, then that is a helpful indicator to act on.",
+      "parentUuid": "2bb5116c_27659fde",
+      "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
