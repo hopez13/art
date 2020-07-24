@@ -16,6 +16,24 @@
       "revId": "cefebc86af30522bf79d2a89a2bcf96f7f970ecb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a54d34fd_7b7d0c21",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-24T00:33:40Z",
+      "side": 1,
+      "message": "yes \u0027\u0026#x\u003chex\u003e\u0027 but for some utterly baffling reason they decided that \u0027Characters referred to using character references must match the production for Char.\u0027 which excludes a bunch of code-points (specifically \"Char ::\u003d #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]\") (https://www.w3.org/TR/2006/REC-xml-20060816/Overview.html#NT-CharRef)\n\nSo I can\u0027t use the xml version of \\0 which is the most common char causing issues so I just did this instead.",
+      "parentUuid": "96aa20f9_c4ec36c3",
+      "revId": "cefebc86af30522bf79d2a89a2bcf96f7f970ecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
