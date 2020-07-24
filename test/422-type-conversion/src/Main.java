@@ -629,7 +629,7 @@ public class Main {
     assertCharEquals((char)0, $opt$noinline$IntToChar(-2147483648));  // -(2^31)
   }
 
-  // A dummy value to defeat inlining of these routines.
+  // A placeholder value to defeat inlining of these routines.
   static boolean doThrow = false;
 
   // These methods produce int-to-long Dex instructions.

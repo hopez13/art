@@ -21,7 +21,7 @@ public interface MirandaInterface {
 
     public boolean inInterface();
 
-    // A couple of dummy methods to fill the method table.
+    // A couple of placeholder methods to fill the method table.
     public void inInterfaceDummy1();
     public void inInterfaceDummy2();
     public void inInterfaceDummy3();
