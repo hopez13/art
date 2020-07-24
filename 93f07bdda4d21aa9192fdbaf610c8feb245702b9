@@ -69,6 +69,24 @@
       "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc981504_ad52fbbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-24T14:25:36Z",
+      "side": 1,
+      "message": "Lokesh, instead of introducing a new command line argument, could we just not log on explicit GCs? (or switch it to VLOG).",
+      "parentUuid": "287c7b54_251a4a4c",
+      "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
