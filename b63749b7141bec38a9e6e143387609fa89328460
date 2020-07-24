@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004027136",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1372625?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "68292e63_6b73e149",
+          "description": "Change to \"runtime/class_loader_context.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/class_loader_context.cc",
+              "range": {
+                "startLine": 328,
+                "startChar": 31,
+                "endLine": 328,
+                "endChar": 38
+              },
+              "replacement": "doesn\u0027t"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "428e1bb0_6b7f51ff",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-24T22:14:53Z",
+      "side": 1,
+      "message": "Common typo found: \"doens\u0027t\" -- should it be \"doesn\u0027t\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 328,
+        "startChar": 31,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "b63749b7141bec38a9e6e143387609fa89328460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
