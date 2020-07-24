@@ -87,6 +87,24 @@
       "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be4966d_f4771ef6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-24T16:56:21Z",
+      "side": 1,
+      "message": "I think the log normally does have value. If you just explicitly asked for a GC it\u0027s likely you would be interested in seeing how much it does. If nothing else you could figure out if the ExplicitGC should be removed. In the case of these tests though we know the gc is done just to provide a clean environment so they don\u0027t add much value. I doubt this is typical though.\n\nThis has historically always been a LOG(INFO). Also there are several conditions that can cause the LOG to trigger, including pause-time and GcForAlloc. Sorting out all these conditions and duplicating the LOG would be rather difficult, instead I think just using this flag is a good idea.",
+      "parentUuid": "fc981504_ad52fbbc",
+      "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
