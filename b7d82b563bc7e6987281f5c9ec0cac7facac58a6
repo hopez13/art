@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004014634",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1371420?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "06243891_9efcfaa5",
+        "filename": "test/622-simplifyifs-exception-edges/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-24T11:11:57Z",
+      "side": 1,
+      "message": "Wrong casing for \"placeholder\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "b7d82b563bc7e6987281f5c9ec0cac7facac58a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
