@@ -321,7 +321,13 @@ bool ClassLoaderContext::Parse(const std::string& spec, bool parse_checksums) {
   // Stop early if we detect the special shared library, which may be passed as the classpath
   // for dex2oat when we want to skip the shared libraries check.
   if (spec == OatFile::kSpecialSharedLibrary) {
-    LOG(INFO) << "The ClassLoaderContext is a special shared library.";
+    static bool has_logged = false;
+    if (!has_logged) {
+      LOG(INFO) << "The ClassLoaderContext is a special shared library.";
+      has_logged = true;
+      // Zygote specialization doens't use exec() and therefore we must manually clear this static.
+      pthread_atfork([] { has_logged = false; }, nullptr, nullptr);
+    }
     special_shared_library_ = true;
     return true;
   }
