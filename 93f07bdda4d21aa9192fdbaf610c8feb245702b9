@@ -105,6 +105,24 @@
       "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bb5116c_27659fde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-24T17:07:26Z",
+      "side": 1,
+      "message": "The thing is, I think there\u0027s a disconnect in your \"you\" above. At the Java level, the dev requesting an explicit GC will most likely not look/care/know about the logcat line. So I don\u0027t think it benefits the dev to have the log.\n\nLikewise, I don\u0027t think, but would like confirmation, that Lokesh and other GC authors are now using these logs for diagnosing issues.",
+      "parentUuid": "1be4966d_f4771ef6",
+      "revId": "93f07bdda4d21aa9192fdbaf610c8feb245702b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
