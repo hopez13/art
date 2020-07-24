@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a956f860_35742bdd",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-24T14:34:34Z",
+      "side": 1,
+      "message": "Can you explain why this test has changed (and the one below)? I think it should be mentioned in commit message.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 0
+      },
+      "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
