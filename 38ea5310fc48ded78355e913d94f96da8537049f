@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0452229_0fc43716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-07-24T23:07:23Z",
+      "side": 1,
+      "message": "Thanks Tom.\n\nNote for posterity: having the log in the parse method was a bit of an oversight but worked well at that time, because we only had single class loader for everything (including the shared libs). Lately we added more and also change the logic on how often we created the context. So we need to revisit this log.",
+      "revId": "38ea5310fc48ded78355e913d94f96da8537049f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
