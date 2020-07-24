@@ -19,6 +19,299 @@
     },
     {
       "key": {
+        "uuid": "81dc97fe_28602715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "I\u0027m not very fond of the term \"placeholder\". In some contexts it\u0027s a good fit, in other places I proposed some alternatives.",
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f830c84b_ed30b148",
+        "filename": "test/008-exceptions/src/MultiDexBadInit.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "Maybe \"intField\"?",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78301e73_2fed80a8",
+        "filename": "test/046-reflect/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "Maybe \"stringList\"?",
+      "range": {
+        "startLine": 505,
+        "startChar": 24,
+        "endLine": 505,
+        "endChar": 35
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa8fa1b0_dd99d44a",
+        "filename": "test/126-miranda-multidex/src/MirandaInterface.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"otherwise unused\" and maybe rename the methods below to \"inInterfaceUnused\u003cn\u003e\".",
+      "range": {
+        "startLine": 24,
+        "startChar": 19,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b017686_517790c8",
+        "filename": "test/2230-profile-save-hotness/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "Why not \"temp\"?",
+      "range": {
+        "startLine": 74,
+        "startChar": 55,
+        "endLine": 74,
+        "endChar": 66
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad99a77_ab354695",
+        "filename": "test/421-large-frame/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"arg\"?",
+      "range": {
+        "startLine": 33,
+        "startChar": 35,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5e01b78_1ea9c6ee",
+        "filename": "test/422-type-conversion/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "I\u0027ve got a better solution for this one: https://android-review.googlesource.com/1371421 .",
+      "range": {
+        "startLine": 632,
+        "startChar": 7,
+        "endLine": 632,
+        "endChar": 18
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba33ebd1_52ae6731",
+        "filename": "test/444-checker-nce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"unused\"?",
+      "range": {
+        "startLine": 230,
+        "startChar": 18,
+        "endLine": 230,
+        "endChar": 29
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f7ef33_96b7d057",
+        "filename": "test/569-checker-pattern-replacement/src-multidex/Base.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"unused\"?",
+      "range": {
+        "startLine": 62,
+        "startChar": 26,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50f4186_540f7a9e",
+        "filename": "test/569-checker-pattern-replacement/src-multidex/DerivedInSecondDex.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"unused\"?",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 37
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844020dd_7882de88",
+        "filename": "test/595-profile-saving/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"temp\"?",
+      "range": {
+        "startLine": 73,
+        "startChar": 55,
+        "endLine": 73,
+        "endChar": 66
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0810247_d1b1cd0a",
+        "filename": "test/912-classes/src-art/art/Test912.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"noopThread\"?",
+      "range": {
+        "startLine": 284,
+        "startChar": 11,
+        "endLine": 284,
+        "endChar": 28
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4686d34_c8e5e73b",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T12:27:18Z",
+      "side": 1,
+      "message": "\"unused\"?",
+      "range": {
+        "startLine": 1175,
+        "startChar": 12,
+        "endLine": 1175,
+        "endChar": 23
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15549271_f7e782b2",
         "filename": "test/988-method-trace/gen_srcs.py",
         "patchSetId": 2
