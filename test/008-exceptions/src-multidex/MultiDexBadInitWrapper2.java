@@ -17,7 +17,7 @@
 class MultiDexBadInitWrapper2 {
     public static void setDummy(int value) {
         if (doThrow) { throw new Error(); }
-        MultiDexBadInit.dummy = value;
+        MultiDexBadInit.placeholder = value;
     }
 
     public static boolean doThrow = false;

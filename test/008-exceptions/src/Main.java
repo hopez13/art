@@ -23,7 +23,7 @@ class BadError extends Error {
 
 // A class that throws BadError during static initialization.
 class BadInit {
-    static int dummy;
+    static int placeholder;
     static {
         System.out.println("Static Init");
         if (true) {
@@ -41,7 +41,7 @@ class BadErrorNoStringInit extends Error {
 
 // A class that throws BadErrorNoStringInit during static initialization.
 class BadInitNoStringInit {
-    static int dummy;
+    static int placeholder;
     static {
         System.out.println("Static BadInitNoStringInit");
         if (true) {
@@ -52,7 +52,7 @@ class BadInitNoStringInit {
 
 // A class that throws BadError during static initialization, serving as a super class.
 class BadSuperClass {
- static int dummy;
+ static int placeholder;
  static {
      System.out.println("BadSuperClass Static Init");
      if (true) {
@@ -104,7 +104,7 @@ public class Main {
     private static void exceptionsRethrowClassInitFailure() {
         try {
             try {
-                BadInit.dummy = 1;
+                BadInit.placeholder = 1;
                 throw new IllegalStateException("Should not reach here.");
             } catch (BadError e) {
                 System.out.println(e);
@@ -113,7 +113,7 @@ public class Main {
             // Check if it works a second time.
 
             try {
-                BadInit.dummy = 1;
+                BadInit.placeholder = 1;
                 throw new IllegalStateException("Should not reach here.");
             } catch (NoClassDefFoundError e) {
                 System.out.println(e);
@@ -127,7 +127,7 @@ public class Main {
     private static void exceptionsRethrowClassInitFailureNoStringInit() {
         try {
             try {
-                BadInitNoStringInit.dummy = 1;
+                BadInitNoStringInit.placeholder = 1;
                 throw new IllegalStateException("Should not reach here.");
             } catch (BadErrorNoStringInit e) {
                 System.out.println(e);
@@ -136,7 +136,7 @@ public class Main {
             // Check if it works a second time.
 
             try {
-                BadInitNoStringInit.dummy = 1;
+                BadInitNoStringInit.placeholder = 1;
                 throw new IllegalStateException("Should not reach here.");
             } catch (NoClassDefFoundError e) {
                 System.out.println(e);
@@ -150,7 +150,7 @@ public class Main {
     private static void exceptionsForSuperClassInitFailure() {
         try {
             // Resolve DerivedFromBadSuperClass.
-            BadSuperClass.dummy = 1;
+            BadSuperClass.placeholder = 1;
             throw new IllegalStateException("Should not reach here.");
         } catch (BadError e) {
             System.out.println(e);
@@ -181,7 +181,7 @@ public class Main {
 
     private static void exceptionsInMultiDex() {
         try {
-            MultiDexBadInit.dummy = 1;
+            MultiDexBadInit.placeholder = 1;
             throw new IllegalStateException("Should not reach here.");
         } catch (Error e) {
             System.out.println(e);
