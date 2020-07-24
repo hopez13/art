@@ -22,6 +22,30 @@
       "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54693811_516b090b",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-24T14:46:20Z",
+      "side": 1,
+      "message": "Maybe this is one of the changes mentioned in the merge commit:\n\n  960606b6 Emit pairs of add/sub for larger immediates\n\nI\u0027m not sure this is an improvement for constants in the [4096, 65536) range. It adds one more instruction to the dependency chain. Previously the MOV could have been dual-issued with the preceding instruction.",
+      "parentUuid": "a956f860_35742bdd",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 0
+      },
+      "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
