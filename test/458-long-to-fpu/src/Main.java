@@ -20,7 +20,7 @@ public class Main {
     System.out.println($noinline$DoubleConvert(false));
   }
 
-  // A dummy value to defeat inlining of these routines.
+  // A placeholder value to defeat inlining of these routines.
   static boolean doThrow = false;
 
   public static long $noinline$FloatConvert(boolean flag) {

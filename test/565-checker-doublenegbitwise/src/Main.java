@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 
 public class Main {
 
-  // A dummy value to defeat inlining of these routines.
+  // A placeholder value to defeat inlining of these routines.
   static boolean doThrow = false;
 
   public static void assertIntEquals(int expected, int result) {
