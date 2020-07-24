@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd4dd8ce_86897c93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-24T11:20:18Z",
+      "side": 1,
+      "message": "PTAL, this is s/dummy/placeholder/ for art/test.",
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15549271_f7e782b2",
+        "filename": "test/988-method-trace/gen_srcs.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-24T11:20:18Z",
+      "side": 1,
+      "message": "This file already had quite a few lines over 100 chars. Don\u0027t propose point fixing this one instance.",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 127
+      },
+      "revId": "a7d9a700acc9fdc6c3c831474378213e459856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
