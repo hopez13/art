@@ -16,9 +16,6 @@
 
 public class Main {
 
-  // A dummy value to defeat inlining of these routines.
-  static boolean doThrow = false;
-
   public static void assertByteEquals(byte expected, byte result) {
     if (expected != result) {
       throw new Error("Expected: " + expected + ", found: " + result);
@@ -50,26 +47,26 @@ public class Main {
   }
 
   // Non-inlinable type-casting helpers.
-  static  char $noinline$byteToChar   (byte v) { if (doThrow) throw new Error(); return  (char)v; }
-  static short $noinline$byteToShort  (byte v) { if (doThrow) throw new Error(); return (short)v; }
-  static   int $noinline$byteToInt    (byte v) { if (doThrow) throw new Error(); return   (int)v; }
-  static  long $noinline$byteToLong   (byte v) { if (doThrow) throw new Error(); return  (long)v; }
-  static  byte $noinline$charToByte   (char v) { if (doThrow) throw new Error(); return  (byte)v; }
-  static short $noinline$charToShort  (char v) { if (doThrow) throw new Error(); return (short)v; }
-  static   int $noinline$charToInt    (char v) { if (doThrow) throw new Error(); return   (int)v; }
-  static  long $noinline$charToLong   (char v) { if (doThrow) throw new Error(); return  (long)v; }
-  static  byte $noinline$shortToByte (short v) { if (doThrow) throw new Error(); return  (byte)v; }
-  static  char $noinline$shortToChar (short v) { if (doThrow) throw new Error(); return  (char)v; }
-  static   int $noinline$shortToInt  (short v) { if (doThrow) throw new Error(); return   (int)v; }
-  static  long $noinline$shortToLong (short v) { if (doThrow) throw new Error(); return  (long)v; }
-  static  byte $noinline$intToByte     (int v) { if (doThrow) throw new Error(); return  (byte)v; }
-  static  char $noinline$intToChar     (int v) { if (doThrow) throw new Error(); return  (char)v; }
-  static short $noinline$intToShort    (int v) { if (doThrow) throw new Error(); return (short)v; }
-  static  long $noinline$intToLong     (int v) { if (doThrow) throw new Error(); return  (long)v; }
-  static  byte $noinline$longToByte   (long v) { if (doThrow) throw new Error(); return  (byte)v; }
-  static  char $noinline$longToChar   (long v) { if (doThrow) throw new Error(); return  (char)v; }
-  static short $noinline$longToShort  (long v) { if (doThrow) throw new Error(); return (short)v; }
-  static   int $noinline$longToInt    (long v) { if (doThrow) throw new Error(); return   (int)v; }
+  static  char $noinline$byteToChar   (byte v) { return  (char)v; }
+  static short $noinline$byteToShort  (byte v) { return (short)v; }
+  static   int $noinline$byteToInt    (byte v) { return   (int)v; }
+  static  long $noinline$byteToLong   (byte v) { return  (long)v; }
+  static  byte $noinline$charToByte   (char v) { return  (byte)v; }
+  static short $noinline$charToShort  (char v) { return (short)v; }
+  static   int $noinline$charToInt    (char v) { return   (int)v; }
+  static  long $noinline$charToLong   (char v) { return  (long)v; }
+  static  byte $noinline$shortToByte (short v) { return  (byte)v; }
+  static  char $noinline$shortToChar (short v) { return  (char)v; }
+  static   int $noinline$shortToInt  (short v) { return   (int)v; }
+  static  long $noinline$shortToLong (short v) { return  (long)v; }
+  static  byte $noinline$intToByte     (int v) { return  (byte)v; }
+  static  char $noinline$intToChar     (int v) { return  (char)v; }
+  static short $noinline$intToShort    (int v) { return (short)v; }
+  static  long $noinline$intToLong     (int v) { return  (long)v; }
+  static  byte $noinline$longToByte   (long v) { return  (byte)v; }
+  static  char $noinline$longToChar   (long v) { return  (char)v; }
+  static short $noinline$longToShort  (long v) { return (short)v; }
+  static   int $noinline$longToInt    (long v) { return   (int)v; }
 
   /**
    * Basic test merging a bitfield move operation (here a type conversion) into
