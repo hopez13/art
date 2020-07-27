@@ -2203,8 +2203,13 @@ bool ClassLinker::AddImageSpace(
     header.VisitPackedArtMethods([&](ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
       if (IsQuickToInterpreterBridge(method.GetEntryPointFromQuickCompiledCode()) &&
           interpreter::CanMethodUseNterp(&method)) {
-        method.SetEntryPointFromQuickCompiledCodePtrSize(interpreter::GetNterpEntryPoint(),
-                                                         image_pointer_size_);
+        if (klass->IsVisiblyInitialized() || !NeedsClinitCheckBeforeCall(&m)) {
+          method.SetEntryPointFromQuickCompiledCodePtrSize(interpreter::GetNterpEntryPoint(),
+                                                           image_pointer_size_);
+        } else {
+          method.SetEntryPointFromQuickCompiledCodePtrSize(GetQuickResolutionStub(),
+                                                           image_pointer_size_);
+        }
       }
     }, space->Begin(), image_pointer_size_);
   }
