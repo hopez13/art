@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "3aae60c9_4893486c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "This needs comments.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd12b98_d9d9d6ef",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "Please move this off ArtMethod, maybe CodeSimulator::CanSimulateMethod?",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 62
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68b5d294_4789b6cd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "Needs comments.",
+      "range": {
+        "startLine": 2192,
+        "startChar": 0,
+        "endLine": 2195,
+        "endChar": 11
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a61ad540_205a4811",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "Please avoid this, location is already a brittle thing, and querying the ANDROID_PRODUCT_OUT here doesn\u0027t look right.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 5
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85417699_909eb0b6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "As this is only for the simulator, I\u0027d rather we create another pthread_key like and not pollute the Thread data structure with it.",
+      "range": {
+        "startLine": 1851,
+        "startChar": 0,
+        "endLine": 1852,
+        "endChar": 38
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0deea04d_46225e1a",
         "filename": "simulator/Android.bp",
         "patchSetId": 5
@@ -31,6 +146,75 @@
       "side": 1,
       "message": "Good point, thanks. Follow-up to address this: https://r.android.com/1364821",
       "parentUuid": "0deea04d_46225e1a",
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2afb1b55_ea4a217a",
+        "filename": "simulator/code_simulator_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 96
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "268e0dba_781d91f1",
+        "filename": "simulator/code_simulator_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "One argument per line.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 98
+      },
+      "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729377b5_d6e9405f",
+        "filename": "simulator/include/code_simulator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T08:58:28Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 45,
+        "startChar": 22,
+        "endLine": 46,
+        "endChar": 71
+      },
       "revId": "e886d68b9c40c941d8966b9c90d0e265c75fb19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
