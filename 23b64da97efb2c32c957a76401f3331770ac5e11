@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77c34ab8_ae452d02",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-07-27T20:50:22Z",
+      "side": 0,
+      "message": "Doesn\u0027t this change a bunch of the offsets? I assume they need to get updated?",
+      "range": {
+        "startLine": 1574,
+        "startChar": 8,
+        "endLine": 1574,
+        "endChar": 27
+      },
+      "revId": "23b64da97efb2c32c957a76401f3331770ac5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
