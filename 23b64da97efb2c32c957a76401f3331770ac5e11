@@ -22,6 +22,30 @@
       "revId": "23b64da97efb2c32c957a76401f3331770ac5e11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b31061dd_4714fdc6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-27T21:47:19Z",
+      "side": 0,
+      "message": "We also need a .oat version change.",
+      "parentUuid": "77c34ab8_ae452d02",
+      "range": {
+        "startLine": 1574,
+        "startChar": 8,
+        "endLine": 1574,
+        "endChar": 27
+      },
+      "revId": "23b64da97efb2c32c957a76401f3331770ac5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
