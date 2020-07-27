@@ -46,6 +46,30 @@
       "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1caa789b_6da8c389",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-07-27T20:18:33Z",
+      "side": 1,
+      "message": "allocSize and allocUsed are being used to calculate allocFree (see the code below the change). I don\u0027t think it\u0027s about how much space in virtual memory is reserved. It\u0027s about how much space is there in the heap. In that sense I think we should divide by 2.",
+      "parentUuid": "d09a0cc5_abaceef7",
+      "range": {
+        "startLine": 420,
+        "startChar": 21,
+        "endLine": 420,
+        "endChar": 45
+      },
+      "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
