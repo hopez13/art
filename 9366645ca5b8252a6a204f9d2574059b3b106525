@@ -22,6 +22,30 @@
       "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09a0cc5_abaceef7",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-07-27T19:15:23Z",
+      "side": 1,
+      "message": "Agree, since Size() is the current allocated size, we should not divide by 2. Maybe we should change the logic for region space to not count empty regions in Size() though? Seems unclear",
+      "parentUuid": "b6099a70_c02f21ae",
+      "range": {
+        "startLine": 420,
+        "startChar": 21,
+        "endLine": 420,
+        "endChar": 45
+      },
+      "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
