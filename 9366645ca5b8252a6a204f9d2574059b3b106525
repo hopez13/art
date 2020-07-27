@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6099a70_c02f21ae",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-27T11:22:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we report the allocated size as-is (even if reserve twice the capacity in `art:gc::Heap::Heap`)? Lokesh, Hans, what do you think?",
+      "range": {
+        "startLine": 420,
+        "startChar": 21,
+        "endLine": 420,
+        "endChar": 45
+      },
+      "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
