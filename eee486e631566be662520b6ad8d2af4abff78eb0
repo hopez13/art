@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7e7cccbf_ab7cec38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-27T09:35:35Z",
+      "side": 1,
+      "message": "LGTM, except for Ulya\u0027s and Vladimir\u0027s comments.",
+      "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a956f860_35742bdd",
         "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
         "patchSetId": 3
