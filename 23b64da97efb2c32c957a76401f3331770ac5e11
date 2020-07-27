@@ -70,6 +70,30 @@
       "revId": "23b64da97efb2c32c957a76401f3331770ac5e11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89ddb7b1_d5adf60e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-27T22:34:37Z",
+      "side": 0,
+      "message": "About the offsets. All of those are calculated from the struct definition. Did need to update a few tests though.\n\nAlso: Srbecky do you happen to recall how you generated the expected_asm_... and expected_cfi_... blobs in jni_cfi_test_expected? Updating them was incredibly annoying and I\u0027d like to put some directions for whoever has to do this next that are hopefully better than my \u0027look for the 1 byte difference\u0027 method.",
+      "parentUuid": "a5343092_bb0ffd66",
+      "range": {
+        "startLine": 1574,
+        "startChar": 8,
+        "endLine": 1574,
+        "endChar": 27
+      },
+      "revId": "23b64da97efb2c32c957a76401f3331770ac5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
