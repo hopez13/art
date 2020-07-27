@@ -1387,11 +1387,14 @@ bool Class::ProxyDescriptorEquals(const char* match) {
 // TODO: Move this to java_lang_Class.cc?
 ArtMethod* Class::GetDeclaredConstructor(
     Thread* self, Handle<ObjectArray<Class>> args, PointerSize pointer_size) {
+  LOG(ERROR) << "CLASS : " << PrettyClass() << this;
   for (auto& m : GetDirectMethods(pointer_size)) {
+    LOG(ERROR) << "METHOD " << m.PrettyMethod();
     // Skip <clinit> which is a static constructor, as well as non constructors.
     if (m.IsStatic() || !m.IsConstructor()) {
       continue;
     }
+    LOG(ERROR) << "METHOD IF PROXY" << m.GetInterfaceMethodIfProxy(kRuntimePointerSize);
     // May cause thread suspension and exceptions.
     if (m.GetInterfaceMethodIfProxy(kRuntimePointerSize)->EqualParameters(args)) {
       return &m;

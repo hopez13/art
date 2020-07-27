@@ -147,7 +147,6 @@ bool CanUseMterp()
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Runtime* const runtime = Runtime::Current();
   return
-      runtime->IsStarted() &&
       !runtime->IsAotCompiler() &&
       !runtime->GetInstrumentation()->IsActive() &&
       // In simulator mode, mterp and its fast path are avoided to ensure every
