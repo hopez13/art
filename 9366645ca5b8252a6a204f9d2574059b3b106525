@@ -70,6 +70,29 @@
       "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95fa65e5_3044481d",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-07-27T23:12:28Z",
+      "side": 1,
+      "message": "I\u0027m with Lokesh. I think we need to divide by 2 for this to make sense. The fact that you need to read the code to interpret the result is a bit unsatisfying, though.",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 43
+      },
+      "revId": "9366645ca5b8252a6a204f9d2574059b3b106525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
