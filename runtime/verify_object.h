@@ -29,7 +29,7 @@ class Class;
 class Object;
 }  // namespace mirror
 
-// How we want to sanity check the heap's correctness.
+// How we want to check the heap's correctness.
 enum VerifyObjectMode {
   kVerifyObjectModeDisabled,  // Heap verification is disabled.
   kVerifyObjectModeFast,  // Sanity heap accesses quickly by using VerifyClassClass.

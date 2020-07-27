@@ -575,8 +575,8 @@ static void WrapExceptionInInitializer(Handle<mirror::Class> klass)
   ScopedLocalRef<jthrowable> cause(env, env->ExceptionOccurred());
   CHECK(cause.get() != nullptr);
 
-  // Boot classpath classes should not fail initialization. This is a sanity debug check. This
-  // cannot in general be guaranteed, but in all likelihood leads to breakage down the line.
+  // Boot classpath classes should not fail initialization. This is a consistency debug check.
+  // This cannot in general be guaranteed, but in all likelihood leads to breakage down the line.
   if (klass->GetClassLoader() == nullptr && !Runtime::Current()->IsAotCompiler()) {
     std::string tmp;
     // We want to LOG(FATAL) on debug builds since this really shouldn't be happening but we need to
@@ -5230,7 +5230,7 @@ ObjPtr<mirror::Class> ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRun
     callback->MakeVisible(self);
   }
 
-  // sanity checks
+  // Consistency checks.
   if (kIsDebugBuild) {
     CHECK(klass->GetIFieldsPtr() == nullptr);
     CheckProxyConstructor(klass->GetDirectMethod(0, image_pointer_size_));
@@ -5324,7 +5324,7 @@ void ClassLinker::CreateProxyMethod(Handle<mirror::Class> klass, ArtMethod* prot
 }
 
 void ClassLinker::CheckProxyMethod(ArtMethod* method, ArtMethod* prototype) const {
-  // Basic sanity
+  // Basic consistency checks.
   CHECK(!prototype->IsFinal());
   CHECK(method->IsFinal());
   CHECK(method->IsInvokable());
