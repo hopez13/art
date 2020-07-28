@@ -16,6 +16,24 @@
       "revId": "0a0d71fb82bea8bf56c8092c2610601a7886ea18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae6af97_ea0dab56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-07-28T14:40:04Z",
+      "side": 1,
+      "message": "The problem is that if you have a spanning disk and do an incremental build, then our current last command takes 20minutes+ (Yi Kong hit this). This change is just for folks who do a similar incremental build to Yi Kong. For builds that have already applied the cleanspec, it doesn\u0027t matter.",
+      "parentUuid": "632528c9_d116880b",
+      "revId": "0a0d71fb82bea8bf56c8092c2610601a7886ea18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
