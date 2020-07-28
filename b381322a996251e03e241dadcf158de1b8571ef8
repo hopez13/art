@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ff1f68f_f4747051",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-28T14:36:13Z",
+      "side": 1,
+      "message": "Thanks Orion.",
+      "revId": "b381322a996251e03e241dadcf158de1b8571ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7846fb_10a4d255",
         "filename": "tools/ahat/src/main/com/android/ahat/heapdump/Diffable.java",
         "patchSetId": 1
@@ -22,6 +39,30 @@
       "revId": "b381322a996251e03e241dadcf158de1b8571ef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec719a9d_15cf3b79",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/Diffable.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-28T14:36:13Z",
+      "side": 1,
+      "message": "Good idea; done as a follow-up in https://android-review.googlesource.com/c/platform/art/+/1374482, along with other occurrences.",
+      "parentUuid": "9f7846fb_10a4d255",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "b381322a996251e03e241dadcf158de1b8571ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
