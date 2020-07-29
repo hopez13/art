@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "301092ba_add39bb3",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-07-29T17:38:22Z",
+      "side": 1,
+      "message": "Maybe rename as `HOST_I18N_DATA_TIMESTAMP` to match other names defined here, now that this variable is used across several files?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 24
+      },
+      "revId": "b85daebad0d54273de5bacd86e3855e8f0f6c6e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
