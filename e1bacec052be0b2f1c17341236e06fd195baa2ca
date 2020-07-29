@@ -46,6 +46,30 @@
       "revId": "e1bacec052be0b2f1c17341236e06fd195baa2ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8182608e_d6ee0eeb",
+        "filename": "test/044-proxy/src/HotProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T12:52:31Z",
+      "side": 1,
+      "message": "Haha, thanks for catching it! I\u0027ve lowered it to the actual threshold of nterp, which is 0x10000 now. This overall doesn\u0027t change much the total execution time of the 044-proxy test.",
+      "parentUuid": "56d8e954_688ddf26",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "e1bacec052be0b2f1c17341236e06fd195baa2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
