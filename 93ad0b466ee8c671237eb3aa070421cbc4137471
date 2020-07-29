@@ -1,0 +1,485 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4797ba3e_04d02c2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Great tests! Here\u0027s my initial comments, I still need to review the core of the algorithm.",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94eaf15d_7a1e1681",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Can you comment on how do you guarantee termination? (and a note on how many iterations would we usually expect?)",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fc74e5a_c612c823",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 169,
+        "startChar": 36,
+        "endLine": 169,
+        "endChar": 37
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8751d181_f0afb87b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "for better readability: \", or side effects, or merging ...\"",
+      "range": {
+        "startLine": 171,
+        "startChar": 37,
+        "endLine": 171,
+        "endChar": 38
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8503d584_6cda0dac",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "nit: add a comment on what this index refers to?",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 28
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae5e9419_8155181a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "nit: Add a comment what this is used for.",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 4
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f08c5e7_18aa81f3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Did you consider adding a boolean on the PhiPlaceholder data structure instead?",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 85
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43e79ba_33ad33c4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Why do you have this and not use the phi_placeholders_.size() ?",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 787,
+        "endChar": 31
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d0c878_5df65201",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Does your CL require to do LSE at the end? Could we have this change in order of pass as a standalone CL instead?",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 14
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce016bc5_fcd722c2",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Why this change?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ab36b0_75dbec8a",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Why this change?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dc591b6_77a41f0b",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Nice.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 28
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed8b9bc2_9d446906",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Overall nit on the tests you\u0027ve added in this file: can you add a comment for each test what you\u0027re testing for?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651e6be4_b10f8c44",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Is that due to running LSE at the end? Do we know what introduced the store?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9902b72d_1c2e4b3e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Nice.",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 70
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5025ead8_811d1147",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Why do you need to move this?",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 31
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad6e0fe_850bf80a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "is?",
+      "range": {
+        "startLine": 631,
+        "startChar": 33,
+        "endLine": 631,
+        "endChar": 39
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c185b59_f789d9ff",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Add CHECK-NOT: NewInstance?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2788c87e_e49bcc65",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "CHECK-NOT: NewInstance?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d256187_2c193527",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Do you think we can extend the algorithm to insert a phi here?",
+      "range": {
+        "startLine": 1119,
+        "startChar": 3,
+        "endLine": 1119,
+        "endChar": 5
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09a99ed8_77d7a1b3",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "CHECK-NOT: NewArray?",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b800a86_5341d714",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "TODO: Eliminate the new array and keep the negative check?",
+      "range": {
+        "startLine": 2652,
+        "startChar": 0,
+        "endLine": 2652,
+        "endChar": 59
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "285ca0ed_d883f3cb",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-29T13:46:34Z",
+      "side": 1,
+      "message": "Expand the comment to explain why.",
+      "range": {
+        "startLine": 2849,
+        "startChar": 18,
+        "endLine": 2849,
+        "endChar": 52
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
