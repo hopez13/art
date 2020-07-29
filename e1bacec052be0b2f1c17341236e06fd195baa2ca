@@ -23,6 +23,29 @@
       "revId": "e1bacec052be0b2f1c17341236e06fd195baa2ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56d8e954_688ddf26",
+        "filename": "test/044-proxy/src/HotProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-29T12:47:24Z",
+      "side": 1,
+      "message": "This is -1, so you never enter the body. And do not just use 0x7fffffff without making sure that the test completes in a reasonable time.",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "e1bacec052be0b2f1c17341236e06fd195baa2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
