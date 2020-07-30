@@ -380,7 +380,7 @@ void Mutex::ExclusiveLock(Thread* self) {
           self->CheckEmptyCheckpointFromMutex();
         }
         if (futex(state_and_contenders_.Address(), FUTEX_WAIT_PRIVATE, cur_state,
-                  nullptr, nullptr, 0) != 0) {
+                  nullptr, exclusive_owner_.Address(), 0) != 0) {
           // We only went to sleep after incrementing and contenders and checking that the lock
           // is still held by someone else.
           // EAGAIN and EINTR both indicate a spurious failure, try again from the beginning.
@@ -586,7 +586,7 @@ void ReaderWriterMutex::ExclusiveLock(Thread* self) {
       if (UNLIKELY(should_respond_to_empty_checkpoint_request_)) {
         self->CheckEmptyCheckpointFromMutex();
       }
-      if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, nullptr, nullptr, 0) != 0) {
+      if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, nullptr, exclusive_owner_.Address(), 0) != 0) {
         // EAGAIN and EINTR both indicate a spurious failure, try again from the beginning.
         // We don't use TEMP_FAILURE_RETRY so we can intentionally retry to acquire the lock.
         if ((errno != EAGAIN) && (errno != EINTR)) {
@@ -665,7 +665,7 @@ bool ReaderWriterMutex::ExclusiveLockWithTimeout(Thread* self, int64_t ms, int32
       if (UNLIKELY(should_respond_to_empty_checkpoint_request_)) {
         self->CheckEmptyCheckpointFromMutex();
       }
-      if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, &rel_ts, nullptr, 0) != 0) {
+      if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, &rel_ts, exclusive_owner_.Address(), 0) != 0) {
         if (errno == ETIMEDOUT) {
           --num_pending_writers_;
           return false;  // Timed out.
@@ -706,7 +706,7 @@ void ReaderWriterMutex::HandleSharedLockContention(Thread* self, int32_t cur_sta
   if (UNLIKELY(should_respond_to_empty_checkpoint_request_)) {
     self->CheckEmptyCheckpointFromMutex();
   }
-  if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, nullptr, nullptr, 0) != 0) {
+  if (futex(state_.Address(), FUTEX_WAIT_PRIVATE, cur_state, nullptr, exclusive_owner_.Address(), 0) != 0) {
     if (errno != EAGAIN && errno != EINTR) {
       PLOG(FATAL) << "futex wait failed for " << name_;
     }
