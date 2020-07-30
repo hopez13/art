@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "db4b6a49_65084a0c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T15:30:06Z",
+      "side": 1,
+      "message": "It cannot keep changing. Finding a \"load of an unknown value which is now known to be unreplaceable\" makes the decision about the load final. Similarly, a \"new unknown value on a back-edge\" shall never go back to \"needs loop phi\". These changes cannot be undone and there are a finite number of them, at most `loads_requiring_loop_phi_.size() + phi_placeholders_.size()`.",
+      "parentUuid": "a7a0264f_a54daab0",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fc74e5a_c612c823",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "At a high-level can you comment on what the index is used for?",
       "parentUuid": "f50b771d_d2588eeb",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 28
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2419f9ae_d296f524",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T15:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5ed2e6_e00d52ea",
       "range": {
         "startLine": 272,
         "startChar": 9,
@@ -490,6 +538,24 @@
       "side": 1,
       "message": "Curious where is this method being called? Can you mention it here? It\u0027s not part of the visitor API, right? Could we rename it to VisitInstructions?",
       "parentUuid": "4ca315e4_f70b9634",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec5fb8a3_f1479bd6",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T15:30:06Z",
+      "side": 1,
+      "message": "Do you also want to rename the other Visit() function used by the inliner?",
+      "parentUuid": "78a97f83_017d9e1c",
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -1000,6 +1066,30 @@
       "side": 1,
       "message": "We could to the negative check, and if that fails go to a slow path that does the allocation.",
       "parentUuid": "e898c0df_4fed25bb",
+      "range": {
+        "startLine": 2652,
+        "startChar": 0,
+        "endLine": 2652,
+        "endChar": 59
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa840ff5_6af59599",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T15:30:06Z",
+      "side": 1,
+      "message": "That\u0027s exactly what I wrote, i.e. moving the \"NewInstance [...] in some form\" to the slow path. And I do not intend to work on that.",
+      "parentUuid": "f6d9588e_5d26d673",
       "range": {
         "startLine": 2652,
         "startChar": 0,
