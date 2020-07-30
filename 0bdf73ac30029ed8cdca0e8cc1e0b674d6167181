@@ -1,0 +1,58 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004110507",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1374985?revision\u003d4",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "ec7f49d2_8556ba7f",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T07:54:11Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027machine code\u0027 or \u0027C/C++ code\u0027; see https://developers.google.com/style/word-list#native for more details.",
+      "range": {
+        "startLine": 534,
+        "startChar": 13,
+        "endLine": 534,
+        "endChar": 19
+      },
+      "revId": "0bdf73ac30029ed8cdca0e8cc1e0b674d6167181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004110507",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1374985?revision\u003d4",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "174af7ba_52c7383b",
+        "filename": "test/044-proxy/src/HotProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T07:54:11Z",
+      "side": 1,
+      "message": "Wrong casing for \"testName\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "0bdf73ac30029ed8cdca0e8cc1e0b674d6167181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
