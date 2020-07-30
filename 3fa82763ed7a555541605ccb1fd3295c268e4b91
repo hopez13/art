@@ -16,6 +16,29 @@
       "revId": "3fa82763ed7a555541605ccb1fd3295c268e4b91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37ec485a_8152c195",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-07-30T15:23:15Z",
+      "side": 1,
+      "message": "nit: it seems that sdk is usually capitalized when referred to in the text, e.g. https://developer.android.com/studio/releases/sdk-tools",
+      "range": {
+        "startLine": 486,
+        "startChar": 64,
+        "endLine": 486,
+        "endChar": 67
+      },
+      "revId": "3fa82763ed7a555541605ccb1fd3295c268e4b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
