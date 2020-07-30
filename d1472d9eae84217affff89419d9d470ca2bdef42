@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b6c9ff7_3ad710fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-30T13:10:19Z",
+      "side": 1,
+      "message": "Thanks for doing this Andrei.",
+      "revId": "d1472d9eae84217affff89419d9d470ca2bdef42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17307b8d_ad9c03a9",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-30T13:10:19Z",
+      "side": 1,
+      "message": "How about something less generic like kMaxTargetUnknown, or KMaxTargetUndecided? kUnsupported sounds like something we don\u0027t support, which isn\u0027t really the case here. kUnsupportedAppUsage may be too confusing, as kMaxTargetO and friends are also kUnsupportedAppUsage.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 16
+      },
+      "revId": "d1472d9eae84217affff89419d9d470ca2bdef42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "204403c5_f1b5adf2",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-30T13:10:19Z",
+      "side": 1,
+      "message": "conditionally and unconditionally blocked?",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "d1472d9eae84217affff89419d9d470ca2bdef42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
