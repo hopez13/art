@@ -62,6 +62,29 @@
       "revId": "d1472d9eae84217affff89419d9d470ca2bdef42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d8bc4c3_ed72f419",
+        "filename": "test/674-hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-07-30T13:21:04Z",
+      "side": 1,
+      "message": "Is this called from another compilation unit?\nShould we also update the function call there?",
+      "range": {
+        "startLine": 88,
+        "startChar": 34,
+        "endLine": 88,
+        "endChar": 53
+      },
+      "revId": "d1472d9eae84217affff89419d9d470ca2bdef42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
