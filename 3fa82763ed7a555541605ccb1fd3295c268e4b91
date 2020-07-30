@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004114617",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380116?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "ca42d6f7_4c5e1c04",
+        "filename": "test/674-hiddenapi/src-art/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T14:07:17Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027machine code\u0027 or \u0027C/C++ code\u0027; see https://developers.google.com/style/word-list#native for more details.",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 17
+      },
+      "revId": "3fa82763ed7a555541605ccb1fd3295c268e4b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
