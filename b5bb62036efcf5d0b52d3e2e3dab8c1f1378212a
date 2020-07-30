@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "014fc757_43065feb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-07-30T16:35:02Z",
+      "side": 1,
+      "message": "All ART development is done on the \u0027master\u0027 branch. This should be rebased and tested there. Other branches, such as android10-dev are mostly for preserving the state as of a particular release (at least in ART).",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
