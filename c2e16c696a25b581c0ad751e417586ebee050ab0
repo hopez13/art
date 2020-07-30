@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "ac4403f6_1d23abac",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "49e57d93_18feefc1",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details.",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9190d9ab_9d1c0526",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details.",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "dde07ea7_eed910de",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details.",
+      "range": {
+        "startLine": 15,
+        "startChar": 62,
+        "endLine": 15,
+        "endChar": 71
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "0a8865df_41d53faa",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 399,
+        "startChar": 44,
+        "endLine": 399,
+        "endChar": 49
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113201",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "d07f6d05_ceafb4ba",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 5
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004113199",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1380117?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "4bd8cafa_11b54d8e",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-30T12:00:46Z",
+      "side": 1,
+      "message": "Unrecognized finding :\nthird party\n",
+      "range": {
+        "startLine": 503,
+        "startChar": 57,
+        "endLine": 503,
+        "endChar": 68
+      },
+      "revId": "c2e16c696a25b581c0ad751e417586ebee050ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
