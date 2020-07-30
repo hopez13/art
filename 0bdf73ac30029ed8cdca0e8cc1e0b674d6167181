@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3e5818d_028f4e99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-30T08:01:15Z",
+      "side": 1,
+      "message": "PTAL at 2..3 (looks like gerrit forgot to list PS3 as being uploaded). I\u0027ve had to add another check in ArtMethod::CopyFrom, with the issue discovered running the wifi tests.",
+      "revId": "0bdf73ac30029ed8cdca0e8cc1e0b674d6167181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
