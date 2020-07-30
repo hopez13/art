@@ -16,6 +16,24 @@
       "revId": "556ace1620b7687c04e0b15853988d608395e3df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ca743b_39d87dfd",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 0,
+      "message": "The test was improperly relying on certain ordering of instructions which made the test dexer-dependent. There are null checks in the code.",
+      "parentUuid": "1a1e9869_d368ad19",
+      "revId": "556ace1620b7687c04e0b15853988d608395e3df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "30ee5008_c746d59b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "This sentence explains how we guarantee termination. Every time at least one \"thing\" changes and the number of \"things\" is fixed.\n\nAs for the complexity, everything would to be O(n^3) or O(n^2 * m) in the worst case if FindSubstitute() was constant (which I intend to do in a follow-up CL). However, the \"n\" and \"m\" tend to be different things for different phases. For example, the Floyd-Warshall algorithm is O(n^3) with `n \u003c\u003d num_phi_placeholders_`. And even though we can hit that algorithm multiple times, we shall never include the same Phi placeholders in two of these calculations and Sum(O(n_i^3)) \u003c\u003d O(Sum(n_i)^3) and the Sum(n_i) is also limited to `num_phi_placeholders_`.",
+      "parentUuid": "94eaf15d_7a1e1681",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fc74e5a_c612c823",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -62,6 +86,30 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a663fd0_341a00c9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fc74e5a_c612c823",
+      "range": {
+        "startLine": 169,
+        "startChar": 36,
+        "endLine": 169,
+        "endChar": 37
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "09163303_fac5434a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done (these are old comments that were just moved).",
+      "parentUuid": "8751d181_f0afb87b",
+      "range": {
+        "startLine": 171,
+        "startChar": 37,
+        "endLine": 171,
+        "endChar": 38
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8503d584_6cda0dac",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -108,6 +180,30 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f50b771d_d2588eeb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "I don\u0027t think a comment would express that better than the one-line implementation. The style guidelines recommend against adding such comments.",
+      "parentUuid": "8503d584_6cda0dac",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 28
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "f7c40b9f_7949c561",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5e9419_8155181a",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 4
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f08c5e7_18aa81f3",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -154,6 +274,30 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ef4c1d9_c9810c8c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "No, but I prefer the \"visited\" for DFS to be bit vectors anyway.",
+      "parentUuid": "8f08c5e7_18aa81f3",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 85
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "5c3baa01_fb421c67",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "I\u0027ve rewritten the initialization to get rid of this.",
+      "parentUuid": "d43e79ba_33ad33c4",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 787,
+        "endChar": 31
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d0c878_5df65201",
         "filename": "compiler/optimizing/optimization.cc",
         "patchSetId": 18
@@ -203,6 +371,30 @@
     },
     {
       "key": {
+        "uuid": "6ddd60df_1eb8ac19",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "This does not change optimization order. The order is defined in optimizing_compiler.cc .\n\nI just moved the construction from \"Passes that need prior analysis\" to \"Regular passes\" section of the switch.",
+      "parentUuid": "f2d0c878_5df65201",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 14
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce016bc5_fcd722c2",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 18
@@ -220,6 +412,24 @@
     },
     {
       "key": {
+        "uuid": "4ca315e4_f70b9634",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Adding multiple Phis to the graph. Added testLoop27().",
+      "parentUuid": "ce016bc5_fcd722c2",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82ab36b0_75dbec8a",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 18
@@ -234,6 +444,24 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9915880b_c8244099",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Related to the change in nodes.h (retrieve the allocator from user, not the used instruction) that requires the user to be part of the graph. That one was required because I wanted to set up Phi inputs before adding the Phis to the graph; adding a Phi to the graph updates uses but some used Phis may not have been added yet.",
+      "parentUuid": "82ab36b0_75dbec8a",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -260,6 +488,30 @@
     },
     {
       "key": {
+        "uuid": "2ac2d8ce_36877d6b",
+        "filename": "test/530-checker-lse-ctor-fences/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5dc591b6_77a41f0b",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 28
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8b9bc2_9d446906",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -277,6 +529,24 @@
     },
     {
       "key": {
+        "uuid": "4bf440b0_2631ef60",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8b9bc2_9d446906",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "651e6be4_b10f8c44",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -291,6 +561,24 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a4be57_691c9f69",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "I guess the author of this test missed the store to `obj.next` while focusing on the other 4 stores.\n\nBut having focused my attention on this test I\u0027ll move the InstanceFieldGet to a separate CHECK block and remove the unnecessary `CHECK-NOT: StaticFieldGet` (there was only one to start with and LSE does not create new ones).",
+      "parentUuid": "651e6be4_b10f8c44",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -317,6 +605,30 @@
     },
     {
       "key": {
+        "uuid": "298c5f3f_3ad9e71e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "This was part of Mart van Buren\u0027s CL https://android-review.googlesource.com/662767 .",
+      "parentUuid": "9902b72d_1c2e4b3e",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 70
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5025ead8_811d1147",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -337,6 +649,30 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53047635_341ab851",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "This is a stronger assertion as it does not rely on the ordering. The old check is only that the instruction does not appear after the matched StaticFieldGet.",
+      "parentUuid": "5025ead8_811d1147",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 31
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -363,6 +699,30 @@
     },
     {
       "key": {
+        "uuid": "b6c4a6f2_3fb3c8d8",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bad6e0fe_850bf80a",
+      "range": {
+        "startLine": 631,
+        "startChar": 33,
+        "endLine": 631,
+        "endChar": 39
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c185b59_f789d9ff",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -380,6 +740,24 @@
     },
     {
       "key": {
+        "uuid": "8166fc8e_ffd0dbe1",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c185b59_f789d9ff",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2788c87e_e49bcc65",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -394,6 +772,24 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9683a1b7_7267372a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2788c87e_e49bcc65",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -420,6 +816,30 @@
     },
     {
       "key": {
+        "uuid": "3b4de5d0_b2a70e52",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "That would fall under speculative load moving, not elimination. We do not know a value from one of the incoming edges, so the best we could do is move the load there and create the Phi to avoid the load for the other incoming edge.\n\nI would reserve such things for loops where a load from the loop header would be moved to the pre-header and we would create Phis in the loop. That is something I\u0027m considering for follow-up changes.",
+      "parentUuid": "0d256187_2c193527",
+      "range": {
+        "startLine": 1119,
+        "startChar": 3,
+        "endLine": 1119,
+        "endChar": 5
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09a99ed8_77d7a1b3",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -434,6 +854,24 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad10a804_6982a76b",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09a99ed8_77d7a1b3",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -460,6 +898,30 @@
     },
     {
       "key": {
+        "uuid": "e898c0df_4fed25bb",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Throwing the exception is part of the allocation, so the NewInstance has to stay in some form if we do not want to introduce a specialized entrypoint. It could be moved to a slow path but I do not intend to work on that.",
+      "parentUuid": "4b800a86_5341d714",
+      "range": {
+        "startLine": 2652,
+        "startChar": 0,
+        "endLine": 2652,
+        "endChar": 59
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "285ca0ed_d883f3cb",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 18
@@ -480,6 +942,30 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f63093_e5eba0d2",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-07-30T10:51:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "285ca0ed_d883f3cb",
+      "range": {
+        "startLine": 2849,
+        "startChar": 18,
+        "endLine": 2849,
+        "endChar": 52
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
