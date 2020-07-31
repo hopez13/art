@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b28247a_db59f5ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-07-31T08:37:32Z",
+      "side": 1,
+      "message": "Sorry for additional nits and not catching them earlier.",
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fc2523c_7638d898",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-07-31T08:37:32Z",
+      "side": 1,
+      "message": "nit: capitalize",
+      "range": {
+        "startLine": 542,
+        "startChar": 53,
+        "endLine": 542,
+        "endChar": 56
+      },
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc25d199_ee94afb5",
+        "filename": "tools/hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-07-31T08:37:32Z",
+      "side": 1,
+      "message": "nit: capitalize",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
