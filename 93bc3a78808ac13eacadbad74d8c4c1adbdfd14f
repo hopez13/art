@@ -34,6 +34,96 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba98069_f04fa5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T11:00:50Z",
+      "side": 1,
+      "message": "These are all parts of the pylint resource file format, so you cannot fix them easily, right? (I\u0027m not familiar with the format.) In that case let\u0027s reply to the lint comments saying that it\u0027s technically infeasible to fix. I don\u0027t see what else you can do. I marked them as \"please fix\", but only to explicitly post why they can\u0027t be fixed.",
+      "parentUuid": "9736fb80_1dc95f97",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c84513ee_f5c57e11",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T11:00:50Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.\n\nPlease fix.",
+      "parentUuid": "44ede49f_e37a455a",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aec92ba1_b8a498b5",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T11:00:50Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details.\n\nPlease fix.",
+      "parentUuid": "7af551ea_c32ed1fd",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae1c08e_a58dcac0",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T11:00:50Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.\n\nPlease fix.",
+      "parentUuid": "9230b16a_24d958e1",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 5
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
