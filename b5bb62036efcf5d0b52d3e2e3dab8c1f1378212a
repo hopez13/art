@@ -16,6 +16,23 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165ef080_fab76385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-07-31T18:02:53Z",
+      "side": 1,
+      "message": "It seems to me that, details temporarily aside, the main concern here is with adding changes that are currently ignored by upstream kernels, but have the potential to conflict with future extensions there. https://man7.org/linux/man-pages/man2/futex.2.html does promise that the other arguments are ignored. But I\u0027m not a kernel developer and don\u0027t know to what extent that\u0027s viewed as a future commitment. I also worry about others making conflicting choices about the interpretation of those arguments.\n\nWill - could you comment or add a reviewer who can comment on the kernel side of this?\n\nGetting back to details, some of this code changed appreciably since Q. This is unlikely to merge cleanly, and won\u0027t behave entirely the same. We now try to spin first before resorting to futexes. I would also expect this to be fairly ineffective in Q. In Q, Java monitors only hold mutexes briefly during entry and exit; they mostly wait on a condition variable. In R, this might be more effective.",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
