@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dde42440_689578c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T16:07:49Z",
+      "side": 1,
+      "message": "Can you give more context why this change is needed for improving boot time and app startup? The bug is too generic.\n\nIs there evidence (benchmarks, local experiments) that this indeed helps? Or is it an intermediate step for some other change?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "ea10087eddad00bd7f2456b365f4827f586d16cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37e833af_4818b74c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T16:07:49Z",
+      "side": 1,
+      "message": "I like the change because it has so much red, but do not understand it.",
+      "revId": "ea10087eddad00bd7f2456b365f4827f586d16cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
