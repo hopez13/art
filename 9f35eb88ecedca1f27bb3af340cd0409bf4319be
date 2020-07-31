@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a37df96f_1102e6a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "Looks like a typo.",
+      "range": {
+        "startLine": 18,
+        "startChar": 28,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "899d7a70_b2594491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "Small typos and some (poorly formulated) algorithmic concerns.",
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "060c8cdb_36b39894",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "This is a helpful comment, but I think it can be made better by adding explicit pass numbers and outlining time and space complexity of each pass (see more detailed suggestions below).",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 57
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d873d56f_28140547",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "Lines 40-81 describe the initial pass, which augments the CFG with the necessary information for the second (main) pass. As I understand, it is an O(n) pass over the CFG in topological order, when n is the number of basic blocks.",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc5957ba_1d0e1314",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "Lines 82-94 describe second pass. As I understand, this is the main pass that does the propagation of known/unknown values for heap locations. It seems to be O(n^3), dominated by Floyd-Warshall component. Complexity of this step and its fix-point iterative nature should be described here more explicitly.\n\nIt seems that we have a data-flow problem similar to constant propagation. Such problems can be solved by iterative data-flow analysis that traverses the CFG in topological order and iterates until it reaches fix point. Topological order is important for faster convergence, and fix point can be replaced with a constant limit on the number of iterations. For underpropagated things we should assume \"unknown\", so in fact we should start assuming \"unknown\" and propagate \"knownness\".\n\nYour algorithm, if I understand correctly, replaces the iterative propagation with a Floyd-Warshall step that computes transitive dependency closure between Phi placeholders. So, if iterative data-flow would eventually propagate a value from X to Y, Floyd-Warshall would set dependency[Y][X] to 1. Then you use that dependency matrix for iterative materialization of Phi placeholders. It seems to me that either the Floyd-Warshall step does not utilize topological order, or it somehow else makes the problem more complex than it was with data-flow analysis. Why is transitive closure needed, and not reaching definitions? They can be computed fast.\n\nI have a feeling that adding Phi placeholders and materializing them shouldn\u0027t be computationally more complex than SSA construction, and that doesn\u0027t have the O(N^3) component. (I wish I could express it more precisely, but I don\u0027t have much time to think/read about it).",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc3f7f78_249c44ef",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-07-31T15:55:05Z",
+      "side": 1,
+      "message": "depend on?",
+      "range": {
+        "startLine": 83,
+        "startChar": 72,
+        "endLine": 83,
+        "endChar": 78
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
