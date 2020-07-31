@@ -114,6 +114,30 @@
     },
     {
       "key": {
+        "uuid": "c0f4cd87_de4a3b0d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-31T07:36:48Z",
+      "side": 1,
+      "message": "Cool, thanks for explaining! Could you put some of that explanation in the comment too?",
+      "parentUuid": "db4b6a49_65084a0c",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fc74e5a_c612c823",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -556,6 +580,24 @@
       "side": 1,
       "message": "Do you also want to rename the other Visit() function used by the inliner?",
       "parentUuid": "78a97f83_017d9e1c",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ce28162_49dfe031",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-07-31T07:36:48Z",
+      "side": 1,
+      "message": "I\u0027m fine doing this for this change only (and it\u0027s ok if you think it\u0027s not worth it, I should have said it\u0027s really a nit). But can you add a comment where this Visit function is being called?",
+      "parentUuid": "ec5fb8a3_f1479bd6",
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
