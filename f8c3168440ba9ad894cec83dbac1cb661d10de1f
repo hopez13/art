@@ -98,6 +98,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cdd0dcf_3ab0f2fd",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-08-03T13:52:07Z",
+      "side": 1,
+      "message": "I think the dependency on `dex2oatd` for the device case should be something like:\n\n    target: {\n        android: {\n            required: [\"com.android.art.dex2oatd\"],\n        },\n    },\n\nAdding Jiyong to confirm.\n\nNote that on target, those tests are currently only bundled with the Testing ART APEX. (This may change in the future if we manage to leverage the `for_test` property for ART gtests on device.)",
+      "parentUuid": "e252d8da_a0f302bb",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
