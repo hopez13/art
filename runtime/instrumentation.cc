@@ -1164,7 +1164,7 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) const {
   if (result == GetQuickToInterpreterBridge()) {
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr) {
-      const void* res = jit->GetCodeCache()->FindCompiledCodeForInstrumentation(method);
+      const void* res = jit->GetCodeCache()->GetSavedEntryPointOfPreCompiledMethod(method);
       if (res != nullptr) {
         result = res;
       }
