@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a97202ff_ff7c7b3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-03T07:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2709778_ed67e1af",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b308845_c7594521",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -53,6 +77,24 @@
       "writtenOn": "2020-08-03T07:47:45Z",
       "side": 1,
       "message": "Where is the apex dependency for target?",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e252d8da_a0f302bb",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-03T07:57:02Z",
+      "side": 1,
+      "message": "It should be provided by \"com.android.art.debug\" but not by \"*.release\" (http://cs/android/art/build/apex/Android.bp?l\u003d74\u0026rcl\u003dd3ee902ed06b635eedebc796543a67299eb6cd05)\n\nI\u0027m not sure if I should add `target.required: [\"com.android.art\"]` because from what I see APEXes are usually installed via explicitly adding it to PRODUCT_PACKAGES. Plus I thought ART APEX is always install on device?",
+      "parentUuid": "be6649f0_25a6b866",
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
