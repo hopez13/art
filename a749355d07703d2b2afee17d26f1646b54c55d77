@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e10d47_8fbdd1d0",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-03T12:18:16Z",
+      "side": 1,
+      "message": "It might be more convenient as a consumer of this interface to return kNotSupported if hooks are null.",
+      "range": {
+        "startLine": 93,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "a749355d07703d2b2afee17d26f1646b54c55d77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
