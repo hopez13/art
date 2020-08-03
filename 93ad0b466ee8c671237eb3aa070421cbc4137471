@@ -138,6 +138,30 @@
     },
     {
       "key": {
+        "uuid": "60d08d19_72090d78",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-03T09:39:48Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c0f4cd87_de4a3b0d",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fc74e5a_c612c823",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 18
@@ -601,6 +625,24 @@
       "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31465a8_625167e7",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-03T09:39:48Z",
+      "side": 1,
+      "message": "Added comments.",
+      "parentUuid": "3ce28162_49dfe031",
+      "revId": "93ad0b466ee8c671237eb3aa070421cbc4137471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
