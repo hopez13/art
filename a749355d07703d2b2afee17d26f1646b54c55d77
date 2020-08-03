@@ -46,6 +46,30 @@
       "revId": "a749355d07703d2b2afee17d26f1646b54c55d77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc824a24_32845fee",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-03T13:12:14Z",
+      "side": 1,
+      "message": "I think it\u0027s reasonable, particularly as supporting any of these hooks is optional.",
+      "parentUuid": "781c0ba1_b7eb167a",
+      "range": {
+        "startLine": 93,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "a749355d07703d2b2afee17d26f1646b54c55d77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
