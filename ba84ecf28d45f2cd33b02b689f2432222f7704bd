@@ -16,6 +16,23 @@
       "revId": "ba84ecf28d45f2cd33b02b689f2432222f7704bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59209656_b98846c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-08-04T13:21:16Z",
+      "side": 1,
+      "message": "The pre-submit failure is due to a known issue (currently being addressed with https://android-review.googlesource.com/q/topic:%22revert-apex-info-list%22+(status:open%20OR%20status:merged)).",
+      "revId": "ba84ecf28d45f2cd33b02b689f2432222f7704bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
