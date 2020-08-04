@@ -206,6 +206,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bca3478c_7cabad6a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-08-04T11:10:51Z",
+      "side": 1,
+      "message": "We need the dependency on host so that if we build just art_dex2oat_tests it will also build the dex2oat, which is needed to run the test.\n\nWe currently don\u0027t need the dependency on device, since the apex contains it already.",
+      "parentUuid": "2d17e3d7_21927b66",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
