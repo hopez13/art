@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21019d1a_2af75a53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-08-04T09:08:11Z",
+      "side": 1,
+      "message": "I am confused.  Is this related to some device dependency, or Mac build?\nI guess we shouldn\u0027t really be building tests on Mac in the first place.\n\nI have added those dependencies to enable host testing, so for now this CL is fine (but as Roland said, things might change in the future).\nI am just curious what is this actually fixing?  What is the issue?",
+      "revId": "06d5bd3959a8d77b625811e5a291f0ae6dbd96a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
