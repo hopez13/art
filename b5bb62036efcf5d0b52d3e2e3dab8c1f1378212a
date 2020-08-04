@@ -51,6 +51,23 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7fab93_03933c76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-04T02:32:58Z",
+      "side": 1,
+      "message": "It looks like I asked Will a question in the last comment, but forgot to add him. Sorry about that.\n\nI am not aware of plans to use PI futexes here. I don\u0027t have a good feeling for how much difference it would make. Yabin supported them at the pthreads level, and may have some observations.\n\nThis fundamentally still has the problem, even in R, that it only works for bottom level locks, i.e. direct mutex users or Java monitors, and not for higher-level synchronization implemented by the user, which is going to look like either Object.wait() or park() at the system level. And it\u0027s clearly a nontrivial change, since the data structure has to change to match the kernel. But it may still be worthwhile.",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
