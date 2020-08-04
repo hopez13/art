@@ -33,6 +33,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61ac9673_77ba3ea1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1220972
+      },
+      "writtenOn": "2020-08-04T01:14:24Z",
+      "side": 1,
+      "message": "Is it possible to provide a serial of hooks(like what \u0027-Xplugin\u0027 do), then we can\nextend the art in the plugin library without change the art library.\n\nAnd for the priority inversion problem of user-space lock(Java Monitors), any plans to use PI futex operations (FUTEX_LOCK_PI/FUTEX_UNLOCK_PI/...) to fix the issue?",
+      "parentUuid": "165ef080_fab76385",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
