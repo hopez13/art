@@ -152,6 +152,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17c38bed_0593d182",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-08-04T03:15:34Z",
+      "side": 1,
+      "message": "Ah, you are right. I didn\u0027t read the prior comments carefully. Yes, the dependency to the target variant doesn\u0027t need to be specified here as dex2oatd is already listed in the `binaries` property of the `com.android.art.debug` APEX.",
+      "parentUuid": "5e04e5be_9290ce22",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
