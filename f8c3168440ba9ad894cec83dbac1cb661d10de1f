@@ -170,6 +170,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8994d3f_d1199b1d",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-04T04:16:10Z",
+      "side": 1,
+      "message": "I also don\u0027t think this should be `required: [\"com.android.art.debug\"]` as it may cause both \"debug\" and \"release\" be installed on device. Also from this doc (https://cs.android.com/android/platform/superproject/+/master:art/test/README.md), I think ART tests and dependencies are handled by the test scripts, such as replacing \"com.android.art.release\" with \"com.android.art.testing\" at runtime, so target.android.required needn\u0027t be specifies here.",
+      "parentUuid": "17c38bed_0593d182",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
