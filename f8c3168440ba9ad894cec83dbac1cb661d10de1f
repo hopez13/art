@@ -116,6 +116,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950c1236_36b68849",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-08-04T02:34:26Z",
+      "side": 1,
+      "message": "The name of the apex variant is \u003cmodulename\u003e.\u003capexname\u003e like dex2oatd.com.android.art.debug.",
+      "parentUuid": "2cdd0dcf_3ab0f2fd",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
