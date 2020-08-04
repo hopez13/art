@@ -456,8 +456,11 @@ void DumpSmaps(JavaHprofDataSource::TraceContext* ctx) {
   }
 }
 
-uint64_t GetObjectId(const art::mirror::Object* obj) {
-  return reinterpret_cast<uint64_t>(obj) / std::alignment_of<art::mirror::Object>::value;
+uint64_t GetObjectId(uint64_t base_ptr, const art::mirror::Object* obj) {
+  if (obj == nullptr)
+    return 0;
+  uint64_t obj_ptr = reinterpret_cast<uint64_t>(obj);
+  return 1 + ((obj_ptr - base_ptr) / std::alignment_of<art::mirror::Object>::value);
 }
 
 void DumpPerfetto(art::Thread* self) {
@@ -512,10 +515,25 @@ void DumpPerfetto(art::Thread* self) {
   }
   uint64_t timestamp = ts.tv_sec * 1000000000LL + ts.tv_nsec;
 
+  uint64_t base_ptr = 0;
+  FILE* smaps = fopen("/proc/self/smaps", "r");
+  perfetto::profiling::ParseSmaps(smaps,
+    [&base_ptr](const perfetto::profiling::SmapsEntry& e) {
+    if (e.range_start < 0) {
+      LOG(ERROR) << "Invalid range from smaps.";
+      return;
+    }
+    uint64_t start = static_cast<uint64_t>(e.range_start);
+    if (!base_ptr || base_ptr > start) {
+      base_ptr = start;
+    }
+  });
+  fclose(smaps);
+
   WaitForDataSource(self);
 
   JavaHprofDataSource::Trace(
-      [parent_pid, timestamp](JavaHprofDataSource::TraceContext ctx)
+      [parent_pid, timestamp, base_ptr](JavaHprofDataSource::TraceContext ctx)
           NO_THREAD_SAFETY_ANALYSIS {
             bool dump_smaps;
             {
@@ -555,7 +573,7 @@ void DumpPerfetto(art::Thread* self) {
                   root_proto = writer.GetHeapGraph()->add_roots();
                   root_proto->set_root_type(ToProtoType(root_type));
                 }
-                object_ids->Append(GetObjectId(obj));
+                object_ids->Append(GetObjectId(base_ptr, obj));
               }
               root_proto->set_object_ids(*object_ids);
               object_ids->Reset();
@@ -567,7 +585,7 @@ void DumpPerfetto(art::Thread* self) {
                 new protozero::PackedVarInt);
 
             art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
-                [&writer, &interned_fields, &interned_locations,
+                [base_ptr, &writer, &interned_fields, &interned_locations,
                 &reference_field_ids, &reference_object_ids, &interned_classes](
                     art::mirror::Object* obj) REQUIRES_SHARED(art::Locks::mutator_lock_) {
                   if (obj->IsClass()) {
@@ -605,7 +623,7 @@ void DumpPerfetto(art::Thread* self) {
 
                   perfetto::protos::pbzero::HeapGraphObject* object_proto =
                     writer.GetHeapGraph()->add_objects();
-                  object_proto->set_id(GetObjectId(obj));
+                  object_proto->set_id(GetObjectId(base_ptr, obj));
                   object_proto->set_type_id(class_id);
 
                   // Arrays / strings are magic and have an instance dependent size.
@@ -618,7 +636,7 @@ void DumpPerfetto(art::Thread* self) {
                   obj->VisitReferences(objf, art::VoidFunctor());
                   for (const auto& p : referred_objects) {
                     reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
-                    reference_object_ids->Append(GetObjectId(p.second));
+                    reference_object_ids->Append(GetObjectId(base_ptr, p.second));
                   }
                   object_proto->set_reference_field_id(*reference_field_ids);
                   object_proto->set_reference_object_id(*reference_object_ids);
