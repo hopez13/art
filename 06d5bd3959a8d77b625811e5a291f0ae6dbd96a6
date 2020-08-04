@@ -16,6 +16,24 @@
       "revId": "06d5bd3959a8d77b625811e5a291f0ae6dbd96a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e938413d_12c6c8d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-04T09:34:46Z",
+      "side": 1,
+      "message": "Ah sorry I just realized I had an incomplete commit message and make this whole thing very confusing (I was copy-pasting around and welp...)\n\nIt is related to device dependency, but the build error only gets triggered on a mac build :/.\nRight now our build system cannot tell if a module is for host or for android, because the two variants shares the same module name. That\u0027s why the build error is shadowed on linux host build, because the build system confuses device:dex2oatd with host:dex2oatd. While on darwin there is no such ambiguity, because both variants don\u0027t exist.\n\n\n\u003e I am just curious what is this actually fixing?  What is the issue?\n\nIn shot, build error. Right now darwin host uses a hack to suppress the error message, and landing this topic can unblock the revert of the hack.",
+      "parentUuid": "21019d1a_2af75a53",
+      "revId": "06d5bd3959a8d77b625811e5a291f0ae6dbd96a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
