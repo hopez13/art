@@ -188,6 +188,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d17e3d7_21927b66",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-08-04T10:15:10Z",
+      "side": 1,
+      "message": "David, do you remember why we needed this explicit dependency? Retrospectively I\u0027m not sure it is needed, even in these two device testing scenario I\u0027m thinking of:\n- when using the Testing ART APEX (current situation): the ART gtests are bundled with the Testing ART APEX, which includes `dex2oatd2`, which means we\u0027re fine;\n- when not using the Testing ART APEX (perhaps in the future, see Bug 162734417): the ART gtests should not have an explicit dependency on the ART APEX or its components, as we should be able to build them independently of the ART APEX (maybe we might need stub libraries, but I think that\u0027s different).",
+      "parentUuid": "f8994d3f_d1199b1d",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
