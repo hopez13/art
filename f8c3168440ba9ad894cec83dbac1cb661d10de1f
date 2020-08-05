@@ -314,6 +314,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba0ca17_35cb57d4",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-05T11:46:56Z",
+      "side": 1,
+      "message": "Added some explanation.\n\nI have one question, for the device testcases, say art_dex2oat_tests, does it require the *host* dex2oatd to run? or does it only need the *device* dex2oatd (which is in the testing APEX)?\n\nIf it\u0027s the latter case, we should also add `target.android.host_required: [\"dex2oatd\"]`",
+      "parentUuid": "bf383941_066c43a4",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
