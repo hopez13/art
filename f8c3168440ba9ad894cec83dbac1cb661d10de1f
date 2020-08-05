@@ -260,6 +260,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1bb4c6_cfde4393",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-05T08:52:04Z",
+      "side": 1,
+      "message": "\u003e The on device tests still require the tools for execution, so it seems appropriate have them marked as such, even if just for documentation\n\nAgreed. However the requirements (dex2oatd...) are in \"com.android.art.testing\", and adding this requirement to art_*_test would result in a circular dependency. So we cannot do this unless the testcases are moved out of art.testing",
+      "parentUuid": "8a280081_bcdac207",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
