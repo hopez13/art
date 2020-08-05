@@ -332,6 +332,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e2bfbb_46699f5f",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-05T11:47:43Z",
+      "side": 1,
+      "message": "*Correction: If it\u0027s the *former* case, we should also add `target.android.host_required: [\"dex2oatd\"]`",
+      "parentUuid": "1ba0ca17_35cb57d4",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
