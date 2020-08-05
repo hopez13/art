@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2bad6679_6c8c5333",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-05T16:45:05Z",
+      "side": 1,
+      "message": "Thanks Orion, PTAL.",
+      "revId": "8440ff17c0777bf350f96b68d07dc63628712421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d93a5bbc_8a7f581c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -22,6 +39,30 @@
       "revId": "8440ff17c0777bf350f96b68d07dc63628712421",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "230a6d97_41359bda",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-05T16:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d93a5bbc_8a7f581c",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 51
+      },
+      "revId": "8440ff17c0777bf350f96b68d07dc63628712421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -48,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "3578d02f_7f98efd8",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-05T16:45:05Z",
+      "side": 1,
+      "message": "\u003e Maybe this needs a comment here to say we want to test the latest libartpalette-system version on the ART buildbots.\n\u003e \n\u003e On \u003e\u003dR then I sort expected we\u0027d use the existing libartpalette-system from the device, but this could be treated as a separate mainline test issue.\n\nDone.",
+      "parentUuid": "7f6061ef_e50ead27",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 56
+      },
+      "revId": "8440ff17c0777bf350f96b68d07dc63628712421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4400b633_f394840b",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -59,6 +124,30 @@
       "writtenOn": "2020-08-05T16:23:19Z",
       "side": 1,
       "message": "Does just $cmd work here?",
+      "range": {
+        "startLine": 156,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 19
+      },
+      "revId": "8440ff17c0777bf350f96b68d07dc63628712421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72e5682e_60467b4f",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-05T16:45:05Z",
+      "side": 1,
+      "message": "Likely, but I\u0027ve followed the usage in this file to use eval.",
+      "parentUuid": "4400b633_f394840b",
       "range": {
         "startLine": 156,
         "startChar": 8,
