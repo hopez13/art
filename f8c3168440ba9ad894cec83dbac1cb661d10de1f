@@ -278,6 +278,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "032b8da3_95d8dc38",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2020-08-05T09:14:10Z",
+      "side": 1,
+      "message": "\u003e So if there some random mac build issue, I see no harm in restricting it to host.required.\n\nThis is not a mac specific issue. This is an actual issue, it\u0027s just that due to our build system\u0027s limitation, this issue is not detected when building on linux host D:",
+      "parentUuid": "fc1bb4c6_cfde4393",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
