@@ -350,6 +350,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "199a6ace_7fb5dc9a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-08-05T12:26:38Z",
+      "side": 1,
+      "message": "The device gtests only need the device dex2oatd (from the apex)",
+      "parentUuid": "47e2bfbb_46699f5f",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
