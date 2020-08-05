@@ -489,8 +489,7 @@ class ReadBarrierMarkSlowPathX86 : public SlowPathCode {
            instruction_->IsLoadString() ||
            instruction_->IsInstanceOf() ||
            instruction_->IsCheckCast() ||
-           (instruction_->IsInvokeVirtual() && instruction_->GetLocations()->Intrinsified()) ||
-           (instruction_->IsInvokeStaticOrDirect() && instruction_->GetLocations()->Intrinsified()))
+           (instruction_->IsInvoke() && instruction_->GetLocations()->Intrinsified()))
         << "Unexpected instruction in read barrier marking slow path: "
         << instruction_->DebugName();
 
@@ -1436,6 +1435,38 @@ void CodeGeneratorX86::Move64(Location destination, Location source) {
           Location::StackSlot(destination.GetHighStackIndex(kX86WordSize)),
           DataType::Type::kInt32);
     }
+  }
+}
+
+void CodeGeneratorX86::MoveFromAddress(Location dst, Address src, DataType::Type dst_type) {
+  switch (dst_type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kInt8:
+    case DataType::Type::kUint8:
+      __ movzxb(dst.AsRegister<Register>(), src);
+      break;
+    case DataType::Type::kInt16:
+    case DataType::Type::kUint16:
+      __ movzxw(dst.AsRegister<Register>(), src);
+      break;
+    case DataType::Type::kInt32:
+    case DataType::Type::kUint32:
+      __ movl(dst.AsRegister<Register>(), src);
+      break;
+    case DataType::Type::kInt64:
+    case DataType::Type::kUint64:
+    case DataType::Type::kReference:
+      __ movl(dst.AsRegisterPairLow<Register>(), src);
+      __ movl(dst.AsRegisterPairHigh<Register>(), src);
+      break;
+    case DataType::Type::kFloat32:
+      __ movss(dst.AsFpuRegister<XmmRegister>(), src);
+      break;
+    case DataType::Type::kFloat64:
+      __ movsd(dst.AsFpuRegister<XmmRegister>(), src);
+      break;
+    case DataType::Type::kVoid:
+      LOG(FATAL) << "Unreachable type " << dst_type;
   }
 }
 
