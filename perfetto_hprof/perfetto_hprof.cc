@@ -349,6 +349,10 @@ class ReferredObjectsFinder {
   void operator()(art::ObjPtr<art::mirror::Object> obj, art::MemberOffset offset,
                   bool is_static) const
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    if (offset.Uint32Value() == art::mirror::Object::ClassOffset().Uint32Value()) {
+      // Skip shadow$klass pointer.
+      return;
+    }
     art::mirror::Object* ref = obj->GetFieldObject<art::mirror::Object>(offset);
     art::ArtField* field;
     if (is_static) {
@@ -458,6 +462,23 @@ void DumpSmaps(JavaHprofDataSource::TraceContext* ctx) {
 
 uint64_t GetObjectId(const art::mirror::Object* obj) {
   return reinterpret_cast<uint64_t>(obj) / std::alignment_of<art::mirror::Object>::value;
+}
+
+template <typename F>
+void ForInstanceReferenceField(art::mirror::Class* klass, F fn) NO_THREAD_SAFETY_ANALYSIS {
+  const size_t num_reference_fields = klass->NumReferenceInstanceFields();
+  if (num_reference_fields == 0u) {
+    return;
+  }
+
+  art::MemberOffset field_offset = klass->GetFirstReferenceInstanceFieldOffset();
+  for (size_t i = 0u; i < num_reference_fields; ++i) {
+    if (field_offset.Uint32Value() != art::mirror::Object::ClassOffset().Uint32Value()) {
+      fn(field_offset);
+    }
+    field_offset = art::MemberOffset(field_offset.Uint32Value() +
+                                     sizeof(art::mirror::HeapReference<art::mirror::Object>));
+  }
 }
 
 void DumpPerfetto(art::Thread* self) {
@@ -585,6 +606,20 @@ void DumpPerfetto(art::Thread* self) {
                         FindOrAppend(&interned_classes,
                                      reinterpret_cast<uintptr_t>(klass->GetSuperClass().Ptr())));
                     }
+                    ForInstanceReferenceField(
+                        klass, [klass, &reference_field_ids, &interned_fields](
+                                   art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
+                          auto art_field = art::ArtField::FindInstanceFieldWithOffset(
+                              klass, offset.Uint32Value());
+                          if (art_field != nullptr) {
+                            reference_field_ids->Append(
+                                FindOrAppend(&interned_fields, art_field->PrettyField(true)));
+                          } else {
+                            reference_field_ids->Append(0);
+                          }
+                        });
+                    type_proto->set_reference_field_id(*reference_field_ids);
+                    reference_field_ids->Reset();
                   }
 
                   art::mirror::Class* klass = obj->GetClass();
@@ -620,14 +655,32 @@ void DumpPerfetto(art::Thread* self) {
                   std::vector<std::pair<std::string, art::mirror::Object*>>
                       referred_objects;
                   ReferredObjectsFinder objf(&referred_objects);
-                  obj->VisitReferences(objf, art::VoidFunctor());
+
+                  const bool emit_field_ids =
+                      klass->GetClassFlags() == art::mirror::kClassFlagClass;
+                  if (klass->GetClassFlags() != art::mirror::kClassFlagNormal) {
+                    obj->VisitReferences(objf, art::VoidFunctor());
+                  } else {
+                    for (art::mirror::Class* cls = klass; cls != nullptr;
+                         cls = cls->GetSuperClass().Ptr()) {
+                      ForInstanceReferenceField(
+                          cls, [obj, objf](art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
+                            objf(art::ObjPtr<art::mirror::Object>(obj), offset,
+                                 /*is_static=*/false);
+                          });
+                    }
+                  }
                   for (const auto& p : referred_objects) {
-                    reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
+                    if (emit_field_ids) {
+                      reference_field_ids->Append(FindOrAppend(&interned_fields, p.first));
+                    }
                     reference_object_ids->Append(GetObjectId(p.second));
                   }
-                  object_proto->set_reference_field_id(*reference_field_ids);
+                  if (emit_field_ids) {
+                    object_proto->set_reference_field_id(*reference_field_ids);
+                    reference_field_ids->Reset();
+                  }
                   object_proto->set_reference_object_id(*reference_object_ids);
-                  reference_field_ids->Reset();
                   reference_object_ids->Reset();
                 });
 
