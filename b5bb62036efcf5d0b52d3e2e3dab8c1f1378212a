@@ -122,6 +122,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff64d1e6_ce25d222",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2020-08-05T08:59:51Z",
+      "side": 1,
+      "message": "It sounds like there are kernel changes planned to support this, but I don\u0027t see them here. Please could you point me to those?\n\nThe main worry I have is that \"ignored\" means that people could be passing any old junk in there at the moment, and so re-purposing the uaddr2 parameter would require an explicit opt-in from the task.",
+      "parentUuid": "9241a7d0_5894fb87",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
