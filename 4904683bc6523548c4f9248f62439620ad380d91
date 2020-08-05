@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41b18c3f_03ea123d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-05T14:01:22Z",
+      "side": 1,
+      "message": "Maybe we should explicitly check for these unimplemented intrinsics in the CriticalNativeAbiFixupArm and drop the carve-out from CodeGeneratorARMVIXL::GetSupportedInvokeStaticOrDirectDispatch()? The only downside would be the need to update the list when adding new intrinsics with FP args.",
+      "range": {
+        "startLine": 20,
+        "startChar": 22,
+        "endLine": 20,
+        "endChar": 52
+      },
+      "revId": "4904683bc6523548c4f9248f62439620ad380d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
