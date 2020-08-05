@@ -242,6 +242,24 @@
       "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a280081_bcdac207",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-08-05T07:39:25Z",
+      "side": 1,
+      "message": "I guess that is a theoretical debate.  The on device tests still require the tools for execution, so it seems appropriate have them marked as such, even if just for documentation - that is as long as the property is harmless.\n\nOn the other hand, in practice the tools will be always build anyway since they are needed for the apex.  So if there some random mac build issue, I see no harm in restricting it to host.required.",
+      "parentUuid": "1a8c19ae_0c0a9a13",
+      "revId": "f8c3168440ba9ad894cec83dbac1cb661d10de1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
