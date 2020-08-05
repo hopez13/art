@@ -22,6 +22,7 @@ if [ ! -d art ]; then
 fi
 
 source build/envsetup.sh >&/dev/null # for get_build_var
+TARGET_ARCH=$(source build/envsetup.sh > /dev/null; get_build_var TARGET_ARCH)
 
 # Logic for setting out_dir from build/make/core/envsetup.mk:
 if [[ -z $OUT_DIR ]]; then
@@ -89,7 +90,7 @@ elif [[ $mode == "target" ]]; then
     exit 1
   fi
   make_command="build/soong/soong_ui.bash --make-mode $j_arg $extra_args $showcommands build-art-target-tests $common_targets"
-  make_command+=" libnetd_client-target toybox sh"
+  make_command+=" libnetd_client-target toybox sh libtombstoned_client"
   make_command+=" debuggerd su gdbserver"
   # vogar requires the class files for conscrypt and ICU.
   make_command+=" conscrypt core-icu4j"
@@ -136,6 +137,31 @@ if [[ $mode == "target" ]]; then
       $ANDROID_HOST_OUT/bin/deapexer --debugfs_path $debugfs extract $file $dir
     fi
   done
+
+  # Replace stub libraries with implemenation libraries.
+  implementation_libs="libartpalette-system"
+  if [ -d prebuilts/runtime/mainline/platform/impl ]; then
+    echo $TARGET_ARCH
+    if [[ $TARGET_ARCH = arm* ]]; then
+      arch32=arm
+      arch64=arm64
+    else
+      arch32=x86
+      arch64=x86_64
+    fi
+    for so in $implementation_libs; do
+      if [ -d "$ANDROID_PRODUCT_OUT/system/lib" ]; then
+        cmd="cp -p prebuilts/runtime/mainline/platform/impl/$arch32/$so.so $ANDROID_PRODUCT_OUT/system/lib/$so.so"
+        echo "Executing $cmd"
+        eval "$cmd"
+      fi
+      if [ -d "$ANDROID_PRODUCT_OUT/system/lib64" ]; then
+        cmd="cp -p prebuilts/runtime/mainline/platform/impl/$arch64/$so.so $ANDROID_PRODUCT_OUT/system/lib64/$so.so"
+        echo "Executing $cmd"
+        eval "$cmd"
+      fi
+   done
+  fi
 
   # Create canonical name -> file name symlink in the symbol directory for the
   # Testing ART APEX.
