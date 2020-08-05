@@ -22,6 +22,7 @@
 #include "art_method.h"
 #include "base/bit_utils.h"
 #include "code_generator_x86.h"
+#include "data_type-inl.h"
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "heap_poisoning.h"
 #include "intrinsics.h"
@@ -3065,29 +3066,45 @@ void IntrinsicCodeGeneratorX86::VisitIntegerDivideUnsigned(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
-static void CreateVarHandleLocationSummary(HInvoke* invoke, ArenaAllocator* allocator) {
-  InvokeDexCallingConventionVisitorX86 visitor;
-  LocationSummary* locations =
-      new (allocator) LocationSummary(invoke, LocationSummary::kCallOnMainAndSlowPath, kIntrinsified);
+void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
+  DataType::Type type = invoke->GetType();
 
-  for (size_t i = 0; i < invoke->GetNumberOfArguments(); i++) {
-    HInstruction* input = invoke->InputAt(i);
-    locations->SetInAt(i, visitor.GetNextLocation(input->GetType()));
+  if (type == DataType::Type::kVoid) {
+    // Return type should not be void for get. Bail to runtime to throw WrongMethodTypeException
+    return;
   }
 
-  locations->SetOut(visitor.GetReturnLocation(invoke->GetType()));
+  if (type == DataType::Type::kReference) {
+    // Reference return type is not implemented yet
+    // TODO: implement for kReference
+    return;
+  }
+
+  if (invoke->GetNumberOfArguments() == 1u) {
+    // Static field get
+    ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+    LocationSummary* locations = new (allocator) LocationSummary(
+        invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
+    locations->SetInAt(0, Location::RequiresRegister());
+    locations->AddTemp(Location::RequiresRegister());
+
+    if (DataType::IsFloatingPointType(type)) {
+      locations->AddTemp(Location::RequiresRegister());
+      locations->SetOut(Location::RequiresFpuRegister());
+    } else {
+      DCHECK(DataType::Kind(type) == DataType::Type::kInt32 ||
+             DataType::Kind(type) == DataType::Type::kInt64);
+      locations->SetOut(Location::RequiresRegister());
+    }
+  }
+
+  // TODO: support instance fields, arrays, etc.
 }
 
-#define INTRINSIC_VARHANDLE_LOCATIONS_BUILDER(Name)                   \
-void IntrinsicLocationsBuilderX86::Visit ## Name(HInvoke* invoke) {   \
-  CreateVarHandleLocationSummary(invoke, allocator_);                 \
-}
-
-INTRINSIC_VARHANDLE_LOCATIONS_BUILDER(VarHandleGet)
-
-static void GenerateVarHandleCode(HInvoke* invoke, CodeGeneratorX86* codegen) {
-  X86Assembler* assembler = codegen->GetAssembler();
-  Register varhandle_object = invoke->GetLocations()->InAt(0).AsRegister<Register>();
+void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
+  X86Assembler* assembler = codegen_->GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+  Register varhandle_object = locations->InAt(0).AsRegister<Register>();
   const uint32_t access_modes_bitmask_offset =
       mirror::VarHandle::AccessModesBitMaskOffset().Uint32Value();
   mirror::VarHandle::AccessMode access_mode =
@@ -3096,24 +3113,75 @@ static void GenerateVarHandleCode(HInvoke* invoke, CodeGeneratorX86* codegen) {
 
   // If the access mode is not supported, bail to runtime implementation to handle
   __ testl(Address(varhandle_object, access_modes_bitmask_offset), Immediate(access_mode_bit));
-  SlowPathCode* slow_path = new (codegen->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
-  codegen->AddSlowPath(slow_path);
+  SlowPathCode* slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
+  codegen_->AddSlowPath(slow_path);
   __ j(kZero, slow_path->GetEntryLabel());
 
-  // For now, none of the access modes are compiled. The runtime handles them on
-  // both slow path and main path.
-  // TODO: replace calling the runtime with actual assembly code
-  codegen->GenerateInvokePolymorphicCall(invoke->AsInvokePolymorphic());
+  const uint32_t vh_type_offset = mirror::VarHandle::VarTypeOffset().Uint32Value();
+  const uint32_t primitive_type_offset = mirror::Class::PrimitiveTypeOffset().Uint32Value();
+  Register temp = locations->GetTemp(0).AsRegister<Register>();
+  DataType::Type type = invoke->GetType();
+  // For now, only primitive types are supported
+  DCHECK_NE(type, DataType::Type::kVoid);
+  DCHECK_NE(type, DataType::Type::kReference);
+  uint32_t primitive_type = static_cast<uint32_t>(DataTypeToPrimitive(type));
+
+  // Check the varType.primitiveType against the type we're trying to retrieve
+  __ movl(temp, Address(varhandle_object, vh_type_offset));
+  __ MaybeUnpoisonHeapReference(temp);
+  __ movl(temp, Address(temp, primitive_type_offset));
+  __ cmpl(temp, Immediate(primitive_type));
+  __ j(kNotEqual, slow_path->GetEntryLabel());
+
+  // Check that the varhandle references a static field by checking that coordinateType0 == null
+  const uint32_t coordtype0_offset = mirror::VarHandle::CoordinateType0Offset().Uint32Value();
+  __ movl(temp, Address(varhandle_object, coordtype0_offset));
+  __ testl(temp, temp);
+  __ j(kZero, slow_path->GetEntryLabel());
+
+  Location out = locations->Out();
+  // Use 'out' for offset if it's not FpuRegister
+  Register offset = out.IsRegister() ? out.AsRegister<Register>() :
+                    out.IsRegisterPair() ? out.AsRegisterPairLow<Register>() :
+                    locations->GetTemp(1).AsRegister<Register>();
+  const uint32_t artfield_offset = mirror::FieldVarHandle::ArtFieldOffset().Uint32Value();
+  const uint32_t offset_offset = ArtField::OffsetOffset().Uint32Value();
+  const uint32_t declaring_class_offset = ArtField::DeclaringClassOffset().Uint32Value();
+
+  // Load the ArtField, the offset and declaring class
+  __ movl(temp, Address(varhandle_object, artfield_offset));
+  __ movl(offset, Address(temp, offset_offset));
+  InstructionCodeGeneratorX86* instr_codegen =
+      down_cast<InstructionCodeGeneratorX86*>(codegen_->GetInstructionVisitor());
+  instr_codegen->GenerateGcRootFieldLoad(invoke,
+                                        locations->GetTemp(0),
+                                        Address(temp, declaring_class_offset),
+                                        /* fixup_label= */ nullptr,
+                                        kCompilerReadBarrierOption);
+
+  // Load the value from the field
+  switch (DataType::Kind(type)) {
+    case DataType::Type::kFloat32:
+      __ movss(out.AsFpuRegister<XmmRegister>(), Address(temp, offset, TIMES_1, 0));
+      break;
+    case DataType::Type::kFloat64:
+      __ movsd(out.AsFpuRegister<XmmRegister>(), Address(temp, offset, TIMES_1, 0));
+      break;
+    case DataType::Type::kInt32:
+      __ movl(out.AsRegister<Register>(), Address(temp, offset, TIMES_1, 0));
+      break;
+    case DataType::Type::kInt64:
+      __ movl(out.AsRegisterPairLow<Register>(), Address(temp, offset, TIMES_1, 0));
+      __ movl(out.AsRegisterPairHigh<Register>(), Address(temp, offset, TIMES_1, 4));
+      break;
+    default:
+      // TODO: implement for kReference
+      UNREACHABLE();
+  }
 
   __ Bind(slow_path->GetExitLabel());
 }
 
-#define INTRINSIC_VARHANDLE_CODE_GENERATOR(Name)                   \
-void IntrinsicCodeGeneratorX86::Visit ## Name(HInvoke* invoke) {   \
-  GenerateVarHandleCode(invoke, codegen_);                         \
-}
-
-INTRINSIC_VARHANDLE_CODE_GENERATOR(VarHandleGet)
 
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
 UNIMPLEMENTED_INTRINSIC(X86, ReferenceGetReferent)

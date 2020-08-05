@@ -232,6 +232,17 @@ class InstructionCodeGeneratorX86 : public InstructionCodeGenerator {
   // generates less code/data with a small num_entries.
   static constexpr uint32_t kPackedSwitchJumpTableThreshold = 5;
 
+  // Generate a GC root reference load:
+  //
+  //   root <- *address
+  //
+  // while honoring read barriers based on read_barrier_option.
+  void GenerateGcRootFieldLoad(HInstruction* instruction,
+                               Location root,
+                               const Address& address,
+                               Label* fixup_label,
+                               ReadBarrierOption read_barrier_option);
+
  private:
   // Generate code for the given suspend check. If not null, `successor`
   // is the block to branch to if the suspend check is not needed, and after
@@ -292,16 +303,6 @@ class InstructionCodeGeneratorX86 : public InstructionCodeGenerator {
                                          Location obj,
                                          uint32_t offset,
                                          ReadBarrierOption read_barrier_option);
-  // Generate a GC root reference load:
-  //
-  //   root <- *address
-  //
-  // while honoring read barriers based on read_barrier_option.
-  void GenerateGcRootFieldLoad(HInstruction* instruction,
-                               Location root,
-                               const Address& address,
-                               Label* fixup_label,
-                               ReadBarrierOption read_barrier_option);
 
   // Push value to FPU stack. `is_fp` specifies whether the value is floating point or not.
   // `is_wide` specifies whether it is long/double or not.
