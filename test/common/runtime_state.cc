@@ -276,10 +276,6 @@ static void ForceJitCompiled(Thread* self, ArtMethod* method) REQUIRES(!Locks::m
       // Sleep to yield to the compiler thread.
       usleep(1000);
       ScopedObjectAccess soa(self);
-      if (!native && jit->GetCodeCache()->CanAllocateProfilingInfo()) {
-        // Make sure there is a profiling info, required by the compiler.
-        ProfilingInfo::Create(self, method, /* retry_allocation */ true);
-      }
       // Will either ensure it's compiled or do the compilation itself. We do
       // this before checking if we will execute JIT code to make sure the
       // method is compiled 'optimized' and not baseline (tests expect optimized

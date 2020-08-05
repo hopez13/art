@@ -1469,30 +1469,18 @@ OatQuickMethodHeader* JitCodeCache::LookupOsrMethodHeader(ArtMethod* method) {
 
 ProfilingInfo* JitCodeCache::AddProfilingInfo(Thread* self,
                                               ArtMethod* method,
-                                              const std::vector<uint32_t>& entries,
-                                              bool retry_allocation)
-    // No thread safety analysis as we are using TryLock/Unlock explicitly.
-    NO_THREAD_SAFETY_ANALYSIS {
+                                              const std::vector<uint32_t>& entries) {
   DCHECK(CanAllocateProfilingInfo());
   ProfilingInfo* info = nullptr;
-  if (!retry_allocation) {
-    // If we are allocating for the interpreter, just try to lock, to avoid
-    // lock contention with the JIT.
-    if (Locks::jit_lock_->ExclusiveTryLock(self)) {
-      info = AddProfilingInfoInternal(self, method, entries);
-      Locks::jit_lock_->ExclusiveUnlock(self);
-    }
-  } else {
-    {
-      MutexLock mu(self, *Locks::jit_lock_);
-      info = AddProfilingInfoInternal(self, method, entries);
-    }
+  {
+    MutexLock mu(self, *Locks::jit_lock_);
+    info = AddProfilingInfoInternal(self, method, entries);
+  }
 
-    if (info == nullptr) {
-      GarbageCollectCache(self);
-      MutexLock mu(self, *Locks::jit_lock_);
-      info = AddProfilingInfoInternal(self, method, entries);
-    }
+  if (info == nullptr) {
+    GarbageCollectCache(self);
+    MutexLock mu(self, *Locks::jit_lock_);
+    info = AddProfilingInfoInternal(self, method, entries);
   }
   return info;
 }
@@ -1704,10 +1692,7 @@ bool JitCodeCache::NotifyCompilationOf(ArtMethod* method,
     if (CanAllocateProfilingInfo() &&
         (compilation_kind == CompilationKind::kBaseline) &&
         (info == nullptr)) {
-      // We can retry allocation here as we're the JIT thread.
-      if (ProfilingInfo::Create(self, method, /* retry_allocation= */ true)) {
-        info = method->GetProfilingInfo(kRuntimePointerSize);
-      }
+      info = ProfilingInfo::Create(self, method);
     }
     if (info == nullptr) {
       // When prejitting, we don't allocate a profiling info.
