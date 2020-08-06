@@ -16,6 +16,52 @@
       "revId": "00c76463f832f89503127c370ebf49814a93ef04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4514af0_f8fed9fe",
+        "filename": "test/566-polymorphic-inlining/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-06T19:34:27Z",
+      "side": 1,
+      "message": "add some message here.",
+      "range": {
+        "startLine": 129,
+        "startChar": 22,
+        "endLine": 129,
+        "endChar": 24
+      },
+      "revId": "00c76463f832f89503127c370ebf49814a93ef04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf79aec0_c0b49ce7",
+        "filename": "test/566-polymorphic-inlining/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-06T19:34:27Z",
+      "side": 1,
+      "message": "new line",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "00c76463f832f89503127c370ebf49814a93ef04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
