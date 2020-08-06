@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "b0e6b602_70bc0131",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-06T17:26:57Z",
+      "side": 1,
+      "message": "Oh, this really seems a big bug, I don\u0027t know how I missed that. Strange thing that all the tests passed. This means that either the VarHandle tests don\u0027t verify the return value or one of the checks is not done properly and the runtime is always called. I will take a closer look on both the checks and the tests, something must be wrong.",
+      "parentUuid": "4c25bb35_c271338b",
+      "range": {
+        "startLine": 1460,
+        "startChar": 50,
+        "endLine": 1460,
+        "endChar": 53
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a51130b8_bf411f81",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
