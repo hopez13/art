@@ -217,6 +217,11 @@ public class RemTest {
     expectEquals(0x00ff, $noinline$IntAbsModIntMin(0x00ff));
     expectEquals(0x00ffff, $noinline$IntAbsModIntMin(0x00ffff));
     expectEquals(Integer.MAX_VALUE, $noinline$IntAbsModIntMin(Integer.MAX_VALUE));
+
+    expectEquals(0, $noinline$IntIndVarModBy2(1));
+    expectEquals(1, $noinline$IntIndVarModBy2(2));
+    expectEquals(1, $noinline$IntIndVarModBy2(3));
+    expectEquals(5, $noinline$IntIndVarModBy2(11));
   }
 
   /// CHECK-START-ARM:   java.lang.Integer RemTest.$noinline$IntMod2(int) disassembly (after)
@@ -511,6 +516,21 @@ public class RemTest {
     return r;
   }
 
+  /// CHECK-START-ARM:   java.lang.Integer RemTest.$noinline$IntIndVarModBy2(int) disassembly (after)
+  /// CHECK:                 Rem
+  /// CHECK-NEXT:            and{{s?}} r{{\d+}}, r{{\d+}}, #0x1
+  //
+  /// CHECK-START-ARM64: java.lang.Integer RemTest.$noinline$IntIndVarModBy2(int) disassembly (after)
+  /// CHECK:                 Rem
+  /// CHECK-NEXT:            and w{{\d+}}, w{{\d+}}, #0x1
+  private static Integer $noinline$IntIndVarModBy2(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+     c += i % 2;
+    }
+    return c;
+  }
+
   private static void remLong() {
     expectEquals(0L, $noinline$LongMod2(0));
     expectEquals(1L, $noinline$LongMod2(1));
@@ -649,6 +669,11 @@ public class RemTest {
     expectEquals(0x00ffffffL, $noinline$LongAbsModLongMin(0x00ffffff));
     expectEquals(0x00ffffffffL, $noinline$LongAbsModLongMin(0x00ffffffffL));
     expectEquals(Long.MAX_VALUE, $noinline$LongAbsModLongMin(Long.MAX_VALUE));
+
+    expectEquals(0L, $noinline$LongIndVarModBy2(1));
+    expectEquals(1L, $noinline$LongIndVarModBy2(2));
+    expectEquals(1L, $noinline$LongIndVarModBy2(3));
+    expectEquals(5L, $noinline$LongIndVarModBy2(11));
   }
 
   /// CHECK-START-ARM64: java.lang.Long RemTest.$noinline$LongMod2(long) disassembly (after)
@@ -802,5 +827,16 @@ public class RemTest {
   private static Long $noinline$LongAbsModLongMin(long v) {
     long r = Math.abs(v) % Long.MIN_VALUE;
     return r;
+  }
+
+  /// CHECK-START-ARM64: java.lang.Long RemTest.$noinline$LongIndVarModBy2(long) disassembly (after)
+  /// CHECK:                 Rem
+  /// CHECK-NEXT:            and x{{\d+}}, x{{\d+}}, #0x1
+  private static Long $noinline$LongIndVarModBy2(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+     c += i % 2;
+    }
+    return c;
   }
 }

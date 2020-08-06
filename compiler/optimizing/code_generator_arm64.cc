@@ -3061,7 +3061,7 @@ void InstructionCodeGeneratorARM64::GenerateIntDivForPower2Denom(HDiv* instructi
   Register dividend = InputRegisterAt(instruction, 0);
 
   Register final_dividend;
-  if (HasNonNegativeResultOrMinInt(instruction->GetLeft())) {
+  if (instruction->IsInputNonNegativeOrMinIntAt(0)) {
     // No need to adjust the result for non-negative dividends or the INT32_MIN/INT64_MIN dividends.
     // NOTE: The generated code for HDiv correctly works for the INT32_MIN/INT64_MIN dividends:
     //   imm == 2
@@ -3107,12 +3107,14 @@ void InstructionCodeGeneratorARM64::GenerateIntDivForPower2Denom(HDiv* instructi
   }
 }
 
-// Return true if the magic number was modified by subtracting 2^32. So dividend needs to be added.
+// Return true if the magic number was modified by subtracting 2^32(Int32 div) or 2^64(Int64 div).
+// So dividend needs to be added.
 static inline bool NeedToAddDividend(int64_t magic_number, int64_t divisor) {
   return divisor > 0 && magic_number < 0;
 }
 
-// Return true if the magic number was modified by adding 2^32. So dividend needs to be subtracted.
+// Return true if the magic number was modified by adding 2^32(Int32 div) or 2^64(Int64 div).
+// So dividend needs to be subtracted.
 static inline bool NeedToSubDividend(int64_t magic_number, int64_t divisor) {
   return divisor < 0 && magic_number > 0;
 }
@@ -3142,6 +3144,55 @@ void InstructionCodeGeneratorARM64::GenerateResultRemWithAnyConstant(
   Register temp_imm = temps_scope->AcquireSameSizeAs(out);
   __ Mov(temp_imm, divisor);
   __ Msub(out, quotient, temp_imm, dividend);
+}
+
+void InstructionCodeGeneratorARM64::GenerateInt64UnsignedDivRemWithAnyPositiveConstant(
+    HBinaryOperation* instruction) {
+  DCHECK(instruction->IsDiv() || instruction->IsRem());
+  DCHECK(instruction->GetResultType() == DataType::Type::kInt64);
+
+  LocationSummary* locations = instruction->GetLocations();
+  Location second = locations->InAt(1);
+  DCHECK(second.IsConstant());
+
+  Register out = OutputRegister(instruction);
+  Register dividend = InputRegisterAt(instruction, 0);
+  int64_t imm = Int64FromConstant(second.GetConstant());
+  DCHECK_GT(imm, 0);
+
+  int64_t magic;
+  int shift;
+  CalculateMagicAndShiftForDivRem(imm, /* is_long= */ true, &magic, &shift);
+
+  UseScratchRegisterScope temps(GetVIXLAssembler());
+  Register temp = temps.AcquireSameSizeAs(out);
+
+  auto generate_unsigned_div_code = [this, magic, shift](Register out,
+                                                         Register dividend,
+                                                         Register temp) {
+    // temp = get_high(dividend * magic)
+    __ Mov(temp, magic);
+    if (magic > 0 && shift == 0) {
+      __ Smulh(out, dividend, temp);
+    } else {
+      __ Smulh(temp, dividend, temp);
+      if (magic < 0) {
+        // The negative magic means that the multiplier m is greater than INT64_MAX.
+        // In such a case shift is never 0. See the proof in
+        // InstructionCodeGeneratorARMVIXL::GenerateDivRemWithAnyConstant.
+        __ Add(temp, temp, dividend);
+      }
+      DCHECK_NE(shift, 0);
+      __ Lsr(out, temp, shift);
+    }
+  };
+
+  if (instruction->IsDiv()) {
+    generate_unsigned_div_code(out, dividend, temp);
+  } else {
+    generate_unsigned_div_code(temp, dividend, temp);
+    GenerateResultRemWithAnyConstant(out, dividend, temp, imm, &temps);
+  }
 }
 
 void InstructionCodeGeneratorARM64::GenerateInt64DivRemWithAnyConstant(
@@ -3177,7 +3228,8 @@ void InstructionCodeGeneratorARM64::GenerateInt64DivRemWithAnyConstant(
   // This allows to use CINC MI which has latency 1.
   bool use_cond_inc = false;
 
-  // As magic_number can be modified to fit into 32 bits, check whether the correction is needed.
+  // Some combinations of magic_number and the divisor require to correct the result.
+  // Check whether the correction is needed.
   if (NeedToAddDividend(magic, imm)) {
     __ Adds(temp, temp, dividend);
     use_cond_inc = true;
@@ -3242,7 +3294,7 @@ void InstructionCodeGeneratorARM64::GenerateInt32DivRemWithAnyConstant(
 
   // Extract the result from the high 32 bits and apply the final right shift.
   DCHECK_LT(shift, 32);
-  if (imm > 0 && IsGEZero(instruction->GetLeft())) {
+  if (imm > 0 && instruction->IsInputNonNegativeAt(0)) {
     // No need to adjust the result for a non-negative dividend and a positive divisor.
     if (instruction->IsDiv()) {
       __ Lsr(out.X(), temp.X(), 32 + shift);
@@ -3262,10 +3314,15 @@ void InstructionCodeGeneratorARM64::GenerateInt32DivRemWithAnyConstant(
   }
 }
 
-void InstructionCodeGeneratorARM64::GenerateDivRemWithAnyConstant(HBinaryOperation* instruction) {
+void InstructionCodeGeneratorARM64::GenerateDivRemWithAnyConstant(HBinaryOperation* instruction,
+                                                                  int64_t divisor) {
   DCHECK(instruction->IsDiv() || instruction->IsRem());
   if (instruction->GetResultType() == DataType::Type::kInt64) {
-    GenerateInt64DivRemWithAnyConstant(instruction);
+    if (divisor > 0 && instruction->IsInputNonNegativeAt(0)) {
+      GenerateInt64UnsignedDivRemWithAnyPositiveConstant(instruction);
+    } else {
+      GenerateInt64DivRemWithAnyConstant(instruction);
+    }
   } else {
     GenerateInt32DivRemWithAnyConstant(instruction);
   }
@@ -3284,7 +3341,7 @@ void InstructionCodeGeneratorARM64::GenerateIntDivForConstDenom(HDiv *instructio
   } else {
     // Cases imm == -1 or imm == 1 are handled by InstructionSimplifier.
     DCHECK(imm < -2 || imm > 2) << imm;
-    GenerateDivRemWithAnyConstant(instruction);
+    GenerateDivRemWithAnyConstant(instruction, imm);
   }
 }
 
@@ -5633,7 +5690,7 @@ void InstructionCodeGeneratorARM64::GenerateIntRemForPower2Denom(HRem *instructi
   Register out = OutputRegister(instruction);
   Register dividend = InputRegisterAt(instruction, 0);
 
-  if (HasNonNegativeResultOrMinInt(instruction->GetLeft())) {
+  if (instruction->IsInputNonNegativeOrMinIntAt(0)) {
     // No need to adjust the result for non-negative dividends or the INT32_MIN/INT64_MIN dividends.
     // NOTE: The generated code for HRem correctly works for the INT32_MIN/INT64_MIN dividends.
     // INT*_MIN % imm must be 0 for any imm of power 2. 'and' works only with bits
@@ -5675,7 +5732,7 @@ void InstructionCodeGeneratorARM64::GenerateIntRemForConstDenom(HRem *instructio
     GenerateIntRemForPower2Denom(instruction);
   } else {
     DCHECK(imm < -2 || imm > 2) << imm;
-    GenerateDivRemWithAnyConstant(instruction);
+    GenerateDivRemWithAnyConstant(instruction, imm);
   }
 }
 
