@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12d1e597_ece988ee",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T08:21:52Z",
+      "side": 1,
+      "message": "I prefer static_cast but the effect is essentially the same. No action needed.",
+      "range": {
+        "startLine": 1975,
+        "startChar": 11,
+        "endLine": 1975,
+        "endChar": 27
+      },
+      "revId": "2a530564d39aae5625874b8072b67c0598689ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
