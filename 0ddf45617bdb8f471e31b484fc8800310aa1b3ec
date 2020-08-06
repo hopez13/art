@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "ce0c6869_0fae2a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-06T13:53:52Z",
+      "side": 1,
+      "message": "Thanks! Started looking into other CLs, and forgot to update this one.",
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fc2523c_7638d898",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 4
@@ -42,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "0ca2f46e_5602a48c",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-06T13:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc2523c_7638d898",
+      "range": {
+        "startLine": 542,
+        "startChar": 53,
+        "endLine": 542,
+        "endChar": 56
+      },
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc25d199_ee94afb5",
         "filename": "tools/hiddenapi/README.md",
         "patchSetId": 4
@@ -62,6 +103,30 @@
       "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2694fb1_152459d1",
+        "filename": "tools/hiddenapi/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-06T13:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc25d199_ee94afb5",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "0ddf45617bdb8f471e31b484fc8800310aa1b3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
