@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a84f608_cd427bbe",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-06T16:35:48Z",
+      "side": 1,
+      "message": "probably would be better to do something like\n\n  for (art::ArtField\u0026 af : klass-\u003eGetIFields()) {\n    if (af.IsPrimitiveType()) {\n      continue;\n    }\n    fn(af.GetOffset());\n  }\n\nAlso this only gets fields declared on the exact class passed in. Is this intentional?\n\nIf not you probably want something like\n  do {\n    for (art::ArtField\u0026 af : klass-\u003eGetIFields()) {\n      if (af.IsPrimitiveType()) {\n        continue;\n      }\n      fn(af.GetOffset());\n    }\n  } while (!(klass \u003d klass-\u003eGetSuperClass()).IsNull())",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
