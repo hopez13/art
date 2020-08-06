@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd237ff2_c8cea25e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "Needs MOVSXB.",
+      "range": {
+        "startLine": 1444,
+        "startChar": 25,
+        "endLine": 1444,
+        "endChar": 30
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5bbaaf3_136f036d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "Needs MOVSXW.",
+      "range": {
+        "startLine": 1448,
+        "startChar": 25,
+        "endLine": 1448,
+        "endChar": 31
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e88bdd3_f4a4a424",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "Should not be together with 64-bit types. Maybe this function should not support references at all as they may need read barrier or heap unpoisoning and need to be special-cased anyway.",
+      "range": {
+        "startLine": 1458,
+        "startChar": 25,
+        "endLine": 1458,
+        "endChar": 35
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c25bb35_c271338b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "The displacement needs to be incremented by 4. Unfortunately, I do not see an easy way to do that using the Address interface.",
+      "range": {
+        "startLine": 1460,
+        "startChar": 50,
+        "endLine": 1460,
+        "endChar": 53
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feeb63f6_a07bd587",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "The equivalent `kEqual` is easier to read after CMP.",
+      "range": {
+        "startLine": 3142,
+        "startChar": 7,
+        "endLine": 3142,
+        "endChar": 12
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d96fb8_289681b6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T15:38:58Z",
+      "side": 1,
+      "message": "This is broken if the register is used for subsequent instructions. We need a different temporary.\n\nWhat I was referring to was register allocator assigning the same register to `varhandle_object` and `out`. We can use `out` as a temporary as we know it shall be overwritten in the end but we must be careful not to overwrite registers that we may still need. (I did not realize that we would need to specify `kNoOutputOverlap` for that to happen and I did not do that for arm64. I\u0027m not even sure if we can specify `kNoOutputOverlap` if we have a call on slow path. There was a problem with that on https://android-review.googlesource.com/1367118 .)",
+      "range": {
+        "startLine": 3144,
+        "startChar": 2,
+        "endLine": 3145,
+        "endChar": 37
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
