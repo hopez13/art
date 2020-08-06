@@ -3190,4 +3190,16 @@ bool IsGEZero(HInstruction* instruction) {
   return IsInt64AndGet(instruction, &value) && value >= 0;
 }
 
+bool HInstruction::IsInputNonNegativeAt(size_t i) {
+  HInstruction* input = InputAt(i);
+  return IsGEZero(input);
+}
+
+bool HInstruction::IsInputNonNegativeOrMinIntAt(size_t i) {
+  HInstruction* input = InputAt(i);
+  return input->IsAbs() ||
+         IsInt64Value(input, DataType::MinValueOfIntegralType(input->GetType())) ||
+         IsInputNonNegativeAt(i);
+}
+
 }  // namespace art
