@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "746b2cf5_ed9dae95",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2020-08-06T09:45:49Z",
+      "side": 1,
+      "message": "nit: probably reads nicer to check if reference_field_ids is not empty?",
+      "range": {
+        "startLine": 712,
+        "startChar": 22,
+        "endLine": 712,
+        "endChar": 36
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
