@@ -187,6 +187,10 @@ public class DivTest {
     expectEquals(0, $noinline$IntAbsDivByIntMin(-1));
     expectEquals(1, $noinline$IntAbsDivByIntMin(Integer.MIN_VALUE));
     expectEquals(0, $noinline$IntAbsDivByIntMin(Integer.MAX_VALUE));
+
+    expectEquals(0, $noinline$IntIndVarDivBy2(1));
+    expectEquals(1, $noinline$IntIndVarDivBy2(3));
+    expectEquals(4, $noinline$IntIndVarDivBy2(5));
   }
 
   /// CHECK-START-ARM:   java.lang.Integer DivTest.$noinline$IntDivBy2(int) disassembly (after)
@@ -383,6 +387,21 @@ public class DivTest {
     return r;
   }
 
+  /// CHECK-START-ARM:   java.lang.Integer DivTest.$noinline$IntIndVarDivBy2(int) disassembly (after)
+  /// CHECK:                 Div
+  /// CHECK-NEXT:            asr{{s?}} r{{\d+}}, #1
+  //
+  /// CHECK-START-ARM64: java.lang.Integer DivTest.$noinline$IntIndVarDivBy2(int) disassembly (after)
+  /// CHECK:                 Div
+  /// CHECK-NEXT:            asr w{{\d+}}, w{{\d+}}, #1
+  private static Integer $noinline$IntIndVarDivBy2(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      c += i / 2;
+    }
+    return c;
+  }
+
   private static void divLong() {
     expectEquals(0L, $noinline$LongDivBy2(0L));
     expectEquals(0L, $noinline$LongDivBy2(1L));
@@ -507,6 +526,10 @@ public class DivTest {
     expectEquals(0L, $noinline$LongAbsDivByLongMin(-1));
     expectEquals(1L, $noinline$LongAbsDivByLongMin(Long.MIN_VALUE));
     expectEquals(0L, $noinline$LongAbsDivByLongMin(Long.MAX_VALUE));
+
+    expectEquals(0L, $noinline$LongIndVarDivBy2(1));
+    expectEquals(1L, $noinline$LongIndVarDivBy2(3));
+    expectEquals(4L, $noinline$LongIndVarDivBy2(5));
   }
 
   /// CHECK-START-ARM64: java.lang.Long DivTest.$noinline$LongDivBy2(long) disassembly (after)
@@ -602,5 +625,16 @@ public class DivTest {
   private static Long $noinline$LongAbsDivByLongMin(long v) {
     long r = Math.abs(v) / Long.MIN_VALUE;
     return r;
+  }
+
+  /// CHECK-START-ARM64: java.lang.Long DivTest.$noinline$LongIndVarDivBy2(long) disassembly (after)
+  /// CHECK:                 Div
+  /// CHECK-NEXT:            asr x{{\d+}}, x{{\d+}}, #1
+  private static Long $noinline$LongIndVarDivBy2(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / 2;
+    }
+    return c;
   }
 }

@@ -95,6 +95,10 @@ public class RemTest {
     expectEquals(0, $noinline$IntRemByMinus6(-6));
     expectEquals(1, $noinline$IntRemByMinus6(19));
     expectEquals(-1, $noinline$IntRemByMinus6(-19));
+
+    for (int i = 1; i < 1234; ++i) {
+      expectEquals($noinline$ExpectedIntIndVarRemByN(i, 6), $noinline$IntIndVarRemBy6(i));
+    }
   }
 
   // A test case to check that 'lsr' and 'asr' are combined into one 'asr'.
@@ -251,6 +255,34 @@ public class RemTest {
     return r;
   }
 
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int RemTest.$noinline$IntIndVarRemBy6(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            mov{{s?}} r{{\d+}}, #6
+  /// CHECK-NEXT:            mls       r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  //
+  /// CHECK-START-ARM64: int RemTest.$noinline$IntIndVarRemBy6(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            mov w{{\d+}}, #0x6
+  /// CHECK-NEXT:            msub w{{\d+}}, w{{\d+}}, w{{\d+}}, w{{\d+}}
+  private static int $noinline$IntIndVarRemBy6(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      c += i % 6;
+    }
+    return c;
+  }
+
+  private static int $noinline$ExpectedIntIndVarRemByN(int v, int n) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      c += i % n;
+    }
+    return c;
+  }
+
   private static void remLong() {
     expectEquals(0L, $noinline$LongRemBy18(0L));
     expectEquals(1L, $noinline$LongRemBy18(1L));
@@ -315,6 +347,13 @@ public class RemTest {
     expectEquals(0L, $noinline$LongRemByMinus100(-100L));
     expectEquals(1L, $noinline$LongRemByMinus100(101L));
     expectEquals(-1L, $noinline$LongRemByMinus100(-101L));
+
+    for (int i = 1; i < 1234; ++i) {
+      expectEquals($noinline$ExpectedLongIndVarRemByN(i, 6), $noinline$LongIndVarRemBy6(i));
+      expectEquals($noinline$ExpectedLongIndVarRemByN(i, 7), $noinline$LongIndVarRemBy7(i));
+      expectEquals($noinline$ExpectedLongIndVarRemByN(i, 18), $noinline$LongIndVarRemBy18(i));
+      expectEquals($noinline$ExpectedLongIndVarRemByN(i, 100), $noinline$LongIndVarRemBy100(i));
+    }
   }
 
   // Test cases for Int64 HDiv/HRem to check that optimizations implemented for Int32 are not
@@ -408,5 +447,76 @@ public class RemTest {
   private static long $noinline$LongRemByMinus100(long v) {
     long r = v % -100L;
     return r;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long RemTest.$noinline$LongIndVarRemBy6(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            mov x{{\d+}}, #0x6
+  /// CHECK-NEXT:            msub x{{\d+}}, x{{\d+}}, x{{\d+}}, x{{\d+}}
+  private static long $noinline$LongIndVarRemBy6(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i % 6L;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long RemTest.$noinline$LongIndVarRemBy7(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            lsr x{{\d+}}, x{{\d+}}, #1
+  /// CHECK-NEXT:            mov x{{\d+}}, #0x7
+  /// CHECK-NEXT:            msub x{{\d+}}, x{{\d+}}, x{{\d+}}, x{{\d+}}
+  private static long $noinline$LongIndVarRemBy7(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i % 7L;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long RemTest.$noinline$LongIndVarRemBy18(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            mov x{{\d+}}, #0x12
+  /// CHECK-NEXT:            msub x{{\d+}}, x{{\d+}}, x{{\d+}}, x{{\d+}}
+  private static long $noinline$LongIndVarRemBy18(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i % 18L;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long RemTest.$noinline$LongIndVarRemBy100(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            add   x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            lsr   x{{\d+}}, x{{\d+}}, #6
+  /// CHECK-NEXT:            mov x{{\d+}}, #0x64
+  /// CHECK-NEXT:            msub x{{\d+}}, x{{\d+}}, x{{\d+}}, x{{\d+}}
+  private static long $noinline$LongIndVarRemBy100(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i % 100L;
+    }
+    return c;
+  }
+
+  private static long $noinline$ExpectedLongIndVarRemByN(long v, int n) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i % n;
+    }
+    return c;
   }
 }
