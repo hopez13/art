@@ -16,6 +16,195 @@
       "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e051c1_5aedeebf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "Line too long. Maybe we should simplify this and check `instruction_-\u003eIsInvoke()` instead of individual invoke types.",
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f55bfe_ddb3aff4",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "Maybe move this before the access mode check to keep the assembly together? Though I sometimes go against that myself for some reasons; for example the `offset` variable below is properly defined at the point where we no longer need `varhandle_object` so we can clobber it if it\u0027s the same register as `out`.",
+      "range": {
+        "startLine": 3120,
+        "startChar": 2,
+        "endLine": 3127,
+        "endChar": 77
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09586f58_8e2fb9b3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "You should add the comment from arm64 as it\u0027s relevant here as well: \"We do not need a read barrier when loading a reference only for loading constant field through the reference.\"",
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2bcb6b_adb10a91",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "Maybe rename to var_type_offset to express the full name of the field. The VarHandle does not need to be mentioned.",
+      "range": {
+        "startLine": 3130,
+        "startChar": 42,
+        "endLine": 3130,
+        "endChar": 56
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c682bc2_4ca3c1dc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "Only 16-bits (MOVW), see comments on Class::primitive_type_. And it can be merged with the CMP below for in-memory comparison.",
+      "range": {
+        "startLine": 3132,
+        "startChar": 5,
+        "endLine": 3132,
+        "endChar": 9
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a07a509_ccfcf052",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "The comment from arm64 is relevant here: \"Do not emit read barrier (or unpoison the reference) for comparing to null.\"",
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a875be8_29e8cc6e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "In-memory comparison with 0.",
+      "range": {
+        "startLine": 3138,
+        "startChar": 2,
+        "endLine": 3139,
+        "endChar": 23
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e572af37_d45d4b2c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "Indentation: one more space.",
+      "range": {
+        "startLine": 3157,
+        "startChar": 40,
+        "endLine": 3157,
+        "endChar": 41
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c81562_f6369930",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-06T12:57:24Z",
+      "side": 1,
+      "message": "We need to differentiate smaller types to get the correct value and avoid extremely rare segmentation fault (overread for a small value right at the end of a heap region).\n\nMaybe we can refactor InstructionCodeGeneratorX86::HandleFieldGet so that we have a convenient helper function (similar to arm64) instead of replicating the code. But if you don\u0027t want to engage in such refactoring for now, feel free to just implement the other cases here.",
+      "range": {
+        "startLine": 3163,
+        "startChar": 10,
+        "endLine": 3163,
+        "endChar": 30
+      },
+      "revId": "11de69ee796a6e4e7b34bbc3b068d703cbf68441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
