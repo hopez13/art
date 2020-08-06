@@ -93,6 +93,30 @@
       "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4281401a_bd3af15c",
+        "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-06T17:24:58Z",
+      "side": 1,
+      "message": "We have things like has_bounds_checks_, or has_monitor_operation_ which are easy to track. It may be worth having the same here, especially since we\u0027re running in baseline.",
+      "parentUuid": "a8317461_3ff850d8",
+      "range": {
+        "startLine": 107,
+        "startChar": 54,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
