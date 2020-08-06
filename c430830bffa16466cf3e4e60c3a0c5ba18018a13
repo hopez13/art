@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "2b206b4a_78f1293f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-06T15:44:31Z",
+      "side": 1,
+      "message": "ART restricts the managed heap to the 32-bit address space. Suggest ignoring this until you start working get reference.",
+      "range": {
+        "startLine": 1458,
+        "startChar": 4,
+        "endLine": 1458,
+        "endChar": 36
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c25bb35_c271338b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -94,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "a51130b8_bf411f81",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3073,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-06T15:44:31Z",
+      "side": 1,
+      "message": "For VarHandles, return type void does not throw WMTE, but discards the return value. It could be processed here without the output location, but this really going to complicate the logic below. Suggest fixing the comment here and leaving as-is.",
+      "range": {
+        "startLine": 3073,
+        "startChar": 4,
+        "endLine": 3073,
+        "endChar": 96
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feeb63f6_a07bd587",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -105,6 +151,29 @@
       "writtenOn": "2020-08-06T15:38:58Z",
       "side": 1,
       "message": "The equivalent `kEqual` is easier to read after CMP.",
+      "range": {
+        "startLine": 3142,
+        "startChar": 7,
+        "endLine": 3142,
+        "endChar": 12
+      },
+      "revId": "c430830bffa16466cf3e4e60c3a0c5ba18018a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e1c9a6_fe1a7533",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-06T15:44:31Z",
+      "side": 1,
+      "message": "kEqual is easier on the reader.",
       "range": {
         "startLine": 3142,
         "startChar": 7,
