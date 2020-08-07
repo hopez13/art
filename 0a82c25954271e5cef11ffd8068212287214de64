@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "876d76d0_7ab84b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-08-07T12:39:13Z",
+      "side": 1,
+      "message": "Add good, we seem to converge to clearer language.",
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03f4ff88_4cd184d7",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-08-07T12:39:13Z",
+      "side": 1,
+      "message": "Feel free to ignore, but everywhere else it is blocked",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86eb95f3_560a76ca",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-08-07T12:39:13Z",
+      "side": 1,
+      "message": "Should probably update the comment as well.",
+      "range": {
+        "startLine": 297,
+        "startChar": 39,
+        "endLine": 297,
+        "endChar": 48
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef75b42_58bac281",
+        "filename": "test/674-hiddenapi/src-art/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1736781
+      },
+      "writtenOn": "2020-08-07T12:39:13Z",
+      "side": 1,
+      "message": "nit: capitalize",
+      "range": {
+        "startLine": 119,
+        "startChar": 69,
+        "endLine": 119,
+        "endChar": 72
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
