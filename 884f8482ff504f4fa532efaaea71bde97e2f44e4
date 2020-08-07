@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "79123144_ea31862e",
+        "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-07T15:26:41Z",
+      "side": 1,
+      "message": "In the end, I decided to do that. Done in PS4.",
+      "parentUuid": "4977298c_0bdf51ee",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 7
+      },
+      "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6e5686b_6188bfcf",
         "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
         "patchSetId": 3
@@ -165,6 +189,30 @@
       "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "245f3bdc_15954c73",
+        "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-07T15:26:41Z",
+      "side": 1,
+      "message": "Done with the flag in the graph.",
+      "parentUuid": "361c2b04_7a30edf7",
+      "range": {
+        "startLine": 107,
+        "startChar": 54,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
