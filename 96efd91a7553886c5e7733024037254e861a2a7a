@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "da7a4de3_e9e21174",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-07T17:22:26Z",
+      "side": 1,
+      "message": "for (art::ArtField\u0026 af : klass-\u003eGetIFields()) {\n    if (af.IsPrimitiveType() || field_offset.Uint32Value() \u003d\u003d art::mirror::Object::ClassOffset().Uint32Value()) {\n      continue;\n    }\n    fn(af.GetOffset());\n  }\n\nmaybe?\n\nDoing it your way relies on the way our class-linker lays out object fields. Especially since this is so far from the class-linker it\u0027s not the greatest to rely on this.",
+      "parentUuid": "ae80ac1a_0ae29ca2",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
