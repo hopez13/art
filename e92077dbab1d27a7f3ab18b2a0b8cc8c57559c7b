@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "15e41a71_af2fb698",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-07T12:35:17Z",
+      "side": 1,
+      "message": "Add \"(or unpoison the reference)\" to keep in sync with arm64.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 29,
+        "endLine": 3141,
+        "endChar": 30
+      },
+      "revId": "e92077dbab1d27a7f3ab18b2a0b8cc8c57559c7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddb39412_3e62d2c5",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 5
