@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae80ac1a_0ae29ca2",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-08-07T09:00:18Z",
+      "side": 1,
+      "message": "Your code has different behaviour (i.e. does not generate a useful profile). I used the pattern from Object::VisitInstanceReferences: https://cs.android.com/android/platform/superproject/+/master:art/runtime/mirror/object-inl.h?q\u003d%22for%20(size_t%20i%20%3D%200u;%20i%20%3C%20num_reference_fields;%20%2B%2Bi)%20%7B%22\n\nYes, that is intentional. We walk the superclass hierarchy after the fact, this way we use less space.",
+      "parentUuid": "1a84f608_cd427bbe",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
