@@ -117,6 +117,30 @@
       "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b94810e4_ebe87fa5",
+        "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-07T09:20:14Z",
+      "side": 1,
+      "message": "Should I add that to the HGraph for all architectures to see, or should I add that to the ARM codegen?",
+      "parentUuid": "4281401a_bd3af15c",
+      "range": {
+        "startLine": 107,
+        "startChar": 54,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "884f8482ff504f4fa532efaaea71bde97e2f44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
