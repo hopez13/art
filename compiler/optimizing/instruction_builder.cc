@@ -1932,6 +1932,7 @@ ArtField* HInstructionBuilder::ResolveField(uint16_t field_idx, bool is_static, 
   // Check access.
   Handle<mirror::Class> compiling_class = dex_compilation_unit_->GetCompilingClass();
   if (compiling_class == nullptr) {
+    // FIXME: Check if the declaring class or referencing class is public.
     if (!resolved_field->IsPublic()) {
       return nullptr;
     }
