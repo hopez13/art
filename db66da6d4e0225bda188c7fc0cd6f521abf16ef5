@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "512b3c6f_7aaab543",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e1ef1b6_8ee30b37",
+      "range": {
+        "startLine": 26,
+        "startChar": 65,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c82f619_d44f5846",
         "filename": "runtime/mutator_gc_coord.txt",
         "patchSetId": 1
@@ -53,6 +77,30 @@
       "writtenOn": "2020-08-06T08:53:52Z",
       "side": 1,
       "message": "Is this already implemented? I think we still do explicit checks here.",
+      "range": {
+        "startLine": 28,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 34
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b20a713_39a2fd6b",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Good question. The comment at thread.h:1190 implies it\u0027s implemented. But looking at blame, that line is ancient, and things don\u0027t look completely consistent to me. Filed b/163091117 in the hope that somebody can enlighten me.",
+      "parentUuid": "8c82f619_d44f5846",
       "range": {
         "startLine": 28,
         "startChar": 27,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "54c9220a_e9cdb986",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab03b342_7bdc5eb8",
+      "range": {
+        "startLine": 36,
+        "startChar": 71,
+        "endLine": 36,
+        "endChar": 78
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b74b22_0b415ac5",
         "filename": "runtime/mutator_gc_coord.txt",
         "patchSetId": 1
@@ -108,6 +180,30 @@
       "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a697f6_f3466336",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b74b22_0b415ac5",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "6761b776_093cc3c1",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c47a5695_a6a06d81",
+      "range": {
+        "startLine": 63,
+        "startChar": 73,
+        "endLine": 63,
+        "endChar": 83
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb6e0c3a_8dca92e6",
         "filename": "runtime/mutator_gc_coord.txt",
         "patchSetId": 1
@@ -157,6 +277,30 @@
     },
     {
       "key": {
+        "uuid": "00da67ca_34ad55a8",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb6e0c3a_8dca92e6",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 48
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "614751a8_02db2f25",
         "filename": "runtime/mutator_gc_coord.txt",
         "patchSetId": 1
@@ -177,6 +321,30 @@
       "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46a6e0b5_357d6b45",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-07T02:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "614751a8_02db2f25",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 33
+      },
+      "revId": "db66da6d4e0225bda188c7fc0cd6f521abf16ef5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
