@@ -65,6 +65,11 @@ using android::base::StringPrintf;
 static constexpr bool kEnableAppImage = true;
 
 const OatFile* OatFileManager::RegisterOatFile(std::unique_ptr<const OatFile> oat_file) {
+  PaletteHooks* hooks = nullptr;
+  if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
+    hooks->NotifyOatFileLoaded(oat_file->GetLocation().c_str());
+  }
+
   WriterMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
   CHECK(!only_use_system_oat_files_ ||
         LocationIsOnSystem(oat_file->GetLocation().c_str()) ||

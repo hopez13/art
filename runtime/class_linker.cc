@@ -4177,6 +4177,10 @@ static void ThrowDexFileAlreadyRegisteredError(Thread* self, const DexFile& dex_
 
 ObjPtr<mirror::DexCache> ClassLinker::RegisterDexFile(const DexFile& dex_file,
                                                       ObjPtr<mirror::ClassLoader> class_loader) {
+  PaletteHooks* hooks = nullptr;
+  if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
+    hooks->NotifyDexFileLoaded(dex_file.GetLocation().c_str());
+  }
   Thread* self = Thread::Current();
   ObjPtr<mirror::DexCache> old_dex_cache;
   bool registered_with_another_class_loader = false;
