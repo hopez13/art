@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "291f400f_19336246",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-07T14:04:01Z",
+      "side": 1,
+      "message": "Thanks! Looks like now it\u0027s ready to be merged",
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03f4ff88_4cd184d7",
         "filename": "libartbase/base/hiddenapi_flags.h",
         "patchSetId": 5
@@ -30,6 +47,30 @@
       "writtenOn": "2020-08-07T12:39:13Z",
       "side": 1,
       "message": "Feel free to ignore, but everywhere else it is blocked",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87660425_95de0e4a",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-07T14:04:01Z",
+      "side": 1,
+      "message": "This is intentional. One individual API is \u0027blocked\u0027, the group of all \u0027blocked\u0027 APIs is the \u0027blocklist\u0027 (i.e. one API on the blocklist is blocked, not blocklisted).",
+      "parentUuid": "03f4ff88_4cd184d7",
       "range": {
         "startLine": 154,
         "startChar": 7,
@@ -65,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "ff3722ab_6468aa50",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-07T14:04:01Z",
+      "side": 1,
+      "message": "Done. Went ahead and renamed the method as well. Seems like it\u0027s not used, tho.",
+      "parentUuid": "86eb95f3_560a76ca",
+      "range": {
+        "startLine": 297,
+        "startChar": 39,
+        "endLine": 297,
+        "endChar": 48
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef75b42_58bac281",
         "filename": "test/674-hiddenapi/src-art/Main.java",
         "patchSetId": 5
@@ -85,6 +150,30 @@
       "revId": "0a82c25954271e5cef11ffd8068212287214de64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a8155a_96968a32",
+        "filename": "test/674-hiddenapi/src-art/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-08-07T14:04:01Z",
+      "side": 1,
+      "message": "I think arguably this could be fine; as APIs can be sdk, blocked, unsupported or max-target-* (all lowercase).",
+      "parentUuid": "6ef75b42_58bac281",
+      "range": {
+        "startLine": 119,
+        "startChar": 69,
+        "endLine": 119,
+        "endChar": 72
+      },
+      "revId": "0a82c25954271e5cef11ffd8068212287214de64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
