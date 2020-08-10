@@ -176,6 +176,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "886990e6_8011a96e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1220972
+      },
+      "writtenOn": "2020-08-10T11:41:57Z",
+      "side": 1,
+      "message": "Actually the PI futex has already implement the Priority Inheritance semantics, and the lock owner if known to kernel side when lock contention occur. So if the\nart switch to use PI futex, then it will compact with upstream futex code. And no need to add customized futex operation",
+      "parentUuid": "e775218a_6db6fa28",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
