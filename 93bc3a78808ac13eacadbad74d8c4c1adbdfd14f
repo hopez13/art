@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a6a7f5ee_b3492b7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "It\u0027d be good to hook this up with presubmit testing. The first step would be to add an Android.bp that covers the binary and the tests.",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -55,6 +72,109 @@
     },
     {
       "key": {
+        "uuid": "1ee00e07_9928fd7b",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "There are many \"CFG\" files out there that aren\u0027t related to this at all. Please spell out the acronym and add a few words about where these files come from.",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2df0e4a_3b689a13",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "Depending on the markdown engine it might work to put the dot graph directly here and get it rendered inline:\n\n```dot\ndigraph {\n  a -\u003e b\n}\n```\n\nIf it works in gitiles then it\u0027d be nicer than this manual procedure. You can check with the gitiles preview link in Gerrit. (Internal people cf. go/g3doc-dot.)",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb77a68_f89d6b39",
+        "filename": "tools/perf2cfg/mypy.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "Please add \"# type: ignore\" to the import line instead, so that this file isn\u0027t needed.",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb211e57_2f41ec5d",
+        "filename": "tools/perf2cfg/perf2cfg.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "Use a lambda to the type argument in add_argument instead.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 63
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75992608_73dc9bdc",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "This is a rather long config file with what looks like a lot of boilerplate. Can it be shortened to the (hopefully very few) settings that pylint actually needs here?",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c84513ee_f5c57e11",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 2
@@ -103,6 +223,30 @@
     },
     {
       "key": {
+        "uuid": "4787b2ec_171a9fcd",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "This looks like an identifier defined in pylint, so it seems hard to fix it here. Same goes for the other complaints. But maybe they don\u0027t need to be mentioned at all (cf my comment above).",
+      "parentUuid": "aec92ba1_b8a498b5",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dae1c08e_a58dcac0",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 2
@@ -121,6 +265,47 @@
         "endLine": 401,
         "endChar": 5
       },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91f9c0df_9da01ef2",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "dae1c08e_a58dcac0",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 5
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f7ce4b2_52427760",
+        "filename": "tools/perf2cfg/tests/__init__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-10T15:35:27Z",
+      "side": 1,
+      "message": "Is this file necessary?",
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
