@@ -140,6 +140,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01381deb_c39b6e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1220972
+      },
+      "writtenOn": "2020-08-10T06:27:40Z",
+      "side": 1,
+      "message": "Will, the change in the kernel part is as follows\n1. read the pid (futex owner) from the uaddr2 using get_futex_value_locked\n2. boost the futex owner if needed (eg, UI thread waiting on the futex)\n3. deboost when the owner release the futex or timeout occur\n\nYou worry that \"people could be passing any old junk in there at the moment\", but\nin bionic and art, this parameter is set to nullptr explicitly. And even an junk value is passed, then EFAULT or a invalid pid will read from uaddr2, both will not\ncause fatal error.",
+      "parentUuid": "ff64d1e6_ce25d222",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
