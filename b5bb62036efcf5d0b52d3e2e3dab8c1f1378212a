@@ -212,6 +212,23 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f67718a_78435b0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-10T20:52:24Z",
+      "side": 1,
+      "message": "Adding Yabin in case he better understands any performance trade-offs for PI futexes. I haven\u0027t yet investigated how feasible this is for the ART mutex code. I expect it\u0027s possible, but there might be some performance loss at user level in changing mutex representations. Or not.",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
