@@ -158,6 +158,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e775218a_6db6fa28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2020-08-10T08:43:43Z",
+      "side": 1,
+      "message": "Is there a kernel patch with those changes available somewhere?\n\nAlthough bionic and art may well pass nullptr, the kernel can\u0027t assume that is the case for all callers, so I don\u0027t think this sort of change would be acceptable in android-mainline. Returning -EFAULT when we didn\u0027t before could certainly break some applications (this is why ignored parameters are generally useless -- it\u0027s much better to require them to be zero so that they can be extended later on).\n\nI think you\u0027d be better off proposing a new futex operation upstream, backed up with data to show that it is a worthwhile change (this is crucial, because upstream is reasonably hesitant about modifying futex()).",
+      "parentUuid": "01381deb_c39b6e1d",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
