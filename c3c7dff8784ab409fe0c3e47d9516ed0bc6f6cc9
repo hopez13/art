@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ccc2792_ee157176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-11T17:09:12Z",
+      "side": 1,
+      "message": "Bypassing TH: The build failures on git_master-art are due to the whole topic not being applied there, and the boot test is a flake that wasn\u0027t in the previous run.",
+      "revId": "c3c7dff8784ab409fe0c3e47d9516ed0bc6f6cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
