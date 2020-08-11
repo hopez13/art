@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdef7e50_e5cef7d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2020-08-11T23:05:10Z",
+      "side": 1,
+      "message": "Failing https://ci.chromium.org/p/art/builders/ci/host-x86_64-cdex-fast/3530\n\n[ 95% 863/902 ] test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-debuggable-redefine-stress-cdex-fast-622-checker-bce-regressions64 SKIP\nStarting test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-debuggable-redefine-stress-cdex-fast-601-method-access64 at 14081.858052922\n(0:00:22.367548)[ 95% 864/902 ] test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-debuggable-redefine-stress-cdex-fast-457-regs64 FAIL\n/b/s/w/ir/k/art/test/run-test  --output-path /b/s/w/ir/tmp/t/test-art-gcgxoq_u/tmpf_qtboh2 --always-clean  --host --prebuild --compact-dex-level fast --jit --no-relocate --runtime-option -Xcheck:jni --debuggable --runtime-option -Xopaque-jni-ids:true --jvmti-redefine-stress --64  457-regs\n/b/s/w/ir/k/art/test/457-regs: building...\n/b/s/w/ir/k/art/test/457-regs: running...\nrun exit status: 1\n/b/s/w/ir/k/art/test/457-regs: FAILED!\n \n#################### info\n# Tests debuggability of DEX registers.\n#################### diffs\n--- expected.txt\t2020-08-11 08:51:03.295060823 -0700\n+++ output.txt\t2020-08-11 11:55:05.914577911 -0700\n@@ -1 +1,608 @@\n JNI_OnLoad called\n+dalvikvm64 F 08-11 11:54:52 11171 11171 regs_jni.cc:88] Check failed: GetVReg(m, 2, kFloatVReg, \u0026value) ",
+      "revId": "17b5bdbb3454249e8d9f0191c85c0a1862976895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
