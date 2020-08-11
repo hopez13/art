@@ -264,6 +264,24 @@
       "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fb20c84_8186fa0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2020-08-11T20:13:45Z",
+      "side": 1,
+      "message": "The pthread_test shows PI futex can affect the priority of non-realtime threads (https://android.googlesource.com/platform/bionic/+/master/tests/pthread_test.cpp#2278). So I think it also works for non-realtime threads. But joelaf@ may have a different opinion.",
+      "parentUuid": "1922e4e6_d806db8d",
+      "revId": "b5bb62036efcf5d0b52d3e2e3dab8c1f1378212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
