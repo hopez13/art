@@ -16,6 +16,41 @@
       "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1efe71b8_0ebb815e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-08-11T14:53:26Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to force-submit here; the pre-submit build failures seem to be due to an unsupported use case (topic with changes in different branches). Maybe worth filing a bug?",
+      "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21c4c658_511b87cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-08-11T14:53:26Z",
+      "side": 1,
+      "message": "\u003e I think the TH failures on git_master-art are false alarms - it looks like they ran without the corresponding manifest change. With cherry-pick ag/12344428 it works: https://android-build.googleplex.com/builds/forrest/run/L69600000661731949\n\nNot sure what is happening here. Maybe the problem is that the two changes in this topic (aosp/1396609 and aosp/1396647) are in two different branches (resp. `aosp/master` and `aosp/master-art`). Do we know whether this case is supported?\n\n\u003e I don\u0027t recall seeing this kind of failure with topics including manifest changes before. Is there something wrong with the setup of git_master-art? Roland, I presume you set it up?\n\nThere is a merge path between `aosp/master-art` and `goog/master-art` (via `goog/mirror-aosp-master-art`) for all projects on the `aosp/master-art` manifest – including the manifest itself – (see b/139131024), except for projects which are not part of the `aosp/master` manifest, like `prebuilts/runtime` (see b/154601724).\n\n\u003e Also, is there a merge path between git_master-art and git_master-art-host for platform/manifest?\n\nNo.",
+      "parentUuid": "09d58980_da667672",
+      "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
