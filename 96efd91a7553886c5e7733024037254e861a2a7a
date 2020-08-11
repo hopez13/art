@@ -145,6 +145,53 @@
     },
     {
       "key": {
+        "uuid": "6eca8f5c_7b739d1b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-11T20:56:13Z",
+      "side": 1,
+      "message": "Can you maybe post what you expect vs what you get?\n\nThe only thing I could think that might be different is that offset might not monotonically increase but I\u0027m not even sure if that\u0027s true.",
+      "parentUuid": "714f73a4_4288b4cb",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "243fe9ed_75c6ab47",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-11T20:56:13Z",
+      "side": 1,
+      "message": "It seems wrong that you would need this.",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 646,
+        "endChar": 53
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
