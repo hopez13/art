@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09d58980_da667672",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-11T12:48:19Z",
+      "side": 1,
+      "message": "I think the TH failures on git_master-art are false alarms - it looks like they ran without the corresponding manifest change. With cherry-pick ag/12344428 it works: https://android-build.googleplex.com/builds/forrest/run/L69600000661731949\n\nI don\u0027t recall seeing this kind of failure with topics including manifest changes before. Is there something wrong with the setup of git_master-art? Roland, I presume you set it up?\n\nAlso, is there a merge path between git_master-art and git_master-art-host for platform/manifest?",
+      "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
