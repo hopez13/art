@@ -51,6 +51,42 @@
       "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e544ef98_de8fe279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-11T15:21:35Z",
+      "side": 1,
+      "message": "\u003e Maybe the problem is that the two changes in this topic (aosp/1396609 and aosp/1396647) are in two different branches (resp. `aosp/master` and `aosp/master-art`).\n\nInteresting observation, but I don\u0027t think that matters; previous topics like http://r.android.com/q/topic:remove-palette-art had the same mix of branches. Looks like master-art as a branch only exists for the manifest: https://r.android.com/q/branch:master-art\n\n\u003e No.\n\nOk, then I\u0027ll need a cherry-pick for master-art-host but not git_master-art, as usual.",
+      "parentUuid": "21c4c658_511b87cd",
+      "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4042eece_f00d9dfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-11T15:21:35Z",
+      "side": 1,
+      "message": "See other comment. Maybe it was a TH fluke failing to apply the other patch, so I\u0027m going to try TH again. If it fails the same way I\u0027ll force-submit and maybe open a ticket. Thanks.",
+      "parentUuid": "1efe71b8_0ebb815e",
+      "revId": "99e0a0767a45a55651f5e725f3fb809707be005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
