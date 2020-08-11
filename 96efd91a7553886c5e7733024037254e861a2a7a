@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "e26d561c_c705a55d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-11T16:09:15Z",
+      "side": 1,
+      "message": "That\u0027s really strange. Lokesh, mathieuc, can either of you figure out why iterating over GetIFields would not find all field offsets?",
+      "parentUuid": "8f876949_c8acd6c1",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
