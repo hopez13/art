@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8f876949_c8acd6c1",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-08-11T10:37:14Z",
+      "side": 1,
+      "message": "That still does not give the correct profile. It seems like ifields_ is not what we need (but I am not sure what it actually is).",
+      "parentUuid": "da7a4de3_e9e21174",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "746b2cf5_ed9dae95",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
