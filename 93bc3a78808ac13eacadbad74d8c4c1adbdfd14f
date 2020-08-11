@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d39c8b27_90686c7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Ack, I will try to add an Android.bp file.",
+      "parentUuid": "a6a7f5ee_b3492b7e",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -72,6 +90,23 @@
     },
     {
       "key": {
+        "uuid": "41ab9b16_b51e25dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Thank you for the review, Martin!\nI will have a look at the Soong Modules Reference and try to add an Android.bp file.",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ee00e07_9928fd7b",
         "filename": "tools/perf2cfg/README.md",
         "patchSetId": 2
@@ -95,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "13c2a652_183149ca",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Done, please let me know if the added explanation is enough.",
+      "parentUuid": "1ee00e07_9928fd7b",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2df0e4a_3b689a13",
         "filename": "tools/perf2cfg/README.md",
         "patchSetId": 2
@@ -106,6 +165,30 @@
       "writtenOn": "2020-08-10T15:35:27Z",
       "side": 1,
       "message": "Depending on the markdown engine it might work to put the dot graph directly here and get it rendered inline:\n\n```dot\ndigraph {\n  a -\u003e b\n}\n```\n\nIf it works in gitiles then it\u0027d be nicer than this manual procedure. You can check with the gitiles preview link in Gerrit. (Internal people cf. go/g3doc-dot.)",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "406b477f_f7129baa",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Ack, I\u0027m going to try this.",
+      "parentUuid": "f2df0e4a_3b689a13",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -135,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "d9c2c858_8cf761cd",
+        "filename": "tools/perf2cfg/mypy.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fb77a68_f89d6b39",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb211e57_2f41ec5d",
         "filename": "tools/perf2cfg/perf2cfg.py",
         "patchSetId": 2
@@ -158,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "9cf09ce4_af58d8fd",
+        "filename": "tools/perf2cfg/perf2cfg.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb211e57_2f41ec5d",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 63
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75992608_73dc9bdc",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 2
@@ -172,6 +297,24 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a712bc38_83a56770",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Done. I initially generated a full config file to ensure consistency across pylint versions, which I agree is excessive. This change solves 2 of the 3 remaining lint issues.",
+      "parentUuid": "75992608_73dc9bdc",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -247,6 +390,30 @@
     },
     {
       "key": {
+        "uuid": "3de13974_3997aef4",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Fixed by the shortened config file.",
+      "parentUuid": "4787b2ec_171a9fcd",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dae1c08e_a58dcac0",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 2
@@ -295,6 +462,30 @@
     },
     {
       "key": {
+        "uuid": "0bb329f0_54b22aa7",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Fixed by the shortened config file.",
+      "parentUuid": "91f9c0df_9da01ef2",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 5
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f7ce4b2_52427760",
         "filename": "tools/perf2cfg/tests/__init__.py",
         "patchSetId": 2
@@ -306,6 +497,24 @@
       "writtenOn": "2020-08-10T15:35:27Z",
       "side": 1,
       "message": "Is this file necessary?",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edce0b97_48885ab2",
+        "filename": "tools/perf2cfg/tests/__init__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-11T09:18:35Z",
+      "side": 1,
+      "message": "Yes, as unittest\u0027s test discovery (https://docs.python.org/3/library/unittest.html#unittest-test-discovery) requires test files to be part of a package.",
+      "parentUuid": "5f7ce4b2_52427760",
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
