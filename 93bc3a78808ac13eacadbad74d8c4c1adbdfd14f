@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4b1ff5b3_fa5cf91f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "Thanks. There are examples in the tree with python_binary_host and python_test_host. You can try building it with \"m \u003cmodule name\u003e\". For both the binary and the test it should produce a par file somewhere in out/host that you should be able to execute directly.\n\nWe can then hook the test into atest and TEST_MAPPING to get it executed in presubmit (but you don\u0027t have to do that if you can\u0027t test it).",
+      "parentUuid": "d39c8b27_90686c7d",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -154,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "b0b5bddb_bc254ad3",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "Perfect, thanks.",
+      "parentUuid": "13c2a652_183149ca",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2df0e4a_3b689a13",
         "filename": "tools/perf2cfg/README.md",
         "patchSetId": 2
@@ -213,6 +255,30 @@
       "side": 1,
       "message": "Gitiles is not rendering the graph inline on my end. Please let me know if I missed something.",
       "parentUuid": "406b477f_f7129baa",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1712d7_0d22bb50",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "Pity, then it doesn\u0027t work. Guess it\u0027s better off in a separate file then. Thanks for trying.",
+      "parentUuid": "7eb57b9b_49921e50",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -542,6 +608,24 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc2060e_7a340cf3",
+        "filename": "tools/perf2cfg/tests/__init__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "Ok, I guess it depends on how they are run.",
+      "parentUuid": "edce0b97_48885ab2",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

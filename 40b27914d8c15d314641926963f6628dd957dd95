@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0d3f898_f6a360a4",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "These comments just duplicate the docs, please drop them. A link to the docs on the web at the top of the file is plenty enough.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 42
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84a9096e_6db777ed",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "I can agree these checks may get annoying, but I suggest disabling the \"design\" checker altogether.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48181552_016be980",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-12T20:34:54Z",
+      "side": 1,
+      "message": "This is empty. Does it have to be here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 7
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
