@@ -18,12 +18,32 @@ package art;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.atomic.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Monitors {
+  private static volatile Consumer<Object> DEFLATER = null;
+
+  // If we are running in a configuration where it's possible to precisely
+  // control the inflation-state of a monitor this should be called with a
+  // callback that will deflate the monitor.
+  public static void SetDeflater(Consumer<Object> o) {
+    if (DEFLATER != null) {
+      throw new IllegalStateException("Already have a deflater set!");
+    }
+    DEFLATER = o;
+  }
+
+  // Private helper that attempts to deflate a given lock.
+  private static void DeflateLock(Object o) {
+    if (DEFLATER != null) {
+      DEFLATER.accept(o);
+    }
+  }
+
   public native static void setupMonitorEvents(
       Class<?> method_klass,
       Method monitor_contended_enter_event,
@@ -187,6 +207,7 @@ public class Monitors {
       runner = new Thread(() -> {
         started = true;
         try {
+          DeflateLock(lock);
           synchronized (lock) {
             held = true;
             int[] stamp_h = new int[] { -1 };
