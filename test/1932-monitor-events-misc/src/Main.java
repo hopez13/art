@@ -16,6 +16,9 @@
 
 public class Main {
   public static void main(String[] args) throws Exception {
+    art.Monitors.SetDeflater(Main::DeflateMonitor);
     art.Test1932.run();
   }
+
+  public static native void DeflateMonitor(Object o);
 }
