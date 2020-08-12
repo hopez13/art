@@ -907,6 +907,7 @@ cc_defaults {
         "common/stack_inspect.cc",
     ],
     shared_libs: [
+        "libartpalette",
         "libbase",
         "liblog",
         "libnativehelper",

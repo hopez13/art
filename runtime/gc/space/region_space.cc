@@ -20,6 +20,7 @@
 #include "base/dumpable.h"
 #include "base/logging.h"
 #include "gc/accounting/read_barrier_table.h"
+#include "gc/heap-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
 #include "thread_list.h"

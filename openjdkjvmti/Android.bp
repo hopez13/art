@@ -101,6 +101,7 @@ cc_defaults {
         "libopenjdkjvmti_headers",
     ],
     shared_libs: [
+        "libartpalette",
         "libbase",
     ],
 }
