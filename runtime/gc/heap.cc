@@ -288,6 +288,7 @@ Heap::Heap(size_t initial_size,
       total_bytes_freed_ever_(0),
       total_objects_freed_ever_(0),
       num_bytes_allocated_(0),
+      last_reported_heap_size_(0),
       native_bytes_registered_(0),
       old_native_bytes_allocated_(0),
       native_objects_notified_(0),
@@ -3518,8 +3519,11 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   // We know what our utilization is at this moment.
   // This doesn't actually resize any memory. It just lets the heap grow more when necessary.
   const size_t bytes_allocated = GetBytesAllocated();
+
   // Trace the new heap size after the GC is finished.
+  last_reported_heap_size_.store(bytes_allocated, std::memory_order_relaxed);
   TraceHeapSize(bytes_allocated);
+
   uint64_t target_size, grow_bytes;
   collector::GcType gc_type = collector_ran->GetGcType();
   MutexLock mu(Thread::Current(), process_state_update_lock_);
