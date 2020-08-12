@@ -1022,8 +1022,10 @@ void RegionSpace::Region::Clear(bool zero_and_release_pages) {
 }
 
 void RegionSpace::TraceHeapSize() {
-  Heap* heap = Runtime::Current()->GetHeap();
-  heap->TraceHeapSize(heap->GetBytesAllocated() + EvacBytes());
+    Heap* heap = Runtime::Current()->GetHeap();
+  if (heap->TraceEnabled()) {
+    heap->TraceHeapSize(heap->GetBytesAllocated() + EvacBytes());
+  }
 }
 
 RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
