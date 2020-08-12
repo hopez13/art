@@ -193,18 +193,59 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
     }
     if (bytes_tl_bulk_allocated > 0) {
       starting_gc_num = GetCurrentGcNum();
-      size_t num_bytes_allocated_before = AddBytesAllocated(bytes_tl_bulk_allocated);
-      new_num_bytes_allocated = num_bytes_allocated_before + bytes_tl_bulk_allocated;
-      // Only trace when we get an increase in the number of bytes allocated. This happens when
-      // obtaining a new TLAB and isn't often enough to hurt performance according to golem.
-      if (region_space_) {
-        // With CC collector, during a GC cycle, the heap usage increases as
-        // there are two copies of evacuated objects. Therefore, add evac-bytes
-        // to the heap size. When the GC cycle is not running, evac-bytes
-        // are 0, as required.
-        TraceHeapSize(new_num_bytes_allocated + region_space_->EvacBytes());
+      if (!TraceEnabled()) {
+        new_num_bytes_allocated = AddBytesAllocated(bytes_tl_bulk_allocated);
+        new_num_bytes_allocated += bytes_tl_bulk_allocated;
       } else {
-        TraceHeapSize(new_num_bytes_allocated);
+        /*
+         * Only trace when we get an increase in the number of bytes allocated. This
+         * happens when obtaining a new TLAB and isn't often enough to hurt performance.
+         *
+         * Load last_reported_heap_size with acquire memory order to ensure that the load of
+         * num_bytes_allocated below doesn't get reorderd. This is necessary to avoid a race
+         * condition which arises if this thread gets scheduled out at this point, and in
+         * meantime the GC thread updates last_reported_heap_size to a lower size. Eventually,
+         * when this thread resumes, an inflated (and wrong) heap size will get reported. By
+         * loading num_byes_allocated after last_reported_heap_size, we ensure that if reported,
+         * our size_to_report will be correct.
+         */
+        const size_t last_reported_size = last_reported_heap_size_.load(std::memory_order_acquire);
+
+        new_num_bytes_allocated = AddBytesAllocated(bytes_tl_bulk_allocated);
+        new_num_bytes_allocated += bytes_tl_bulk_allocated;
+        size_t size_to_report = new_num_bytes_allocated;
+        /*
+         * With CC collector, during a GC cycle, the heap usage increases as
+         * there are two copies of evacuated objects. Therefore, add evac-bytes
+         * to the heap size. When the GC cycle is not running, evac-bytes
+         * are 0, as required.
+         */
+        if (region_space_ != nullptr) {
+          size_to_report += region_space_->EvacBytes();
+        }
+        // Partial tlab size should be very close to average value of bytes_tl_bulk_allocated.
+        constexpr size_t kMinHeapSizeToReport = kPartialTlabSize;
+        size_t curr_reported_size = last_reported_size;
+        // Attempt to push notification as long as size to report is larger than
+        // last reported size and is bigger than the minimum heap size to report. If the GC-thread
+        // updates num_bytes_allocated_ but not last_reported_heap_size_ at this point, then we skip
+        // updating trace-point (because curr_reported_size >= size_to_report). Either the gc-thread
+        // or next allocation will eventually converge the reported heap size.
+        while (curr_reported_size < size_to_report &&
+               size_to_report - curr_reported_size >= kMinHeapSizeToReport) {
+          // compare_exchange_strong() will update 'curr_reported_size' on failure.
+          if (last_reported_heap_size_.compare_exchange_strong(
+                  curr_reported_size, size_to_report, std::memory_order_relaxed)) {
+            TraceHeapSize(size_to_report);
+            break;
+          } else if (curr_reported_size < last_reported_size) {
+            // The GC thread has pushed a notification of heap size lower
+            // than what we thought was the last reported size. Furthermore,
+            // that notification already took into consideration this
+            // allocation. So skip the notification.
+            break;
+          }
+        }
       }
       // IsGcConcurrent() isn't known at compile time so we can optimize by not checking it for the
       // BumpPointer or TLAB allocators. This is nice since it allows the entire if statement to be

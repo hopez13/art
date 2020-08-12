@@ -347,6 +347,7 @@ Heap::Heap(size_t initial_size,
       total_bytes_freed_ever_(0),
       total_objects_freed_ever_(0),
       num_bytes_allocated_(0),
+      last_reported_heap_size_(0),
       native_bytes_registered_(0),
       old_native_bytes_allocated_(0),
       native_objects_notified_(0),
@@ -2654,6 +2655,8 @@ void Heap::TraceHeapSize(size_t heap_size) {
   ATraceIntegerValue("Heap size (KB)", heap_size / KB);
 }
 
+bool Heap::TraceEnabled() { return ATraceEnabled(); }
+
 #if defined(__GLIBC__)
 # define IF_GLIBC(x) x
 #else
@@ -3706,8 +3709,16 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   // We know what our utilization is at this moment.
   // This doesn't actually resize any memory. It just lets the heap grow more when necessary.
   const size_t bytes_allocated = GetBytesAllocated();
-  // Trace the new heap size after the GC is finished.
-  TraceHeapSize(bytes_allocated);
+
+  // Report the new heap size after the GC is finished and bytes_allocated has
+  // been adjusted with freed bytes.
+  if (TraceEnabled()) {
+    // Use release memory-order to ensure that the updation of
+    // num_bytes_allocated_ (in RecordFree()) doesn't get reordered with this
+    // store.
+    last_reported_heap_size_.store(bytes_allocated, std::memory_order_release);
+    TraceHeapSize(bytes_allocated);
+  }
   uint64_t target_size, grow_bytes;
   collector::GcType gc_type = collector_ran->GetGcType();
   MutexLock mu(Thread::Current(), process_state_update_lock_);

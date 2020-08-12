@@ -1001,6 +1001,7 @@ class Heap {
   void PostForkChildAction(Thread* self) REQUIRES(!*gc_complete_lock_);
 
   void TraceHeapSize(size_t heap_size);
+  bool TraceEnabled();
 
   bool AddHeapTask(gc::HeapTask* task);
 
@@ -1482,6 +1483,11 @@ class Heap {
   // Number of bytes currently allocated and not yet reclaimed. Includes active
   // TLABS in their entirety, even if they have not yet been parceled out.
   Atomic<size_t> num_bytes_allocated_;
+
+  // Heap size last reported via TraceHeapSize() as atrace push notification.
+  // Reporting it everytime is causing excessive number of push notifications
+  // (b/162547003).
+  Atomic<size_t> last_reported_heap_size_;
 
   // Number of registered native bytes allocated. Adjusted after each RegisterNativeAllocation and
   // RegisterNativeFree. Used to  help determine when to trigger GC for native allocations. Should
