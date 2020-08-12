@@ -184,16 +184,36 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
         size_t num_bytes_allocated_before =
             num_bytes_allocated_.fetch_add(bytes_tl_bulk_allocated, std::memory_order_relaxed);
         new_num_bytes_allocated = num_bytes_allocated_before + bytes_tl_bulk_allocated;
-        // Only trace when we get an increase in the number of bytes allocated. This happens when
-        // obtaining a new TLAB and isn't often enough to hurt performance according to golem.
-        if (region_space_) {
-          // With CC collector, during a GC cycle, the heap usage increases as
-          // there are two copies of evacuated objects. Therefore, add evac-bytes
-          // to the heap size. When the GC cycle is not running, evac-bytes
-          // are 0, as required.
-          TraceHeapSize(new_num_bytes_allocated + region_space_->EvacBytes());
-        } else {
-          TraceHeapSize(new_num_bytes_allocated);
+        if (TraceEnabled()) {
+          /* Only trace when we get an increase in the number of bytes allocated. This happens when
+           * obtaining a new TLAB and isn't often enough to hurt performance.
+           *
+           * With CC collector, during a GC cycle, the heap usage increases as
+           * there are two copies of evacuated objects. Therefore, add evac-bytes
+           * to the heap size. When the GC cycle is not running, evac-bytes
+           * are 0, as required.
+           */
+          size_t size_to_report = new_num_bytes_allocated;
+          if (region_space_) {
+            size_to_report += region_space_->EvacBytes();
+          }
+          size_t last_reported_size = last_reported_heap_size_.load(std::memory_order_relaxed);
+
+          // Partial tlab size should be very close to average value of bytes_tl_bulk_allocated.
+          constexpr size_t kMinHeapSizeToReport = kPartialTlabSize;
+
+          // Attempt to push notification as long as size to report is larger than
+          // last reported size and is bigger than the minimum heap size to report.
+          while (last_reported_size < size_to_report
+                 && size_to_report - last_reported_size >= kMinHeapSizeToReport) {
+            // compare_exchange_strong() updates the expected value on failure.
+            if (last_reported_heap_size_.compare_exchange_strong(last_reported_size,
+                                                                 size_to_report,
+                                                                 std::memory_order_relaxed)) {
+              TraceHeapSize(size_to_report);
+              break;
+            }
+          }
         }
       }
     }
