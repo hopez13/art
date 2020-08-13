@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "8f22159e_56b27f0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T10:03:48Z",
+      "side": 1,
+      "message": "Not sure I follow that. If you need to modify Android.bp in simpleperf to add a python_library_host then it\u0027s not out of the question to do that in a topic. It\u0027s good to make it explicit on their side that there\u0027s an outside user of the lib.",
+      "parentUuid": "17a69584_0e0ec07b",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
