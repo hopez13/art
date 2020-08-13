@@ -21,6 +21,46 @@ prebuilt_visibility = [
     "//prebuilts:__subpackages__",
 ]
 
+// The following variables list modules that are common to both android and linux
+// (but not windows). The lists are extracted as variables because there is no
+// easy way to specify properties that apply to android and not windows.
+
+common_native_header_libs = [
+    "jni_headers",
+    "libnativehelper_header_only",
+
+    // Needed for libartpalette-system
+    "libartpalette-headers",
+
+    // Needed for libdumpcoverage
+    "libopenjdkjvmti_headers",
+]
+
+common_native_shared_libs = [
+    "libandroidio",
+    "libnativehelper",
+
+    // Needed for app_process and libart
+    "libnativeloader",
+
+    // Needed for libart[d]
+    "libnativebridge",
+    "libdexfile_external",
+]
+
+common_native_libs = [
+    // Needed for libdebugger
+    "libdexfile_support",
+
+    // Needed for app_process and libart
+    "libsigchain",
+]
+
+common_native_static_libs = [
+    // Needed for system/extras/simpleperf
+    "libdexfile_external_static",
+]
+
 // The SDK for the art module apex.
 sdk {
     name: "art-module-sdk",
@@ -28,13 +68,6 @@ sdk {
 
     prebuilt_visibility: prebuilt_visibility,
 
-    native_header_libs: [
-        "jni_headers",
-        "libnativehelper_header_only",
-    ],
-    native_shared_libs: [
-        "libandroidio",
-    ],
     target: {
         android: {
             java_header_libs: [
@@ -64,6 +97,10 @@ sdk {
                 "stable.core.platform.api.stubs",
             ],
 
+            java_sdk_libs: [
+                "art.module.public.api",
+            ],
+
             java_system_modules: [
                 "art-module-public-api-stubs-system-modules",
                 "art-module-intra-core-api-stubs-system-modules",
@@ -72,6 +109,42 @@ sdk {
                 "core-current-stubs-system-modules",
                 "legacy-core-platform-api-stubs-system-modules",
                 "stable-core-platform-api-stubs-system-modules",
+            ],
+            native_header_libs: common_native_header_libs + [
+                // Needed for libstagefright.
+                "libnativeloader-headers",
+            ],
+            native_libs: common_native_libs,
+            native_shared_libs: common_native_shared_libs + [
+                // Needed for libnetworkstackutilsjni.
+                "libnativehelper_compat_libc++",
+
+                // Needed for libvulkan.
+                "libnativebridge_lazy",
+                "libnativeloader_lazy",
+            ],
+            native_static_libs: common_native_static_libs + [
+                //  Needed by libctsjvmtiagent.
+                "libctstiagent",
+            ],
+        },
+
+        // Host members
+        not_windows: {
+            native_header_libs: common_native_header_libs,
+            native_libs: common_native_libs,
+            native_shared_libs: common_native_shared_libs,
+            native_static_libs: common_native_static_libs,
+        },
+        windows: {
+            enabled: true,
+
+            // Members needed to produce a windows SDK.
+            native_header_libs: [
+                "jni_headers",
+            ],
+            native_shared_libs: [
+                "libnativehelper",
             ],
         },
         darwin: {
@@ -84,11 +157,20 @@ sdk {
 module_exports {
     name: "art-module-host-exports",
     host_supported: true,
-    device_supported: false,
+    device_supported: true,
 
     prebuilt_visibility: prebuilt_visibility,
 
     target: {
+        android: {
+            java_libs: [
+                // Needed for ike-internals
+                "bouncycastle_ike_digests",
+
+                // Needed for android_stubs_current et al.
+                "art-notices-for-framework-stubs-jar",
+            ],
+        },
         host: {
             // Set in target.host because the top level compile_multilib
             // property is fixed to "both" in the sdk/module_exports
@@ -102,14 +184,6 @@ module_exports {
                 "hiddenapi",
                 "dex2oat",
                 "dex2oatd",
-            ],
-            native_shared_libs: [
-                // The following three libraries are internal implementation libraries
-                // that are needed by hiddenapi.
-                // TODO(http://b/155372760): Remove dependencies.
-                "libartbase",
-                "libartpalette",
-                "libdexfile",
             ],
         },
         darwin: {
@@ -133,18 +207,47 @@ module_exports {
         "bouncycastle-unbundled",
         "bouncycastle-bcpkix-unbundled",
         "bouncycastle-ocsp-unbundled",
+
+        // Needed for robolectric and grpc-java-okhttp.
+        "okhttp",
     ],
     target: {
         android: {
             java_libs: [
                 "core-compat-test-rules",
-                "core-compat-test-rules",
                 "core-test-rules",
                 "core-tests-support",
                 "okhttp-tests-nojarjar",
+
+                // Needed for CtsJvmtiDeviceRunTestAppBase.
+                "art_cts_jvmti_test_library",
+                "expected_cts_outputs",
+
+                // Needed for robolectric.
+                "core-libart",
+
+                // Needed for CtsLibcore...TestCases
+                "libcore-expectations-knownfailures-jar",
+                "libcore-expectations-virtualdeviceknownfailures-jar",
+
+                // Needed for CtsLibcoreOkHttpTestCases
+                "okhttp-nojarjar",
             ],
             java_tests: [
+                // Needed for CtsJdwpTestCases.
+                "apache-harmony-jdwp-tests",
+
                 "libcore-crypto-tests",
+
+                // Needed for CtsLibcoreOjTestCases
+                "core-ojtests-public",
+
+                // Needed for CtsLibcoreJsr166TestCases
+                "jsr166-tests",
+
+                // Needed for CtsLibcoreTestCases
+                "apache-harmony-tests",
+                "core-tests",
             ],
             native_shared_libs: [
                 "libjavacoretests",
