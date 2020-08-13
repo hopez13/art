@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "17a69584_0e0ec07b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T09:38:40Z",
+      "side": 1,
+      "message": "The dependency on simpleperf_report_lib is an issue, as Soong disallows source files located in parent directories. The python_defaults module doesn\u0027t provide a workaround like cc_default does with include_dirs. Is there a way to solve this?",
+      "parentUuid": "4b1ff5b3_fa5cf91f",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -288,6 +306,30 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea18aa5b_b9cf98e3",
+        "filename": "tools/perf2cfg/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T09:38:40Z",
+      "side": 1,
+      "message": "Done, I reverted the change.",
+      "parentUuid": "ea1712d7_0d22bb50",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

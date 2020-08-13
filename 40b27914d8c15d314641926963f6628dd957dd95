@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37b94a33_0fef29e3",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T09:38:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0d3f898_f6a360a4",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 42
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a9096e_6db777ed",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "23b72629_85902526",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T09:38:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a9096e_6db777ed",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48181552_016be980",
         "filename": "tools/perf2cfg/pylintrc",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "40b27914d8c15d314641926963f6628dd957dd95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f4bed1b_4a082b3d",
+        "filename": "tools/perf2cfg/pylintrc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T09:38:40Z",
+      "side": 1,
+      "message": "I dropped it. Pylint enables the c-extension-no-member warning by default, which has no effect here anyway.",
+      "parentUuid": "48181552_016be980",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 7
+      },
+      "revId": "40b27914d8c15d314641926963f6628dd957dd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
