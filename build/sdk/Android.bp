@@ -28,14 +28,35 @@ sdk {
 
     prebuilt_visibility: prebuilt_visibility,
 
-    native_header_libs: [
-        "jni_headers",
-        "libnativehelper_header_only",
-    ],
-    native_shared_libs: [
-        "libandroidio",
-    ],
     target: {
+        // Both android and host linux but not windows or darwin.
+        linux: {
+            native_header_libs: [
+                "jni_headers",
+                "libartpalette-headers",
+                "libnativehelper_header_only",
+                "libopenjdkjvmti_headers",
+            ],
+
+            native_shared_libs: [
+                "libandroidio",
+                "libdexfile_external",
+                "libnativebridge",
+                "libnativehelper",
+                "libnativeloader",
+            ],
+
+            native_libs: [
+                "libdexfile_support",
+
+                // TODO(b/142944043): Convert to APEX stubs and export as a shared lib, once linker support is in place.
+                "libsigchain",
+            ],
+
+            native_static_libs: [
+                "libdexfile_external_static",
+            ],
+        },
         android: {
             java_header_libs: [
                 // Needed by any module that builds against any non-numeric
@@ -64,6 +85,10 @@ sdk {
                 "stable.core.platform.api.stubs",
             ],
 
+            java_sdk_libs: [
+                "art.module.public.api",
+            ],
+
             java_system_modules: [
                 "art-module-public-api-stubs-system-modules",
                 "art-module-intra-core-api-stubs-system-modules",
@@ -72,6 +97,29 @@ sdk {
                 "core-current-stubs-system-modules",
                 "legacy-core-platform-api-stubs-system-modules",
                 "stable-core-platform-api-stubs-system-modules",
+            ],
+            native_header_libs: [
+                "libnativeloader-headers",
+            ],
+            native_shared_libs: [
+                "libnativebridge_lazy",
+                "libnativehelper_compat_libc++",
+                "libnativeloader_lazy",
+            ],
+            native_static_libs: [
+                "libctstiagent",
+            ],
+        },
+
+        windows: {
+            enabled: true,
+
+            // Members needed to produce a windows SDK.
+            native_header_libs: [
+                "jni_headers",
+            ],
+            native_shared_libs: [
+                "libnativehelper",
             ],
         },
         darwin: {
@@ -84,11 +132,20 @@ sdk {
 module_exports {
     name: "art-module-host-exports",
     host_supported: true,
-    device_supported: false,
+    device_supported: true,
 
     prebuilt_visibility: prebuilt_visibility,
 
     target: {
+        android: {
+            java_libs: [
+                // Needed for ike-internals
+                "bouncycastle_ike_digests",
+
+                // Needed for android_stubs_current et al.
+                "art-notices-for-framework-stubs-jar",
+            ],
+        },
         host: {
             // Set in target.host because the top level compile_multilib
             // property is fixed to "both" in the sdk/module_exports
@@ -102,14 +159,6 @@ module_exports {
                 "hiddenapi",
                 "dex2oat",
                 "dex2oatd",
-            ],
-            native_shared_libs: [
-                // The following three libraries are internal implementation libraries
-                // that are needed by hiddenapi.
-                // TODO(http://b/155372760): Remove dependencies.
-                "libartbase",
-                "libartpalette",
-                "libdexfile",
             ],
         },
         darwin: {
@@ -133,18 +182,47 @@ module_exports {
         "bouncycastle-unbundled",
         "bouncycastle-bcpkix-unbundled",
         "bouncycastle-ocsp-unbundled",
+
+        // Needed for robolectric and grpc-java-okhttp.
+        "okhttp",
     ],
     target: {
         android: {
             java_libs: [
                 "core-compat-test-rules",
-                "core-compat-test-rules",
                 "core-test-rules",
                 "core-tests-support",
                 "okhttp-tests-nojarjar",
+
+                // Needed for CtsJvmtiDeviceRunTestAppBase.
+                "art_cts_jvmti_test_library",
+                "expected_cts_outputs",
+
+                // Needed for robolectric.
+                "core-libart",
+
+                // Needed for CtsLibcore...TestCases
+                "libcore-expectations-knownfailures-jar",
+                "libcore-expectations-virtualdeviceknownfailures-jar",
+
+                // Needed for CtsLibcoreOkHttpTestCases
+                "okhttp-nojarjar",
             ],
             java_tests: [
+                // Needed for CtsJdwpTestCases.
+                "apache-harmony-jdwp-tests",
+
                 "libcore-crypto-tests",
+
+                // Needed for CtsLibcoreOjTestCases
+                "core-ojtests-public",
+
+                // Needed for CtsLibcoreJsr166TestCases
+                "jsr166-tests",
+
+                // Needed for CtsLibcoreTestCases
+                "apache-harmony-tests",
+                "core-tests",
             ],
             native_shared_libs: [
                 "libjavacoretests",
