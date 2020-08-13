@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06c9e9b9_2406f4ac",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "Instead of this default, please make a library that both the binary and the test use.",
+      "revId": "f35bdcc75d5061c34b7f65c74b21763d56c4a81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4811b9d8_36c54f1c",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "I think this is the default.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "f35bdcc75d5061c34b7f65c74b21763d56c4a81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a094592_d1cba439",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "Nit: \"perf2cfg_test\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 11,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "f35bdcc75d5061c34b7f65c74b21763d56c4a81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2851cd9_da27abe5",
+        "filename": "tools/perf2cfg/run_tests.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "The customary name for this would be perf2cfg_test.py.",
+      "revId": "f35bdcc75d5061c34b7f65c74b21763d56c4a81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

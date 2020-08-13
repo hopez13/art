@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "ae6e9fec_9ebbaceb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "Much nicer, thanks.",
+      "parentUuid": "34b5c26b_2c8e8e89",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -704,6 +722,24 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c2071b5_20f2a722",
+        "filename": "tools/perf2cfg/tests/__init__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-13T23:27:23Z",
+      "side": 1,
+      "message": "Now that tests are run with atest, it can go away?",
+      "parentUuid": "3bc2060e_7a340cf3",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
