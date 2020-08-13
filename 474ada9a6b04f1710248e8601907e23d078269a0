@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "e78bc74e_2f6a1ba7",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-13T16:23:48Z",
+      "side": 1,
+      "message": "Sorry for the \u0027Done\u0027 before :-). I wanted to do that for Hans\u0027 comment.\n\nAverage value of bytes_tl_bulk_allocated should be around 16KB, which is the partial TLAB size. So, if you prefer, I can change the CL to use kPartialTlabSize rather than a new constant.",
+      "parentUuid": "440da79a_49192cca",
+      "range": {
+        "startLine": 199,
+        "startChar": 25,
+        "endLine": 199,
+        "endChar": 45
+      },
+      "revId": "474ada9a6b04f1710248e8601907e23d078269a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67e3ae16_beb8bfc3",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 1
@@ -103,6 +127,30 @@
       "revId": "474ada9a6b04f1710248e8601907e23d078269a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ab959d8_286b106f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-13T16:23:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67e3ae16_beb8bfc3",
+      "range": {
+        "startLine": 201,
+        "startChar": 69,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "474ada9a6b04f1710248e8601907e23d078269a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
