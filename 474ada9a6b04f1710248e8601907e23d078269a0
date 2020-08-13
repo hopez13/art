@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "76cd4377_8b1050f9",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-08-13T02:01:53Z",
+      "side": 1,
+      "message": "How does this compare to the average value of bytes_tl_bulk_allocated?",
+      "range": {
+        "startLine": 199,
+        "startChar": 25,
+        "endLine": 199,
+        "endChar": 45
+      },
+      "revId": "474ada9a6b04f1710248e8601907e23d078269a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67e3ae16_beb8bfc3",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 1
