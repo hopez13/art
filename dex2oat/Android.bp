@@ -152,6 +152,7 @@ cc_defaults {
 cc_library_headers {
     name: "dex2oat_headers",
     visibility: [
+        "//art/build/sdk",
         // TODO(b/133140750): Clean this up.
         "//frameworks/native/cmds/installd",
     ],
