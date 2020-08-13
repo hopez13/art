@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "34b5c26b_2c8e8e89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-13T14:44:44Z",
+      "side": 1,
+      "message": "Thanks, I hadn\u0027t considered pushing a change to simpleperf. I removed the path hack in `analyze.py` to force people to use the generated binary. `atest` is now used to run tests instead of `python -m unittest`.",
+      "parentUuid": "8f22159e_56b27f0a",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc55f663_73ddbb4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
