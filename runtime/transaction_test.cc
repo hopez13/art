@@ -604,7 +604,7 @@ TEST_F(TransactionTest, FinalizableAbortClass) {
   testTransactionAbort("LTransaction$FinalizableAbortClass;");
 }
 
-TEST_F(TransactionTest, Constraints) {
+TEST_F(TransactionTest, DISABLED_Constraints) {  // b/164435690
   ScopedObjectAccess soa(Thread::Current());
   StackHandleScope<11> hs(soa.Self());
   Handle<mirror::ClassLoader> class_loader(
