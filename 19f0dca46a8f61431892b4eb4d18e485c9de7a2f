@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "172a3a64_25114cd9",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-14T12:40:17Z",
+      "side": 1,
+      "message": "The CL looks fine now, but this dependency is a problem. I should have picked up on it sooner, apologies for that.\n\nWe\u0027re working on unbundling ART, which means it\u0027s moving into a minimal source tree without the rest of the Android platform sources, including this one. So this dependency won\u0027t work then (regardless it\u0027s this way or through the earlier direct import in the code).\n\nOne possibility is to implement enough of the simpleperf record parser here to remove the dependency. If that\u0027s not a good solution then maybe this tool is better off in simpleperf rather than here - I believe the only dependency on ART is on the CFG file format, but no code, right?",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
