@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "c4a081a0_67047012",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-08-14T17:03:06Z",
+      "side": 1,
+      "message": "Got some time to look into this again; sorry for taking so long.\n\nThe resulting file is much larger (28 M vs 40 M) for essentially the same profile, but does parses as a profile (I messed up something with parsing, sorry). I will look closer at the difference between the profiles – the whole point of this CL is to reduce the profile size.",
+      "parentUuid": "3340e22c_06a9b038",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 54
+      },
+      "revId": "96efd91a7553886c5e7733024037254e861a2a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "243fe9ed_75c6ab47",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 6
