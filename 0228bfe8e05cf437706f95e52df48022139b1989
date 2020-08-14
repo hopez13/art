@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26864fc9_f52ce626",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-08-14T06:07:53Z",
+      "side": 1,
+      "message": "This syntax seems to be misleading. Why don\u0027t you support a list type?\n\npermitted_path \u003d [\n    # some comment\n    /data,\n    # some comment\n    /system/framework,\n    # some comment\n    /apex/com.android.art/javalib,\n]",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
