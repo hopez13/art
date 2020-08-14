@@ -20,6 +20,8 @@
 #include <sys/wait.h>
 #include <string>
 #include <vector>
+#include <sys/types.h>
+#include <dirent.h>
 
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
@@ -45,6 +47,18 @@ int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_m
   }
   args.push_back(nullptr);
 
+  {
+    DIR* dir = opendir("/apex/com.android.art/bin/");
+    LOG(ERROR) << "!!! " << __LINE__ << " " << dir;
+    if (dir != nullptr) {
+      struct dirent * e;
+      while ((e = readdir(dir)) != NULL) {
+        LOG(ERROR) << "### " << e->d_name << '\n';
+      }
+      closedir(dir);
+    }
+  }
+
   // fork and exec
   pid_t pid = fork();
   if (pid == 0) {
@@ -52,6 +66,18 @@ int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_m
 
     // change process groups, so we don't get reaped by ProcessManager
     setpgid(0, 0);
+
+    {
+      DIR* dir = opendir("/apex/com.android.art/bin/");
+      LOG(ERROR) << "!!! " << __LINE__ << " " << dir;
+      if (dir != nullptr) {
+        struct dirent * e;
+        while ((e = readdir(dir)) != NULL) {
+          LOG(ERROR) << "### " << e->d_name << '\n';
+        }
+        closedir(dir);
+      }
+    }
 
     // (b/30160149): protect subprocesses from modifications to LD_LIBRARY_PATH, etc.
     // Use the snapshot of the environment from the time the runtime was created.
