@@ -740,6 +740,24 @@
       "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc090531_62eb3000",
+        "filename": "tools/perf2cfg/tests/__init__.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-14T09:15:49Z",
+      "side": 1,
+      "message": "No, as test discovery is still in use. Do you have a preferred alternative which doesn\u0027t rely on `tests` being a package?",
+      "parentUuid": "5c2071b5_20f2a722",
+      "revId": "93bc3a78808ac13eacadbad74d8c4c1adbdfd14f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
