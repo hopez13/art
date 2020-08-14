@@ -22,6 +22,30 @@
       "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d32e8ba2_69467274",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-14T13:34:16Z",
+      "side": 1,
+      "message": "\u003e I should have picked up on it sooner, apologies for that.\nNo worries! 😊\n\n\u003e I believe the only dependency on ART is on the CFG file format, but no code, right?\nThat\u0027s right, the CFG file parser is self-contained. I\u0027ll have a chat with my team about which solution to choose.",
+      "parentUuid": "172a3a64_25114cd9",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
