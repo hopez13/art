@@ -22,6 +22,30 @@
       "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a91d0f6c_9a5198fc",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-08-14T06:15:05Z",
+      "side": 1,
+      "message": "I just chose the easy syntax to parse (similar to linker) as I thought it would be enough. Do you think we should support better structure such as json?",
+      "parentUuid": "26864fc9_f52ce626",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
