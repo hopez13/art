@@ -46,6 +46,30 @@
       "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ed89fb3_8c3f7ea9",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-14T13:57:33Z",
+      "side": 1,
+      "message": "Ok, please do. Another factor might be how stable the simpleperf record format is, i.e. if there would be concerns with an external tool depending on it directly, instead of through libsimpleperf_report or simpleperf_report_lib. I don\u0027t maintain simpleperf so I can\u0027t advise on that; yabinc is a better contact there.",
+      "parentUuid": "d32e8ba2_69467274",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
