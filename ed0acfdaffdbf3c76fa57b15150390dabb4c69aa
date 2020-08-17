@@ -16,6 +16,29 @@
       "revId": "ed0acfdaffdbf3c76fa57b15150390dabb4c69aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a379dcc_7b859d98",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-17T15:58:06Z",
+      "side": 1,
+      "message": "Can you use MoveLocation instead?",
+      "range": {
+        "startLine": 1452,
+        "startChar": 23,
+        "endLine": 1452,
+        "endChar": 37
+      },
+      "revId": "ed0acfdaffdbf3c76fa57b15150390dabb4c69aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
