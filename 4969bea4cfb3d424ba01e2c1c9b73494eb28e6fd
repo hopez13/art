@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "278d1159_fc32ca89",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-17T14:38:43Z",
+      "side": 1,
+      "message": "Given the code isn\u0027t trivial here, should we gate it under something like if (TRACE_ENABLED) ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 76
+      },
+      "revId": "4969bea4cfb3d424ba01e2c1c9b73494eb28e6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
