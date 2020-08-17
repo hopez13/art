@@ -108,6 +108,7 @@ enum class MethodCompilationStat {
   kConstructorFenceRemovedCFRE,
   kBitstringTypeCheck,
   kJitOutOfMemoryForCommit,
+  kArrayEligableForSelect,
   kLastStat
 };
 std::ostream& operator<<(std::ostream& os, MethodCompilationStat rhs);

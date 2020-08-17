@@ -15,6 +15,7 @@
  */
 
 #include "code_generator_x86_64.h"
+#include <variant>
 
 #include "arch/x86_64/jni_frame_x86_64.h"
 #include "art_method-inl.h"
@@ -33,11 +34,13 @@
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/object_reference.h"
+#include "optimizing/nodes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "utils/assembler.h"
 #include "utils/stack_checks.h"
 #include "utils/x86_64/assembler_x86_64.h"
+#include "utils/x86_64/constants_x86_64.h"
 #include "utils/x86_64/managed_register_x86_64.h"
 
 namespace art {
@@ -1935,6 +1938,10 @@ void InstructionCodeGeneratorX86_64::VisitShouldDeoptimizeFlag(HShouldDeoptimize
 
 static bool SelectCanUseCMOV(HSelect* select) {
   // There are no conditional move instructions for XMMs.
+  // TODO Need to do this right!
+  if (select->NumberOfValues() > kMaxSelectCMOVInstructions) {
+    return false;
+  }
   if (DataType::IsFloatingPointType(select->GetType())) {
     return false;
   }
@@ -1954,72 +1961,92 @@ void LocationsBuilderX86_64::VisitSelect(HSelect* select) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(select);
   if (DataType::IsFloatingPointType(select->GetType())) {
     locations->SetInAt(0, Location::RequiresFpuRegister());
-    locations->SetInAt(1, Location::Any());
+    for (size_t i = 1; i < select->NumberOfValues(); ++i) {
+      locations->SetInAt(i, Location::Any());
+    }
   } else {
     locations->SetInAt(0, Location::RequiresRegister());
     if (SelectCanUseCMOV(select)) {
-      if (select->InputAt(1)->IsConstant()) {
-        locations->SetInAt(1, Location::RequiresRegister());
-      } else {
-        locations->SetInAt(1, Location::Any());
+      for (size_t i = 1; i < select->NumberOfValues(); ++i) {
+        if (select->InputAt(1)->IsConstant()) {
+          locations->SetInAt(i, Location::RequiresRegister());
+        } else {
+          locations->SetInAt(i, Location::Any());
+        }
       }
     } else {
-      locations->SetInAt(1, Location::Any());
+      for (size_t i = 1; i < select->NumberOfValues(); ++i) {
+        locations->SetInAt(i, Location::Any());
+      }
+      if (select->NumberOfValues() > 2) {
+        locations->AddTemp(Location::RequiresRegister());
+        locations->AddTemp(Location::RequiresRegister());
+      }
     }
   }
   if (IsBooleanValueOrMaterializedCondition(select->GetCondition())) {
-    locations->SetInAt(2, Location::RequiresRegister());
+    locations->SetInAt(select->NumberOfValues(), Location::RequiresRegister());
   }
   locations->SetOut(Location::SameAsFirstInput());
 }
 
 void InstructionCodeGeneratorX86_64::VisitSelect(HSelect* select) {
   LocationSummary* locations = select->GetLocations();
+  DCHECK_GT(select->NumberOfValues(), 1u);
   if (SelectCanUseCMOV(select)) {
     // If both the condition and the source types are integer, we can generate
     // a CMOV to implement Select.
     CpuRegister value_false = locations->InAt(0).AsRegister<CpuRegister>();
-    Location value_true_loc = locations->InAt(1);
     DCHECK(locations->InAt(0).Equals(locations->Out()));
 
     HInstruction* select_condition = select->GetCondition();
-    Condition cond = kNotEqual;
-
-    // Figure out how to test the 'condition'.
-    if (select_condition->IsCondition()) {
-      HCondition* condition = select_condition->AsCondition();
-      if (!condition->IsEmittedAtUseSite()) {
-        // This was a previously materialized condition.
-        // Can we use the existing condition code?
-        if (AreEflagsSetFrom(condition, select)) {
-          // Materialization was the previous instruction.  Condition codes are right.
-          cond = X86_64IntegerCondition(condition->GetCondition());
+    for (size_t i = 1; i < select->NumberOfValues(); ++i) {
+      Condition cond;
+      // Figure out how to test the 'condition'.
+      Location value_true_loc = locations->InAt(i);
+      if (select_condition->IsCondition()) {
+        DCHECK_EQ(select->NumberOfValues(), 2u);
+        cond = kNotEqual;
+        HCondition* condition = select_condition->AsCondition();
+        if (!condition->IsEmittedAtUseSite()) {
+          // This was a previously materialized condition.
+          // Can we use the existing condition code?
+          if (AreEflagsSetFrom(condition, select)) {
+            // Materialization was the previous instruction.  Condition codes are right.
+            cond = X86_64IntegerCondition(condition->GetCondition());
+          } else {
+            // No, we have to recreate the condition code.
+            CpuRegister cond_reg = locations->InAt(2).AsRegister<CpuRegister>();
+            __ testl(cond_reg, cond_reg);
+          }
         } else {
-          // No, we have to recreate the condition code.
-          CpuRegister cond_reg = locations->InAt(2).AsRegister<CpuRegister>();
-          __ testl(cond_reg, cond_reg);
+          GenerateCompareTest(condition);
+          cond = X86_64IntegerCondition(condition->GetCondition());
         }
       } else {
-        GenerateCompareTest(condition);
-        cond = X86_64IntegerCondition(condition->GetCondition());
+        // Must be an integer condition, which needs to be compared to 0 or >= 0 to allow overflow.
+        CpuRegister cond_reg = locations->InAt(select->NumberOfValues()).AsRegister<CpuRegister>();
+        if (i < select->NumberOfValues() - 1) {
+          cond = kEqual;
+          __ subl(cond_reg, Immediate(1u));
+        } else {
+          cond = kGreater;
+          __ cmpl(cond_reg, Immediate(0u));
+        }
       }
-    } else {
-      // Must be a Boolean condition, which needs to be compared to 0.
-      CpuRegister cond_reg = locations->InAt(2).AsRegister<CpuRegister>();
-      __ testl(cond_reg, cond_reg);
-    }
 
-    // If the condition is true, overwrite the output, which already contains false.
-    // Generate the correct sized CMOV.
-    bool is_64_bit = DataType::Is64BitType(select->GetType());
-    if (value_true_loc.IsRegister()) {
-      __ cmov(cond, value_false, value_true_loc.AsRegister<CpuRegister>(), is_64_bit);
-    } else {
-      __ cmov(cond,
-              value_false,
-              Address(CpuRegister(RSP), value_true_loc.GetStackIndex()), is_64_bit);
+      // If the condition is true, overwrite the output, which already contains false.
+      // Generate the correct sized CMOV.
+      bool is_64_bit = DataType::Is64BitType(select->GetType());
+      if (value_true_loc.IsRegister()) {
+        __ cmov(cond, value_false, value_true_loc.AsRegister<CpuRegister>(), is_64_bit);
+      } else {
+        __ cmov(cond,
+                value_false,
+                Address(CpuRegister(RSP), value_true_loc.GetStackIndex()), is_64_bit);
+      }
     }
-  } else {
+  } else if (select->NumberOfValues() == 2) {
     NearLabel false_target;
     GenerateTestAndBranch<NearLabel>(select,
                                      /* condition_input_index= */ 2,
@@ -2027,6 +2054,45 @@ void InstructionCodeGeneratorX86_64::VisitSelect(HSelect* select) {
                                      &false_target);
     codegen_->MoveLocation(locations->Out(), locations->InAt(1), select->GetType());
     __ Bind(&false_target);
+  } else {
+    // jump-table!
+    // TODO This is gross. The arena means this won't leak forever but still sucks.
+    ArraySlice<Label> labels(
+        GetGraph()->GetAllocator()->AllocArray<Label>(select->NumberOfValues()),
+        select->NumberOfValues());
+    for (size_t i = 0; i < select->NumberOfValues(); i++) {
+      new (&labels[i]) Label();
+    }
+    Label* finish = &labels[0];
+
+    CpuRegister cond_reg = locations->InAt(select->NumberOfValues()).AsRegister<CpuRegister>();
+    CpuRegister tmp_reg = locations->GetTemp(0).AsRegister<CpuRegister>();
+    CpuRegister base_reg = locations->GetTemp(1).AsRegister<CpuRegister>();
+    // TODO Jump to the appropriate label.
+    // Bounds check.
+    __ cmpl(cond_reg, Immediate(select->NumberOfValues()));
+    __ j(kAbove, finish);
+
+    // We are in the range of the table.
+    // Load the address of the jump table in the constant area.
+    __ leaq(base_reg, codegen_->LiteralCaseTable(labels));
+
+    // Load the (signed) offset from the jump table.
+    __ movsxd(tmp_reg, Address(base_reg, cond_reg, TIMES_4, 0));
+
+    // Add the offset to the address of the table base.
+    __ addq(tmp_reg, base_reg);
+
+    // And jump.
+    __ jmp(tmp_reg);
+
+    for (size_t i = 1; i < select->NumberOfValues(); i++) {
+      Label* cur = &labels[i];
+      __ Bind(cur);
+      codegen_->MoveLocation(locations->Out(), locations->InAt(i), select->GetType());
+      __ Jump(finish);
+    }
+    __ Bind(finish);
   }
 }
 
@@ -7734,9 +7800,18 @@ class RIPFixup : public AssemblerFixup, public ArenaObject<kArenaAllocCodeGenera
  * constant area.
  */
 class JumpTableRIPFixup : public RIPFixup {
+  struct SelectTargets {
+    mutable ArraySlice<Label> labels_;
+
+    int32_t GetNumEntries() const {
+      return labels_.size();
+    }
+  };
  public:
   JumpTableRIPFixup(CodeGeneratorX86_64& codegen, HPackedSwitch* switch_instr)
       : RIPFixup(codegen, -1), switch_instr_(switch_instr) {}
+  JumpTableRIPFixup(CodeGeneratorX86_64& codegen, ArraySlice<Label> labels)
+      : RIPFixup(codegen, -1), switch_instr_(SelectTargets{labels}) {}
 
   void CreateJumpTable() {
     X86_64Assembler* assembler = codegen_->GetAssembler();
@@ -7749,13 +7824,13 @@ class JumpTableRIPFixup : public RIPFixup {
     const int32_t current_table_offset = assembler->CodeSize() + offset_in_constant_table;
 
     // Populate the jump table with the correct values for the jump table.
-    int32_t num_entries = switch_instr_->GetNumEntries();
-    HBasicBlock* block = switch_instr_->GetBlock();
-    const ArenaVector<HBasicBlock*>& successors = block->GetSuccessors();
+    int32_t num_entries = GetNumEntries();
+    // HBasicBlock* block = switch_instr_->GetBlock();
+    // const ArenaVector<HBasicBlock*>& successors = block->GetSuccessors();
     // The value that we want is the target offset - the position of the table.
     for (int32_t i = 0; i < num_entries; i++) {
-      HBasicBlock* b = successors[i];
-      Label* l = codegen_->GetLabelOf(b);
+      // HBasicBlock* b = successors[i];
+      Label* l = GetLabelOf(i);
       DCHECK(l->IsBound());
       int32_t offset_to_block = l->Position() - current_table_offset;
       assembler->AppendInt32(offset_to_block);
@@ -7763,7 +7838,25 @@ class JumpTableRIPFixup : public RIPFixup {
   }
 
  private:
-  const HPackedSwitch* switch_instr_;
+  Label* GetLabelOf(int32_t i) const {
+    if (std::holds_alternative<const HPackedSwitch*>(switch_instr_)) {
+      auto instr = std::get<const HPackedSwitch*>(switch_instr_);
+      return codegen_->GetLabelOf(instr->GetBlock()->GetSuccessors()[i]);
+    } else {
+      return &std::get<SelectTargets>(switch_instr_).labels_[i];
+    }
+  }
+
+  int32_t GetNumEntries() const {
+    if (std::holds_alternative<const HPackedSwitch*>(switch_instr_)) {
+      auto instr = std::get<const HPackedSwitch*>(switch_instr_);
+      return instr->GetNumEntries();
+    } else {
+      return std::get<SelectTargets>(switch_instr_).labels_.size();
+    }
+  }
+
+  const std::variant<const HPackedSwitch*, SelectTargets> switch_instr_;
 };
 
 void CodeGeneratorX86_64::Finalize(CodeAllocator* allocator) {
@@ -7827,15 +7920,19 @@ void CodeGeneratorX86_64::MoveFromReturnRegister(Location trg, DataType::Type ty
   GetMoveResolver()->EmitNativeCode(&parallel_move);
 }
 
-Address CodeGeneratorX86_64::LiteralCaseTable(HPackedSwitch* switch_instr) {
+template<typename Cases>
+Address CodeGeneratorX86_64::LiteralCaseTable(Cases cases) {
   // Create a fixup to be used to create and address the jump table.
   JumpTableRIPFixup* table_fixup =
-      new (GetGraph()->GetAllocator()) JumpTableRIPFixup(*this, switch_instr);
+      new (GetGraph()->GetAllocator()) JumpTableRIPFixup(*this, cases);
 
   // We have to populate the jump tables.
   fixups_to_jump_tables_.push_back(table_fixup);
   return Address::RIP(table_fixup);
 }
+
+template Address CodeGeneratorX86_64::LiteralCaseTable(HPackedSwitch* cases);
+template Address CodeGeneratorX86_64::LiteralCaseTable(ArraySlice<Label> cases);
 
 void CodeGeneratorX86_64::MoveInt64ToAddress(const Address& addr_low,
                                              const Address& addr_high,

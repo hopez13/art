@@ -23,6 +23,8 @@
 #include "base/scoped_arena_containers.h"
 #include "escape.h"
 #include "load_store_analysis.h"
+#include "optimizing/nodes.h"
+#include "optimizing/optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
 
 /**
@@ -79,6 +81,7 @@
  *  - SIMD graphs (with VecLoad and VecStore instructions) are also handled. Any
  *    partial overlap access among ArrayGet/ArraySet/VecLoad/Store is seen as
  *    alias and no load/store is eliminated in such case.
+ *  - Non-escaping small-ish arrays are lowered into selects.
  *  - Currently this LSE algorithm doesn't handle graph with try-catch, due to
  *    the special block merging structure.
  *
@@ -625,6 +628,11 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   void VisitArrayGet(HArrayGet* instruction) override {
+    auto ri = heap_location_collector_.FindReferenceInfoOf(instruction->InputAt(0));
+    if (ri->IsSingletonAndRemovable()) {
+      // We can replace this with a select.
+      array_reads_.push_back(instruction);
+    }
     VisitGetLocation(instruction, heap_location_collector_.GetArrayHeapLocation(instruction));
   }
 
@@ -832,6 +840,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     size_t heap_location_index;
   };
   ScopedArenaVector<LoadStoreRecord> loads_and_stores_;
+  ScopedArenaVector<HArrayGet*> array_reads_;
 
   // Record stores to keep in a bit vector indexed by instruction ID.
   ArenaBitVector kept_stores_;
@@ -918,6 +927,7 @@ LSEVisitor::LSEVisitor(HGraph* graph,
       removed_loads_(allocator_.Adapter(kArenaAllocLSE)),
       substitute_instructions_for_loads_(allocator_.Adapter(kArenaAllocLSE)),
       loads_and_stores_(allocator_.Adapter(kArenaAllocLSE)),
+      array_reads_(allocator_.Adapter(kArenaAllocLSE)),
       // We may add new instructions (default values, Phis) but we're not adding stores,
       // so we do not need the following BitVector to be expandable.
       kept_stores_(&allocator_,
@@ -2119,6 +2129,26 @@ void LSEVisitor::Run() {
   // Find stores that write the same value as is already present in the location.
   FindStoresWritingOldValues();
 
+  std::unordered_set<HInstruction*> arrays;
+  for (HBasicBlock* block : GetGraph()->GetBlocks()) {
+    if (block == nullptr) {
+      continue;
+    }
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      if (it.Current()->IsNewArray() && it.Current()->HasNonEnvironmentUses() && it.Current()->InputAt(1)->IsIntConstant() && heap_location_collector_.FindReferenceInfoOf(it.Current())->IsSingletonAndRemovable() && it.Current()->InputAt(1)->AsIntConstant()->GetValue() <= 64) {
+        arrays.insert(it.Current());
+      } else if (it.Current()->IsArraySet() && !it.Current()->AsArraySet()->InputAt(1)->IsConstant()) {
+        arrays.erase(it.Current()->InputAt(0));
+      }
+    }
+  }
+  if (arrays.size() > 0) {
+    LOG(INFO) << "method " << GetGraph()->PrettyMethod() << " is eligable for removing " << arrays.size() << " arrays";
+    for (auto arr : arrays) {
+      LOG(INFO) << "array length is: " << arr->AsNewArray()->GetLength()->AsIntConstant()->GetValue();
+    }
+  }
+  MaybeRecordStat(stats_, MethodCompilationStat::kArrayEligableForSelect, arrays.size());
   // Remove recorded load instructions that should be eliminated.
   size_t size = removed_loads_.size();
   DCHECK_EQ(size, substitute_instructions_for_loads_.size());

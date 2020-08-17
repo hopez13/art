@@ -17,6 +17,7 @@
 #include "select_generator.h"
 
 #include "base/scoped_arena_containers.h"
+#include "optimizing/locations.h"
 #include "reference_type_propagation.h"
 
 namespace art {
@@ -90,6 +91,17 @@ static HPhi* GetSingleChangedPhi(HBasicBlock* block, size_t index1, size_t index
   return select_phi;
 }
 
+static HSelect* DualSelect(HInstruction* condition, HInstruction* true_value, HInstruction* false_value, uint32_t dex_pc, ArenaAllocator* allocator) {
+  HSelect* res = new (allocator) HSelect(condition, 2, true_value->GetType(), dex_pc, allocator);
+  // First input must be a selected value to allow codegens to use the
+  // SameAsFirstInput allocation policy on binary selects. We make it
+  // `false_value`, so that architectures which implement HSelect as a
+  // conditional move also will not need to invert the condition.
+  res->SetValueAt(0, false_value);
+  res->SetValueAt(1, true_value);
+  return res;
+}
+
 bool HSelectGenerator::Run() {
   bool didSelect = false;
   // Select cache with local allocator.
@@ -154,10 +166,8 @@ bool HSelectGenerator::Run() {
 
     // Create the Select instruction and insert it in front of the If.
     HInstruction* condition = if_instruction->InputAt(0);
-    HSelect* select = new (graph_->GetAllocator()) HSelect(condition,
-                                                           true_value,
-                                                           false_value,
-                                                           if_instruction->GetDexPc());
+    HSelect* select = DualSelect(
+        condition, true_value, false_value, if_instruction->GetDexPc(), graph_->GetAllocator());
     if (both_successors_return) {
       if (true_value->GetType() == DataType::Type::kReference) {
         DCHECK(false_value->GetType() == DataType::Type::kReference);
@@ -202,8 +212,8 @@ bool HSelectGenerator::Run() {
       // Found cached value. See if latest can replace cached in the HIR.
       HSelect* cached = it->second;
       DCHECK_EQ(cached->GetCondition(), select->GetCondition());
-      if (cached->GetTrueValue() == select->GetTrueValue() &&
-          cached->GetFalseValue() == select->GetFalseValue() &&
+      if (cached->GetValueAt(1) == select->GetValueAt(1) &&
+          cached->GetValueAt(0) == select->GetValueAt(0) &&
           select->StrictlyDominates(cached)) {
        cached->ReplaceWith(select);
        cached->GetBlock()->RemoveInstruction(cached);

@@ -1846,6 +1846,7 @@ void InstructionCodeGeneratorX86::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFla
 
 static bool SelectCanUseCMOV(HSelect* select) {
   // There are no conditional move instructions for XMMs.
+  CHECK_EQ(select->NumberOfValues(), 2u);
   if (DataType::IsFloatingPointType(select->GetType())) {
     return false;
   }

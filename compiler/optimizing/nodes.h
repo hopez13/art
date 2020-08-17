@@ -3317,6 +3317,86 @@ class HTryBoundary final : public HExpression<0> {
   using BoundaryKindField = BitField<BoundaryKind, kFieldBoundaryKind, kFieldBoundaryKindSize>;
 };
 
+// Selects the value using selector. If selector is too large uses the final value (for compat with
+// binary select).
+class HSelect final : public HVariableInputSizeInstruction {
+ public:
+  HSelect(HInstruction* selector,
+               uint32_t number_of_arguments,
+               DataType::Type return_type,
+               uint32_t dex_pc,
+               ArenaAllocator* allocator)
+      : HVariableInputSizeInstruction(kSelect,
+                                      HPhi::ToPhiType(return_type),
+                                      SideEffects::None(),
+                                      dex_pc,
+                                      allocator,
+                                      number_of_arguments + 1,
+                                      ArenaAllocKind::kArenaAllocPhiInputs),
+        number_of_inputs_(number_of_arguments) {
+    DCHECK(DataType::IsIntegralType(selector->GetType())) << selector->GetType();
+
+    // First input must be a selected value to allow codegens to use the
+    // SameAsFirstInput allocation policy on binary selects. We make it
+    // `false_value`, so that architectures which implement HSelect as a
+    // conditional move also will not need to invert the condition.
+    SetRawInputAt(number_of_inputs_, selector);
+  }
+
+  HSelect(HInstruction* condition,
+          HInstruction* true_value,
+          HInstruction* false_value,
+          uint32_t dex_pc)
+      : HSelect(condition, 2, true_value->GetType(), dex_pc, condition->GetAllocator()) {
+    // First input must be `true_value` or `false_value` to allow codegens to
+    // use the SameAsFirstInput allocation policy. We make it `false_value`, so
+    // that architectures which implement HSelect as a conditional move also
+    // will not need to invert the condition.
+    SetRawInputAt(0, false_value);
+    SetRawInputAt(1, true_value);
+    SetRawInputAt(2, condition);
+  }
+
+  HInstruction* GetFalseValue() const {
+    DCHECK_EQ(NumberOfValues(), 2u);
+    return GetValueAt(1);
+  }
+
+  HInstruction* GetTrueValue() const {
+    DCHECK_EQ(NumberOfValues(), 2u);
+    return GetValueAt(1);
+  }
+
+  HInstruction* GetCondition() const {
+    return InputAt(number_of_inputs_);
+  }
+  bool IsClonable() const override {
+    return true;
+  }
+  bool CanBeMoved() const override {
+    return true;
+  }
+  void SetValueAt(size_t index, HInstruction* argument) {
+    DCHECK_EQ(GetType(), HPhi::ToPhiType(argument->GetType()));
+    SetRawInputAt(index, argument);
+  }
+  HInstruction* GetValueAt(size_t index) const {
+    return InputAt(index);
+  }
+
+  size_t NumberOfValues() const {
+    return number_of_inputs_;
+  }
+
+  DECLARE_INSTRUCTION(Select);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(Select);
+
+ private:
+  const size_t number_of_inputs_;
+};
+
 // Deoptimize to interpreter, upon checking a condition.
 class HDeoptimize final : public HVariableInputSizeInstruction {
  public:
@@ -7734,43 +7814,43 @@ class HMonitorOperation final : public HExpression<1> {
   using OperationKindField = BitField<OperationKind, kFieldOperationKind, kFieldOperationKindSize>;
 };
 
-class HSelect final : public HExpression<3> {
- public:
-  HSelect(HInstruction* condition,
-          HInstruction* true_value,
-          HInstruction* false_value,
-          uint32_t dex_pc)
-      : HExpression(kSelect, HPhi::ToPhiType(true_value->GetType()), SideEffects::None(), dex_pc) {
-    DCHECK_EQ(HPhi::ToPhiType(true_value->GetType()), HPhi::ToPhiType(false_value->GetType()));
+// class HSelect final : public HExpression<3> {
+//  public:
+//   HSelect(HInstruction* condition,
+//           HInstruction* true_value,
+//           HInstruction* false_value,
+//           uint32_t dex_pc)
+//       : HExpression(kSelect, HPhi::ToPhiType(true_value->GetType()), SideEffects::None(), dex_pc) {
+//     DCHECK_EQ(HPhi::ToPhiType(true_value->GetType()), HPhi::ToPhiType(false_value->GetType()));
 
-    // First input must be `true_value` or `false_value` to allow codegens to
-    // use the SameAsFirstInput allocation policy. We make it `false_value`, so
-    // that architectures which implement HSelect as a conditional move also
-    // will not need to invert the condition.
-    SetRawInputAt(0, false_value);
-    SetRawInputAt(1, true_value);
-    SetRawInputAt(2, condition);
-  }
+//     // First input must be `true_value` or `false_value` to allow codegens to
+//     // use the SameAsFirstInput allocation policy. We make it `false_value`, so
+//     // that architectures which implement HSelect as a conditional move also
+//     // will not need to invert the condition.
+//     SetRawInputAt(0, false_value);
+//     SetRawInputAt(1, true_value);
+//     SetRawInputAt(2, condition);
+//   }
 
-  bool IsClonable() const override { return true; }
-  HInstruction* GetFalseValue() const { return InputAt(0); }
-  HInstruction* GetTrueValue() const { return InputAt(1); }
-  HInstruction* GetCondition() const { return InputAt(2); }
+//   bool IsClonable() const override { return true; }
+//   HInstruction* GetFalseValue() const { return InputAt(0); }
+//   HInstruction* GetTrueValue() const { return InputAt(1); }
+//   HInstruction* GetCondition() const { return InputAt(2); }
 
-  bool CanBeMoved() const override { return true; }
-  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const override {
-    return true;
-  }
+//   bool CanBeMoved() const override { return true; }
+//   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const override {
+//     return true;
+//   }
 
-  bool CanBeNull() const override {
-    return GetTrueValue()->CanBeNull() || GetFalseValue()->CanBeNull();
-  }
+//   bool CanBeNull() const override {
+//     return GetTrueValue()->CanBeNull() || GetFalseValue()->CanBeNull();
+//   }
 
-  DECLARE_INSTRUCTION(Select);
+//   DECLARE_INSTRUCTION(Select);
 
- protected:
-  DEFAULT_COPY_CONSTRUCTOR(Select);
-};
+//  protected:
+//   DEFAULT_COPY_CONSTRUCTOR(Select);
+// };
 
 class MoveOperands : public ArenaObject<kArenaAllocMoveOperands> {
  public:

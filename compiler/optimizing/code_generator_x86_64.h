@@ -27,6 +27,7 @@
 namespace art {
 namespace x86_64 {
 
+static constexpr size_t kMaxSelectCMOVInstructions = 4;
 // Use a local definition to prevent copying mistakes.
 static constexpr size_t kX86_64WordSize = static_cast<size_t>(kX86_64PointerSize);
 
@@ -601,7 +602,8 @@ class CodeGeneratorX86_64 : public CodeGenerator {
                               ScaleFactor scale,
                               uint32_t data_offset);
 
-  Address LiteralCaseTable(HPackedSwitch* switch_instr);
+  template<typename Cases>
+  Address LiteralCaseTable(Cases switch_instr);
 
   // Store a 64 bit value into a DoubleStackSlot in the most efficient manner.
   void Store64BitValueToStack(Location dest, int64_t value);

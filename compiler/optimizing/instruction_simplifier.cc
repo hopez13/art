@@ -918,93 +918,103 @@ static HInstruction* AllowInMinMax(IfCondition cmp,
 void InstructionSimplifierVisitor::VisitSelect(HSelect* select) {
   HInstruction* replace_with = nullptr;
   HInstruction* condition = select->GetCondition();
-  HInstruction* true_value = select->GetTrueValue();
-  HInstruction* false_value = select->GetFalseValue();
-
-  if (condition->IsBooleanNot()) {
-    // Change ((!cond) ? x : y) to (cond ? y : x).
-    condition = condition->InputAt(0);
-    std::swap(true_value, false_value);
-    select->ReplaceInput(false_value, 0);
-    select->ReplaceInput(true_value, 1);
-    select->ReplaceInput(condition, 2);
-    RecordSimplification();
+  HInstruction* default_value = select->GetValueAt(0);
+  if (select->NumberOfValues() == 2) {
+    HInstruction* true_value = select->GetValueAt(1);
+    HInstruction* false_value = default_value;
+    if (condition->IsBooleanNot()) {
+      // Change ((!cond) ? x : y) to (cond ? y : x).
+      condition = condition->InputAt(0);
+      std::swap(true_value, false_value);
+      select->ReplaceInput(false_value, 0);
+      select->ReplaceInput(true_value, 1);
+      select->ReplaceInput(condition, 2);
+      RecordSimplification();
+    }
+    if (true_value->IsIntConstant() && false_value->IsIntConstant()) {
+      if (true_value->AsIntConstant()->IsFalse() && false_value->AsIntConstant()->IsTrue()) {
+        // Replace (cond ? false : true) with (!cond).
+        replace_with = GetGraph()->InsertOppositeCondition(condition, select);
+      }
+    } else if (condition->IsCondition()) {
+      IfCondition cmp = condition->AsCondition()->GetCondition();
+      HInstruction* a = condition->InputAt(0);
+      HInstruction* b = condition->InputAt(1);
+      DataType::Type t_type = true_value->GetType();
+      DataType::Type f_type = false_value->GetType();
+      // Here we have a <cmp> b ? true_value : false_value.
+      // Test if both values are compatible integral types (resulting MIN/MAX/ABS
+      // type will be int or long, like the condition). Replacements are general,
+      // but assume conditions prefer constants on the right.
+      if (DataType::IsIntegralType(t_type) && DataType::Kind(t_type) == DataType::Kind(f_type)) {
+        // Allow a <  100 ? max(a, -100) : ..
+        //    or a > -100 ? min(a,  100) : ..
+        // to use min/max instead of a to detect nested min/max expressions.
+        HInstruction* new_a = AllowInMinMax(cmp, a, b, true_value);
+        if (new_a != nullptr) {
+          a = new_a;
+        }
+        // Try to replace typical integral MIN/MAX/ABS constructs.
+        if ((cmp == kCondLT || cmp == kCondLE || cmp == kCondGT || cmp == kCondGE) &&
+            ((a == true_value && b == false_value) || (b == true_value && a == false_value))) {
+          // Found a < b ? a : b (MIN) or a < b ? b : a (MAX)
+          //    or a > b ? a : b (MAX) or a > b ? b : a (MIN).
+          bool is_min = (cmp == kCondLT || cmp == kCondLE) == (a == true_value);
+          replace_with = NewIntegralMinMax(GetGraph()->GetAllocator(), a, b, select, is_min);
+        } else if (((cmp == kCondLT || cmp == kCondLE) && true_value->IsNeg()) ||
+                   ((cmp == kCondGT || cmp == kCondGE) && false_value->IsNeg())) {
+          bool negLeft = (cmp == kCondLT || cmp == kCondLE);
+          HInstruction* the_negated = negLeft ? true_value->InputAt(0) : false_value->InputAt(0);
+          HInstruction* not_negated = negLeft ? false_value : true_value;
+          if (a == the_negated && a == not_negated && IsInt64Value(b, 0)) {
+            // Found a < 0 ? -a :  a
+            //    or a > 0 ?  a : -a
+            // which can be replaced by ABS(a).
+            replace_with = NewIntegralAbs(GetGraph()->GetAllocator(), a, select);
+          }
+        } else if (true_value->IsSub() && false_value->IsSub()) {
+          HInstruction* true_sub1 = true_value->InputAt(0);
+          HInstruction* true_sub2 = true_value->InputAt(1);
+          HInstruction* false_sub1 = false_value->InputAt(0);
+          HInstruction* false_sub2 = false_value->InputAt(1);
+          if ((((cmp == kCondGT || cmp == kCondGE) &&
+                (a == true_sub1 && b == true_sub2 && a == false_sub2 && b == false_sub1)) ||
+               ((cmp == kCondLT || cmp == kCondLE) &&
+                (a == true_sub2 && b == true_sub1 && a == false_sub1 && b == false_sub2))) &&
+              AreLowerPrecisionArgs(t_type, a, b)) {
+            // Found a > b ? a - b  : b - a
+            //    or a < b ? b - a  : a - b
+            // which can be replaced by ABS(a - b) for lower precision operands a, b.
+            replace_with = NewIntegralAbs(GetGraph()->GetAllocator(), true_value, select);
+          }
+        }
+      }
+    }
   }
 
-  if (true_value == false_value) {
+  auto all_equals = [&](auto check) {
+    for (size_t i = 0; i < select->NumberOfValues(); ++i) {
+      if (!check(i)) {
+        return false;
+      }
+    }
+    return true;
+  };
+  if (all_equals([&](size_t x) { return select->GetValueAt(x) == default_value; })) {
     // Replace (cond ? x : x) with (x).
-    replace_with = true_value;
+    replace_with = default_value;
   } else if (condition->IsIntConstant()) {
-    if (condition->AsIntConstant()->IsTrue()) {
-      // Replace (true ? x : y) with (x).
-      replace_with = true_value;
+    int32_t c = condition->AsIntConstant()->GetValue();
+    if (c < 0 || c >= static_cast<int32_t>(select->NumberOfValues())) {
+      replace_with = select->GetValueAt(select->NumberOfValues() - 1);
     } else {
-      // Replace (false ? x : y) with (y).
-      DCHECK(condition->AsIntConstant()->IsFalse()) << condition->AsIntConstant()->GetValue();
-      replace_with = false_value;
+      replace_with = select->GetValueAt(c);
     }
-  } else if (true_value->IsIntConstant() && false_value->IsIntConstant()) {
-    if (true_value->AsIntConstant()->IsTrue() && false_value->AsIntConstant()->IsFalse()) {
-      // Replace (cond ? true : false) with (cond).
-      replace_with = condition;
-    } else if (true_value->AsIntConstant()->IsFalse() && false_value->AsIntConstant()->IsTrue()) {
-      // Replace (cond ? false : true) with (!cond).
-      replace_with = GetGraph()->InsertOppositeCondition(condition, select);
-    }
-  } else if (condition->IsCondition()) {
-    IfCondition cmp = condition->AsCondition()->GetCondition();
-    HInstruction* a = condition->InputAt(0);
-    HInstruction* b = condition->InputAt(1);
-    DataType::Type t_type = true_value->GetType();
-    DataType::Type f_type = false_value->GetType();
-    // Here we have a <cmp> b ? true_value : false_value.
-    // Test if both values are compatible integral types (resulting MIN/MAX/ABS
-    // type will be int or long, like the condition). Replacements are general,
-    // but assume conditions prefer constants on the right.
-    if (DataType::IsIntegralType(t_type) && DataType::Kind(t_type) == DataType::Kind(f_type)) {
-      // Allow a <  100 ? max(a, -100) : ..
-      //    or a > -100 ? min(a,  100) : ..
-      // to use min/max instead of a to detect nested min/max expressions.
-      HInstruction* new_a = AllowInMinMax(cmp, a, b, true_value);
-      if (new_a != nullptr) {
-        a = new_a;
-      }
-      // Try to replace typical integral MIN/MAX/ABS constructs.
-      if ((cmp == kCondLT || cmp == kCondLE || cmp == kCondGT || cmp == kCondGE) &&
-          ((a == true_value && b == false_value) ||
-           (b == true_value && a == false_value))) {
-        // Found a < b ? a : b (MIN) or a < b ? b : a (MAX)
-        //    or a > b ? a : b (MAX) or a > b ? b : a (MIN).
-        bool is_min = (cmp == kCondLT || cmp == kCondLE) == (a == true_value);
-        replace_with = NewIntegralMinMax(GetGraph()->GetAllocator(), a, b, select, is_min);
-      } else if (((cmp == kCondLT || cmp == kCondLE) && true_value->IsNeg()) ||
-                 ((cmp == kCondGT || cmp == kCondGE) && false_value->IsNeg())) {
-        bool negLeft = (cmp == kCondLT || cmp == kCondLE);
-        HInstruction* the_negated = negLeft ? true_value->InputAt(0) : false_value->InputAt(0);
-        HInstruction* not_negated = negLeft ? false_value : true_value;
-        if (a == the_negated && a == not_negated && IsInt64Value(b, 0)) {
-          // Found a < 0 ? -a :  a
-          //    or a > 0 ?  a : -a
-          // which can be replaced by ABS(a).
-          replace_with = NewIntegralAbs(GetGraph()->GetAllocator(), a, select);
-        }
-      } else if (true_value->IsSub() && false_value->IsSub()) {
-        HInstruction* true_sub1 = true_value->InputAt(0);
-        HInstruction* true_sub2 = true_value->InputAt(1);
-        HInstruction* false_sub1 = false_value->InputAt(0);
-        HInstruction* false_sub2 = false_value->InputAt(1);
-        if ((((cmp == kCondGT || cmp == kCondGE) &&
-              (a == true_sub1 && b == true_sub2 && a == false_sub2 && b == false_sub1)) ||
-             ((cmp == kCondLT || cmp == kCondLE) &&
-              (a == true_sub2 && b == true_sub1 && a == false_sub1 && b == false_sub2))) &&
-            AreLowerPrecisionArgs(t_type, a, b)) {
-          // Found a > b ? a - b  : b - a
-          //    or a < b ? b - a  : a - b
-          // which can be replaced by ABS(a - b) for lower precision operands a, b.
-          replace_with = NewIntegralAbs(GetGraph()->GetAllocator(), true_value, select);
-        }
-      }
-    }
+  } else if (all_equals([&](int32_t x) {
+               return select->GetValueAt(x)->IsIntConstant() &&
+                      select->GetValueAt(x)->AsIntConstant()->GetValue() == x;
+             })) {
+    replace_with = condition;
   }
 
   if (replace_with != nullptr) {
