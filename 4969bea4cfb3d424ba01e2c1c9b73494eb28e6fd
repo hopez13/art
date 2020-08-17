@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "14b36d5e_a3f378f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-17T18:40:22Z",
+      "side": 1,
+      "message": "OK. I\u0027ll take care of that in a new patch.",
+      "parentUuid": "f4f6c7bb_e3787c41",
+      "revId": "4969bea4cfb3d424ba01e2c1c9b73494eb28e6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd8909dc_0e300048",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 3
@@ -53,6 +71,30 @@
       "writtenOn": "2020-08-17T14:38:43Z",
       "side": 1,
       "message": "Given the code isn\u0027t trivial here, should we gate it under something like if (TRACE_ENABLED) ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 76
+      },
+      "revId": "4969bea4cfb3d424ba01e2c1c9b73494eb28e6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2f494cb_b5e6e618",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-17T18:40:22Z",
+      "side": 1,
+      "message": "I thought of doing that, but I\u0027m not sure how to detect if trace is enabled at runtime. Any suggestions?",
+      "parentUuid": "278d1159_fc32ca89",
       "range": {
         "startLine": 203,
         "startChar": 0,

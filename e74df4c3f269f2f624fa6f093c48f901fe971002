@@ -16,6 +16,24 @@
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16343608_479c1ea2",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-17T18:40:22Z",
+      "side": 0,
+      "message": "The heap size decrease is captured somewhere else in the code (right after GC).\n\nThe heap size does decrease (towards the end) in the trace that I added in the bug.",
+      "parentUuid": "21ef1b5f_57a02dd0",
+      "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
