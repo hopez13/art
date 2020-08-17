@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21ef1b5f_57a02dd0",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2020-08-17T18:17:41Z",
+      "side": 0,
+      "message": "We also want to trace when we see this delta in the negative direction - just want to confirm that\u0027s the case as well? In the example you posted in the linked bug, the heap size only increases.",
+      "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
