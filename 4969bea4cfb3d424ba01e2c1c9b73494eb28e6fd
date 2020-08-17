@@ -104,6 +104,30 @@
       "revId": "4969bea4cfb3d424ba01e2c1c9b73494eb28e6fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04399f7f_2aef55e7",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-17T18:56:11Z",
+      "side": 1,
+      "message": "I think ATraceEnabled() from systrace.h is the right test?",
+      "parentUuid": "b2f494cb_b5e6e618",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 76
+      },
+      "revId": "4969bea4cfb3d424ba01e2c1c9b73494eb28e6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
