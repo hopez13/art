@@ -22,6 +22,30 @@
       "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3af94b5_15bd59df",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-17T21:04:28Z",
+      "side": 1,
+      "message": "Certainly there can be concurrent allocations. And all allocations get tracked as we intercept into every tlab allocation (in heap-inl.h).\nFor accuracy I should change this store to a compare_exchange, but I\u0027m not sure if that\u0027s necessary. This happens only once per GC cycle. Eventually the value of last_reported_heap_size_ would converge due to the change in heap-inl.h\n\nPlease let me know if changing this to compaer_exchange is warranted. I\u0027ll upload another patch then.",
+      "parentUuid": "c57c3c54_06967661",
+      "range": {
+        "startLine": 3529,
+        "startChar": 4,
+        "endLine": 3529,
+        "endChar": 79
+      },
+      "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
