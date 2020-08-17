@@ -34,6 +34,24 @@
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4352a4f_4c4be2ab",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-08-17T19:32:02Z",
+      "side": 0,
+      "message": "It looks like it\u0027s called from GrowForUtilization, that should happen after each GC.",
+      "parentUuid": "16343608_479c1ea2",
+      "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
