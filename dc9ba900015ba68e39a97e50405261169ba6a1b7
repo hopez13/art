@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004461606",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1402317?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "b15c3aa6_3c3b5207",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 2146,
+                "startChar": 65,
+                "endLine": 2146,
+                "endChar": 73
+              },
+              "replacement": "eligible"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b1409019_4fec6b36",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-17T18:26:01Z",
+      "side": 1,
+      "message": "Common typo found: \"eligable\" -- should it be \"eligible\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2146,
+        "startChar": 65,
+        "endLine": 2146,
+        "endChar": 73
+      },
+      "revId": "dc9ba900015ba68e39a97e50405261169ba6a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004461606",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1402317?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "0c92bc0b_953e27ee",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 2151,
+                "startChar": 55,
+                "endLine": 2151,
+                "endChar": 63
+              },
+              "replacement": "Eligible"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "42bbcfa8_6a822ad1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2151,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-17T18:26:01Z",
+      "side": 1,
+      "message": "Common typo found: \"Eligable\" -- should it be \"Eligible\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2151,
+        "startChar": 55,
+        "endLine": 2151,
+        "endChar": 63
+      },
+      "revId": "dc9ba900015ba68e39a97e50405261169ba6a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004461606",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1402317?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "26a9a326_f53da412",
+          "description": "Change to \"compiler/optimizing/optimizing_compiler_stats.h\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/optimizing_compiler_stats.h",
+              "range": {
+                "startLine": 111,
+                "startChar": 8,
+                "endLine": 111,
+                "endChar": 16
+              },
+              "replacement": "Eligible"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "bc003fff_07203b0e",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-17T18:26:01Z",
+      "side": 1,
+      "message": "Common typo found: \"Eligable\" -- should it be \"Eligible\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 16
+      },
+      "revId": "dc9ba900015ba68e39a97e50405261169ba6a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
