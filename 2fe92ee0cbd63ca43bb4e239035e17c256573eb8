@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c57c3c54_06967661",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-17T20:50:08Z",
+      "side": 1,
+      "message": "Can there be concurrent allocations here? Do we track an allocation that happens just before this? That seems orthogonal, but I\u0027m curious.",
+      "range": {
+        "startLine": 3529,
+        "startChar": 4,
+        "endLine": 3529,
+        "endChar": 79
+      },
+      "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
