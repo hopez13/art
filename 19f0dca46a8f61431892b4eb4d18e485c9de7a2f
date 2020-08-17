@@ -70,6 +70,30 @@
       "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e52a66_01e45977",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1724960
+      },
+      "writtenOn": "2020-08-17T08:00:54Z",
+      "side": 1,
+      "message": "Thank you for the pointers! We have decided to keep the dependency on simpleperf_report_lib and move the tool to system/extras. Introducing another parser would make the tool more error-prone and harder to maintain.",
+      "parentUuid": "9ed89fb3_8c3f7ea9",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
