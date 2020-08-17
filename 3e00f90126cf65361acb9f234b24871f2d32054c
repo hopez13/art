@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69297203_8603eef4",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-17T09:53:19Z",
+      "side": 1,
+      "message": "Note we\u0027re not running libcore tests under gcstress/debug anymore (time was way too long). So if you\u0027ve seen timeouts on devices, you\u0027ll want to put them in the libcore_gcstress_failures.txt file.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "3e00f90126cf65361acb9f234b24871f2d32054c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
