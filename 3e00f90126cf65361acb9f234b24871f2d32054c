@@ -22,6 +22,30 @@
       "revId": "3e00f90126cf65361acb9f234b24871f2d32054c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6ee1f2_f2cfaec7",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-17T16:44:48Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll submit this to get rid of the bulk of the failures, and then upload a second CL to fix this.\n\nI did see one set of on-device failures.",
+      "parentUuid": "69297203_8603eef4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "3e00f90126cf65361acb9f234b24871f2d32054c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
