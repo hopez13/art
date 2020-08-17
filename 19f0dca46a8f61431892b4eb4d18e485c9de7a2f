@@ -94,6 +94,30 @@
       "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce890bcd_69fa07a6",
+        "filename": "tools/perf2cfg/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-17T09:33:40Z",
+      "side": 1,
+      "message": "Alternatively, you could move from a static dependency do a dlopen one. Not ideal, but OK workaround.",
+      "parentUuid": "f4e52a66_01e45977",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "19f0dca46a8f61431892b4eb4d18e485c9de7a2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
