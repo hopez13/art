@@ -63,6 +63,30 @@
       "revId": "ed0acfdaffdbf3c76fa57b15150390dabb4c69aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2883df8f_d8373931",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-18T08:00:30Z",
+      "side": 1,
+      "message": "Ah you are right, Location doesn\u0027t handle heap addresses.",
+      "parentUuid": "554b1555_40d34c9a",
+      "range": {
+        "startLine": 1452,
+        "startChar": 23,
+        "endLine": 1452,
+        "endChar": 37
+      },
+      "revId": "ed0acfdaffdbf3c76fa57b15150390dabb4c69aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
