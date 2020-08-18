@@ -16,6 +16,29 @@
       "revId": "ac9f41a24a27d733f7c85a999302bb58528aebb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3574b56_24558d38",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2489,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-18T08:13:47Z",
+      "side": 1,
+      "message": "Given these are only used for one pass, could we avoid polluting the HInstruction \"namespace\" and make them static, locally to the pass?",
+      "range": {
+        "startLine": 2485,
+        "startChar": 0,
+        "endLine": 2489,
+        "endChar": 46
+      },
+      "revId": "ac9f41a24a27d733f7c85a999302bb58528aebb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
