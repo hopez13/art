@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "15670f46_9e70bd34",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-08-18T19:17:20Z",
+      "side": 1,
+      "message": "It might reduce race conditions if this is changed to a counter than subtracts down from kMinHeapSizeToReport and reports the heap size when it reaches 0. I think that would require an additional atomic operation but should be OK since this path is not performance critical.",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 62
+      },
+      "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c57c3c54_06967661",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
