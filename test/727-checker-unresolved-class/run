@@ -17,5 +17,9 @@
 if [[ "$TEST_RUNTIME" == "jvm" ]]; then
   exec ${RUN} $@
 else
-  exec ${RUN} $@ -Xcompiler-option --updatable-bcp-packages-file="$DEX_LOCATION/res/updateable.txt"
+  # Append graphs for checker tests (we run dex2oat twice).
+  # Make some classes unresolved with --updatable-bcp-packages-file.
+  exec ${RUN} $@ \
+      -Xcompiler-option --dump-cfg-append \
+      -Xcompiler-option --updatable-bcp-packages-file="$DEX_LOCATION/res/updateable.txt"
 fi
