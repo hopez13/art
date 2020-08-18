@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
+import resolved.SubclassOfUnresolvedClass;
 import unresolved.UnresolvedClass;
 
 public class Main {
   public static void main(String[] args) {
     UnresolvedClass.$noinline$main();
-    System.out.println("passed");
+    SubclassOfUnresolvedClass.$noinline$main();
   }
 }
