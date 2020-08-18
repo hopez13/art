@@ -100,10 +100,63 @@ bool IsBooleanValueOrMaterializedCondition(HInstruction* cond_input) {
   return !cond_input->IsCondition() || !cond_input->IsEmittedAtUseSite();
 }
 
+// Check if instr1 is an increment of instr2 by one.
+static bool IsIncrementOfInstrByOne(HInstruction* instr1, HInstruction* instr2) {
+  return instr1->IsAdd() && (instr1->InputAt(0) == instr2) && IsInt64Value(instr1->InputAt(1), 1);
+}
+
+// Check whether the provided instruction is a non-negative loop counter.
+//
+// A loop counter is a Phi instruction in the loop header.
+static bool IsNonNegativeLoopCounter(HInstruction* instruction) {
+  HLoopInformation* loop_info = instruction->GetBlock()->GetLoopInformation();
+  if (!instruction->IsLoopHeaderPhi() ||
+      loop_info->IsIrreducible() ||
+      !instruction->GetBlock()->EndsWithIf()) {
+    return false;
+  }
+
+  // A loop counter is non-negative if:
+  // * It is initialized by a non-negative value.
+  // * It is checked with '<'.
+  // * The result of the check is used to terminate the loop.
+  // * It is incremented by one.
+  HIf* if_instr = instruction->GetBlock()->GetLastInstruction()->AsIf();
+  HInstruction* cond = if_instr->InputAt(0);
+  if (!cond->HasOnlyOneNonEnvironmentUse() ||
+      !cond->IsGreaterThanOrEqual() ||
+      cond->InputAt(0) != instruction ||
+      loop_info->Contains(*if_instr->IfTrueSuccessor())) {
+    return false;
+  }
+
+  // The loop counter must be initialized with a non-negative value.
+  bool has_non_negative_incoming_value = false;
+
+  // Check that all inputs are either increments by one or non-negative values defined outside
+  // of the loop.
+  for (size_t i = 0, n = instruction->InputCount(); i < n; ++i) {
+    HInstruction* input = instruction->InputAt(i);
+    if (input == instruction) {
+      continue;
+    }
+    if (!IsIncrementOfInstrByOne(input, instruction)) {
+      if (loop_info->IsDefinedOutOfTheLoop(input) && HasNonNegativeInputAt(instruction, i)) {
+        has_non_negative_incoming_value = true;
+      } else {
+        // The loop counter is changed in some way that its value might be negative.
+        return false;
+      }
+    }
+  }
+
+  return has_non_negative_incoming_value;
+}
 
 bool HasNonNegativeInputAt(HInstruction* instr, size_t i) {
   HInstruction* input = instr->InputAt(i);
-  return IsGEZero(input);
+  return IsGEZero(input) ||
+         (IsNonNegativeLoopCounter(input) && input->GetBlock()->Dominates(instr->GetBlock()));
 }
 
 bool HasNonNegativeOrMinIntInputAt(HInstruction* instr, size_t i) {

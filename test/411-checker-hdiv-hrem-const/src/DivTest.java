@@ -95,6 +95,10 @@ public class DivTest {
     expectEquals(1, $noinline$IntDivByMinus6(-6));
     expectEquals(-3, $noinline$IntDivByMinus6(19));
     expectEquals(3, $noinline$IntDivByMinus6(-19));
+
+    expectEquals(0, $noinline$IntIndVarDivBy6(1));
+    expectEquals(0, $noinline$IntIndVarDivBy6(6));
+    expectEquals(5, $noinline$IntIndVarDivBy6(11));
   }
 
   // A test case to check that 'lsr' and 'asr' are combined into one 'asr'.
@@ -234,6 +238,289 @@ public class DivTest {
     return r;
   }
 
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int DivTest.$noinline$IntIndVarDivBy6(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.$noinline$IntIndVarDivBy6(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NOT:             add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int $noinline$IntIndVarDivBy6(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int DivTest.intIndVarDivBy6T02(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.intIndVarDivBy6T02(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NOT:             add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int intIndVarDivBy6T02(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      for (int j = 0; j < i; ++j) {
+        c += j / 6;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int DivTest.intIndVarDivBy6T03(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.intIndVarDivBy6T03(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NOT:             add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int intIndVarDivBy6T03(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ++i) {
+      for (int j = i; j < v; ++j) {
+        c += j / 6;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int DivTest.intIndVarDivBy6T04(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.intIndVarDivBy6T04(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NOT:             add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int intIndVarDivBy6T04(int v) {
+    int c = 0;
+    for (int i = 0; i < v; ) {
+      c += i / 6;
+      if ((c & 1) == 0) {
+        c = Math.incrementExact(c);
+        ++i;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM:   int DivTest.intIndVarDivBy6T05(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            add{{s?}} r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            lsr{{s?}} r{{\d+}}, r{{\d+}}, #2
+  /// CHECK-NOT:             sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.intIndVarDivBy6T05(int) disassembly (after)
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NOT:             add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  /// CHECK:                 lsr x{{\d+}}, x{{\d+}}, #34
+  /// CHECK-NOT:             cinc w{{\d+}}, w{{\d+}}, mi
+  private static int intIndVarDivBy6T05(int v) {
+    int c = 0;
+    int i = 0;
+    for (; i < v; ++i) {
+      c += i / 6;
+    }
+    c += i / 7;
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. If v is MIN_INT32, 'i += 2' can overflow and become negative.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter01(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter01(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter01(int v) {
+    int c = 0;
+    for (int i = 0; i < v; i += 2) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. 'i' is initialized with a negative value.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter02(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter02(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter02(int v) {
+    int c = 0;
+    for (int i = -10; i < v; ++i) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. If v is MIN_INT32, '++i' can overflow and become negative.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter03(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter03(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter03(int v) {
+    int c = 0;
+    for (int i = 0; i <= v; ++i) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. It is not possible to detect whether 'i' stays non-negative.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter04(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter04(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter04(int v) {
+    int c = 0;
+    for (int i = 0; c < v; ++i) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter05(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter05(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter05(int v) {
+    int c = 0;
+    for (int i = -10; i < v; ++i) {
+      for (int j = i; j < v; ++j) {
+        c += j / 6;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter06(int, int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter06(int, int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter06(int v1, int v2) {
+    int c = 0;
+    for (int i = v1; i < v2; ++i) {
+      for (int j = i; j < v2; ++j) {
+        c += j / 6;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. If v is MIN_INT32, 'i += 2' can overflow and become negative.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter07(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter07(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter07(int v) {
+    int c = 0;
+    for (int i = 0; i < v;) {
+      c += i / 6;
+      if ((c & 1) == 0) {
+        i += 1;
+      } else {
+        i += 2;
+      }
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated. If v is MIN_INT32, The second '++i' can overflow and become negative.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter08(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter08(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter08(int v) {
+    int c = 0;
+    for (int i = 0; i < v;) {
+      c += i / 6;
+      ++i;
+      ++i;
+    }
+    return c;
+  }
+
+  // A test case to check that when a loop counter might be negative a correcting 'add'
+  // is generated.
+  //
+  /// CHECK-START-ARM:   int DivTest.mightBeNegativeLoopCounter09(int) disassembly (after)
+  /// CHECK:                 smull     r{{\d+}}, r{{\d+}}, r{{\d+}}, r{{\d+}}
+  /// CHECK-NEXT:            sub       r{{\d+}}, r{{\d+}}, r{{\d+}}, asr #31
+  //
+  /// CHECK-START-ARM64: int DivTest.mightBeNegativeLoopCounter09(int) disassembly (after)
+  /// CHECK:                 asr x{{\d+}}, x{{\d+}}, #32
+  /// CHECK-NEXT:            add w{{\d+}}, w{{\d+}}, w{{\d+}}, lsr #31
+  private static int mightBeNegativeLoopCounter09(int v) {
+    int c = 0;
+    int j = 0;
+    for (int i = -10; i < v; ++i) {
+      for (j = i; j < v; ++j) {
+        c += 1;
+      }
+    }
+    c += j / 6;
+    return c;
+  }
+
   private static void divLong() {
     expectEquals(0L, $noinline$LongDivBy18(0L));
     expectEquals(0L, $noinline$LongDivBy18(1L));
@@ -298,6 +585,13 @@ public class DivTest {
     expectEquals(1L, $noinline$LongDivByMinus100(-100L));
     expectEquals(-3L, $noinline$LongDivByMinus100(301L));
     expectEquals(3L, $noinline$LongDivByMinus100(-301L));
+
+    for (int i = 1; i < 1234; ++i) {
+      expectEquals($noinline$ExpectedLongIndVarDivByN(i, 6), $noinline$LongIndVarDivBy6(i));
+      expectEquals($noinline$ExpectedLongIndVarDivByN(i, 7), $noinline$LongIndVarDivBy7(i));
+      expectEquals($noinline$ExpectedLongIndVarDivByN(i, 18), $noinline$LongIndVarDivBy18(i));
+      expectEquals($noinline$ExpectedLongIndVarDivByN(i, 100), $noinline$LongIndVarDivBy100(i));
+    }
   }
 
   // Test cases for Int64 HDiv/HRem to check that optimizations implemented for Int32 are not
@@ -375,5 +669,71 @@ public class DivTest {
   private static long $noinline$LongDivByMinus100(long v) {
     long r = v / -100L;
     return r;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long DivTest.$noinline$LongIndVarDivBy6(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NOT:             add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
+  private static long $noinline$LongIndVarDivBy6(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / 6;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long DivTest.$noinline$LongIndVarDivBy7(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            lsr x{{\d+}}, x{{\d+}}, #1
+  /// CHECK-NOT:             add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
+  private static long $noinline$LongIndVarDivBy7(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / 7;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long DivTest.$noinline$LongIndVarDivBy18(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NOT:             add x{{\d+}}, x{{\d+}}, x{{\d+}}, lsr #63
+  private static long $noinline$LongIndVarDivBy18(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / 18;
+    }
+    return c;
+  }
+
+  // A test case to check that a correcting 'add' is not generated for a non-negative
+  // dividend and a positive divisor.
+  //
+  /// CHECK-START-ARM64: long DivTest.$noinline$LongIndVarDivBy100(long) disassembly (after)
+  /// CHECK:                 smulh x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            add   x{{\d+}}, x{{\d+}}, x{{\d+}}
+  /// CHECK-NEXT:            lsr   x{{\d+}}, x{{\d+}}, #6
+  private static long $noinline$LongIndVarDivBy100(long v) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / 100;
+    }
+    return c;
+  }
+
+  private static long $noinline$ExpectedLongIndVarDivByN(long v, int n) {
+    long c = 0;
+    for (long i = 0; i < v; ++i) {
+      c += i / n;
+    }
+    return c;
   }
 }
