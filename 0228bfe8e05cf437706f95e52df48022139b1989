@@ -141,6 +141,30 @@
       "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d415d22_21a92e75",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-19T19:01:51Z",
+      "side": 1,
+      "message": "Sorry, I still don\u0027t get your point. I don\u0027t think these namespace settings should be here because ART isn\u0027t the source of their need to be visible:\n\n- com.android.i18n: Apps need to load libicuuc.so and libicui18n.so which are in public.libraries.txt. It\u0027s up to the i18n APEX to ensure that works.\n\n- com.android.conscrypt: As we discussed in a mail thread, this is just grandfathered in. It doesn\u0027t need a visibility flag at all.\n\n- com.android.neuralnetworks: Same as i18n.\n\n- com.android.os.statsd isn\u0027t in here, so that\u0027s good. I guess it needs to be visible, but in that case there\u0027s Java in the statsd APEX that loads a JNI lib in the same APEX, so it\u0027s that APEX that needs to make it visible for the load to work.\n\nAre you arguing that ART is actually the root cause for any of these visibility needs? Or it isn\u0027t but it\u0027s ART\u0027s responsibility to make them visible anyway?",
+      "parentUuid": "ff64b3c7_ed1d9dc5",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
