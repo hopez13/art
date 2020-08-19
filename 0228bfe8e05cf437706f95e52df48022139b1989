@@ -117,6 +117,30 @@
       "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff64b3c7_ed1d9dc5",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-08-19T00:28:53Z",
+      "side": 1,
+      "message": "I\u0027m trying to think in generic. In case of library, we specify which libraries should be linked from using side not from being used side. In case of ART, I agree that the list should not be static within codebase, but list of modules would better be generated from linkerconfig or any other ART binaries during init. I\u0027m not sure if we should specify which APEX modules can link to self just because of ART sample because most of other APEX modules would still export namespace with fixed string in the code.",
+      "parentUuid": "764c92b9_8a504c6b",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
