@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f9343015_6571482a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-20T15:38:46Z",
+      "side": 1,
+      "message": "That\u0027s my plan. But I need to find out how to test that, so that the package name is the same but the different class loaders prevent the match. (Something with non-trivial --class-loader-context.)",
+      "parentUuid": "2306e369_abba38ae",
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75c3b227_0956d932",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -57,6 +75,30 @@
       "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b26d8fe_4b8db348",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-20T15:38:46Z",
+      "side": 1,
+      "message": "The `SamePackageCompare` is caching information about the compiling class. (Line 906 checks `referenced_class`, not `declaring_class`.)",
+      "parentUuid": "75c3b227_0956d932",
+      "range": {
+        "startLine": 899,
+        "startChar": 69,
+        "endLine": 899,
+        "endChar": 98
+      },
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

@@ -22,6 +22,30 @@
       "revId": "50fe6dc170402600936d72a5fd729b5ebda0294b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "223614c8_a47c00b9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-20T15:38:46Z",
+      "side": 0,
+      "message": "That\u0027s what I initially tried to do but that breaks test 608, so I went a bit further.",
+      "parentUuid": "7862a464_78e512a6",
+      "range": {
+        "startLine": 862,
+        "startChar": 36,
+        "endLine": 862,
+        "endChar": 37
+      },
+      "revId": "50fe6dc170402600936d72a5fd729b5ebda0294b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
