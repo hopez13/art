@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fdda9b27_46cda141",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-08-20T21:33:49Z",
+      "side": 1,
+      "message": "The idea of using InstructionSimplifierArm/Arm64 won\u0027t work.",
+      "parentUuid": "317f9f37_4cd2d745",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 3
+      },
+      "revId": "2d29e87ae1ead77247ecf402fcbc8898e62118ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bfc25785_4cb4fcdf",
         "filename": "compiler/optimizing/code_generator_utils.cc",
         "patchSetId": 2
