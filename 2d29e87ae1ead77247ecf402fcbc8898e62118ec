@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39758253_0bdf5d7d",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:06:08Z",
+      "side": 1,
+      "message": "Seems very ad-hoc. Can\u0027t you use induction variable analysis for this information?",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 3
+      },
+      "revId": "2d29e87ae1ead77247ecf402fcbc8898e62118ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfc25785_4cb4fcdf",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:06:08Z",
+      "side": 1,
+      "message": "Please add comments around this.",
+      "range": {
+        "startLine": 159,
+        "startChar": 9,
+        "endLine": 159,
+        "endChar": 94
+      },
+      "revId": "2d29e87ae1ead77247ecf402fcbc8898e62118ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
