@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfdd09f3_49beafbe",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-20T11:40:01Z",
+      "side": 1,
+      "message": "FIXME: Based on `Class::IsInSamePackage(ObjPtr\u003cClass\u003e)`, the class loader must match too. We need to check if the `dex_file` belongs to the `klass-\u003eGetClassLoader()`.",
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
