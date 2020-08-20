@@ -237,6 +237,30 @@
       "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48c73700_5dd86222",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-20T13:27:41Z",
+      "side": 1,
+      "message": "If this is temporary until the platform case is addressed then I\u0027m fine with it, but I\u0027d like to understand the intended end state:\n\nI believe we are discussing two different approaches:\n\n1. Control visibility per linker config, i.e. namespaces can have different visibilities for different binaries. The visibilities are configured centrally by the owner of the linker config for now. Later there will be a binary (possibly in ART) that linkerconfig will query to know which namespaces are to be visible. This is how I understand your suggestion, correct?\n\n2. Control visibility with each namespace, so the owner of the namespace decides whether it\u0027s visible, and that\u0027s then propagated into all linker configs that include the namespace. This would fit the four cases I listed earlier at least, where it is the namespace owner that\u0027s either themselves the namespace visibility user, or has the most knowledge of the users.\n\nNow, for #1, how would the binary come up with the visible namespaces for libnativeloader? It\u0027d need to know that there is a JNI lib in each namespace, and it\u0027d have to query each APEX for that info. I.e. instead of exporting a flag saying \"my namespace is visible\", each APEX has to export a flag saying \"I\u0027ve got a JNI lib in my namespace\". For the use cases listed above, those flags would end up in the same APEXes as the visibility flags in option #2.\n\nThe drawbacks with that binary is that it\u0027s an extra step that adds complexity, and it only works for visibility that is due to JNI lib access (i.e. if someone else wants to use android_get_exported_namespace for their own reasons they\u0027d have to set up their own binary and query method). The benefit is that linker configs that won\u0027t use libnativeloader (i.e. probably all APEXes except ART) don\u0027t get unnecessary visibility flags.\n\nI wonder if the benefit outweighs the cost of the extra complexity. Which linker configs are we talking about that wouldn\u0027t get the superfluous visibility flags, and what failure modes in them do we avoid?\n\n[I\u0027m happy to chat, feel free to schedule a GVC if you like.]",
+      "parentUuid": "cab4fa19_d18846cc",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
