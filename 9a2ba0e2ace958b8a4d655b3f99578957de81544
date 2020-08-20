@@ -22,6 +22,30 @@
       "revId": "9a2ba0e2ace958b8a4d655b3f99578957de81544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e71cb9_4cc0017e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-20T14:28:21Z",
+      "side": 1,
+      "message": "Yes, it was an oversight. The downside was a crash if we ever resolved any MethodType or CallSite during image compilation. We never did that before but we may do that now with VarHandle intrinsics.\n\n(Note that before my rewrite for GC-independent image layout, we would not have crashed but would have kept an unnecessary object and may have had non-deterministic image if we were resolving MethodTypes.)",
+      "parentUuid": "65c584b7_aebe15a8",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "9a2ba0e2ace958b8a4d655b3f99578957de81544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
