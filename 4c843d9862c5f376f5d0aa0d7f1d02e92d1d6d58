@@ -16,6 +16,70 @@
       "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2306e369_abba38ae",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:01:35Z",
+      "side": 1,
+      "message": "That\u0027s right. Are you working on this with a new PS?",
+      "parentUuid": "cfdd09f3_49beafbe",
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75c3b227_0956d932",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:01:35Z",
+      "side": 1,
+      "message": "nit: cache this information (also used line 906).",
+      "range": {
+        "startLine": 899,
+        "startChar": 69,
+        "endLine": 899,
+        "endChar": 98
+      },
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbfeeda0_9283944a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:01:35Z",
+      "side": 1,
+      "message": "Add a comment why the check line 899 is not enough to just return null.",
+      "range": {
+        "startLine": 901,
+        "startChar": 28,
+        "endLine": 901,
+        "endChar": 44
+      },
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

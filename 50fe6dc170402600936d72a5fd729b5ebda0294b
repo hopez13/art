@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7862a464_78e512a6",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-20T14:01:35Z",
+      "side": 0,
+      "message": "Why not doing like the field case you\u0027ve implemented here:\nhttps://android-review.googlesource.com/c/platform/art/+/1394009/5/compiler/optimizing/instruction_builder.cc\n\nAnd check that resolved_method-\u003eGetDeclaringClass()-\u003eIsPublic ?",
+      "range": {
+        "startLine": 862,
+        "startChar": 36,
+        "endLine": 862,
+        "endChar": 37
+      },
+      "revId": "50fe6dc170402600936d72a5fd729b5ebda0294b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
