@@ -189,6 +189,30 @@
       "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd63cbd_1ccf77dc",
+        "filename": "build/apex/linker.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-08-20T01:23:38Z",
+      "side": 1,
+      "message": "You mean these visibilities only apply to the linker config used by ART binaries? Then it needs to be duplicated in the platform linker config. Also, if some new APEX comes along that like statsd needs to load its own JNI from its own java code, both platform and ART linker configs would have to add it, don\u0027t they?",
+      "parentUuid": "c0f2dc41_57fb7982",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0228bfe8e05cf437706f95e52df48022139b1989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
