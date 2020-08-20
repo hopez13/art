@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9885ab7b_daaf19ba",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-20T21:19:02Z",
+      "side": 1,
+      "message": "That way another problem will arise. One application thread may push notification which is lower than another application thread. I\u0027ve uploaded another patch which fixes the race PTAL.",
+      "parentUuid": "15670f46_9e70bd34",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 62
+      },
+      "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c57c3c54_06967661",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
