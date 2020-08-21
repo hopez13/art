@@ -892,7 +892,7 @@ class Thread {
   // Is the given obj in this thread's stack indirect reference table?
   bool HandleScopeContains(jobject obj) const;
 
-  void HandleScopeVisitRoots(RootVisitor* visitor, pid_t thread_id)
+  void HandleScopeVisitRoots(RootVisitor* visitor, uint32_t thread_id)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   BaseHandleScope* GetTopHandleScope() {
@@ -1567,7 +1567,7 @@ class Thread {
     uint32_t thin_lock_thread_id;
 
     // System thread id.
-    uint32_t tid;
+    int32_t tid;
 
     // Is the thread a daemon?
     const bool32_t daemon;
