@@ -69,6 +69,30 @@
       "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0df5bdf_0cdee45e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-21T14:11:02Z",
+      "side": 1,
+      "message": "I didn\u0027t handle interfaces in this commit. We agreed to let the interfaces for later because they are not widely used and they seem a bit harder to implement.",
+      "parentUuid": "55426601_c847d90c",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
