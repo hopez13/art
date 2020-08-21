@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2578e92d_1cf75887",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T15:22:59Z",
+      "side": 1,
+      "message": "Done (turns out that src-ex is compiled with the right --class-loader-context but --secondary would just put both dex files into the same class loader, so we need to construct the class loader manually)",
+      "parentUuid": "f9343015_6571482a",
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75c3b227_0956d932",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -122,6 +140,30 @@
       "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "379851bd_b6ec37b6",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T15:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbfeeda0_9283944a",
+      "range": {
+        "startLine": 901,
+        "startChar": 28,
+        "endLine": 901,
+        "endChar": 44
+      },
+      "revId": "4c843d9862c5f376f5d0aa0d7f1d02e92d1d6d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
