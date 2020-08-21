@@ -16,6 +16,24 @@
       "revId": "3934fe85db2816d2dc811ea17df03a62c8d993d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ca50bc7_f9871c57",
+        "filename": "test/530-checker-lse-simd/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T16:39:02Z",
+      "side": 0,
+      "message": "Yes, I expect to see a few failures on bots. (I did see the failure locally.)",
+      "parentUuid": "3b28f181_2566809c",
+      "revId": "3934fe85db2816d2dc811ea17df03a62c8d993d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
