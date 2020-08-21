@@ -63,6 +63,30 @@
       "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a37cd23_3fc0b32d",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-08-21T15:59:00Z",
+      "side": 1,
+      "message": "This has been addressed by accepting new change to VIXL upstream repo - reverting the commit responsible for this perf regression \"f84b4643 Revert optimisation for add/sub immediates\".",
+      "parentUuid": "54693811_516b090b",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 0
+      },
+      "revId": "eee486e631566be662520b6ad8d2af4abff78eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
