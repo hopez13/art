@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05a2f98b_6f6d09fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "Mostly comment typos, and some nits.",
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f006e29_5e360ad1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "Could you bullet-point the phases in this paragraph? I think this will help readability.",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "917125e5_8de052ec",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "phase 2",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ffccd5_0a75cce6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "algorithm",
+      "range": {
+        "startLine": 124,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 11
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d951a7e0_dedc6186",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "and",
+      "range": {
+        "startLine": 173,
+        "startChar": 44,
+        "endLine": 173,
+        "endChar": 46
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1069115_822f2f22",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "processing",
+      "range": {
+        "startLine": 187,
+        "startChar": 64,
+        "endLine": 187,
+        "endChar": 73
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9b30a38_429a30fd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "nit: for better reproducibility, using maps on instruction ids instead of pointers may be better.",
+      "range": {
+        "startLine": 947,
+        "startChar": 21,
+        "endLine": 947,
+        "endChar": 34
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fa8a2af_11061416",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "What\u0027s stored_by referencing to here?",
+      "range": {
+        "startLine": 1074,
+        "startChar": 34,
+        "endLine": 1074,
+        "endChar": 43
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a64b217a_5e1354c6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "creating",
+      "range": {
+        "startLine": 1683,
+        "startChar": 17,
+        "endLine": 1683,
+        "endChar": 24
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd5b1c29_ffbb9431",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "need",
+      "range": {
+        "startLine": 1738,
+        "startChar": 71,
+        "endLine": 1738,
+        "endChar": 77
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "425fae5b_6cc11191",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:41:40Z",
+      "side": 1,
+      "message": "nit: inverse to avoid negative check.",
+      "range": {
+        "startLine": 1957,
+        "startChar": 10,
+        "endLine": 1957,
+        "endChar": 19
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
