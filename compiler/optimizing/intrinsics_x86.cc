@@ -3080,18 +3080,15 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
     return;
   }
 
-  if (type == DataType::Type::kReference) {
-    // Reference return type is not implemented yet
-    // TODO: implement for kReference
-    return;
-  }
-
   if (invoke->GetNumberOfArguments() == 1u) {
     // Static field get
     ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
     LocationSummary* locations = new (allocator) LocationSummary(
         invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
     locations->SetInAt(0, Location::RequiresRegister());
+    // The second input is not an instruction argument. It is the callsite return type
+    // used to check the compatibility with VarHandle type.
+    locations->SetInAt(1, Location::RequiresRegister());
     locations->AddTemp(Location::RequiresRegister());
 
     switch (DataType::Kind(type)) {
@@ -3099,6 +3096,7 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
         locations->AddTemp(Location::RequiresRegister());
         FALLTHROUGH_INTENDED;
       case DataType::Type::kInt32:
+      case DataType::Type::kReference:
         locations->SetOut(Location::RequiresRegister());
         break;
       default:
@@ -3126,13 +3124,14 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
   const uint32_t access_mode_bit = 1u << static_cast<uint32_t>(access_mode);
   const uint32_t var_type_offset = mirror::VarHandle::VarTypeOffset().Uint32Value();
   const uint32_t coordtype0_offset = mirror::VarHandle::CoordinateType0Offset().Uint32Value();
-  const uint32_t primitive_type_offset = mirror::Class::PrimitiveTypeOffset().Uint32Value();
+  const uint32_t super_class_offset = mirror::Class::SuperClassOffset().Uint32Value();
   DataType::Type type = invoke->GetType();
-  // For now, only primitive types are supported
   DCHECK_NE(type, DataType::Type::kVoid);
-  DCHECK_NE(type, DataType::Type::kReference);
-  uint32_t primitive_type = static_cast<uint32_t>(DataTypeToPrimitive(type));
   Register temp = locations->GetTemp(0).AsRegister<Register>();
+  Register callsite_ret_type = locations->InAt(1).AsRegister<Register>();
+  InstructionCodeGeneratorX86* instr_codegen =
+      down_cast<InstructionCodeGeneratorX86*>(codegen_->GetInstructionVisitor());
+  NearLabel check_ret_type_compatibility, ret_type_matched;
 
   // If the access mode is not supported, bail to runtime implementation to handle
   __ testl(Address(varhandle_object, access_modes_bitmask_offset), Immediate(access_mode_bit));
@@ -3140,17 +3139,32 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
   codegen_->AddSlowPath(slow_path);
   __ j(kZero, slow_path->GetEntryLabel());
 
-  // Check the varType.primitiveType against the type we're trying to retrieve. We do not need a
-  // read barrier when loading a reference only for loading constant field through the reference.
-  __ movl(temp, Address(varhandle_object, var_type_offset));
-  __ MaybeUnpoisonHeapReference(temp);
-  __ cmpw(Address(temp, primitive_type_offset), Immediate(primitive_type));
-  __ j(kNotEqual, slow_path->GetEntryLabel());
-
   // Check that the varhandle references a static field by checking that coordinateType0 == null.
   // Do not emit read barrier (or unpoison the reference) for comparing to null.
   __ cmpl(Address(varhandle_object, coordtype0_offset), Immediate(0));
   __ j(kNotEqual, slow_path->GetEntryLabel());
+
+  // Check the varType against the type we're trying to retrieve. If it's not an exact match,
+  // Check if it is an inherited type.
+  instr_codegen->GenerateGcRootFieldLoad(invoke,
+                                         Location::RegisterLocation(temp),
+                                         Address(varhandle_object, var_type_offset),
+                                         /* fixup_label= */ nullptr,
+                                         kCompilerReadBarrierOption);
+  __ Bind(&check_ret_type_compatibility);
+  __ cmpl(temp, callsite_ret_type);
+  __ j(kEqual, &ret_type_matched);
+  // Load the super class.
+  instr_codegen->GenerateGcRootFieldLoad(invoke,
+                                         Location::RegisterLocation(temp),
+                                         Address(temp, super_class_offset),
+                                         /* fixup_label= */ nullptr,
+                                         kCompilerReadBarrierOption);
+  // If the super class is null, we reached the root of the hierarchy. The types are not compatible
+  __ cmpl(temp, Immediate(0));
+  __ j(kEqual, slow_path->GetEntryLabel());
+  __ jmp(&check_ret_type_compatibility);
+  __ Bind(&ret_type_matched);
 
   Location out = locations->Out();
   // Use 'out' as a temporary register if it's a core register
@@ -3163,8 +3177,6 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
   // Load the ArtField, the offset and declaring class
   __ movl(temp, Address(varhandle_object, artfield_offset));
   __ movl(offset, Address(temp, offset_offset));
-  InstructionCodeGeneratorX86* instr_codegen =
-      down_cast<InstructionCodeGeneratorX86*>(codegen_->GetInstructionVisitor());
   instr_codegen->GenerateGcRootFieldLoad(invoke,
                                          Location::RegisterLocation(temp),
                                          Address(temp, declaring_class_offset),
@@ -3173,7 +3185,15 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
 
   // Load the value from the field
   CodeGeneratorX86* codegen_x86 = down_cast<CodeGeneratorX86*>(codegen_);
-  codegen_x86->MoveFromMemory(type, out, temp, offset);
+  if (type == DataType::Type::kReference) {
+    instr_codegen->GenerateGcRootFieldLoad(invoke,
+                                           out,
+                                           Address(temp, offset, TIMES_1, 0),
+                                           /* fixup_label= */ nullptr,
+                                           kCompilerReadBarrierOption);
+  } else {
+    codegen_x86->MoveFromMemory(type, out, temp, offset);
+  }
 
   __ Bind(slow_path->GetExitLabel());
 }

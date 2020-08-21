@@ -1089,6 +1089,7 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
   DCHECK_EQ(1 + ArtMethod::NumArgRegisters(shorty), operands.GetNumberOfOperands());
   DataType::Type return_type = DataType::FromShorty(shorty[0]);
   size_t number_of_arguments = strlen(shorty);
+  size_t number_of_other_arguments = 0u;
   // We use ResolveMethod which is also used in BuildInvoke in order to
   // not duplicate code. As such, we need to provide is_string_constructor
   // even if we don't need it afterwards.
@@ -1100,12 +1101,33 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
                                             &invoke_type,
                                             /* target_method= */ nullptr,
                                             &is_string_constructor);
+
+  if (resolved_method->IsIntrinsic()) {
+    // For now, the only possible polymorphic intrinsics are VarHandles and MethodHandles.
+    // Only VarHandle.get() is implemented. The extra argument here is the loaded callsite return
+    // type, which needs to be checked against the runtime VarHandle type.
+    number_of_other_arguments++;
+  }
+
   HInvoke* invoke = new (allocator_) HInvokePolymorphic(allocator_,
                                                         number_of_arguments,
+                                                        number_of_other_arguments,
                                                         return_type,
                                                         dex_pc,
                                                         method_idx,
                                                         resolved_method);
+
+  if (invoke->IsIntrinsic()) {
+    ScopedObjectAccess soa(Thread::Current());
+    ArtMethod* referrer = graph_->GetArtMethod();
+    dex::TypeIndex ret_type_index = referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;
+    HLoadClass* load_cls = BuildLoadClass(ret_type_index, dex_pc);
+    size_t last_index = invoke->InputCount() - 1;
+
+    DCHECK(invoke->InputAt(last_index) == nullptr);
+    invoke->SetArgumentAt(last_index, load_cls);
+  }
+
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
 
