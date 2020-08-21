@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b593264d_a9c6270f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:17:13Z",
+      "side": 1,
+      "message": "I see - I suggest you keep the primitive check in the codegen (and you can decide statically whether it\u0027s a primitive check or a reference check you need to do, right?).",
+      "parentUuid": "c243e69a_fd6cf5f9",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1109,
+        "endChar": 32
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55426601_c847d90c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I didn\u0027t handle interfaces in this commit. We agreed to let the interfaces for later because they are not widely used and they seem a bit harder to implement.",
       "parentUuid": "55426601_c847d90c",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d63b73_dafd5a22",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-21T14:17:13Z",
+      "side": 1,
+      "message": "How do you make sure this code doesn\u0027t get return types that are interfaces?",
+      "parentUuid": "b0df5bdf_0cdee45e",
       "range": {
         "startLine": 3147,
         "startChar": 66,
