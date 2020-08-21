@@ -246,6 +246,29 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f3f4be2_fd2f8583",
+        "filename": "test/530-checker-lse-simd/src/Main.java",
+        "patchSetId": 30
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-08-21T15:53:45Z",
+      "side": 1,
+      "message": "Isn\u0027t it eliminated now?",
+      "range": {
+        "startLine": 234,
+        "startChar": 25,
+        "endLine": 234,
+        "endChar": 33
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
