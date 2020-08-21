@@ -73,6 +73,52 @@
     },
     {
       "key": {
+        "uuid": "9f087a12_6ef4d1e9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T14:51:03Z",
+      "side": 1,
+      "message": "Check for the specific implemented intrinsic and for the right return type. (We do not want to emit an unnecessary LoadClass.)",
+      "range": {
+        "startLine": 1120,
+        "startChar": 6,
+        "endLine": 1120,
+        "endChar": 27
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b418b89_2fbf96fa",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T14:51:03Z",
+      "side": 1,
+      "message": "I would recommend SetRawInputAt() as this is a special input instead of an argument; it\u0027s beyond the GetNumberOfArguments().",
+      "range": {
+        "startLine": 1128,
+        "startChar": 12,
+        "endLine": 1128,
+        "endChar": 25
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55426601_c847d90c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -137,6 +183,69 @@
         "startChar": 66,
         "endLine": 3148,
         "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6caa35f9_4196c878",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T14:51:03Z",
+      "side": 1,
+      "message": "You should have a look at the code generated for HCheckCast where we deliberately avoid the read barrier, letting the slow-path handle false negatives.\n\nOr you could check the invoke-\u003eInputAt(1)-\u003eAsLoadClass()-\u003eIsInBootImage() as boot image objects are not moveable, so it does not matter whether we compare a boot image reference to a from-space or a to-space reference.",
+      "range": {
+        "startLine": 3153,
+        "startChar": 41,
+        "endLine": 3153,
+        "endChar": 67
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c547b668_bba4e3eb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T14:51:03Z",
+      "side": 1,
+      "message": "Even if we keep the class comparison for primitive fields (Nicolas argued against that in InstructionBuilder), we should not walk the super-class chain for them.",
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e741716_542bb570",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-21T14:51:03Z",
+      "side": 1,
+      "message": "Use `number_of_other_inputs` just like HInvoke to differentiate between arguments and non-argument inputs.",
+      "range": {
+        "startLine": 4517,
+        "startChar": 30,
+        "endLine": 4517,
+        "endChar": 55
       },
       "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
