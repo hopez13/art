@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ccad8853_3688510d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b593264d_a9c6270f",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1109,
+        "endChar": 32
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f087a12_6ef4d1e9",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "199b7549_7bfaaac4",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f087a12_6ef4d1e9",
+      "range": {
+        "startLine": 1120,
+        "startChar": 6,
+        "endLine": 1120,
+        "endChar": 27
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b418b89_2fbf96fa",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -116,6 +164,30 @@
       "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d2e23c_780a34f6",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b418b89_2fbf96fa",
+      "range": {
+        "startLine": 1128,
+        "startChar": 12,
+        "endLine": 1128,
+        "endChar": 25
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "7a94d818_5cbc0588",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "If the callsite return type is an interface, none of the classes from the hierarchy chain of the vartype will match. Therefore, the runtime will handle it. If the vartype is an interface, I think the super class of an interface class object will be null. I could not find any documentation to confirm this, but I wrote a small test to check it.",
+      "parentUuid": "58d63b73_dafd5a22",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6caa35f9_4196c878",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -213,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "901df173_08df995c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3153,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6caa35f9_4196c878",
+      "range": {
+        "startLine": 3153,
+        "startChar": 41,
+        "endLine": 3153,
+        "endChar": 67
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c547b668_bba4e3eb",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -227,6 +347,24 @@
       "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeb03890_945ab050",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3167,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c547b668_bba4e3eb",
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -250,6 +388,30 @@
       "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf94b4bb_7730ac12",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T09:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e741716_542bb570",
+      "range": {
+        "startLine": 4517,
+        "startChar": 30,
+        "endLine": 4517,
+        "endChar": 55
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
