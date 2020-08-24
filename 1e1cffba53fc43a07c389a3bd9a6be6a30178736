@@ -430,6 +430,30 @@
     },
     {
       "key": {
+        "uuid": "051a1a77_1823e725",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-24T16:12:19Z",
+      "side": 1,
+      "message": "Oh, so we\u0027ll do all the superchain check below, fail that, and then retry in the runtime? SGTM.",
+      "parentUuid": "1447e8d1_54023cbc",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6caa35f9_4196c878",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
