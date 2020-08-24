@@ -382,6 +382,30 @@
     },
     {
       "key": {
+        "uuid": "d6cdef64_c562b036",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-24T13:50:27Z",
+      "side": 1,
+      "message": "When you say \"therefore the runtime will handle it\": how do you make sure it\u0027s the runtime doing the polymorphic call (and checks), and you\u0027re not ending in the compiled code below?",
+      "parentUuid": "6611be28_66299717",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6caa35f9_4196c878",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
