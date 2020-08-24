@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "8db01b6c_f3e58d6f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-24T12:02:38Z",
+      "side": 1,
+      "message": "Also `number_of_arguments \u003d\u003d 0u` for the time being. (Update when implementing for instance fields.)",
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2923ec74_f311aad8",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 2
@@ -41,6 +58,29 @@
         "startChar": 0,
         "endLine": 1113,
         "endChar": 0
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff96c8cb_49fa7dcd",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-24T12:02:38Z",
+      "side": 1,
+      "message": "For primitive fields, the old comment about not needing the read barrier applies while for references the new comment applies. (Maybe the code should be duplicated in both branches to allow for different comments.)",
+      "range": {
+        "startLine": 3146,
+        "startChar": 2,
+        "endLine": 3148,
+        "endChar": 38
       },
       "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
