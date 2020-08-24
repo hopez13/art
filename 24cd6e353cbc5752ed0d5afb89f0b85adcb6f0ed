@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7347b23_d4180af7",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-24T11:43:47Z",
+      "side": 1,
+      "message": "Can you add a comment to say the other inputs are to propagate type information for the reference types in the MethodType of the call site?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 2,
+        "endLine": 1092,
+        "endChar": 37
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2923ec74_f311aad8",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-24T11:43:47Z",
+      "side": 1,
+      "message": "Is there any advantage to special casing this? Why not iterate over the shorty and count the number of reference types, then add them below?",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1113,
+        "endChar": 0
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
