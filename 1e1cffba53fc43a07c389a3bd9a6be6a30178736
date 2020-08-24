@@ -406,6 +406,30 @@
     },
     {
       "key": {
+        "uuid": "1447e8d1_54023cbc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-24T16:08:44Z",
+      "side": 1,
+      "message": "The check here is in compiled code as we don\u0027t know the innards of the VarHandle at compile time (e.g. we need to dynamically check its var-type).\n\nThis is further down below \"// check if it an inherited type\": the block fails over to the slow path that calls the runtime if the return type present in the VarHandle is not compatible with the return type as encoded in the dex file (MethodType).\n\nAre you expecting something else?",
+      "parentUuid": "d6cdef64_c562b036",
+      "range": {
+        "startLine": 3147,
+        "startChar": 66,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "1e1cffba53fc43a07c389a3bd9a6be6a30178736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6caa35f9_4196c878",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
