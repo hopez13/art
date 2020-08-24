@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec071b13_760dcb9f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T13:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7347b23_d4180af7",
+      "range": {
+        "startLine": 1092,
+        "startChar": 2,
+        "endLine": 1092,
+        "endChar": 37
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8db01b6c_f3e58d6f",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8848c691_6dadf3cb",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T13:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db01b6c_f3e58d6f",
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c23427df_cf42a51b",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T13:28:49Z",
+      "side": 1,
+      "message": "Right now, only VarHandle.get() is implemented and only for static field. Therefore, only the return type is checked, in case of a reference. We avoid adding a not needed ClassLoad.",
+      "parentUuid": "2923ec74_f311aad8",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1113,
+        "endChar": 0
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff96c8cb_49fa7dcd",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bef863a_2c9911cb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3148,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-24T13:28:49Z",
+      "side": 1,
+      "message": "I think that maybe it is better to just add both explanations here. Duplicating the code might be confusing.",
+      "parentUuid": "ff96c8cb_49fa7dcd",
+      "range": {
+        "startLine": 3146,
+        "startChar": 2,
+        "endLine": 3148,
+        "endChar": 38
+      },
+      "revId": "24cd6e353cbc5752ed0d5afb89f0b85adcb6f0ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
