@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "bf2dc58e_59e31870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "Comments marked as done are addressed by https://android-review.googlesource.com/1410130 .",
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f006e29_5e360ad1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -59,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "153ac879_ab276d0d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f006e29_5e360ad1",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "917125e5_8de052ec",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -79,6 +120,30 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c786df96_2184b483",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "917125e5_8de052ec",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "8941738c_7c92d52c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "But replacing a HashMap\u003c\u003e with a SafeMap\u003c\u003e also changes the time complexity for the worse.\n\nNote that we\u0027re currently not iterating directly over this map, see ProcessLoadsRequiringLoopPhis().",
+      "parentUuid": "d9b30a38_429a30fd",
+      "range": {
+        "startLine": 947,
+        "startChar": 21,
+        "endLine": 947,
+        "endChar": 34
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fa8a2af_11061416",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -266,6 +355,30 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9269ef6_7124b0eb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "The comment on ValueRecord explains this:\n\n  // The record of a heap value and instruction(s) that feed that value.\n  struct ValueRecord {\n    Value value;\n    Value stored_by;\n  };",
+      "parentUuid": "6fa8a2af_11061416",
+      "range": {
+        "startLine": 1074,
+        "startChar": 34,
+        "endLine": 1074,
+        "endChar": 43
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -383,6 +496,30 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a916ae1_a4eb358e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T15:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fae5b_6cc11191",
+      "range": {
+        "startLine": 1957,
+        "startChar": 10,
+        "endLine": 1957,
+        "endChar": 19
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
