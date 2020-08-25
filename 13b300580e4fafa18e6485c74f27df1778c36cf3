@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b72dc41_07cfd780",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-25T16:59:50Z",
+      "side": 1,
+      "message": "Looking at InstructionCodeGeneratorX86::HandleFieldGet case for references, this is a bit more complicated. We do not have a nice helper function, so we need to faithfully replicate the intent from HandleFieldGet, including a call to CodeGeneratorX86::MaybeGenerateReadBarrierSlow() in the `else` branch.",
+      "revId": "13b300580e4fafa18e6485c74f27df1778c36cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
