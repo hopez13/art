@@ -561,6 +561,14 @@ art_cc_library {
             },
         },
     },
+    arch: {
+        arm64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+        x86_64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+    },
     apex_available: [
         "com.android.art",
         "com.android.art.debug",

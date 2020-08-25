@@ -250,6 +250,14 @@ art_cc_library {
         "libprofile",
         "libdexfile",
     ],
+    arch: {
+        arm64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+        x86_64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+    },
     whole_static_libs: ["libelffile"],
     runtime_libs: [
         // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
