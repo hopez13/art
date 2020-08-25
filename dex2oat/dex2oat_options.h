@@ -67,10 +67,14 @@ struct Dex2oatArgumentMap : CompilerOptionsMap<Dex2oatArgumentMap, Dex2oatArgume
   template <typename TValue>
   using Key = Dex2oatArgumentMapKey<TValue>;
 
+  static CmdlineParser<Dex2oatArgumentMap, Dex2oatArgumentMap::Key> CreateArgumentParser();
+
   // List of key declarations, shorthand for 'static const Key<T> Name'
 #define DEX2OAT_OPTIONS_KEY(Type, Name, ...) static const Key<Type> (Name);
 #include "dex2oat_options.def"
 };
+
+CmdlineParser<Dex2oatArgumentMap, Dex2oatArgumentMap::Key> CreateDex2oatArgumentParser();
 
 extern template struct CompilerOptionsMap<Dex2oatArgumentMap, Dex2oatArgumentMapKey>;
 
