@@ -538,6 +538,7 @@ art_cc_library {
         "libart_defaults",
         "libart_nativeunwind_defaults",
         "art_pgo_defaults",
+        "linker_hugepage_aligned",
     ],
     whole_static_libs: [
     ],
