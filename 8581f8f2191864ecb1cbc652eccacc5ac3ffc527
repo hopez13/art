@@ -93,6 +93,30 @@
       "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5762a9d1_cb0d01ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-26T14:45:17Z",
+      "side": 1,
+      "message": "That arm64 code is sub-optimal, we should just store the low 16 bits of the result without the AND. Then we can TBNZ on bit #16 if the target is in range, otherwise TST+BNE.",
+      "parentUuid": "c87f5d1b_c92b53e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
