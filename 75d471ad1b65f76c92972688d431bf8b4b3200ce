@@ -33,6 +33,29 @@
       "revId": "75d471ad1b65f76c92972688d431bf8b4b3200ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efd8c854_22aba215",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-08-26T20:09:37Z",
+      "side": 1,
+      "message": "!\u003d nullptr?",
+      "range": {
+        "startLine": 209,
+        "startChar": 14,
+        "endLine": 209,
+        "endChar": 27
+      },
+      "revId": "75d471ad1b65f76c92972688d431bf8b4b3200ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
