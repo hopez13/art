@@ -207,6 +207,30 @@
     },
     {
       "key": {
+        "uuid": "b4446d00_b7af5de7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T16:57:05Z",
+      "side": 1,
+      "message": "Thanks a lot for expanding the comments and writing down all the complexity estimates. And sorry for such a late reply.",
+      "parentUuid": "54594872_cceaa486",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "9f35eb88ecedca1f27bb3af340cd0409bf4319be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3f7f78_249c44ef",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 20

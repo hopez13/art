@@ -147,6 +147,29 @@
     },
     {
       "key": {
+        "uuid": "aa8f0aa2_e7028d7f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T16:57:05Z",
+      "side": 1,
+      "message": "Warshall",
+      "range": {
+        "startLine": 123,
+        "startChar": 69,
+        "endLine": 123,
+        "endChar": 76
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67ffccd5_0a75cce6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -191,6 +214,52 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14d9e67b_d98dc623",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T16:57:05Z",
+      "side": 1,
+      "message": "Theta to be more precise (there is no fast path).",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 7
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e747ec84_a33c7e73",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T16:57:05Z",
+      "side": 1,
+      "message": "Warshall (maybe there is an alternative spelling with one l, I don\u0027t know).",
+      "range": {
+        "startLine": 162,
+        "startChar": 41,
+        "endLine": 162,
+        "endChar": 48
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
