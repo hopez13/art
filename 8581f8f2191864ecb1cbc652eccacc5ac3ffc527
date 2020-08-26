@@ -117,6 +117,30 @@
       "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d96f29d0_7a6a05d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-26T15:55:43Z",
+      "side": 1,
+      "message": "Yes, that works for 0xffff but I plan on reducing that threshold to be closer to the one we have on mterp.",
+      "parentUuid": "5762a9d1_cb0d01ef",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
