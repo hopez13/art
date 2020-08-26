@@ -45,6 +45,54 @@
       "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7eca247_1c4b0785",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-26T14:41:53Z",
+      "side": 1,
+      "message": "Because on x64 we were able to just do an overflow check (the addw would overflow to zero once the counter reaches 0xffff).",
+      "parentUuid": "c87f5d1b_c92b53e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c956f9c3_ae73a865",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-26T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5e3734e_db5e9386",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
