@@ -16,6 +16,24 @@
       "revId": "13b300580e4fafa18e6485c74f27df1778c36cf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53394d15_4c1ba82b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3199,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-08-26T08:36:13Z",
+      "side": 1,
+      "message": "As far as I understand from the comment in HandleFieldGet for kReference case (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/code_generator_x86.cc;l\u003d5533;drc\u003dmaster;bpv\u003d0;bpt\u003d1) CodeGeneratorX86::MaybeGenerateReadBarrierSlow is used to generate a barrier other than baker, if barriers are enabled. VarHandleGet is implemented right now to work only with baker read barrier (intrinsics_86.cc:3072). I could move the DCHECK from line 3117 here if you want.\n\nFor the volatile case field, I don\u0027t think that is necessary either. VarHandles provide a get and a getVolatile access mode. It seems from the VarHandle documentation that the access mode has priority over the field declaration: \"Access modes will override any memory ordering effects specified at the declaration site of a variable. For example, a VarHandle accessing a a field using the get access mode will access the field as specified by its access mode even if that field is declared volatile. \" (https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/VarHandle.html)\n\nI missed the fact that I need an unpoisoning there. Besides this, the code is similar.",
+      "parentUuid": "0b72dc41_07cfd780",
+      "revId": "13b300580e4fafa18e6485c74f27df1778c36cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
