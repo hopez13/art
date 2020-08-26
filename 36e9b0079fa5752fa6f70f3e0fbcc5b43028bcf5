@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "6b70e372_ab8b9df0",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Comment added in http://go/aog/1412112.",
+      "parentUuid": "0b50f080_8bb4bc91",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a556f_9ae8a7cc",
         "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36ebbd56_149a9fae",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Yes, thanks, done in http://go/aog/1412112.",
+      "parentUuid": "c88a556f_9ae8a7cc",
+      "range": {
+        "startLine": 671,
+        "startChar": 20,
+        "endLine": 671,
+        "endChar": 26
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "3c2a9466_f361f8ba",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "In the absence of a cast, the return value of the methodType at the call site is Object:\nhttps://docs.oracle.com/javase/9/docs/api/java/lang/invoke/VarHandle.html#getVolatile-java.lang.Object...-\n\nThere is only one matching assertEquals(Object expected, Object actual) overload.",
+      "parentUuid": "652f34ed_b1212373",
+      "range": {
+        "startLine": 1129,
+        "startChar": 40,
+        "endLine": 1129,
+        "endChar": 60
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0165fdd4_3b6597a6",
         "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
         "patchSetId": 1
@@ -108,6 +180,30 @@
       "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69535123_3d163ba1",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Yes, this is expected from the VarHandle documentation:\n\nhttps://docs.oracle.com/javase/9/docs/api/java/lang/invoke/VarHandle.html\n\nAlso in JLS9 S15.12.",
+      "parentUuid": "0165fdd4_3b6597a6",
+      "range": {
+        "startLine": 1130,
+        "startChar": 33,
+        "endLine": 1130,
+        "endChar": 37
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "a450cabd_94bf7da8",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "It doesn\u0027t change the outcome of the test here (with a reference varType), but does put execution on the slow path for the already slow interpreter implementation because the call site and method type for the VarHandle accessor are not \"obviously\" compatible.\n\nThere is a runtime check that type of the reference argument can be cast to the expected reference type (from the MethodType associated with the VarHandle accessor). The dynamic check happens in ConvertJValueCommon(). The slow path also does boxing and unboxing of primitive types and their managed equivalents, widening, etc. Basically same code as VarHandle conversions.\n\nWe can broaden the compiler, but it looks like a second pass optimization here, but happy either way if it can be done without too much additional complexity. The main potential use case is j.u.c., which probably only has an obviously assignable classes or Void.class for null arguments. Let\u0027s discuss tomorrow or on Friday.",
+      "parentUuid": "c8f0b023_a81db7c2",
+      "range": {
+        "startLine": 1131,
+        "startChar": 55,
+        "endLine": 1131,
+        "endChar": 82
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b110657_d6e57299",
         "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
         "patchSetId": 1
@@ -157,6 +277,30 @@
     },
     {
       "key": {
+        "uuid": "80937e0f_762962d7",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b110657_d6e57299",
+      "range": {
+        "startLine": 1268,
+        "startChar": 8,
+        "endLine": 1268,
+        "endChar": 34
+      },
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20299bff_353f4bd8",
         "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
         "patchSetId": 1
@@ -174,6 +318,24 @@
     },
     {
       "key": {
+        "uuid": "94db2e77_757b7b4a",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Thanks, re-ordered in http://go/aog/1412112.",
+      "parentUuid": "20299bff_353f4bd8",
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e934fc1_c68cd530",
         "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
         "patchSetId": 1
@@ -188,6 +350,24 @@
       "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e323620_690ad4b1",
+        "filename": "test/712-varhandle-invocations/src/VarHandleTypeConversionTests.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-26T17:52:02Z",
+      "side": 1,
+      "message": "Thanks, done in http://go/aog/1412112.",
+      "parentUuid": "2e934fc1_c68cd530",
+      "revId": "36e9b0079fa5752fa6f70f3e0fbcc5b43028bcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
