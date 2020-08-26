@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e3734e_db5e9386",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T14:37:09Z",
+      "side": 1,
+      "message": "Can you elaborate a bit, (and also mention the previous difference with arm64 if it is the case)?",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c87f5d1b_c92b53e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-08-26T14:37:09Z",
+      "side": 1,
+      "message": "From a brief glance at art/runtime/interpreter/mterp/arm64ng/main.S, for arm64 we used the `and` logic already. Why did we use different logic for arm64 and x86_64?",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "8581f8f2191864ecb1cbc652eccacc5ac3ffc527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
