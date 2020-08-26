@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac157260_e4a6bfe1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-08-26T19:45:23Z",
+      "side": 1,
+      "message": "One question that came up in doing this CL is what type we should use for thread ids?\n\nIn a lot of places, we were using pid_t (i.e. int), but then in others we were using uint32_t. I tried to standardize on uint32_t as much as possible, but maybe we\u0027d be better off with an art::ThreadId type?",
+      "revId": "98bf149685da4ee15c01f4d09cfcac9b28d1acda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
