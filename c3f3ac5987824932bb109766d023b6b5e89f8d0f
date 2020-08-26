@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32fb3716_37f3c94c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-26T14:41:02Z",
+      "side": 1,
+      "message": "We could initialize the hotness with `static_cast\u003cuint16_t\u003e(-threshold)` instead of 0 to make the old code trigger faster.",
+      "range": {
+        "startLine": 258,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 70
+      },
+      "revId": "c3f3ac5987824932bb109766d023b6b5e89f8d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
