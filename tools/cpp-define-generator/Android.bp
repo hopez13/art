@@ -31,10 +31,10 @@ cc_object {
     ],
     target: {
         android: {
-            header_libs: ["libc_headers"], // TODO(b/153662223): Clean this up.
+            header_libs: ["libc"],
         },
         linux_bionic: {
-            header_libs: ["libc_headers"], // TODO(b/153662223): Clean this up.
+            header_libs: ["libc"],
         },
     },
     // Produce text file rather than binary.
