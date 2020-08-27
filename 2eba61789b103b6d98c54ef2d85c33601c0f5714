@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004649261",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1358810?revision\u003d12",
+      "fixSuggestions": [
+        {
+          "fixId": "c4d24c9b_10f4c7f4",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 2320,
+                "startChar": 17,
+                "endLine": 2320,
+                "endChar": 25
+              },
+              "replacement": "initially"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "9f39aa3f_963e274a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2320,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-27T17:29:23Z",
+      "side": 1,
+      "message": "Common typo found: \"initally\" -- should it be \"initially\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2320,
+        "startChar": 17,
+        "endLine": 2320,
+        "endChar": 25
+      },
+      "revId": "2eba61789b103b6d98c54ef2d85c33601c0f5714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
