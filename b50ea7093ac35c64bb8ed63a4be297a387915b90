@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "2c62f075_f3d4873b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T18:36:33Z",
+      "side": 1,
+      "message": "yep.",
+      "parentUuid": "1c565261_41909f6f",
+      "range": {
+        "startLine": 1995,
+        "startChar": 13,
+        "endLine": 1995,
+        "endChar": 42
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad224444_e6424bd3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -101,6 +125,30 @@
       "side": 1,
       "message": "The intention is to send the actual file path on device. Is GetLocation the right thing to pass?",
       "parentUuid": "ad224444_e6424bd3",
+      "range": {
+        "startLine": 4182,
+        "startChar": 31,
+        "endLine": 4182,
+        "endChar": 53
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43a19fa0_1f056a76",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4182,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T18:36:33Z",
+      "side": 1,
+      "message": "GetLocation() is not the right thing then. In many cases there\u0027s still a divergences. (Also GetLocation will have the \":classes2.dex\" suffix).\n\nI\u0027m actually not aware of any api which will give the path reliably (we can reconstruct it, I think...). We might need to add a new field to keep track of that to make our life simpler.",
+      "parentUuid": "69e30f6f_933c22aa",
       "range": {
         "startLine": 4182,
         "startChar": 31,
