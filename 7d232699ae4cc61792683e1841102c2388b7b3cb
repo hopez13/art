@@ -16,6 +16,52 @@
       "revId": "7d232699ae4cc61792683e1841102c2388b7b3cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc86cd7_d39a2878",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6737,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-27T10:42:27Z",
+      "side": 1,
+      "message": "Unnecessary (see `using namespace vixl::aarch64` at the start of the file)",
+      "range": {
+        "startLine": 6737,
+        "startChar": 10,
+        "endLine": 6737,
+        "endChar": 25
+      },
+      "revId": "7d232699ae4cc61792683e1841102c2388b7b3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a4e9f6_6b6b2ec6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-27T10:42:27Z",
+      "side": 1,
+      "message": "Why not 0? It shall be overwritten below anyway.",
+      "range": {
+        "startLine": 2758,
+        "startChar": 19,
+        "endLine": 2758,
+        "endChar": 42
+      },
+      "revId": "7d232699ae4cc61792683e1841102c2388b7b3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
