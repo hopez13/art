@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "292f3ee3_1862e30a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T01:53:03Z",
+      "side": 1,
+      "message": "Does this app have to be debuggable?",
+      "revId": "a6b66080e570f08a98f79cae17246cc08cdfcf18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a7f062e_368ce143",
+        "filename": "tools/jvmti-agents/simple-profile/simple_profile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T01:53:03Z",
+      "side": 1,
+      "message": "K",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "a6b66080e570f08a98f79cae17246cc08cdfcf18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a839f8bb_b5e9c351",
+        "filename": "tools/jvmti-agents/simple-profile/simple_profile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T01:53:03Z",
+      "side": 1,
+      "message": "line break for better readbility.",
+      "range": {
+        "startLine": 200,
+        "startChar": 2,
+        "endLine": 200,
+        "endChar": 13
+      },
+      "revId": "a6b66080e570f08a98f79cae17246cc08cdfcf18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
