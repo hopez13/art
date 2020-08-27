@@ -16,6 +16,46 @@
       "revId": "98bf149685da4ee15c01f4d09cfcac9b28d1acda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd6fa5f7_90261ad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T01:39:49Z",
+      "side": 1,
+      "message": "Looks good to me, but adding a few other pair of eyes. Please give a chance for others to take a peek before submit.",
+      "revId": "98bf149685da4ee15c01f4d09cfcac9b28d1acda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb232f23_415c30fe",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T01:39:49Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 2742,
+        "startChar": 0,
+        "endLine": 2742,
+        "endChar": 114
+      },
+      "revId": "98bf149685da4ee15c01f4d09cfcac9b28d1acda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
