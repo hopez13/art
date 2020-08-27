@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "7c8e88b8_0909a9d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-08-27T18:22:56Z",
+      "side": 1,
+      "message": "ThreadId sounds fine to me.",
+      "parentUuid": "ac157260_e4a6bfe1",
+      "revId": "98bf149685da4ee15c01f4d09cfcac9b28d1acda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb232f23_415c30fe",
         "filename": "runtime/thread.cc",
         "patchSetId": 4
