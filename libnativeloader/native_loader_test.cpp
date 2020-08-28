@@ -100,7 +100,6 @@ static std::unordered_map<std::string, Platform::mock_namespace_handle> namespac
     {"sphal", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("sphal"))},
     {"vndk", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("vndk"))},
     {"vndk_product", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("vndk_product"))},
-    {"com_android_os_statsd", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("com_android_os_statsd"))},
 };
 
 // The actual gmock object
@@ -356,13 +355,11 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
   bool expected_link_with_vndk_ns = false;
   bool expected_link_with_vndk_product_ns = false;
   bool expected_link_with_default_ns = false;
-  bool expected_link_with_statsd_ns = true;
   std::string expected_shared_libs_to_platform_ns = default_public_libraries();
   std::string expected_shared_libs_to_sphal_ns = vendor_public_libraries();
   std::string expected_shared_libs_to_vndk_ns = vndksp_libraries_vendor();
   std::string expected_shared_libs_to_vndk_product_ns = vndksp_libraries_product();
   std::string expected_shared_libs_to_default_ns = default_public_libraries();
-  std::string expected_shared_libs_to_statsd_ns = statsd_public_libraries();
 
   void SetExpectations() {
     NativeLoaderTest::SetExpectations();
@@ -400,11 +397,6 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
     if (expected_link_with_default_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("default"),
                                               StrEq(expected_shared_libs_to_default_ns)))
-          .WillOnce(Return(true));
-    }
-    if (expected_link_with_statsd_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_os_statsd"),
-                                              StrEq(expected_shared_libs_to_statsd_ns)))
           .WillOnce(Return(true));
     }
   }
