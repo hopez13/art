@@ -46,6 +46,30 @@
       "revId": "1e96456bb6b9891dc1a88114cdafb800c09d2430",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cde2706_08af78fa",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-28T18:18:24Z",
+      "side": 1,
+      "message": "Yeah I wish we had something like rust\u0027s format! with type-checking or even abseil\u0027s formatting (https://abseil.io/docs/cpp/guides/format). va_start, etc are terrible and the fact that the C formatting is built on them is unfortunate.",
+      "parentUuid": "11f512e6_80c15aba",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "1e96456bb6b9891dc1a88114cdafb800c09d2430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
