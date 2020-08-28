@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "696325b9_1db87ebd",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "Do we need to check if `location-\u003eInputAt(1u)-\u003eGetType() \u003d\u003d DataType::Type::kReference`? (Would `vh.get(1)` pass the bytecode verification?)",
+      "range": {
+        "startLine": 3093,
+        "startChar": 4,
+        "endLine": 3093,
+        "endChar": 56
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "759ec34c_00763aed",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -13,6 +36,30 @@
       "writtenOn": "2020-08-28T13:21:33Z",
       "side": 1,
       "message": "Add a comment here why we need an extra register, and what will use it.",
+      "range": {
+        "startLine": 3092,
+        "startChar": 0,
+        "endLine": 3094,
+        "endChar": 3
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe1fdab_465e4786",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3094,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "This is not an \"extra\" register (it\u0027s not a temporary). This is just saying that the _input_ should come in register. Though we may add a comment that this is an instance field get and this input is the source object.",
+      "parentUuid": "759ec34c_00763aed",
       "range": {
         "startLine": 3092,
         "startChar": 0,
@@ -41,6 +88,98 @@
         "startChar": 0,
         "endLine": 3186,
         "endChar": 33
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf861956_eb87e9fb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "Remove. It is not possible to instantiate a \"primitive object\".",
+      "range": {
+        "startLine": 3190,
+        "startChar": 4,
+        "endLine": 3192,
+        "endChar": 48
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ffbd77d_206d9393",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "For heap poisoning, the field contains a poisoned reference. If you want to compare in memory, you need to delay the `MaybeUnpoisonHeapReference` until after this comparison. (Just before reading the superclass.)",
+      "range": {
+        "startLine": 3194,
+        "startChar": 18,
+        "endLine": 3194,
+        "endChar": 62
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fc8c497_b1a98f39",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "This is not necessary for the null check below and we need to jump back to `check_type_compatibility` with a poisoned reference in `temp` to do the in-memory comparison, see my comment on line 3194.",
+      "range": {
+        "startLine": 3198,
+        "startChar": 4,
+        "endLine": 3198,
+        "endChar": 40
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce59b0e7_0df84b88",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T13:37:23Z",
+      "side": 1,
+      "message": "Maybe `__ test(temp, temp)`?",
+      "range": {
+        "startLine": 3201,
+        "startChar": 4,
+        "endLine": 3201,
+        "endChar": 32
       },
       "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
