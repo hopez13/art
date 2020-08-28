@@ -72,6 +72,29 @@
     },
     {
       "key": {
+        "uuid": "1ee90589_658ba018",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-08-28T14:11:03Z",
+      "side": 1,
+      "message": "Determining that the VarHandle is for instance fields would require also the check that `coordinateType0 !\u003d null` to exclude static field VarHandle. But we can deliberately skip that and rely on the type check below to fail after walking the superclass chain for static fields VarHandle.\n\nPlease add a comment.",
+      "range": {
+        "startLine": 3181,
+        "startChar": 7,
+        "endLine": 3181,
+        "endChar": 30
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccf8f10b_6c75710f",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
