@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "759ec34c_00763aed",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3094,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-28T13:21:33Z",
+      "side": 1,
+      "message": "Add a comment here why we need an extra register, and what will use it.",
+      "range": {
+        "startLine": 3092,
+        "startChar": 0,
+        "endLine": 3094,
+        "endChar": 3
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccf8f10b_6c75710f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-08-28T13:21:33Z",
+      "side": 1,
+      "message": "I guess we cannot have a checkcast node for this because the right hand side is not known statically?",
+      "range": {
+        "startLine": 3184,
+        "startChar": 0,
+        "endLine": 3186,
+        "endChar": 33
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
