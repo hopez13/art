@@ -22,6 +22,30 @@
       "revId": "1e96456bb6b9891dc1a88114cdafb800c09d2430",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f512e6_80c15aba",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-08-28T16:59:56Z",
+      "side": 1,
+      "message": "Yeah, it really is kind of ugly. Although, printf seems like a place where getting the types right is especially important because of the way varargs work.",
+      "parentUuid": "451ea678_6e180f67",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "1e96456bb6b9891dc1a88114cdafb800c09d2430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
