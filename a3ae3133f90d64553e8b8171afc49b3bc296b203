@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "846f7c52_a56024f6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3093,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-08-28T14:51:21Z",
+      "side": 1,
+      "message": "Yes. The verifier does not verify the arguments of signature polymorphic methods.",
+      "parentUuid": "696325b9_1db87ebd",
+      "range": {
+        "startLine": 3093,
+        "startChar": 4,
+        "endLine": 3093,
+        "endChar": 56
+      },
+      "revId": "a3ae3133f90d64553e8b8171afc49b3bc296b203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "759ec34c_00763aed",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
