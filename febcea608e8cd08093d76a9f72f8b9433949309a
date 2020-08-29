@@ -16,6 +16,75 @@
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5be1e92f_bd714b3a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-29T00:57:34Z",
+      "side": 1,
+      "message": "I don\u0027t see a release store for this to pair with. As a result it\u0027s not clear it does anything.",
+      "range": {
+        "startLine": 201,
+        "startChar": 48,
+        "endLine": 201,
+        "endChar": 73
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c2d558_91509286",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-29T00:57:34Z",
+      "side": 1,
+      "message": "I don\u0027t see that argument.",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4352ab0d_eb423362",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-08-29T00:57:34Z",
+      "side": 1,
+      "message": "Is there a reason we need to add this, rather than using ATraceEnabled() directly? Especially since it seems to add an out-of-line function call?",
+      "range": {
+        "startLine": 925,
+        "startChar": 2,
+        "endLine": 925,
+        "endChar": 22
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
