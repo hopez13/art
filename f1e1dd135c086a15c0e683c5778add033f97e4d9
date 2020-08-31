@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1f87110_9feb05d3",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2020-08-31T14:33:54Z",
+      "side": 1,
+      "message": "With this change, this becomes a dead code path.  I\u0027ve put up a minor follow-up to remove it: https://android-review.googlesource.com/c/platform/art/+/1416148",
+      "revId": "f1e1dd135c086a15c0e683c5778add033f97e4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
