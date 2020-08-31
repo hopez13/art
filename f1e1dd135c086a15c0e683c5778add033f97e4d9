@@ -16,6 +16,24 @@
       "revId": "f1e1dd135c086a15c0e683c5778add033f97e4d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f0588a9_1e4f2567",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-08-31T16:53:58Z",
+      "side": 1,
+      "message": "Good catch! I\u0027m surprised we don\u0027t have a warning enabled to catch useless comparisons.",
+      "parentUuid": "c1f87110_9feb05d3",
+      "revId": "f1e1dd135c086a15c0e683c5778add033f97e4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
