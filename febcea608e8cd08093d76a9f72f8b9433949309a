@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "1cd89507_0abc080f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-31T20:16:29Z",
+      "side": 1,
+      "message": "I thought \u0027acquire\u0027 ensures that any read or write to another memory location doesn\u0027t get reordered above this load, no? The idea here is to ensure that the load of num_bytes_allocated_ below doesn\u0027t get reordered with this load.\n\nNow that you mentioned it, I have to relook if replacing the relaxed store to last_reported_heap_size_ by GC thread in GrowForUtilization() by an release store can help remove the re-load of num_bytes_allocated_ below.",
+      "parentUuid": "5be1e92f_bd714b3a",
+      "range": {
+        "startLine": 201,
+        "startChar": 48,
+        "endLine": 201,
+        "endChar": 73
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9c2d558_91509286",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 6
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "8bc5dcc2_31351f25",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-31T20:16:29Z",
+      "side": 1,
+      "message": "I didn\u0027t get what you mean?\n\nThe execution will reach here if the GC thread stores to last_reported_heap_size_, while this thread is trying the CAS in this loop. And when this happens, it is guaranteed that this allocation is already taken into consideration by the GC thread.",
+      "parentUuid": "d9c2d558_91509286",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4352ab0d_eb423362",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 6
@@ -76,6 +124,30 @@
       "writtenOn": "2020-08-29T00:57:34Z",
       "side": 1,
       "message": "Is there a reason we need to add this, rather than using ATraceEnabled() directly? Especially since it seems to add an out-of-line function call?",
+      "range": {
+        "startLine": 925,
+        "startChar": 2,
+        "endLine": 925,
+        "endChar": 22
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a19429ff_493a3719",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-08-31T20:16:29Z",
+      "side": 1,
+      "message": "I had to because using ATraceEnabled() directly in heap-inl.h was giving compile time error even after including the right header file.",
+      "parentUuid": "4352ab0d_eb423362",
       "range": {
         "startLine": 925,
         "startChar": 2,
