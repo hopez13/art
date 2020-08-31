@@ -34,6 +34,24 @@
       "revId": "f1e1dd135c086a15c0e683c5778add033f97e4d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1e2c70_5607cff3",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2020-08-31T17:03:49Z",
+      "side": 1,
+      "message": "I found this with a static analysis tool, cppcheck.  Sometimes this indicates a more serious problem (like a function which uses negative values to indicate error, but code stores its return value in an unsigned variable), but this case was relatively benign.\n\nUnfortunately, cppcheck has way too many false positives to use in an automated manner.  I don\u0027t know if there\u0027s a compiler warning or clang-tidy check for this, but agree it would be great to turn it on if there is one.",
+      "parentUuid": "7f0588a9_1e4f2567",
+      "revId": "f1e1dd135c086a15c0e683c5778add033f97e4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
