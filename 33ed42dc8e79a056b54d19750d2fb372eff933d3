@@ -39,6 +39,30 @@
       "revId": "33ed42dc8e79a056b54d19750d2fb372eff933d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d48fb0d4_a4a0d0d6",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-08-31T22:19:40Z",
+      "side": 1,
+      "message": "honestly that seems to just be a hole in the API in general with the only real solution being to allocate sizeof(max-utf-8-char) * length buffer.",
+      "parentUuid": "73a45196_c7157eb8",
+      "range": {
+        "startLine": 1868,
+        "startChar": 0,
+        "endLine": 1868,
+        "endChar": 27
+      },
+      "revId": "33ed42dc8e79a056b54d19750d2fb372eff933d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
