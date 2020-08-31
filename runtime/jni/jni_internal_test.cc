@@ -1637,12 +1637,14 @@ TEST_F(JniInternalTest, GetStringRegion_GetStringUTFRegion) {
   env_->GetStringUTFRegion(s, 0x7fffffff, 0x7fffffff, nullptr);
   ExpectException(sioobe_);
 
-  char bytes[4] = { 'x', 'x', 'x', 'x' };
+  char bytes[5] = { 'x', 'x', 'x', 'x', 'x' };
   env_->GetStringUTFRegion(s, 1, 2, &bytes[1]);
   EXPECT_EQ('x', bytes[0]);
   EXPECT_EQ('e', bytes[1]);
   EXPECT_EQ('l', bytes[2]);
-  EXPECT_EQ('x', bytes[3]);
+  // NB: The output string is null terminated so this slot is overwritten.
+  EXPECT_EQ('\0', bytes[3]);
+  EXPECT_EQ('x', bytes[4]);
 
   // It's okay for the buffer to be null as long as the length is 0.
   env_->GetStringUTFRegion(s, 2, 0, nullptr);
