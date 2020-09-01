@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fec3b6bd_0f595aeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-01T18:17:13Z",
+      "side": 1,
+      "message": "I believe this has been broken for a while, but the failing find command doesn\u0027t abort the script. I noticed it in https://android-build.googleplex.com/builds/pending/P16515144/art-target-arm/latest/view/logs/build_error.log where the find command gets shown as the error, but I think the real error is later instead (see the full build.log).",
+      "revId": "d1209bbaa57d90c76a52f4b08bc1b91c0c36bb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
