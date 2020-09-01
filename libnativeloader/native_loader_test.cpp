@@ -97,11 +97,9 @@ class Platform {
 static std::unordered_map<std::string, Platform::mock_namespace_handle> namespaces = {
     {"system", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("system"))},
     {"default", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("default"))},
-    {"com_android_i18n", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("com_android_i18n"))},
     {"sphal", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("sphal"))},
     {"vndk", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("vndk"))},
     {"vndk_product", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("vndk_product"))},
-    {"com_android_neuralnetworks", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("com_android_neuralnetworks"))},
     {"com_android_os_statsd", TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE("com_android_os_statsd"))},
 };
 
@@ -354,22 +352,16 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
   std::string expected_permitted_path = std::string("/data:/mnt/expand:") + permitted_path;
   std::string expected_parent_namespace = "system";
   bool expected_link_with_platform_ns = true;
-  bool expected_link_with_art_ns = true;
-  bool expected_link_with_i18n_ns = true;
   bool expected_link_with_sphal_ns = !vendor_public_libraries().empty();
   bool expected_link_with_vndk_ns = false;
   bool expected_link_with_vndk_product_ns = false;
   bool expected_link_with_default_ns = false;
-  bool expected_link_with_neuralnetworks_ns = true;
   bool expected_link_with_statsd_ns = true;
   std::string expected_shared_libs_to_platform_ns = default_public_libraries();
-  std::string expected_shared_libs_to_art_ns = art_public_libraries();
-  std::string expected_shared_libs_to_i18n_ns = i18n_public_libraries();
   std::string expected_shared_libs_to_sphal_ns = vendor_public_libraries();
   std::string expected_shared_libs_to_vndk_ns = vndksp_libraries_vendor();
   std::string expected_shared_libs_to_vndk_product_ns = vndksp_libraries_product();
   std::string expected_shared_libs_to_default_ns = default_public_libraries();
-  std::string expected_shared_libs_to_neuralnetworks_ns = neuralnetworks_public_libraries();
   std::string expected_shared_libs_to_statsd_ns = statsd_public_libraries();
 
   void SetExpectations() {
@@ -390,16 +382,6 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
                                               StrEq(expected_shared_libs_to_platform_ns)))
           .WillOnce(Return(true));
     }
-    if (expected_link_with_art_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_art"),
-                                              StrEq(expected_shared_libs_to_art_ns)))
-          .WillOnce(Return(true));
-    }
-    if (expected_link_with_i18n_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_i18n"),
-                                              StrEq(expected_shared_libs_to_i18n_ns)))
-          .WillOnce(Return(true));
-    }
     if (expected_link_with_sphal_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("sphal"),
                                               StrEq(expected_shared_libs_to_sphal_ns)))
@@ -418,11 +400,6 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
     if (expected_link_with_default_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("default"),
                                               StrEq(expected_shared_libs_to_default_ns)))
-          .WillOnce(Return(true));
-    }
-    if (expected_link_with_neuralnetworks_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_neuralnetworks"),
-                                              StrEq(expected_shared_libs_to_neuralnetworks_ns)))
           .WillOnce(Return(true));
     }
     if (expected_link_with_statsd_ns) {
@@ -684,27 +661,38 @@ TEST(NativeLoaderConfigParser, RejectMalformed) {
   ASSERT_FALSE(ParseConfig("libA.so nopreload # comment", always_true).ok());
 }
 
-TEST(NativeLoaderJniConfigParser, BasicLoading) {
+TEST(NativeLoaderApexLibrariesConfigParser, BasicLoading) {
   const char file_content[] = R"(
 # comment
-com_android_foo libfoo.so
+jni com_android_foo libfoo.so
 # Empty line is ignored
 
-com_android_bar libbar.so:libbar2.so
+jni com_android_bar libbar.so:libbar2.so
+
+  public com_android_bar libpublic.so
 )";
 
-  std::map<std::string, std::string> expected_result{
+  auto jni_libs = ParseApexLibrariesConfig(file_content, "jni");
+  ASSERT_RESULT_OK(jni_libs);
+  ASSERT_EQ(std::map<std::string, std::string>{
     {"com_android_foo", "libfoo.so"},
     {"com_android_bar", "libbar.so:libbar2.so"},
-  };
+  }, *jni_libs);
 
-  Result<std::map<std::string, std::string>> result = ParseJniConfig(file_content);
-  ASSERT_RESULT_OK(result);
-  ASSERT_EQ(expected_result, *result);
+  auto public_libs = ParseApexLibrariesConfig(file_content, "public");
+  ASSERT_RESULT_OK(public_libs);
+  ASSERT_EQ(std::map<std::string, std::string>{
+    {"com_android_bar", "libpublic.so"},
+  }, *public_libs);
 }
 
-TEST(NativeLoaderJniConfigParser, RejectMalformed) {
-  ASSERT_FALSE(ParseJniConfig("com_android_foo").ok());
+TEST(NativeLoaderApexLibrariesConfigParser, RejectMalformed) {
+  const char file_content[] = R"(
+# following line is missing <library list>
+jni com_android_foo
+)";
+  auto jni_libs = ParseApexLibrariesConfig(file_content, "jni").ok()
+  ASSERT_FALSE(jni_libs.ok());
 }
 
 }  // namespace nativeloader
