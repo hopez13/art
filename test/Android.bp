@@ -984,7 +984,10 @@ art_cc_test {
         ":com.android.art.testing",
     ],
     // It seems that only device-tests build can create a valid apex.
-    test_suites: ["device-tests"],
+    test_suites: [
+        "device-tests",
+        "mts",
+    ],
     test_config: "art-gtests-target-install-apex.xml",
 }
 
