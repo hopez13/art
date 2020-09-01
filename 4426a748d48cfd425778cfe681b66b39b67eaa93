@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fc46ba22_74896800",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-01T13:02:34Z",
+      "side": 1,
+      "message": "What is the expectation around newlines in WithHelp methods? We seem to have some newlines for some messages and not others?",
+      "range": {
+        "startLine": 240,
+        "startChar": 97,
+        "endLine": 240,
+        "endChar": 99
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "306d294e_375e9f13",
         "filename": "compiler/driver/compiler_options_map-inl.h",
         "patchSetId": 2
