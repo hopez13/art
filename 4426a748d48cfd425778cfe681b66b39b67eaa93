@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "306d294e_375e9f13",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-01T12:35:29Z",
+      "side": 1,
+      "message": "typo; original text is \"solid\" but I don\u0027t know what that means in this context.",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 33
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "819e4dd7_956e958c",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-01T12:35:29Z",
+      "side": 1,
+      "message": "Remove (unused, not defined).",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 91
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be824631_39eb0c20",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-01T12:35:29Z",
+      "side": 1,
+      "message": "Why do you want to publish this function? It is used only once and could remain static.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 89
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
