@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95ee4a9f_e45c749a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-01T08:44:08Z",
+      "side": 1,
+      "message": "DCHECK_EQ(). TreeHugger does not like DCHECK(. \u003d\u003d .) for integral types:\n\nart/compiler/optimizing/intrinsics_x86.cc:3180:  Consider using DCHECK_EQ instead of DCHECK(a \u003d\u003d b)  [readability/check] [2]",
+      "range": {
+        "startLine": 3180,
+        "startChar": 4,
+        "endLine": 3180,
+        "endChar": 48
+      },
+      "revId": "3c46022991a51445d3f072b4630879c3922f2260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
