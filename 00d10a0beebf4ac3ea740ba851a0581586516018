@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c25699c4_3bd1e6db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-01T10:03:26Z",
+      "side": 1,
+      "message": "To avoid revert jeopardy, it\u0027d good to test with ART_HEAP_POISONING\u003dtrue too.",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "00d10a0beebf4ac3ea740ba851a0581586516018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "72931f59_bb8075b6",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -93,6 +116,29 @@
       "revId": "00d10a0beebf4ac3ea740ba851a0581586516018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "906ecc1b_cde2cccc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3188,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-01T10:03:26Z",
+      "side": 1,
+      "message": "This \u0027r\u0027 is playing away.",
+      "range": {
+        "startLine": 3188,
+        "startChar": 36,
+        "endLine": 3188,
+        "endChar": 37
+      },
+      "revId": "00d10a0beebf4ac3ea740ba851a0581586516018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {

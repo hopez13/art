@@ -22,6 +22,30 @@
       "revId": "3c46022991a51445d3f072b4630879c3922f2260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63b8c796_2b47f64c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3180,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-01T10:03:26Z",
+      "side": 1,
+      "message": "JFYI, if you define \"WITH_TIDY\u003d1\" in your environment, it\u0027ll run the style check locally. It makes the build a bit slower and is not enabled on all builds.",
+      "parentUuid": "95ee4a9f_e45c749a",
+      "range": {
+        "startLine": 3180,
+        "startChar": 4,
+        "endLine": 3180,
+        "endChar": 48
+      },
+      "revId": "3c46022991a51445d3f072b4630879c3922f2260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
