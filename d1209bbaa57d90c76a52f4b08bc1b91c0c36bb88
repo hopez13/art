@@ -16,6 +16,24 @@
       "revId": "d1209bbaa57d90c76a52f4b08bc1b91c0c36bb88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61f74abe_44bf053a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-01T18:22:37Z",
+      "side": 1,
+      "message": "[Sorry, I posted that comment on the wrong CL, please disregard.]\n\nThis fixes an issue I see locally on arm_krait-eng:\n\n```\nSymlinking /apex/com.android.runtime/lib64/bionic/* into /system/lib64\nln: target \u0027/usr/local/google/home/mast/android/master-art/out/target/product/arm_krait/system/lib64/libartpalette-system.so\u0027 is not a directory\n```\n\nNot sure why this isn\u0027t occurring in IC.",
+      "parentUuid": "fec3b6bd_0f595aeb",
+      "revId": "d1209bbaa57d90c76a52f4b08bc1b91c0c36bb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
