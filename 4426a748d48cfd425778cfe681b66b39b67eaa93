@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b3cd8293_467fa7db",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-01T15:05:28Z",
+      "side": 1,
+      "message": "There is none. We just print them as-is through an indentation stream. I added them where it seemed appropriate and I remembered to do so (I did this CL over \u003e 1 week when I was waiting for compiles to finish).\n\nMade a bit more consistent.;w",
+      "parentUuid": "fc46ba22_74896800",
+      "range": {
+        "startLine": 240,
+        "startChar": 97,
+        "endLine": 240,
+        "endChar": 99
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "306d294e_375e9f13",
         "filename": "compiler/driver/compiler_options_map-inl.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d648330_098fe3e9",
+        "filename": "compiler/driver/compiler_options_map-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-01T15:05:28Z",
+      "side": 1,
+      "message": "Done.\n\nI don\u0027t know either TBH.",
+      "parentUuid": "306d294e_375e9f13",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 33
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "512ccaef_960aeb91",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-01T15:05:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "819e4dd7_956e958c",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 91
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be824631_39eb0c20",
         "filename": "dex2oat/dex2oat_options.h",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d37ea0e_768f6587",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-01T15:05:28Z",
+      "side": 1,
+      "message": "It\u0027s used in dex2oat.cc to generate the help text for printing",
+      "parentUuid": "be824631_39eb0c20",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 89
+      },
+      "revId": "4426a748d48cfd425778cfe681b66b39b67eaa93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
