@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c4fcba9_7eed5363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "There are a few comments to sort out, but thanks for doing this, much appreciated!",
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5eada910_58732986",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "I wish this was more specific, but it\u0027s not to blame on this CL.",
+      "range": {
+        "startLine": 316,
+        "startChar": 39,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9be6ddc4_5060dd3c",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Which function does this call? ParseApexLibrariesConfig takes two args, doesn\u0027t it?",
+      "range": {
+        "startLine": 690,
+        "startChar": 15,
+        "endLine": 690,
+        "endChar": 58
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a793292_ed673720",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "This name confused me a little - I thought it\u0027d remove all the elements. Maybe call it UnorderedSetDifference based on the STL set_difference function name.",
+      "range": {
+        "startLine": 162,
+        "startChar": 12,
+        "endLine": 162,
+        "endChar": 21
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d6177ae_525cc4cc",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Drive-by comment, but this is better expressed as __builtin_unreachable();",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 14
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d832e61e_23932079",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Is there a human description of this file format somewhere? If so, can you please link to it? If not, I suggest adding that since it\u0027s effectively an exported API from linkerconfig.",
+      "range": {
+        "startLine": 431,
+        "startChar": 87,
+        "endLine": 431,
+        "endChar": 99
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1ab3f01_dce46fa2",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "It\u0027d be nice to have some more checking of the characters in the tokens (or maybe just on trimmed_line before the split) so that syntax errors like a missing \"#\" are less likely to be incorrectly parsed as entries.",
+      "range": {
+        "startLine": 440,
+        "startChar": 29,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ef8d82d_6bd01bec",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Why not perform all the parsing and split this into the individual paths?",
+      "range": {
+        "startLine": 447,
+        "startChar": 25,
+        "endLine": 447,
+        "endChar": 34
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "224163ad_f7203348",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "This means all libs listed in ANDROID_ADDITIONAL_PUBLIC_LIBRARIES are assumed to be in the ART APEX. Looking at the single use I can find in art/test/etc/run-test-jar that\u0027s probably true, but the impression from that variable name, and \"additional_public_libraries\", is that it\u0027d work for any extra public libs. I think some name changes are in order to make it clear that it\u0027s a special case for ART libs now, but that\u0027s a separate cleanup. Please file a ticket on me and add a TODO pointing to it.\n\nAlso, does this belong in the parser? Shouldn\u0027t it move higher up the chain to InitDefaultPublicLibraries or so? In fact, it looks like additional_public_libraries get added on line 184 only to be removed again on 201, doesn\u0027t it? Probably the right thing to do is to add additional_public_libraries after the APEX libs are removed, and then have a special case in LibraryNamespaces::Create to link them to com_android_art.\n\n+rpl for input on the use of ANDROID_ADDITIONAL_PUBLIC_LIBRARIES in the tests. Is it safe to limit it to ART libraries?",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 5
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bdb9097_a9060c19",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Please comment what the returned table maps between.",
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0845040_05fd0547",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 1,
+      "message": "Please add a comment explaining what this does.",
+      "range": {
+        "startLine": 67,
+        "startChar": 37,
+        "endLine": 67,
+        "endChar": 59
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71606e8c_7258a1fb",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 0,
+      "message": "We\u0027re losing some test coverage here: there\u0027s a test of the parser but not an end-to-end test from apex.libraries.config.txt to link_namespaces getting called.\n\nI think it\u0027d be good to mock base::ReadFileToString (and probably readdir too) so that we properly test libnativeloader from contents of the various txt files, not just apex.libraries.config.txt. That\u0027s arguably beyond the scope of this CL though, so I can take a ticket to improve the test coverage.",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 5
+      },
+      "revId": "dd3b57fc4912f92e397f8904549af67652c6891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d809d6db_9a4e3016",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T14:55:16Z",
+      "side": 0,
+      "message": "Isn\u0027t this still applicable?",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 45
+      },
+      "revId": "dd3b57fc4912f92e397f8904549af67652c6891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
