@@ -22,6 +22,30 @@
       "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a9f13af_4af04f67",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-09-02T16:03:59Z",
+      "side": 1,
+      "message": "Not as far as I know. I think we do need to support transitive dependencies in the SDK snapshot generation. The difficulty is detecting where the boundaries of the SDK are. To do that we need more information, e.g. what SDKs this SDK depends upon. That is made even more tricky as there are probably cycles, e.g. conscrypt depends on ART and vice versa.",
+      "parentUuid": "c97a2bf1_98addb46",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
