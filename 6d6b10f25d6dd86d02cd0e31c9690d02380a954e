@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "8864513f_cb764111",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "I was keeping the old comments. I guess that when linker namespaces were hard-coded, we couldn\u0027t be sure if the target namespace is available. For example, stats was not available in the AOSP.\n\nGiven that we only refer the namespaces emitted by linkerconfig, we might be strict here.",
+      "parentUuid": "5eada910_58732986",
+      "range": {
+        "startLine": 316,
+        "startChar": 39,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9be6ddc4_5060dd3c",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 3
@@ -62,6 +86,30 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26cc03f4_e77c5049",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Thanks for the catch.",
+      "parentUuid": "9be6ddc4_5060dd3c",
+      "range": {
+        "startLine": 690,
+        "startChar": 15,
+        "endLine": 690,
+        "endChar": 58
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "ded1256e_a6e47f7d",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Thanks for suggestion. IMO UnorderedSetDifference seems a bit confusing as well because, for efficiency, it takes first parameter as reference to update in-place. \n\nInlined.",
+      "parentUuid": "5a793292_ed673720",
+      "range": {
+        "startLine": 162,
+        "startChar": 12,
+        "endLine": 162,
+        "endChar": 21
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d6177ae_525cc4cc",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -108,6 +180,30 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6051fb37_71570437",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "In this file, I see many usages of LOG_ALWAYS_FATAL with return following. I just removed the comment.",
+      "parentUuid": "1d6177ae_525cc4cc",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 14
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "f957be9e_badb70ae",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "I agree. Added comments about the file format.",
+      "parentUuid": "d832e61e_23932079",
+      "range": {
+        "startLine": 431,
+        "startChar": 87,
+        "endLine": 431,
+        "endChar": 99
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1ab3f01_dce46fa2",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -145,6 +265,30 @@
       "writtenOn": "2020-09-02T14:55:16Z",
       "side": 1,
       "message": "It\u0027d be nice to have some more checking of the characters in the tokens (or maybe just on trimmed_line before the split) so that syntax errors like a missing \"#\" are less likely to be incorrectly parsed as entries.",
+      "range": {
+        "startLine": 440,
+        "startChar": 29,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93dd6e55_20a6a034",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Added a check on \"tag\".",
+      "parentUuid": "f1ab3f01_dce46fa2",
       "range": {
         "startLine": 440,
         "startChar": 29,
@@ -180,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "43326c88_62436792",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Usage shows that \"Join()\"ed form is used more. ;-)",
+      "parentUuid": "9ef8d82d_6bd01bec",
+      "range": {
+        "startLine": 447,
+        "startChar": 25,
+        "endLine": 447,
+        "endChar": 34
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "224163ad_f7203348",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -203,6 +371,30 @@
     },
     {
       "key": {
+        "uuid": "786338ab_e504f4f3",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Bug filed. b/167578583",
+      "parentUuid": "224163ad_f7203348",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 5
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bdb9097_a9060c19",
         "filename": "libnativeloader/public_libraries.h",
         "patchSetId": 3
@@ -217,6 +409,24 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bbb9ec4_8e9e7d99",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bdb9097_a9060c19",
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +450,30 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0de1dd4_5d4bad9d",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-02T18:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0845040_05fd0547",
+      "range": {
+        "startLine": 67,
+        "startChar": 37,
+        "endLine": 67,
+        "endChar": 59
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
