@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "5ab3daa5_1b1e2f4b",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T23:05:48Z",
+      "side": 1,
+      "message": "Ah, good.",
+      "parentUuid": "8864513f_cb764111",
+      "range": {
+        "startLine": 316,
+        "startChar": 39,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9be6ddc4_5060dd3c",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 3
@@ -207,6 +231,30 @@
     },
     {
       "key": {
+        "uuid": "cee0d626_c396b488",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T23:05:48Z",
+      "side": 1,
+      "message": "I\u0027d say all of them would be better off with __builtin_unreachable() instead, but nvm, it wouldn\u0027t belong in this CL.",
+      "parentUuid": "6051fb37_71570437",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 14
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d832e61e_23932079",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -289,6 +337,30 @@
       "side": 1,
       "message": "Added a check on \"tag\".",
       "parentUuid": "f1ab3f01_dce46fa2",
+      "range": {
+        "startLine": 440,
+        "startChar": 29,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "388d8080_54e5e50c",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T23:05:48Z",
+      "side": 1,
+      "message": "Why not check all of them? I commented on basically the same thing on kiyoungkim\u0027s CL: I was thinking of just a simple regexp checking that all chars are in [0-9a-zA-Z./#$@_-] or some such, to avoid very weird data in entries that may have unintended effects later, maybe even be used in some sort of attack.",
+      "parentUuid": "93dd6e55_20a6a034",
       "range": {
         "startLine": 440,
         "startChar": 29,
@@ -392,6 +464,30 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb7c008_1bac9a16",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T23:05:48Z",
+      "side": 1,
+      "message": "Thanks, but I think this CL doesn\u0027t keep the old behaviour - the net effect is that the additional libs end up on links to com_android_art, but not in default_public_libraries. It might not matter, but I\u0027m not sure. Moving this special case as I suggested would keep it compatible, I think.",
+      "parentUuid": "786338ab_e504f4f3",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 5
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
