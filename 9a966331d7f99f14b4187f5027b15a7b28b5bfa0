@@ -70,6 +70,30 @@
       "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7c4314_b06d8d79",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-09-02T16:29:22Z",
+      "side": 1,
+      "message": "The comment lists the first module that depended on that module. There may be others. Whether they are in the APEX or not has no bearing on whether they are in the SDK.",
+      "parentUuid": "fe852511_e61b55b9",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
