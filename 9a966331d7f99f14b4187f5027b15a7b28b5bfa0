@@ -94,6 +94,30 @@
       "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856ce2f2_a6b7256a",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T16:55:08Z",
+      "side": 1,
+      "message": "Well, API libs in the SDK would be stubs, which have no dependencies. That\u0027s what I meant with the implementations being in the APEX.\n\nJudging from the comments all these roll up to the binaries dex2oat(d) and hiddenapi. Is that correct? Then the question is why you get dependencies on them (except on host).\n\nIf we\u0027re only talking about host then we can either include the internal libs, or make the host binaries (essentially) static. That\u0027s what I\u0027m working on, and if there are no other reasons for supporting internal libs in the SDK I\u0027ll probably choose to make them static.",
+      "parentUuid": "4c7c4314_b06d8d79",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
