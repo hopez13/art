@@ -46,6 +46,30 @@
       "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe852511_e61b55b9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-02T16:06:14Z",
+      "side": 1,
+      "message": "Interesting. What\u0027s the reason then? I figured they\u0027d be in the APEX for device use.",
+      "parentUuid": "6a9f13af_4af04f67",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
