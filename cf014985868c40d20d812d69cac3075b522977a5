@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14bffbed_6de45e2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-03T10:04:00Z",
+      "side": 1,
+      "message": "Do we have any tests for disassemblers?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d48591f_ad46d192",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-03T10:04:00Z",
+      "side": 1,
+      "message": "This seems redundant because of the following stronger condition.",
+      "range": {
+        "startLine": 78,
+        "startChar": 37,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81b4eeb5_7b0a58b0",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-03T10:04:00Z",
+      "side": 1,
+      "message": "It seems that the code is looking for a very specific instruction. It is not clear why this particular instruction is the only one of interest. Can you add a comment?",
+      "range": {
+        "startLine": 79,
+        "startChar": 65,
+        "endLine": 79,
+        "endChar": 98
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f9fa016_7e8eaa60",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-03T10:04:00Z",
+      "side": 1,
+      "message": "Nit: it would be cleaner to add helper functions read8/read16/read32 that would hide all the casts (and maybe bounds checking as well, or there can be \"unsafe\" variants). These functions can accept a void* and an offset.",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 61
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
