@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3525986e_33822b1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T11:00:38Z",
+      "side": 1,
+      "message": "We have tests that `oatdump` does not crash but nothing for the actual output.",
+      "parentUuid": "14bffbed_6de45e2d",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d48591f_ad46d192",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cf014985868c40d20d812d69cac3075b522977a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9df6531e_59821416",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T11:00:38Z",
+      "side": 1,
+      "message": "It\u0027s not redundant if you take arithmetic overflow into account (address \u003d UINTPTR_MAX, begin \u003d 1u, end \u003d 2u) and do not want to reason about the code not being in the first page.",
+      "parentUuid": "0d48591f_ad46d192",
+      "range": {
+        "startLine": 78,
+        "startChar": 37,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -91,6 +139,54 @@
       "revId": "cf014985868c40d20d812d69cac3075b522977a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9dc6d54_e7c84631",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T11:00:38Z",
+      "side": 1,
+      "message": "The comment in in line 73. This is the instruction for the \"thunk jumping to pointer from thread entrypoint\".",
+      "parentUuid": "81b4eeb5_7b0a58b0",
+      "range": {
+        "startLine": 79,
+        "startChar": 65,
+        "endLine": 79,
+        "endChar": 98
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7376a3a8_92d4fd1b",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T11:00:38Z",
+      "side": 1,
+      "message": "I\u0027d consider that if I was adding more than these two casts.",
+      "parentUuid": "8f9fa016_7e8eaa60",
+      "range": {
+        "startLine": 79,
+        "startChar": 16,
+        "endLine": 79,
+        "endChar": 61
+      },
+      "revId": "cf014985868c40d20d812d69cac3075b522977a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
