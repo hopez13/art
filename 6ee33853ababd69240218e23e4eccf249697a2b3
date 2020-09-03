@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d774ef_4932d088",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T13:55:05Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 11,
+        "startChar": 50,
+        "endLine": 11,
+        "endChar": 53
+      },
+      "revId": "6ee33853ababd69240218e23e4eccf249697a2b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dff5f5e_e0bcf7f9",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T13:55:05Z",
+      "side": 1,
+      "message": "reinterpret_cast32\u003cuint32_t\u003e\n\n(because DexFile::GetCodeItem() takes uint32_t argument)",
+      "range": {
+        "startLine": 232,
+        "startChar": 34,
+        "endLine": 232,
+        "endChar": 61
+      },
+      "revId": "6ee33853ababd69240218e23e4eccf249697a2b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19db6d57_492726c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T13:55:05Z",
+      "side": 1,
+      "message": "reinterpret_cast32\u003cuint32_t\u003e",
+      "range": {
+        "startLine": 2208,
+        "startChar": 12,
+        "endLine": 2208,
+        "endChar": 39
+      },
+      "revId": "6ee33853ababd69240218e23e4eccf249697a2b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5e91dca_22f7caf9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T13:55:05Z",
+      "side": 1,
+      "message": "Cache this value?",
+      "range": {
+        "startLine": 2213,
+        "startChar": 10,
+        "endLine": 2213,
+        "endChar": 43
+      },
+      "revId": "6ee33853ababd69240218e23e4eccf249697a2b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026cf14b_9d2c816b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4041,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T13:55:05Z",
+      "side": 1,
+      "message": "reinterpret_cast32",
+      "range": {
+        "startLine": 4041,
+        "startChar": 26,
+        "endLine": 4041,
+        "endChar": 42
+      },
+      "revId": "6ee33853ababd69240218e23e4eccf249697a2b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
