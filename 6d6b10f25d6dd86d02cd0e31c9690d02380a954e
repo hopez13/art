@@ -373,6 +373,30 @@
     },
     {
       "key": {
+        "uuid": "f86629fb_a3014aa8",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-03T05:28:45Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "388d8080_54e5e50c",
+      "range": {
+        "startLine": 440,
+        "startChar": 29,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ef8d82d_6bd01bec",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -488,6 +512,30 @@
       "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f2d5fab_3d0fbad6",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-03T05:28:45Z",
+      "side": 1,
+      "message": "\u003e the net effect is that the additional libs end up on links to com_android_art, but not in default_public_libraries.\n\nTo keep the old behavior, ART apex\u0027s public libs are not removed from default_public_libraries. I hope b/167578583 will handle this correctly.",
+      "parentUuid": "dfb7c008_1bac9a16",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 5
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
