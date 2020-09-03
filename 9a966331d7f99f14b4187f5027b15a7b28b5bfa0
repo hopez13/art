@@ -118,6 +118,30 @@
       "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "479056b4_2ea1fddf",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-09-03T16:56:21Z",
+      "side": 1,
+      "message": "I moved them to host only but had to move libsigchain and libnativehelper back for app_process.",
+      "parentUuid": "856ce2f2_a6b7256a",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "9a966331d7f99f14b4187f5027b15a7b28b5bfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
