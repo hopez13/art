@@ -547,6 +547,8 @@ class ReleaseChecker:
     self._checker.check_native_library('libopenjdkjvmti')
     self._checker.check_native_library('libprofile')
     self._checker.check_native_library('libsigchain')
+    # Only on ARM/ARM64
+    self._checker.check_optional_native_library('libart-simulator-container')
 
     # Check java libraries for Managed Core Library.
     self._checker.check_java_library('apache-xml')
@@ -682,6 +684,9 @@ class DebugChecker:
     self._checker.check_native_library('libopenjdkjvmd')
     self._checker.check_native_library('libopenjdkjvmtid')
     self._checker.check_native_library('libprofiled')
+    # Only on ARM/ARM64
+    self._checker.check_optional_native_library('libartd-simulator-container')
+    self._checker.check_optional_native_library('libartd-simulator')
 
     # Check internal libraries for Managed Core Library.
     self._checker.check_native_library('libopenjdkd')
@@ -753,7 +758,6 @@ class TestingTargetChecker:
 
     # Check ART test (internal) libraries.
     self._checker.check_native_library('libart-gtest')
-    self._checker.check_native_library('libartd-simulator-container')
 
     # Check ART test tools.
     self._checker.check_executable('signal_dumper')
