@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f7c49af_8130e030",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2875,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-03T15:45:19Z",
+      "side": 1,
+      "message": "We\u0027re a bit lucky here that the IsProxyMethod() accesses only the access flags of the Class rather than potentially un-relocated references.",
+      "range": {
+        "startLine": 2875,
+        "startChar": 13,
+        "endLine": 2875,
+        "endChar": 33
+      },
+      "revId": "622ab1d933538b6a42a69034c38d2c569df5f241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
