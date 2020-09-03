@@ -215,7 +215,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
                  << "Are you using the deprecated DexFile APIs?";
   } else if (context != nullptr) {
     OatFileAssistant oat_file_assistant(dex_location,
-                                        kRuntimeISA,
+                                        Runtime::GetQuickCodeISA(),
                                         context.get(),
                                         runtime->GetOatFilesExecutable(),
                                         only_use_system_oat_files_);
