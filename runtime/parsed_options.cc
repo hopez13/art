@@ -429,7 +429,12 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-XX:PerfettoJavaHeapStackProf=_")
           .WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
-          .IntoKey(M::PerfettoJavaHeapStackProf);
+          .IntoKey(M::PerfettoJavaHeapStackProf)
+      .Define("--simulate-isa=_")
+          .WithType<InstructionSet>()
+          .WithValueMap({{"none",  InstructionSet::kNone},
+                         {"arm64", InstructionSet::kArm64}})
+          .IntoKey(M::SimulateInstructionSet);
 
       FlagBase::AddFlagsToCmdlineParser(parser_builder.get());
 
