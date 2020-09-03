@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd709624_01a049d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-03T13:22:07Z",
+      "side": 1,
+      "message": "This is completely trivial, but when looking at the VarHandle.set() issue, it was somewhat obscured by having methods called ...SignaturePolymorphic... and ...PolymorphicSignature... The former better matches discussions in javadoc comments and jvms.",
+      "revId": "81daf3dd28e736697221fac968822a4b17dbc089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
