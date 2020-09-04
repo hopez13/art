@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc503761_fab5df32",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1404098
+      },
+      "writtenOn": "2020-09-04T18:39:30Z",
+      "side": 1,
+      "message": "Are there any figures on approximate memory saving\u0027s when legacy ashmem is used over never ashmemd ?",
+      "range": {
+        "startLine": 177,
+        "startChar": 24,
+        "endLine": 177,
+        "endChar": 47
+      },
+      "revId": "e16a922367a470a5aa3f047e1432c4276b8254a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e703c456_0a7a9517",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1404098
+      },
+      "writtenOn": "2020-09-04T18:39:30Z",
+      "side": 1,
+      "message": "Defined functions are not called when changes are applied on QC base and built for Go. Are there any other patches to be applied ?",
+      "range": {
+        "startLine": 179,
+        "startChar": 19,
+        "endLine": 179,
+        "endChar": 44
+      },
+      "revId": "e16a922367a470a5aa3f047e1432c4276b8254a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
