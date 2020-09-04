@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06916146_127a8cf9",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-04T00:36:02Z",
+      "side": 1,
+      "message": "\"be\"",
+      "range": {
+        "startLine": 316,
+        "startChar": 52,
+        "endLine": 316,
+        "endChar": 53
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4801f3b_fc36192f",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-04T00:36:02Z",
+      "side": 1,
+      "message": "Typo: \"Even\"",
+      "range": {
+        "startLine": 316,
+        "startChar": 7,
+        "endLine": 316,
+        "endChar": 11
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29e338f3_d8bb45af",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-04T00:36:02Z",
+      "side": 1,
+      "message": "Style nit: Are these spaces before the 1st args intentional?",
+      "range": {
+        "startLine": 309,
+        "startChar": 18,
+        "endLine": 309,
+        "endChar": 19
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766599ee_cb962074",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-04T00:36:02Z",
+      "side": 1,
+      "message": "Nice, thanks. Please add a few more tests to get coverage of these.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 3
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

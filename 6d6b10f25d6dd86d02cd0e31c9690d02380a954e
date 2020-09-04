@@ -137,6 +137,30 @@
     },
     {
       "key": {
+        "uuid": "fd000a51_8c7bc5db",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-04T00:36:02Z",
+      "side": 1,
+      "message": "Thought it was rather fishy that this didn\u0027t get caught in presubmit. And indeed I found that these tests simply don\u0027t get compiled at all. :( The problem is that the ART_TARGET_ANDROID define isn\u0027t set - it gets added in the art_global_defaults module which isn\u0027t inherited in this test.\n\nFix in https://r.android.com/1418534 - I\u0027d appreciate if you could wait until that is merged and then check that the tests pass, thanks.",
+      "parentUuid": "26cc03f4_e77c5049",
+      "range": {
+        "startLine": 690,
+        "startChar": 15,
+        "endLine": 690,
+        "endChar": 58
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a793292_ed673720",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
