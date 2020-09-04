@@ -161,6 +161,30 @@
     },
     {
       "key": {
+        "uuid": "e39f83a2_0804e065",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-04T05:15:01Z",
+      "side": 1,
+      "message": "Oh, I noticed that `atest libnativeloader_test` runs nothing.\nI\u0027ll wait for aosp/1418534",
+      "parentUuid": "fd000a51_8c7bc5db",
+      "range": {
+        "startLine": 690,
+        "startChar": 15,
+        "endLine": 690,
+        "endChar": 58
+      },
+      "revId": "6d6b10f25d6dd86d02cd0e31c9690d02380a954e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a793292_ed673720",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
