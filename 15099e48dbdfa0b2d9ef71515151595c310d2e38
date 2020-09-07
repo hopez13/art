@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f64d1dc_00992223",
+        "filename": "build/art.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-07T13:01:43Z",
+      "side": 1,
+      "message": "Like the functions above I named this after when it gets called rather than what it does. It\u0027s not unlikely we\u0027ll need more implicitly defined flags in the future, and here would be the place to add them.",
+      "parentUuid": "98f62fb3_b4d83b75",
+      "range": {
+        "startLine": 206,
+        "startChar": 5,
+        "endLine": 206,
+        "endChar": 21
+      },
+      "revId": "15099e48dbdfa0b2d9ef71515151595c310d2e38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0353c3ce_43c11312",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "15099e48dbdfa0b2d9ef71515151595c310d2e38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "015502d6_5789cb55",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-07T13:01:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0353c3ce_43c11312",
+      "range": {
+        "startLine": 447,
+        "startChar": 53,
+        "endLine": 447,
+        "endChar": 54
+      },
+      "revId": "15099e48dbdfa0b2d9ef71515151595c310d2e38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
