@@ -16,6 +16,29 @@
       "revId": "9f71f77a293aa8ab6eb4d0996c51e42dae08cf29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27dbf954_6467c189",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T08:17:02Z",
+      "side": 1,
+      "message": "The DCHECK() above is intended to ensure that this does not overwrite the `out`. For the divideUnsigned() we never return from the slow path, so this does not matter. But if we introduce another intrinsic with kNoOutputOverlap that needs the return value, overwriting the `out` here shall be a problem.",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 65
+      },
+      "revId": "9f71f77a293aa8ab6eb4d0996c51e42dae08cf29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
