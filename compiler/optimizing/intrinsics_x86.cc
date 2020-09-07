@@ -3093,7 +3093,7 @@ static void GenerateVarHandleAccessModeCheck(Register varhandle_object,
 
   // If the access mode is not supported, bail to runtime implementation to handle
   __ testl(Address(varhandle_object, access_modes_bitmask_offset), Immediate(access_mode_bit));
-  __ j(kNotEqual, slow_path->GetEntryLabel());
+  __ j(kZero, slow_path->GetEntryLabel());
 }
 
 static void GenerateVarHandleStaticFieldCheck(Register varhandle_object,
@@ -3111,10 +3111,17 @@ static void GenerateSubTypeObjectCheck(Register object,
                                        Register temp,
                                        Address type_address,
                                        SlowPathCode* slow_path,
-                                       X86Assembler* assembler) {
+                                       X86Assembler* assembler,
+                                       bool object_can_be_null = true) {
   const uint32_t class_offset = mirror::Object::ClassOffset().Uint32Value();
   const uint32_t super_class_offset = mirror::Class::SuperClassOffset().Uint32Value();
   NearLabel check_type_compatibility, type_matched;
+
+  // If the object is null, there is no need to check the type
+  if (object_can_be_null) {
+    __ testl(object, object);
+    __ j(kZero, &type_matched);
+  }
 
   // Do not unpoison for in-memory comparison.
   // We deliberately avoid the read barrier, letting the slow path handle the false negatives.
@@ -3147,12 +3154,17 @@ static void GenerateVarHandleInstanceFieldObjectCheck(Register varhandle_object,
   __ cmpl(Address(varhandle_object, coordtype1_offset), Immediate(0));
   __ j(kNotEqual, slow_path->GetEntryLabel());
 
+  // Check if the object is null
+  __ testl(object, object);
+  __ j(kZero, slow_path->GetEntryLabel());
+
   // Check the object's class against coordinateType0.
   GenerateSubTypeObjectCheck(object,
                              temp,
                              Address(varhandle_object, coordtype0_offset),
                              slow_path,
-                             assembler);
+                             assembler,
+                             false);
 }
 
 static void GenerateVarHandleCommonChecks(HInvoke *invoke,
@@ -3205,7 +3217,8 @@ static void GenerateVarTypePrimitiveTypeCheck(Register varhandle_object,
 // This method loads the field's address referred by a field VarHandle (base + offset).
 // The return value is the register containing object's reference (in case of an instance field)
 // or the declaring class (in case of a static field). The declaring class is stored in temp
-// register. Field's offset is loaded to the `offset` register.
+// register. Field's offset is loaded to the `offset` register. For reference fields, the slow path
+// is taken in case of a null object.
 static Register GenerateVarHandleFieldReference(HInvoke* invoke,
                                                 CodeGeneratorX86* codegen,
                                                 Register temp,
@@ -3233,8 +3246,9 @@ static Register GenerateVarHandleFieldReference(HInvoke* invoke,
     return temp;
   }
 
-  // For instance fields, return the register containing the object
+  // For instance fields, return the register containing the object.
   DCHECK_EQ(expected_coordinates_count, 1u);
+
   return locations->InAt(1).AsRegister<Register>();
 }
 
@@ -3316,7 +3330,8 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
 
   // Get the field referred by the VarHandle. The returned register contains the object reference
   // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
-  // declaring class will be placed in 'temp' register.
+  // declaring class will be placed in 'temp' register. For reference fields, the slow path is
+  // taken in case of a null object.
   Register ref = GenerateVarHandleFieldReference(invoke, codegen_, temp, offset);
 
   // Load the value from the field
@@ -3441,6 +3456,7 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleSet(HInvoke* invoke) {
 
   // Check the varType.primitiveType against the type of the value we're trying to set.
   GenerateVarTypePrimitiveTypeCheck(varhandle_object, temp, value_type, slow_path, assembler);
+
   if (value_type == DataType::Type::kReference) {
     Register value_reg = value.AsRegister<Register>();
     const uint32_t var_type_offset = mirror::VarHandle::VarTypeOffset().Uint32Value();
@@ -3456,7 +3472,8 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleSet(HInvoke* invoke) {
   Register offset = temp2;
   // Get the field referred by the VarHandle. The returned register contains the object reference
   // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
-  // declaring class will be placed in 'temp' register.
+  // declaring class will be placed in 'temp' register. For reference fields, the slow path is
+  // taken in case of a null object.
   Register reference = GenerateVarHandleFieldReference(invoke, codegen_, temp, offset);
 
   // Store the value to the field
