@@ -33,6 +33,24 @@
       "revId": "d488baacc8bd6a15b14366a7217b4f4863c6cd6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ebdafe0_540fef60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-07T15:42:49Z",
+      "side": 1,
+      "message": "This got autosubmitted now, but yeah, it\u0027s not clear to me if/how symbols get provided for prebuilt APEXes. Maybe we have a gap there.\n\nThere\u0027s also the question why these particular binaries need to be found in the system/bin directory. Is it due to the /system/bin symlinks for the real binaries? If so, what would we do to make unstripped lookup follow the real paths instead?",
+      "parentUuid": "ee75aea2_28d45a5e",
+      "revId": "d488baacc8bd6a15b14366a7217b4f4863c6cd6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
