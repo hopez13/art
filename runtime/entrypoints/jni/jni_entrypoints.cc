@@ -66,6 +66,9 @@ extern "C" const void* artFindNativeMethodRunnable(Thread* self)
       return nullptr;
     }
     DCHECK(target_method->IsCriticalNative());
+    // Note that BSS entries also contains entries for super calls. Given we
+    // only deal with invokestatic in this code path, we don't need to adjust
+    // the method index.
     MaybeUpdateBssMethodEntry(target_method, MethodReference(method->GetDexFile(), method_idx));
 
     // These calls do not have an explicit class initialization check, so do the check now.

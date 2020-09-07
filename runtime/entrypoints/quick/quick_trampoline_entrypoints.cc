@@ -1320,6 +1320,10 @@ extern "C" const void* artQuickResolutionTrampoline(
 
     // If successful, update .bss entry in oat file if any.
     if (called != nullptr) {
+      if (invoke_type == kSuper) {
+        DCHECK_EQ(called->GetDexFile(), called_method.dex_file);
+        called_method.index = called->GetDexMethodIndex();
+      }
       MaybeUpdateBssMethodEntry(called, called_method);
     }
   }
