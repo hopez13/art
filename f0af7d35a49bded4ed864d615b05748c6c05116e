@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "ce417a55_3644ca01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T16:34:34Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f88d001_3c09629e",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -33,6 +56,52 @@
       "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62558f45_2140450e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T16:34:34Z",
+      "side": 1,
+      "message": "We may not always need this check. Add an additional parameter \"object_can_be_null\" with conservative default value \"true\".",
+      "range": {
+        "startLine": 3119,
+        "startChar": 2,
+        "endLine": 3121,
+        "endChar": 29
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "193bc2c1_dd14cdb8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T16:34:34Z",
+      "side": 1,
+      "message": "Do this check in GenerateVarHandleInstanceFieldObjectCheck() instead. Then we can tell GenerateSubTypeObjectCheck() to skip the null check.",
+      "range": {
+        "startLine": 3247,
+        "startChar": 2,
+        "endLine": 3248,
+        "endChar": 42
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
