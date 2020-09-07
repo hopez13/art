@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d380c0c0_446fbf87",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T09:10:30Z",
+      "side": 1,
+      "message": "Meaningless top-level const.",
+      "range": {
+        "startLine": 4433,
+        "startChar": 2,
+        "endLine": 4433,
+        "endChar": 7
+      },
+      "revId": "540257fc9e7dc7e103df50b9e4216fe3b7ddcacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d165c38f_7bf32901",
+        "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T09:10:30Z",
+      "side": 1,
+      "message": "You\u0027re not testing\n\n  invoke-super {p0}, LClass;-\u003e$noinline$foo()V\n\nwhich is supposed to call a superclass method despite referencing this class. And you really should try calling this method after you add the invoke-super above to check that we won\u0027t get StackOverflowError which I believe we shall given the change in the InstructionBuilder.",
+      "revId": "540257fc9e7dc7e103df50b9e4216fe3b7ddcacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
