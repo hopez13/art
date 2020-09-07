@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3b7bbd6_d3941682",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-07T13:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d380c0c0_446fbf87",
+      "range": {
+        "startLine": 4433,
+        "startChar": 2,
+        "endLine": 4433,
+        "endChar": 7
+      },
+      "revId": "540257fc9e7dc7e103df50b9e4216fe3b7ddcacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d165c38f_7bf32901",
         "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "540257fc9e7dc7e103df50b9e4216fe3b7ddcacd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17db2cc1_0dd055f4",
+        "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-07T13:44:04Z",
+      "side": 1,
+      "message": "Good catch!\n\nI\u0027ve create another CL to fix the issue Tim observed:\nhttps://android-review.googlesource.com/c/platform/art/+/1420950\n\nAnd I\u0027ve repurposed this CL to now pass a full MethodReference to HInvoke. This will ensure we don\u0027t make mistakes and know exactly the dex file related to the dex method index.",
+      "parentUuid": "d165c38f_7bf32901",
+      "revId": "540257fc9e7dc7e103df50b9e4216fe3b7ddcacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
