@@ -1359,5 +1359,10 @@
         "tests": ["2232-write-metrics-to-log"],
         "variant": "target",
         "description": ["Checks LOG_STREAM output, which cannot be captured on target."]
+    },
+    {
+        "tests": ["728-varhandle-perf"],
+        "bug": "b/65872996",
+        "description": ["A temporary manual benchmark until golem supports VarHandles."]
     }
 ]
