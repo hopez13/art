@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98f62fb3_b4d83b75",
+        "filename": "build/art.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-07T11:28:45Z",
+      "side": 1,
+      "message": "Something like addArtTargetDefines seems less opaque.",
+      "range": {
+        "startLine": 206,
+        "startChar": 5,
+        "endLine": 206,
+        "endChar": 21
+      },
+      "revId": "15099e48dbdfa0b2d9ef71515151595c310d2e38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0353c3ce_43c11312",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-07T11:28:45Z",
+      "side": 1,
+      "message": "/*uses_library_list\u003d*/ n",
+      "range": {
+        "startLine": 447,
+        "startChar": 53,
+        "endLine": 447,
+        "endChar": 54
+      },
+      "revId": "15099e48dbdfa0b2d9ef71515151595c310d2e38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
