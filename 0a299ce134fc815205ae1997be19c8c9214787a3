@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8468ed7_5ca9ac8a",
+        "filename": "test/809-checker-invoke-super-bss/smali-multidex/OtherClass.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c29d5b5_36f4ca9a",
+        "filename": "test/809-checker-invoke-super-bss/smali-multidex/OtherClass.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "Right now the dex file has a MethodId for LSuperSuperClass;-\u003e$noinline$foo()V which we could use, thanks to line 27. It gets more interesting if this dex file does not contain such MethodId.",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67208810_a51cbbe7",
+        "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75651d06_66426fa4",
+        "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "This should be considered architecture-dependent. It may pose a problem when starting to work on a new architecture as you\u0027re forcing early implementation of BssEntry.",
+      "range": {
+        "startLine": 19,
+        "startChar": 128,
+        "endLine": 19,
+        "endChar": 136
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa329bc8_4be95afe",
+        "filename": "test/809-checker-invoke-super-bss/smali/Class.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "Unnecessary, implied by the two tests above.",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5da1bda_037fa705",
+        "filename": "test/809-checker-invoke-super-bss/smali/Main.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ced9677e_40c4d886",
+        "filename": "test/809-checker-invoke-super-bss/smali/SuperClass.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d652428_2e490ada",
+        "filename": "test/809-checker-invoke-super-bss/smali/SuperSuperClass.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-07T13:54:20Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "0a299ce134fc815205ae1997be19c8c9214787a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
