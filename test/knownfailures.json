@@ -1351,5 +1351,10 @@
         "variant": "jvm",
         "bug": "b/154802847",
         "description": ["Failing on RI. Needs further investigating."]
+    },
+    {
+        "tests": ["728-varhandle-perf"],
+        "bug": "b/65872996",
+        "description": ["A temporary manual benchmark until golem supports VarHandles."]
     }
 ]
