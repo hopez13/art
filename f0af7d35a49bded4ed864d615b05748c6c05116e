@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "ad9fa477_3cbb0edc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-07T18:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc5cb11_357eaea9",
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07cadaf6_9bd74066",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-07T18:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce417a55_3644ca01",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f88d001_3c09629e",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2020-09-07T16:31:18Z",
       "side": 1,
       "message": "Not for this CL, but can we determine this statically in some cases and avoid generating code at all? \n\nCompiling invocation of access methods (last paragraph on java.lang.Void)\nhttps://docs.oracle.com/javase/9/docs/api/java/lang/invoke/VarHandle.html\n\nThe runtime avoids some checks when it sees WellKnownClasses::java_lang_Void.",
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03ec4234_c33dc022",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3120,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-07T18:07:24Z",
+      "side": 1,
+      "message": "IIUC, the type of the object will be Void in that specific case. We are going to runtime for any other type than kReference (lines 3274 and 3377)",
+      "parentUuid": "9f88d001_3c09629e",
       "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "eccd666d_4f59a912",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-07T18:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62558f45_2140450e",
+      "range": {
+        "startLine": 3119,
+        "startChar": 2,
+        "endLine": 3121,
+        "endChar": 29
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "193bc2c1_dd14cdb8",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -102,6 +186,30 @@
       "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b830842_3cf88ea1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3248,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-07T18:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "193bc2c1_dd14cdb8",
+      "range": {
+        "startLine": 3247,
+        "startChar": 2,
+        "endLine": 3248,
+        "endChar": 42
+      },
+      "revId": "f0af7d35a49bded4ed864d615b05748c6c05116e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
