@@ -34,6 +34,47 @@
       "revId": "d0673a0da6c4346cc8d0be55e486840c99ade137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231f94c0_90a5be57",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-07T14:38:20Z",
+      "side": 1,
+      "message": "The scopes/responsibilities of the `buildbot-*.sh` scripts has changed a bit over time and needs to be better (re)defined.\n\nAs long as we haven\u0027t done that scoping/documentation work, I don\u0027t have strong opinion on the location of this logic. However, if it is only used for the chroot case, it makes sense to move it to `buildbot-setup-device.sh` (maybe in another CL).",
+      "parentUuid": "daf419e4_fa26a974",
+      "revId": "d0673a0da6c4346cc8d0be55e486840c99ade137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71df7ae7_e5e8dc20",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-07T14:38:20Z",
+      "side": 1,
+      "message": "I prefer to use here-documents when generating non-trivial contents for a file, e.g. something like this:\n\n  {\n    cat \u003c\u003cEOF\n  \u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\"?\u003e\n  \u003capex-info-list\u003e\n  EOF\n    for apex in ${apexes[@]}; do\n      [[ $apex \u003d\u003d com.android.art.* ]] \u0026\u0026 apex\u003dcom.android.art\n      cat \u003c\u003cEOF\n      \u003capex-info moduleName\u003d\"${apex}\" modulePath\u003d\"/system/apex/${apex}.apex\" preinstalledModulePath\u003d\"/system/apex/${apex}.apex\" versionCode\u003d\"1\" versionName\u003d\"\" isFactory\u003d\"true\" isActive\u003d\"true\"\u003e\n      \u003c/apex-info\u003e\n  EOF\n    done\n    cat \u003c\u003cEOF\n  \u003c/apex-info-list\u003e\n  EOF\n  } \u003e$apex_xml_file",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "d0673a0da6c4346cc8d0be55e486840c99ade137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
