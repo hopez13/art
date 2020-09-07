@@ -1,0 +1,2 @@
+Test that the dex invoke index of an HInvokeStaticOrDirect is that of the
+original invoke instruction. The BSS logic at runtime depends on it.
