@@ -1360,5 +1360,10 @@
         "variant": "target",
         "description": ["Fails on target on go/art-buildbot."],
         "bug": "b/174632603"
+    },
+    {
+        "tests": ["728-varhandle-perf"],
+        "bug": "b/65872996",
+        "description": ["A temporary manual benchmark until golem supports VarHandles."]
     }
 ]
