@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "1fe88111_c58be634",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-08T00:08:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06916146_127a8cf9",
+      "range": {
+        "startLine": 316,
+        "startChar": 52,
+        "endLine": 316,
+        "endChar": 53
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b0b68c9_cad8e2ce",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-08T00:08:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4801f3b_fc36192f",
+      "range": {
+        "startLine": 316,
+        "startChar": 7,
+        "endLine": 316,
+        "endChar": 11
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29e338f3_d8bb45af",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 6
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a1096395_800c729c",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-08T00:08:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e338f3_d8bb45af",
+      "range": {
+        "startLine": 309,
+        "startChar": 18,
+        "endLine": 309,
+        "endChar": 19
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766599ee_cb962074",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 6
@@ -91,6 +163,30 @@
       "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a080de38_3ff69585",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-08T00:08:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766599ee_cb962074",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 3
+      },
+      "revId": "83e0a7d36d28caab6e7c47e251fe2f7d2b4937b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
