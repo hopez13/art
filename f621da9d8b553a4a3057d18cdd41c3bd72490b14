@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04024779_8cefc6d4",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-08T16:32:34Z",
+      "side": 1,
+      "message": "Oh, you decided to add these back. It does makes the test somewhat more brittle in theory, but I don\u0027t complain, can clean it up when b/137356719 is addressed.",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "f621da9d8b553a4a3057d18cdd41c3bd72490b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
