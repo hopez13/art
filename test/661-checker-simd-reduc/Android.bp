@@ -3,4 +3,7 @@ java_test {
     name: "art-run-test-661-checker-simd-reduc",
     defaults: ["art-run-test-defaults"],
     srcs: ["src/**/*.java"],
+    // Include the Java source files in the test's artifacts, to make Checker assertions
+    // available to the TradeFed test runner.
+    data: ["src/**/*.java"],
 }

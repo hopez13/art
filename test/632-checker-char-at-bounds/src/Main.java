@@ -19,7 +19,7 @@ public class Main {
   /// CHECK-START: void Main.main(java.lang.String[]) licm (after)
   /// CHECK-DAG: <<NullCheck:l\d+>>   NullCheck
   /// CHECK-DAG: <<BoundsCheck:i\d+>> BoundsCheck
-  /// CHECK-DAG:                      ArrayGet [<<NullCheck>>,<<BoundsCheck>>]
+  /// CHECK-NOT:                      ArrayGet [<<NullCheck>>,<<BoundsCheck>>]
   public static void main(String[] args) {
     try {
       String foo = myString;
