@@ -22,6 +22,30 @@
       "revId": "f621da9d8b553a4a3057d18cdd41c3bd72490b14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dd3464f_bf4f62fe",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2020-09-08T23:07:01Z",
+      "side": 1,
+      "message": "`atest libnativeloader_test` needed them because the test runs on device and reads the real input (/linkerconfig/apex.libraries.config.txt).\n\nI agree. This is a bit brittle. Hope this fixed with b/137356719 ;-)",
+      "parentUuid": "04024779_8cefc6d4",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "f621da9d8b553a4a3057d18cdd41c3bd72490b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
