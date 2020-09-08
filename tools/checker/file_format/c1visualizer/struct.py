@@ -18,8 +18,9 @@ from common.mixins     import PrintableMixin
 
 class C1visualizerFile(PrintableMixin):
 
-  def __init__(self, fileName):
+  def __init__(self, fileName, fullFileName):
     self.fileName = fileName
+    self.fullFileName = fullFileName
     self.passes = []
     self.instructionSetFeatures = ImmutableDict()
 

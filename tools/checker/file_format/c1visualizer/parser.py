@@ -16,6 +16,7 @@ from common.logger                   import Logger
 from file_format.common              import SplitStream
 from file_format.c1visualizer.struct import C1visualizerFile, C1visualizerPass
 
+import os
 import re
 
 class C1ParserState:
@@ -97,11 +98,12 @@ def __parseC1Line(c1File, line, lineNo, state, fileName):
       Logger.fail("C1visualizer line not inside a group", fileName, lineNo)
 
 def ParseC1visualizerStream(fileName, stream):
-  c1File = C1visualizerFile(fileName)
+  basename = os.path.basename(fileName)
+  c1File = C1visualizerFile(basename, fileName)
   state = C1ParserState()
-  fnProcessLine = lambda line, lineNo: __parseC1Line(c1File, line, lineNo, state, fileName)
+  fnProcessLine = lambda line, lineNo: __parseC1Line(c1File, line, lineNo, state, basename)
   fnLineOutsideChunk = lambda line, lineNo: \
-      Logger.fail("C1visualizer line not inside a group", fileName, lineNo)
+      Logger.fail("C1visualizer line not inside a group", basename, lineNo)
   for passName, passLines, startLineNo, testArch in \
       SplitStream(stream, fnProcessLine, fnLineOutsideChunk):
     C1visualizerPass(c1File, passName, passLines, startLineNo + 1)

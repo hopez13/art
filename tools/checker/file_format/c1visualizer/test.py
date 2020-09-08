@@ -31,7 +31,7 @@ class C1visualizerParser_Test(unittest.TestCase):
                    [ ( <case-name>, [ ( <text>, <assert-variant> ), ... ] ), ... ]
                  )
     """
-    c1File = C1visualizerFile("<c1_file>")
+    c1File = C1visualizerFile("<c1_file>", "<c1_file>")
     c1File.instructionSetFeatures = data[0]
     for passEntry in data[1]:
       passName = passEntry[0]

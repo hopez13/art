@@ -86,7 +86,7 @@ def FindCheckerFiles(path):
 
 
 def RunTests(checkPrefix, checkPath, outputFilename, targetArch, debuggableMode):
-  c1File = ParseC1visualizerStream(os.path.basename(outputFilename), open(outputFilename, "r"))
+  c1File = ParseC1visualizerStream(outputFilename, open(outputFilename, "r"))
   for checkFilename in FindCheckerFiles(checkPath):
     checkerFile = ParseCheckerStream(os.path.basename(checkFilename),
                                      checkPrefix,
