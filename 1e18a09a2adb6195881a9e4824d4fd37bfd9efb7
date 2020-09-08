@@ -99,6 +99,30 @@
     },
     {
       "key": {
+        "uuid": "a0fccb55_6afc66fc",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-09-08T22:02:27Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand this one. The Main.java files from two different tests should be in different directories so no collision is possible",
+      "parentUuid": "d8320544_a2b77d70",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 27
+      },
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0932a12e_213830fb",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
