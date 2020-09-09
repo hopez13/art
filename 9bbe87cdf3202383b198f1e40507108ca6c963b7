@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ed44b83e_886fb5a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T16:26:02Z",
+      "side": 1,
+      "message": "compareAndSet",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "9bbe87cdf3202383b198f1e40507108ca6c963b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ceded0e_8dd88e55",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 4
