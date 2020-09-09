@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ceded0e_8dd88e55",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T11:44:50Z",
+      "side": 1,
+      "message": "I would drop this to simplify the code (remove lines 3678-3680). Emitting an unnecessary NEG for heap poisoning config when the input is NullConstant is OK.",
+      "range": {
+        "startLine": 3696,
+        "startChar": 35,
+        "endLine": 3696,
+        "endChar": 63
+      },
+      "revId": "9bbe87cdf3202383b198f1e40507108ca6c963b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b894149f_4947ae1a",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T11:44:50Z",
+      "side": 1,
+      "message": "Can you add tests for all new instructions to assembler_x86_test.cc?",
+      "revId": "9bbe87cdf3202383b198f1e40507108ca6c963b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
