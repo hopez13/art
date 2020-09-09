@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21fc5f48_c669023c",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T10:16:18Z",
+      "side": 1,
+      "message": "Did you check that clang++ can optimize this properly?",
+      "revId": "35c50c6e7a66cffdacc217ba9452e0b1ad30832a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
