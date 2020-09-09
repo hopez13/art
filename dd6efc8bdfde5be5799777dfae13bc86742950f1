@@ -22,6 +22,30 @@
       "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9572796_448ed511",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-09T21:58:09Z",
+      "side": 1,
+      "message": "I mean the negative size was a bug anyway. Really what was meant was DONT_NEED everything after the last entry, if it was on the last page and the End wasn\u0027t page aligned then release_start would be after release_end so negative length.",
+      "parentUuid": "b685a1c5_8bfac240",
+      "range": {
+        "startLine": 457,
+        "startChar": 2,
+        "endLine": 457,
+        "endChar": 9
+      },
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
