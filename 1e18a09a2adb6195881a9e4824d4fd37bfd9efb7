@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3a29a135_0b7c6dbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-09-09T10:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b04f6f1_521989f6",
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75a0f671_e4226f6e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42fbf7b5_7dbdd18a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-09-09T10:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75a0f671_e4226f6e",
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -123,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "27575a6e_668affa0",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-09-09T10:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "972857ef_16e249b5",
+      "range": {
+        "startLine": 314,
+        "startChar": 30,
+        "endLine": 314,
+        "endChar": 48
+      },
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0932a12e_213830fb",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
@@ -143,6 +203,30 @@
       "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4db6438_1df7b04f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-09-09T10:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0932a12e_213830fb",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 4
+      },
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
