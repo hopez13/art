@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "a1b9880e_1462de5c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T14:46:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f2bf780_1832d5ce",
+      "range": {
+        "startLine": 3530,
+        "startChar": 50,
+        "endLine": 3530,
+        "endChar": 63
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71cb3cf1_583c2041",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2020-09-09T14:08:51Z",
       "side": 1,
       "message": "Unrelated: GetTemp doesn\u0027t check index validity. Not a problem here, but there\u0027s some squinting required to follow the locations down to here with 0,1 or 2 temporaries.",
+      "range": {
+        "startLine": 3557,
+        "startChar": 37,
+        "endLine": 3557,
+        "endChar": 44
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a307fcb9_6c0b46d1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T14:46:18Z",
+      "side": 1,
+      "message": "It does in debug build because ArenaVector\u003c\u003e is an alias for dchecked_vector\u003c\u003e.",
+      "parentUuid": "71cb3cf1_583c2041",
       "range": {
         "startLine": 3557,
         "startChar": 37,
@@ -85,6 +133,30 @@
       "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a817c9_c4eccc5c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3620,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T14:46:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5857ad2_26173580",
+      "range": {
+        "startLine": 3620,
+        "startChar": 50,
+        "endLine": 3620,
+        "endChar": 63
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
