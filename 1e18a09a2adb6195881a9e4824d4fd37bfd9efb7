@@ -183,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "e28c4c43_935fee84",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:58:04Z",
+      "side": 1,
+      "message": "This is fine for an execution from an Android source/build tree, but not when producing a TradeFed test suite (Zip files containing test artifacts to be distributed for later use): the build system logic flattens all the test artifacts into a single directory (`testcases`). This means homonyms get telescoped.\n\nYou can have a look at test suites examples on http://ci.android.com, in the `test_suites_x86_64` build target (e.g. https://ci.android.com/builds/submitted/6822613/test_suites_x86_64/latest): for instance, `android-cts.zip`.",
+      "parentUuid": "a0fccb55_6afc66fc",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 27
+      },
+      "revId": "1e18a09a2adb6195881a9e4824d4fd37bfd9efb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0932a12e_213830fb",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
