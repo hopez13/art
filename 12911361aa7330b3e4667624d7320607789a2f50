@@ -224,6 +224,30 @@
       "revId": "12911361aa7330b3e4667624d7320607789a2f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e3cc83c_9a6167e0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3690,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T09:27:02Z",
+      "side": 1,
+      "message": "Actually, the GenCAS() is probably OK. I just noticed that it calls GenerateReferenceLoadWithBakerReadBarrier() with `/* always_update_field\u003d */ true`, so we do not need to compare to the from-space reference.",
+      "parentUuid": "21ded65d_c47eae03",
+      "range": {
+        "startLine": 3690,
+        "startChar": 63,
+        "endLine": 3690,
+        "endChar": 92
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
