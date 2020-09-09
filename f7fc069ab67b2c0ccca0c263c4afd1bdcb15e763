@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4d4badc_36660730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T14:08:51Z",
+      "side": 1,
+      "message": "So far lgtm, but I\u0027m a tourist in these parts and need at least one pass. ldp works very nicely here.",
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f2bf780_1832d5ce",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T14:08:51Z",
+      "side": 1,
+      "message": "Seems super specific. There could be a DCHECK this is in the callee_saved_core_registers, or the value could be taken from the list programmatically. Referring to the list points the reader to the convention info.",
+      "range": {
+        "startLine": 3530,
+        "startChar": 50,
+        "endLine": 3530,
+        "endChar": 63
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71cb3cf1_583c2041",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3557,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T14:08:51Z",
+      "side": 1,
+      "message": "Unrelated: GetTemp doesn\u0027t check index validity. Not a problem here, but there\u0027s some squinting required to follow the locations down to here with 0,1 or 2 temporaries.",
+      "range": {
+        "startLine": 3557,
+        "startChar": 37,
+        "endLine": 3557,
+        "endChar": 44
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5857ad2_26173580",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3620,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T14:08:51Z",
+      "side": 1,
+      "message": "Same DCHECK / callee_saved_core_registers comment.",
+      "range": {
+        "startLine": 3620,
+        "startChar": 50,
+        "endLine": 3620,
+        "endChar": 63
+      },
+      "revId": "f7fc069ab67b2c0ccca0c263c4afd1bdcb15e763",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
