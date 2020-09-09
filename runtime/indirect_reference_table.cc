@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include "base/bit_utils.h"
+#include "base/globals.h"
 #include "indirect_reference_table-inl.h"
 
 #include "base/mutator_locked_dumpable.h"
@@ -78,7 +80,7 @@ IndirectReferenceTable::IndirectReferenceTable(size_t max_count,
   // Overflow and maximum check.
   CHECK_LE(max_count, kMaxTableSizeInBytes / sizeof(IrtEntry));
 
-  const size_t table_bytes = max_count * sizeof(IrtEntry);
+  const size_t table_bytes = RoundUp(max_count * sizeof(IrtEntry), kPageSize);
   table_mem_map_ = MemMap::MapAnonymous("indirect ref table",
                                         table_bytes,
                                         PROT_READ | PROT_WRITE,
@@ -220,7 +222,7 @@ bool IndirectReferenceTable::Resize(size_t new_size, std::string* error_msg) {
   }
   // Note: the above check also ensures that there is no overflow below.
 
-  const size_t table_bytes = new_size * sizeof(IrtEntry);
+  const size_t table_bytes = RoundUp(new_size * sizeof(IrtEntry), kPageSize);
   MemMap new_map = MemMap::MapAnonymous("indirect ref table",
                                         table_bytes,
                                         PROT_READ | PROT_WRITE,
@@ -233,7 +235,9 @@ bool IndirectReferenceTable::Resize(size_t new_size, std::string* error_msg) {
   memcpy(new_map.Begin(), table_mem_map_.Begin(), table_mem_map_.Size());
   table_mem_map_ = std::move(new_map);
   table_ = reinterpret_cast<IrtEntry*>(table_mem_map_.Begin());
-  max_entries_ = new_size;
+  const size_t real_new_size = table_bytes / sizeof(IrtEntry);
+  DCHECK_GE(real_new_size, new_size);
+  max_entries_ = real_new_size;
 
   return true;
 }
@@ -445,8 +449,11 @@ bool IndirectReferenceTable::Remove(IRTSegmentState previous_state, IndirectRef 
 void IndirectReferenceTable::Trim() {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   const size_t top_index = Capacity();
-  auto* release_start = AlignUp(reinterpret_cast<uint8_t*>(&table_[top_index]), kPageSize);
-  uint8_t* release_end = table_mem_map_.End();
+  uint8_t* release_start = AlignUp(reinterpret_cast<uint8_t*>(&table_[top_index]), kPageSize);
+  uint8_t* release_end = static_cast<uint8_t*>(table_mem_map_.BaseEnd());
+  DCHECK_GE(reinterpret_cast<uintptr_t>(release_end), reinterpret_cast<uintptr_t>(release_start));
+  DCHECK_ALIGNED(release_end, kPageSize);
+  DCHECK_ALIGNED(release_end - release_start, kPageSize);
   madvise(release_start, release_end - release_start, MADV_DONTNEED);
 }
 
