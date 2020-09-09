@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2dfc022_cfb53154",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "Actually, could you replace this with Bug 147821328 instead?",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2b5ac1_20d4de75",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "I\u0027d add a general comment describing this module here.",
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbdab18a_2e55ece8",
+        "filename": "test/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "I\u0027d say \"build system and linker constraints\".",
+      "range": {
+        "startLine": 981,
+        "startChar": 28,
+        "endLine": 981,
+        "endChar": 46
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48a30db8_2508bd4c",
+        "filename": "test/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "Could you add a comment here on why this test is added to the \"device-tests\" suite, while `ArtGtestsTargetChroot` is added to the \"general-tests\" suite?",
+      "range": {
+        "startLine": 984,
+        "startChar": 4,
+        "endLine": 984,
+        "endChar": 34
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aad31ecc_ff165cda",
+        "filename": "test/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 992,
+        "startChar": 28,
+        "endLine": 992,
+        "endChar": 46
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d24e2255_548334b5",
+        "filename": "test/art-gtests-target-chroot.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "Maybe we should track that issue; I\u0027d replace this with:\n\n  TODO(b/147821328)",
+      "range": {
+        "startLine": 23,
+        "startChar": 13,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ade937cf_99f49860",
+        "filename": "test/art-gtests-target-chroot.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-09T15:09:38Z",
+      "side": 1,
+      "message": "Maybe also add that they work when executed locally.",
+      "range": {
+        "startLine": 25,
+        "startChar": 32,
+        "endLine": 25,
+        "endChar": 91
+      },
+      "revId": "7f59c9feaf657b5803b6c5c8505ad0c012d3c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
