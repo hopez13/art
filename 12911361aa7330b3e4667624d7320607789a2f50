@@ -272,6 +272,24 @@
     },
     {
       "key": {
+        "uuid": "0e630d48_b3ee4b4f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T12:03:22Z",
+      "side": 1,
+      "message": "I\u0027ve tried adding\n\n    try {\n        boolean result \u003d vh.compareAndSet(this, new Object(), Widget.ONE);\n        failUnreachable();\n    } catch (ClassCastException e) {\n    }\n\nto the end of VarHandleTypeConversionTests.SubtypeTest.doTest() and it succeeded, i.e. the vh.compareAndSet() threw ClassCastException.",
+      "parentUuid": "6d62438f_e923fcd2",
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b370f7ec_4f1d8441",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
