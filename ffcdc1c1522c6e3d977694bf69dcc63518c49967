@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07557c7c_c6b3072c",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T15:22:26Z",
+      "side": 1,
+      "message": "I think we\u0027re going to call the wrong method for kSuper/kBssEntry/different-dex-file. We really need to pass the dex_metod_index found above (line 1095). (TH failures are probably caused by this.)",
+      "range": {
+        "startLine": 1115,
+        "startChar": 52,
+        "endLine": 1115,
+        "endChar": 68
+      },
+      "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10846aa3_8bd9b12a",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T15:22:26Z",
+      "side": 1,
+      "message": "This is used only for checking the index against dex::kDexNoIndex. Maybe a `bool have_method_id` would be more appropriate.",
+      "range": {
+        "startLine": 61,
+        "startChar": 39,
+        "endLine": 61,
+        "endChar": 55
+      },
+      "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d767a955_0ae0c8db",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-09T15:22:26Z",
+      "side": 1,
+      "message": "If the boot image/extension block (lines 90-105) is moved after the new check below (lines 123-125), this check can be dropped, together with the duplicate IsInBootImage check (lines 94-96).",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 77
+      },
+      "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
