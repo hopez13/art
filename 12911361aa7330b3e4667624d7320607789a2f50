@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bfa2b62_1f0fe12b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3106,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T08:56:59Z",
+      "side": 1,
+      "message": "nit: block needs to be in braces.",
+      "range": {
+        "startLine": 3105,
+        "startChar": 0,
+        "endLine": 3106,
+        "endChar": 21
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8213c7c0_287b719a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3110,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T08:56:59Z",
+      "side": 1,
+      "message": "Even single statement blocks need to be in braces.",
+      "range": {
+        "startLine": 3109,
+        "startChar": 0,
+        "endLine": 3110,
+        "endChar": 21
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0406a73_60c6755b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3127,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T08:56:59Z",
+      "side": 1,
+      "message": "braces",
+      "range": {
+        "startLine": 3126,
+        "startChar": 0,
+        "endLine": 3127,
+        "endChar": 21
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d196c1f_91aa9085",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3651,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T08:56:59Z",
+      "side": 1,
+      "message": "kZero like GenCAS() is perhaps be more intuitive.",
+      "range": {
+        "startLine": 3651,
+        "startChar": 14,
+        "endLine": 3651,
+        "endChar": 20
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25900964_82e1c1b8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3690,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-09T08:56:59Z",
+      "side": 1,
+      "message": "Should this also always_update_field as GenCAS() does? That seems like well tested code, does it make sense to align closer to it?",
+      "range": {
+        "startLine": 3690,
+        "startChar": 63,
+        "endLine": 3690,
+        "endChar": 92
+      },
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
