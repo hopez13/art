@@ -22,6 +22,23 @@
       "revId": "d6e14e0b6a3447d6e89a93d0a017e92b11dc5f6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ce95c9_3c4ca586",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-09-10T22:13:59Z",
+      "side": 1,
+      "message": "The two disassembly outputs are compared here.\nThe two files differ only in extension.\nAnd the filesname (with extension) is part of the disassembler output.\n\nSo... the extension needs to be redacted from output, otherwise the filename will always cause a mis-match in the the comparison.",
+      "revId": "d6e14e0b6a3447d6e89a93d0a017e92b11dc5f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
