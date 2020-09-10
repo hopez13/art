@@ -16,6 +16,75 @@
       "revId": "6d5e1b7cad9bb6eeab8778829313767789bbd5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d96148d_3dccb898",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3351,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-10T12:56:37Z",
+      "side": 1,
+      "message": "These are used for loads with immediate offsets (LDP, LDRH); as two scratch registers are acquired from VIXL is that guaranteed that those offsets can be always encoded into raw assembly instructions (satisfying Assembler::IsImmLSPair)?",
+      "range": {
+        "startLine": 3350,
+        "startChar": 2,
+        "endLine": 3351,
+        "endChar": 82
+      },
+      "revId": "6d5e1b7cad9bb6eeab8778829313767789bbd5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46881c5_b069f6d9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3364,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-10T12:56:37Z",
+      "side": 1,
+      "message": "nit: what about using HeapOperand?",
+      "range": {
+        "startLine": 3364,
+        "startChar": 17,
+        "endLine": 3364,
+        "endChar": 36
+      },
+      "revId": "6d5e1b7cad9bb6eeab8778829313767789bbd5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b263981b_6b70049c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3368,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-10T12:56:37Z",
+      "side": 1,
+      "message": "The value in this register is considered dead as the UseScratchRegisterScope has been destructed; VIXL macroassembler might emit literal/veneer pool right here, e.g. with reusing IP register. You might want to have a UseScratchRegisterScope in the outer function/pass the Register as a parameter.",
+      "range": {
+        "startLine": 3368,
+        "startChar": 9,
+        "endLine": 3368,
+        "endChar": 13
+      },
+      "revId": "6d5e1b7cad9bb6eeab8778829313767789bbd5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
