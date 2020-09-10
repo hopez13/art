@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004867708",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1424314?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "4ee03d91_e3194c6b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-09-10T13:24:31Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 365,
+        "startChar": 25,
+        "endLine": 365,
+        "endChar": 31
+      },
+      "revId": "50643dbf33f8f7feaa51fd021a8e6188048cf735",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
