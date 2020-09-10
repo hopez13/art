@@ -110,6 +110,30 @@
       "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d28c77_03dad44a",
+        "filename": "build/apex/manifest-art.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-10T22:50:44Z",
+      "side": 1,
+      "message": "I didn\u0027t think libandroidicu.so was strictly related either, insofar the objective is adding libicu.so. But sure, if you don\u0027t feel like removing libneuralnetworks.so here I\u0027ll do just that one later then.\n\n\u003e I guess libicu_jni.so need to keep here because runtime.cc is dlopen-ing it.\n\nThanks, I\u0027ve missed that. In lieu of comments, can you please explain that in the description too?",
+      "parentUuid": "aa9d5234_75c477e8",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 26
+      },
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
