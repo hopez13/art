@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc142405_5de5b71c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-10T19:45:42Z",
+      "side": 1,
+      "message": "I thought the valid reason to list libs here was that they are public and preloaded. Normal dependencies through stubs should be handled automatically, and JNI libs are handled by libnativeloader and only needs visible namespaces.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 10
+      },
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d0de5f_a678b2ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-10T19:45:42Z",
+      "side": 1,
+      "message": "I was planning to do this cleanup myself, but thanks!",
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e6535a_070e4534",
+        "filename": "build/apex/manifest-art.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-10T19:45:42Z",
+      "side": 1,
+      "message": "If I\u0027m right above then these two shouldn\u0027t be necessary either.\n\n(Btw, if it was possible to have comments in json files I\u0027d strongly suggest explaining the reasons here. It\u0027s a pity it isn\u0027t supported.)",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 26
+      },
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
