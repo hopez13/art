@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae0531f8_fe769d96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2020-09-10T21:26:29Z",
+      "side": 1,
+      "message": "Done. Changed the comment.",
+      "parentUuid": "cc142405_5de5b71c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 10
+      },
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9d0de5f_a678b2ad",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2020-09-10T19:45:42Z",
       "side": 1,
       "message": "If I\u0027m right above then these two shouldn\u0027t be necessary either.\n\n(Btw, if it was possible to have comments in json files I\u0027d strongly suggest explaining the reasons here. It\u0027s a pity it isn\u0027t supported.)",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 26
+      },
+      "revId": "01bef22217763a9cccc26d89ade4baa499ea29b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9d5234_75c477e8",
+        "filename": "build/apex/manifest-art.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2020-09-10T21:26:29Z",
+      "side": 1,
+      "message": "Do you want to try to clean this up yourself, because it\u0027s not strictly related to my CLs?\n\nI guess libicu_jni.so need to keep here because runtime.cc is dlopen-ing it.",
+      "parentUuid": "02e6535a_070e4534",
       "range": {
         "startLine": 8,
         "startChar": 0,
