@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "edcc51dc_4483ad03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T16:06:29Z",
+      "side": 1,
+      "message": "Note that we ignore the return value. The question is how does the kernel interpret the call.\n\n\"man madvise\" lists the following error:\n\n  EINVAL [...] or length is negative.\n\nThat makes no sense for `size_t length`. Given how ill-defined this seems to be I would not be surprised if the behavior varied for different architectures.",
+      "parentUuid": "6d35d7ec_c857aef7",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ded0ebb_a1d6560d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
