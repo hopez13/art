@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d281eb6_7a45945d",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T10:56:06Z",
+      "side": 1,
+      "message": "Remove? I don\u0027t think these can be used on x86 and we\u0027re never using AH, BH, CH, DH.",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 71
+      },
+      "revId": "435eb2f3ee9ab4f918f6a9feafffe04bec0ea8c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
