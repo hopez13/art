@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b5c152_8311cdf2",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T10:19:36Z",
+      "side": 1,
+      "message": "I find the parameter name confusing. What about `search_for_valid_stack_map` (equals `!use_exact_map`)?",
+      "range": {
+        "startLine": 77,
+        "startChar": 33,
+        "endLine": 77,
+        "endChar": 46
+      },
+      "revId": "0c139c691b65fc629dabbad696e83eee17e430f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
