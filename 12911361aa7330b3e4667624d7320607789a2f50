@@ -290,6 +290,24 @@
     },
     {
       "key": {
+        "uuid": "9747d569_353772f2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3626,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-10T08:03:32Z",
+      "side": 1,
+      "message": "You\u0027re right. Sorry, I misunderstood what you were saying. Yes, the expected value type should be check because otherwise the operation will return false without executing and without raising the exception. I added the check.",
+      "parentUuid": "0e630d48_b3ee4b4f",
+      "revId": "12911361aa7330b3e4667624d7320607789a2f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b370f7ec_4f1d8441",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
