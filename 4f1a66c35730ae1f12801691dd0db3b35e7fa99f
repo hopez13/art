@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d18ef8de_5abd1267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-10T12:47:36Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like tests have support for ByteRegister, which may make testing cmpxchgb inconvenient. There could be an overload for cmpxchgb that checks and converts a Register into a ByteRegister, it\u0027s a bit awkward since it\u0027ll only give AL... or AH...\n",
+      "revId": "4f1a66c35730ae1f12801691dd0db3b35e7fa99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
