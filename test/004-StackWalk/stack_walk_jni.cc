@@ -25,7 +25,7 @@ namespace art {
 #define CHECK_REGS_ARE_REFERENCES(...) do { \
   int t[] = {__VA_ARGS__}; \
   int t_size = sizeof(t) / sizeof(*t); \
-  CheckReferences(t, t_size, GetNativePcOffset()); \
+  CheckReferences(t, t_size, GetDexPc(), GetNativePcOffset(), /* use_exact_map= */ true); \
 } while (false);
 
 static int gJava_StackWalk_refmap_calls = 0;
