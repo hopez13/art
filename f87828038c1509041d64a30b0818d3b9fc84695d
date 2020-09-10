@@ -22,6 +22,30 @@
       "revId": "f87828038c1509041d64a30b0818d3b9fc84695d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94f2564a_35d91e19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2020-09-10T05:32:26Z",
+      "side": 1,
+      "message": "I found that if there are two or more \u0027linker.config.txt\u0027 defined from prebuilt_etc with default installable, then build fails with error of conflict system/etc/linker.config.txt as in https://android-build.googleplex.com/builds/pending/P16619570/test_suites_arm64/latest/view/logs/build_error.log . After setting this value I found that the error is gone.",
+      "parentUuid": "8374d5f4_cecad0dc",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "f87828038c1509041d64a30b0818d3b9fc84695d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
