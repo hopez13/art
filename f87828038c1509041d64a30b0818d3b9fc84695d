@@ -46,6 +46,30 @@
       "revId": "f87828038c1509041d64a30b0818d3b9fc84695d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c48a4c_d98cc895",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-10T14:38:40Z",
+      "side": 1,
+      "message": "Ok, so prebuilt_etc assume an install path in /system/etc, which isn\u0027t applicable for APEX etc files. This is probably prone to happen again for other APEXes.",
+      "parentUuid": "94f2564a_35d91e19",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "f87828038c1509041d64a30b0818d3b9fc84695d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
