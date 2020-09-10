@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7f140c2b_2c1ef7b4",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T14:23:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "479efb8f_55e0b1df",
+      "range": {
+        "startLine": 1115,
+        "startChar": 52,
+        "endLine": 1115,
+        "endChar": 68
+      },
+      "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10846aa3_8bd9b12a",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 1
@@ -140,6 +164,30 @@
       "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed64d11f_3c4b8db2",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T14:23:15Z",
+      "side": 1,
+      "message": "I see. We could get rid of the duplicate IsInBootImage check, but it does not help with the checks you\u0027re adding here.",
+      "parentUuid": "44752df8_15084613",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 77
+      },
+      "revId": "ffcdc1c1522c6e3d977694bf69dcc63518c49967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

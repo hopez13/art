@@ -16,6 +16,46 @@
       "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3189c8cd_c76fb196",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T14:23:15Z",
+      "side": 1,
+      "message": "kRuntimeCall does not go through this trampoline?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 10,
+        "endLine": 1329,
+        "endChar": 59
+      },
+      "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "666a42f5_45095e61",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-10T14:23:15Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
