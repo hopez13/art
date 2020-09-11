@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b115463_d828ac48",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-11T12:51:19Z",
+      "side": 1,
+      "message": "Sorry, I might be lost here: the \u0027type\u0027 register contains poisoned reference (when called from GenerateVarHandleInstanceFieldCheck), but \"temp\u0027 is unpoisoned here, right?",
+      "range": {
+        "startLine": 3395,
+        "startChar": 54,
+        "endLine": 3395,
+        "endChar": 74
+      },
+      "revId": "2419f97354da96af3328b6cdd07fb66fd1970e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c518d0c6_f387f437",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3560,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-11T12:51:19Z",
+      "side": 1,
+      "message": "Nit: maybe to extract as a bool \"is_static_field\"?",
+      "range": {
+        "startLine": 3560,
+        "startChar": 45,
+        "endLine": 3560,
+        "endChar": 78
+      },
+      "revId": "2419f97354da96af3328b6cdd07fb66fd1970e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39a420a0_349366a1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-11T12:51:19Z",
+      "side": 1,
+      "message": "Nit: here and in other places: are all the .W()/.X() conversions are needed? Here do we get an X register from InputRegisterAt?",
+      "range": {
+        "startLine": 3676,
+        "startChar": 34,
+        "endLine": 3676,
+        "endChar": 38
+      },
+      "revId": "2419f97354da96af3328b6cdd07fb66fd1970e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

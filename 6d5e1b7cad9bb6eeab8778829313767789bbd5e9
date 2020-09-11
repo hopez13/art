@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "be509a77_a8f33d65",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3351,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-11T12:51:19Z",
+      "side": 1,
+      "message": "Oh, yes, you\u0027re right.",
+      "parentUuid": "4da336d5_7a83660c",
+      "range": {
+        "startLine": 3350,
+        "startChar": 2,
+        "endLine": 3351,
+        "endChar": 82
+      },
+      "revId": "6d5e1b7cad9bb6eeab8778829313767789bbd5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b46881c5_b069f6d9",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
