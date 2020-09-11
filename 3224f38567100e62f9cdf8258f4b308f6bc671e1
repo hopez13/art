@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "3c3aa51e_9a786e14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-11T16:55:40Z",
+      "side": 1,
+      "message": "The CL causes the benchmark CryptoSHA1 (https://android-git.linaro.org/linaro/art-testing.git/tree/benchmarks/algorithm/CryptoSHA1.java) to fail verification.\nThe affected method: private int[] coreSHA1(int[] x, int len)\n\nIn the code:\n\n      for (int j \u003d 0; j \u003c 80; j++) {\n        if (j \u003c 16) {\n          w[j] \u003d x[i + j];\n        } else {\n          w[j] \u003d bitRotateLeft(w[j - 3] ^ w[j - 8] ^ w[j - 14] ^ w[j - 16], 1);\n        }\n        int t \u003d bitRotateLeft(a, 5) + sha1FT(j, b, c, d) + e + w[j] + sha1KT(j);\n\n\nArraySets \u0027w[j]\u0027 are eliminated but they must not. When j \u003e\u003d 16, w[j] is calculated using the values from the previous iterations. As those values are not stored into the array, zeros are loaded from the array.\n",
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f006e29_5e360ad1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
