@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "e42f8e61_09a793e2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-11T08:48:53Z",
+      "side": 1,
+      "message": "No, it goes through the kQuickInvokeSuperTrampolineWithAccessCheck (see code_generator.cc:GenerateInvokeStaticOrDirectRuntimeCall)",
+      "parentUuid": "3189c8cd_c76fb196",
+      "range": {
+        "startLine": 1329,
+        "startChar": 10,
+        "endLine": 1329,
+        "endChar": 59
+      },
+      "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666a42f5_45095e61",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -56,6 +80,24 @@
       "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09df74b_ef70f360",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-11T08:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666a42f5_45095e61",
+      "revId": "14c67533c34e19faeb553ddc4282ac0dc7815da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
