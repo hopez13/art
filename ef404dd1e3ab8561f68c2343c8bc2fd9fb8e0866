@@ -16,6 +16,24 @@
       "revId": "ef404dd1e3ab8561f68c2343c8bc2fd9fb8e0866",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8c0e7a_b0c29f4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2020-09-11T19:50:46Z",
+      "side": 1,
+      "message": "The test build failed because Forrest doesn\u0027t support build chaining (there\u0027s a bug requesting to fix this but has a low priority ATM).\n\nI think we can just submit this CL once presubmits pass.  We\u0027ll monitor aosp-master-plus-llvm and ensure this is fixed.",
+      "parentUuid": "9b672dcb_f4230f10",
+      "revId": "ef404dd1e3ab8561f68c2343c8bc2fd9fb8e0866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
