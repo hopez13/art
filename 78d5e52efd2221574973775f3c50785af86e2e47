@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a16864d1_99bed00d",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "Why do we need all of this information?\n\nI was thinking that as long as we just want to move allocations to their escape point (rather than duplicate them to multiple escape points), we would just calculate the common dominator of all escape points and try to move the allocation there.\n\nAnd if we want to check if a store to a singleton can be removed, just check the reachability from the store to all escape points.",
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1572fc_79159019",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "Did you want to use ScopedArenaHashSet? ScopedArenaSet is an alias for std::set.",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508aad64_f4164bb2",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "Maybe we should pass the index of the successor instead to simplify the code.\n\n  auto it \u003d std::find(pred-\u003eGetSuccessors().begin(), pred-\u003eGetSuccessors().end(), to_remove);\n  size_t successor_index \u003d std::distance(pred-\u003eGetSuccessors().begin(), it);\n  LimitBlockSuccessor(pred, successor_index);",
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b73da5c_17079645",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "Just `*excluded_list_`. (ArrayRef\u003c\u003e has a constructor that can take a vector.)",
+      "range": {
+        "startLine": 180,
+        "startChar": 44,
+        "endLine": 180,
+        "endChar": 90
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4160c9ec_db38ad6f",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "`auto`. Or is there a problem with recursive calls in a lambdas?\n\n(I\u0027m not very fond of recursion where the depth is limited only by the number of basic blocks.)",
+      "range": {
+        "startLine": 242,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 43
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c0f5ed0_8c8581a7",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "emplace() allocates a node before checking whether there is an equal key. Use only if you expect this to be a new node most of the time.",
+      "range": {
+        "startLine": 257,
+        "startChar": 18,
+        "endLine": 257,
+        "endChar": 25
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23b5ccce_6180b7ed",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T16:25:06Z",
+      "side": 1,
+      "message": "blk-\u003eGetSuccessors()",
+      "range": {
+        "startLine": 259,
+        "startChar": 20,
+        "endLine": 259,
+        "endChar": 96
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
