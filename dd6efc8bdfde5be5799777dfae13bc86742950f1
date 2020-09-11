@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "2143530d_74c69e57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-11T16:28:32Z",
+      "side": 1,
+      "message": "that was my guess too from looking at do_madvise (https://github.com/torvalds/linux/blob/dd9fb9bb3340c791a2be106fdc895db75f177343/mm/madvise.c#L1078). ndesaulniers didn\u0027t think it was likely and said he thought there was a shim to prevent that though.\n\nAlso I thought that the emulator was a VM not paravirtualization (unless you think the bug resides in qemu/kvm).\n\nIn any event Sergey tried this and it seems to work so I guess that must be it.\n\nIt is strange we didn\u0027t hear about this on real devices if this is the real cause. Maybe we just got lucky with the sizes.",
+      "parentUuid": "a7bb2a9a_4ec559f5",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ded0ebb_a1d6560d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -132,6 +156,24 @@
       "writtenOn": "2020-09-10T01:20:41Z",
       "side": 1,
       "message": "Feasible to add a regression test?",
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cbc01f6_10cf5afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-11T16:28:32Z",
+      "side": 1,
+      "message": "not easily TBH.\n\nmadvise is supposed to just ignores the negative length and usually seems to. I\u0027m still not sure how exactly this failure works. Nick (kernel person) I talked to seemed to think this was unlikely to be the cause.",
+      "parentUuid": "9ded0ebb_a1d6560d",
       "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -158,6 +200,30 @@
       "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12260d50_e263daae",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-11T16:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b30fd4_5f78d8ed",
+      "range": {
+        "startLine": 83,
+        "startChar": 29,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
