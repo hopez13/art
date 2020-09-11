@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "fb129b15_e4ee92f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T19:11:32Z",
+      "side": 1,
+      "message": "Looks like the TODO in load_store_elimination.cc at line 2076 needs to be urgently addressed.",
+      "parentUuid": "3c3aa51e_9a786e14",
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f006e29_5e360ad1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -606,6 +624,29 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f517dbc3_8fc6b59f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 2076,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T19:11:32Z",
+      "side": 1,
+      "message": "I guess this needs to be addressed, something like the code starting with the comment at line 1433.",
+      "range": {
+        "startLine": 2075,
+        "startChar": 6,
+        "endLine": 2076,
+        "endChar": 28
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
