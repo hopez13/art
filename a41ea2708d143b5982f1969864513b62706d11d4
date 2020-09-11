@@ -51,6 +51,24 @@
       "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc337ae_ae0dddc0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3579,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2020-09-11T19:32:07Z",
+      "side": 1,
+      "message": "The failing targets build with a newer Clang than the one in AOSP.  This helps us find new compiler regressions/warnings when preparing a Clang update.  The warning here was probably added to Clang recently.",
+      "parentUuid": "55db8b05_e39ae35a",
+      "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
