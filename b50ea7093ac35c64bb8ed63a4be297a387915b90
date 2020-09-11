@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "b2f246ce_8ddaec2b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4182,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-11T04:11:29Z",
+      "side": 1,
+      "message": "If you checked the device and all looks good we should be allright. \nI always tried to push for real location there but there were some cases when it didn\u0027t work (maybe host...)\n\nI did try to test on a device, but I got boot loop :) So here\u0027s some corner cases for you to check before submit:\n- split apk\n- post OTA\n- post BgDexopt\n- secondary dex files post BgDexopt.",
+      "parentUuid": "81e9fbe9_b5beb791",
+      "range": {
+        "startLine": 4182,
+        "startChar": 31,
+        "endLine": 4182,
+        "endChar": 53
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a19a6ad_2a0c787d",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 1
