@@ -33,6 +33,24 @@
       "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55db8b05_e39ae35a",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-11T19:22:45Z",
+      "side": 1,
+      "message": "I cannot repro with the current clang. That looks like a clang bug.\n\nUploaded a fix: https://android-review.googlesource.com/1425049 . Please test that CL with the upcoming update.",
+      "parentUuid": "a704761c_b71fb5cf",
+      "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
