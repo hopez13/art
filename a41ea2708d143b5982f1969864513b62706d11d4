@@ -16,6 +16,23 @@
       "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a704761c_b71fb5cf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3579,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2020-09-11T18:30:09Z",
+      "side": 1,
+      "message": "FYI, clang-tidy flagged an issue here (in go/ab/aosp-master-plus-llvm branch).  I\u0027m not sure if this is newly added and only breaks in the upcoming clang update.\n\n/buildbot/src/android/master-plus-llvm/art/compiler/optimizing/intrinsics_arm64.cc:3579:53: error: argument name \u0027is_volatile\u0027 in comment does not match parameter name \u0027use_load_acquire\u0027 [bugprone-argument-comment,-warnings-as-errors]\n                                                    /*is_volatile\u003d*/ false);\n                                                    ^\n/buildbot/src/android/master-plus-llvm/art/compiler/optimizing/code_generator_arm64.h:814:51: note: \u0027use_load_acquire\u0027 declared here\n                                             bool use_load_acquire);\n                                                  ^",
+      "revId": "a41ea2708d143b5982f1969864513b62706d11d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
