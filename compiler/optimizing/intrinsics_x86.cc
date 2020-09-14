@@ -1962,18 +1962,16 @@ void IntrinsicLocationsBuilderX86::VisitUnsafeCASObject(HInvoke* invoke) {
   CreateIntIntIntIntIntToInt(allocator_, DataType::Type::kReference, invoke);
 }
 
-static void GenPrimitiveCAS(DataType::Type type,
-                            CodeGeneratorX86* codegen,
-                            Location expected_value,
-                            Location new_value,
-                            Register base,
-                            Register offset,
-                            Location out,
-                            // Only necessary for floating point
-                            Register temp = Register::kNoRegister) {
+static void GenPrimitiveCMPXCHG(DataType::Type type,
+                                CodeGeneratorX86* codegen,
+                                Location expected_value,
+                                Location new_value,
+                                Register base,
+                                Register offset,
+                                // Only necessary for floating point
+                                Register temp = Register::kNoRegister) {
   X86Assembler* assembler = down_cast<X86Assembler*>(codegen->GetAssembler());
 
-  DCHECK_EQ(out.AsRegister<Register>(), EAX);
   if (DataType::Kind(type) == DataType::Type::kInt32) {
     DCHECK_EQ(expected_value.AsRegister<Register>(), EAX);
   }
@@ -2016,6 +2014,21 @@ static void GenPrimitiveCAS(DataType::Type type,
   }
   // LOCK CMPXCHG/LOCK CMPXCHG8B have full barrier semantics, and we
   // don't need scheduling barriers at this time.
+}
+
+static void GenPrimitiveCAS(DataType::Type type,
+                            CodeGeneratorX86* codegen,
+                            Location expected_value,
+                            Location new_value,
+                            Register base,
+                            Register offset,
+                            Location out,
+                            // Only necessary for floating point
+                            Register temp = Register::kNoRegister) {
+  X86Assembler* assembler = down_cast<X86Assembler*>(codegen->GetAssembler());
+  DCHECK_EQ(out.AsRegister<Register>(), EAX);
+
+  GenPrimitiveCMPXCHG(type, codegen, expected_value, new_value, base, offset, temp);
 
   // Convert ZF into the Boolean result.
   __ setb(kZero, out.AsRegister<Register>());
@@ -3130,6 +3143,7 @@ static bool IsValidFieldVarHandleExpected(HInvoke* invoke) {
     return false;
   }
 
+  uint32_t number_of_arguments = invoke->GetNumberOfArguments();
   DataType::Type type = invoke->GetType();
   mirror::VarHandle::AccessModeTemplate access_mode_template =
       mirror::VarHandle::GetAccessModeTemplateByIntrinsic(invoke->GetIntrinsic());
@@ -3143,7 +3157,6 @@ static bool IsValidFieldVarHandleExpected(HInvoke* invoke) {
       if (type != DataType::Type::kBool) {
         return false;
       }
-      uint32_t number_of_arguments = invoke->GetNumberOfArguments();
       uint32_t expected_value_index = number_of_arguments - 2;
       uint32_t new_value_index = number_of_arguments - 1;
       DataType::Type expected_value_type = GetDataTypeFromShorty(invoke, expected_value_index);
@@ -3154,13 +3167,25 @@ static bool IsValidFieldVarHandleExpected(HInvoke* invoke) {
       }
       break;
     }
+    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate: {
+      DataType::Type value_type = GetDataTypeFromShorty(invoke, number_of_arguments - 1);
+      if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAndAdd) {
+        if (value_type == DataType::Type::kReference || value_type == DataType::Type::kVoid) {
+          // We should not add references
+          return false;
+        }
+      }
+      if (value_type != type) {
+        return false;
+      }
+      break;
+    }
     case mirror::VarHandle::AccessModeTemplate::kGet:
       // The return type should be the same as varType, so it shouldn't be void
       if (type == DataType::Type::kVoid) {
         return false;
       }
       break;
-    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:
     case mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:
       // Unimplemented intrinsics
       UNREACHABLE();
@@ -3689,6 +3714,155 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+static void CreateVarHandleGetAndAddLocations(HInvoke* invoke) {
+  // The only read barrier implementation supporting the
+  // VarHandleGet intrinsic is the Baker-style read barriers.
+  if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
+    return;
+  }
+
+  if (!IsValidFieldVarHandleExpected(invoke)) {
+    return;
+  }
+
+  // The last argument should be the value we intend to set.
+  uint32_t value_index = invoke->GetNumberOfArguments() - 1;
+  DataType::Type value_type = GetDataTypeFromShorty(invoke, value_index);
+  if (DataType::Is64BitType(value_type)) {
+    // We avoid the case of an Int64/Float64 value because we would need to place it in a register
+    // pair. If the slow path is taken, the ParallelMove might fail to move the pair according to
+    // the X86DexCallingConvention in case of an overlap (e.g., move the 64 bit value from
+    // <EAX, EBX> to <EBX, ECX>).
+    return;
+  }
+
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+  LocationSummary* locations = new (allocator) LocationSummary(
+      invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
+  locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  locations->SetInAt(0, Location::RequiresRegister());
+  size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
+  if (expected_coordinates_count == 1u) {
+    // For instance fields, this is the source object
+    locations->SetInAt(1, Location::RequiresRegister());
+  } else {
+    // For static fields, we need another temp because one will be busy with the declaring class.
+    locations->AddTemp(Location::RequiresRegister());
+  }
+
+  if (DataType::IsFloatingPointType(value_type)) {
+    locations->AddTemp(Location::RequiresFpuRegister());
+    locations->AddTemp(Location::RegisterLocation(EAX));
+    locations->SetInAt(value_index, Location::RequiresFpuRegister());
+    locations->SetOut(Location::RequiresFpuRegister());
+  } else {
+    locations->SetInAt(value_index, Location::RegisterLocation(EAX));
+    locations->SetOut(Location::RegisterLocation(EAX));
+  }
+}
+
+static void GenerateVarHandleGetAndAdd(HInvoke* invoke, CodeGeneratorX86* codegen) {
+  // The only read barrier implementation supporting the
+  // VarHandleGet intrinsic is the Baker-style read barriers.
+  DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
+
+  X86Assembler* assembler = codegen->GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+  uint32_t number_of_arguments = invoke->GetNumberOfArguments();
+  uint32_t value_index = number_of_arguments - 1;
+  DataType::Type type = GetDataTypeFromShorty(invoke, value_index);
+  DCHECK_EQ(type, invoke->GetType());
+  Location value_loc = locations->InAt(value_index);
+  Register vh_object = locations->InAt(0).AsRegister<Register>();
+  Register temp = locations->GetTemp(0).AsRegister<Register>();
+  SlowPathCode* slow_path = new (codegen->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
+  codegen->AddSlowPath(slow_path);
+
+  GenerateVarHandleCommonChecks(invoke, temp, slow_path, assembler);
+
+  GenerateVarTypePrimitiveTypeCheck(vh_object, temp, type, slow_path, assembler);
+
+  Register offset = locations->GetTemp(1).AsRegister<Register>();
+  // Get the field referred by the VarHandle. The returned register contains the object reference
+  // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
+  // declaring class will be placed in 'temp' register.
+  Register reference = GenerateVarHandleFieldReference(invoke, codegen, temp, offset);
+
+  size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
+  temp = (expected_coordinates_count == 1u) ? temp : locations->GetTemp(2).AsRegister<Register>();
+  DCHECK_NE(temp, reference);
+  Address field_addr(reference, offset, TIMES_1, 0);
+
+  if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAndAddRelease) {
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyStore);
+  }
+
+  Location eax = Location::RegisterLocation(EAX);
+  switch (type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kInt8:
+      __ LockXAddb(field_addr, value_loc.AsRegister<ByteRegister>());
+      __ movsxb(EAX, locations->Out().AsRegister<ByteRegister>());
+      break;
+    case DataType::Type::kInt16:
+    case DataType::Type::kUint16:
+      __ LockXAddw(field_addr, value_loc.AsRegister<Register>());
+      __ movsxw(EAX, locations->Out().AsRegister<Register>());
+      break;
+    case DataType::Type::kInt32:
+      __ LockXAddl(field_addr, value_loc.AsRegister<Register>());
+      break;
+    default: {
+      DCHECK_EQ(type, DataType::Type::kFloat32);
+      Location temp_float =
+          (expected_coordinates_count == 1u) ? locations->GetTemp(2) : locations->GetTemp(3);
+      DCHECK(temp_float.IsFpuRegister());
+      NearLabel try_again;
+      __ Bind(&try_again);
+      codegen->MoveFromMemory(type, temp_float, reference, offset);
+      __ movd(EAX, temp_float.AsFpuRegister<XmmRegister>());
+      __ addss(temp_float.AsFpuRegister<XmmRegister>(),
+              value_loc.AsFpuRegister<XmmRegister>());
+      GenPrimitiveCMPXCHG(type, codegen, /*expected=*/eax, temp_float, reference, offset, temp);
+      __ j(kNotZero, &try_again);
+
+      // The old value is returned in EAX.
+      codegen->Move32(locations->Out(), eax);
+    }
+  }
+
+  if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAndAddAcquire) {
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
+  }
+
+  __ Bind(slow_path->GetExitLabel());
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
+
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
 UNIMPLEMENTED_INTRINSIC(X86, ReferenceGetReferent)
 UNIMPLEMENTED_INTRINSIC(X86, FloatIsInfinite)
@@ -3744,9 +3918,6 @@ UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchange)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAcquire)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAdd)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddAcquire)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAnd)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndRelease)
