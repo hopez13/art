@@ -16,6 +16,52 @@
       "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e364577_f99ecbb0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3434,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-14T09:59:55Z",
+      "side": 1,
+      "message": "Lift this before if().",
+      "range": {
+        "startLine": 3434,
+        "startChar": 8,
+        "endLine": 3434,
+        "endChar": 58
+      },
+      "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae5bb4db_1bd9c1a0",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-14T09:59:55Z",
+      "side": 1,
+      "message": "Shift is synonymous with register rotation, suggest add()? displaceBy()? other?",
+      "range": {
+        "startLine": 201,
+        "startChar": 10,
+        "endLine": 201,
+        "endChar": 15
+      },
+      "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
