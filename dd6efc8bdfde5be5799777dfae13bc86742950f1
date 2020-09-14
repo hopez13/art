@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "4c8a043e_c895934e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-14T17:12:20Z",
+      "side": 1,
+      "message": "Hm testing seems to confirm this is the issue. I guess the emulator/kvm/something is doing something unexpected.",
+      "parentUuid": "2143530d_74c69e57",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "dd6efc8bdfde5be5799777dfae13bc86742950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ded0ebb_a1d6560d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
