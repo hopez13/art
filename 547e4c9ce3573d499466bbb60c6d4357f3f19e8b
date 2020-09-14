@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "ae9c2127_cfeb98d3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3434,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-14T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e364577_f99ecbb0",
+      "range": {
+        "startLine": 3434,
+        "startChar": 8,
+        "endLine": 3434,
+        "endChar": 58
+      },
+      "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae5bb4db_1bd9c1a0",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94dd15c2_b8356714",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-14T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5bb4db_1bd9c1a0",
+      "range": {
+        "startLine": 201,
+        "startChar": 10,
+        "endLine": 201,
+        "endChar": 15
+      },
+      "revId": "547e4c9ce3573d499466bbb60c6d4357f3f19e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
