@@ -39,6 +39,30 @@
       "revId": "9f71f77a293aa8ab6eb4d0996c51e42dae08cf29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db7021de_3d6c6f08",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-09-14T10:32:10Z",
+      "side": 1,
+      "message": "In the PS2 I kept the DCHECK and used kOutputOverlap for divide intrinsics so we comply with the check and don\u0027t relax it.",
+      "parentUuid": "27dbf954_6467c189",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 65
+      },
+      "revId": "9f71f77a293aa8ab6eb4d0996c51e42dae08cf29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
