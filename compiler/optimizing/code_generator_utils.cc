@@ -99,11 +99,132 @@ void CalculateMagicAndShiftForDivRem(int64_t divisor, bool is_long,
 bool IsBooleanValueOrMaterializedCondition(HInstruction* cond_input) {
   return !cond_input->IsCondition() || !cond_input->IsEmittedAtUseSite();
 }
+// A class to help with analysis of values at the point of use.
+class ValueUseAnalyzer {
+ public:
+  explicit ValueUseAnalyzer(ArenaAllocator* allocator)
+      : seen_values_(allocator->Adapter(kArenaAllocCodeGenerator)) {
+  }
 
+  bool IsValueNonNegativeAtUse(HInstruction* value, HInstruction* target_user);
+  bool IsComparedValueNonNegativeInBlock(HInstruction* value,
+                                         HCondition* cond,
+                                         HBasicBlock* target_block);
+ private:
+  ArenaSet<HInstruction*> seen_values_;
+};
+
+// Check that the value compared with a non-negavite value is
+// non-negative in the specified basic block.
+bool ValueUseAnalyzer::IsComparedValueNonNegativeInBlock(HInstruction* value,
+                                                         HCondition* cond,
+                                                         HBasicBlock* target_block) {
+  // To simplify analysis, we require:
+  // 1. The condition basic block and target_block to be different.
+  // 2. The condition basic block to end with HIf.
+  // 3. HIf to use the condition.
+  if (cond->GetBlock() == target_block ||
+      !cond->GetBlock()->EndsWithIf() ||
+      cond->GetBlock()->GetLastInstruction()->InputAt(0) != cond) {
+    return false;
+  }
+
+  // We need to find a successor basic block of HIf for the case when instr is non-negative.
+  // If the successor dominates target_block, instructions in target_block see a non-negative value.
+  HIf* if_instr = cond->GetBlock()->GetLastInstruction()->AsIf();
+  HBasicBlock* successor = nullptr;
+  switch (cond->GetCondition()) {
+    case kCondGT:
+    case kCondGE: {
+      if (cond->GetLeft() == value) {
+        // The expression is v > A or v >= A.
+        // If A is non-negative, we need the true successor.
+        if (IsValueNonNegativeAtUse(cond->GetRight(), cond)) {
+          successor = if_instr->IfTrueSuccessor();
+        } else {
+          return false;
+        }
+      } else {
+        DCHECK_EQ(cond->GetRight(), value);
+        // The expression is A > v or A >= v.
+        // If A is non-negative, we need the false successor.
+        if (IsValueNonNegativeAtUse(cond->GetLeft(), cond)) {
+          successor = if_instr->IfFalseSuccessor();
+        } else {
+          return false;
+        }
+      }
+      break;
+    }
+
+    case kCondLT:
+    case kCondLE: {
+      if (cond->GetLeft() == value) {
+        // The expression is v < A or v <= A.
+        // If A is non-negative, we need the false successor.
+        if (IsValueNonNegativeAtUse(cond->GetRight(), cond)) {
+          successor = if_instr->IfFalseSuccessor();
+        } else {
+          return false;
+        }
+      } else {
+        DCHECK_EQ(cond->GetRight(), value);
+        // The expression is A < v or A <= v.
+        // If A is non-negative, we need the true successor.
+        if (IsValueNonNegativeAtUse(cond->GetLeft(), cond)) {
+          successor = if_instr->IfTrueSuccessor();
+        } else {
+          return false;
+        }
+      }
+      break;
+    }
+
+    default:
+      return false;
+  }
+  DCHECK_NE(successor, nullptr);
+
+  return successor->Dominates(target_block);
+}
+
+// Check the value used by target_user is non-negative.
+bool ValueUseAnalyzer::IsValueNonNegativeAtUse(HInstruction* value, HInstruction* target_user) {
+  // Prevent infinitive recursion which can happen when the value is an induction variable.
+  if (!seen_values_.insert(value).second) {
+    return false;
+  }
+
+  // Check if the value is always non-negative.
+  if (IsGEZero(value)) {
+    return true;
+  }
+
+  for (const HUseListNode<HInstruction*>& use : value->GetUses()) {
+    HInstruction* user = use.GetUser();
+    if (user == target_user) {
+      continue;
+    }
+
+    // If the value is compared with some non-negative value, this can guarantee the value to be
+    // non-negative at its use.
+    if (user->IsCondition()) {
+      // The condition must dominate target_user to guarantee that the value is always checked
+      // before it is used by target_user.
+      if (user->GetBlock()->Dominates(target_user->GetBlock()) &&
+          IsComparedValueNonNegativeInBlock(value, user->AsCondition(), target_user->GetBlock())) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
 
 bool HasNonNegativeInputAt(HInstruction* instr, size_t i) {
+  ValueUseAnalyzer analyzer(instr->GetBlock()->GetGraph()->GetAllocator());
   HInstruction* input = instr->InputAt(i);
-  return IsGEZero(input);
+  return analyzer.IsValueNonNegativeAtUse(input, instr);
 }
 
 bool HasNonNegativeOrMinIntInputAt(HInstruction* instr, size_t i) {
