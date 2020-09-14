@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d39f9f6d_08af2d4f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5724,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-14T14:24:59Z",
+      "side": 1,
+      "message": "That is true for most cases, but not in the case of a SIB addressing mode, as in VarHandles case. The offset is an int32_t for the old HandleFieldSet implementation, and a Register for VarHandles.\n\nAn alternative would be to give to this method all 4 necessary parameters for indexed addressing mode. But I see this a little uglier. I can change it, if you want",
+      "parentUuid": "a95c5762_a1a06c76",
+      "range": {
+        "startLine": 5724,
+        "startChar": 57,
+        "endLine": 5724,
+        "endChar": 67
+      },
+      "revId": "8d13e58c908ad76045cffb8535de66a54b82755f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a63b2066_a040b16e",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2020-09-14T13:43:48Z",
       "side": 1,
       "message": "setOpaque is not in the C++ memory model. \n\nDoug Lea has some notes on Opaque in \"Using JDK 9 Memory Order Modes\":\n  http://gee.cs.oswego.edu/dl/html/j9mm.html\n\nI don\u0027t think there are any memory orderings required here (x86), but it does have the Bitwise Atomicity constraint to avoid seeing torn values for 64-bit. On x86, this seemingly implies cmpxchg8b for loading and storing 64-bit opaque values.",
+      "range": {
+        "startLine": 3500,
+        "startChar": 9,
+        "endLine": 3501,
+        "endChar": 51
+      },
+      "revId": "8d13e58c908ad76045cffb8535de66a54b82755f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4cd875f_db0cf87c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3501,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-14T14:24:59Z",
+      "side": 1,
+      "message": "I understand. We can\u0027t treat the Int64 case anyway because of the parallel move, but I updated the comment. Is it better now?",
+      "parentUuid": "a63b2066_a040b16e",
       "range": {
         "startLine": 3500,
         "startChar": 9,
