@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1dc179a1_59501d97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T19:04:13Z",
+      "side": 1,
+      "message": "I run it multiple times and the timing is the same, but I think it makes sense since the improvement is for failing cmpxchg only. I don\u0027t exactly know how to test this",
+      "parentUuid": "a360ea4c_bbb47a3c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "42e6e98c39f76a59d31258b5ba674080eb23e827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b3e6cf3_278ab9ff",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
