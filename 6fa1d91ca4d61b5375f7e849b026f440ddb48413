@@ -207,6 +207,30 @@
     },
     {
       "key": {
+        "uuid": "d5d4b478_ea2b7682",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T16:54:26Z",
+      "side": 1,
+      "message": "It\u0027s quite an elaborate setup, but GetAndAdd accessors are GET_AND_UPDATE_NUMERIC in VarHandle.java and not permitted by the access mode check. The access mode bitmap is setup here:\n\nhttps://cs.android.com/android/platform/superproject/+/master:libcore/ojluni/src/main/java/java/lang/invoke/VarHandle.java;l\u003d2327?q\u003dalignedAccessModesBitMask\n\nSuggest changing \"default:\" here to D:T:kFloat32 and making default: UNREACHABLE() and not have case kBool.",
+      "parentUuid": "d6eb3217_913579af",
+      "range": {
+        "startLine": 3803,
+        "startChar": 4,
+        "endLine": 3803,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47a74cad_145ac552",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
