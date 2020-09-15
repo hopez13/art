@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdacbbb5_a440b794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "Nice!\n\n",
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "407fc594_779ef354",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "GenPrimitiveLockedCmpxchg?\n\nGoing forward this seems useful. Some concern that for now the only useful part for this CL is the kFloat32 case, but okay as-is.",
+      "range": {
+        "startLine": 1965,
+        "startChar": 12,
+        "endLine": 1965,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aee62f12_47a1ee8b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3761,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "Add a comment that xadd updates the register argument with the old value. ByteRegister required for xaddb.",
+      "range": {
+        "startLine": 3760,
+        "startChar": 4,
+        "endLine": 3761,
+        "endChar": 55
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49de14f6_a35b6a80",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3801,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "Move this to the block where it used.\n\nRather being eax, suggest using the reserved temporary.",
+      "range": {
+        "startLine": 3801,
+        "startChar": 2,
+        "endLine": 3801,
+        "endChar": 49
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72d39a66_da469d88",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "Reachable?",
+      "range": {
+        "startLine": 3803,
+        "startChar": 4,
+        "endLine": 3803,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a74cad_145ac552",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3806,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "Can this be locations-\u003eOut().AsRegister\u003cRegister()\u003e? And for 16-bit cases too if possible.",
+      "range": {
+        "startLine": 3806,
+        "startChar": 16,
+        "endLine": 3806,
+        "endChar": 19
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd4da7bf_72cd2fcb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3811,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "movzxw for kUint16? Ideally a test in 712 would have failed for this, can we add some larger values to CHAR_TYPE in generate_java.py? e.g. Character.MAX_VALUE, Character.MIN_LOW_SURROGATE.",
+      "range": {
+        "startLine": 3811,
+        "startChar": 9,
+        "endLine": 3811,
+        "endChar": 15
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5357b2_c8370c1f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3830,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:32:13Z",
+      "side": 1,
+      "message": "present in rather than returned.",
+      "range": {
+        "startLine": 3830,
+        "startChar": 26,
+        "endLine": 3830,
+        "endChar": 34
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
