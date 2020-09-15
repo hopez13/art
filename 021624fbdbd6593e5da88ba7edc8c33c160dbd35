@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3aca124_b2303fc8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T20:19:38Z",
+      "side": 1,
+      "message": "Have we seen a concrete case that failed? If so, was it in ParallelMoveResolverX86?\n\nI briefly tried to repro, but failed (which means little). The specific example in the comment looks like something the parallel move resolver ought to be able to handle.",
+      "range": {
+        "startLine": 3394,
+        "startChar": 0,
+        "endLine": 3397,
+        "endChar": 50
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d1a2ccd_7f844a9c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T20:19:38Z",
+      "side": 1,
+      "message": "HandleFieldSet uses FpuRegisters and movsd to update a kInt64 field for volatile. This seems like it\u0027d be reasonable for setOpaque(kInt64) on x86 if we were able to lift this constraint.",
+      "range": {
+        "startLine": 3500,
+        "startChar": 2,
+        "endLine": 3503,
+        "endChar": 74
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
