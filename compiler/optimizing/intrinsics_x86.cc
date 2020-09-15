@@ -3569,7 +3569,7 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleSet(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
-void IntrinsicLocationsBuilderX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
+static void CreateVarHandleCompareAndSetLocations(HInvoke* invoke) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
@@ -3595,7 +3595,8 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleCompareAndSet(HInvoke* invoke) 
     return;
   }
 
-  LocationSummary* locations = new (allocator_) LocationSummary(
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+  LocationSummary* locations = new (allocator) LocationSummary(
       invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
   locations->AddTemp(Location::RequiresRegister());
   locations->AddTemp(Location::RequiresRegister());
@@ -3625,12 +3626,12 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleCompareAndSet(HInvoke* invoke) 
   locations->SetOut(Location::RegisterLocation(EAX));
 }
 
-void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
+static void GenerateVarHandleCompareAndSet(HInvoke* invoke, CodeGeneratorX86* codegen) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
 
-  X86Assembler* assembler = codegen_->GetAssembler();
+  X86Assembler* assembler = codegen->GetAssembler();
   LocationSummary* locations = invoke->GetLocations();
   uint32_t number_of_arguments = invoke->GetNumberOfArguments();
   uint32_t expected_value_index = number_of_arguments - 2;
@@ -3643,8 +3644,8 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
   Register offset = locations->GetTemp(0).AsRegister<Register>();
   Register temp = locations->GetTemp(1).AsRegister<Register>();
   Register temp2 = locations->GetTemp(2).AsRegister<Register>();
-  SlowPathCode* slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
-  codegen_->AddSlowPath(slow_path);
+  SlowPathCode* slow_path = new (codegen->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
+  codegen->AddSlowPath(slow_path);
 
   GenerateVarHandleCommonChecks(invoke, temp, slow_path, assembler);
   // Check the varType.primitiveType against the type of the expected value.
@@ -3669,7 +3670,7 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
   // Get the field referred by the VarHandle. The returned register contains the object reference
   // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
   // declaring class will be placed in 'temp' register.
-  Register reference = GenerateVarHandleFieldReference(invoke, codegen_, temp, offset);
+  Register reference = GenerateVarHandleFieldReference(invoke, codegen, temp, offset);
 
   uint32_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
   // For generating the compare and exchange, we need 2 temporaries. In case of a static field, the
@@ -3678,15 +3679,73 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
   temp = (expected_coordinates_count == 1u) ? temp : locations->GetTemp(3).AsRegister<Register>();
   DCHECK_NE(temp, reference);
 
-  if (type == DataType::Type::kReference) {
-    GenReferenceCAS(invoke, codegen_, expected_value, new_value, reference, offset, temp, temp2);
-  } else {
-    Location out = locations->Out();
-    GenPrimitiveCAS(type, codegen_, expected_value, new_value, reference, offset, out, temp);
+  if (invoke->GetIntrinsic() == Intrinsics::kVarHandleWeakCompareAndSetRelease) {
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyStore);
   }
 
-  codegen_->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
+  if (type == DataType::Type::kReference) {
+    GenReferenceCAS(invoke, codegen, expected_value, new_value, reference, offset, temp, temp2);
+  } else {
+    Location out = locations->Out();
+    GenPrimitiveCAS(type, codegen, expected_value, new_value, reference, offset, out, temp);
+  }
+
+  switch (invoke->GetIntrinsic()) {
+    case Intrinsics::kVarHandleCompareAndSet:
+    case Intrinsics::kVarHandleWeakCompareAndSet:
+      codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
+      break;
+    case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
+      codegen->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
+      break;
+    case Intrinsics::kVarHandleWeakCompareAndSetPlain:
+    case Intrinsics::kVarHandleWeakCompareAndSetRelease:
+      // No barrier needed
+      break;
+    default:
+      UNREACHABLE();
+  }
   __ Bind(slow_path->GetExitLabel());
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
+  CreateVarHandleCompareAndSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleCompareAndSet(HInvoke* invoke) {
+  GenerateVarHandleCompareAndSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleWeakCompareAndSet(HInvoke* invoke) {
+  CreateVarHandleCompareAndSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleWeakCompareAndSet(HInvoke* invoke) {
+  GenerateVarHandleCompareAndSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleWeakCompareAndSetPlain(HInvoke* invoke) {
+  CreateVarHandleCompareAndSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleWeakCompareAndSetPlain(HInvoke* invoke) {
+  GenerateVarHandleCompareAndSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleWeakCompareAndSetAcquire(HInvoke* invoke) {
+  CreateVarHandleCompareAndSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleWeakCompareAndSetAcquire(HInvoke* invoke) {
+  GenerateVarHandleCompareAndSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleWeakCompareAndSetRelease(HInvoke* invoke) {
+  CreateVarHandleCompareAndSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleWeakCompareAndSetRelease(HInvoke* invoke) {
+  GenerateVarHandleCompareAndSet(invoke, codegen_);
 }
 
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
@@ -3764,10 +3823,6 @@ UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetVolatile)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleSetOpaque)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleSetRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleSetVolatile)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleWeakCompareAndSet)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleWeakCompareAndSetAcquire)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleWeakCompareAndSetPlain)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleWeakCompareAndSetRelease)
 
 UNREACHABLE_INTRINSICS(X86)
 
