@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "7a372a79_5f64a49f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5724,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T09:15:33Z",
+      "side": 1,
+      "message": "Thanks, let\u0027s leave this as-is.",
+      "parentUuid": "d39f9f6d_08af2d4f",
+      "range": {
+        "startLine": 5724,
+        "startChar": 57,
+        "endLine": 5724,
+        "endChar": 67
+      },
+      "revId": "8d13e58c908ad76045cffb8535de66a54b82755f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63b2066_a040b16e",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -110,6 +134,30 @@
       "revId": "8d13e58c908ad76045cffb8535de66a54b82755f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa43148_ca29525c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3501,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T09:15:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f4cd875f_db0cf87c",
+      "range": {
+        "startLine": 3500,
+        "startChar": 9,
+        "endLine": 3501,
+        "endChar": 51
+      },
+      "revId": "8d13e58c908ad76045cffb8535de66a54b82755f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
