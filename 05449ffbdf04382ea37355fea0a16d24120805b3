@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "841d84b8_78a85763",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T12:58:38Z",
+      "side": 1,
+      "message": "\"produce the expected\" seems slightly confusing as opposed to \"matching the current\"? AFAICT, the format of the file hasn\u0027t changed, the current output would still work but miss a task. Up to you.",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "05449ffbdf04382ea37355fea0a16d24120805b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01b88eaa_6f8f646d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T12:58:38Z",
+      "side": 1,
+      "message": "This looks fine: the wording \"produce the expected\" seems slightly confusing as opposed to \"matching the current\"? The format of the file hasn\u0027t changed, current output would still work.",
+      "revId": "05449ffbdf04382ea37355fea0a16d24120805b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
