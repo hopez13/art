@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "627bce2e_f54d8e86",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-15T21:03:58Z",
+      "side": 1,
+      "message": "const auto\u0026 ?",
+      "range": {
+        "startLine": 2114,
+        "startChar": 19,
+        "endLine": 2114,
+        "endChar": 26
+      },
+      "revId": "dbec3ae0a799e99c0aaf84669814c1f22ee04377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c4469c1_ec0f1011",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-15T21:03:58Z",
+      "side": 1,
+      "message": "I don\u0027t see how the loop depends on \u0027i\u0027. Does it mean the same will be done for different values of \u0027i\u0027?",
+      "range": {
+        "startLine": 2110,
+        "startChar": 0,
+        "endLine": 2124,
+        "endChar": 11
+      },
+      "revId": "dbec3ae0a799e99c0aaf84669814c1f22ee04377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
