@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f2ff6c5e_e3fed758",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-15T18:35:06Z",
+      "side": 1,
+      "message": "Nit: We usually try to use shorter titles for commit messages (e.g. under 80 characters is fine; Gerrit prefers 72 characters or less).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "b91d405aaec0f958575ff74ca8922b9a946d0bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43c0a3f5_69b668d5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
