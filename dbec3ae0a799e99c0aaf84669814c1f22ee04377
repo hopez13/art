@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2d0cbfe_377ef74a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-15T22:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "627bce2e_f54d8e86",
+      "range": {
+        "startLine": 2114,
+        "startChar": 19,
+        "endLine": 2114,
+        "endChar": 26
+      },
+      "revId": "dbec3ae0a799e99c0aaf84669814c1f22ee04377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c4469c1_ec0f1011",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "dbec3ae0a799e99c0aaf84669814c1f22ee04377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa5b611f_d124fc00",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-15T22:50:50Z",
+      "side": 1,
+      "message": "Good catch. This should be outside of the loop.\n\nThat also explains the default-value behavoir that I was otherwise confused about since we were looking at the wrong value.",
+      "parentUuid": "6c4469c1_ec0f1011",
+      "range": {
+        "startLine": 2110,
+        "startChar": 0,
+        "endLine": 2124,
+        "endChar": 11
+      },
+      "revId": "dbec3ae0a799e99c0aaf84669814c1f22ee04377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
