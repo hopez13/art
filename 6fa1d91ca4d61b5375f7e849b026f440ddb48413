@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "2135c362_77b01000",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "Thanks! I know that now just for kFloat32 it\u0027s not really necessary, but if I remove it now I will have to add it anyway for VarHandle.compareAndExchange",
+      "parentUuid": "407fc594_779ef354",
+      "range": {
+        "startLine": 1965,
+        "startChar": 12,
+        "endLine": 1965,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aee62f12_47a1ee8b",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -62,6 +86,30 @@
       "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50363705_70a751aa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3761,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aee62f12_47a1ee8b",
+      "range": {
+        "startLine": 3760,
+        "startChar": 4,
+        "endLine": 3761,
+        "endChar": 55
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "4811865b_82601986",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3801,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49de14f6_a35b6a80",
+      "range": {
+        "startLine": 3801,
+        "startChar": 2,
+        "endLine": 3801,
+        "endChar": 49
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72d39a66_da469d88",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -99,6 +171,30 @@
       "writtenOn": "2020-09-15T15:32:13Z",
       "side": 1,
       "message": "Reachable?",
+      "range": {
+        "startLine": 3803,
+        "startChar": 4,
+        "endLine": 3803,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6eb3217_913579af",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "I don\u0027t know if the tests cover this case, but for a bool field VarHandle this would flip the condition. I don\u0027t see why this would not be possible, but I\u0027ll try to test it manually",
+      "parentUuid": "72d39a66_da469d88",
       "range": {
         "startLine": 3803,
         "startChar": 4,
@@ -131,6 +227,30 @@
       "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9903aeea_2e0467ea",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3806,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47a74cad_145ac552",
+      "range": {
+        "startLine": 3806,
+        "startChar": 16,
+        "endLine": 3806,
+        "endChar": 19
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -177,6 +297,30 @@
       "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea8cdf1_764c3885",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3830,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-15T16:22:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df5357b2_c8370c1f",
+      "range": {
+        "startLine": 3830,
+        "startChar": 26,
+        "endLine": 3830,
+        "endChar": 34
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
