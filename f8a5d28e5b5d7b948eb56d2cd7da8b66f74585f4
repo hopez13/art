@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "601d1eeb_e336dc0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-15T01:48:48Z",
+      "side": 1,
+      "message": "be consistent int notation \"i-1\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 54,
+        "endLine": 32,
+        "endChar": 59
+      },
+      "revId": "f8a5d28e5b5d7b948eb56d2cd7da8b66f74585f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec4da993_0a89479f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2081,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-15T01:48:48Z",
+      "side": 1,
+      "message": "is there a possible DCHECK here?",
+      "range": {
+        "startLine": 2081,
+        "startChar": 23,
+        "endLine": 2081,
+        "endChar": 61
+      },
+      "revId": "f8a5d28e5b5d7b948eb56d2cd7da8b66f74585f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f886fe56_2b47b54c",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-15T01:48:48Z",
+      "side": 1,
+      "message": "This looks to be used only for debugging. Do you want assert here or just the logs?",
+      "range": {
+        "startLine": 935,
+        "startChar": 0,
+        "endLine": 945,
+        "endChar": 3
+      },
+      "revId": "f8a5d28e5b5d7b948eb56d2cd7da8b66f74585f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
