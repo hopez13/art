@@ -23,6 +23,7 @@
 #include "base/scoped_arena_containers.h"
 #include "escape.h"
 #include "load_store_analysis.h"
+#include "optimizing/optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
 
 /**
@@ -2051,13 +2052,12 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
     work_queue.pop_back();
     size_t idx = phi_placeholder->GetHeapLocation();
     HBasicBlock* block = blocks[phi_placeholder->GetBlockId()];
+    HeapLocation* heap_loc = heap_location_collector_.GetHeapLocation(idx);
     for (HBasicBlock* predecessor : block->GetPredecessors()) {
       ScopedArenaVector<ValueRecord>& heap_values = heap_values_for_[predecessor->GetBlockId()];
       // For loop back-edges we must also preserve all stores to locations that may alias
       // with the location `idx`.
       // TODO: Review whether we need to keep stores to aliased locations from pre-header.
-      // TODO: Review in light of testLoop29(); may need to handle locations that LSA considers
-      //       non-aliasing.
       // TODO: Add tests cases around this.
       bool is_back_edge =
           block->IsLoopHeader() && predecessor != block->GetLoopInformation()->GetPreHeader();
@@ -2075,6 +2075,24 @@ void LSEVisitor::SearchPhiPlaceholdersForKeptStores() {
           } else {
             DCHECK(IsStore(stored_by.GetInstruction()));
             kept_stores_.SetBit(stored_by.GetInstruction()->GetId());
+          }
+        } else if (heap_loc->IsArray()) {
+          // Since we are an array, actually ended up here, and don't have a
+          // known set this must be from a previous iteration (otherwise we'd
+          // either not reach this because stores were kept from escapes or just
+          // known from earlier). We need to keep all stores that could affect
+          // this read.
+          // TODO We can do better and do partial LSE around this but we don't
+          // have the data for that at the moment.
+          // TODO Make sure this actually catches all cases. Can non-loop-phis
+          // kill us in a similar way?
+          // TODO Can we be more selective w/o partial LSE data?
+          // TODO Do some analysis to see how much we are leaving on the table
+          // with this.
+          for (const auto& use : heap_loc->GetReferenceInfo()->GetReference()->GetUses()) {
+            if (use.GetUser() != nullptr && use.GetUser()->IsArraySet() && use.GetIndex() == 0) {
+              kept_stores_.SetBit(use.GetUser()->GetId());
+            }
           }
         }
       }
