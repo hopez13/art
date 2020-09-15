@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c38d44f1_1b9ca03c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:49:35Z",
+      "side": 1,
+      "message": "This is \"full house\" on the GetAndSet suite :-)\n\nThis could be \"VarHandle::GetAccessModeTemplateByIntrinsic(intrinsic) \u003d\u003d AccessModeTemplate::GetAndSet\"",
+      "range": {
+        "startLine": 577,
+        "startChar": 11,
+        "endLine": 581,
+        "endChar": 70
+      },
+      "revId": "b3be00f70d2856432b54572ab14036eec5a17dc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96de1986_8b0184e9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:49:35Z",
+      "side": 1,
+      "message": "You could replace the code with a comment here (and possibly below) that no additional memory barriers are required for x86 because we\u0027re using \"lock cmpxchg\" in all cases because there is no CAS equivalent that has weak failure semantics.",
+      "range": {
+        "startLine": 3681,
+        "startChar": 0,
+        "endLine": 3684,
+        "endChar": 3
+      },
+      "revId": "b3be00f70d2856432b54572ab14036eec5a17dc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49e942b_be729d1d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3707,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-15T15:49:35Z",
+      "side": 1,
+      "message": "The code here could be replaced with a similar statement or just a reference to the comment above.",
+      "range": {
+        "startLine": 3693,
+        "startChar": 0,
+        "endLine": 3707,
+        "endChar": 3
+      },
+      "revId": "b3be00f70d2856432b54572ab14036eec5a17dc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
