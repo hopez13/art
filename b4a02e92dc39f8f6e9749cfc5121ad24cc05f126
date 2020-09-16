@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a30541ef_f9eb855c",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T14:42:02Z",
+      "side": 1,
+      "message": "Could be EmitOperandSizeOverride which is marginally more readable, but rarely used.",
+      "range": {
+        "startLine": 3045,
+        "startChar": 2,
+        "endLine": 3045,
+        "endChar": 18
+      },
+      "revId": "b4a02e92dc39f8f6e9749cfc5121ad24cc05f126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
