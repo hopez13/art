@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f1c5c70_9c9bfe77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T09:01:00Z",
+      "side": 1,
+      "message": "lgtm, one tiny style thing, but good going.",
+      "revId": "3e51ea08f6a6a1db75516020ccbbaaecf776dd22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a0bcdbf_8d6205c4",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T09:01:00Z",
+      "side": 1,
+      "message": "Sorry for late comment, but the convention here seems to be just to capitalize the first letter of the instruction.",
+      "range": {
+        "startLine": 849,
+        "startChar": 11,
+        "endLine": 849,
+        "endChar": 16
+      },
+      "revId": "3e51ea08f6a6a1db75516020ccbbaaecf776dd22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
