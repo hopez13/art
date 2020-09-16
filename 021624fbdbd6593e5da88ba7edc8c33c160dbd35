@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a8ebe1df_26025c0e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3397,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-16T11:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6864237_b0f31ebf",
+      "range": {
+        "startLine": 3394,
+        "startChar": 0,
+        "endLine": 3397,
+        "endChar": 50
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d1a2ccd_7f844a9c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
