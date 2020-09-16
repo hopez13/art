@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7c6ccc0_15435907",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2123,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-16T18:04:01Z",
+      "side": 1,
+      "message": "What about to combine them together to make clear the index \u0027j\u0027 is checked before being used:\n\nif (j \u003c hv.size() \u0026\u0026 hv[j].stored_by.IsInstruction()) {\n...",
+      "range": {
+        "startLine": 2120,
+        "startChar": 0,
+        "endLine": 2123,
+        "endChar": 0
+      },
+      "revId": "071ad19162562c80f64a65902ab762898a67d949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
