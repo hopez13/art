@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d6864237_b0f31ebf",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T11:20:48Z",
+      "side": 1,
+      "message": "No, let\u0027s leave it as-is for now. I\u0027ll have another go at constructing a repro and file a bug.\n\nIt doesn\u0027t seem great to have a method in Location fail for a parallel move restriction.\n\nCould you add a bug reference to these parallel move comments (b/168687887) for tracking? Thanks!",
+      "parentUuid": "6b9cb10a_4eada3f9",
+      "range": {
+        "startLine": 3394,
+        "startChar": 0,
+        "endLine": 3397,
+        "endChar": 50
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d1a2ccd_7f844a9c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1563c3c2_e794b3eb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T11:20:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8f4d58e1_228e7e0f",
+      "range": {
+        "startLine": 3500,
+        "startChar": 2,
+        "endLine": 3503,
+        "endChar": 74
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
