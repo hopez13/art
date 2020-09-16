@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b9cb10a_4eada3f9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3397,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-16T07:46:57Z",
+      "side": 1,
+      "message": "Reproducing is a little subtle. When you try to allocate the in64 value with Location::RegisterOrConstant, it will place it in a constant location anyway because I think tests only cover constant cases. But if you enforce the value to be placed in a register pair (Location::RequiresRegister) and run the 712-varhandles-invocation test then this check fails: `locations.h:333] Check failed: !Contains(other.ToLow())`. Let me know if you still can\u0027t repro, maybe there are other steps I\u0027m missing (as far as I can see, for me it\u0027s a deterministic fail).\n\nThe alternative here to lift the restriction would be to place the value on the stack and add the stack case to int64 HandleFieldSet (right now, it moves the value only from a register pair). But I don\u0027t see anywhere in the compiler code an enforcement for a parameter to be on the stack and this makes me think that maybe it\u0027s not a good alternative. What do you think?",
+      "parentUuid": "a3aca124_b2303fc8",
+      "range": {
+        "startLine": 3394,
+        "startChar": 0,
+        "endLine": 3397,
+        "endChar": 50
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d1a2ccd_7f844a9c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-15T20:19:38Z",
       "side": 1,
       "message": "HandleFieldSet uses FpuRegisters and movsd to update a kInt64 field for volatile. This seems like it\u0027d be reasonable for setOpaque(kInt64) on x86 if we were able to lift this constraint.",
+      "range": {
+        "startLine": 3500,
+        "startChar": 2,
+        "endLine": 3503,
+        "endChar": 74
+      },
+      "revId": "021624fbdbd6593e5da88ba7edc8c33c160dbd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f4d58e1_228e7e0f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-16T07:46:57Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "0d1a2ccd_7f844a9c",
       "range": {
         "startLine": 3500,
         "startChar": 2,
