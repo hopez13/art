@@ -56,6 +56,7 @@
 #include "mirror/string-inl.h"
 #include "mirror/var_handle.h"
 #include "scoped_thread_state_change-inl.h"
+#include "scoped_thread_state_change.h"
 #include "thread-current-inl.h"
 
 namespace art {
@@ -971,6 +972,24 @@ TEST_F(ClassLinkerTest, FindClass) {
   AssertArrayClass("[[[LMyClass;", "[[LMyClass;", class_loader.Get());
   // or not available at all
   AssertNonExistentClass("[[[[LNonExistentClass;");
+}
+
+TEST_F(ClassLinkerTest, FindPrimitiveArrayClass) {
+  ScopedObjectAccess soa(Thread::Current());
+  const std::string expected("BCDFIJSZ");
+  for (int ch = 1; ch < 256; ++ch) {
+    char c = static_cast<char>(ch);
+    char descriptor[3] = { '[', c, '\0' };
+    if (expected.find(c) == std::string::npos) {
+      AssertNonExistentClass(descriptor);
+      EXPECT_TRUE(class_linker_->LookupPrimitiveArrayClass(c) == nullptr);
+    } else {
+      StackHandleScope<1> hs(soa.Self());
+      Handle<mirror::Class> klass(hs.NewHandle(class_linker_->FindPrimitiveArrayClass(c)));
+      AssertArrayClass(descriptor, klass);
+      EXPECT_TRUE(class_linker_->LookupPrimitiveArrayClass(c) != nullptr);
+    }
+  }
 }
 
 TEST_F(ClassLinkerTest, LookupResolvedType) {

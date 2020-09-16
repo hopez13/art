@@ -238,6 +238,11 @@ class ClassLinker {
   ObjPtr<mirror::Class> LookupPrimitiveClass(char type) REQUIRES_SHARED(Locks::mutator_lock_);
   ObjPtr<mirror::Class> FindPrimitiveClass(char type) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ObjPtr<mirror::Class> LookupPrimitiveArrayClass(char component_type)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<mirror::Class> FindPrimitiveArrayClass(char component_type)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void DumpForSigQuit(std::ostream& os) REQUIRES(!Locks::classlinker_classes_lock_);
 
   size_t NumLoadedClasses()
