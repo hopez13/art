@@ -1130,7 +1130,9 @@ END_FUNCTION \name
    call SYMBOL(art_quick_invoke_custom)
    .else
       .if \is_interface
-      movzwl 2(rPC), %eax
+      // Setup hidden argument. As we don't have access to the interface method,
+      // just pass the method which will make the stub go to the runtime.
+      movq %rdi, %rax
       .endif
       call *ART_METHOD_QUICK_CODE_OFFSET_64(%rdi) // Call the method.
    .endif
@@ -1229,7 +1231,9 @@ END_FUNCTION \name
    call SYMBOL(art_quick_invoke_custom)
    .else
      .if \is_interface
-     movzwl 2(rPC), %eax
+     // Setup hidden argument. As we don't have access to the interface method,
+     // just pass the method which will make the stub go to the runtime.
+     movq %rdi, %rax
      .endif
      call *ART_METHOD_QUICK_CODE_OFFSET_64(%rdi) // Call the method.
    .endif
