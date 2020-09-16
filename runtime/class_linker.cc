@@ -3059,6 +3059,8 @@ ObjPtr<mirror::Class> ClassLinker::FindClass(Thread* self,
     // only the descriptors of primitive types should be 1 character long, also avoid class lookup
     // for primitive classes that aren't backed by dex files.
     return FindPrimitiveClass(descriptor[0]);
+  } else if (UNLIKELY(descriptor[2] == '\0' && descriptor[0] == '[')) {
+    return FindPrimitiveArrayClass(descriptor[1]);
   }
   const size_t hash = ComputeModifiedUtf8Hash(descriptor);
   // Find the class in the loaded classes table.
@@ -4527,6 +4529,32 @@ ObjPtr<mirror::Class> ClassLinker::FindPrimitiveClass(char type) {
   ObjPtr<mirror::Class> result = LookupPrimitiveClass(type);
   if (UNLIKELY(result == nullptr)) {
     std::string printable_type(PrintableChar(type));
+    ThrowNoClassDefFoundError("Not a primitive type: %s", printable_type.c_str());
+  }
+  return result;
+}
+
+ObjPtr<mirror::Class> ClassLinker::LookupPrimitiveArrayClass(char component_type) {
+  ClassRoot class_root;
+  switch (component_type) {
+    case 'B': class_root = ClassRoot::kByteArrayClass; break;
+    case 'C': class_root = ClassRoot::kCharArrayClass; break;
+    case 'D': class_root = ClassRoot::kDoubleArrayClass; break;
+    case 'F': class_root = ClassRoot::kFloatArrayClass; break;
+    case 'I': class_root = ClassRoot::kIntArrayClass; break;
+    case 'J': class_root = ClassRoot::kLongArrayClass; break;
+    case 'S': class_root = ClassRoot::kShortArrayClass; break;
+    case 'Z': class_root = ClassRoot::kBooleanArrayClass; break;
+    default:
+      return nullptr;
+  }
+  return GetClassRoot(class_root, this);
+}
+
+ObjPtr<mirror::Class> ClassLinker::FindPrimitiveArrayClass(char component_type) {
+  ObjPtr<mirror::Class> result = LookupPrimitiveArrayClass(component_type);
+  if (UNLIKELY(result == nullptr)) {
+    std::string printable_type(PrintableChar(component_type));
     ThrowNoClassDefFoundError("Not a primitive type: %s", printable_type.c_str());
   }
   return result;
