@@ -39,6 +39,30 @@
       "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "328b6889_2cb078b6",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-16T11:32:05Z",
+      "side": 1,
+      "message": "Yes, I was also thinking about HTypeConversion. However, this can create more problems than benefits. The biggest one is that it can create a dependency which does not exist in the input program, for example: between two uses, 1st - cmp, 2nd - some operation. As usual, more dependencies less optimizations can be applied.",
+      "parentUuid": "6bd459d4_aa9d8d97",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 30
+      },
+      "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
