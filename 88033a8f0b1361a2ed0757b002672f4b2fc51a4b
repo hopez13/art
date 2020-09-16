@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77a84065_1767bf06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "Overall looks good. +1 to give London a chance to take a look and I\u0027ll +2 tomorrow.",
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f7e8227_a8772cde",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "Is this intended to be a TODO that you\u0027ll address in the near future?\n\nIt\u0027s a bit scary to have TODOs that points to possible correctness issues.",
+      "range": {
+        "startLine": 2111,
+        "startChar": 9,
+        "endLine": 2111,
+        "endChar": 13
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c601d73_912b4670",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "say what you want to clean up, otherwise it\u0027s pretty unclear what the AI is.",
+      "range": {
+        "startLine": 2116,
+        "startChar": 14,
+        "endLine": 2116,
+        "endChar": 34
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff94ab8_9ccdc6a2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "given that we can repro this with a run-test, do these extra tests add more coverage? Or make it easier to debug?\n\nIt seems that the test complexity here is super high compare to run-test and I\u0027m a bit worried for the maintainance.",
+      "range": {
+        "startLine": 914,
+        "startChar": 33,
+        "endLine": 914,
+        "endChar": 49
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5357f4b_e77d2be4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1180,
+        "startChar": 100,
+        "endLine": 1180,
+        "endChar": 101
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90d5f242_5afbd573",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1181,
+        "startChar": 100,
+        "endLine": 1181,
+        "endChar": 101
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54b7b5e7_ffb4729b",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T01:56:19Z",
+      "side": 1,
+      "message": "new line.",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 3
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
