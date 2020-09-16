@@ -22,4 +22,10 @@ public interface ErrorReporter {
      * the class and member names, and the source file name.
      */
     void reportError(String message, Object... args);
+
+    /**
+     * Report a warning in this context. The final message will include the
+     * class and member names, and the source file name.
+     */
+    void reportWarning(String message, Object... args);
 }
