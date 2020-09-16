@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a00a3ef_9e1d70be",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-16T09:49:32Z",
+      "side": 1,
+      "message": "Mention why is this different than the induction variable analysis.",
+      "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bd459d4_aa9d8d97",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-16T09:49:32Z",
+      "side": 1,
+      "message": "This reminds me on how we\u0027re refining the type of an instruction after an instanceof, by having HTypeConversion of the checked value in the if branch.\n\nNot sure we want to do this for creating numerical bounds, but worth mentioning it.",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 30
+      },
+      "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
