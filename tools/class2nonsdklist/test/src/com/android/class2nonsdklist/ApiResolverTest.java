@@ -70,12 +70,12 @@ public class ApiResolverTest extends AnnotationHandlerTestBase {
     }
 
     @Test
-    public void testFindPublicAlternativeFailDueToMultipleParameterTypes()
+    public void testFindPublicAlternativePassDespiteMultipleParameterTypes()
             throws SignatureSyntaxError {
         Set<String> publicApis = Collections.unmodifiableSet(new HashSet<>(
                 Arrays.asList("La/b/C;->foo(I)V", "La/b/C;->bar(I)I", "La/b/C;->foo(II)V")));
         ApiResolver resolver = new ApiResolver(publicApis);
-        MultipleAlternativesFoundError e = expectThrows(MultipleAlternativesFoundError.class,
+        MultipleAlternativesFoundWarning e = expectThrows(MultipleAlternativesFoundWarning.class,
                 () -> resolver.resolvePublicAlternatives("{@link #foo}", "La/b/C;->bar()V", 1));
         assertThat(e.almostMatches).containsExactly(
                 ApiComponents.fromDexSignature("La/b/C;->foo(I)V"),
