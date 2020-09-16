@@ -231,6 +231,30 @@
     },
     {
       "key": {
+        "uuid": "bbed2eb1_dbca9501",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-16T08:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d4b478_ea2b7682",
+      "range": {
+        "startLine": 3803,
+        "startChar": 4,
+        "endLine": 3803,
+        "endChar": 31
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47a74cad_145ac552",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -298,6 +322,30 @@
       "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bba8cb5d_a1442483",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3811,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-16T08:06:29Z",
+      "side": 1,
+      "message": "I added the values. I am not sure if I did it in the right way, but the 712 seems to pass.",
+      "parentUuid": "dd4da7bf_72cd2fcb",
+      "range": {
+        "startLine": 3811,
+        "startChar": 9,
+        "endLine": 3811,
+        "endChar": 15
+      },
+      "revId": "6fa1d91ca4d61b5375f7e849b026f440ddb48413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
