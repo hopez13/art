@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "a41da42a_ca80bf63",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4182,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T02:51:13Z",
+      "side": 1,
+      "message": "They should now, but historically we did have variations.\nI looked at the bg-dexopt case and looks ok.\n\nThe runtime always sees full paths. It\u0027s only dex2oat which temporarily sees relative paths. I added a logging in RegisterDexFiles and for a secondary dex file here\u0027s what I see:\n\n09-15 19:24:02.651 24538 32614 I PackageDexOptimizer: Running dexopt (dexoptNeeded\u003d1) on: /data/app/~~aZmNqKfNunMkMCEemwERmw\u003d\u003d/com.android.chrome-HmAHa6VdVKRBMZ3MUaTJxg\u003d\u003d/split_vr.apk ....\n09-15 19:24:02.764 32728 32728 I dex2oat64: CALIN: split_vr.apk\n\nBut then, the runtime has the full path:\n09-15 19:30:20.667  3603  3603 I .android.chrom: CALIN: /data/app/~~aZmNqKfNunMkMCEemwERmw\u003d\u003d/com.android.chrome-HmAHa6VdVKRBMZ3MUaTJxg\u003d\u003d/split_vr.apk\n\n\n(you might want to add a LOG(VERBOSE), in case there are issues, so that we can easily debug it).",
+      "parentUuid": "59a2df31_d42116b2",
+      "range": {
+        "startLine": 4182,
+        "startChar": 31,
+        "endLine": 4182,
+        "endChar": 53
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a19a6ad_2a0c787d",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 1
