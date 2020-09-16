@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "737f40cb_9d9adfeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-09-16T15:43:28Z",
+      "side": 1,
+      "message": "I hope we don\u0027t end up switching over too many other errors to warnings.",
+      "revId": "3bd2a1d8afd1b8c94cb86e4b0dfdd65d55466e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb3c2be_470521ec",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/ErrorReporter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-09-16T15:43:28Z",
+      "side": 1,
+      "message": "nit: This is getting dangerously close to bikeshedding territory, but perhaps we should rename this class to something like StatusReporter (or Logger/Logging).",
+      "revId": "3bd2a1d8afd1b8c94cb86e4b0dfdd65d55466e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
