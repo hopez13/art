@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82c30c3e_0507f2d7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-16T19:12:45Z",
+      "side": 1,
+      "message": "I would remove or address now. It looks fine to me as is and it\u0027s not worth while to carry trivial improvement TODOs.",
+      "range": {
+        "startLine": 2114,
+        "startChar": 7,
+        "endLine": 2114,
+        "endChar": 68
+      },
+      "revId": "293b968b86d531415a7cc6d5e78c604e2aae55a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
