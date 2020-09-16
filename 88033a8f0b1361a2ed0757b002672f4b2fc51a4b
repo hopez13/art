@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "89505a2a_8bffa471",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "We could keep every store touching any array I guess. I am actually pretty sure that I got everything, I\u0027ll remove the comment.",
+      "parentUuid": "65a49a69_9ffe2ee9",
+      "range": {
+        "startLine": 2111,
+        "startChar": 9,
+        "endLine": 2111,
+        "endChar": 13
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c601d73_912b4670",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -86,6 +110,30 @@
       "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c31d71c7_6de25cb5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c601d73_912b4670",
+      "range": {
+        "startLine": 2116,
+        "startChar": 14,
+        "endLine": 2116,
+        "endChar": 34
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -112,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "d147aefa_36b7fefb",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "They make it easier to debug mostly. They are also a bit stronger than the run-test checker which can easily be confused by things as simple as block-numbering changes. This lets us assert that specific instructions are removed/retained.",
+      "parentUuid": "eff94ab8_9ccdc6a2",
+      "range": {
+        "startLine": 914,
+        "startChar": 33,
+        "endLine": 914,
+        "endChar": 49
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5357f4b_e77d2be4",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 6
@@ -132,6 +204,30 @@
       "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf7e439_3721d03f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5357f4b_e77d2be4",
+      "range": {
+        "startLine": 1180,
+        "startChar": 100,
+        "endLine": 1180,
+        "endChar": 101
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -158,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "7374cbba_3e1cc882",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d5f242_5afbd573",
+      "range": {
+        "startLine": 1181,
+        "startChar": 100,
+        "endLine": 1181,
+        "endChar": 101
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54b7b5e7_ffb4729b",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 6
@@ -178,6 +298,30 @@
       "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0645ff46_810cf34f",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-16T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54b7b5e7_ffb4729b",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 3
+      },
+      "revId": "88033a8f0b1361a2ed0757b002672f4b2fc51a4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
