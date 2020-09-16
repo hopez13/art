@@ -63,6 +63,30 @@
       "revId": "16f33781875a8e69aacebf90f556ee074a2a4c90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b5f307e_3824b2b6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-16T12:35:33Z",
+      "side": 1,
+      "message": "The k prefix is for constants. Since the type is obvious from the RHS, then it could be:\n\nstatic constexpr auto kVarHandleCAS \u003d ...",
+      "parentUuid": "4162730e_240ac519",
+      "range": {
+        "startLine": 577,
+        "startChar": 51,
+        "endLine": 577,
+        "endChar": 52
+      },
+      "revId": "16f33781875a8e69aacebf90f556ee074a2a4c90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
