@@ -689,6 +689,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
       const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
       ArtMethod* method) override;
 
+  void LoadMethod(MethodLoadKind load_kind, Location temp, HInvoke* invoke);
   void GenerateStaticOrDirectCall(
       HInvokeStaticOrDirect* invoke, Location temp, SlowPathCode* slow_path = nullptr) override;
   void GenerateVirtualCall(
@@ -1083,6 +1084,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   ArenaSafeMap<uint32_t, LabelWrapper> jit_baker_read_barrier_slow_paths_;
 
   friend class linker::Arm64RelativePatcherTest;
+  friend class InstructionCodeGeneratorARM64;
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARM64);
 };
 
