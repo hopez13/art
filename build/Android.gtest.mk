@@ -74,7 +74,7 @@ LOCAL_MODULE_CLASS := NATIVE_TESTS
 LOCAL_MODULE_SUFFIX := .txt
 LOCAL_COMPATIBILITY_SUITE := general-tests
 LOCAL_COMPATIBILITY_SUPPORT_FILES := \
-	$(foreach apex,$(TESTING_ART_APEX) $(RUNTIME_APEX) $(CONSCRYPT_APEX) $(I18N_APEX),\
+	$(foreach apex,$(TESTING_ART_APEX),\
 		$(PRODUCT_OUT)/system/apex/$(apex).apex:system/apex/$(apex).apex)
 include $(BUILD_SYSTEM)/base_rules.mk
 
