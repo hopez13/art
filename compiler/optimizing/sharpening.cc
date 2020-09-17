@@ -99,6 +99,7 @@ HInvokeStaticOrDirect::DispatchInfo HSharpening::SharpenInvokeStaticOrDirect(
     } else if (!has_method_id) {
       method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kRuntimeCall;
     } else {
+      DCHECK(!callee->IsCopied());
       // Use PC-relative access to the .bss methods array.
       method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kBssEntry;
     }
@@ -124,6 +125,7 @@ HInvokeStaticOrDirect::DispatchInfo HSharpening::SharpenInvokeStaticOrDirect(
     method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kRuntimeCall;
     code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
   } else {
+    DCHECK(!callee->IsCopied());
     // Use PC-relative access to the .bss methods array.
     method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kBssEntry;
     code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
