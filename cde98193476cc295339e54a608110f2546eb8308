@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbf28864_7b7d424e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-17T17:52:25Z",
+      "side": 1,
+      "message": "Glad to see this went in.",
+      "revId": "cde98193476cc295339e54a608110f2546eb8308",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c018fe8_b5c295f6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3563,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-17T17:52:25Z",
+      "side": 1,
+      "message": "Since this doesn\u0027t do anything, this case could just be combined with the first two. Not pressing.\n\nNote that for ARM64, this isn\u0027t a great way to do this either. For ARM32, it\u0027s fine.",
+      "range": {
+        "startLine": 3563,
+        "startChar": 6,
+        "endLine": 3563,
+        "endChar": 64
+      },
+      "revId": "cde98193476cc295339e54a608110f2546eb8308",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
