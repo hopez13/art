@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "f821a1e2_9ffe2445",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-17T13:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c62f075_f3d4873b",
+      "range": {
+        "startLine": 1995,
+        "startChar": 13,
+        "endLine": 1995,
+        "endChar": 42
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad224444_e6424bd3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -353,6 +377,30 @@
       "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d342ad9_cb901e03",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-17T13:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a19a6ad_2a0c787d",
+      "range": {
+        "startLine": 70,
+        "startChar": 41,
+        "endLine": 70,
+        "endChar": 52
+      },
+      "revId": "b50ea7093ac35c64bb8ed63a4be297a387915b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
