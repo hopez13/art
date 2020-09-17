@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc90d2b2_e7ac004d",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-17T17:30:45Z",
+      "side": 1,
+      "message": "I wrote comment which should make clear the purpose of the class.",
+      "parentUuid": "7a00a3ef_9e1d70be",
+      "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bd459d4_aa9d8d97",
         "filename": "compiler/optimizing/code_generator_utils.cc",
         "patchSetId": 1
@@ -63,6 +81,30 @@
       "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e8f8021_8a898bb1",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2020-09-17T17:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "328b6889_2cb078b6",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 30
+      },
+      "revId": "cbc0cab44e2d076d8f90544830482111f5a308c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
