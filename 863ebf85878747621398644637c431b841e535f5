@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dc7c480_f7976ccc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-17T13:51:07Z",
+      "side": 1,
+      "message": "Nit: might be worth adding an explanation why this wasn\u0027t used here before, and if this AND logic is used in other backends. Otherwise it\u0027s not clear if the change removes the difference between different backends, or adds it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "863ebf85878747621398644637c431b841e535f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c9c563_bd6843b3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-09-17T13:51:07Z",
+      "side": 1,
+      "message": "I think it would be better to pass 16-bit addresses instead of a boolean flag `is_16_op` in andw, but this is not for this CL.",
+      "range": {
+        "startLine": 1120,
+        "startChar": 76,
+        "endLine": 1120,
+        "endChar": 78
+      },
+      "revId": "863ebf85878747621398644637c431b841e535f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
