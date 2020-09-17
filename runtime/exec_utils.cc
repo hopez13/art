@@ -23,6 +23,7 @@
 
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
+#include "base/os.h"
 
 #include "runtime.h"
 
@@ -33,6 +34,9 @@ using android::base::StringPrintf;
 int ExecAndReturnCode(std::vector<std::string>& arg_vector, std::string* error_msg) {
   const std::string command_line(android::base::Join(arg_vector, ' '));
   CHECK_GE(arg_vector.size(), 1U) << command_line;
+  if (!OS::FileExists(arg_vector[0].c_str())) {
+    LOG(ERROR) << "Exec target '" << arg_vector[0] << "' does not exist";
+  }
 
   // Convert the args to char pointers.
   const char* program = arg_vector[0].c_str();
