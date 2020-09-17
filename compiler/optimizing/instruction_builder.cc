@@ -29,6 +29,8 @@
 #include "driver/dex_compilation_unit.h"
 #include "driver/compiler_options.h"
 #include "imtable-inl.h"
+#include "intrinsics.h"
+#include "intrinsics_utils.h"
 #include "jit/jit.h"
 #include "mirror/dex_cache.h"
 #include "oat_file.h"
@@ -1148,6 +1150,37 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
 
+static bool VarHandleAccessorNeedsReturnTypeCheck(HInvoke* invoke, DataType::Type return_type) {
+  if (invoke->GetIntrinsic() == Intrinsics::kMethodHandleInvoke ||
+      invoke->GetIntrinsic() == Intrinsics::kMethodHandleInvokeExact) {
+    // Bail if it's not a VarHandle.
+    return false;
+  }
+
+  size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
+  bool needs_return_type_check =
+      (return_type == DataType::Type::kReference && expected_coordinates_count < 2);
+  mirror::VarHandle::AccessModeTemplate access_mode_template =
+      mirror::VarHandle::GetAccessModeTemplateByIntrinsic(invoke->GetIntrinsic());
+
+  switch (access_mode_template) {
+    case mirror::VarHandle::AccessModeTemplate::kGet:
+      return needs_return_type_check;
+    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:
+      // Only getAndSet can return a reference type. The other getAndUpdate access modes only work
+      // with numerical or boolean types. Right now, getAndSet is not implemented.
+      return false;
+    case mirror::VarHandle::AccessModeTemplate::kSet:
+    case mirror::VarHandle::AccessModeTemplate::kCompareAndSet:
+      return false;
+    case mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:
+      // Unimplemented
+      return false;
+    default:
+      UNREACHABLE();
+  }
+}
+
 bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
                                                  uint32_t method_idx,
                                                  dex::ProtoIndex proto_idx,
@@ -1180,19 +1213,15 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
     return false;
   }
 
-  bool needs_ret_type_check =
-      resolved_method->GetIntrinsic() == static_cast<uint32_t>(Intrinsics::kVarHandleGet) &&
-      return_type == DataType::Type::kReference &&
-      // VarHandle.get() is only implemented for fields now.
-      number_of_arguments < 3u;
-  if (needs_ret_type_check) {
+  if (VarHandleAccessorNeedsReturnTypeCheck(invoke, return_type)) {
     ScopedObjectAccess soa(Thread::Current());
     ArtMethod* referrer = graph_->GetArtMethod();
-    dex::TypeIndex ret_type_index = referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;
+    dex::TypeIndex return_type_index =
+        referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;
 
     // Type check is needed because intrinsic implementations do not type check the retrieved
     // reference.
-    BuildTypeCheck(/* is_instance_of= */ false, invoke, ret_type_index, dex_pc);
+    BuildTypeCheck(/* is_instance_of= */ false, invoke, return_type_index, dex_pc);
     latest_result_ = current_block_->GetLastInstruction();
   }
 
