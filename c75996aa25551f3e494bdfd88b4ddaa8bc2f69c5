@@ -39,6 +39,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add96c65_45c3245d",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-17T23:46:46Z",
+      "side": 1,
+      "message": "No. The allocators are allowed to leave whatever data in the returned buffer at every level AIUI.\n\nhttps://en.cppreference.com/w/cpp/memory/allocator/allocate\n\n\u003e Allocates n * sizeof(T) bytes of uninitialized storage by calling ::operator new(std::size_t) or ::operator new(std::size_t, std::align_val_t) (since C++17), but it is unspecified when and how this function is called. The pointer hint may be used to provide locality of reference: the allocator, if supported by the implementation, will attempt to allocate the new memory block as close as possible to hint.\n\nThis is just BitVector failing to take it into account in one place. Below in the Resize function we correctly clear it.",
+      "parentUuid": "adbbffb0_e3164e7a",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
