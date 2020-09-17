@@ -1148,6 +1148,21 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
 
+static bool NeedsRetTypeCheck(HInvoke* invoke, DataType::Type ret_type) {
+  bool needs_ret_type_check =
+      (ret_type == DataType::Type::kReference && invoke->GetNumberOfArguments() < 3);
+
+  switch (invoke->GetIntrinsic()) {
+    case Intrinsics::kVarHandleGet:
+    case Intrinsics::kVarHandleGetVolatile:
+    case Intrinsics::kVarHandleGetOpaque:
+    case Intrinsics::kVarHandleGetAcquire:
+      return needs_ret_type_check;
+    default:
+      return false;
+  }
+}
+
 bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
                                                  uint32_t method_idx,
                                                  dex::ProtoIndex proto_idx,
@@ -1180,12 +1195,7 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
     return false;
   }
 
-  bool needs_ret_type_check =
-      resolved_method->GetIntrinsic() == static_cast<uint32_t>(Intrinsics::kVarHandleGet) &&
-      return_type == DataType::Type::kReference &&
-      // VarHandle.get() is only implemented for fields now.
-      number_of_arguments < 3u;
-  if (needs_ret_type_check) {
+  if (NeedsRetTypeCheck(invoke, return_type)) {
     ScopedObjectAccess soa(Thread::Current());
     ArtMethod* referrer = graph_->GetArtMethod();
     dex::TypeIndex ret_type_index = referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;

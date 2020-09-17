@@ -3340,7 +3340,7 @@ static Register GenerateVarHandleFieldReference(HInvoke* invoke,
   return locations->InAt(1).AsRegister<Register>();
 }
 
-void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
+static void CreateVarHandleGetLocations(HInvoke* invoke) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
@@ -3366,6 +3366,11 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
   switch (DataType::Kind(type)) {
     case DataType::Type::kInt64:
       locations->AddTemp(Location::RequiresRegister());
+      if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetVolatile ||
+          invoke->GetIntrinsic() == Intrinsics::kVarHandleGetOpaque) {
+        // We need an XmmRegister for Int64 to ensure an atomic load
+        locations->AddTemp(Location::RequiresFpuRegister());
+      }
       FALLTHROUGH_INTENDED;
     case DataType::Type::kInt32:
     case DataType::Type::kReference:
@@ -3378,19 +3383,19 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
   }
 }
 
-void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
+static void GenerateVarHandleGet(HInvoke* invoke, CodeGeneratorX86* codegen) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
 
-  X86Assembler* assembler = codegen_->GetAssembler();
+  X86Assembler* assembler = codegen->GetAssembler();
   LocationSummary* locations = invoke->GetLocations();
   Register varhandle_object = locations->InAt(0).AsRegister<Register>();
   DataType::Type type = invoke->GetType();
   DCHECK_NE(type, DataType::Type::kVoid);
   Register temp = locations->GetTemp(0).AsRegister<Register>();
-  SlowPathCode* slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
-  codegen_->AddSlowPath(slow_path);
+  SlowPathCode* slow_path = new (codegen->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
+  codegen->AddSlowPath(slow_path);
 
   GenerateVarHandleCommonChecks(invoke, temp, slow_path, assembler);
 
@@ -3406,26 +3411,62 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
   // Get the field referred by the VarHandle. The returned register contains the object reference
   // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
   // declaring class will be placed in 'temp' register.
-  Register ref = GenerateVarHandleFieldReference(invoke, codegen_, temp, offset);
+  Register ref = GenerateVarHandleFieldReference(invoke, codegen, temp, offset);
+  Address field_addr(ref, offset, TIMES_1, 0);
 
   // Load the value from the field
-  CodeGeneratorX86* codegen_x86 = down_cast<CodeGeneratorX86*>(codegen_);
-  if (type == DataType::Type::kReference) {
-    if (kCompilerReadBarrierOption == kWithReadBarrier) {
-      codegen_x86->GenerateReferenceLoadWithBakerReadBarrier(invoke,
-                                                             out,
-                                                             ref,
-                                                             Address(ref, offset, TIMES_1, 0),
-                                                             /* needs_null_check= */ false);
-    } else {
-      __ movl(out.AsRegister<Register>(), Address(ref, offset, TIMES_1, 0));
-      __ MaybeUnpoisonHeapReference(out.AsRegister<Register>());
-    }
+  if (type == DataType::Type::kReference && kCompilerReadBarrierOption == kWithReadBarrier) {
+    codegen->GenerateReferenceLoadWithBakerReadBarrier(
+        invoke, out, ref, field_addr, /* needs_null_check= */ false);
+  } else if (type == DataType::Type::kInt64 &&
+             (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetVolatile ||
+             invoke->GetIntrinsic() == Intrinsics::kVarHandleGetOpaque)) {
+    XmmRegister xmm_temp = locations->GetTemp(2).AsFpuRegister<XmmRegister>();
+    codegen->LoadFromMemoryNoBarrier(type, out, field_addr, xmm_temp, /* is_atomic_load= */ true);
   } else {
-    codegen_x86->MoveFromMemory(type, out, ref, offset);
+    codegen->LoadFromMemoryNoBarrier(type, out, field_addr);
+  }
+
+  if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetVolatile ||
+      invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAcquire) {
+    // Load fence to prevent load-load reordering.
+    // Note that this is a no-op, thanks to the x86 memory model.
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
   }
 
   __ Bind(slow_path->GetExitLabel());
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGet(HInvoke* invoke) {
+  CreateVarHandleGetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGet(HInvoke* invoke) {
+  GenerateVarHandleGet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetVolatile(HInvoke* invoke) {
+  CreateVarHandleGetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetVolatile(HInvoke* invoke) {
+  GenerateVarHandleGet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAcquire(HInvoke* invoke) {
+  CreateVarHandleGetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAcquire(HInvoke* invoke) {
+  GenerateVarHandleGet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetOpaque(HInvoke* invoke) {
+  CreateVarHandleGetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetOpaque(HInvoke* invoke) {
+  GenerateVarHandleGet(invoke, codegen_);
 }
 
 static void CreateVarHandleSetLocations(HInvoke* invoke) {
@@ -3830,7 +3871,6 @@ UNIMPLEMENTED_INTRINSIC(X86, MethodHandleInvoke)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchange)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeRelease)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAdd)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddRelease)
@@ -3846,8 +3886,6 @@ UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseXorRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndSet)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndSetAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndSetRelease)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetOpaque)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetVolatile)
 
 UNREACHABLE_INTRINSICS(X86)
 
