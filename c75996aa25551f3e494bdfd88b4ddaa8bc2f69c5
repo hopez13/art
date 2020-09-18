@@ -327,6 +327,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5eaa5c7c_c5984360",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-18T18:29:22Z",
+      "side": 1,
+      "message": "Alex, can you evaluate the places were we use BitVectors? I\u0027d like to get certainty that this applies only to the work that you do with LSE (and validate that there are no lingering issues). If there are, we can think about options to CP this change.\n\nWe should not rely on \"luck\" for the compiler correctness.",
+      "parentUuid": "f3c8b9c6_8635bc3f",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
