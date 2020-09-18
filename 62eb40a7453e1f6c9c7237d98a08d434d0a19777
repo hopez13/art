@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83a831fb_55ae0f60",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3188,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-18T13:59:41Z",
+      "side": 1,
+      "message": "I was thinking about null, but I confused things. My bad",
+      "parentUuid": "dde20da3_ecb11de7",
+      "range": {
+        "startLine": 3188,
+        "startChar": 13,
+        "endLine": 3188,
+        "endChar": 51
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1caac72_0d18edf0",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ecf58c6_d67f03a0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-18T13:59:41Z",
+      "side": 1,
+      "message": "I misinterpreted what \"integral type\" means, I thought it is only kInt32. I added the rest",
+      "parentUuid": "f1caac72_0d18edf0",
+      "range": {
+        "startLine": 3194,
+        "startChar": 8,
+        "endLine": 3194,
+        "endChar": 45
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
