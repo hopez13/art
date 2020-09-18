@@ -93,6 +93,121 @@
       "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "960f07e0_b870c314",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4019,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T15:00:49Z",
+      "side": 1,
+      "message": "Nit: end sentences in comments with a full stop. (Several more below).",
+      "range": {
+        "startLine": 4019,
+        "startChar": 6,
+        "endLine": 4019,
+        "endChar": 18
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc89060c_6a3cb6c0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4036,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T15:00:49Z",
+      "side": 1,
+      "message": "MoveFromMemory to move the number of bytes required. Reading beyond necessary can have problems, e.g. the read may cross a page boundary and the next page may not be accessible so triggers a segfault.",
+      "range": {
+        "startLine": 4036,
+        "startChar": 5,
+        "endLine": 4036,
+        "endChar": 9
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acb0728a_445841fc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4037,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T15:00:49Z",
+      "side": 1,
+      "message": "Does this need to be in the loop?",
+      "range": {
+        "startLine": 4037,
+        "startChar": 2,
+        "endLine": 4037,
+        "endChar": 82
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18ddcf6b_88a6b82d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4040,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T15:00:49Z",
+      "side": 1,
+      "message": "another",
+      "range": {
+        "startLine": 4040,
+        "startChar": 28,
+        "endLine": 4040,
+        "endChar": 33
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8230f889_3fd2d725",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4040,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T15:00:49Z",
+      "side": 1,
+      "message": "\"so try again.\"",
+      "range": {
+        "startLine": 4040,
+        "startChar": 59,
+        "endLine": 4040,
+        "endChar": 99
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
