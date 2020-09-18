@@ -3133,6 +3133,17 @@ void IntrinsicCodeGeneratorX86::VisitIntegerDivideUnsigned(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+static bool IsVarHandleGetAndBitwiseOp(HInvoke* invoke) {
+  switch (invoke->GetIntrinsic()) {
+    case Intrinsics::kVarHandleGetAndBitwiseOr:
+    case Intrinsics::kVarHandleGetAndBitwiseXor:
+    case Intrinsics::kVarHandleGetAndBitwiseAnd:
+      return true;
+    default:
+      return false;
+  }
+}
+
 static bool IsValidFieldVarHandleExpected(HInvoke* invoke) {
   size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
   if (expected_coordinates_count > 1u) {
@@ -3172,11 +3183,16 @@ static bool IsValidFieldVarHandleExpected(HInvoke* invoke) {
     }
     case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate: {
       DataType::Type value_type = GetDataTypeFromShorty(invoke, number_of_arguments - 1);
-      if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAndAdd) {
-        if (value_type == DataType::Type::kReference || value_type == DataType::Type::kVoid) {
-          // We should not add references
-          return false;
-        }
+      if (invoke->GetIntrinsic() == Intrinsics::kVarHandleGetAndAdd &&
+            (value_type == DataType::Type::kReference ||
+             value_type == DataType::Type::kVoid ||
+             value_type == DataType::Type::kBool)) {
+        // We should only add numerical types
+        return false;
+      } else if (IsVarHandleGetAndBitwiseOp(invoke) &&
+                 value_type != DataType::Type::kInt32) {
+        // We can only bitwise integral types
+        return false;
       }
       if (value_type != type) {
         return false;
@@ -3931,6 +3947,129 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+static void CreateVarHandleGetAndBitwiseOpLocations(HInvoke* invoke) {
+  // The only read barrier implementation supporting the
+  // VarHandleGet intrinsic is the Baker-style read barriers.
+  if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
+    return;
+  }
+
+  if (!IsValidFieldVarHandleExpected(invoke)) {
+    return;
+  }
+
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+  LocationSummary* locations = new (allocator) LocationSummary(
+      invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
+  locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  locations->SetInAt(0, Location::RequiresRegister());
+  size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
+  if (expected_coordinates_count == 1u) {
+    // For instance fields, this is the source object
+    locations->SetInAt(1, Location::RequiresRegister());
+  } else {
+    // For static fields, we need another temp because one will be busy with the declaring class.
+    locations->AddTemp(Location::RequiresRegister());
+  }
+
+  // The last argument should be the value we intend to set.
+  uint32_t value_index = invoke->GetNumberOfArguments() - 1;
+  locations->SetInAt(value_index, Location::RegisterOrConstant(invoke->InputAt(value_index)));
+  locations->SetOut(Location::RegisterLocation(EAX));
+}
+
+static void GenerateBitwiseOp(HInvoke* invoke,
+                              CodeGeneratorX86* codegen,
+                              Register left,
+                              Register right) {
+  X86Assembler* assembler = codegen->GetAssembler();
+
+  switch (invoke->GetIntrinsic()) {
+    case Intrinsics::kVarHandleGetAndBitwiseOr:
+      __ orl(left, right);
+      break;
+    case Intrinsics::kVarHandleGetAndBitwiseXor:
+      __ xorl(left, right);
+      break;
+    case Intrinsics::kVarHandleGetAndBitwiseAnd:
+      __ andl(left, right);
+      break;
+    default:
+      UNREACHABLE();
+  }
+}
+
+static void GenerateVarHandleGetAndBitwiseOp(HInvoke* invoke, CodeGeneratorX86* codegen) {
+  // The only read barrier implementation supporting the
+  // VarHandleGet intrinsic is the Baker-style read barriers.
+  DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
+
+  X86Assembler* assembler = codegen->GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+  uint32_t value_index = invoke->GetNumberOfArguments() - 1;
+  DCHECK_EQ(GetDataTypeFromShorty(invoke, value_index), invoke->GetType());
+  Register temp = locations->GetTemp(0).AsRegister<Register>();
+  SlowPathCode* slow_path = new (codegen->GetScopedAllocator()) IntrinsicSlowPathX86(invoke);
+  codegen->AddSlowPath(slow_path);
+
+  GenerateVarHandleCommonChecks(invoke, temp, slow_path, assembler);
+
+  // No need to check the varType. If the varType is anything else than kInt32, the access mode is
+  // not supported
+
+  Register offset = locations->GetTemp(1).AsRegister<Register>();
+  // Get the field referred by the VarHandle. The returned register contains the object reference
+  // or the declaring class. The field offset will be placed in 'offset'. For static fields, the
+  // declaring class will be placed in 'temp' register.
+  Register reference = GenerateVarHandleFieldReference(invoke, codegen, temp, offset);
+
+  size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
+  // For static field, we need another temporary because the first one contains the declaring class
+  temp = (expected_coordinates_count == 1u) ? temp : locations->GetTemp(2).AsRegister<Register>();
+  DCHECK_NE(temp, reference);
+  Address field_addr(reference, offset, TIMES_1, 0);
+
+  NearLabel try_again;
+  __ Bind(&try_again);
+  // Place the expected value in EAX for cmpxchg
+  __ movl(EAX, field_addr);
+  codegen->Move32(Location::RegisterLocation(temp), locations->InAt(value_index));
+  GenerateBitwiseOp(invoke, codegen, temp, EAX);
+  __ LockCmpxchgl(field_addr, temp);
+  // If the cmpxchg failed, other thread changed the value in the meantime. Therefore, we try again
+  __ j(kNotZero, &try_again);
+
+  // The old value is present in EAX.
+  DCHECK_EQ(locations->Out().AsRegister<Register>(), EAX);
+
+  __ Bind(slow_path->GetExitLabel());
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndBitwiseOr(HInvoke* invoke) {
+  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndBitwiseOr(HInvoke* invoke) {
+  GenerateVarHandleGetAndBitwiseOp(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndBitwiseXor(HInvoke* invoke) {
+  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndBitwiseXor(HInvoke* invoke) {
+  GenerateVarHandleGetAndBitwiseOp(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndBitwiseAnd(HInvoke* invoke) {
+  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndBitwiseAnd(HInvoke* invoke) {
+  GenerateVarHandleGetAndBitwiseOp(invoke, codegen_);
+}
+
 
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
 UNIMPLEMENTED_INTRINSIC(X86, ReferenceGetReferent)
@@ -3989,13 +4128,10 @@ UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddRelease)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAnd)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndRelease)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseOr)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseOrAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseOrRelease)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseXor)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseXorAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseXorRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndSet)
