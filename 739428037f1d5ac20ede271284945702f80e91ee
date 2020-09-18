@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45ccfade_d81e2c6d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-18T18:38:03Z",
+      "side": 1,
+      "message": "Should this also mention kVarHandleGetAcquire?",
+      "range": {
+        "startLine": 3394,
+        "startChar": 10,
+        "endLine": 3395,
+        "endChar": 67
+      },
+      "revId": "739428037f1d5ac20ede271284945702f80e91ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d48bc5_b6359488",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3448,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-18T18:38:03Z",
+      "side": 1,
+      "message": "Same question here.",
+      "range": {
+        "startLine": 3447,
+        "startChar": 14,
+        "endLine": 3448,
+        "endChar": 70
+      },
+      "revId": "739428037f1d5ac20ede271284945702f80e91ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
