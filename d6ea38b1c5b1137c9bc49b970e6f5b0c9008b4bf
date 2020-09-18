@@ -16,6 +16,23 @@
       "revId": "d6ea38b1c5b1137c9bc49b970e6f5b0c9008b4bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbe39034_ac16e065",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T13:30:03Z",
+      "side": 1,
+      "message": "Submitted fix as there\u0027s a TH flake here before it\u0027s even got to the crosshatch WITH_TIDY target that we\u0027re trying to fix.\n\nWe\u0027ve corrected the issues with the comment that names an argument \"expected\" -\u003e \"expected_value\".\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/intrinsics_x86.cc;l\u003d1965?q\u003dGenPrimitiveLockedCmpxchg\n",
+      "revId": "d6ea38b1c5b1137c9bc49b970e6f5b0c9008b4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
