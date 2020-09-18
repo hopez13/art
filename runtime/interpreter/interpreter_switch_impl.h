@@ -36,12 +36,12 @@ namespace interpreter {
 // so it is easier to pass it through a single pointer.
 // Similarly, returning the JValue type would be non-trivial.
 struct SwitchImplContext {
-  Thread* self;
-  const CodeItemDataAccessor& accessor;
-  ShadowFrame& shadow_frame;
-  JValue& result_register;
-  bool interpret_one_instruction;
-  JValue result;
+  Thread* self_;
+  const CodeItemDataAccessor& accessor_;
+  ShadowFrame& shadow_frame_;
+  JValue& result_register_;
+  bool interpret_one_instruction_;
+  JValue result_;
 };
 
 // The actual internal implementation of the switch interpreter.
@@ -61,17 +61,17 @@ ALWAYS_INLINE JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor&
                                        bool interpret_one_instruction)
   REQUIRES_SHARED(Locks::mutator_lock_) {
   SwitchImplContext ctx {
-    .self = self,
-    .accessor = accessor,
-    .shadow_frame = shadow_frame,
-    .result_register = result_register,
-    .interpret_one_instruction = interpret_one_instruction,
-    .result = JValue(),
+    .self_ = self,
+    .accessor_ = accessor,
+    .shadow_frame_ = shadow_frame,
+    .result_register_ = result_register,
+    .interpret_one_instruction_ = interpret_one_instruction,
+    .result_ = JValue(),
   };
   void* impl = reinterpret_cast<void*>(&ExecuteSwitchImplCpp<do_access_check, transaction_active>);
-  const uint16_t* dex_pc = ctx.accessor.Insns();
+  const uint16_t* dex_pc = ctx.accessor_.Insns();
   ExecuteSwitchImplAsm(&ctx, impl, dex_pc);
-  return ctx.result;
+  return ctx.result_;
 }
 
 }  // namespace interpreter
