@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dde20da3_ecb11de7",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3188,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T12:43:31Z",
+      "side": 1,
+      "message": "Unnecessary as arguments can\u0027t be void (?).",
+      "range": {
+        "startLine": 3188,
+        "startChar": 13,
+        "endLine": 3188,
+        "endChar": 51
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1caac72_0d18edf0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T12:43:31Z",
+      "side": 1,
+      "message": "This comment matches the API docs, but the check doesn\u0027t use DataType::IsIntegralType()?\n\nIf we only do this for int types in the CL, that\u0027s okay, but please update the commit message and add a todo here.\n\nNB the case of bool is called out in the API docs, e.g.:\nhttps://docs.oracle.com/javase/9/docs/api/java/lang/invoke/VarHandle.html#getAndBitwiseOr-java.lang.Object...-",
+      "range": {
+        "startLine": 3194,
+        "startChar": 8,
+        "endLine": 3194,
+        "endChar": 45
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
