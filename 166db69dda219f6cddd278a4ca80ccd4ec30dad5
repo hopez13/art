@@ -16,6 +16,98 @@
       "revId": "166db69dda219f6cddd278a4ca80ccd4ec30dad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6cbb934_36ff1f7e",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-18T08:49:13Z",
+      "side": 1,
+      "message": "I suggest:\n\"We\u0027re not using HTypeConversation to bind the new information because it would increase the complexity of optimziations: HTypeConversation can create a dependency...\"",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 31
+      },
+      "revId": "166db69dda219f6cddd278a4ca80ccd4ec30dad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8e31ae3_dc62c81e",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-18T08:49:13Z",
+      "side": 1,
+      "message": "all of",
+      "range": {
+        "startLine": 236,
+        "startChar": 83,
+        "endLine": 236,
+        "endChar": 88
+      },
+      "revId": "166db69dda219f6cddd278a4ca80ccd4ec30dad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe03eff8_7a25f1f9",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-18T08:49:13Z",
+      "side": 1,
+      "message": "initialized",
+      "range": {
+        "startLine": 236,
+        "startChar": 47,
+        "endLine": 236,
+        "endChar": 57
+      },
+      "revId": "166db69dda219f6cddd278a4ca80ccd4ec30dad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b725431b_16711213",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-18T08:49:13Z",
+      "side": 1,
+      "message": "modifications keep",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 24
+      },
+      "revId": "166db69dda219f6cddd278a4ca80ccd4ec30dad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
