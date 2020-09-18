@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3af45466_5672e971",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-18T11:21:31Z",
+      "side": 1,
+      "message": "Information from https://android-build.googleplex.com/builds/treetop/android-review/1427873?ref\u003dCOMMENT\u0026revision\u003d2\u0026revisionAttempt\u003d2:\n\n  Presubmit failed.    Patchset 2  Attempt 2\n  \n  Failing: 1\n  \n  [Test] suite/test-mapping-presubmit-retry_cloud-tf on cf_x86_phone-userdebug on git_master\n\nInformation from https://g3c.corp.google.com/results/invocations/a9c04fc8-b5ff-421c-bd19-69190541ff1d/targets/_invocation;config\u003ddefault/details:\n\n  Some actions had XML processing errors (No test.xml; action contains empty test suite.), so Test Cases may be incomplete. View the Target Log for more details\n\nContents of the Target Log (https://g3c.corp.google.com/results/invocations/a9c04fc8-b5ff-421c-bd19-69190541ff1d/targets/_invocation;config\u003ddefault/log):\n\n  Target built.\n  Check the invocation log for details.\n\nContents of the invocation log (https://g3c.corp.google.com/results/invocations/a9c04fc8-b5ff-421c-bd19-69190541ff1d/log):\n\n  Unable to retrieve invocation log.\n\nThis looks like a flake; I\u0027ll check existing bugs.\n",
+      "revId": "cd3b7b5ace87834c0602effe54a5562e78b8f127",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
