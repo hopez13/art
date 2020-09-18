@@ -87,6 +87,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2281e0a_1d4a52ce",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-18T00:01:02Z",
+      "side": 1,
+      "message": "The code elsewhere in BitVector seems to indicate that this is allowed behavior.\n\nThis isn\u0027t really used very much and almost all uses are the MallocAllocator which uses calloc(), that\u0027s why it didn\u0027t get found earlier.\n\nThis is only a problem with the ArenaAllocators which definitely don\u0027t do clearing.",
+      "parentUuid": "65b2e851_763158eb",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
