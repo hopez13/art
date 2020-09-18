@@ -135,6 +135,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b90906f1_2e8844df",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-18T02:35:23Z",
+      "side": 1,
+      "message": "I hit it while changing my LSE change to use bit-vectors more.\n\nMost uses use the MallocAllocator which allocates with calloc so that zeros everything for them.\n\nMy change uses the arena allocators which are just bump-pointers.",
+      "parentUuid": "c5ffce6d_8835b8dc",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
