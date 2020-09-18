@@ -255,6 +255,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97ba829_c8bf7faa",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-18T16:06:52Z",
+      "side": 1,
+      "message": "ScopedArenaAllocator does not.\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/scoped_arena_allocator.h;l\u003d159?q\u003dScopedArenaAllocator\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nBumpPtr: https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/scoped_arena_allocator.h;drc\u003dmaster;l\u003d97?q\u003dScopedArenaAllocator\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nArena destruction:\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/scoped_arena_allocator.cc;l\u003d146;drc\u003dmaster;bpv\u003d1;bpt\u003d1\n\nNo memsets anywhere.\n\nI guess this worked since in other places the non-scoped ArenaAllocators were used.",
+      "parentUuid": "a99b27d2_b438735e",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
