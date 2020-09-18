@@ -351,6 +351,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "957afc83_14435627",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-18T19:01:18Z",
+      "side": 1,
+      "message": "Here are all the locations we use bit vector in the compiler:\n\nhttps://cs.android.com/search?q\u003dBitVector%20filepath:art%2Fcompiler\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nAll non-compiler uses except the verifier use the MallocAllocator which uses calloc\n\nthe verifier explicitly clears bits\n\nGVN explicitly clears bits before use so it\u0027s fine\n\nValueSet provides an explicit initial state so it\u0027s fine\n\nLivenessTest doesn\u0027t initialize any BitVectors\n\nHLoopInformation looks like it could potentially hit this issue.\n\nLSA Does an explicit clear\n\nGraphChecker does an explicit clear\n\nRegisterAllocator does an explicit clear\n\nLICM only uses the BitVector in kIsDebugBuild code but could potentially hit this issue.\n\nLocationSummary could hit this issue.\n\nCodeSinking explicitly clears bits\n\nInstructionBuilder explicitly clears bits\n\nSuperblock_cloner can hit this in some situations https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/superblock_cloner.cc;l\u003d276?q\u003dBitVector%20filepath:art%2Fcompiler\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\u0026start\u003d11\n\nStackMapTest can hit this https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/stack_map_test.cc;l\u003d57?q\u003dBitVector%20filepath:art%2Fcompiler\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\u0026start\u003d11\n\nStackMapStream can hit this\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/stack_map_stream.h;l\u003d39?q\u003dBitVector%20filepath:art%2Fcompiler\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\u0026start\u003d11\n\nInstructionBuilder explicitly clears bits\n\nSuperblock cloner test can hit this at multiple points\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/superblock_cloner_test.cc;l\u003d158?q\u003dBitVector%20filepath:art%2Fcompiler\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\u0026start\u003d21\n\ndead-code-elimination explicitly clears bits\n\nssa-phi-elim explicitly clears bits.\n\nIt looks like the pattern to clear the bits was cargo-culted around enough to avoid this becoming a major issue. Really though this is a C++ struct. The general assumption is they are initialized with sane defaults.\n\nMost instances where it doesn\u0027t happen is in tests where since the ArenaStacks are just created for each test they should be clean.\n\nI\u0027m fine with cp-ing this to a QPR or something but this issue seems really old.\n\n\u003e We should not rely on \"luck\" for the compiler correctness.\n\nI agree. With this we won\u0027t have to. 😊",
+      "parentUuid": "5eaa5c7c_c5984360",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
