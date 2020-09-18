@@ -159,6 +159,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2cfae76_085b1b76",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-18T02:51:31Z",
+      "side": 1,
+      "message": "Does this have any negative impact on the runtime or the compiler?",
+      "parentUuid": "b90906f1_2e8844df",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
