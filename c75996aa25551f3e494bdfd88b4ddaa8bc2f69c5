@@ -231,6 +231,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a99b27d2_b438735e",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-18T16:00:09Z",
+      "side": 1,
+      "message": "The test isn\u0027t using arenas, and I believe arenas always return cleared data (see MallocArenaPool::AllocArena  and MemMapArenaPool::AllocArena, which ends up calling memset(0)).\n\nLooking at our uses in the compiler, there\u0027s lots of assumptions the data structures allocated with arenas are initialized with 0.",
+      "parentUuid": "4aa4986b_c9e8c2f9",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
