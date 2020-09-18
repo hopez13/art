@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02618435_58054d34",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T08:17:52Z",
+      "side": 1,
+      "message": "The comment seems cryptic because libelffile is referenced by art libraries and not in the defaults here.\n\nCould the libelffile static lib dependency be moved here? Or this dependency move to the modules depending on libelffile?",
+      "range": {
+        "startLine": 163,
+        "startChar": 8,
+        "endLine": 163,
+        "endChar": 33
+      },
+      "revId": "73195ddde3e09d161c33ccd227cdc89049997685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
