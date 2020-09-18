@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04210b15_1f278e2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T10:27:47Z",
+      "side": 1,
+      "message": "Some quick drive-by comments...",
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ecf7a93_c39c26c3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T10:27:47Z",
+      "side": 1,
+      "message": "Avoid default unless it has particular value, kVoid here.",
+      "range": {
+        "startLine": 1509,
+        "startChar": 4,
+        "endLine": 1509,
+        "endChar": 11
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "632ae2e7_a3269646",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T10:27:47Z",
+      "side": 1,
+      "message": "VarHandleAccessorNeedsReturnTypeCheck.",
+      "range": {
+        "startLine": 1151,
+        "startChar": 12,
+        "endLine": 1151,
+        "endChar": 29
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b025c3d9_bceeae56",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T10:27:47Z",
+      "side": 1,
+      "message": "default here will cause some work for other Get accessors, CompareAndExchange and GetAndUpdate.",
+      "range": {
+        "startLine": 1156,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 34
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aaf5b4f_24fbd8af",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-18T10:27:47Z",
+      "side": 1,
+      "message": "Suggest making it clear that this is for VarHandles (and not MethodHandles).\nAn additional constraint is that methods declaring class is VarHandle (ie not MethodHandle).",
+      "range": {
+        "startLine": 1198,
+        "startChar": 6,
+        "endLine": 1198,
+        "endChar": 23
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
