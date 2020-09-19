@@ -30,27 +30,15 @@ cc_defaults {
 art_cc_library {
     name: "libopenjdkjvm",
     defaults: ["libopenjdkjvm_defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart",
         "libartbase",
     ],
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libopenjdkjvmd",
-    defaults: [
-        "art_debug_defaults",
-        "libopenjdkjvm_defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartbased",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }

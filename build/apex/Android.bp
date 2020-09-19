@@ -75,26 +75,11 @@ art_runtime_debug_binaries_both_on_device_first_on_host = [
     "dex2oatd",
 ]
 
-// - Debug variants (libraries).
-art_runtime_debug_native_shared_libs = [
-    "libadbconnectiond",
-    "libartd",
-    "libartd-compiler",
-    "libdexfiled_external",
-    "libopenjdkjvmd",
-    "libopenjdkjvmtid",
-]
-
-art_runtime_base_native_device_only_debug_shared_libs = [
-    "libperfetto_hprofd",
-]
-
 // Libraries needed to execute ART run-tests.
 // TODO(b/124476339): When bug 124476339 is fixed, add these libraries as `runtime_libs`
 // dependencies of `libartd-compiler`, and remove `art_runtime_run_test_libs`.
 art_runtime_run_test_libs = [
     "libart-disassembler",
-    "libartd-disassembler",
 ]
 
 // Tools common to both device APEX and host APEX. Derived from art-tools in art/Android.mk.
@@ -167,9 +152,6 @@ libcore_native_shared_libs = [
     "libjavacore",
     "libopenjdk",
 ]
-libcore_debug_native_shared_libs = [
-    "libopenjdkd",
-]
 
 // Temporary library includes for b/123591866 as all libraries are moved into the main art-apex.
 art_runtime_libraries_zipapex = [
@@ -233,10 +215,7 @@ apex_defaults {
 apex_defaults {
     name: "com.android.art-dev-defaults",
     defaults: ["com.android.art-defaults"],
-    native_shared_libs: art_runtime_base_native_device_only_debug_shared_libs +
-        art_runtime_run_test_libs +
-        art_runtime_debug_native_shared_libs +
-        libcore_debug_native_shared_libs,
+    native_shared_libs: art_runtime_run_test_libs,
     multilib: {
         both: {
             binaries: art_tools_debug_binaries_both +
@@ -268,6 +247,9 @@ art_apex {
     name: "com.android.art.debug",
     defaults: ["com.android.art-dev-defaults"],
     certificate: ":com.android.art.certificate",
+    art: {
+        depend_on_all: true,
+    },
 }
 
 // ART gtests with dependencies on internal ART APEX libraries.
@@ -320,10 +302,11 @@ art_apex_test_host {
     manifest: "manifest-art.json",
     java_libs: libcore_java_libs,
     ignore_system_library_special_case: true,
+    art: {
+        depend_on_all: true,
+    },
     native_shared_libs: art_runtime_base_native_shared_libs +
-        art_runtime_debug_native_shared_libs +
         libcore_native_shared_libs +
-        libcore_debug_native_shared_libs +
         art_runtime_libraries_zipapex +
         art_runtime_run_test_libs,
     multilib: {

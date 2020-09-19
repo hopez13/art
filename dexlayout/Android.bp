@@ -70,6 +70,9 @@ art_cc_library {
         "libart-dexlayout-defaults",
         "dex2oat-pgo-defaults",
     ],
+    art: {
+        debug_split: true,
+    },
     target: {
         android: {
             lto: {
@@ -117,40 +120,6 @@ cc_defaults {
     static_libs: ["libart-dexlayout"],
 }
 
-art_cc_library {
-    name: "libartd-dexlayout",
-    defaults: [
-        "libart-dexlayout-defaults",
-        "art_debug_defaults",
-    ],
-    target: {
-        android: {
-            shared_libs: [
-                "libartbased",
-                "libdexfiled",
-                "libprofiled",
-            ],
-        },
-        not_windows: {
-            shared_libs: [
-                "libartbased",
-                "libdexfiled",
-                "libprofiled",
-            ],
-        },
-        windows: {
-            static_libs: [
-                "libartbased",
-                "libdexfiled",
-                "libprofiled",
-            ],
-        },
-    },
-    apex_available: [
-        "com.android.art.debug",
-    ],
-}
-
 cc_defaults {
     name: "libartd-dexlayout_static_defaults",
     defaults: [
@@ -166,25 +135,27 @@ cc_defaults {
     name: "dexlayout-defaults",
     defaults: ["art_defaults"],
     host_supported: true,
+    srcs: ["dexlayout_main.cc"],
     shared_libs: [
+        "libart-dexlayout",
+        "libartbase",
         "libbase",
+        "libdexfile",
+        "libprofile",
     ],
 }
 
 art_cc_binary {
     name: "dexlayout",
     defaults: ["dexlayout-defaults"],
-    srcs: ["dexlayout_main.cc"],
-    shared_libs: [
-        "libdexfile",
-        "libprofile",
-        "libartbase",
-        "libart-dexlayout",
-    ],
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 }
 
 art_cc_binary {
@@ -196,7 +167,6 @@ art_cc_binary {
         "libdexfile_static_defaults",
         "libartbase_static_defaults",
     ],
-    srcs: ["dexlayout_main.cc"],
     host_supported: true,
     device_supported: false,
     target: {
@@ -212,28 +182,22 @@ art_cc_binary {
 
 art_cc_binary {
     name: "dexlayoutd",
-    defaults: [
-        "art_debug_defaults",
-        "dexlayout-defaults",
-    ],
-    srcs: ["dexlayout_main.cc"],
-    shared_libs: [
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
-        "libartd-dexlayout",
-    ],
+    defaults: ["dexlayout-defaults"],
     apex_available: [
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
 }
 
 art_cc_test {
     name: "art_dexlayout_tests",
     defaults: ["art_gtest_defaults"],
     shared_libs: [
-        "libprofiled",
-        "libartd-dexlayout",
+        "libprofile",
+        "libart-dexlayout",
     ],
     data: [
         ":art-gtest-jars-ManyMethods",

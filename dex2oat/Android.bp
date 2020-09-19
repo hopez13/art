@@ -90,6 +90,9 @@ gensrcs {
 art_cc_library_static {
     name: "libart-dex2oat",
     defaults: ["libart-dex2oat-defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart-compiler",
         "libart-dexlayout",
@@ -117,24 +120,6 @@ cc_defaults {
     ],
 }
 
-art_cc_library_static {
-    name: "libartd-dex2oat",
-    defaults: [
-        "art_debug_defaults",
-        "libart-dex2oat-defaults",
-    ],
-    shared_libs: [
-        "libartd-compiler",
-        "libartd-dexlayout",
-        "libartd",
-        "libartpalette",
-        "libprofiled",
-    ],
-    apex_available: [
-        "com.android.art.debug",
-    ],
-}
-
 cc_defaults {
     name: "libartd-dex2oat_static_defaults",
     defaults: [
@@ -156,6 +141,23 @@ cc_defaults {
     srcs: [
         "dex2oat_options.cc",
         "dex2oat.cc",
+    ],
+
+    shared_libs: [
+        "libart",
+        "libart-compiler",
+        "libart-dexlayout",
+        "libartbase",
+        "libartpalette",
+        "libbase",
+        "libcrypto",
+        "libdexfile",
+        "libprofile",
+        "libsigchain",
+        "libz",
+    ],
+    static_libs: [
+        "libart-dex2oat",
     ],
 
     target: {
@@ -211,22 +213,11 @@ art_cc_binary {
     // Modules that do dexpreopting, e.g. android_app, depend implicitly on
     // either dex2oat or dex2oatd in ART source builds.
     visibility: ["//visibility:public"],
-    shared_libs: [
-        "libprofile",
-        "libart-compiler",
-        "libart-dexlayout",
-        "libart",
-        "libcrypto",
-        "libdexfile",
-        "libartbase",
-        "libartpalette",
-        "libbase",
-        "libsigchain",
-        "libz",
-    ],
-    static_libs: [
-        "libart-dex2oat",
-    ],
+
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 
     multilib: {
         lib32: {
@@ -272,28 +263,17 @@ art_cc_binary {
 art_cc_binary {
     name: "dex2oatd",
     defaults: [
-        "art_debug_defaults",
         "dex2oat-defaults",
     ],
     // Modules that do dexpreopting, e.g. android_app, depend implicitly on
     // either dex2oat or dex2oatd in ART source builds.
     visibility: ["//visibility:public"],
-    shared_libs: [
-        "libprofiled",
-        "libartd-compiler",
-        "libartd-dexlayout",
-        "libartd",
-        "libcrypto",
-        "libdexfiled",
-        "libartbased",
-        "libartpalette",
-        "libbase",
-        "libsigchain",
-        "libz",
-    ],
-    static_libs: [
-        "libartd-dex2oat",
-    ],
+
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
+
     target: {
         host: {
             // Override the prefer32 added by art_cc_binary when
@@ -389,14 +369,14 @@ art_cc_library_static {
         "common_compiler_driver_test.cc",
     ],
     shared_libs: [
-        "libartd-compiler",
-        "libartd-disassembler",
+        "libart-compiler",
         "libart-compiler-gtest",
+        "libart-disassembler",
         "libart-runtime-gtest",
         "libbase",
     ],
     static_libs: [
-        "libartd-dex2oat",
+        "libart-dex2oat",
     ],
 }
 
@@ -473,18 +453,18 @@ art_cc_test {
     },
 
     shared_libs: [
-        "libartbased",
-        "libartd-compiler",
-        "libartd-dexlayout",
+        "libart-compiler",
+        "libart-dexlayout",
+        "libartbase",
         "libartpalette",
         "libbase",
         "libcrypto",
-        "libprofiled",
+        "libprofile",
         "libsigchain",
         "libziparchive",
     ],
     static_libs: [
         "libart-dex2oat-gtest",
-        "libartd-dex2oat",
+        "libart-dex2oat",
     ],
 }

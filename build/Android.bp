@@ -115,6 +115,23 @@ art_global_defaults {
         "-D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS",
     ],
 
+    art: {
+        debug: {
+            cflags: [
+                "-DDYNAMIC_ANNOTATIONS_ENABLED=1",
+                "-DVIXL_DEBUG",
+                "-UNDEBUG",
+                // These flags are appended in a comparatively late mutator, so
+                // the one below will end up after -Wframe-larger-than inserted
+                // by art.go target-specific properties.
+                "-Wno-frame-larger-than=",
+            ],
+            asflags: [
+                "-UNDEBUG",
+            ],
+        },
+    },
+
     arch: {
         x86: {
             avx2: {

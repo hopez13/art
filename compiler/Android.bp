@@ -198,6 +198,11 @@ art_cc_library {
         "libart-compiler-defaults",
         "dex2oat-pgo-defaults",
     ],
+
+    art: {
+        debug_split: true,
+    },
+
     codegen: {
         arm: {
             // VIXL assembly support for ARM targets.
@@ -273,67 +278,6 @@ cc_defaults {
     static_libs: ["libart-compiler"],
 }
 
-art_cc_library {
-    name: "libartd-compiler",
-    defaults: [
-        "art_debug_defaults",
-        "libart-compiler-defaults",
-    ],
-    codegen: {
-        arm: {
-            // VIXL assembly support for ARM targets.
-            static: {
-                whole_static_libs: [
-                    "libvixld",
-                ],
-            },
-            shared: {
-                shared_libs: [
-                    "libvixld",
-                ],
-                // Export vixl headers as they are included in this library's exported headers.
-                export_shared_lib_headers: [
-                    "libvixld",
-                ],
-            },
-        },
-        arm64: {
-            // VIXL assembly support for ARM64 targets.
-            static: {
-                whole_static_libs: [
-                    "libvixld",
-                ],
-            },
-            shared: {
-                shared_libs: [
-                    "libvixld",
-                ],
-                // Export vixl headers as they are included in this library's exported headers.
-                export_shared_lib_headers: [
-                    "libvixld",
-                ],
-            },
-        },
-    },
-    shared_libs: [
-        "libartbased",
-        "libartd",
-        "libartpalette",
-        "libprofiled",
-        "libdexfiled",
-    ],
-    whole_static_libs: ["libelffiled"],
-    runtime_libs: [
-        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
-        // `libartd-disassembler.so`.
-        "libartd-disassembler",
-    ],
-
-    apex_available: [
-        "com.android.art.debug",
-    ],
-}
-
 cc_defaults {
     name: "libartd-compiler_static_defaults",
     defaults: [
@@ -353,8 +297,8 @@ art_cc_library {
         "common_compiler_test.cc",
     ],
     shared_libs: [
-        "libartd-compiler",
-        "libartd-disassembler",
+        "libart-compiler",
+        "libart-disassembler",
         "libartbase-art-gtest",
         "libart-runtime-gtest",
         "libbase",
@@ -454,10 +398,10 @@ art_cc_test {
     ],
 
     shared_libs: [
-        "libprofiled",
-        "libartd-compiler",
-        "libartd-simulator-container",
-        "libvixld",
+        "libart-compiler",
+        "libart-simulator-container",
+        "libprofile",
+        "libvixl",
 
         "libbacktrace",
         "libnativeloader",
@@ -496,7 +440,7 @@ art_cc_test {
         },
     },
     shared_libs: [
-        "libartd-compiler",
-        "libvixld",
+        "libart-compiler",
+        "libvixl",
     ],
 }

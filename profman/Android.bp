@@ -35,38 +35,36 @@ cc_defaults {
     },
 
     shared_libs: [
+        "libartbase",
         "libbase",
+        "libdexfile",
+        "libprofile",
     ],
 }
 
 art_cc_binary {
     name: "profman",
     defaults: ["profman-defaults"],
-    shared_libs: [
-        "libprofile",
-        "libdexfile",
-        "libartbase",
-    ],
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 }
 
 art_cc_binary {
     name: "profmand",
-    defaults: [
-        "art_debug_defaults",
-        "profman-defaults",
-    ],
-    shared_libs: [
-        "libprofiled",
-        "libdexfiled",
-        "libartbased",
-    ],
+    defaults: ["profman-defaults"],
     apex_available: [
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
 }
 
 art_cc_binary {
@@ -96,7 +94,7 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     shared_libs: [
-        "libprofiled",
+        "libprofile",
     ],
     data: [
         ":art-gtest-jars-ProfileTestMultiDex",

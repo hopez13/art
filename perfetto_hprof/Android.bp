@@ -73,27 +73,15 @@ cc_defaults {
 art_cc_library {
     name: "libperfetto_hprof",
     defaults: ["perfetto_hprof-defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart",
         "libartbase",
     ],
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libperfetto_hprofd",
-    defaults: [
-        "art_debug_defaults",
-        "perfetto_hprof-defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartbased",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }

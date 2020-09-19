@@ -401,14 +401,14 @@ ifeq (true,$(art_target_include_debug_build))
 LOCAL_REQUIRED_MODULES += \
     dex2oatd.com.android.art.debug \
     dexoptanalyzerd.com.android.art.debug \
-    libartd.com.android.art.debug \
-    libartd-compiler.com.android.art.debug \
-    libopenjdkd.com.android.art.debug \
-    libopenjdkjvmd.com.android.art.debug \
-    libopenjdkjvmtid.com.android.art.debug \
+    libart.com.android.art.debug \
+    libart-compiler.com.android.art.debug \
+    libopenjdk.com.android.art.debug \
+    libopenjdkjvm.com.android.art.debug \
+    libopenjdkjvmti.com.android.art.debug \
     profmand.com.android.art.debug \
-    libadbconnectiond.com.android.art.debug \
-    libperfetto_hprofd.com.android.art.debug \
+    libadbconnection.com.android.art.debug \
+    libperfetto_hprof.com.android.art.debug \
 
 endif
 endif

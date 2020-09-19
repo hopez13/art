@@ -22,11 +22,6 @@ cc_defaults {
     header_libs: [
         "art_cmdlineparser_headers",
     ],
-}
-
-art_cc_binary {
-    name: "oatdump",
-    defaults: ["oatdump-defaults"],
     shared_libs: [
         "libart",
         "libart-compiler",
@@ -37,31 +32,31 @@ art_cc_binary {
         "libprofile",
         "libbase",
     ],
+}
+
+art_cc_binary {
+    name: "oatdump",
+    defaults: ["oatdump-defaults"],
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 }
 
 art_cc_binary {
     name: "oatdumpd",
-    defaults: [
-        "art_debug_defaults",
-        "oatdump-defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartd-compiler",
-        "libartd-dexlayout",
-        "libartd-disassembler",
-        "libdexfiled",
-        "libartbased",
-        "libprofiled",
-        "libbase",
-    ],
+    defaults: ["oatdump-defaults"],
     apex_available: [
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
 }
 
 cc_defaults {

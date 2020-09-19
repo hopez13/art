@@ -151,6 +151,11 @@ art_cc_library {
         "libdexfile_defaults",
         "libart_nativeunwind_defaults",
     ],
+
+    art: {
+        debug_split: true,
+    },
+
     target: {
         android: {
             shared_libs: [
@@ -183,47 +188,6 @@ art_cc_library {
     },
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libdexfiled",
-    defaults: [
-        "art_debug_defaults",
-        "libdexfile_defaults",
-    ],
-    target: {
-        android: {
-            shared_libs: [
-                "libartbased",
-            ],
-            export_shared_lib_headers: [
-                "libartbased",
-            ],
-        },
-        not_windows: {
-            shared_libs: [
-                "libartbased",
-            ],
-            export_shared_lib_headers: [
-                "libartbased",
-            ],
-        },
-        windows: {
-            enabled: true,
-            shared: {
-                enabled: false,
-            },
-            static_libs: [
-                "libartbased",
-            ],
-            export_static_lib_headers: [
-                "libartbased",
-            ],
-        },
-    },
-    apex_available: [
         "com.android.art.debug",
     ],
 }
@@ -327,6 +291,9 @@ art_cc_library {
         "libdexfile_external-defaults",
     ],
     visibility: ["//visibility:public"],
+    art: {
+        debug_split: true,
+    },
     target: {
         darwin: {
             enabled: true,
@@ -337,25 +304,6 @@ art_cc_library {
     ],
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libdexfiled_external",
-    defaults: [
-        "art_debug_defaults",
-        "libdexfile_external-defaults",
-    ],
-    target: {
-        darwin: {
-            enabled: true,
-        },
-    },
-    shared_libs: [
-        "libdexfiled",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }

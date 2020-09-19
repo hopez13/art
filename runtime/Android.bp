@@ -553,8 +553,11 @@ art_cc_library {
         "libart_nativeunwind_defaults",
         "libart_pgo",
     ],
-    whole_static_libs: [
-    ],
+
+    art: {
+        debug_split: true,
+    },
+
     static_libs: [
         "libelffile",
     ],
@@ -568,42 +571,17 @@ art_cc_library {
     export_shared_lib_headers: [
         "libdexfile",
     ],
+
     target: {
         android: {
             lto: {
-                thin: true,
+                thin: true,     // FIXME: Didn't use to be enabled for debug.
             },
         },
     },
+
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libartd",
-    defaults: [
-        "art_debug_defaults",
-        "libart_defaults",
-    ],
-    whole_static_libs: [
-    ],
-    static_libs: [
-        "libelffiled",
-    ],
-    shared_libs: [
-        "libartbased",
-        "libdexfiled",
-        // We need to eagerly preload it, so that libunwindstack can find it.
-        // Otherwise, it would try to load the non-debug version with dlopen.
-        "libdexfiled_external",
-        "libprofiled",
-    ],
-    export_shared_lib_headers: [
-        "libdexfiled",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }
@@ -616,7 +594,7 @@ art_cc_library {
         "dexopt_test.cc",
     ],
     shared_libs: [
-        "libartd",
+        "libart",
         "libartbase-art-gtest",
         "libbase",
         "libbacktrace",
@@ -778,8 +756,8 @@ art_cc_test {
         ":art-gtest-jars-StaticLeafMethods",
     ],
     shared_libs: [
-        "libartd-compiler",
-        "libvixld",
+        "libart-compiler",
+        "libvixl",
     ],
 }
 

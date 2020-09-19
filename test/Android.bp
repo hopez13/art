@@ -19,6 +19,10 @@
 art_cc_defaults {
     name: "art_test_defaults",
     host_supported: true,
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
     target: {
         android_arm: {
             relative_install_path: "art/arm",
@@ -60,13 +64,13 @@ art_cc_defaults {
     },
 
     shared_libs: [
-        "libartd",
-        "libartd-disassembler",
-        "libvixld",
+        "libart",
+        "libart-disassembler",
+        "libvixl",
         "libart-gtest",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
 
         "libbase",
         "libnativehelper",
@@ -109,21 +113,25 @@ art_cc_defaults {
 art_cc_defaults {
     name: "libart-gtest-defaults",
     host_supported: true,
-    defaults: [
-        "art_debug_defaults",
-        "art_defaults",
-    ],
+    defaults: ["art_defaults"],
+
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
+
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
+        "libart",
+        "libart-compiler",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
         "liblog",
     ],
     static_libs: [
         "libgtest_isolated",
     ],
+
     target: {
         android32: {
             cflags: ["-DART_TARGET_NATIVETEST_DIR=/data/nativetest/art"],
@@ -143,6 +151,7 @@ art_cc_defaults {
             enabled: false,
         },
     },
+
     apex_available: [
         "com.android.art.debug",
     ],
@@ -151,10 +160,13 @@ art_cc_defaults {
 art_cc_library {
     name: "libart-gtest",
     host_supported: true,
-    defaults: [
-        "art_debug_defaults",
-        "art_defaults",
-    ],
+    defaults: ["art_defaults"],
+
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
+
     srcs: [
         "common/gtest_main.cc",
     ],
@@ -165,11 +177,11 @@ art_cc_library {
         "libgtest_isolated",
     ],
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
+        "libart",
+        "libart-compiler",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
         "libbase",
         "libbacktrace",
         "liblog",
@@ -232,15 +244,12 @@ art_cc_test_library {
 
 art_cc_test_library {
     name: "libarttestd",
-    defaults: [
-        "art_debug_defaults",
-        "libarttest-defaults",
-    ],
+    defaults: ["libarttest-defaults"],
     shared_libs: [
-        "libartd",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
+        "libart",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
     ],
 }
 
@@ -256,18 +265,12 @@ art_cc_defaults {
 
 art_cc_test_library {
     name: "libnativebridgetest",
+    art: {
+        debug_split: true,
+    },
     shared_libs: ["libart"],
     defaults: [
         "libnativebridgetest-defaults",
-    ],
-}
-
-art_cc_test_library {
-    name: "libnativebridgetestd",
-    shared_libs: ["libartd"],
-    defaults: [
-        "libnativebridgetest-defaults",
-        "art_debug_defaults",
     ],
 }
 
@@ -290,26 +293,14 @@ art_cc_test_library {
     name: "libartagent",
     srcs: ["900-hello-plugin/load_unload.cc"],
     defaults: ["libartagent-defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart",
         "libdexfile",
         "libprofile",
         "libartbase",
-    ],
-}
-
-art_cc_test_library {
-    name: "libartagentd",
-    srcs: ["900-hello-plugin/load_unload.cc"],
-    defaults: [
-        "art_debug_defaults",
-        "libartagent-defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
     ],
 }
 
@@ -456,25 +447,14 @@ art_cc_defaults {
 art_cc_test_library {
     name: "libtiagent",
     defaults: ["libtiagent-defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart",
         "libdexfile",
         "libprofile",
         "libartbase",
-    ],
-}
-
-art_cc_test_library {
-    name: "libtiagentd",
-    defaults: [
-        "art_debug_defaults",
-        "libtiagent-defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libdexfiled",
-        "libprofiled",
-        "libartbased",
     ],
 }
 

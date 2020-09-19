@@ -674,9 +674,9 @@ class DebugChecker:
     self._checker.check_native_library('libadbconnectiond')
     self._checker.check_native_library('libartbased')
     self._checker.check_native_library('libartd')
-    self._checker.check_native_library('libartd-compiler')
-    self._checker.check_native_library('libartd-dexlayout')
-    self._checker.check_native_library('libartd-disassembler')
+    self._checker.check_native_library('libart-compilerd')
+    self._checker.check_native_library('libart-dexlayoutd')
+    self._checker.check_native_library('libart-disassemblerd')
     self._checker.check_native_library('libdexfiled')
     self._checker.check_native_library('libopenjdkjvmd')
     self._checker.check_native_library('libopenjdkjvmtid')
@@ -700,7 +700,7 @@ class DebugTargetChecker:
     self._checker.check_executable('oatdumpd')
 
     # Check ART internal libraries.
-    self._checker.check_native_library('libdexfiled_external')
+    self._checker.check_native_library('libdexfile_externald')
     self._checker.check_native_library('libperfetto_hprofd')
 
     # Check internal native library dependencies.
@@ -751,8 +751,8 @@ class TestingTargetChecker:
     self._checker.check_art_test_executable('art_sigchain_tests')
 
     # Check ART test (internal) libraries.
-    self._checker.check_native_library('libart-gtest')
-    self._checker.check_native_library('libartd-simulator-container')
+    self._checker.check_native_library('libart-gtestd')
+    self._checker.check_native_library('libart-simulator-containerd')
 
     # Check ART test tools.
     self._checker.check_executable('signal_dumper')

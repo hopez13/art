@@ -30,6 +30,8 @@ cc_defaults {
     },
 
     shared_libs: [
+        "libart",
+        "libartbase",
         "libbase",
     ],
 }
@@ -37,29 +39,26 @@ cc_defaults {
 art_cc_binary {
     name: "dexoptanalyzer",
     defaults: ["dexoptanalyzer-defaults"],
-    shared_libs: [
-        "libart",
-        "libartbase",
-    ],
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 }
 
 art_cc_binary {
     name: "dexoptanalyzerd",
-    defaults: [
-        "art_debug_defaults",
-        "dexoptanalyzer-defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartbased",
-    ],
+    defaults: ["dexoptanalyzer-defaults"],
     apex_available: [
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
 }
 
 art_cc_test {

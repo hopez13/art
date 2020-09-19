@@ -78,6 +78,9 @@ cc_defaults {
 art_cc_library {
     name: "libopenjdkjvmti",
     defaults: ["libopenjdkjvmti_defaults"],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libart",
         "libart-compiler",
@@ -87,24 +90,6 @@ art_cc_library {
     ],
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library {
-    name: "libopenjdkjvmtid",
-    defaults: [
-        "art_debug_defaults",
-        "libopenjdkjvmti_defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartd-compiler",
-        "libartd-dexlayout",
-        "libdexfiled",
-        "libartbased",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }

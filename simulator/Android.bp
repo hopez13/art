@@ -31,8 +31,11 @@ cc_defaults {
         "code_simulator_arm64.cc",
     ],
     shared_libs: [
+        "libart",
+        "libartbase",
         "libbase",
         "liblog",
+        "libvixl",
     ],
     cflags: ["-DVIXL_INCLUDE_SIMULATOR_AARCH64"],
 
@@ -42,24 +45,9 @@ cc_defaults {
 art_cc_library {
     name: "libart-simulator",
     defaults: ["libart_simulator_defaults"],
-    shared_libs: [
-        "libart",
-        "libartbase",
-        "libvixl",
-    ],
-}
-
-art_cc_library {
-    name: "libartd-simulator",
-    defaults: [
-        "art_debug_defaults",
-        "libart_simulator_defaults",
-    ],
-    shared_libs: [
-        "libartd",
-        "libartbased",
-        "libvixld",
-    ],
+    art: {
+        debug_split: true,
+    },
 }
 
 cc_defaults {
@@ -71,6 +59,8 @@ cc_defaults {
         "code_simulator_container.cc",
     ],
     shared_libs: [
+        "libart",
+        "libartbase",
         "libbase",
     ],
 
@@ -81,22 +71,9 @@ cc_defaults {
 art_cc_library {
     name: "libart-simulator-container",
     defaults: ["libart_simulator_container_defaults"],
-    shared_libs: [
-        "libartbase",
-        "libart",
-    ],
-}
-
-art_cc_library {
-    name: "libartd-simulator-container",
-    defaults: [
-        "art_debug_defaults",
-        "libart_simulator_container_defaults",
-    ],
-    shared_libs: [
-        "libartbased",
-        "libartd",
-    ],
+    art: {
+        debug_split: true,
+    },
     apex_available: [
         "com.android.art.debug",
     ],

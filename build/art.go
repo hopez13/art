@@ -18,9 +18,11 @@ import (
 	"fmt"
 	"log"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"sync"
 
+	"github.com/google/blueprint"
 	"github.com/google/blueprint/proptools"
 
 	"android/soong/android"
@@ -30,6 +32,43 @@ import (
 )
 
 var supportedArches = []string{"arm", "arm64", "x86", "x86_64"}
+
+type artVariantProperties struct {
+	Enabled  *bool
+	Cflags   []string
+	Cppflags []string
+	Asflags  []string
+}
+
+// Properties added to all art_* and libart_* module types.
+type artProperties struct {
+	Art struct {
+		// Split the module into non-debug and debug variants, passing the flags
+		// specified in the nodebug and debug clauses to each. If this is disabled
+		// the same module will be used for both.
+		Debug_split *bool
+
+		// Flags for the non-debug variant, only applicable if debug_split is true.
+		// See artVariantProperties in art/build/art.go for details about the
+		// fields.
+		Nodebug artVariantProperties
+
+		// Flags for the debug variant, only applicable if debug_split is true. This
+		// variant appends "d" to the output file suffix for libraries. See
+		// artVariantProperties in art/build/art.go for details about the fields.
+		Debug artVariantProperties
+
+		// Set this if the current module is not split into non-debug and debug
+		// variants but it has dependencies that are and it should depend on both.
+		// Otherwise it will depend only on the non-debug variant if that is
+		// enabled, otherwise the debug one (following standard Blueprint logic).
+		// Not applicable if debug_split is true.
+		Depend_on_all *bool
+	}
+}
+
+type artModule struct {
+}
 
 func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 	var cflags []string
@@ -265,6 +304,123 @@ func prefer32Bit(ctx android.LoadHookContext) {
 	ctx.PrependProperties(p)
 }
 
+func findPropertyStruct(mod android.Module, structType reflect.Type) interface{} {
+	for _, props := range mod.GetProperties() {
+		if reflect.TypeOf(props) == structType {
+			return props
+		}
+	}
+	return reflect.Zero(structType).Interface() // nil with the appropriate type
+}
+
+// Creates the debug and nodebug variants.
+func artVariantMutator(mctx android.BottomUpMutatorContext) {
+	// Our modules come from the cc package, which isn't constructed to allow us
+	// to mix in a struct of our own that we can use to recognise them, so we have
+	// to match the module type instead, and get the properties the hard way.
+	if artModuleFactories[mctx.ModuleType()] == nil {
+		return
+	}
+
+	artProps := findPropertyStruct(mctx.Module(), reflect.TypeOf((*artProperties)(nil))).(*artProperties)
+	if artProps == nil {
+		artProps = &artProperties{}
+	}
+
+	if !proptools.BoolDefault(artProps.Art.Debug_split, false) {
+		return
+	}
+
+	nodebugVariant, debugVariant := -1, -1
+	variantNames := []string{}
+	variantProps := []*artVariantProperties{}
+	if proptools.BoolDefault(artProps.Art.Nodebug.Enabled, true) {
+		nodebugVariant = len(variantNames)
+		variantNames = append(variantNames, "nodebug")
+		variantProps = append(variantProps, &artProps.Art.Nodebug)
+	}
+	if proptools.BoolDefault(artProps.Art.Debug.Enabled, true) {
+		debugVariant = len(variantNames)
+		variantNames = append(variantNames, "debug")
+		variantProps = append(variantProps, &artProps.Art.Debug)
+	}
+
+	modules := mctx.CreateVariations(variantNames...)
+
+	for i, m := range modules {
+		if p := findPropertyStruct(m, reflect.TypeOf((*cc.BaseCompilerProperties)(nil))).(*cc.BaseCompilerProperties); p != nil {
+			artProps := variantProps[i]
+			p.Cflags = append(p.Cflags, artProps.Cflags...)
+			p.Cppflags = append(p.Cppflags, artProps.Cppflags...)
+			p.Asflags = append(p.Asflags, artProps.Asflags...)
+		}
+	}
+
+	_ = nodebugVariant
+	// if nodebugVariant >= 0 {
+	// 	mctx.AliasVariation("nodebug")
+	// } else {
+	// 	mctx.AliasVariation("debug")
+	// }
+
+	if debugVariant >= 0 {
+		m := modules[debugVariant]
+		if p := findPropertyStruct(m, reflect.TypeOf((*cc.LibraryProperties)(nil))).(*cc.LibraryProperties); p != nil {
+			p.Suffix = proptools.StringPtr(proptools.String(p.Suffix) + "d")
+		}
+
+		if len(modules) > 1 {
+			if ccMod, ok := m.(*cc.Module); ok && ccMod.Static() {
+				// Necessary to avoid duplicate AndroidMk stanzas, since they are identified
+				// by the module basename and not the stem.
+				m.SkipInstall()
+			}
+		}
+	}
+}
+
+// Adds the extra dependencies for art.depend_on_all modules.
+func artDependencyMutator(mctx android.BottomUpMutatorContext) {
+	if artModuleFactories[mctx.ModuleType()] == nil {
+		return
+	}
+
+	artProps := findPropertyStruct(mctx.Module(), reflect.TypeOf((*artProperties)(nil))).(*artProperties)
+	if artProps == nil {
+		artProps = &artProperties{}
+	}
+	if !proptools.BoolDefault(artProps.Art.Depend_on_all, false) {
+		return
+	}
+
+	type depInfo struct {
+		module string
+		tag    blueprint.DependencyTag
+	}
+	artMultiVariantDeps := []depInfo{}
+	mctx.VisitDirectDeps(func(child android.Module) {
+		//log.Printf("%s -> %s | %v", mctx.Module(), child, mctx.OtherModuleDependencyTag(child))
+		if artModuleFactories[mctx.OtherModuleType(child)] == nil {
+			return
+		}
+		artProps := findPropertyStruct(child, reflect.TypeOf((*artProperties)(nil))).(*artProperties)
+		if proptools.BoolDefault(artProps.Art.Debug_split, false) &&
+			proptools.BoolDefault(artProps.Art.Nodebug.Enabled, true) &&
+			proptools.BoolDefault(artProps.Art.Debug.Enabled, true) {
+			artMultiVariantDeps = append(artMultiVariantDeps, depInfo{
+				module: mctx.OtherModuleName(child),
+				tag:    mctx.OtherModuleDependencyTag(child),
+			})
+		}
+	})
+
+	// FIXME
+
+	if len(artMultiVariantDeps) > 0 {
+		log.Printf("%s: x %v", mctx.Module(), artMultiVariantDeps)
+	}
+}
+
 var testMapKey = android.NewOnceKey("artTests")
 
 func testMap(config android.Config) map[string][]string {
@@ -321,39 +477,69 @@ func addTestcasesFile(ctx android.InstallHookContext) {
 
 var artTestMutex sync.Mutex
 
+var artModuleFactories = map[string]func() android.Module{
+	"art_cc_library":            artLibrary,
+	"art_cc_library_static":     artStaticLibrary,
+	"art_cc_binary":             artBinary,
+	"art_cc_test":               artTest,
+	"art_cc_test_library":       artTestLibrary,
+	"art_cc_defaults":           artDefaultsFactory,
+	"libart_cc_defaults":        libartDefaultsFactory,
+	"libart_static_cc_defaults": libartStaticDefaultsFactory,
+	"art_global_defaults":       artGlobalDefaultsFactory,
+	"art_debug_defaults":        artDebugDefaultsFactory,
+	"art_apex":                  artApexBundleFactory,
+	"art_apex_test":             artTestApexBundleFactory,
+	"art_apex_test_host":        artHostTestApexBundleFactory,
+}
+
 func init() {
-	artModuleTypes := []string{
-		"art_cc_library",
-		"art_cc_library_static",
-		"art_cc_binary",
-		"art_cc_test",
-		"art_cc_test_library",
-		"art_cc_defaults",
-		"libart_cc_defaults",
-		"libart_static_cc_defaults",
-		"art_global_defaults",
-		"art_debug_defaults",
-		"art_apex_test_host",
+	moduleTypeList := []string{}
+	for name, _ := range artModuleFactories {
+		moduleTypeList = append(moduleTypeList, name)
 	}
 	android.AddNeverAllowRules(
 		android.NeverAllow().
-			NotIn("art", "external/vixl").
-			ModuleType(artModuleTypes...))
+			NotIn("art", "libcore", "external/vixl").
+			ModuleType(moduleTypeList...))
 
-	android.RegisterModuleType("art_cc_library", artLibrary)
-	android.RegisterModuleType("art_cc_library_static", artStaticLibrary)
-	android.RegisterModuleType("art_cc_binary", artBinary)
-	android.RegisterModuleType("art_cc_test", artTest)
-	android.RegisterModuleType("art_cc_test_library", artTestLibrary)
-	android.RegisterModuleType("art_cc_defaults", artDefaultsFactory)
-	android.RegisterModuleType("libart_cc_defaults", libartDefaultsFactory)
-	android.RegisterModuleType("libart_static_cc_defaults", libartStaticDefaultsFactory)
-	android.RegisterModuleType("art_global_defaults", artGlobalDefaultsFactory)
-	android.RegisterModuleType("art_debug_defaults", artDebugDefaultsFactory)
+	for name, factory := range artModuleFactories {
+		if factory != nil {
+			android.RegisterModuleType(name, factory)
+		}
+	}
 
+	ctx := android.InitRegistrationContext
+	ctx.PostDepsMutators(func(ctx android.RegisterMutatorsContext) {
+		ctx.BottomUp("art", artVariantMutator).Parallel()
+		//ctx.BottomUp("art_dependency", artDependencyMutator).Parallel()
+	})
+}
+
+func initArtModule(m android.Module) {
+	m.AddProperties(&artProperties{})
+	// The module factories in the cc package have already called this, but we
+	// need to call it again to register our own property struct as well.
+	android.InitDefaultableModule(m.(android.DefaultableModule))
+}
+
+func artApexBundleFactory() android.Module {
 	// ART apex is special because it must include dexpreopt files for bootclasspath jars.
-	android.RegisterModuleType("art_apex", artApexBundleFactory)
-	android.RegisterModuleType("art_apex_test", artTestApexBundleFactory)
+	module := apex.ApexBundleFactory(false /*testApex*/, true /*artApex*/)
+	initArtModule(module)
+	return module
+}
+
+func artTestApexBundleFactory() android.Module {
+	// ART apex is special because it must include dexpreopt files for bootclasspath jars.
+	module := apex.ApexBundleFactory(true /*testApex*/, true /*artApex*/)
+	initArtModule(module)
+	return module
+}
+
+func artHostTestApexBundleFactory() android.Module {
+	// ART apex is special because it must include dexpreopt files for bootclasspath jars.
+	module := apex.ApexBundleFactory(true /*testApex*/, true /*artApex*/)
 
 	// TODO: This makes the module disable itself for host if HOST_PREFER_32_BIT is
 	// set. We need this because the multilib types of binaries listed in the apex
@@ -361,19 +547,6 @@ func init() {
 	// changes this to 'prefer32' on all host binaries. Since HOST_PREFER_32_BIT is
 	// only used for testing we can just disable the module.
 	// See b/120617876 for more information.
-	android.RegisterModuleType("art_apex_test_host", artHostTestApexBundleFactory)
-}
-
-func artApexBundleFactory() android.Module {
-	return apex.ApexBundleFactory(false /*testApex*/, true /*artApex*/)
-}
-
-func artTestApexBundleFactory() android.Module {
-	return apex.ApexBundleFactory(true /*testApex*/, true /*artApex*/)
-}
-
-func artHostTestApexBundleFactory() android.Module {
-	module := apex.ApexBundleFactory(true /*testApex*/, true /*artApex*/)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) {
 		if ctx.Config().IsEnvTrue("HOST_PREFER_32_BIT") {
 			type props struct {
@@ -391,6 +564,7 @@ func artHostTestApexBundleFactory() android.Module {
 		}
 	})
 
+	initArtModule(module)
 	return module
 }
 
@@ -414,6 +588,7 @@ func artDefaultsFactory() android.Module {
 	module := cc.DefaultsFactory(c)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) { codegen(ctx, c, staticAndSharedLibrary) })
 
+	initArtModule(module)
 	return module
 }
 
@@ -422,6 +597,7 @@ func libartDefaultsFactory() android.Module {
 	module := cc.DefaultsFactory(c)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) { codegen(ctx, c, staticAndSharedLibrary) })
 
+	initArtModule(module)
 	return module
 }
 
@@ -430,11 +606,13 @@ func libartStaticDefaultsFactory() android.Module {
 	module := cc.DefaultsFactory(c)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) { codegen(ctx, c, staticLibrary) })
 
+	initArtModule(module)
 	return module
 }
 
 func artLibrary() android.Module {
 	module := cc.LibraryFactory()
+	initArtModule(module)
 
 	installCodegenCustomizer(module, staticAndSharedLibrary)
 
@@ -449,6 +627,7 @@ func artStaticLibrary() android.Module {
 	installCodegenCustomizer(module, staticLibrary)
 
 	android.AddLoadHook(module, addImplicitFlags)
+	initArtModule(module)
 	return module
 }
 
@@ -459,6 +638,7 @@ func artBinary() android.Module {
 	android.AddLoadHook(module, customLinker)
 	android.AddLoadHook(module, prefer32Bit)
 	android.AddInstallHook(module, addTestcasesFile)
+	initArtModule(module)
 	return module
 }
 
@@ -471,6 +651,7 @@ func artTest() android.Module {
 	android.AddLoadHook(module, customLinker)
 	android.AddLoadHook(module, prefer32Bit)
 	android.AddInstallHook(module, testInstall)
+	initArtModule(module)
 	return module
 }
 
@@ -482,5 +663,6 @@ func artTestLibrary() android.Module {
 	android.AddLoadHook(module, addImplicitFlags)
 	android.AddLoadHook(module, prefer32Bit)
 	android.AddInstallHook(module, testInstall)
+	initArtModule(module)
 	return module
 }

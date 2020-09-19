@@ -27,6 +27,9 @@ cc_defaults {
     compile_multilib: "both",
 
     shared_libs: [
+        "libart",
+        "libart-compiler",
+        "libartbase",
         "libbacktrace",
         "libbase",
     ],
@@ -52,15 +55,14 @@ cc_defaults {
 art_cc_binary {
     name: "imgdiag",
     defaults: ["imgdiag-defaults"],
-    shared_libs: [
-        "libart",
-        "libartbase",
-        "libart-compiler",
-    ],
     apex_available: [
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        debug: {enabled: false},
+    },
 }
 
 art_cc_binary {
@@ -69,14 +71,13 @@ art_cc_binary {
         "art_debug_defaults",
         "imgdiag-defaults",
     ],
-    shared_libs: [
-        "libartd",
-        "libartbased",
-        "libartd-compiler",
-    ],
     apex_available: [
         "com.android.art.debug",
     ],
+    art: {
+        debug_split: true,
+        nodebug: {enabled: false},
+    },
 }
 
 art_cc_test {

@@ -36,25 +36,14 @@ art_cc_library_static {
         "art_defaults",
         "libelffile-defaults",
     ],
+    art: {
+        debug_split: true,
+    },
     shared_libs: [
         "libartbase",
     ],
     apex_available: [
         "com.android.art.release",
-        "com.android.art.debug",
-    ],
-}
-
-art_cc_library_static {
-    name: "libelffiled",
-    defaults: [
-        "art_debug_defaults",
-        "libelffile-defaults",
-    ],
-    shared_libs: [
-        "libartbased",
-    ],
-    apex_available: [
         "com.android.art.debug",
     ],
 }
