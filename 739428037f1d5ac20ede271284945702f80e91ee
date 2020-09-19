@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "11252a3a_1f67de77",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-19T21:44:05Z",
+      "side": 1,
+      "message": "There\u0027s a better description by the author at http://gee.cs.oswego.edu/dl/html/j9mm.html .\n\nAcquire is definitely intended to guarantee bitwise atomicity, As the above document says, it\u0027s strictly stronger than Opaque.\n\nThe ordering actually doesn\u0027t make too much sense without the bitwise atomicity, but that\u0027s a longer discussion. Acquire and Volatile are basically C++ memory_order_acquire and memory_order_seq_cst. Plain and Opaque are a bit stronger than non-atomic and memory_order_relaxed accesses in C++, respectively. The specifications here are not always as clear as they should be.",
+      "parentUuid": "c59345f9_437e3d5f",
+      "range": {
+        "startLine": 3394,
+        "startChar": 10,
+        "endLine": 3395,
+        "endChar": 67
+      },
+      "revId": "739428037f1d5ac20ede271284945702f80e91ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3d48bc5_b6359488",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
