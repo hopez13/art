@@ -375,6 +375,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86656a13_bfa74ab9",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-19T00:02:54Z",
+      "side": 1,
+      "message": "Thanks for the extensive analysis! Some of the cases are a bit worrisome that we left them up to C++ init rules.\n\nCan you follow up with a CL that cleans up the place were manual 0-set is done? (since now it\u0027s happening by default).",
+      "parentUuid": "957afc83_14435627",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
