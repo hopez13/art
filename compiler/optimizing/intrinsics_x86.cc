@@ -3801,7 +3801,7 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleWeakCompareAndSetRelease(HInvoke* 
   GenerateVarHandleCompareAndSet(invoke, codegen_);
 }
 
-void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+static void CreateVarHandleGetAndAddLocations(HInvoke* invoke) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
@@ -3850,12 +3850,11 @@ void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
   }
 }
 
-void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+static void GenerateVarHandleGetAndAdd(HInvoke* invoke, CodeGeneratorX86* codegen) {
   // The only read barrier implementation supporting the
   // VarHandleGet intrinsic is the Baker-style read barriers.
   DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
 
-  CodeGeneratorX86* codegen = down_cast<CodeGeneratorX86*>(codegen_);
   X86Assembler* assembler = codegen->GetAssembler();
   LocationSummary* locations = invoke->GetLocations();
   uint32_t number_of_arguments = invoke->GetNumberOfArguments();
@@ -3931,6 +3930,29 @@ void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAdd(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
+  CreateVarHandleGetAndAddLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
+  GenerateVarHandleGetAndAdd(invoke, codegen_);
+}
 
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
 UNIMPLEMENTED_INTRINSIC(X86, ReferenceGetReferent)
@@ -3987,8 +4009,6 @@ UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchange)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleCompareAndExchangeRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAcquire)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddAcquire)
-UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndAddRelease)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAnd)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndAcquire)
 UNIMPLEMENTED_INTRINSIC(X86, VarHandleGetAndBitwiseAndRelease)
