@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1b0d526d_169e5b54",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4019,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-20T09:17:14Z",
+      "side": 1,
+      "message": "I removed this comment. I extended the GenerateVarHandleGetAndBitwiseOp to work with other primitives than kInt32, so this no longer applies",
+      "parentUuid": "960f07e0_b870c314",
+      "range": {
+        "startLine": 4019,
+        "startChar": 6,
+        "endLine": 4019,
+        "endChar": 18
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc89060c_6a3cb6c0",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -139,6 +163,30 @@
       "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "630eae6b_225b0935",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4036,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-20T09:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc89060c_6a3cb6c0",
+      "range": {
+        "startLine": 4036,
+        "startChar": 5,
+        "endLine": 4036,
+        "endChar": 9
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "6f5aa4bb_7af80d6d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4037,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-20T09:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b438b5_3a7d81c8",
+      "range": {
+        "startLine": 4037,
+        "startChar": 2,
+        "endLine": 4037,
+        "endChar": 82
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18ddcf6b_88a6b82d",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -232,6 +304,54 @@
       "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fd4fb38_55ad7ece",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4040,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-20T09:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8230f889_3fd2d725",
+      "range": {
+        "startLine": 4040,
+        "startChar": 59,
+        "endLine": 4040,
+        "endChar": 99
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7de7479_39c7292f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4040,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-20T09:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18ddcf6b_88a6b82d",
+      "range": {
+        "startLine": 4040,
+        "startChar": 28,
+        "endLine": 4040,
+        "endChar": 33
+      },
+      "revId": "62eb40a7453e1f6c9c7237d98a08d434d0a19777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
