@@ -399,6 +399,30 @@
       "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26ebaae1_bec45add",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:10:51Z",
+      "side": 1,
+      "message": "Yeah, thanks for having given a thorough look Alex. I\u0027ve filed b/169028712 to follow-up on consistency.\n\n+1 on what Calin says following-up with the problematic cases you\u0027ve found.",
+      "parentUuid": "86656a13_bfa74ab9",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "c75996aa25551f3e494bdfd88b4ddaa8bc2f69c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
