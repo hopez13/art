@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "93d1f03f_445ac7a8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T08:34:59Z",
+      "side": 1,
+      "message": "Let\u0027s leave it as-is.",
+      "parentUuid": "d7c6a7de_631076b3",
+      "range": {
+        "startLine": 1509,
+        "startChar": 4,
+        "endLine": 1509,
+        "endChar": 11
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "632ae2e7_a3269646",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 2
@@ -148,6 +172,30 @@
       "side": 1,
       "message": "GetAndSet and CompareAndExchange are not submitted yet. Right now, the only varhandles that need return type check are the get ones. If I add them now, an unnecessary CheckCast node will be added in the graph (because those are not implemented). My plan was to wait until this is merged and then add those cases in this switch. Is that ok?",
       "parentUuid": "b025c3d9_bceeae56",
+      "range": {
+        "startLine": 1156,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 34
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eee2e00d_dc79e469",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T08:34:59Z",
+      "side": 1,
+      "message": "Can you make the default UNREACHABLE and add the supported cases here?",
+      "parentUuid": "292545f2_6ccfe545",
       "range": {
         "startLine": 1156,
         "startChar": 0,
