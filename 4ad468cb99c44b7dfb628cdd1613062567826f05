@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "154cfaef_a1d6a7ad",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T13:11:24Z",
+      "side": 1,
+      "message": "Move into BuildInvokePolymorphic before call to VarHandleAccessorNeedsReturnTypeCheck().\n[ Return needs to be true there. ]",
+      "range": {
+        "startLine": 1154,
+        "startChar": 0,
+        "endLine": 1158,
+        "endChar": 3
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d78a776_d6daeb1a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T13:11:24Z",
+      "side": 1,
+      "message": "expected_coordinates_count used to be \u003c 3. Suggest dropping this check (see next comment).",
+      "range": {
+        "startLine": 1160,
+        "startChar": 0,
+        "endLine": 1162,
+        "endChar": 84
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebdaea83_2072bf21",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T13:11:24Z",
+      "side": 1,
+      "message": "case mirror::VarHandle::AccessModeTemplate::kGet:\ncase mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:\ncase mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:\n  return_type \u003d\u003d DataType::Type::kReference;\ncase mirror::VarHandle::AccessModeTemplate::kSet:\ncase mirror::VarHandle::AccessModeTemplate::kCompareAndSet:\n return false;\n\nWe could check the number of accessor arguments are within expected bounds since otherwise we\u0027ll call the runtime. However we expect this very rarely as it\u0027s a bug in the code we are compiling that will throw an exception every time if the wrong number of arguments are passed. Optimizing this doesn\u0027t seem worth it.",
+      "range": {
+        "startLine": 1167,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 19
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63e4aa7d_6d67751c",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T13:11:24Z",
+      "side": 1,
+      "message": "Not necessary because switch covers all cases in AccessModeTemplate.",
+      "range": {
+        "startLine": 1179,
+        "startChar": 0,
+        "endLine": 1180,
+        "endChar": 20
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
