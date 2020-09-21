@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a9662605_6b0de8d8",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "to avoid having to deal with multiple places an object might need to be materialized.\n\nFor example here\n\n```\nFoo f \u003d new Foo();\nif (maybe_escape_1) {\n  escape(f);\n} else {\n  ...\n}\n...\nif (maybe_escape_2) {\n  escape(f);\n} else {\n  ...\n}\n```\n\nwe don\u0027t want to move the allocation since otherwise we\u0027d need to track whether or not we took the first escape to know whether or not we still need to materialize the object at the second.",
+      "parentUuid": "a16864d1_99bed00d",
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c1572fc_79159019",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 19
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "3722df37_f50b430e",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "Actually looking at this closer I might just change to a bitset with the block-ids. That should be much more efficent.",
+      "parentUuid": "4c1572fc_79159019",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508aad64_f4164bb2",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 19
@@ -56,6 +98,24 @@
       "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1835e3aa_359c94a7",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "blocks can be the successor multiple times (changing which PHIs are selected etc).",
+      "parentUuid": "508aad64_f4164bb2",
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "fcb73734_54f370a7",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b73da5c_17079645",
+      "range": {
+        "startLine": 180,
+        "startChar": 44,
+        "endLine": 180,
+        "endChar": 90
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4160c9ec_db38ad6f",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 19
@@ -102,6 +186,30 @@
       "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41f79c7c_ee0f0176",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "yeah you can\u0027t do recursive calls like that in lambdas (something about how gensym\u0027d types are named).\n\nreplaced with an explicit pass of the recursive symbol.",
+      "parentUuid": "4160c9ec_db38ad6f",
+      "range": {
+        "startLine": 242,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 43
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "35373fc2_4ff8e6c3",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c0f5ed0_8c8581a7",
+      "range": {
+        "startLine": 257,
+        "startChar": 18,
+        "endLine": 257,
+        "endChar": 25
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23b5ccce_6180b7ed",
         "filename": "compiler/optimizing/load_store_analysis.h",
         "patchSetId": 19
@@ -148,6 +280,30 @@
       "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "836d0c3a_8a14e56a",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-21T20:50:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b5ccce_6180b7ed",
+      "range": {
+        "startLine": 259,
+        "startChar": 20,
+        "endLine": 259,
+        "endChar": 96
+      },
+      "revId": "78d5e52efd2221574973775f3c50785af86e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
