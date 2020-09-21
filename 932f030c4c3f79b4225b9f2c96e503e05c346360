@@ -16,6 +16,29 @@
       "revId": "932f030c4c3f79b4225b9f2c96e503e05c346360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8097eb4_10a79fb8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3587,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-21T17:07:36Z",
+      "side": 1,
+      "message": "Since this is x86 specific code, and kAnyStore generates no code, is there a point in keeping this?",
+      "range": {
+        "startLine": 3584,
+        "startChar": 4,
+        "endLine": 3587,
+        "endChar": 12
+      },
+      "revId": "932f030c4c3f79b4225b9f2c96e503e05c346360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
