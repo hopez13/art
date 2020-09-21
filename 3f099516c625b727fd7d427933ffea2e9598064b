@@ -232,6 +232,30 @@
     },
     {
       "key": {
+        "uuid": "0d1d7bc4_1935afd8",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T09:27:27Z",
+      "side": 1,
+      "message": "There are only two signature polymorphic methods in the non-VarHandle cases. These are handled by the runtime and so this method probably should not be called for them.\n\nWe trivially have all the necessary information for VarHandle accessors:\n\nhttps://source.corp.google.com/aosp-android10/art/runtime/mirror/var_handle.cc;l\u003d96?q\u003dAccessModeTemplate\u0026sq\u003dpackage:android\n\nAre there any returning VarType are the ones that do not need CheckCast when the VarType is a reference?",
+      "parentUuid": "8d61f94a_edf3a078",
+      "range": {
+        "startLine": 1156,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 34
+      },
+      "revId": "3f099516c625b727fd7d427933ffea2e9598064b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8aaf5b4f_24fbd8af",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 2
