@@ -22,6 +22,30 @@
       "revId": "eb2c9dd52679d590428a33556f45fb49eaef5e0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8147300_4d886621",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3175,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-21T09:08:33Z",
+      "side": 1,
+      "message": "Because we have the condition of the parameter to be numerical only for getAndAdd, not for all getAndUpdate access modes. For getAndSet, it can be anything. For getAndBitwisw\u003cop\u003e it can also be bool (I know that here I don\u0027t return false for bool, I added that in another CL.). We can also not do these checks at all and the access mode supported check will fail and go to runtime. But I figured it is better not to trigger the code generator if we already know that we will go to runtime. If you prefer the logic to be simpler, I can remove this.",
+      "parentUuid": "009061dc_d980f8e6",
+      "range": {
+        "startLine": 3175,
+        "startChar": 6,
+        "endLine": 3175,
+        "endChar": 68
+      },
+      "revId": "eb2c9dd52679d590428a33556f45fb49eaef5e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
