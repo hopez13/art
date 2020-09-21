@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "7784f423_cfa71354",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3447,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-21T12:13:52Z",
+      "side": 1,
+      "message": "I added that in a separate CL because unfortunately I realised this after it was merged: https://android-review.googlesource.com/c/platform/art/+/1430046",
+      "parentUuid": "1333beae_1cc36245",
+      "range": {
+        "startLine": 3447,
+        "startChar": 71,
+        "endLine": 3447,
+        "endChar": 82
+      },
+      "revId": "cde98193476cc295339e54a608110f2546eb8308",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c018fe8_b5c295f6",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 8
