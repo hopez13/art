@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "1c90005c_ebe7da4e",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-21T13:36:54Z",
+      "side": 1,
+      "message": "This was not the intention of that condition. Before, it was `number_of_arguments \u003c 3`. I replaced that with `expected_coordinates_count \u003c 2` because the intend is to check if it\u0027s a field VarHandle. Otherwise, we would create CheckCast nodes for non-field VarHandle. It is true that we go to runtime for that cases anyway, but why create an unnecessary node?",
+      "parentUuid": "ebdaea83_2072bf21",
+      "range": {
+        "startLine": 1167,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 19
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63e4aa7d_6d67751c",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 5
