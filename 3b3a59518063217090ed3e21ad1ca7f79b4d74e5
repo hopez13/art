@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfe9fff1_9a2708b2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-21T09:46:29Z",
+      "side": 1,
+      "message": "This should be negated, right?",
+      "range": {
+        "startLine": 3190,
+        "startChar": 55,
+        "endLine": 3190,
+        "endChar": 91
+      },
+      "revId": "3b3a59518063217090ed3e21ad1ca7f79b4d74e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
