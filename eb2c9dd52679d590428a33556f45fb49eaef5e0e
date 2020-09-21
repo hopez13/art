@@ -70,6 +70,30 @@
       "revId": "eb2c9dd52679d590428a33556f45fb49eaef5e0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11545e72_d4f7b09f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3175,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T10:01:16Z",
+      "side": 1,
+      "message": "We had a problem with this check and GetAndAddAcquire / GetAndAddRelease because they are not handled here. They got dropped from this CL around PS8. Andra and I spotted the omission here this morning.\n\nWe could have varhandle specific helpers \"requires numeric VarType\", \"requires bitwise VarType\" which use the VarHandle meanings rather than DataType\u0027s.",
+      "parentUuid": "9a9edd39_6e28b83c",
+      "range": {
+        "startLine": 3175,
+        "startChar": 6,
+        "endLine": 3175,
+        "endChar": 68
+      },
+      "revId": "eb2c9dd52679d590428a33556f45fb49eaef5e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
