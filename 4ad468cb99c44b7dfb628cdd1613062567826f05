@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "4d4a0405_76a33f62",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-21T14:58:47Z",
+      "side": 1,
+      "message": "This is in generic code. VarHandles are not accessible to apps today nor to java.util.concurrent so there is no significant waste here aside from a few ART tests.\n\nThese are the conditions that are common to all VarHandles because we don\u0027t know at this point in execution what the right choice is for the current target architecture (specifically, what is supported).\n\nLet\u0027s say we fix it to match the state of your current implementation, then it\u0027s still emitting those same checks for other architectures that we know will call the runtime.\n\nThen someone implements another implementation and goes a bit further (arrays), then now this expected_coordinate check is wrong (and silent), but we knew in advance that this would be the case and did it anyway.\n\nIt seems like the decision to emit checks wants to be based in part on the logic to emit locations, e.g. what we can handle for a given architecture.",
+      "parentUuid": "1c90005c_ebe7da4e",
+      "range": {
+        "startLine": 1167,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 19
+      },
+      "revId": "4ad468cb99c44b7dfb628cdd1613062567826f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63e4aa7d_6d67751c",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 5
