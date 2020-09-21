@@ -39,6 +39,30 @@
       "revId": "932f030c4c3f79b4225b9f2c96e503e05c346360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4f48af_2555fae3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3587,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-21T21:27:58Z",
+      "side": 1,
+      "message": "The only reason I put it there is for consistency (with the rest of the code and with other architectures). Maybe should I add a comment?",
+      "parentUuid": "c8097eb4_10a79fb8",
+      "range": {
+        "startLine": 3584,
+        "startChar": 4,
+        "endLine": 3587,
+        "endChar": 12
+      },
+      "revId": "932f030c4c3f79b4225b9f2c96e503e05c346360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
