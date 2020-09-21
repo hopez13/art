@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69170f3f_844de682",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "suspended? (to be consistent with text above).",
+      "range": {
+        "startLine": 89,
+        "startChar": 64,
+        "endLine": 89,
+        "endChar": 71
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f95651f_98ed7339",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "restart makes it sound like they are not executing (which isn\u0027t true for threads executing native code). Not sure what better work could be put - maybe differentiate the two cases in the paragraph?",
+      "range": {
+        "startLine": 90,
+        "startChar": 38,
+        "endLine": 90,
+        "endChar": 45
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81cc8ef1_b12bb4ee",
+        "filename": "runtime/mutator_gc_coord.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "ditto on differentiating what \"restart\" means for threads already running native code (though you do mention it just below, but for the suspension case).",
+      "range": {
+        "startLine": 121,
+        "startChar": 65,
+        "endLine": 121,
+        "endChar": 74
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bcdd17b_e303f7ac",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "whether we are suspended?",
+      "range": {
+        "startLine": 206,
+        "startChar": 21,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68352bed_0d15c1d2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "Could we be more explicit here?",
+      "range": {
+        "startLine": 283,
+        "startChar": 12,
+        "endLine": 283,
+        "endChar": 42
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9c857e_490ce88f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "Looks like putting a comma here:\n\"... from running, no closer...\"\n\nwould make the sentence more readable?",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 68
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25b7e890_590165f3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "You could reference Runtime::implicit_suspend_checks_ here and say that none of our backends currently support it.",
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b690fa1e_3afd61f2",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "Runs",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 8
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea104848_6baf3bab",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-21T08:25:29Z",
+      "side": 1,
+      "message": "Runs or requests",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 62
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
