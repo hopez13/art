@@ -22,6 +22,30 @@
       "revId": "73195ddde3e09d161c33ccd227cdc89049997685",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce387415_c0ce7783",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-21T10:15:31Z",
+      "side": 1,
+      "message": "libelffile is split into -d and non-d variants, so it can\u0027t be moved here. I\u0027ve made that more clear now.\n\nI prefer to follow the general pattern and keep d/non-d common stuff in the defaults clauses. I hope the hint will help readers realise the other library is in the d/non-d specific clauses now.",
+      "parentUuid": "02618435_58054d34",
+      "range": {
+        "startLine": 163,
+        "startChar": 8,
+        "endLine": 163,
+        "endChar": 33
+      },
+      "revId": "73195ddde3e09d161c33ccd227cdc89049997685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
