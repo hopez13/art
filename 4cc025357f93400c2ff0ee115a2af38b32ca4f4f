@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "c571ce2f_cbca05f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T17:26:17Z",
+      "side": 1,
+      "message": "The change is OK but I\u0027m thinking about how to improve the test.\n\nI think the OtherClass should be in the same dex file as Class (which is an odd name as it can be confused with java.lang.Class), so that they use the same sections of the .bss. That\u0027s how you can get a \"method on the stack\nunrelated to the receiver\".\n\nAnd I\u0027m not sure if default methods are copied to sub-interfaces or only to classes, so the AbstractItf should be replaced by an abstract class. Or rather 2 different abstract classes, so that the old code in resolution trampoline would try to put one copied method to the .bss slot when called from one suubclass and a different one when called from the other.",
+      "parentUuid": "45e916bb_46a4ef46",
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7113f80d_b812be19",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 4
@@ -71,6 +89,30 @@
       "side": 1,
       "message": "No, it will be emitted, but checker only matches attributes expressed in the tests.",
       "parentUuid": "7113f80d_b812be19",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 71
+      },
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5a0373f_ccecd04a",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T17:26:17Z",
+      "side": 1,
+      "message": "They shall just run a tiny bit slower due to the extra text.",
+      "parentUuid": "cacf1333_9e2e4cdb",
       "range": {
         "startLine": 475,
         "startChar": 6,
