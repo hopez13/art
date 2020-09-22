@@ -39,6 +39,30 @@
       "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cacf1333_9e2e4cdb",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-22T08:31:19Z",
+      "side": 1,
+      "message": "No, it will be emitted, but checker only matches attributes expressed in the tests.",
+      "parentUuid": "7113f80d_b812be19",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 71
+      },
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
