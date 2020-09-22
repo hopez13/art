@@ -106,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "65a8387e_24362a85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T13:53:31Z",
+      "side": 1,
+      "message": "This was fixed by https://android-review.googlesource.com/1427546 and I\u0027ve got a follow-up CL at https://android-review.googlesource.com/1434131 .",
+      "parentUuid": "f1477abe_c48eb862",
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f006e29_5e360ad1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -223,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "96f3073b_a4814dbe",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T13:53:31Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1434131 .\n\n(Note that this CL also contains one correct spelling, line 1782 in this patch set.)",
+      "parentUuid": "aa8f0aa2_e7028d7f",
+      "range": {
+        "startLine": 123,
+        "startChar": 69,
+        "endLine": 123,
+        "endChar": 76
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67ffccd5_0a75cce6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 30
@@ -313,6 +355,30 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fa0bbff_5cfc99b9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T13:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e747ec84_a33c7e73",
+      "range": {
+        "startLine": 162,
+        "startChar": 41,
+        "endLine": 162,
+        "endChar": 48
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -665,6 +731,30 @@
       "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3afd0c4_5fd1efa8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 2076,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T13:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f517dbc3_8fc6b59f",
+      "range": {
+        "startLine": 2075,
+        "startChar": 6,
+        "endLine": 2076,
+        "endChar": 28
+      },
+      "revId": "3224f38567100e62f9cdf8258f4b308f6bc671e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
