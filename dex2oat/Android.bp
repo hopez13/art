@@ -21,6 +21,8 @@ art_cc_defaults {
     srcs: [
         "dex/dex_to_dex_compiler.cc",
         "dex/quick_compiler_callbacks.cc",
+        "dex2oat.cc",
+        "dex2oat_options.cc",
         "driver/compiler_driver.cc",
         "linker/elf_writer.cc",
         "linker/elf_writer_quick.cc",
@@ -55,6 +57,9 @@ art_cc_defaults {
         },
     },
 
+    header_libs: [
+        "art_cmdlineparser_headers",
+    ],
     generated_sources: ["art_dex2oat_operator_srcs"],
     shared_libs: [
         "libbase",
@@ -62,7 +67,6 @@ art_cc_defaults {
         "liblz4",
         "libz",
     ],
-    export_include_dirs: ["."],
 }
 
 cc_defaults {
@@ -152,19 +156,12 @@ cc_defaults {
     name: "dex2oat-defaults",
     host_supported: true,
     defaults: ["art_defaults"],
-    srcs: [
-        "dex2oat_options.cc",
-        "dex2oat.cc",
-    ],
 
     target: {
         android: {
             compile_multilib: "both",
         },
     },
-    header_libs: [
-        "art_cmdlineparser_headers",
-    ],
 }
 
 cc_defaults {
