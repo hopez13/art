@@ -1338,6 +1338,12 @@
         "description": ["Timeouts."]
     },
     {
+        "tests": ["2037-thread-name-inherit"],
+        "variant": "jvm",
+        "bug" : "b/168655382",
+        "description": ["RI makes no attempt to harmonize the pthread and java thread names"]
+    },
+    {
         "tests": ["003-omnibus-opcodes",
                   "051-thread",
                   "427-bounds",
