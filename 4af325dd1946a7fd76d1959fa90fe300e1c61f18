@@ -1,0 +1,688 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "779498eb_4ae3ed69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "probably",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80bd771c_75644b73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "but to clarify in the comment: the removal is not done in this CL. Correct?",
+      "range": {
+        "startLine": 10,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3d08445_6d3f33e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "You don\u0027t have to add this as well. It\u0027s enough to add only one bug reference, and the implementation tracking seems to be the right one b/67037140",
+      "range": {
+        "startLine": 41,
+        "startChar": 5,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f81eaab_750b2ba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "A pretty superficial review. Didn\u0027t have time to go in depth.\n\nSome general observations:\n- it will be much easier for review if you outline the implementation design in the commit message to give some pointers on the algorithm and how it\u0027s hooked in the compiler data structures and analysis.\n- load_store_analysis.h need much better comments and the implementation out of the header.\n- there are a significant number of utility functions and updates that can be extracted out of this CL in order to reduce the size and focus on the correctness.\n- clean up the logs and the commented lines 😊",
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b658b5e3_91807edb",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "nit: I would have split the necessary refactoring from the actual logic. It makes it easier to review.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "482b4715_054d7efa",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "I think you can drop this. Or is there a specific \"uncommon\" case you refer to?",
+      "range": {
+        "startLine": 38,
+        "startChar": 70,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f77674b_ca4cb369",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "I assume this is a check for when the object allocation does not escape. Add explicit docs to all these classes.",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 8
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d02954c8_b5004b80",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "nit: the naming here is a bit confusion. NoEscapeCheck is already a functor, since you override (). What does \"Func\" prefix tells here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 23
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c77cf03d_7415e469",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "nit: I would suffix all functions with _fn. It will greatly improve the readability and expectations around what\u0027s callable and what not.\n\n(I know this is sort of propagated code)",
+      "range": {
+        "startLine": 104,
+        "startChar": 35,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc6619de_252741ec",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "there\u0027s a *lot* on implementation added into the header. Could you move it to the .cc file?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "774a0891_e8b59a62",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "Expand the comment. It\u0027s a bit hard to follow this class and it\u0027s intended purpose:\n- is it a copy of an already build graph?\n- only a view? or a live mirror which will propagate modifications.\n- why is needed and what functionality it provides.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 89
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "816100bb_d5cbe031",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "maybe replace with \"but\"",
+      "range": {
+        "startLine": 48,
+        "startChar": 51,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3298d03e_f0efaf14",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "same comment as the enclosing class. It is not straightforward to understand why you need this abstractions.",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 23
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff9bab8_49b9bb95",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "be explicit with all return types.",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 6
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e72b97e1_de452512",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "what\u0027s end in this context?",
+      "range": {
+        "startLine": 197,
+        "startChar": 78,
+        "endLine": 197,
+        "endChar": 81
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045ce7f7_734db6b4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 634,
+        "startChar": 1,
+        "endLine": 634,
+        "endChar": 147
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25723abb_bcd2a531",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1036,
+        "startChar": 0,
+        "endLine": 1036,
+        "endChar": 127
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca9f6128_bd1e43c5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1153,
+        "endChar": 103
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5281b6e1_60605ee2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 1158,
+        "startChar": 0,
+        "endLine": 1158,
+        "endChar": 181
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75128e6e_a8d0b8bf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "lines too long",
+      "range": {
+        "startLine": 1218,
+        "startChar": 0,
+        "endLine": 1223,
+        "endChar": 121
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6636cdc5_ca07182d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1350,
+        "startChar": 97,
+        "endLine": 1350,
+        "endChar": 108
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b336e6_9cea7a47",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "leftover",
+      "range": {
+        "startLine": 1382,
+        "startChar": 1,
+        "endLine": 1382,
+        "endChar": 15
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c94e098_a4e1edc9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "leftover",
+      "range": {
+        "startLine": 1394,
+        "startChar": 26,
+        "endLine": 1396,
+        "endChar": 0
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea307b41_0975a357",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 2213,
+        "startChar": 0,
+        "endLine": 2213,
+        "endChar": 108
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0274e31_73386b2d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "most likely you want verbose logging.",
+      "range": {
+        "startLine": 2250,
+        "startChar": 20,
+        "endLine": 2250,
+        "endChar": 24
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a406d6_fe598527",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2311,
+        "startChar": 10,
+        "endLine": 2311,
+        "endChar": 14
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca66f501_03ac1122",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "R",
+      "range": {
+        "startLine": 757,
+        "startChar": 5,
+        "endLine": 757,
+        "endChar": 6
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98a8ed4_20335e7f",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "why the change?",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 5
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37960bbb_233fdbc1",
+        "filename": "libartbase/base/dchecked_vector.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "leftover?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3feebb2a_f041a67e",
+        "filename": "libartbase/base/iteration_range.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-09-22T01:51:02Z",
+      "side": 1,
+      "message": "explicit return types please.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
