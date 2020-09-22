@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4677f984_03d10a0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-22T16:02:18Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure it\u0027s fine because of how we calculate aliases but you might want to test something like\n\n  private static int test(int n, int m) {\n    int[] a \u003d new int[n + 1];\n    int sum \u003d 0;\n    for (int i \u003d 0; i \u003c n; ++i) {\n      int value \u003d i + a[m] + 1;\n      sum +\u003d value;\n      a[i] \u003d value;\n    }\n    return sum;\n  }\n\nto make sure that we don\u0027t miss these cases",
+      "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec9abee2_c0d48726",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-22T16:02:18Z",
+      "side": 1,
+      "message": "this seems questionable at this point.\n\nShouldn\u0027t it be is_back_edge?",
+      "range": {
+        "startLine": 2069,
+        "startChar": 0,
+        "endLine": 2069,
+        "endChar": 42
+      },
+      "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0945e10d_793293f6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-22T16:02:18Z",
+      "side": 1,
+      "message": "NIT: Add comment about not putting it in CalculateAliases since this alias is only valid during a loop.",
+      "range": {
+        "startLine": 2073,
+        "startChar": 0,
+        "endLine": 2077,
+        "endChar": 0
+      },
+      "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
