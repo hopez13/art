@@ -16,6 +16,29 @@
       "revId": "0b47a07bb1d7a37d3e623ccd7a1bc0d7b8ea8688",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13ae2ce7_f5121cfd",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-22T08:30:04Z",
+      "side": 1,
+      "message": "I would interpret \"bailing\" as rejecting to compile by returning false.\n\nI\u0027d prefer these conditions to be merged to the `if` below:\n\n  if (invoke-\u003eGetIntrinsic() !\u003d Intrinsics::kMethodHandleInvoke \u0026\u0026\n      invoke-\u003eGetIntrinsic() !\u003d Intrinsics::kMethodHandleInvokeExact \u0026\u0026\n      VarHandleAccessorNeedsReturnTypeCheck(invoke, return_type)) {\n    ...\n  }",
+      "range": {
+        "startLine": 1202,
+        "startChar": 7,
+        "endLine": 1202,
+        "endChar": 11
+      },
+      "revId": "0b47a07bb1d7a37d3e623ccd7a1bc0d7b8ea8688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
