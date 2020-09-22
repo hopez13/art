@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1a3402c_253b9327",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-22T08:23:06Z",
+      "side": 1,
+      "message": "This looks reasonable here, but I\u0027m not otherwise familiar with the code paths here.",
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7113f80d_b812be19",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-09-22T08:23:06Z",
+      "side": 1,
+      "message": "Does this affect any other checker tests?",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 71
+      },
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
