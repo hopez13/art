@@ -52,6 +52,24 @@
       "revId": "20a81d97604268be3ac414159472f23299fec81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242c8878_75c8a889",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1725700
+      },
+      "writtenOn": "2020-09-23T10:12:54Z",
+      "side": 1,
+      "message": "You\u0027re right, if we do a compare and set with float or int64, the output should still be eax and that check won\u0027t be done. Sorry I missed this case. Fixed.",
+      "parentUuid": "f2026d21_428e5244",
+      "revId": "20a81d97604268be3ac414159472f23299fec81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
