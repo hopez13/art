@@ -1317,20 +1317,6 @@ extern "C" const void* artQuickResolutionTrampoline(
     DCHECK_EQ(caller->GetDexFile(), called_method.dex_file);
     called = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
         self, called_method.index, caller, invoke_type);
-
-    // If successful, update .bss entry in oat file if any.
-    if (called != nullptr) {
-      if (invoke_type == kSuper) {
-        if (called->GetDexFile() == called_method.dex_file) {
-          called_method.index = called->GetDexMethodIndex();
-        } else {
-          called_method.index = called->FindDexMethodIndexInOtherDexFile(
-              *called_method.dex_file, called_method.index);
-          DCHECK_NE(called_method.index, dex::kDexNoIndex);
-        }
-      }
-      MaybeUpdateBssMethodEntry(called, called_method);
-    }
   }
   const void* code = nullptr;
   if (LIKELY(!self->IsExceptionPending())) {
@@ -1363,6 +1349,20 @@ extern "C" const void* artQuickResolutionTrampoline(
       CHECK(called != nullptr) << orig_called->PrettyMethod() << " "
                                << mirror::Object::PrettyTypeOf(receiver) << " "
                                << invoke_type << " " << orig_called->GetVtableIndex();
+    }
+    if (!called_method_known_on_entry) {
+      // Now that we know the actual target, update .bss entry in oat file, if
+      // any.
+      if (invoke_type == kSuper) {
+        if (called->GetDexFile() == called_method.dex_file) {
+          called_method.index = called->GetDexMethodIndex();
+        } else {
+          called_method.index = called->FindDexMethodIndexInOtherDexFile(
+              *called_method.dex_file, called_method.index);
+          DCHECK_NE(called_method.index, dex::kDexNoIndex);
+        }
+      }
+      MaybeUpdateBssMethodEntry(called, called_method);
     }
 
     // Static invokes need class initialization check but instance invokes can proceed even if
