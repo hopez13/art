@@ -1307,6 +1307,30 @@
       "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5324619_0a53e350",
+        "filename": "libartbase/base/iteration_range.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-09-23T21:57:08Z",
+      "side": 1,
+      "message": "done. The old declaration was just wrong and template-substitution rules mean I\u0027m not sure if it\u0027s even possible to name the type without using decltype.",
+      "parentUuid": "3feebb2a_f041a67e",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "4af325dd1946a7fd76d1959fa90fe300e1c61f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
