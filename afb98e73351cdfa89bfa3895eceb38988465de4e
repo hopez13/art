@@ -16,6 +16,23 @@
       "revId": "afb98e73351cdfa89bfa3895eceb38988465de4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a49f6a_a37d3deb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4048,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-23T08:45:25Z",
+      "side": 1,
+      "message": "You could move this to GenPrimitiveCAS, passing the `is_cmpxchg` as an argument. (Just for consistency with GenReferenceCAS.)",
+      "revId": "afb98e73351cdfa89bfa3895eceb38988465de4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
