@@ -43,6 +43,15 @@ public class Main {
     }
 
     Object [] array = new Object[8000];
+    // A placeholder to make sure that strings allocated to create garbage
+    // don't get eliminated by the compiler.
+    Object temp = null;
+
+    void allocateFourStrings() {
+      for (int i = 0; i < 4; i++) {
+        temp = new String("Creating some garbage" + Math.random());
+      }
+    }
 
     void stressArray(boolean doLog) {
         // We want many references in the array
@@ -63,20 +72,14 @@ public class Main {
             Object obj = array[array.length - 1];
             System.arraycopy(array, 0, array, 1, array.length - 1);
             array[0] = obj;
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
+            allocateFourStrings();
         }
 
         for (int j = 0; j < array.length; j++) {
             Object obj = array[0];
             System.arraycopy(array, 1, array, 0, array.length - 1);
             array[array.length - 1] = obj;
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
-            new String("Creating some garbage" + Math.random());
+            allocateFourStrings();
         }
 
         if (doLog) {
