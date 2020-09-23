@@ -63,6 +63,30 @@
       "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7de515b1_cafb0c66",
+        "filename": "test/096-array-copy-concurrent-gc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T20:05:30Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s guaranteed if the same static field is immediately overwritten, without intervening synchronization. It\u0027s fine to eliminate redundant stores. Another thread might be watching the field, but it will just look like it missed the intermediate assignment. I suspect ART and R8 don\u0027t currently do this, but I wouldn\u0027t bet on it.\n\nThe optimization would require knowing that constructing strings doesn\u0027t have weird side-effects. But without that, we couldn\u0027t eliminate the calls anyway.",
+      "parentUuid": "a1dfc389_fdb1b5cb",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 7
+      },
+      "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
