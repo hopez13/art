@@ -34,6 +34,24 @@
       "revId": "20a81d97604268be3ac414159472f23299fec81b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2026d21_428e5244",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-23T10:01:14Z",
+      "side": 1,
+      "message": "That\u0027s why I wrote \"||\". In full,\n\n  if (!is_cmpxchg || DataType::Kind(type) \u003d\u003d DataType::Type::kInt32) {\n    ...\n  }",
+      "parentUuid": "9f7177af_7685454f",
+      "revId": "20a81d97604268be3ac414159472f23299fec81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
