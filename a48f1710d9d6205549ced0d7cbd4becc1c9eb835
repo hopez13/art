@@ -39,6 +39,30 @@
       "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1dfc389_fdb1b5cb",
+        "filename": "test/096-array-copy-concurrent-gc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-09-23T18:07:52Z",
+      "side": 1,
+      "message": "My mistake. I wanted to make temp static field, but mistakenly omitted the keyword. Assignments to a static field would not get optimized away, right?",
+      "parentUuid": "bd2fbf89_dd6ecf69",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 7
+      },
+      "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
