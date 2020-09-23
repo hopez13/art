@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "91f4ca53_ba1c8bfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-23T12:12:53Z",
+      "side": 1,
+      "message": "Done for moving OtherClass. Also note that AbstractItf is already a class.",
+      "parentUuid": "c571ce2f_cbca05f1",
+      "revId": "4cc025357f93400c2ff0ee115a2af38b32ca4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7113f80d_b812be19",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 4
