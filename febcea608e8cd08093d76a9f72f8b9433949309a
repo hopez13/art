@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "d63f1255_71b89879",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T22:35:46Z",
+      "side": 1,
+      "message": "I think I see.  So we want to make sure that if GrowForUtilization() updates last_reported_heap_size and we see that update here, then we also see the corresponding decrement of num_bytes_allocated? Can we say that in a comment here? Then the comment in GrowForUtilization could say the same or refer to this one.\n\nWe presumably still have the inverse problem, in which we see the reduced num_bytes_allocated, but don\u0027t see the last_reported_heap_size_ update. I think in that case we can still fail to report a large allocation. Though I guess that should fix itself at the next allocation, and thus is probably OK?",
+      "parentUuid": "1cd89507_0abc080f",
+      "range": {
+        "startLine": 201,
+        "startChar": 48,
+        "endLine": 201,
+        "endChar": 73
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9c2d558_91509286",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 6
@@ -101,6 +125,30 @@
       "side": 1,
       "message": "I didn\u0027t get what you mean?\n\nThe execution will reach here if the GC thread stores to last_reported_heap_size_, while this thread is trying the CAS in this loop. And when this happens, it is guaranteed that this allocation is already taken into consideration by the GC thread.",
       "parentUuid": "d9c2d558_91509286",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0448784_e3c02715",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T22:35:46Z",
+      "side": 1,
+      "message": "Can you expand on \"And when this happens, it is guaranteed that this allocation is already taken into consideration by the GC thread.\"?\n\nWe\u0027ve updated num_bytes_allocated. Why can\u0027t GrowForUtilization() have read the heap size before we updated it?",
+      "parentUuid": "8bc5dcc2_31351f25",
       "range": {
         "startLine": 228,
         "startChar": 17,
@@ -157,6 +205,30 @@
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0771c01_86f67847",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T22:35:46Z",
+      "side": 1,
+      "message": "Weird. That wasn\u0027t otherwise fixable? No big deal.",
+      "parentUuid": "a19429ff_493a3719",
+      "range": {
+        "startLine": 925,
+        "startChar": 2,
+        "endLine": 925,
+        "endChar": 22
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
