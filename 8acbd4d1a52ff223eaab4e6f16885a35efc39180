@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "a000d595_cc58709a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-23T14:38:08Z",
+      "side": 1,
+      "message": "I\u0027ll keep this as is. I\u0027m not too keen on `[\u003d]` capturing `*this`. I read that \"[t]he implicit capture of *this when the capture default is \u003d is deprecated. (since C++20)\"",
+      "parentUuid": "f68125d7_7947f3e7",
+      "range": {
+        "startLine": 2069,
+        "startChar": 0,
+        "endLine": 2069,
+        "endChar": 42
+      },
+      "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0945e10d_793293f6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -110,6 +134,30 @@
       "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "374f8d99_3cde4940",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-23T14:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0945e10d_793293f6",
+      "range": {
+        "startLine": 2073,
+        "startChar": 0,
+        "endLine": 2077,
+        "endChar": 0
+      },
+      "revId": "8acbd4d1a52ff223eaab4e6f16885a35efc39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
