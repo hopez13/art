@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c344c7ce_22f4f41b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-23T09:57:09Z",
+      "side": 1,
+      "message": "Maybe \"!is_cmpxchg ||\"?",
+      "revId": "20a81d97604268be3ac414159472f23299fec81b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
