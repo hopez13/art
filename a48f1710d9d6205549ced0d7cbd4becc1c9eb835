@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae6e4eef_c6f16d24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T17:33:18Z",
+      "side": 1,
+      "message": "LGTM, Minor suggestion below.",
+      "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd2fbf89_dd6ecf69",
+        "filename": "test/096-array-copy-concurrent-gc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-23T17:33:18Z",
+      "side": 1,
+      "message": "I would make temp local, and add some use of it in the loop, like\n\nif (temp.length() \u003c 22) { System.out.println(\"bad length\"); }\n\nto make it harder to optimize away. As it stands, it\u0027s probably OK only because we build this debuggable(?). Otherwise all but the last iteration could be fairly easily optimized away, though we probably don\u0027t.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 7
+      },
+      "revId": "a48f1710d9d6205549ced0d7cbd4becc1c9eb835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
