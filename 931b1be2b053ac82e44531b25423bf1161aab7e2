@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "ad172fa6_f6fbddd4",
+        "filename": "test/2037-thread-name-inherit/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-23T12:02:16Z",
+      "side": 1,
+      "message": "If it\u0027s not too difficult, I\u0027d suggest doing j.l.String checks in the Java file - it simplifies debugging /reading for outsiders not familiar with the test.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "931b1be2b053ac82e44531b25423bf1161aab7e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32c9713a_eb8f0745",
+        "filename": "test/2037-thread-name-inherit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-23T12:02:16Z",
+      "side": 1,
+      "message": "runThreadTest (ditto bolow)",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 43
+      },
+      "revId": "931b1be2b053ac82e44531b25423bf1161aab7e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9133d3b6_9bc8420a",
         "filename": "test/2037-thread-name-inherit/thread_name_inherit.cc",
         "patchSetId": 1
