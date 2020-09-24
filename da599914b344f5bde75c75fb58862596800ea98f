@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8783873_808641cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-24T13:33:04Z",
+      "side": 1,
+      "message": "LGTM, except for the conflict with https://android-review.googlesource.com/1367130 . I\u0027d like to have the divideUnsigned implementation before VarHandle just like x86. Do you want to move it in this CL, so that I can drop the reordering from mine?",
+      "revId": "da599914b344f5bde75c75fb58862596800ea98f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
