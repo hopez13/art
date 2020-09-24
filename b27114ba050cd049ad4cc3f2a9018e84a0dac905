@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0210c289_31d3f12f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-24T23:38:01Z",
+      "side": 1,
+      "message": "Stripping it brings it down to 16 MB, so we should probably do that. However, I think it\u0027s better to address in a separate CL.",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "b27114ba050cd049ad4cc3f2a9018e84a0dac905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
