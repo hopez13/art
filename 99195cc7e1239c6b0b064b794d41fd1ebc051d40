@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "13955609_74214be6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-25T15:36:31Z",
+      "side": 1,
+      "message": "Actually, I see that it gets stripped when it goes into the prebuilt location, by Soong magic somewhere.\n\nSo then we may consider deprecating dex2oats(d). The different between it and host dex2oat(d) after this is that dex2oat(d) links host system libs like libc.so dynamically. Calin, Alex, does dex2oats(d) need to be entirely static?",
+      "parentUuid": "6f63fd51_4bf2fe46",
+      "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a822ed4e_5b4ad94a",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 6
