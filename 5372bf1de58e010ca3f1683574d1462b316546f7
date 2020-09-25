@@ -34,6 +34,24 @@
       "revId": "5372bf1de58e010ca3f1683574d1462b316546f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16893d32_b613f08b",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-25T11:49:58Z",
+      "side": 1,
+      "message": "Marking as resolved based on the +2.",
+      "parentUuid": "48887486_84be1e31",
+      "revId": "5372bf1de58e010ca3f1683574d1462b316546f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
