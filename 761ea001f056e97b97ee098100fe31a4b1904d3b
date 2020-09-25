@@ -419,6 +419,30 @@
     },
     {
       "key": {
+        "uuid": "ca4f17f7_d0bf940e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-25T08:39:24Z",
+      "side": 1,
+      "message": "A bit better, but saying \"normally\" means there are non-normal conditions which would be good to mention here or point to them if they are documented elsewhere.",
+      "parentUuid": "985de45f_5638669a",
+      "range": {
+        "startLine": 283,
+        "startChar": 12,
+        "endLine": 283,
+        "endChar": 42
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb9c857e_490ce88f",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -548,6 +572,30 @@
     },
     {
       "key": {
+        "uuid": "26fded2d_cc759145",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-25T08:39:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "62db57eb_314d0f2f",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 8
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea104848_6baf3bab",
         "filename": "runtime/thread_list.h",
         "patchSetId": 3
@@ -592,6 +640,30 @@
       "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cb6ba9d_cd84a25c",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-25T08:39:24Z",
+      "side": 1,
+      "message": "Now that the test above is consistently using imperative, this can stay imperative :)",
+      "parentUuid": "6ff52ec3_c37ca328",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 62
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
