@@ -443,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "37cec91d_a997bbf4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-25T22:31:58Z",
+      "side": 1,
+      "message": "Expanded it a bit more.",
+      "parentUuid": "ca4f17f7_d0bf940e",
+      "range": {
+        "startLine": 283,
+        "startChar": 12,
+        "endLine": 283,
+        "endChar": 42
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb9c857e_490ce88f",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -664,6 +688,30 @@
       "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29c40e52_7cd22d8b",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-09-25T22:31:58Z",
+      "side": 1,
+      "message": "The theory here was that the first paragraph is imperative, and then the rest is descriptive. The \"Running Threads ...\" sentence seems a little awkward if I make it all imperative. So I think I like it slightly better this way.",
+      "parentUuid": "4cb6ba9d_cd84a25c",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 62
+      },
+      "revId": "761ea001f056e97b97ee098100fe31a4b1904d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
