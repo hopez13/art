@@ -45,6 +45,30 @@
       "revId": "9d32fe0aa4b3fb0ff97b22d0c3ece3d1bac8ab7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4411ae42_d8eddd98",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-09-25T11:57:31Z",
+      "side": 1,
+      "message": "this means duration_ms + stop_timeout_ms was too short for the dump",
+      "parentUuid": "221e4e0f_d527b636",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 802,
+        "endChar": 54
+      },
+      "revId": "9d32fe0aa4b3fb0ff97b22d0c3ece3d1bac8ab7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
