@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5255bc9f_bc5166f9",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-25T10:10:54Z",
+      "side": 1,
+      "message": "It\u0027s not mentioned in the JNI spec - remove the TODO and just say we follow the spec ?",
+      "revId": "5372bf1de58e010ca3f1683574d1462b316546f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
