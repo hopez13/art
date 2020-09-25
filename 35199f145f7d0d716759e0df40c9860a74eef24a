@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "2ab7bb19_7733d0fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-25T11:16:45Z",
+      "side": 1,
+      "message": "Thanks Orion; PTAL.",
+      "revId": "35199f145f7d0d716759e0df40c9860a74eef24a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1ad9bf_cceff753",
         "filename": "test/Android.bp",
         "patchSetId": 5
@@ -73,6 +90,30 @@
       "revId": "35199f145f7d0d716759e0df40c9860a74eef24a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dae29527_5654ea10",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-25T11:16:45Z",
+      "side": 1,
+      "message": "Actually, that comment is referring to the difference between `ArtGtestsTargetInstallApex`, which is included in the \"device-tests\" test suite, and `ArtGtestsTargetChroot`, which is included in the \"general-tests\" test suite (see line 1014).\n\nThis explanation can probably be improved, but I\u0027d rather do this in a different CL, as this change is just a cherry-pick of ag/12638300.",
+      "parentUuid": "5f1ad9bf_cceff753",
+      "range": {
+        "startLine": 986,
+        "startChar": 7,
+        "endLine": 986,
+        "endChar": 69
+      },
+      "revId": "35199f145f7d0d716759e0df40c9860a74eef24a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
