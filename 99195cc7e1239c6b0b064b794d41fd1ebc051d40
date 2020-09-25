@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "121d22fd_93e2b0ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-25T14:52:51Z",
+      "side": 1,
+      "message": "Adding Calin and Alex, as this change may impact the APK Scanner and/or the host Linux-Bionic builds.",
+      "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a822ed4e_5b4ad94a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-25T14:52:51Z",
+      "side": 1,
+      "message": "Maybe repeat the comment from lines 290–291 here?",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 15
+      },
+      "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
