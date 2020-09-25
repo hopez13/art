@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40296643_cb272eb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-25T15:21:51Z",
+      "side": 1,
+      "message": "Treehugger failures:\n\nhttps://android-build.googleplex.com/builds/treetop/android-review/1420966?ref\u003dCOMMENT\u0026revision\u003d10\u0026revisionAttempt\u003d2\n\nhttps://android-build.googleplex.com/builds/pending/P16949349/errorprone/latest/view/logs/build.log\n\n  […]\n  FAILED: out/soong/.intermediates/tools/tradefederation/core/test_framework/tradefed-test-framework/linux_glibc_common/errorprone/tradefed-test-framework.jar\n  […]\n  tools/tradefederation/core/test_framework/com/android/tradefed/testtype/ArtRunTest.java:312: error: [UnnecessaryParentheses] Unnecessary use of grouping parentheses\n                                  (new BufferedReader(\n                                  ^\n      (see https://errorprone.info/bugpattern/UnnecessaryParentheses)\n    Did you mean \u0027new BufferedReader(\u0027?\n  […]\n",
+      "revId": "93ef64cc66b8e3e5accd36710487a5aba25652aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
