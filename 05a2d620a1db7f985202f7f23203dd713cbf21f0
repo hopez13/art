@@ -16,6 +16,24 @@
       "revId": "05a2d620a1db7f985202f7f23203dd713cbf21f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43724fab_aa86da85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-09-25T12:51:45Z",
+      "side": 1,
+      "message": "It is guess based on the error message.\nI tested it by clicking \"Run more tests in gerrit\".\nThere seems to be further issues, but it seems this CL makes progress.\nYes, presubmit should address it...",
+      "parentUuid": "cf9d26d8_e521a237",
+      "revId": "05a2d620a1db7f985202f7f23203dd713cbf21f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
