@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f63fd51_4bf2fe46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-25T15:12:44Z",
+      "side": 1,
+      "message": "Thanks Roland.\n\nI believe that\u0027s where dex2oats(d) comes into play. They shouldn\u0027t be affected by this. (Originally I thought it might be possible to deprecate them in favour of the ordinary host binaries, but since we intend to strip the latter that\u0027s not on the table.)",
+      "parentUuid": "121d22fd_93e2b0ab",
+      "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a822ed4e_5b4ad94a",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 6
@@ -39,6 +57,30 @@
       "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9abf20d7_26ad4338",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-25T15:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a822ed4e_5b4ad94a",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 15
+      },
+      "revId": "99195cc7e1239c6b0b064b794d41fd1ebc051d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
