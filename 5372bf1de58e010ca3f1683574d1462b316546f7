@@ -16,6 +16,24 @@
       "revId": "5372bf1de58e010ca3f1683574d1462b316546f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48887486_84be1e31",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-25T10:33:27Z",
+      "side": 1,
+      "message": "The spec for Get/ReleaseStringCritical references Get/ReleaseStringChars and the spec for ReleaseStringChars says that \"[t]he chars argument is a pointer obtained from string using GetStringChars().\" So we should never see `(!s-\u003eIsCompressed() \u0026\u0026 s-\u003eGetValue() !\u003d chars)` because our implementation of GetStringCritical never returns such pointer. The question is whether we want to do something, maybe with CheckJNI.\n\nFor now, I\u0027m just flagging the issue while preserving old code semantics. (The old code was presumably copy-pasted from ReleaseStringChars without considering that, unlike GetStringChars, the GetStringCritical never copies an uncompressed string.)",
+      "parentUuid": "5255bc9f_bc5166f9",
+      "revId": "5372bf1de58e010ca3f1683574d1462b316546f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
