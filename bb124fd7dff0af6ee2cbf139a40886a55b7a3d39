@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "1854aedf_86131bfd",
+        "filename": "test/811-checker-invoke-super-secondary/smali-ex/SuperOtherClass.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-28T16:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0e832c3_7a773b16",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 30
+      },
+      "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ba857e8_e67fb088",
         "filename": "test/811-checker-invoke-super-secondary/src/Main.java",
         "patchSetId": 4
@@ -56,6 +80,24 @@
       "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "003ba184_0b2da22a",
+        "filename": "test/811-checker-invoke-super-secondary/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-28T16:25:35Z",
+      "side": 1,
+      "message": "Ran this through -verbose:oat and the .odex files are accepted. The class loader context passed to dex2oat is the one expected:\n--class-loader-context\u003dPCL[];PCL[/tmp/ngeoffray/test-3866332/811-checker-invoke-super-secondary.jar]",
+      "parentUuid": "3ba857e8_e67fb088",
+      "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
