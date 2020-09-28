@@ -51,6 +51,24 @@
       "revId": "8e687e8bbd292e5b0855141c06bebf09cb275ada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e876af9d_a00de72f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-09-28T19:13:31Z",
+      "side": 1,
+      "message": "The is art/art-host-gtest indeed should not be blocking, and it did not block other CLs.  \nI am not sure about the other test, but i looks unrealted to me.\nIt seems like TH bug to me.",
+      "parentUuid": "e77c43b3_8ba875a5",
+      "revId": "8e687e8bbd292e5b0855141c06bebf09cb275ada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
