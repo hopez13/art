@@ -16,6 +16,46 @@
       "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0e832c3_7a773b16",
+        "filename": "test/811-checker-invoke-super-secondary/smali-ex/SuperOtherClass.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-28T16:08:55Z",
+      "side": 1,
+      "message": "Rename the file to match class name.",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 30
+      },
+      "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ba857e8_e67fb088",
+        "filename": "test/811-checker-invoke-super-secondary/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-28T16:08:55Z",
+      "side": 1,
+      "message": "Last time I tried, the oat file was rejected without explicitly passing the correct --secondary-class-loader-context to the test. See test 727.",
+      "revId": "bb124fd7dff0af6ee2cbf139a40886a55b7a3d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
