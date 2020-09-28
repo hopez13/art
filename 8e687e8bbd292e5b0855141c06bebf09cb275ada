@@ -33,6 +33,24 @@
       "revId": "8e687e8bbd292e5b0855141c06bebf09cb275ada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e77c43b3_8ba875a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-28T19:04:00Z",
+      "side": 1,
+      "message": "The failures are listed in Treetop as non-blocking, so I\u0027m surprised they block.\n\nhttps://android-build.googleplex.com/builds/tests/view?invocationId\u003dI96000006057670941\u0026redirect\u003dhttp://sponge2/b7f7c919-5668-4888-a0c0-916306ce782f looks more related to https://r.android.com/1428533, possibly addressed by https://r.android.com/1438751 or https://r.android.com/1440832. +dsrbecky\n\nhttps://android-build.googleplex.com/builds/tests/view?invocationId\u003dI71900006057668719\u0026redirect\u003dhttp://sponge2/042b597c-1e42-4ef1-9e47-6c30fdf090e0 I don\u0027t know.\n\nI think it\u0027s very unlikely the failures are a regression from this CL, so I recommend submitting anyway.",
+      "parentUuid": "30b7f6d0_64681a28",
+      "revId": "8e687e8bbd292e5b0855141c06bebf09cb275ada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
