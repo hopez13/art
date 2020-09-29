@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dc59d7f_11aa3529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T15:55:17Z",
+      "side": 1,
+      "message": "Thanks for fixing this Martin; someday I\u0027ll get to revamp those checks properly…",
+      "revId": "c79af59cd1b60fed9630e9e92941b342d2b5d8e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b82acf50_64482323",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T15:55:17Z",
+      "side": 1,
+      "message": "Nit/style: Maybe change this into:\n\n        \" \u0026\u0026 touch $(out)\",\n        \" \u0026\u0026 chmod a+x $(out)\",\n\nfor consistency with the style used in that module definition (and likewise below)?",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 47
+      },
+      "revId": "c79af59cd1b60fed9630e9e92941b342d2b5d8e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
