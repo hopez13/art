@@ -16,6 +16,24 @@
       "revId": "f6ef27ea973198c9a8d3c9b2a6f7e9d9446639ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bebb983d_c31c824f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-09-29T13:45:20Z",
+      "side": 1,
+      "message": "No problem.\n\nI looked for more dlopen\u0027s of internal libs in art/ and found two more, but I don\u0027t think they need this:\n\n- JIT load of libart-compiler.so, shouldn\u0027t happen in dex2oat: https://cs.android.com/android/platform/superproject/+/master:art/runtime/jit/jit.cc;l\u003d276;drc\u003df9dbb97a1625b61a395406351e042921f9cfb455\n\n- libart-simulator.so is loaded at https://cs.android.com/android/platform/superproject/+/master:art/simulator/code_simulator_container.cc;l\u003d32;drc\u003dc55bb390d88b8eb62a50932f7f9b47c2a3733f16, but that\u0027s only used in a compiler test: https://cs.android.com/android/platform/superproject/+/master:art/compiler/Android.bp;l\u003d460;drc\u003d35f765b9c66a9d999d35afd54c693f8636d0a7ee",
+      "parentUuid": "1021199c_6c62a8eb",
+      "revId": "f6ef27ea973198c9a8d3c9b2a6f7e9d9446639ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
