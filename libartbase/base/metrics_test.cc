@@ -26,6 +26,25 @@ namespace metrics {
 
 class MetricsTest : public testing::Test {};
 
+// A trivial MetricsBackend that does nothing for all of the members. This can be overridden by
+// test cases to test specific behaviors.
+class TestBackendBase : public MetricsBackend {
+ public:
+  virtual void BeginSession([[maybe_unused]] const SessionData& session_data){};
+  virtual void EndSession(){};
+
+  virtual void ReportCounter([[maybe_unused]] DatumId counter_type,
+                             [[maybe_unused]] uint64_t value) {};
+
+  virtual void BeginHistogram([[maybe_unused]] DatumId histogram_type,
+                              [[maybe_unused]] size_t num_buckets,
+                              [[maybe_unused]] int64_t low_value_,
+                              [[maybe_unused]] int64_t high_value) {};
+  virtual void ReportHistogramBucket([[maybe_unused]] size_t index,
+                                     [[maybe_unused]] uint32_t value) {};
+  virtual void EndHistogram(){};
+};
+
 TEST_F(MetricsTest, SimpleCounter) {
   MetricsCounter test_counter;
 
@@ -40,6 +59,95 @@ TEST_F(MetricsTest, SimpleCounter) {
 
 TEST_F(MetricsTest, UnknownDataName) {
   EXPECT_EQ("<unknown datum>", DatumName(DatumId::unknown_datum));
+}
+
+TEST_F(MetricsTest, SimpleHistogramTest) {
+  MetricsHistogram<5, 0, 100> histogram;
+
+  // bucket 0: 0-19
+  histogram.Add(10);
+
+  // bucket 1: 20-39
+  histogram.Add(20);
+  histogram.Add(25);
+
+  // bucket 2: 40-59
+  histogram.Add(56);
+  histogram.Add(57);
+  histogram.Add(58);
+  histogram.Add(59);
+
+  // bucket 3: 60-79
+  histogram.Add(70);
+  histogram.Add(70);
+  histogram.Add(70);
+
+  // bucket 4: 80-99
+  // leave this bucket empty
+
+  class TestBackend : public TestBackendBase {
+   public:
+    virtual void ReportHistogramBucket(size_t index, uint32_t value) {
+      switch (index) {
+        case 0:
+          EXPECT_EQ(1u, value);
+          break;
+
+        case 1:
+          EXPECT_EQ(2u, value);
+          break;
+
+        case 2:
+          EXPECT_EQ(4u, value);
+          break;
+
+        case 3:
+          EXPECT_EQ(3u, value);
+          break;
+
+        case 4:
+          EXPECT_EQ(0u, value);
+          break;
+
+        default:
+          FAIL();
+      }
+    }
+  } backend;
+
+  histogram.ReportBuckets(&backend);
+}
+
+// Make sure values added outside the range of the histogram go into the first or last bucket.
+TEST_F(MetricsTest, HistogramOutOfRangeTest) {
+  MetricsHistogram<2, 0, 100> histogram;
+
+  // bucket 0: 0-49
+  histogram.Add(-500);
+
+  // bucket 1: 50-99
+  histogram.Add(250);
+  histogram.Add(1000);
+
+  class TestBackend : public TestBackendBase {
+   public:
+    virtual void ReportHistogramBucket(size_t index, uint32_t value) {
+      switch (index) {
+        case 0:
+          EXPECT_EQ(1u, value);
+          break;
+
+        case 1:
+          EXPECT_EQ(2u, value);
+          break;
+
+        default:
+          FAIL();
+      }
+    }
+  } backend;
+
+  histogram.ReportBuckets(&backend);
 }
 
 }  // namespace metrics
