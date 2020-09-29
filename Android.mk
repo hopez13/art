@@ -841,6 +841,4 @@ art-boot-image:  $(DEXPREOPT_IMAGE_boot_$(TARGET_ARCH))
 art-job-images: \
   art-boot-image \
   $(2ND_DEFAULT_DEX_PREOPT_BUILT_IMAGE_FILENAME) \
-  $(HOST_OUT_EXECUTABLES)/dex2oats \
-  $(HOST_OUT_EXECUTABLES)/dex2oatds \
   $(HOST_OUT_EXECUTABLES)/profman
