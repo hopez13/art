@@ -32,6 +32,10 @@
 #define ART_COUNTERS(COUNTER) COUNTER(ClassVerificationTotalTime)
 // TODO: ClassVerificationTime serves as a mock for now. Implementation will come later.
 
+// HISTOGRAM(counter_name, num_buckets, low_value, high_value)
+#define ART_HISTOGRAMS(HISTOGRAM) HISTOGRAM(JitMethodCompileTime, 15, 0, 1'000'000)
+// TODO: JitMethodCompileTime serves as a mock for now. Implementation will come later.
+
 namespace art {
 namespace metrics {
 
@@ -42,6 +46,10 @@ enum class DatumId {
 #define ART_COUNTER(name) k##name,
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
+
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) k##name,
+      ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
 };
 
 struct SessionData {
@@ -80,7 +88,16 @@ class MetricsBackend {
   // total count at the point this method is called.
   virtual void ReportCounter(DatumId counter_type, uint64_t value) = 0;
 
+  virtual void BeginHistogram(DatumId histogram_type,
+                              size_t num_buckets,
+                              int64_t low_value_,
+                              int64_t high_value) = 0;
+  virtual void ReportHistogramBucket(size_t index, uint32_t value) = 0;
+  virtual void EndHistogram() = 0;
+
   friend class ArtMetrics;
+  template <size_t num_buckets, int64_t low_value, int64_t high_value>
+  friend class MetricsHistogram;
 };
 
 class MetricsCounter {
@@ -96,6 +113,33 @@ class MetricsCounter {
   uint64_t value_;
 };
 
+template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
+class MetricsHistogram {
+  static_assert(num_buckets_ > 1);
+  static_assert(low_value_ < high_value_);
+
+ public:
+  constexpr MetricsHistogram() : buckets_{} {}
+
+  void Add(int64_t value) {
+    const size_t i = value <= low_value_ ? 0
+                     : value >= high_value_
+                         ? num_buckets_ - 1
+                         : static_cast<size_t>(value - low_value_) * num_buckets_ /
+                               static_cast<size_t>(high_value_ - low_value_);
+    buckets_[i]++;
+  }
+
+  void ReportBuckets(MetricsBackend* backend) const {
+    for (size_t i = 0; i < num_buckets_; i++) {
+      backend->ReportHistogramBucket(i, buckets_[i]);
+    }
+  }
+
+ private:
+  std::array<uint32_t, num_buckets_> buckets_;
+};
+
 /**
  * This struct contains all of the metrics that ART reports.
  */
@@ -105,11 +149,28 @@ class ArtMetrics {
 
   void ReportAllMetrics(MetricsBackend* backend) const;
 
-#define ART_COUNTER(name) MetricsCounter name;
+#define ART_COUNTER(name)                      \
+  MetricsCounter* name() { return &name##_; }  \
+  const MetricsCounter* name() const { return &name##_; }
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value)                      \
+  MetricsHistogram<num_buckets, low_value, high_value>* name() { return &name##_; }  \
+  const MetricsHistogram<num_buckets, low_value, high_value>* name() const { return &name##_; }
+  ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
+
  private:
+#define ART_COUNTER(name) MetricsCounter name##_;
+  ART_COUNTERS(ART_COUNTER)
+#undef ART_COUNTER
+
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
+  MetricsHistogram<num_buckets, low_value, high_value> name##_;
+  ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
+
   // This field is only included to allow us expand the ART_COUNTERS and ART_HISTOGRAMS macro in
   // the initializer list in ArtMetrics::ArtMetrics. See metrics.cc for how it's used.
   //
