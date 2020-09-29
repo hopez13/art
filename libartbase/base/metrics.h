@@ -17,11 +17,13 @@
 #ifndef ART_RUNTIME_METRICS_H_
 #define ART_RUNTIME_METRICS_H_
 
-#include <array>
 #include <stdint.h>
+
+#include <array>
 #include <ostream>
 #include <string_view>
 
+#include "android-base/logging.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -74,43 +76,83 @@ public:
 
 class Counter {
 public:
-  constexpr Counter(uint64_t value = 0) : value_{value} {}
+ using domain_t = uint64_t;
 
-  void AddOne() { value_++; }
-  void Add(uint64_t value) { value_ += value; }
+ constexpr Counter(domain_t value = 0) : value_{value} {}
 
-  uint64_t Value() const { return value_; }
+ void AddOne() { value_++; }
+ void Add(domain_t value) { value_ += value; }
+
+ domain_t Value() const { return value_; }
 
 private:
-  uint64_t value_;
+ domain_t value_;
 };
 
 template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
 class Histogram {
-  static_assert(num_buckets_ > 1);
+  static_assert(num_buckets_ >= 1);
   static_assert(low_value_ < high_value_);
 
 public:
-  constexpr Histogram() : buckets_{} {}
+ using domain_t = int64_t;
 
-  void Add(int64_t value) {
-    const size_t i = value <= low_value_
-                         ? 0
-                         : value >= high_value_
-                               ? num_buckets_ - 1
-                               : static_cast<size_t>(value - low_value_) * num_buckets_ /
-                                     static_cast<size_t>(high_value_ - low_value_);
-    buckets_[i]++;
-  }
+ constexpr Histogram() : buckets_{} {}
 
-  void ReportBuckets(MetricsBackend* backend) const {
-    for (size_t i = 0; i < num_buckets_; i++) {
-      backend->ReportHistogramBucket(i, buckets_[i]);
+ void Add(domain_t value) {
+   const size_t i = value <= low_value_ ? 0
+                    : value >= high_value_
+                        ? num_buckets_ - 1
+                        : static_cast<size_t>(value - low_value_) * num_buckets_ /
+                              static_cast<size_t>(high_value_ - low_value_);
+   buckets_[i]++;
+ }
+
+ void ReportBuckets(MetricsBackend* backend) const {
+   for (size_t i = 0; i < num_buckets_; i++) {
+     backend->ReportHistogramBucket(i, buckets_[i]);
+   }
+ }
+
+private:
+ std::array<uint32_t, num_buckets_> buckets_;
+};
+
+template <typename Metric>
+class AutoTimer {
+ public:
+  AutoTimer(Metric* metric, bool autostart = true)
+      : running_{false}, start_time_µs_{}, metric_{metric} {
+    if (autostart) {
+      Start();
     }
   }
 
-private:
-  std::array<uint32_t, num_buckets_> buckets_;
+  ~AutoTimer() {
+    if (running_) {
+      Stop();
+    }
+  }
+
+  void Start() {
+    DCHECK(!running_);
+    running_ = true;
+    // TODO(eholk): add support for more time units
+    start_time_µs_ = MicroTime();
+  }
+
+  void Stop() {
+    DCHECK(running_);
+    uint64_t stop_time_µs = MicroTime();
+    running_ = false;
+
+    metric_->Add(static_cast<typename Metric::domain_t>(stop_time_µs - start_time_µs_));
+  }
+
+ private:
+  bool running_;
+  uint64_t start_time_µs_;
+  Metric* metric_;
 };
 
 /**
