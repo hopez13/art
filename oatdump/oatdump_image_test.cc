@@ -30,7 +30,6 @@ TEST_F(OatDumpTest, TestImage) {
 }
 TEST_F(OatDumpTest, TestImageStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {}, kListAndCode));
 }
@@ -42,7 +41,6 @@ TEST_F(OatDumpTest, TestOatImage) {
 }
 TEST_F(OatDumpTest, TestOatImageStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeCoreOat, {}, kListAndCode));
 }

@@ -32,7 +32,6 @@ TEST_F(OatDumpTest, TestNoDumpVmap) {
 }
 TEST_F(OatDumpTest, TestNoDumpVmapStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-dump:vmap"}, kListAndCode));
 }
@@ -44,7 +43,6 @@ TEST_F(OatDumpTest, TestNoDisassemble) {
 }
 TEST_F(OatDumpTest, TestNoDisassembleStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--no-disassemble"}, kListAndCode));
 }
@@ -56,7 +54,6 @@ TEST_F(OatDumpTest, TestListClasses) {
 }
 TEST_F(OatDumpTest, TestListClassesStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-classes"}, kListOnly));
 }
@@ -68,7 +65,6 @@ TEST_F(OatDumpTest, TestListMethods) {
 }
 TEST_F(OatDumpTest, TestListMethodsStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeArt, {"--list-methods"}, kListOnly));
 }
@@ -80,7 +76,6 @@ TEST_F(OatDumpTest, TestSymbolize) {
 }
 TEST_F(OatDumpTest, TestSymbolizeStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(Exec(kStatic, kModeSymbolize, {}, kListOnly));
 }
@@ -106,7 +101,6 @@ TEST_F(OatDumpTest, TestExportDex) {
 }
 TEST_F(OatDumpTest, TestExportDexStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
-  TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
   ASSERT_TRUE(GenerateAppOdexFile(kStatic, {"--runtime-arg", "-Xmx64M"}));
   ASSERT_TRUE(Exec(kStatic, kModeOat, {"--export-dex-to=" + tmp_dir_}, kListOnly));

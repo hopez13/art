@@ -330,12 +330,6 @@ using CommonArtTestWithParam = CommonArtTestBase<testing::TestWithParam<Param>>;
     return; \
   }
 
-#define TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS() \
-  if (!kHostStaticBuildEnabled) { \
-    printf("WARNING: TEST DISABLED FOR NON-STATIC HOST BUILDS\n"); \
-    return; \
-  }
-
 #define TEST_DISABLED_FOR_MEMORY_TOOL() \
   if (kRunningOnMemoryTool) { \
     printf("WARNING: TEST DISABLED FOR MEMORY TOOL\n"); \
