@@ -27,7 +27,11 @@ ArtMetrics::ArtMetrics()
 #define ART_COUNTER(name) name{},
       ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
-              unused_{} {}
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name{},
+          ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
+              unused_{} {
+}
 
 void ArtMetrics::ReportAllMetrics([[maybe_unused]] MetricsBackend* backend) const {
 // TODO: remove maybe_unused once a counter is defined.
@@ -36,6 +40,14 @@ void ArtMetrics::ReportAllMetrics([[maybe_unused]] MetricsBackend* backend) cons
 #define ART_COUNTER(name) backend->ReportCounter(DatumId::name, name.value_);
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTERS
+
+// Dump histograms
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value)               \
+  backend->BeginHistogram(DatumId::name, num_buckets, low_value, high_value); \
+  name.ReportBuckets(backend);                                                \
+  backend->EndHistogram();
+  ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
 }
 
 }  // namespace metrics
