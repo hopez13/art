@@ -1,0 +1,383 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fac6e33_2292e42d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Some early comments. I\u0027ll need to continue the review.",
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f809c37_945018c7",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Pass by reference?",
+      "range": {
+        "startLine": 48,
+        "startChar": 49,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df0050d0_cf3dc4e6",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "auto\u0026 maybe_result (or avoid the variable and copy it to the 3 uses below).",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16a538ae_3d86ca89",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "HBasicBlock*",
+      "range": {
+        "startLine": 112,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 11
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f63394f_8c9dd0eb",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 116,
+        "startChar": 9,
+        "endLine": 116,
+        "endChar": 13
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90407cfb_a0dea101",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 120,
+        "startChar": 11,
+        "endLine": 120,
+        "endChar": 15
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4048a8cb_62e08f31",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "HighestBitSet() !\u003d -1",
+      "range": {
+        "startLine": 138,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16938ade_a41eea01",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "I\u0027d call it \"arbitrary\". We\u0027re not using any random generator here.",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c3501f_4e792afb",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "BitVecBlockRange",
+      "range": {
+        "startLine": 194,
+        "startChar": 18,
+        "endLine": 194,
+        "endChar": 22
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e3e5d49_55225157",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "HBasicBlock*",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 13
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354866f4_32b4f2a3",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "HBasicBlock*",
+      "range": {
+        "startLine": 209,
+        "startChar": 9,
+        "endLine": 209,
+        "endChar": 13
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571098c2_e2e8aefe",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Remove unnecessary includes.",
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3100e237_ada358b0",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 122,
+        "startChar": 55,
+        "endLine": 122,
+        "endChar": 59
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad8fdb3_46e66672",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 131,
+        "startChar": 55,
+        "endLine": 131,
+        "endChar": 59
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c576e40_c22f3249",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Remove and use `graph_` below.",
+      "range": {
+        "startLine": 210,
+        "startChar": 4,
+        "endLine": 210,
+        "endChar": 27
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "881fa722_e25a36e8",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Remove useless top-level const.",
+      "range": {
+        "startLine": 242,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 7
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c19936e_191c8450",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-09-29T09:20:38Z",
+      "side": 1,
+      "message": "Use ScopedArenaBitVector.",
+      "range": {
+        "startLine": 386,
+        "startChar": 4,
+        "endLine": 386,
+        "endChar": 42
+      },
+      "revId": "57b4e4e510590fcfeb8675c32a5520090b177734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
