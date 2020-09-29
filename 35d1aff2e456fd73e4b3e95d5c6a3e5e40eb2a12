@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30385605_59fd6680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-09-29T21:48:20Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded a stack of CLs that adds the ART-side of the infrastructure for statsd. Later CLs will integrate this with the runtime, start collecting metrics, and add backends so we can see the data that\u0027s collected.",
+      "revId": "35d1aff2e456fd73e4b3e95d5c6a3e5e40eb2a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
