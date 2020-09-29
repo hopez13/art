@@ -68,6 +68,29 @@
       "revId": "257f0e840d37b9f1790f4b630e67ffb34d70b280",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa949b6d_5ebab41a",
+        "filename": "runtime/interpreter/interpreter_switch_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-29T08:52:53Z",
+      "side": 1,
+      "message": "I think for structs the convention is to not suffix it with \u0027_\u0027 ?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "257f0e840d37b9f1790f4b630e67ffb34d70b280",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
