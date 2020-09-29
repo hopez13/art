@@ -414,7 +414,7 @@ genrule {
     cmd: art_check_apex_gen_stem +
         " --flavor release" +
         " $(in)" +
-        " && touch $(out)",
+        " && touch $(out) && chmod a+x $(out)",
     out: ["art-check-release-apex-gen.unused"],
 }
 
@@ -431,7 +431,7 @@ genrule {
     cmd: art_check_apex_gen_stem +
         " --flavor debug" +
         " $(in)" +
-        " && touch $(out)",
+        " && touch $(out) && chmod a+x $(out)",
     out: ["art-check-debug-apex-gen.unused"],
 }
 
@@ -448,7 +448,7 @@ genrule {
     cmd: art_check_apex_gen_stem +
         " --flavor testing" +
         " $(in)" +
-        " && touch $(out)",
+        " && touch $(out) && chmod a+x $(out)",
     out: ["art-check-testing-apex-gen.unused"],
 }
 
