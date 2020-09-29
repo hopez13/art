@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73326ba8_4be32946",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T11:33:22Z",
+      "side": 1,
+      "message": "Augment?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "f58cce9f4f96e720d960ae7212ce747b0092093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cfc77cf_9827120c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T11:33:22Z",
+      "side": 1,
+      "message": "This should not be needed, if build dependencies are correct.",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "f58cce9f4f96e720d960ae7212ce747b0092093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "300c7c6a_e33ce8f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T11:33:22Z",
+      "side": 1,
+      "message": "Could you add\n\n  Bug: 147817558\n\nhere?",
+      "revId": "f58cce9f4f96e720d960ae7212ce747b0092093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286f2fb1_a5a62d18",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-09-29T11:33:22Z",
+      "side": 1,
+      "message": "I\u0027d extend the comment to document that the first condition is for local TradeFed executions, while the second condition is for remote TradeFed executions.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 65
+      },
+      "revId": "f58cce9f4f96e720d960ae7212ce747b0092093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
