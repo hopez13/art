@@ -95,14 +95,6 @@ static constexpr bool kIsTargetFuchsia = false;
 # endif
 #endif
 
-// Additional statically-linked ART binaries (dex2oats, oatdumps, etc.) are
-// always available on the host
-#if !defined(ART_TARGET)
-static constexpr bool kHostStaticBuildEnabled = true;
-#else
-static constexpr bool kHostStaticBuildEnabled = false;
-#endif
-
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_GLOBALS_H_

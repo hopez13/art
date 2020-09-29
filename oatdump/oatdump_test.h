@@ -64,20 +64,11 @@ class OatDumpTest : public CommonRuntimeTest {
     return dir;
   }
 
-  // Linking flavor.
-  enum Flavor {
-    kDynamic,  // oatdump(d), dex2oat(d)
-    kStatic,   // oatdump(d)s, dex2oat(d)s
-  };
-
   // Returns path to the oatdump/dex2oat/dexdump binary.
-  std::string GetExecutableFilePath(const char* name, bool is_debug, bool is_static, bool bitness) {
+  std::string GetExecutableFilePath(const char* name, bool is_debug, bool bitness) {
     std::string path = GetArtBinDir() + '/' + name;
     if (is_debug) {
       path += 'd';
-    }
-    if (is_static) {
-      path += 's';
     }
     if (bitness) {
       path += Is64BitInstructionSet(kRuntimeISA) ? "64" : "32";
@@ -85,8 +76,8 @@ class OatDumpTest : public CommonRuntimeTest {
     return path;
   }
 
-  std::string GetExecutableFilePath(Flavor flavor, const char* name, bool bitness) {
-    return GetExecutableFilePath(name, kIsDebugBuild, flavor == kStatic, bitness);
+  std::string GetExecutableFilePath(const char* name, bool bitness) {
+    return GetExecutableFilePath(name, kIsDebugBuild, bitness);
   }
 
   enum Mode {
@@ -125,10 +116,9 @@ class OatDumpTest : public CommonRuntimeTest {
     return tmp_dir_ + "/" + GetAppBaseName() + ".odex";
   }
 
-  ::testing::AssertionResult GenerateAppOdexFile(Flavor flavor,
-                                                 const std::vector<std::string>& args) {
+  ::testing::AssertionResult GenerateAppOdexFile(const std::vector<std::string>& args) {
     std::string dex2oat_path =
-        GetExecutableFilePath(flavor, "dex2oat", /* bitness= */ kIsTargetBuild);
+        GetExecutableFilePath("dex2oat", /* bitness= */ kIsTargetBuild);
     std::vector<std::string> exec_argv = {
         dex2oat_path,
         "--runtime-arg",
@@ -166,12 +156,11 @@ class OatDumpTest : public CommonRuntimeTest {
   }
 
   // Run the test with custom arguments.
-  ::testing::AssertionResult Exec(Flavor flavor,
-                                  Mode mode,
+  ::testing::AssertionResult Exec(Mode mode,
                                   const std::vector<std::string>& args,
                                   Display display,
                                   bool expect_failure = false) {
-    std::string file_path = GetExecutableFilePath(flavor, "oatdump", /* bitness= */ false);
+    std::string file_path = GetExecutableFilePath("oatdump", /* bitness= */ false);
 
     if (!OS::FileExists(file_path.c_str())) {
       return ::testing::AssertionFailure() << file_path << " should be a valid file path";

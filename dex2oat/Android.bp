@@ -364,48 +364,6 @@ art_cc_binary {
     },
 }
 
-cc_defaults {
-    name: "dex2oats-defaults",
-    device_supported: false,
-    static_executable: true,
-    defaults: [
-        "dex2oat-defaults",
-    ],
-    target: {
-        darwin: {
-            enabled: false,
-        },
-    },
-    ldflags: [
-        // We need this because GC stress mode makes use of
-        // _Unwind_GetIP and _Unwind_Backtrace and the symbols are also
-        // defined in libgcc_eh.a(unwind-dw2.o)
-        // TODO: Having this is not ideal as it might obscure errors.
-        // Try to get rid of it.
-        "-z muldefs",
-    ],
-}
-
-art_cc_binary {
-    name: "dex2oats",
-    defaults: ["dex2oats-defaults"],
-    static_libs: ["libdex2oat_static"],
-}
-
-art_cc_binary {
-    name: "dex2oatds",
-    defaults: [
-        "art_debug_defaults",
-        "dex2oats-defaults",
-    ],
-    static_libs: ["libdex2oatd_static"],
-    target: {
-        linux_glibc_x86_64: {
-            use_clang_lld: true,
-        },
-    },
-}
-
 art_cc_library_static {
     name: "libart-dex2oat-gtest",
     defaults: ["libart-gtest-defaults"],
