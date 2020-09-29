@@ -66,8 +66,8 @@ class OatDumpTest : public CommonRuntimeTest {
 
   // Linking flavor.
   enum Flavor {
-    kDynamic,  // oatdump(d), dex2oat(d)
-    kStatic,   // oatdump(d)s, dex2oat(d)s
+    kDynamic,  // oatdump(d)
+    kStatic,   // oatdump(d)s
   };
 
   // Returns path to the oatdump/dex2oat/dexdump binary.
@@ -76,7 +76,7 @@ class OatDumpTest : public CommonRuntimeTest {
     if (is_debug) {
       path += 'd';
     }
-    if (is_static) {
+    if (strcmp(name, "dex2oat") && is_static) {
       path += 's';
     }
     if (bitness) {
