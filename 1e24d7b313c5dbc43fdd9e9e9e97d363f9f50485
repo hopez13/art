@@ -16,6 +16,29 @@
       "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbe41761_cfdf698b",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-30T14:11:31Z",
+      "side": 1,
+      "message": "Is there a major difference between a Histogram for metrics compared to histograms in art/libartbase/base/histogram.h? It\u0027d be great if we could avoid adding another kind of histogram.\n\nIf we cannot use the existing one, maybe it\u0027s worth calling it MetricsHistogram (even if they\u0027re a different namespace) to disambiguate.",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
