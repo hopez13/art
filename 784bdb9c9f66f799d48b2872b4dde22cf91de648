@@ -16,6 +16,98 @@
       "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f39be83c_a848c83a",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2020-09-30T15:37:06Z",
+      "side": 1,
+      "message": "Can this ever be null? Should we assert at construction time?",
+      "range": {
+        "startLine": 376,
+        "startChar": 8,
+        "endLine": 376,
+        "endChar": 24
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60f7ce0_fe8a8f30",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2020-09-30T15:37:06Z",
+      "side": 1,
+      "message": "continue here as well? merge with the previous statement?",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 744,
+        "endChar": 21
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a27e2a_f9d1f645",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2020-09-30T15:37:06Z",
+      "side": 1,
+      "message": "If this is null this loop is a noop. We can merge this with the previous if (base_obj_id) statement?",
+      "range": {
+        "startLine": 745,
+        "startChar": 24,
+        "endLine": 745,
+        "endChar": 35
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c533e8_82d005ef",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2020-09-30T15:37:06Z",
+      "side": 1,
+      "message": "How does a null encode here?",
+      "range": {
+        "startLine": 764,
+        "startChar": 0,
+        "endLine": 764,
+        "endChar": 90
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
