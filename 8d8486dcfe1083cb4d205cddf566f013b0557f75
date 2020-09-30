@@ -16,6 +16,29 @@
       "revId": "8d8486dcfe1083cb4d205cddf566f013b0557f75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d923f640_a37f2c9a",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-09-30T14:13:13Z",
+      "side": 1,
+      "message": "I didn\u0027t know our tools would be OK with this :) I suggest to avoid frustration with various keyboards, we call this eg micros?",
+      "range": {
+        "startLine": 141,
+        "startChar": 15,
+        "endLine": 141,
+        "endChar": 16
+      },
+      "revId": "8d8486dcfe1083cb4d205cddf566f013b0557f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
