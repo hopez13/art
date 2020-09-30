@@ -23,6 +23,7 @@
 #include <ostream>
 #include <string_view>
 
+#include "android-base/logging.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -75,23 +76,27 @@ class MetricsBackend {
 
 class MetricsCounter {
  public:
-  constexpr MetricsCounter(uint64_t value = 0) : value_{value} {}
+  using domain_t = uint64_t;
+
+  constexpr MetricsCounter(domain_t value = 0) : value_{value} {}
 
   void AddOne() { value_++; }
-  void Add(uint64_t value) { value_ += value; }
+  void Add(domain_t value) { value_ += value; }
 
-  uint64_t Value() const { return value_; }
+  domain_t Value() const { return value_; }
 
  private:
-  uint64_t value_;
+  domain_t value_;
 };
 
 template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
 class MetricsHistogram {
-  static_assert(num_buckets_ > 1);
+  static_assert(num_buckets_ >= 1);
   static_assert(low_value_ < high_value_);
 
  public:
+  using domain_t = int64_t;
+
   constexpr MetricsHistogram() : buckets_{} {}
 
   void Add(int64_t value) {
@@ -111,6 +116,44 @@ class MetricsHistogram {
 
  private:
   std::array<uint32_t, num_buckets_> buckets_;
+};
+
+template <typename Metric>
+class AutoTimer {
+ public:
+  AutoTimer(Metric* metric, bool autostart = true)
+      : running_{false}, start_time_microseconds_{}, metric_{metric} {
+    if (autostart) {
+      Start();
+    }
+  }
+
+  ~AutoTimer() {
+    if (running_) {
+      Stop();
+    }
+  }
+
+  void Start() {
+    DCHECK(!running_);
+    running_ = true;
+    // TODO(eholk): add support for more time units
+    start_time_microseconds_ = MicroTime();
+  }
+
+  void Stop() {
+    DCHECK(running_);
+    uint64_t stop_time_microseconds = MicroTime();
+    running_ = false;
+
+    metric_->Add(
+        static_cast<typename Metric::domain_t>(stop_time_microseconds - start_time_microseconds_));
+  }
+
+ private:
+  bool running_;
+  uint64_t start_time_microseconds_;
+  Metric* metric_;
 };
 
 /**
