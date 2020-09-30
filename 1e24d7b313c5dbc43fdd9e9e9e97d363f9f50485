@@ -39,6 +39,30 @@
       "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa7d4aa_8d7bf65b",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-09-30T19:02:35Z",
+      "side": 1,
+      "message": "I decided to rename it to MetricsHistogram, and renamed Counter to MetricsCounter for symmetry.\n\nI considered using the existing histogram class, but it seemed like the requirements were enough different that it was worth re-implementing. The existing histogram has a lot of features we don\u0027t need here, like being able to dynamically resize the number of buckets, and also keeping a few running statistics like min and max.\n\nThe dynamic resizing was particularly at odds with what we need here, since that implies dynamic memory allocation. We\u0027d like to be able to update histograms on hot, performance sensitive code paths, so the goal here was to make it so that the update can always be done with a minimal number of instructions.",
+      "parentUuid": "bbe41761_cfdf698b",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
