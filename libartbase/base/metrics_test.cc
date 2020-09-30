@@ -67,6 +67,16 @@ TEST_F(MetricsTest, SimpleCounter) {
   EXPECT_EQ(6u, test_counter.Value());
 }
 
+TEST_F(MetricsTest, CounterTimer) {
+  MetricsCounter test_counter;
+  {
+    AutoTimer timer{&test_counter};
+    // Sleep for 2µs so the counter will be greater than 0.
+    NanoSleep(2'000);
+  }
+  EXPECT_GT(test_counter.Value(), 0u);
+}
+
 TEST_F(MetricsTest, DatumName) {
   EXPECT_EQ("ClassVerificationTotalTime", DatumName(DatumId::kClassVerificationTotalTime));
 }
@@ -169,6 +179,17 @@ TEST_F(MetricsTest, ArtMetricsReport) {
   } backend;
 
   metrics.ReportAllMetrics(&backend);
+}
+
+TEST_F(MetricsTest, HistogramTimer) {
+  TestMetricsHistogram<1, 0, 100> test_histogram;
+  {
+    AutoTimer timer{&test_histogram};
+    // Sleep for 2µs so the counter will be greater than 0.
+    NanoSleep(2'000);
+  }
+
+  EXPECT_GT(test_histogram.GetBucketsForTest()[0], 0u);
 }
 
 }  // namespace metrics

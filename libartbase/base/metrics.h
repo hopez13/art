@@ -24,6 +24,7 @@
 #include <string_view>
 #include <vector>
 
+#include "android-base/logging.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -111,18 +112,20 @@ class MetricsBackend {
 
 class MetricsCounter {
  public:
+  using domain_t = uint64_t;
+
   explicit constexpr MetricsCounter(uint64_t value = 0) : value_{value} {
     // Ensure we do not have any unnecessary data in this class.
     static_assert(sizeof(*this) == sizeof(uint64_t));
   }
 
   void AddOne() { value_++; }
-  void Add(uint64_t value) { value_ += value; }
+  void Add(domain_t value) { value_ += value; }
 
-  uint64_t Value() const { return value_; }
+  domain_t Value() const { return value_; }
 
  private:
-  uint64_t value_;
+  domain_t value_;
 };
 
 template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
@@ -131,6 +134,8 @@ class MetricsHistogram {
   static_assert(low_value_ < high_value_);
 
  public:
+  using domain_t = int64_t;
+
   constexpr MetricsHistogram() : buckets_{} {
     // Ensure we do not have any unnecessary data in this class.
     static_assert(sizeof(*this) == sizeof(uint32_t) * num_buckets_);
@@ -154,6 +159,71 @@ class MetricsHistogram {
   std::array<uint32_t, num_buckets_> buckets_;
 
   friend class ArtMetrics;
+};
+
+/**
+ * AutoTimer simplifies time-based metrics collection.
+ *
+ * Several modes are supported. In the default case, the timer starts immediately and stops when it
+ * goes out of scope. Example:
+ *
+ *     {
+ *       AutoTimer timer{metric};
+ *       DoStuff();
+ *       // timer stops and updates metric automatically here.
+ *     }
+ *
+ * You can also stop the timer early:
+ *
+ *     timer.Stop();
+ *
+ * Finally, you can choose to not automatically start the timer at the beginning by passing false as
+ * the second argument to the constructor:
+ *
+ *     AutoTimer timer{metric, false};
+ *     DoNotTimeThis();
+ *     timer.Start();
+ *     TimeThis();
+ *
+ * Manually started timers will still automatically stop in the destructor, but they can be manually
+ * stopped as well.
+ */
+template <typename Metric>
+class AutoTimer {
+ public:
+  explicit AutoTimer(Metric* metric, bool autostart = true)
+      : running_{false}, start_time_microseconds_{}, metric_{metric} {
+    if (autostart) {
+      Start();
+    }
+  }
+
+  ~AutoTimer() {
+    if (running_) {
+      Stop();
+    }
+  }
+
+  void Start() {
+    DCHECK(!running_);
+    running_ = true;
+    // TODO(eholk): add support for more time units
+    start_time_microseconds_ = MicroTime();
+  }
+
+  void Stop() {
+    DCHECK(running_);
+    uint64_t stop_time_microseconds = MicroTime();
+    running_ = false;
+
+    metric_->Add(
+        static_cast<typename Metric::domain_t>(stop_time_microseconds - start_time_microseconds_));
+  }
+
+ private:
+  bool running_;
+  uint64_t start_time_microseconds_;
+  Metric* metric_;
 };
 
 /**
