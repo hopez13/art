@@ -57,6 +57,16 @@ TEST_F(MetricsTest, SimpleCounter) {
   EXPECT_EQ(6u, test_counter.Value());
 }
 
+TEST_F(MetricsTest, CounterTimer) {
+  MetricsCounter test_counter;
+  {
+    AutoTimer timer{&test_counter};
+    // Sleep for 2µs so the counter will be greater than 0.
+    NanoSleep(2'000);
+  }
+  EXPECT_GT(test_counter.Value(), 0u);
+}
+
 TEST_F(MetricsTest, UnknownDataName) {
   EXPECT_EQ("<unknown datum>", DatumName(DatumId::kUnknownDatum));
 }
@@ -148,6 +158,31 @@ TEST_F(MetricsTest, HistogramOutOfRangeTest) {
   } backend;
 
   histogram.ReportBuckets(&backend);
+}
+
+TEST_F(MetricsTest, HistogramTimer) {
+  MetricsHistogram<1, 0, 100> test_histogram;
+  {
+    AutoTimer timer{&test_histogram};
+    // Sleep for 2µs so the counter will be greater than 0.
+    NanoSleep(2'000);
+  }
+
+  class TestBackend : public TestBackendBase {
+   public:
+    virtual void ReportHistogramBucket(size_t index, uint32_t value) {
+      switch (index) {
+        case 0:
+          EXPECT_GT(value, 0u);
+          break;
+
+        default:
+          FAIL();
+      }
+    }
+  } backend;
+
+  test_histogram.ReportBuckets(&backend);
 }
 
 }  // namespace metrics
