@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "810fcc78_de73695f",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-09-30T16:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39be83c_a848c83a",
+      "range": {
+        "startLine": 376,
+        "startChar": 8,
+        "endLine": 376,
+        "endChar": 24
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d60f7ce0_fe8a8f30",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d3c358_f461a19d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-09-30T16:38:49Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d60f7ce0_fe8a8f30",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 744,
+        "endChar": 21
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "7135205b_2beaefaf",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-09-30T16:38:49Z",
+      "side": 1,
+      "message": "We need to check again because of the `base_obj_id--;`.",
+      "parentUuid": "00a27e2a_f9d1f645",
+      "range": {
+        "startLine": 745,
+        "startChar": 24,
+        "endLine": 745,
+        "endChar": 35
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7c533e8_82d005ef",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
@@ -108,6 +180,30 @@
       "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b03ea35_b75e5a2d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2020-09-30T16:38:49Z",
+      "side": 1,
+      "message": "Hmm how did my testing not catch this.",
+      "parentUuid": "b7c533e8_82d005ef",
+      "range": {
+        "startLine": 764,
+        "startChar": 0,
+        "endLine": 764,
+        "endChar": 90
+      },
+      "revId": "784bdb9c9f66f799d48b2872b4dde22cf91de648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
