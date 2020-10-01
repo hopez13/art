@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08d16f98_3a0938b6",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "another new thing for me :). What does this do\"?",
+      "range": {
+        "startLine": 32,
+        "startChar": 36,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76abf7e_aad2d914",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "is this the paradigm to iterate through the counters? I wonder if we should provide an easier way (like with a classic for_each which is more readbale.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c692bf5_b7bc1797",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "capital letters? also should we assign values?\nand do we need it? I think we can use UNREACHABLE statements where we don\u0027t expect valid values, or do you have some other conernces?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9505e8b_116bfb50",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "comments here and the rest of the methods. What is a a session? do I have to call endsession()? If not, what happens...etc..",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2770ae8a_ca7247a9",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "docs. what if this already reported, are the values added? replaced? etc..",
+      "range": {
+        "startLine": 58,
+        "startChar": 15,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "275d38ee_0286229f",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb9186c_3f73f5e9",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "interesting trick. I didn\u0027t know about it :)",
+      "range": {
+        "startLine": 88,
+        "startChar": 22,
+        "endLine": 88,
+        "endChar": 26
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efaeba6_21fdd1b3",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "any reason to not use std::string? Are you concerned with the memory? We could predefine them at the time we define the counters.",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 22
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62bda28d_544b5e4d",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-01T18:58:09Z",
+      "side": 1,
+      "message": "should we make it UNREACHABLE?",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
