@@ -192,6 +192,7 @@ bool JitCompiler::CompileMethod(
     success = compiler_->JitCompile(
         self, code_cache, region, method, compilation_kind, jit_logger_.get());
     uint64_t duration_ns = NanoTime() - start_ns;
+    GetMetrics()->JitMethodCompileTime()->Add(static_cast<int64_t>(NsToUs(duration_ns)));
     VLOG(jit) << "Compilation of "
               << method->PrettyMethod()
               << " took "

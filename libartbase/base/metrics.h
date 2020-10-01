@@ -33,7 +33,7 @@
 #define ART_COUNTERS(COUNTER) COUNTER(ClassVerificationTotalTime)
 
 // HISTOGRAM(counter_name, num_buckets, low_value, high_value)
-#define ART_HISTOGRAMS(HISTOGRAM)
+#define ART_HISTOGRAMS(HISTOGRAM) HISTOGRAM(JitMethodCompileTime, 15, 0, 1'000'000)
 
 namespace art {
 namespace metrics {
@@ -190,7 +190,7 @@ class ArtMetrics {
 #undef ART_COUNTER
 
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  MetricsHistogram<num_buckets, low_value, high_value> name() { return &name##_; }
+  MetricsHistogram<num_buckets, low_value, high_value>* name() { return &name##_; }
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 
