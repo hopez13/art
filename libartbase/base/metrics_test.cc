@@ -68,7 +68,7 @@ TEST_F(MetricsTest, CounterTimer) {
 }
 
 TEST_F(MetricsTest, UnknownDataName) {
-  EXPECT_EQ("<unknown datum>", DatumName(DatumId::unknown_datum));
+  EXPECT_EQ("<unknown datum>", DatumName(DatumId::kUnkownDatum));
 }
 
 TEST_F(MetricsTest, SimpleHistogramTest) {

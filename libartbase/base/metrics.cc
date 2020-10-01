@@ -24,27 +24,25 @@ namespace metrics {
 
 ArtMetrics::ArtMetrics()
     :
-#define ART_COUNTER(name) name{},
+#define ART_COUNTER(name) name##_{},
       ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
-#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name{},
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name##_{},
           ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
               unused_{} {
 }
 
-void ArtMetrics::ReportAllMetrics([[maybe_unused]] MetricsBackend* backend) const {
-// TODO: remove maybe_unused once a counter is defined.
-
+void ArtMetrics::ReportAllMetrics(MetricsBackend* backend) {
 // Dump counters
-#define ART_COUNTER(name) backend->ReportCounter(DatumId::name, name.value_);
+#define ART_COUNTER(name) backend->ReportCounter(DatumId::k##name, name()->Value());
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTERS
 
 // Dump histograms
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value)               \
-  backend->BeginHistogram(DatumId::name, num_buckets, low_value, high_value); \
-  name.ReportBuckets(backend);                                                \
+  backend->BeginHistogram(DatumId::k##name, num_buckets, low_value, high_value); \
+  name()->ReportBuckets(backend);                                                \
   backend->EndHistogram();
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM

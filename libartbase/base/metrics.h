@@ -30,7 +30,7 @@
 #pragma clang diagnostic error "-Wconversion"
 
 // COUNTER(counter_name)
-#define ART_COUNTERS(COUNTER)
+#define ART_COUNTERS(COUNTER) COUNTER(ClassVerificationTotalTime)
 
 // HISTOGRAM(counter_name, num_buckets, low_value, high_value)
 #define ART_HISTOGRAMS(HISTOGRAM)
@@ -42,12 +42,12 @@ namespace metrics {
  * An enumeration of all ART counters and histograms.
  */
 enum class DatumId {
-  unknown_datum,
-#define ART_COUNTER(name) name,
+  kUnkownDatum,
+#define ART_COUNTER(name) k##name,
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
-#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name,
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) k##name,
       ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 };
@@ -163,18 +163,27 @@ class ArtMetrics {
  public:
   ArtMetrics();
 
-  void ReportAllMetrics(MetricsBackend* backend) const;
+  void ReportAllMetrics(MetricsBackend* backend);
 
-#define ART_COUNTER(name) MetricsCounter name;
+#define ART_COUNTER(name) MetricsCounter* name() { return &name##_; }
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  MetricsHistogram<num_buckets, low_value, high_value> name;
+  MetricsHistogram<num_buckets, low_value, high_value> name() { return &name##_; }
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 
  private:
+#define ART_COUNTER(name) MetricsCounter name##_;
+  ART_COUNTERS(ART_COUNTER)
+#undef ART_COUNTER
+
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
+  MetricsHistogram<num_buckets, low_value, high_value> name##_;
+  ART_HISTOGRAMS(ART_HISTOGRAM)
+#undef ART_HISTOGRAM
+
   // This is field is only included to allow us expand the ART_COUNTERS and ART_HISTOGRAMS macro in
   // the initializer list in ArtMetrics::ArtMetrics. See metrics.cc for how it's used.
   //
@@ -188,13 +197,13 @@ class ArtMetrics {
 constexpr const char* DatumName(DatumId datum) {
   switch (datum) {
 #define ART_COUNTER(name) \
-  case DatumId::name:     \
+  case DatumId::k##name:     \
     return #name;
     ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  case DatumId::name:                                           \
+  case DatumId::k##name:                                           \
     return #name;
     ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
