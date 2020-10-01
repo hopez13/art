@@ -231,6 +231,10 @@ java_defaults {
         "general-tests",
         "mts",
     ],
+
+    required: [
+        "art-run-test-checker"
+    ]
 }
 
 art_cc_test_library {
