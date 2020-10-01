@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a12babd9_8b9af08e",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "It\u0027s the new C++17 way of doing ATTRIBUTE_UNUSED. rpl@ taught me about it.",
+      "parentUuid": "08d16f98_3a0938b6",
+      "range": {
+        "startLine": 32,
+        "startChar": 36,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c76abf7e_aad2d914",
         "filename": "libartbase/base/metrics.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2020-10-01T18:58:09Z",
       "side": 1,
       "message": "is this the paradigm to iterate through the counters? I wonder if we should provide an easier way (like with a classic for_each which is more readbale.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "165dc6aa_8d702f8a",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "For counters, for_each is doable, since we only have one type for counters. For histograms, it\u0027s trickier because each histogram will be a template with the number of buckets, min and max values. It makes it hard to iterate over all of them because the types are different.\n\nOn the bright side, you shouldn\u0027t have to iterate over the metrics too often (this is probably the only place you\u0027ll need to do it).\n\nI have some ideas for how to clean this up. Since we\u0027re not really doing much with this code in this CL, maybe I should just pull it out until we\u0027re ready to use it. In the meantime, I can come up with a better interface.",
+      "parentUuid": "c76abf7e_aad2d914",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "829d9468_11282b18",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "I like capital letters better, and migrated to this in a later CL I was just working on: https://android-review.googlesource.com/c/platform/art/+/1444656/1/libartbase/base/metrics.h\n\nI\u0027ll pull some of those changes into this CL.\n\nThe main reason for kUnknownDatum right now is for test code. For some unit tests around counters and histograms, we\u0027ll need to assign a DatumId, and it seems better to have a special value for this reason than just picking an arbitrary metric. Maybe kTestDatumId would be better?",
+      "parentUuid": "9c692bf5_b7bc1797",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9505e8b_116bfb50",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2020-10-01T18:58:09Z",
       "side": 1,
       "message": "comments here and the rest of the methods. What is a a session? do I have to call endsession()? If not, what happens...etc..",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66259142_d791f039",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "I added some comments, although what a session is is probably still kind of unclear.\n\nI suspect the protocol around metrics reporting will evolve some over the next few CLs, but this is a start for now.",
+      "parentUuid": "c9505e8b_116bfb50",
       "range": {
         "startLine": 55,
         "startChar": 15,
@@ -114,6 +210,30 @@
       "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446852fd_80cd8066",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2770ae8a_ca7247a9",
+      "range": {
+        "startLine": 58,
+        "startChar": 15,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +283,54 @@
     },
     {
       "key": {
+        "uuid": "69ea3d11_b92c2070",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "275d38ee_0286229f",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23195466_7a30992f",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "I invented it for this CL :)\n\nI wish C++ allowed trailing commas like a lot of other languages do, since this isn\u0027t a terribly pretty solution.",
+      "parentUuid": "8cb9186c_3f73f5e9",
+      "range": {
+        "startLine": 88,
+        "startChar": 22,
+        "endLine": 88,
+        "endChar": 26
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5efaeba6_21fdd1b3",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 7
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "0ca34e23_e1a044fc",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "I with with const char* because std::string doesn\u0027t work with constexpr. That said, there\u0027s probably no good reason to have this be constexpr.\n\nThis should only be used when dumping values to logcat, files, etc., so it should be performance sensitive.\n\nI\u0027ll make it std::string and move the implementation out of the .h file.",
+      "parentUuid": "5efaeba6_21fdd1b3",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 22
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62bda28d_544b5e4d",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 7
@@ -197,6 +389,30 @@
       "writtenOn": "2020-10-01T18:58:09Z",
       "side": 1,
       "message": "should we make it UNREACHABLE?",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8c3dcaf_4a3ef17b",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-01T21:08:10Z",
+      "side": 1,
+      "message": "If we reserve a testing datum id, I think it should return a value from this function too. Otherwise, UNREACHABLE is the right thing.",
+      "parentUuid": "62bda28d_544b5e4d",
       "range": {
         "startLine": 107,
         "startChar": 6,
