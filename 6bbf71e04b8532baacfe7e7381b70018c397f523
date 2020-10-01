@@ -16,6 +16,712 @@
       "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a648022d_82360c46",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "maybe_result (also on the next line)",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 30
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a280bbd8_b5a8c992",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Too many blank lines.",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f916775_fc1adb0b",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "/*for_partial_elimination\u003d*/\n\nAnd why \"true\"?",
+      "range": {
+        "startLine": 119,
+        "startChar": 67,
+        "endLine": 119,
+        "endChar": 68
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a40f039d_4482ef8f",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 216,
+        "startChar": 67,
+        "endLine": 216,
+        "endChar": 68
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df98694d_e69c7010",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Odd space, line too long.",
+      "range": {
+        "startLine": 767,
+        "startChar": 120,
+        "endLine": 767,
+        "endChar": 121
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce1b9e81_458cc83b",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "This is the negation of the expression in lines 778-781. That expression should be pulled out of the `if` in line 776 and reused here.",
+      "range": {
+        "startLine": 785,
+        "startChar": 24,
+        "endLine": 788,
+        "endChar": 97
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c3db0b_7ef8b608",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "This is an odd name for a block that\u0027s part of the loop. What about renaming\n\n  pre-loop -\u003e loop-header\n  loop -\u003e loop-body",
+      "range": {
+        "startLine": 829,
+        "startChar": 68,
+        "endLine": 829,
+        "endChar": 76
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adaa879_446ea195",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "/*valid\u003d*/",
+      "range": {
+        "startLine": 888,
+        "startChar": 31,
+        "endLine": 888,
+        "endChar": 32
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "899e25fa_062dde9f",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "You should place l2r to the right of l2l and avoid the crossing lines with `right-\u003eexit`.",
+      "range": {
+        "startLine": 941,
+        "startChar": 49,
+        "endLine": 941,
+        "endChar": 50
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86dcf65a_553ec512",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "The `l1loop-\u003el1` arrow can be much smaller here instead of going around `entry` and `right`.",
+      "range": {
+        "startLine": 1006,
+        "startChar": 26,
+        "endLine": 1006,
+        "endChar": 41
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "500ce478_5c77c701",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1066,
+        "startChar": 24,
+        "endLine": 1066,
+        "endChar": 37
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faceba7c_1c8acfb2",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1120,
+        "startChar": 24,
+        "endLine": 1120,
+        "endChar": 37
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8577174a_2e83720c",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Move c_begin_1 here",
+      "range": {
+        "startLine": 1255,
+        "startChar": 60,
+        "endLine": 1255,
+        "endChar": 70
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6c9e692_7584aeb7",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Move `c_end_2` here.",
+      "range": {
+        "startLine": 1271,
+        "startChar": 59,
+        "endLine": 1271,
+        "endChar": 70
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "040fe3a6_12508b23",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "first + 1 !\u003d excluded.end()\n\nBut it would also work without the \"+1\".",
+      "range": {
+        "startLine": 1349,
+        "startChar": 38,
+        "endLine": 1349,
+        "endChar": 89
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b760d8f8_5f92e447",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Over-using \"auto\"; the `HBasicBlock*` is short enough to use for loop variables.",
+      "range": {
+        "startLine": 1352,
+        "startChar": 11,
+        "endLine": 1352,
+        "endChar": 15
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d8c3eb_4ee2971a",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "|| PathBetween(entry, exit)\n\nand drop the second set of loops. Maybe rename entry/exit to block1/block2.",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f2e7b92_f10b213c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "DCHECK_LT, same below.",
+      "range": {
+        "startLine": 271,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 11
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "418af7fd_5fc0f0a9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Maybe the BitVector::kWordBits should be public and use kBitsPerByte.\n\nAlso, line too long.",
+      "range": {
+        "startLine": 275,
+        "startChar": 75,
+        "endLine": 275,
+        "endChar": 95
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fe3c76c_106f756e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Or DCHECK() that they are not null?",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 3
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fec0e54b_3a0806e2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Use `blocks_.size()` for the number of rows, only the size of the row needs the extra padding.\n\nShouldn\u0027t we clear the bit afterwards?",
+      "range": {
+        "startLine": 295,
+        "startChar": 29,
+        "endLine": 295,
+        "endChar": 39
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0ae21f2_521e1890",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Using Floyd-Warshall would yield less code and fewer opportunities for errors and inefficiencies.\n\n(Such as never setting any bits in `all_visited_nodes`, making it useless. Or not using BitVector::SetInitialBits() and needing to check indexes against blocks_.size().)",
+      "range": {
+        "startLine": 304,
+        "startChar": 41,
+        "endLine": 304,
+        "endChar": 53
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc10ffdb_d4b7f6bc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "R",
+      "range": {
+        "startLine": 790,
+        "startChar": 5,
+        "endLine": 790,
+        "endChar": 6
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff02d7cb_896ffb26",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "/*stats\u003d*/",
+      "range": {
+        "startLine": 563,
+        "startChar": 31,
+        "endLine": 563,
+        "endChar": 38
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f5727bb_05c3b3f8",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "/*for_partial_elimination\u003d*/",
+      "range": {
+        "startLine": 276,
+        "startChar": 80,
+        "endLine": 276,
+        "endChar": 85
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "540259f2_9ec4614a",
+        "filename": "libartbase/base/arena_bit_vector.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "This class does not add any members, only Create() and operator new/delete (used only by Create()). That makes splicing (moving ArenaBitVector to a new BitVector) rather harmless but still ugly. I\u0027m wondering if we should merge the functionality to the BitVector and make it `final`.",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f6c6ee_d161c963",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Is this a debugging modification? Or do you really need it?",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df720100_5b7987c3",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "In SafeMap\u003c\u003e, a function that replaces the old value is called Overwrite(). We should try to have consistent naming.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f709ec1d_6c9945cd",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "Are you using the fact that it\u0027s is optional\u003c\u003e anywhere? Or the default argument?",
+      "range": {
+        "startLine": 246,
+        "startChar": 17,
+        "endLine": 246,
+        "endChar": 59
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a6b5b9_3416d1ff",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "This should be a DCHECK(). Incrementing a past-the-end iterator is usually UB.",
+      "range": {
+        "startLine": 252,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 5
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7c052aa_ac1d0637",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "I prefer $noinline$ to ensure that the code checked with CHECK assertions is the code that is executed (rather than executing an inlined version of it).",
+      "range": {
+        "startLine": 3769,
+        "startChar": 21,
+        "endLine": 3769,
+        "endChar": 39
+      },
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89c7dd70_8232fdfc",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 3779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T15:53:51Z",
+      "side": 1,
+      "message": "The block ordering is dexer-dependent, so the CHECK statements followed by CHECK-NOT statements are fragile and may not properly test what you want to test. Prefer CHECK-DAG and separate blocks for checking the number of instructions of particular type.",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
