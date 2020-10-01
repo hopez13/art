@@ -22,6 +22,30 @@
       "revId": "8f63f1084b013a129f66cf8a7ed8ab1cae9f02aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15aef151_5a67e32b",
+        "filename": "libdexfile/TEST_MAPPING",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-01T12:44:57Z",
+      "side": 0,
+      "message": "Yes, that test name was a result of using test_per_src:true. It was named that way when I added it, but not anymore. I don\u0027t know when it changed.",
+      "parentUuid": "c79f8e8d_56e258a5",
+      "range": {
+        "startLine": 4,
+        "startChar": 44,
+        "endLine": 4,
+        "endChar": 64
+      },
+      "revId": "8f63f1084b013a129f66cf8a7ed8ab1cae9f02aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
