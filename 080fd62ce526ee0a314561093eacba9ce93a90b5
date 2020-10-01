@@ -39,6 +39,30 @@
       "revId": "080fd62ce526ee0a314561093eacba9ce93a90b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcd4dcab_c3254cc3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-01T13:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764ef649_10fb0bc7",
+      "range": {
+        "startLine": 4428,
+        "startChar": 13,
+        "endLine": 4428,
+        "endChar": 21
+      },
+      "revId": "080fd62ce526ee0a314561093eacba9ce93a90b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
