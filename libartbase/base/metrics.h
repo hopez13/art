@@ -32,7 +32,6 @@
 
 // COUNTER(counter_name)
 #define ART_COUNTERS(COUNTER) COUNTER(ClassVerificationTotalTime)
-// TODO: ClassVerificationTime serves as a mock for now. Implementation will come later.
 
 // HISTOGRAM(counter_name, num_buckets, minimum_value, maximum_value)
 //

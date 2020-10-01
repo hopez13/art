@@ -242,6 +242,7 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
 
   ClassAccessor accessor(*dex_file, class_def);
   SCOPED_TRACE << "VerifyClass " << PrettyDescriptor(accessor.GetDescriptor());
+  metrics::AutoTimer timer{GetMetrics()->ClassVerificationTotalTime()};
   uint64_t start_ns = 0u;
   if (VLOG_IS_ON(verifier)) {
     start_ns = NanoTime();
