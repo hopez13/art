@@ -16,6 +16,161 @@
       "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccbc4437_b09a28b6",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 1087,
+        "startChar": 2,
+        "endLine": 1087,
+        "endChar": 45
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56852ae1_833714c8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "Can we request Location::Any() and load it directly to r12 when it\u0027s on stack?",
+      "range": {
+        "startLine": 3429,
+        "startChar": 7,
+        "endLine": 3429,
+        "endChar": 71
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "401b9598_fd9746d7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "We should not request this as a temp but get it from the UseScratchRegisterScope insteads.",
+      "range": {
+        "startLine": 3433,
+        "startChar": 2,
+        "endLine": 3433,
+        "endChar": 53
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5d88f88_72c3e771",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 9102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "UNREACHABLE",
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00d7f38a_12625389",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "reinterpret_cast32\u003cuint32_t\u003e",
+      "range": {
+        "startLine": 5222,
+        "startChar": 24,
+        "endLine": 5222,
+        "endChar": 49
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "168792b8_12bd4f24",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 2772,
+        "startChar": 4,
+        "endLine": 2774,
+        "endChar": 33
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61a4c6e_be2b8a58",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T10:20:18Z",
+      "side": 1,
+      "message": "If the method is the conflict trampoline, this will make the stub go to runtime, otherwise the hidden argument is unused.",
+      "range": {
+        "startLine": 1134,
+        "startChar": 30,
+        "endLine": 1134,
+        "endChar": 72
+      },
+      "revId": "3815313170022dd6abefb467a8f443e2fcbec318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
