@@ -63,6 +63,30 @@
       "revId": "080fd62ce526ee0a314561093eacba9ce93a90b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38fdcc5f_336056c8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-01T13:46:37Z",
+      "side": 1,
+      "message": "Yes, \"ip1\" is correct. I was confused by the temp.W() which would imply loading a 32-bit value but we need to load a 64-bit value.",
+      "parentUuid": "fcd4dcab_c3254cc3",
+      "range": {
+        "startLine": 4428,
+        "startChar": 13,
+        "endLine": 4428,
+        "endChar": 21
+      },
+      "revId": "080fd62ce526ee0a314561093eacba9ce93a90b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
