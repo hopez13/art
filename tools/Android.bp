@@ -80,3 +80,23 @@ sh_binary {
     host_supported: false,
     src: "compile_bcp.sh",
 }
+
+python_binary_host {
+    name: "checker",
+    srcs: [
+        "checker/**/*.py",
+    ],
+    main: "checker/checker.py",
+    version: {
+        py2: {
+            enabled: true,
+        },
+        py3: {
+            enabled: false,
+        },
+    },
+    test_suites: [
+        "general-tests",
+        "mts",
+    ],
+}
