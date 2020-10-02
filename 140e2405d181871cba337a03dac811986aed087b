@@ -22,6 +22,30 @@
       "revId": "140e2405d181871cba337a03dac811986aed087b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "071895a4_c38034f4",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-02T14:34:01Z",
+      "side": 1,
+      "message": "There\u0027s no linking taking place here (all the .o files are simply put in an ar(1) archive), so we have to keep all symbols visible. I filed b/169885605 about that issue, and (as suggested by ccross@) what we probably need to do here is partial linking (ld -r). But you\u0027re right that --exclude-libs may very well be necessary as well, I noted that on the ticket.\n\nIn any case, I changed the TODO below to point to that ticket instead, because I no longer think we\u0027ll be able to resolve the dependencies externally even if static libs support transitive dependencies.",
+      "parentUuid": "1e6a3e10_9242dd0e",
+      "range": {
+        "startLine": 476,
+        "startChar": 44,
+        "endLine": 477,
+        "endChar": 38
+      },
+      "revId": "140e2405d181871cba337a03dac811986aed087b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
