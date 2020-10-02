@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f4586c28_69d700f1",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T22:24:40Z",
+      "side": 1,
+      "message": "I agree. In general, no one outside of the metrics files should be calling these macros. If they do, we\u0027ll want a better way to handle this.",
+      "parentUuid": "ee1267cb_18cf952b",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c692bf5_b7bc1797",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 7
@@ -188,6 +212,30 @@
       "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac0ea60c_70e6aebe",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T22:24:40Z",
+      "side": 1,
+      "message": "Sounds good. It\u0027s better to make sure we have a counter defined too, so we can make sure this CL generates valid code. I\u0027ll pull in a counter definition from a later CL but save the implementation for later.",
+      "parentUuid": "8b71376a_dc3f7244",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

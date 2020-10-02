@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df17db72_3627aa87",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T22:24:40Z",
+      "side": 1,
+      "message": "Correct. I updated the comment to say it\u0027s when we\u0027re ending metrics logging, such as when the runtime shuts down.",
+      "parentUuid": "54d5f1bf_5764fb30",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 25
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c12f507e_ffdd19f4",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5b7d4b17_761ab920",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T22:24:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c12f507e_ffdd19f4",
+      "range": {
+        "startLine": 72,
+        "startChar": 85,
+        "endLine": 72,
+        "endChar": 97
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d4c9d05_eba917e5",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2020-10-02T21:54:24Z",
       "side": 1,
       "message": "can, or will? It\u0027s a bit fuzzy: let\u0027s make it clear. (if we change the semantic later, we can update the comment)",
+      "range": {
+        "startLine": 76,
+        "startChar": 88,
+        "endLine": 76,
+        "endChar": 91
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7fcae5_2a8febdb",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T22:24:40Z",
+      "side": 1,
+      "message": "What about \"should\"?\n\nThe behavior here is up to the backend implementation. It can choose to output a log every time the reporter calls ReportCounter (which is what all the backends I\u0027m planning will do), but we could also have one that keeps the most recent report and writes just that one out at the end.\n\nI added a comment at the beginning of MetricsBackend to make it a little clearer how this will be used. This also doesn\u0027t have the reporting code yet, which will come in a later CL.",
+      "parentUuid": "2d4c9d05_eba917e5",
       "range": {
         "startLine": 76,
         "startChar": 88,
