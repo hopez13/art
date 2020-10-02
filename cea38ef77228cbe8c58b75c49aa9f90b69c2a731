@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54d5f1bf_5764fb30",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T21:54:24Z",
+      "side": 1,
+      "message": "But we could call it for example if we do want to stop reporting. Say that we will only report first 5 mins of an app etc... (not saying right now we should, just that it\u0027s an option, right?)",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 25
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c12f507e_ffdd19f4",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T21:54:24Z",
+      "side": 1,
+      "message": "add \u0027.\u0027",
+      "range": {
+        "startLine": 72,
+        "startChar": 85,
+        "endLine": 72,
+        "endChar": 97
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d4c9d05_eba917e5",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T21:54:24Z",
+      "side": 1,
+      "message": "can, or will? It\u0027s a bit fuzzy: let\u0027s make it clear. (if we change the semantic later, we can update the comment)",
+      "range": {
+        "startLine": 76,
+        "startChar": 88,
+        "endLine": 76,
+        "endChar": 91
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

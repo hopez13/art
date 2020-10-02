@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ee1267cb_18cf952b",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T21:54:24Z",
+      "side": 1,
+      "message": "Sgtm then. If iteration is only meant to happen locally here, I think it\u0027s ok. If the model ends up spreading or leaking to the outside a lot we\u0027ll need to add something more covenient.",
+      "parentUuid": "165dc6aa_8d702f8a",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c692bf5_b7bc1797",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 7
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I like capital letters better, and migrated to this in a later CL I was just working on: https://android-review.googlesource.com/c/platform/art/+/1444656/1/libartbase/base/metrics.h\n\nI\u0027ll pull some of those changes into this CL.\n\nThe main reason for kUnknownDatum right now is for test code. For some unit tests around counters and histograms, we\u0027ll need to assign a DatumId, and it seems better to have a special value for this reason than just picking an arbitrary metric. Maybe kTestDatumId would be better?",
       "parentUuid": "9c692bf5_b7bc1797",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "960850993ce2f56eb49a6b3380defa54e9bbe4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b71376a_dc3f7244",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T21:54:24Z",
+      "side": 1,
+      "message": "If it\u0027s just for test I think it\u0027s better to make it UNREACHABLE. The reason is that it\u0027s much clearer when we read the call, knowing that you can only have valid values.\n\nFor the current test, I say, you can add the name of the metric that we know 100% we\u0027ll have (e.g. number of jit compilation), You don\u0027t need to implement as part of the CL, but it\u0027s fine to have it there so you can facilitate testing.\nwdyt?",
+      "parentUuid": "829d9468_11282b18",
       "range": {
         "startLine": 40,
         "startChar": 2,
