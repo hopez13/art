@@ -105,29 +105,33 @@ class MetricsBackend {
                                int64_t high_value,
                                const std::vector<uint32_t>& buckets) = 0;
 
-  friend class ArtMetrics;
-  template <size_t num_buckets, int64_t low_value, int64_t high_value>
+  template <DatumId histogram_type>
+  friend class MetricsCounter;
+  template <DatumId histogram_type, size_t num_buckets, int64_t low_value, int64_t high_value>
   friend class MetricsHistogram;
 };
 
+template <DatumId counter_type_>
 class MetricsCounter {
  public:
   explicit constexpr MetricsCounter(uint64_t value = 0) : value_{value} {
-    // Ensure we do not have any unnecessary data in this class.
+    // To keep memory usage low, limit counters to the size of their value field.
     static_assert(sizeof(*this) == sizeof(uint64_t));
   }
 
   void AddOne() { Add(1u); }
   void Add(uint64_t value) { value_.fetch_add(value, std::memory_order::memory_order_relaxed); }
 
-  uint64_t Value() const { return value_.load(std::memory_order::memory_order_relaxed); }
+  void Report(MetricsBackend* backend) const { backend->ReportCounter(counter_type_, Value()); }
 
  private:
+  uint64_t Value() const { return value_.load(std::memory_order::memory_order_relaxed); }
+
   std::atomic<uint64_t> value_;
   static_assert(std::atomic<uint64_t>::is_always_lock_free);
 };
 
-template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
+template <DatumId histogram_type_, size_t num_buckets_, int64_t low_value_, int64_t high_value_>
 class MetricsHistogram {
   static_assert(num_buckets_ >= 1);
   static_assert(low_value_ < high_value_);
@@ -147,18 +151,37 @@ class MetricsHistogram {
     buckets_[i].fetch_add(1u, std::memory_order::memory_order_relaxed);
   }
 
- protected:
-  std::vector<uint32_t> GetBuckets() const {
+  void Report(MetricsBackend* backend) const {
     // The loads from buckets_ will all be memory_order_seq_cst, which means they will be acquire
     // loads.
-    return std::vector<uint32_t>{buckets_.begin(), buckets_.end()};
+    backend->ReportHistogram(histogram_type_,
+                             low_value_,
+                             high_value_,
+                             std::vector<uint32_t>{buckets_.begin(), buckets_.end()});
   }
 
- private:
   std::array<std::atomic<uint32_t>, num_buckets_> buckets_;
 
-  friend class ArtMetrics;
   static_assert(std::atomic<uint32_t>::is_always_lock_free);
+};
+
+// A backend that writes metrics in a human-readable format to an std::ostream.
+class StreamBackend : public MetricsBackend {
+ public:
+  explicit StreamBackend(std::ostream& os);
+
+  void BeginSession(const SessionData& session_data) override;
+  void EndSession() override;
+
+  void ReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void ReportHistogram(DatumId histogram_type,
+                       int64_t low_value_,
+                       int64_t high_value,
+                       const std::vector<uint32_t>& buckets) override;
+
+ private:
+  std::ostream& os_;
 };
 
 /**
@@ -170,25 +193,29 @@ class ArtMetrics {
 
   void ReportAllMetrics(MetricsBackend* backend) const;
 
-#define ART_COUNTER(name)                      \
-  MetricsCounter* name() { return &name##_; }  \
-  const MetricsCounter* name() const { return &name##_; }
+#define ART_COUNTER(name)                                       \
+  MetricsCounter<DatumId::k##name>* name() { return &name##_; } \
+  const MetricsCounter<DatumId::k##name>* name() const { return &name##_; }
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
-#define ART_HISTOGRAM(name, num_buckets, low_value, high_value)                      \
-  MetricsHistogram<num_buckets, low_value, high_value>* name() { return &name##_; }  \
-  const MetricsHistogram<num_buckets, low_value, high_value>* name() const { return &name##_; }
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value)                                \
+  MetricsHistogram<DatumId::k##name, num_buckets, low_value, high_value>* name() {             \
+    return &name##_;                                                                           \
+  }                                                                                            \
+  const MetricsHistogram<DatumId::k##name, num_buckets, low_value, high_value>* name() const { \
+    return &name##_;                                                                           \
+  }
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 
  private:
-#define ART_COUNTER(name) MetricsCounter name##_;
+#define ART_COUNTER(name) MetricsCounter<DatumId::k##name> name##_;
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  MetricsHistogram<num_buckets, low_value, high_value> name##_;
+  MetricsHistogram<DatumId::k##name, num_buckets, low_value, high_value> name##_;
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 

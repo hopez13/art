@@ -58,15 +58,36 @@ ArtMetrics::ArtMetrics()
 
 void ArtMetrics::ReportAllMetrics(MetricsBackend* backend) const {
 // Dump counters
-#define ART_COUNTER(name) backend->ReportCounter(DatumId::k##name, name()->Value());
+#define ART_COUNTER(name) name()->Report(backend);
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTERS
 
 // Dump histograms
-#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  backend->ReportHistogram(DatumId::k##name, low_value, high_value, name()->GetBuckets());
+#define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name()->Report(backend);
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
+}
+
+StreamBackend::StreamBackend(std::ostream& os) : os_{os} {}
+
+void StreamBackend::BeginSession(const SessionData& session_data) {
+  os_ << "Beginning ART Metrics session for package " << session_data.package_name << "\n";
+}
+
+void StreamBackend::EndSession() { os_ << "ART Metrics session ended.\n"; }
+
+void StreamBackend::ReportCounter(DatumId counter_type, uint64_t value) {
+  os_ << "Counter: " << DatumName(counter_type) << ", value = " << value << "\n";
+}
+
+void StreamBackend::ReportHistogram(DatumId histogram_type,
+                                    int64_t /*low_value_*/,
+                                    int64_t /*high_value*/,
+                                    const std::vector<uint32_t>& buckets) {
+  os_ << "Histogram: " << DatumName(histogram_type) << "\n";
+  for (size_t i{0}; i < buckets.size(); ++i) {
+    os_ << "  Bucket " << i << ": " << buckets[i] << "\n";
+  }
 }
 
 }  // namespace metrics
