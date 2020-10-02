@@ -1838,8 +1838,9 @@ class JNI {
     } else {
       CHECK_NON_NULL_MEMCPY_ARGUMENT(length, buf);
       if (s->IsCompressed()) {
+        const uint8_t* src = s->GetValueCompressed() + start;
         for (int i = 0; i < length; ++i) {
-          buf[i] = static_cast<jchar>(s->CharAt(start+i));
+          buf[i] = static_cast<jchar>(src[i]);
         }
       } else {
         const jchar* chars = static_cast<jchar*>(s->GetValue());
