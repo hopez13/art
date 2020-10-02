@@ -177,6 +177,8 @@ TEST(InstructionSetFeaturesTest, FeaturesFromAssembly) {
 }
 
 TEST(InstructionSetFeaturesTest, FeaturestFromCpuFeatures) {
+  TEST_DISABLED_FOR_X86();
+
   // Take the default set of instruction features from the build.
   std::unique_ptr<const InstructionSetFeatures> instruction_set_features(
       InstructionSetFeatures::FromCppDefines());
