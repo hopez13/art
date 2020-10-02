@@ -794,6 +794,24 @@
     },
     {
       "key": {
+        "uuid": "c580f26d_7065f489",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-02T16:06:46Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "69b0d859_31ec55a8",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f2e7b92_f10b213c",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 35
@@ -1237,6 +1255,24 @@
       "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f51dba3e_0b4c751d",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 35
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-02T16:06:46Z",
+      "side": 1,
+      "message": "Marking the comment as unresolved until that\u0027s done.",
+      "parentUuid": "c2af82af_0ab8dcd5",
+      "revId": "6bbf71e04b8532baacfe7e7381b70018c397f523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
