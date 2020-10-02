@@ -94,27 +94,58 @@ class MetricsBackend {
   virtual void EndHistogram() = 0;
 };
 
+template <DatumId counter_type_>
 class MetricsCounter {
  public:
-  explicit constexpr MetricsCounter(uint64_t value = 0) : value_{value} {}
+  explicit constexpr MetricsCounter(uint64_t value = 0) : value_{value} {
+    // To keep memory usage low, limit counters to the size of their value field.
+    static_assert(sizeof(*this) == sizeof(uint64_t));
+  }
 
   void AddOne() { Add(1u); }
   void Add(uint64_t value) { value_.fetch_add(value, std::memory_order::memory_order_relaxed); }
 
-  uint64_t Value() const { return value_.load(std::memory_order::memory_order_relaxed); }
+  void Report(MetricsBackend* backend) const { backend->ReportCounter(counter_type_, Value()); }
 
  private:
+  uint64_t Value() const { return value_.load(std::memory_order::memory_order_relaxed); }
+
   std::atomic<uint64_t> value_;
   static_assert(std::atomic<uint64_t>::is_always_lock_free);
 };
 
-template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
+// A backend that writes metrics in a human-readable format to an std::ostream.
+class StreamBackend : public MetricsBackend {
+ public:
+  explicit StreamBackend(std::ostream& os);
+
+  virtual void BeginSession(const SessionData& session_data);
+  virtual void EndSession();
+
+  virtual void ReportCounter(DatumId counter_type, uint64_t value);
+
+  virtual void BeginHistogram(DatumId histogram_type,
+                              size_t num_buckets,
+                              int64_t low_value_,
+                              int64_t high_value);
+  virtual void ReportHistogramBucket(size_t index, uint32_t value);
+  virtual void EndHistogram();
+
+ private:
+  std::ostream& os_;
+};
+
+template <DatumId histogram_type_, size_t num_buckets_, int64_t low_value_, int64_t high_value_>
 class MetricsHistogram {
   static_assert(num_buckets_ > 1);
   static_assert(low_value_ < high_value_);
 
  public:
-  constexpr MetricsHistogram() : buckets_{} {}
+  constexpr MetricsHistogram() : buckets_{} {
+    // Make sure we don't accidentally accumulate any more data on this object than the histogram
+    // values themselves.
+    static_assert(sizeof(*this) == sizeof(buckets_));
+  }
 
   void Add(int64_t value) {
     const size_t i = value <= low_value_ ? 0
@@ -125,13 +156,19 @@ class MetricsHistogram {
     buckets_[i].fetch_add(1u, std::memory_order::memory_order_relaxed);
   }
 
+  void Report(MetricsBackend* backend) const {
+    backend->BeginHistogram(histogram_type_, num_buckets_, low_value_, high_value_);
+    ReportBuckets(backend);
+    backend->EndHistogram();
+  }
+
+ private:
   void ReportBuckets(MetricsBackend* backend) const {
     for (size_t i = 0; i < num_buckets_; i++) {
       backend->ReportHistogramBucket(i, buckets_[i].load(std::memory_order::memory_order_relaxed));
     }
   }
 
- private:
   std::array<std::atomic<uint32_t>, num_buckets_> buckets_;
   static_assert(std::atomic<uint32_t>::is_always_lock_free);
 };
@@ -145,12 +182,12 @@ class ArtMetrics {
 
   void ReportAllMetrics(MetricsBackend* backend) const;
 
-#define ART_COUNTER(name) MetricsCounter name;
+#define ART_COUNTER(name) MetricsCounter<DatumId::k##name> name;
   ART_COUNTERS(ART_COUNTER)
 #undef ART_COUNTER
 
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) \
-  MetricsHistogram<num_buckets, low_value, high_value> name;
+  MetricsHistogram<DatumId::k##name, num_buckets, low_value, high_value> name;
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
 

@@ -45,16 +45,30 @@ class TestBackendBase : public MetricsBackend {
   virtual void EndHistogram() {}
 };
 
-TEST_F(MetricsTest, SimpleCounter) {
-  MetricsCounter test_counter;
+template <DatumId counter_type>
+uint64_t CounterValue(const MetricsCounter<counter_type>& counter) {
+  uint64_t counter_value{0};
+  struct CounterBackend : public TestBackendBase {
+    explicit CounterBackend(uint64_t* counter_value) : counter_value_{counter_value} {}
 
-  EXPECT_EQ(0u, test_counter.Value());
+    void ReportCounter(DatumId, uint64_t value) { *counter_value_ = value; }
+
+    uint64_t* counter_value_;
+  } backend{&counter_value};
+  counter.Report(&backend);
+  return counter_value;
+}
+
+TEST_F(MetricsTest, SimpleCounter) {
+  MetricsCounter<DatumId::kClassVerificationTotalTime> test_counter;
+
+  EXPECT_EQ(0u, CounterValue(test_counter));
 
   test_counter.AddOne();
-  EXPECT_EQ(1u, test_counter.Value());
+  EXPECT_EQ(1u, CounterValue(test_counter));
 
   test_counter.Add(5);
-  EXPECT_EQ(6u, test_counter.Value());
+  EXPECT_EQ(6u, CounterValue(test_counter));
 }
 
 TEST_F(MetricsTest, DatumName) {
@@ -62,7 +76,7 @@ TEST_F(MetricsTest, DatumName) {
 }
 
 TEST_F(MetricsTest, SimpleHistogramTest) {
-  MetricsHistogram<5, 0, 100> histogram;
+  MetricsHistogram<DatumId::kJitMethodCompileTime, 5, 0, 100> histogram;
 
   // bucket 0: 0-19
   histogram.Add(10);
@@ -115,12 +129,12 @@ TEST_F(MetricsTest, SimpleHistogramTest) {
     }
   } backend;
 
-  histogram.ReportBuckets(&backend);
+  histogram.Report(&backend);
 }
 
 // Make sure values added outside the range of the histogram go into the first or last bucket.
 TEST_F(MetricsTest, HistogramOutOfRangeTest) {
-  MetricsHistogram<2, 0, 100> histogram;
+  MetricsHistogram<DatumId::kJitMethodCompileTime, 2, 0, 100> histogram;
 
   // bucket 0: 0-49
   histogram.Add(-500);
@@ -147,7 +161,15 @@ TEST_F(MetricsTest, HistogramOutOfRangeTest) {
     }
   } backend;
 
-  histogram.ReportBuckets(&backend);
+  histogram.Report(&backend);
+}
+
+TEST_F(MetricsTest, StreamBackendReportCounter) {
+  std::stringstream os;
+
+  StreamBackend backend(os);
+  backend.ReportCounter(DatumId::kClassVerificationTotalTime, 1234);
+  EXPECT_EQ("Counter: ClassVerificationTotalTime, value = 1234\n", os.str());
 }
 
 }  // namespace metrics
