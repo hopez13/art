@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5a3070a_9972927f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-10-02T00:03:49Z",
+      "side": 1,
+      "message": "LGTM. Comments below are probably safe to ignore.",
+      "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00efda10_3b68fecf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-10-02T00:03:49Z",
+      "side": 1,
+      "message": "I think this is fine, but let me state my assumptions to be sure:\n\nThis is always sufficiently aligned for atomicity.\n\nThere is no way we will perform further optimizations, particularly elimination of redundant loads from two opaque gets, on the code we produce here.",
+      "range": {
+        "startLine": 3658,
+        "startChar": 2,
+        "endLine": 3658,
+        "endChar": 29
+      },
+      "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "435a6700_0dd094ec",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-10-02T00:03:49Z",
+      "side": 1,
+      "message": "This should ideally generate different code (LDAPR) from the volatile case on ARM8.3 and later. I don\u0027t know if you want to deal with that now.",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 68
+      },
+      "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
