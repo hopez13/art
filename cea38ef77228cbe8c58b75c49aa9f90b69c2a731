@@ -164,6 +164,30 @@
       "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6435dc8_0ffc7e55",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-02T23:39:00Z",
+      "side": 1,
+      "message": "I reworded the comment to say this represents the total value of the counter at the point ReportCounter is called. I think that describes the meaning well.\n\nSome flexibility here is good because it\u0027s what allows us to sample. I think the key thing is to be clear about what the things we log mean. There\u0027s no meaningful difference between the metrics reporter changing from logging every 30 seconds to 60 seconds, the backend choosing to ignore every other report, or statsd only uploading every other atom to WestWorld.\n\nIt\u0027s not in this CL yet, but I\u0027m planning on having the things we report get a timestamp relative to the beginning of the program, which will let us distinguish between a report that came at the very beginning (so we wouldn\u0027t have much data yet), and a report that came after 30 minutes of runtime (so the data will be huge).",
+      "parentUuid": "974ce261_576904b1",
+      "range": {
+        "startLine": 76,
+        "startChar": 88,
+        "endLine": 76,
+        "endChar": 91
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
