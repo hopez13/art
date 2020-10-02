@@ -140,6 +140,30 @@
       "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "974ce261_576904b1",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T23:18:27Z",
+      "side": 1,
+      "message": "Hmm, if it\u0027s up to the backend implementation then I would directly mention that : \"The backend will decide if the value is overwritten and output every time. *Please check the backend implementation docs*\".\n\nI\u0027m bit uncomfortable to leave it underspecified because it may lead to someone reporting the data in an unexpected way which may have implications on the analysis side.",
+      "parentUuid": "3c7fcae5_2a8febdb",
+      "range": {
+        "startLine": 76,
+        "startChar": 88,
+        "endLine": 76,
+        "endChar": 91
+      },
+      "revId": "cea38ef77228cbe8c58b75c49aa9f90b69c2a731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
