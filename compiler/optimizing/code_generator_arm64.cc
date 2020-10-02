@@ -954,6 +954,7 @@ CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
       package_type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       boot_image_string_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       string_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_jni_entrypoint_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       boot_image_other_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       call_entrypoint_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       baker_read_barrier_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
@@ -4506,14 +4507,26 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
       break;
     case MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
-      // Add ADRP with its PC-relative method patch.
-      vixl::aarch64::Label* adrp_label =
-          NewBootImageMethodPatch(invoke->GetResolvedMethodReference());
-      EmitAdrpPlaceholder(adrp_label, XRegisterFrom(temp));
-      // Add ADD with its PC-relative method patch.
-      vixl::aarch64::Label* add_label =
-          NewBootImageMethodPatch(invoke->GetResolvedMethodReference(), adrp_label);
-      EmitAddPlaceholder(add_label, XRegisterFrom(temp), XRegisterFrom(temp));
+      if (invoke->GetCodePtrLocation() == CodePtrLocation::kCallCriticalNative) {
+        // Do not materialize the method pointer, load directly the entrypoint.
+        // Add ADRP with its PC-relative JNI entrypoint patch.
+        vixl::aarch64::Label* adrp_label =
+            NewBootImageJniEntrypointPatch(invoke->GetResolvedMethodReference());
+        EmitAdrpPlaceholder(adrp_label, lr);
+        // Add the LDR with its PC-relative method patch.
+        vixl::aarch64::Label* add_label =
+            NewBootImageJniEntrypointPatch(invoke->GetResolvedMethodReference(), adrp_label);
+        EmitLdrOffsetPlaceholder(add_label, lr, lr);
+      } else {
+        // Add ADRP with its PC-relative method patch.
+        vixl::aarch64::Label* adrp_label =
+            NewBootImageMethodPatch(invoke->GetResolvedMethodReference());
+        EmitAdrpPlaceholder(adrp_label, XRegisterFrom(temp));
+        // Add ADD with its PC-relative method patch.
+        vixl::aarch64::Label* add_label =
+            NewBootImageMethodPatch(invoke->GetResolvedMethodReference(), adrp_label);
+        EmitAddPlaceholder(add_label, XRegisterFrom(temp), XRegisterFrom(temp));
+      }
       break;
     }
     case MethodLoadKind::kBootImageRelRo: {
@@ -4548,18 +4561,19 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
     }
   }
 
+  auto call_lr = [&]() {
+    // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
+    ExactAssemblyScope eas(GetVIXLAssembler(),
+                           kInstructionSize,
+                           CodeBufferCheckScope::kExactSize);
+    // lr()
+    __ blr(lr);
+    RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+  };
   auto call_code_pointer_member = [&](MemberOffset offset) {
     // LR = callee_method->member;
     __ Ldr(lr, MemOperand(XRegisterFrom(callee_method), offset.Int32Value()));
-    {
-      // Use a scope to help guarantee that `RecordPcInfo()` records the correct pc.
-      ExactAssemblyScope eas(GetVIXLAssembler(),
-                             kInstructionSize,
-                             CodeBufferCheckScope::kExactSize);
-      // lr()
-      __ blr(lr);
-      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
-    }
+    call_lr();
   };
   switch (invoke->GetCodePtrLocation()) {
     case CodePtrLocation::kCallSelf:
@@ -4577,7 +4591,11 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(
           PrepareCriticalNativeCall<CriticalNativeCallingConventionVisitorARM64,
                                     kAapcs64StackAlignment,
                                     GetCriticalNativeDirectCallFrameSize>(invoke);
-      call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArm64PointerSize));
+      if (invoke->GetMethodLoadKind() == MethodLoadKind::kBootImageLinkTimePcRelative) {
+        call_lr();
+      } else {
+        call_code_pointer_member(ArtMethod::EntryPointFromJniOffset(kArm64PointerSize));
+      }
       // Zero-/sign-extend the result when needed due to native and managed ABI mismatch.
       switch (invoke->GetType()) {
         case DataType::Type::kBool:
@@ -4780,6 +4798,13 @@ vixl::aarch64::Label* CodeGeneratorARM64::NewStringBssEntryPatch(
   return NewPcRelativePatch(&dex_file, string_index.index_, adrp_label, &string_bss_entry_patches_);
 }
 
+vixl::aarch64::Label* CodeGeneratorARM64::NewBootImageJniEntrypointPatch(
+    MethodReference target_method,
+    vixl::aarch64::Label* adrp_label) {
+  return NewPcRelativePatch(
+      target_method.dex_file, target_method.index, adrp_label, &boot_image_jni_entrypoint_patches_);
+}
+
 void CodeGeneratorARM64::EmitEntrypointThunkCall(ThreadOffset64 entrypoint_offset) {
   DCHECK(!__ AllowMacroInstructions());  // In ExactAssemblyScope.
   DCHECK(!GetCompilerOptions().IsJitCompiler());
@@ -4946,6 +4971,7 @@ void CodeGeneratorARM64::EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* lin
       package_type_bss_entry_patches_.size() +
       boot_image_string_patches_.size() +
       string_bss_entry_patches_.size() +
+      boot_image_jni_entrypoint_patches_.size() +
       boot_image_other_patches_.size() +
       call_entrypoint_patches_.size() +
       baker_read_barrier_patches_.size();
@@ -4979,6 +5005,8 @@ void CodeGeneratorARM64::EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* lin
       package_type_bss_entry_patches_, linker_patches);
   EmitPcRelativeLinkerPatches<linker::LinkerPatch::StringBssEntryPatch>(
       string_bss_entry_patches_, linker_patches);
+  EmitPcRelativeLinkerPatches<linker::LinkerPatch::RelativeJniEntrypointPatch>(
+      boot_image_jni_entrypoint_patches_, linker_patches);
   for (const PatchInfo<vixl::aarch64::Label>& info : call_entrypoint_patches_) {
     DCHECK(info.target_dex_file == nullptr);
     linker_patches->push_back(linker::LinkerPatch::CallEntrypointPatch(

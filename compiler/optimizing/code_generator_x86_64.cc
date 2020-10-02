@@ -1019,9 +1019,12 @@ void CodeGeneratorX86_64::GenerateStaticOrDirectCall(
       break;
     case MethodLoadKind::kBootImageLinkTimePcRelative:
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
-      __ leal(temp.AsRegister<CpuRegister>(),
-              Address::Absolute(kPlaceholder32BitOffset, /* no_rip= */ false));
-      RecordBootImageMethodPatch(invoke);
+      // For kCallCriticalNative we skip loading the method and do the call directly.
+      if (invoke->GetCodePtrLocation() != CodePtrLocation::kCallCriticalNative) {
+        __ leal(temp.AsRegister<CpuRegister>(),
+                Address::Absolute(kPlaceholder32BitOffset, /* no_rip= */ false));
+        RecordBootImageMethodPatch(invoke);
+      }
       break;
     case MethodLoadKind::kBootImageRelRo: {
       // Note: Boot image is in the low 4GiB and the entry is 32-bit, so emit a 32-bit load.
@@ -1056,9 +1059,14 @@ void CodeGeneratorX86_64::GenerateStaticOrDirectCall(
           PrepareCriticalNativeCall<CriticalNativeCallingConventionVisitorX86_64,
                                     kNativeStackAlignment,
                                     GetCriticalNativeDirectCallFrameSize>(invoke);
-      // (callee_method + offset_of_jni_entry_point)()
-      __ call(Address(callee_method.AsRegister<CpuRegister>(),
-                      ArtMethod::EntryPointFromJniOffset(kX86_64PointerSize).SizeValue()));
+      if (invoke->GetMethodLoadKind() == MethodLoadKind::kBootImageLinkTimePcRelative) {
+        __ call(Address::Absolute(kPlaceholder32BitOffset, /* no_rip= */ false));
+        RecordBootImageJniEntrypointPatch(invoke);
+      } else {
+        // (callee_method + offset_of_jni_entry_point)()
+        __ call(Address(callee_method.AsRegister<CpuRegister>(),
+                         ArtMethod::EntryPointFromJniOffset(kX86_64PointerSize).SizeValue()));
+      }
       RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
       // Zero-/sign-extend the result when needed due to native and managed ABI mismatch.
       switch (invoke->GetType()) {
@@ -1198,6 +1206,12 @@ Label* CodeGeneratorX86_64::NewStringBssEntryPatch(HLoadString* load_string) {
   return &string_bss_entry_patches_.back().label;
 }
 
+void CodeGeneratorX86_64::RecordBootImageJniEntrypointPatch(HInvokeStaticOrDirect* invoke) {
+  boot_image_jni_entrypoint_patches_.emplace_back(invoke->GetResolvedMethodReference().dex_file,
+                                                  invoke->GetResolvedMethodReference().index);
+  __ Bind(&boot_image_jni_entrypoint_patches_.back().label);
+}
+
 void CodeGeneratorX86_64::LoadBootImageAddress(CpuRegister reg, uint32_t boot_image_reference) {
   if (GetCompilerOptions().IsBootImage()) {
     __ leal(reg,
@@ -1272,6 +1286,7 @@ void CodeGeneratorX86_64::EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* li
       package_type_bss_entry_patches_.size() +
       boot_image_string_patches_.size() +
       string_bss_entry_patches_.size() +
+      boot_image_jni_entrypoint_patches_.size() +
       boot_image_other_patches_.size();
   linker_patches->reserve(size);
   if (GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension()) {
@@ -1303,6 +1318,8 @@ void CodeGeneratorX86_64::EmitLinkerPatches(ArenaVector<linker::LinkerPatch>* li
       package_type_bss_entry_patches_, linker_patches);
   EmitPcRelativeLinkerPatches<linker::LinkerPatch::StringBssEntryPatch>(
       string_bss_entry_patches_, linker_patches);
+  EmitPcRelativeLinkerPatches<linker::LinkerPatch::RelativeJniEntrypointPatch>(
+      boot_image_jni_entrypoint_patches_, linker_patches);
   DCHECK_EQ(size, linker_patches->size());
 }
 
@@ -1374,35 +1391,36 @@ static constexpr Register kFakeReturnRegister = Register(kLastCpuRegister + 1);
 CodeGeneratorX86_64::CodeGeneratorX86_64(HGraph* graph,
                                          const CompilerOptions& compiler_options,
                                          OptimizingCompilerStats* stats)
-      : CodeGenerator(graph,
-                      kNumberOfCpuRegisters,
-                      kNumberOfFloatRegisters,
-                      kNumberOfCpuRegisterPairs,
-                      ComputeRegisterMask(reinterpret_cast<const int*>(kCoreCalleeSaves),
-                                          arraysize(kCoreCalleeSaves))
-                          | (1 << kFakeReturnRegister),
-                      ComputeRegisterMask(reinterpret_cast<const int*>(kFpuCalleeSaves),
-                                          arraysize(kFpuCalleeSaves)),
-                      compiler_options,
-                      stats),
-        block_labels_(nullptr),
-        location_builder_(graph, this),
-        instruction_visitor_(graph, this),
-        move_resolver_(graph->GetAllocator(), this),
-        assembler_(graph->GetAllocator()),
-        constant_area_start_(0),
-        boot_image_method_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        method_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        boot_image_type_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        public_type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        package_type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        boot_image_string_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        string_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        boot_image_other_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        jit_string_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        jit_class_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-        fixups_to_jump_tables_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)) {
+    : CodeGenerator(graph,
+                    kNumberOfCpuRegisters,
+                    kNumberOfFloatRegisters,
+                    kNumberOfCpuRegisterPairs,
+                    ComputeRegisterMask(reinterpret_cast<const int*>(kCoreCalleeSaves),
+                                        arraysize(kCoreCalleeSaves))
+                        | (1 << kFakeReturnRegister),
+                    ComputeRegisterMask(reinterpret_cast<const int*>(kFpuCalleeSaves),
+                                        arraysize(kFpuCalleeSaves)),
+                    compiler_options,
+                    stats),
+      block_labels_(nullptr),
+      location_builder_(graph, this),
+      instruction_visitor_(graph, this),
+      move_resolver_(graph->GetAllocator(), this),
+      assembler_(graph->GetAllocator()),
+      constant_area_start_(0),
+      boot_image_method_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      method_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_type_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      public_type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      package_type_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_string_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      string_bss_entry_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_jni_entrypoint_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      boot_image_other_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      jit_string_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      jit_class_patches_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
+      fixups_to_jump_tables_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)) {
   AddAllocatedRegister(Location::RegisterLocation(kFakeReturnRegister));
 }
 
