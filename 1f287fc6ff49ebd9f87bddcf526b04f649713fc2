@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "f3dee52a_93b0fb01",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-02T10:02:04Z",
+      "side": 1,
+      "message": "Fields are always properly aligned and you can create a VarHandle only for an existing field.\n\nLoad elimination on opaque gets would need to happen in a an earlier pass. (We currently do not have plans to teach LSE about VarHandles.)",
+      "parentUuid": "00efda10_3b68fecf",
+      "range": {
+        "startLine": 3658,
+        "startChar": 2,
+        "endLine": 3658,
+        "endChar": 29
+      },
+      "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "435a6700_0dd094ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "718ca60e_214e7e22",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-02T10:02:04Z",
+      "side": 1,
+      "message": "No, not yet. But I\u0027ll keep it in mind for future CLs for adding extra comments.",
+      "parentUuid": "435a6700_0dd094ec",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 68
+      },
+      "revId": "1f287fc6ff49ebd9f87bddcf526b04f649713fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
