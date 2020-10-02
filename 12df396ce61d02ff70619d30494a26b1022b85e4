@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e990eb32_e48b2010",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-02T14:35:40Z",
+      "side": 1,
+      "message": "Could you add a comment explaining why this test is disabled on x86 and quoting the bug number, e.g. something like this:\n\n  // Test globally disabled on x86 because of cpu_features not detecting SSSE3,\n  // SSE4.1 and SSE4.2 extensions on fugu\u0027s CPU.\n  // TODO(b/169921883): Re-enable when cpu_features detects these CPU features\n  // when running on fugu.",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 26
+      },
+      "revId": "12df396ce61d02ff70619d30494a26b1022b85e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
