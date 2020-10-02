@@ -20,6 +20,7 @@
 #include <stdint.h>
 
 #include <array>
+#include <atomic>
 #include <ostream>
 #include <string_view>
 #include <vector>
@@ -116,13 +117,14 @@ class MetricsCounter {
     static_assert(sizeof(*this) == sizeof(uint64_t));
   }
 
-  void AddOne() { value_++; }
-  void Add(uint64_t value) { value_ += value; }
+  void AddOne() { Add(1u); }
+  void Add(uint64_t value) { value_.fetch_add(value, std::memory_order::memory_order_relaxed); }
 
-  uint64_t Value() const { return value_; }
+  uint64_t Value() const { return value_.load(std::memory_order::memory_order_relaxed); }
 
  private:
-  uint64_t value_;
+  std::atomic<uint64_t> value_;
+  static_assert(std::atomic<uint64_t>::is_always_lock_free);
 };
 
 template <size_t num_buckets_, int64_t low_value_, int64_t high_value_>
@@ -142,18 +144,21 @@ class MetricsHistogram {
                          ? num_buckets_ - 1
                          : static_cast<size_t>(value - low_value_) * num_buckets_ /
                                static_cast<size_t>(high_value_ - low_value_);
-    buckets_[i]++;
+    buckets_[i].fetch_add(1u, std::memory_order::memory_order_relaxed);
   }
 
  protected:
   std::vector<uint32_t> GetBuckets() const {
+    // The loads from buckets_ will all be memory_order_seq_cst, which means they will be acquire
+    // loads.
     return std::vector<uint32_t>{buckets_.begin(), buckets_.end()};
   }
 
  private:
-  std::array<uint32_t, num_buckets_> buckets_;
+  std::array<std::atomic<uint32_t>, num_buckets_> buckets_;
 
   friend class ArtMetrics;
+  static_assert(std::atomic<uint32_t>::is_always_lock_free);
 };
 
 /**
