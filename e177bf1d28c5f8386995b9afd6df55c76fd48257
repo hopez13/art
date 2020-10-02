@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b9d0872_3facfc76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-02T18:56:59Z",
+      "side": 1,
+      "message": "should we add these sort of comments in the code as well?\n\nI think this sort of rationales will be lost as we don\u0027t normally look at CL comments when moving around simple methods during refactorings or code migrations.\n\nWdyt?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "e177bf1d28c5f8386995b9afd6df55c76fd48257",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
