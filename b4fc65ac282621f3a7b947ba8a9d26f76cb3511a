@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52ebeb06_ea9e9b12",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-03T00:20:45Z",
+      "side": 1,
+      "message": "I think there should be \"should represents\". Because in the new phrasing it\u0027s clear that the caller is responsible to sum everything up.",
+      "range": {
+        "startLine": 78,
+        "startChar": 74,
+        "endLine": 78,
+        "endChar": 84
+      },
+      "revId": "b4fc65ac282621f3a7b947ba8a9d26f76cb3511a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd0bacbc_d8130406",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-03T00:20:45Z",
+      "side": 1,
+      "message": "ok, so I realized something was missing from my understanding. This is just a backend that people should not be calling explicitly, right? The normal interactions will be via the MetricsCounter definition and the flow will be calling into ArtMetrics.ReportAllMetrics.\n\nIf that\u0027s correct, then these methods maybe should be protected and ArtMetrics should be a friend.",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 80,
+        "endChar": 28
+      },
+      "revId": "b4fc65ac282621f3a7b947ba8a9d26f76cb3511a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
