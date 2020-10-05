@@ -13,9 +13,7 @@
 # limitations under the License.
 
 from common.immutables               import ImmutableDict
-from common.testing                  import ToUnicode
 from file_format.c1visualizer.parser import ParseC1visualizerStream
-from file_format.c1visualizer.struct import C1visualizerFile, C1visualizerPass
 from file_format.checker.parser      import ParseCheckerStream, ParseCheckerStatement
 from file_format.checker.struct      import CheckerFile, TestCase, TestStatement
 from match.file                      import MatchTestCase, MatchFailedException, \
@@ -36,7 +34,7 @@ class MatchLines_Test(unittest.TestCase):
 
   def tryMatch(self, checkerString, c1String, varState={}):
     return MatchLines(self.createTestStatement(checkerString),
-                      ToUnicode(c1String),
+                      c1String,
                       ImmutableDict(varState))
 
   def assertMatches(self, checkerString, c1String, varState={}):
@@ -145,8 +143,8 @@ class MatchFiles_Test(unittest.TestCase):
       """
         end_cfg
       """
-    checkerFile = ParseCheckerStream("<test-file>", "CHECK", io.StringIO(ToUnicode(checkerString)))
-    c1File = ParseC1visualizerStream("<c1-file>", io.StringIO(ToUnicode(c1String)))
+    checkerFile = ParseCheckerStream("<test-file>", "CHECK", io.StringIO(checkerString))
+    c1File = ParseC1visualizerStream("<c1-file>", io.StringIO(c1String))
     assert len(checkerFile.testCases) == 1
     assert len(c1File.passes) == 1
     MatchTestCase(checkerFile.testCases[0], c1File.passes[0], c1File.instructionSetFeatures)

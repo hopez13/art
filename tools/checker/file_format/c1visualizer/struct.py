@@ -19,6 +19,7 @@ from common.mixins     import PrintableMixin
 class C1visualizerFile(PrintableMixin):
 
   def __init__(self, fileName):
+    super().__init__()
     self.fileName = fileName
     self.passes = []
     self.instructionSetFeatures = ImmutableDict()
@@ -44,6 +45,7 @@ class C1visualizerFile(PrintableMixin):
 class C1visualizerPass(PrintableMixin):
 
   def __init__(self, parent, name, body, startLineNo):
+    super().__init__()
     self.parent = parent
     self.name = name
     self.body = body

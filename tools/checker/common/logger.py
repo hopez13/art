@@ -12,16 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import print_function
 import collections
+import enum
 import sys
 
-class Logger(object):
 
-  class Level(object):
-    NoOutput, Error, Info = range(3)
+class Logger:
 
-  class Color(object):
+  class Level(enum.IntEnum):
+    NO_OUTPUT = 0
+    ERROR = 1
+    INFO = 2
+
+  class Color:
     Default, Blue, Gray, Purple, Red, Green = range(6)
 
     @staticmethod
@@ -41,10 +44,10 @@ class Logger(object):
       else:
         return '\033[0m'
 
-  Verbosity = Level.Info
+  Verbosity = Level.INFO
 
   @staticmethod
-  def log(content, level=Level.Info, color=Color.Default, newLine=True, out=sys.stdout):
+  def log(content, level=Level.INFO, color=Color.Default, newLine=True, out=sys.stdout):
     if level <= Logger.Verbosity:
       content = Logger.Color.terminalCode(color, out) + str(content) + \
              Logger.Color.terminalCode(Logger.Color.Default, out)
@@ -56,8 +59,8 @@ class Logger(object):
 
   @staticmethod
   def fail(msg, file=None, line=-1, lineText=None, variables=None):
-    Logger.log("error: ", Logger.Level.Error, color=Logger.Color.Red, newLine=False, out=sys.stderr)
-    Logger.log(msg, Logger.Level.Error, out=sys.stderr)
+    Logger.log("error: ", Logger.Level.ERROR, color=Logger.Color.Red, newLine=False, out=sys.stderr)
+    Logger.log(msg, Logger.Level.ERROR, out=sys.stderr)
 
     if lineText:
       loc = ""
@@ -67,8 +70,8 @@ class Logger(object):
         loc += str(line) + ":"
       if loc:
         loc += " "
-      Logger.log(loc, Logger.Level.Error, color=Logger.Color.Gray, newLine=False, out=sys.stderr)
-      Logger.log(lineText, Logger.Level.Error, out=sys.stderr)
+      Logger.log(loc, Logger.Level.ERROR, color=Logger.Color.Gray, newLine=False, out=sys.stderr)
+      Logger.log(lineText, Logger.Level.ERROR, out=sys.stderr)
 
     if variables:
       longestName = 0
@@ -77,10 +80,10 @@ class Logger(object):
 
       for var in collections.OrderedDict(sorted(variables.items())):
         padding = ' ' * (longestName - len(var))
-        Logger.log(var, Logger.Level.Error, color=Logger.Color.Green, newLine=False, out=sys.stderr)
-        Logger.log(padding, Logger.Level.Error, newLine=False, out=sys.stderr)
-        Logger.log(" = ", Logger.Level.Error, newLine=False, out=sys.stderr)
-        Logger.log(variables[var], Logger.Level.Error, out=sys.stderr)
+        Logger.log(var, Logger.Level.ERROR, color=Logger.Color.Green, newLine=False, out=sys.stderr)
+        Logger.log(padding, Logger.Level.ERROR, newLine=False, out=sys.stderr)
+        Logger.log(" = ", Logger.Level.ERROR, newLine=False, out=sys.stderr)
+        Logger.log(variables[var], Logger.Level.ERROR, out=sys.stderr)
 
     sys.exit(1)
 
