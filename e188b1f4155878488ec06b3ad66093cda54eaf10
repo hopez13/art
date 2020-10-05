@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4d40e1a_4c28e2c2",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-10-05T16:10:33Z",
+      "side": 1,
+      "message": "I\u0027m wondering if this name is too generic? maybe art_checker?",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 18
+      },
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2155f680_09a166e8",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-10-05T16:10:33Z",
+      "side": 1,
+      "message": "why disable py3? py2 is EOL already in S release.",
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
