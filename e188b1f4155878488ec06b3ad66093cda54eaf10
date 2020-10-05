@@ -99,6 +99,24 @@
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ed10458_77c3d125",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-05T17:38:42Z",
+      "side": 1,
+      "message": "To address this we will port Checker and then enable py3",
+      "parentUuid": "72665ca7_ef1704b6",
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
