@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5317ec1_21660e28",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-05T16:13:44Z",
+      "side": 1,
+      "message": "Good idea. Or `art-run-test-checker` which is even more explicit?",
+      "parentUuid": "d4d40e1a_4c28e2c2",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 18
+      },
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2155f680_09a166e8",
         "filename": "tools/Android.bp",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2020-10-05T16:10:33Z",
       "side": 1,
       "message": "why disable py3? py2 is EOL already in S release.",
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5921835_13812162",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-05T16:13:44Z",
+      "side": 1,
+      "message": "I think Checker is currently only compatible with Python 2 (which is explicitly called from the script, see https://cs.android.com/android/platform/superproject/+/master:art/tools/checker/checker.py;l\u003d1;drc\u003d92706a8a541521d586736287f0dc6b7f338acff0). I think we should eventually make it Python 3 compatible, but maybe in another CL?",
+      "parentUuid": "2155f680_09a166e8",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
