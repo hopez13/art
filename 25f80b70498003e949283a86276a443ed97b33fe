@@ -16,6 +16,98 @@
       "revId": "25f80b70498003e949283a86276a443ed97b33fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c82f7b6_f514e346",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-05T20:20:32Z",
+      "side": 1,
+      "message": "because the num_buckets may impact memory and/or data transfer if uploaded, I\u0027d add a \"warning\" and best practice recommendation comment here.",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "25f80b70498003e949283a86276a443ed97b33fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "454ca1ff_0005812d",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-05T20:20:32Z",
+      "side": 1,
+      "message": "inconsistent space count",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "25f80b70498003e949283a86276a443ed97b33fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bceead8b_86424c7d",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-05T20:20:32Z",
+      "side": 1,
+      "message": "docs :)",
+      "range": {
+        "startLine": 91,
+        "startChar": 15,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "25f80b70498003e949283a86276a443ed97b33fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb70380b_0b2e890e",
+        "filename": "libartbase/base/metrics_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-05T20:20:32Z",
+      "side": 1,
+      "message": "fits on previous line",
+      "range": {
+        "startLine": 161,
+        "startChar": 5,
+        "endLine": 161,
+        "endChar": 10
+      },
+      "revId": "25f80b70498003e949283a86276a443ed97b33fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
