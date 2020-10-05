@@ -12,16 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import print_function
 import collections
 import sys
 
-class Logger(object):
+class Logger:
 
-  class Level(object):
+  class Level:
     NoOutput, Error, Info = range(3)
 
-  class Color(object):
+  class Color:
     Default, Blue, Gray, Purple, Red, Green = range(6)
 
     @staticmethod
