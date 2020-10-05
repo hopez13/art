@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18feed33_4ab3db36",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-05T16:13:20Z",
+      "side": 1,
+      "message": "Sounds good. Done.",
+      "parentUuid": "52ebeb06_ea9e9b12",
+      "range": {
+        "startLine": 78,
+        "startChar": 74,
+        "endLine": 78,
+        "endChar": 84
+      },
+      "revId": "b4fc65ac282621f3a7b947ba8a9d26f76cb3511a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd0bacbc_d8130406",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "b4fc65ac282621f3a7b947ba8a9d26f76cb3511a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d62c5211_1d338858",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-05T16:13:20Z",
+      "side": 1,
+      "message": "Right. There will be something (the metrics reporter) which configures a backend and then passes the backend to ArtMetrics.ReportAllMetrics. ArtMetrics will then call the right methods on the backend to send a current snapshot of the metrics that have been collected so far.\n\nI marked the methods as protected and made ArtMetrics a friend.",
+      "parentUuid": "cd0bacbc_d8130406",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 80,
+        "endChar": 28
+      },
+      "revId": "b4fc65ac282621f3a7b947ba8a9d26f76cb3511a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
