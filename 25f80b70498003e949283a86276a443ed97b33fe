@@ -136,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "b7ea7f68_3dac5366",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-05T23:23:54Z",
+      "side": 1,
+      "message": "D\u0027oh! I remember looking at this thinking \"I need to add docs\" 😊\n\nOn the bright side, in writing the docs I realized I can simplify the way histograms get reported. Now it takes one method instead of three!",
+      "parentUuid": "bceead8b_86424c7d",
+      "range": {
+        "startLine": 91,
+        "startChar": 15,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "25f80b70498003e949283a86276a443ed97b33fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb70380b_0b2e890e",
         "filename": "libartbase/base/metrics_test.cc",
         "patchSetId": 10
