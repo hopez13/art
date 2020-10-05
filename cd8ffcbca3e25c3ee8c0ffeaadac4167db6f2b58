@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85bd933b_fabb1095",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-10-05T19:08:44Z",
+      "side": 0,
+      "message": "Are we certain this function isn\u0027t used anymore? Few days back there was a CL to fix the region-space case.\nhttps://android-review.googlesource.com/c/platform/art/+/1363077",
+      "range": {
+        "startLine": 387,
+        "startChar": 1,
+        "endLine": 387,
+        "endChar": 75
+      },
+      "revId": "cd8ffcbca3e25c3ee8c0ffeaadac4167db6f2b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
