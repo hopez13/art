@@ -20,6 +20,7 @@ import re
 class CheckerFile(PrintableMixin):
 
   def __init__(self, fileName):
+    super().__init__()
     self.fileName = fileName
     self.testCases = []
 
@@ -36,7 +37,8 @@ class CheckerFile(PrintableMixin):
 
 class TestCase(PrintableMixin):
 
-  def __init__(self, parent, name, startLineNo, testArch = None, forDebuggable = False):
+  def __init__(self, parent, name, startLineNo, testArch=None, forDebuggable=False):
+    super().__init__()
     assert isinstance(parent, CheckerFile)
 
     self.parent = parent
@@ -71,6 +73,7 @@ class TestStatement(PrintableMixin):
     InOrder, NextLine, DAG, Not, Eval, If, Elif, Else, Fi = range(9)
 
   def __init__(self, parent, variant, originalText, lineNo):
+    super().__init__()
     assert isinstance(parent, TestCase)
 
     self.parent = parent
@@ -144,6 +147,7 @@ class TestExpression(EqualityMixin, PrintableMixin):
     regexVariableDefinition = rVariableStartSym + rVariableDefinitionBody + rVariableEndSym
 
   def __init__(self, variant, name, text):
+    super().__init__()
     self.variant = variant
     self.name = name
     self.text = text
