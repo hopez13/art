@@ -28,6 +28,7 @@ namespace art {
 
 namespace {
 
+#if 0
 extern "C" JNIEXPORT jobject JNICALL Java_Main_cloneResolvedMethods(JNIEnv* env,
                                                                     jclass,
                                                                     jclass cls) {
@@ -90,6 +91,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_restoreResolvedMethods(
     mirror::DexCache::SetNativePairPtrSize(methods, i, pair, kRuntimePointerSize);
   }
 }
+#endif
 
 }  // namespace
 

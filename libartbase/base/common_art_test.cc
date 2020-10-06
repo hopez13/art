@@ -580,10 +580,13 @@ CommonArtTestImpl::ForkAndExecResult CommonArtTestImpl::ForkAndExec(
   result.stage = ForkAndExecResult::kLink;
 
   std::vector<const char*> c_args;
+  std::string all_args;
   for (const std::string& str : argv) {
     c_args.push_back(str.c_str());
+    all_args += str + " ";
   }
   c_args.push_back(nullptr);
+  LOG(VERBOSE) << "exec: " << all_args;
 
   android::base::unique_fd link[2];
   {

@@ -741,7 +741,7 @@ art::ObjPtr<art::mirror::ClassLoader> Redefiner::ClassRedefinition::GetClassLoad
 }
 
 art::mirror::DexCache* Redefiner::ClassRedefinition::CreateNewDexCache(
-    art::Handle<art::mirror::ClassLoader> loader) {
+    art::Handle<art::mirror::ClassLoader> loader ATTRIBUTE_UNUSED) {
   art::StackHandleScope<2> hs(driver_->self_);
   art::ClassLinker* cl = driver_->runtime_->GetClassLinker();
   art::Handle<art::mirror::DexCache> cache(hs.NewHandle(
@@ -758,13 +758,9 @@ art::mirror::DexCache* Redefiner::ClassRedefinition::CreateNewDexCache(
     return nullptr;
   }
   art::WriterMutexLock mu(driver_->self_, *art::Locks::dex_lock_);
-  art::mirror::DexCache::InitializeDexCache(driver_->self_,
-                                            cache.Get(),
-                                            location.Get(),
-                                            dex_file_.get(),
-                                            loader.IsNull() ? driver_->runtime_->GetLinearAlloc()
-                                                            : loader->GetAllocator(),
-                                            art::kRuntimePointerSize);
+  cache->SetDexFile(dex_file_.get());
+  cache->SetLocation(location.Get());
+  cache->EnsureInitialized();
   return cache.Get();
 }
 

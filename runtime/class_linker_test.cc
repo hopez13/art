@@ -688,7 +688,7 @@ struct DexCacheOffsets : public CheckOffsets<mirror::DexCache> {
     addOffset(OFFSETOF_MEMBER(mirror::DexCache, resolved_method_types_), "resolvedMethodTypes");
     addOffset(OFFSETOF_MEMBER(mirror::DexCache, resolved_methods_), "resolvedMethods");
     addOffset(OFFSETOF_MEMBER(mirror::DexCache, resolved_types_), "resolvedTypes");
-    addOffset(OFFSETOF_MEMBER(mirror::DexCache, strings_), "strings");
+    addOffset(OFFSETOF_MEMBER(mirror::DexCache, resolved_strings_), "strings");
   }
 };
 
@@ -1536,6 +1536,7 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
                                                                               data)));
   dex_cache->SetLocation(location.Get());
   const DexFile* old_dex_file = dex_cache->GetDexFile();
+  dex_cache->ResetNativeFileds();
 
   std::unique_ptr<DexFile> dex_file(new StandardDexFile(old_dex_file->Begin(),
                                                         old_dex_file->Size(),

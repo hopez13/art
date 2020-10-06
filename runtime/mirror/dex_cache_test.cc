@@ -30,6 +30,8 @@
 namespace art {
 namespace mirror {
 
+#if 0
+
 class DexCacheTest : public CommonRuntimeTest {};
 
 class DexCacheMethodHandlesTest : public DexCacheTest {
@@ -178,6 +180,8 @@ TEST_F(DexCacheMethodHandlesTest, TestResolvedMethodTypes) {
     }
   }
 }
+
+#endif
 
 }  // namespace mirror
 }  // namespace art

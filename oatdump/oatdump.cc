@@ -1894,7 +1894,6 @@ class ImageDumper {
     os << "\n";
 
     Runtime* const runtime = Runtime::Current();
-    ClassLinker* class_linker = runtime->GetClassLinker();
     std::string image_filename = image_space_.GetImageFilename();
     std::string oat_location = ImageHeader::GetOatLocationFromImageLocation(image_filename);
     os << "OAT LOCATION: " << oat_location;
@@ -1946,18 +1945,6 @@ class ImageDumper {
       heap->RevokeAllThreadLocalAllocationStacks(self);
     }
     {
-      // Mark dex caches.
-      dex_caches_.clear();
-      {
-        ReaderMutexLock mu(self, *Locks::dex_lock_);
-        for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
-          ObjPtr<mirror::DexCache> dex_cache =
-              ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
-          if (dex_cache != nullptr) {
-            dex_caches_.insert(dex_cache.Ptr());
-          }
-        }
-      }
       auto dump_visitor = [&](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
         DumpObject(obj);
       };
@@ -2219,7 +2206,6 @@ class ImageDumper {
     }
     ScopedIndentation indent1(&vios_);
     DumpFields(os, obj, obj_class);
-    const PointerSize image_pointer_size = image_header_.GetPointerSize();
     if (obj->IsObjectArray()) {
       ObjPtr<mirror::ObjectArray<mirror::Object>> obj_array = obj->AsObjectArray<mirror::Object>();
       for (int32_t i = 0, length = obj_array->GetLength(); i < length; i++) {
@@ -2256,113 +2242,6 @@ class ImageDumper {
         ScopedIndentation indent2(&vios_);
         for (ArtField& field : klass->GetSFields()) {
           PrintField(os, &field, field.GetDeclaringClass());
-        }
-      }
-    } else {
-      auto it = dex_caches_.find(obj);
-      if (it != dex_caches_.end()) {
-        auto* dex_cache = down_cast<mirror::DexCache*>(obj);
-        const auto& field_section = image_header_.GetFieldsSection();
-        const auto& method_section = image_header_.GetMethodsSection();
-        size_t num_methods = dex_cache->NumResolvedMethods();
-        if (num_methods != 0u) {
-          os << "Methods (size=" << num_methods << "):\n";
-          ScopedIndentation indent2(&vios_);
-          mirror::MethodDexCacheType* resolved_methods = dex_cache->GetResolvedMethods();
-          for (size_t i = 0, length = dex_cache->NumResolvedMethods(); i < length; ++i) {
-            ArtMethod* elem = mirror::DexCache::GetNativePairPtrSize(
-                resolved_methods, i, image_pointer_size).object;
-            size_t run = 0;
-            for (size_t j = i + 1;
-                 j != length &&
-                 elem == mirror::DexCache::GetNativePairPtrSize(
-                     resolved_methods, j, image_pointer_size).object;
-                 ++j) {
-              ++run;
-            }
-            if (run == 0) {
-              os << StringPrintf("%zd: ", i);
-            } else {
-              os << StringPrintf("%zd to %zd: ", i, i + run);
-              i = i + run;
-            }
-            std::string msg;
-            if (elem == nullptr) {
-              msg = "null";
-            } else if (method_section.Contains(
-                reinterpret_cast<uint8_t*>(elem) - image_space_.Begin())) {
-              msg = reinterpret_cast<ArtMethod*>(elem)->PrettyMethod();
-            } else {
-              msg = "<not in method section>";
-            }
-            os << StringPrintf("%p   %s\n", elem, msg.c_str());
-          }
-        }
-        size_t num_fields = dex_cache->NumResolvedFields();
-        if (num_fields != 0u) {
-          os << "Fields (size=" << num_fields << "):\n";
-          ScopedIndentation indent2(&vios_);
-          auto* resolved_fields = dex_cache->GetResolvedFields();
-          for (size_t i = 0, length = dex_cache->NumResolvedFields(); i < length; ++i) {
-            ArtField* elem = mirror::DexCache::GetNativePairPtrSize(
-                resolved_fields, i, image_pointer_size).object;
-            size_t run = 0;
-            for (size_t j = i + 1;
-                 j != length &&
-                 elem == mirror::DexCache::GetNativePairPtrSize(
-                     resolved_fields, j, image_pointer_size).object;
-                 ++j) {
-              ++run;
-            }
-            if (run == 0) {
-              os << StringPrintf("%zd: ", i);
-            } else {
-              os << StringPrintf("%zd to %zd: ", i, i + run);
-              i = i + run;
-            }
-            std::string msg;
-            if (elem == nullptr) {
-              msg = "null";
-            } else if (field_section.Contains(
-                reinterpret_cast<uint8_t*>(elem) - image_space_.Begin())) {
-              msg = reinterpret_cast<ArtField*>(elem)->PrettyField();
-            } else {
-              msg = "<not in field section>";
-            }
-            os << StringPrintf("%p   %s\n", elem, msg.c_str());
-          }
-        }
-        size_t num_types = dex_cache->NumResolvedTypes();
-        if (num_types != 0u) {
-          os << "Types (size=" << num_types << "):\n";
-          ScopedIndentation indent2(&vios_);
-          auto* resolved_types = dex_cache->GetResolvedTypes();
-          for (size_t i = 0; i < num_types; ++i) {
-            auto pair = resolved_types[i].load(std::memory_order_relaxed);
-            size_t run = 0;
-            for (size_t j = i + 1; j != num_types; ++j) {
-              auto other_pair = resolved_types[j].load(std::memory_order_relaxed);
-              if (pair.index != other_pair.index ||
-                  pair.object.Read() != other_pair.object.Read()) {
-                break;
-              }
-              ++run;
-            }
-            if (run == 0) {
-              os << StringPrintf("%zd: ", i);
-            } else {
-              os << StringPrintf("%zd to %zd: ", i, i + run);
-              i = i + run;
-            }
-            std::string msg;
-            auto* elem = pair.object.Read();
-            if (elem == nullptr) {
-              msg = "null";
-            } else {
-              msg = elem->PrettyClass();
-            }
-            os << StringPrintf("%p   %u %s\n", elem, pair.index, msg.c_str());
-          }
         }
       }
     }
@@ -2760,7 +2639,6 @@ class ImageDumper {
   const ImageHeader& image_header_;
   std::unique_ptr<OatDumper> oat_dumper_;
   OatDumperOptions* oat_dumper_options_;
-  std::set<mirror::Object*> dex_caches_;
 
   DISALLOW_COPY_AND_ASSIGN(ImageDumper);
 };
