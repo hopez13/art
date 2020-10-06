@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8af6986_c72f782e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-06T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e031081e_f4f34d2f",
+      "revId": "d93188575e9a9c0074679a55ed081935dc45e6b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfdd8345_13b214a7",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-10-06T15:31:31Z",
       "side": 1,
       "message": "There\u0027s this one too, for consistency.",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 13
+      },
+      "revId": "d93188575e9a9c0074679a55ed081935dc45e6b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "542e4ef8_5da94f40",
+        "filename": "tools/checker/common/logger.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-06T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfdd8345_13b214a7",
       "range": {
         "startLine": 27,
         "startChar": 8,
