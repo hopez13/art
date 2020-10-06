@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d3f6c3_1622fd72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-06T15:11:11Z",
+      "side": 1,
+      "message": "Yes, this was my mistake, but I think this should be documented here as it appears to be the most major element of this change.",
+      "parentUuid": "2f912f80_0d399f5b",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3b6b1b64_a642993f",
@@ -171,6 +195,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d22eed8_89c627ac",
+        "filename": "tools/checker/file_format/c1visualizer/struct.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-06T15:11:11Z",
+      "side": 1,
+      "message": "Precisely. It\u0027d be good to minimize the changes to just those required.",
+      "parentUuid": "e9cde8c9_bf2faa43",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5be3e5a2_67e614c1",
         "filename": "tools/checker/file_format/checker/struct.py",
         "patchSetId": 1
@@ -206,6 +254,30 @@
       "side": 1,
       "message": "This is according to the style guide: http://go/pystyle#whitespace",
       "parentUuid": "5be3e5a2_67e614c1",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 82
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e490d952_118912ba",
+        "filename": "tools/checker/file_format/checker/struct.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-06T15:11:11Z",
+      "side": 1,
+      "message": "There are more variations on this in checker: fair game for a separate clean-up rather than fixing one instance here.",
+      "parentUuid": "1ca93e53_4dcc1675",
       "range": {
         "startLine": 40,
         "startChar": 48,
