@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32e86ad3_56c2054a",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "I added a comment in metrics.h right after ART_COUNTERS and ART_HISTOGRAMS are declared.\n\nWithout #define, a lot of this code will have to be copied for each metric we add, which would also become a maintenance burden because we\u0027d have to make the same change for each metric we define. It\u0027s mostly about reducing code duplication and lowering the amount of code someone has to write to add and use a new metric; I don\u0027t think efficiency is a big factor here.\n\nSo far, the plan is to have just counters and histograms, so we shouldn\u0027t have to add new cases here.",
+      "parentUuid": "b5cb07e8_2fbdbd6b",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaa37c3d_0e1a65de",
         "filename": "libartbase/base/metrics.cc",
         "patchSetId": 11
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-06T21:45:43Z",
       "side": 1,
       "message": "some weird alignment.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db2b2d57_b8e19aa2",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "I rearranged it a bit, so it should be better now.",
+      "parentUuid": "aaa37c3d_0e1a65de",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d729e1d0_43e0f38f",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "I renamed them in this comment to minimum_ and maximum_value, since since I think that better explains what they mean.\n\nSince we have a fixed number of buckets, we need to know what range they cover. We could keep track of the observed ranges and try to rescale the buckets or allocate new buckets, but this would make incrementing them more expensive than just some index arithmetic and an atomic add.\n\nValues outside the range get clamped to the nearest bucket (basically, the two buckets on either side are infinitely long). If we see those buckets being way taller than the others, it means we didn\u0027t set the range correctly (for example, maybe we actually have a lot of JIT compilations that take 1.5 seconds or more), so in the next module update we\u0027d be able to expand the range.\n\nThe histogram range does get included in the logs, which means offline we\u0027d be able to rescale and merge two histograms from different versions if we need to.",
+      "parentUuid": "c8e1be64_2be29db0",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6988f87d_bf2f7eb7",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 11
@@ -83,6 +155,30 @@
       "writtenOn": "2020-10-06T21:45:43Z",
       "side": 1,
       "message": "extra spaces",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 6
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b4553d_c444f1c3",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6988f87d_bf2f7eb7",
       "range": {
         "startLine": 55,
         "startChar": 2,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e082436_1df7b216",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "They will be provided from the histogram definition (see https://android-review.googlesource.com/c/platform/art/+/1442436/11/libartbase/base/metrics.cc#67)\n\nNormally I would have just passed the Histogram object and there\u0027d be GetMinimum() and GetMaximum() accessors, but we would require us to specialize ReportHistogram for every size histogram we create.",
+      "parentUuid": "7c61f8b6_8dc92d87",
+      "range": {
+        "startLine": 103,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9858708_a82671e8",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 11
@@ -129,6 +249,30 @@
       "writtenOn": "2020-10-06T21:45:43Z",
       "side": 1,
       "message": "nit: this is hard to read: I guess you said done, but maybe you forgot to upload the patch :)",
+      "range": {
+        "startLine": 140,
+        "startChar": 21,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "567c030e_cf163f27",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-06T23:00:41Z",
+      "side": 1,
+      "message": "Ah, maybe so :)\n\nI pulled this out into a separate function, GetBucketId, which let me expand it and make the different cases a little clearer.",
+      "parentUuid": "d9858708_a82671e8",
       "range": {
         "startLine": 140,
         "startChar": 21,
