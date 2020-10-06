@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "d4d40e1a_4c28e2c2",
         "filename": "tools/Android.bp",
@@ -20,10 +21,10 @@
         "endChar": 18
       },
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d5317ec1_21660e28",
         "filename": "tools/Android.bp",
@@ -44,10 +45,10 @@
         "endChar": 18
       },
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2155f680_09a166e8",
         "filename": "tools/Android.bp",
@@ -61,10 +62,10 @@
       "side": 1,
       "message": "why disable py3? py2 is EOL already in S release.",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d5921835_13812162",
         "filename": "tools/Android.bp",
@@ -79,10 +80,10 @@
       "message": "I think Checker is currently only compatible with Python 2 (which is explicitly called from the script, see https://cs.android.com/android/platform/superproject/+/master:art/tools/checker/checker.py;l\u003d1;drc\u003d92706a8a541521d586736287f0dc6b7f338acff0). I think we should eventually make it Python 3 compatible, but maybe in another CL?",
       "parentUuid": "2155f680_09a166e8",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "72665ca7_ef1704b6",
         "filename": "tools/Android.bp",
@@ -97,10 +98,10 @@
       "message": "sure, just want to confirm.",
       "parentUuid": "d5921835_13812162",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8ed10458_77c3d125",
         "filename": "tools/Android.bp",
@@ -115,8 +116,25 @@
       "message": "To address this we will port Checker and then enable py3",
       "parentUuid": "72665ca7_ef1704b6",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3b45c0_93fc234d",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-06T18:32:59Z",
+      "side": 1,
+      "message": "FYI, Daniel is working on this here: https://android-review.googlesource.com/c/platform/art/+/1449215.",
+      "parentUuid": "8ed10458_77c3d125",
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
