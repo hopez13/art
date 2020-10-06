@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "51eaeeab_66c20b75",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,34 @@
         "endChar": 22
       },
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f912f80_0d399f5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-06T14:28:51Z",
+      "side": 1,
+      "message": "Afaics io.StringIO _does_ support it in Python 3, so that\u0027s why it\u0027s correct to remove the explicit conversions: https://docs.python.org/3/library/io.html#text-i-o",
+      "parentUuid": "51eaeeab_66c20b75",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "3b6b1b64_a642993f",
         "filename": "/PATCHSET_LEVEL",
@@ -37,10 +62,10 @@
       "side": 1,
       "message": "Adding Orion, who is knowledgeable about Python and ART! :-)",
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fc47a317_1c790a34",
         "filename": "/PATCHSET_LEVEL",
@@ -54,10 +79,27 @@
       "side": 1,
       "message": "+mast@ who has python readability.\n",
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62a5e66_6bfb1c5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-06T14:28:51Z",
+      "side": 1,
+      "message": "On a side note, I expected to find an Android.bp with a Soong module for the checker, so that Soong packages it up properly as a host binary - ensures it runs with the right python interpreter, keeps track of dependencies on other python libs, etc. I recommend adding that, but it\u0027s arguably not in scope for this CL.",
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9cde64b7_eaf34818",
         "filename": "tools/checker/common/logger.py",
@@ -77,10 +119,10 @@
         "endChar": 14
       },
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5b47776a_6ae849bb",
         "filename": "tools/checker/file_format/c1visualizer/struct.py",
@@ -100,10 +142,34 @@
         "endChar": 22
       },
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9cde8c9_bf2faa43",
+        "filename": "tools/checker/file_format/c1visualizer/struct.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-06T14:28:51Z",
+      "side": 1,
+      "message": "No, because PrintableMixin doesn\u0027t have an __init__. It can be considered good style to not make that assumption here though. go/pystyle doesn\u0027t go either way on it.",
+      "parentUuid": "5b47776a_6ae849bb",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "5be3e5a2_67e614c1",
         "filename": "tools/checker/file_format/checker/struct.py",
@@ -123,8 +189,31 @@
         "endChar": 82
       },
       "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca93e53_4dcc1675",
+        "filename": "tools/checker/file_format/checker/struct.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-06T14:28:51Z",
+      "side": 1,
+      "message": "This is according to the style guide: http://go/pystyle#whitespace",
+      "parentUuid": "5be3e5a2_67e614c1",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 82
+      },
+      "revId": "7d0694b359440d98f0acd6959df41c78e728530b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
