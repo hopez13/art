@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9856f4e0_16790ed6",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:52:46Z",
+      "side": 1,
+      "message": "nit: value_t sounds more appropriate (no strong opinion though)",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 14
+      },
+      "revId": "8c098794de92b8469d55151a759b1ba8b665e640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5449511_2fd4cbbc",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:52:46Z",
+      "side": 1,
+      "message": "imo: one is enough :) you can convert at a later point.\nmaybe CPU cycles is a different thing?",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 210,
+        "endChar": 51
+      },
+      "revId": "8c098794de92b8469d55151a759b1ba8b665e640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "894e1361_8af4b363",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:52:46Z",
+      "side": 1,
+      "message": "are we concern about calling this in critical paths? If so worth highlighting in the comments.",
+      "range": {
+        "startLine": 211,
+        "startChar": 31,
+        "endLine": 211,
+        "endChar": 40
+      },
+      "revId": "8c098794de92b8469d55151a759b1ba8b665e640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2aac11b_bf7820be",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:52:46Z",
+      "side": 1,
+      "message": "comment about multi-thread: probably not suitable.",
+      "range": {
+        "startLine": 225,
+        "startChar": 11,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "8c098794de92b8469d55151a759b1ba8b665e640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d17505_17a19e24",
+        "filename": "libartbase/base/metrics_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:52:46Z",
+      "side": 1,
+      "message": "Add a test with explicit Start/Stop as well.",
+      "range": {
+        "startLine": 70,
+        "startChar": 20,
+        "endLine": 70,
+        "endChar": 32
+      },
+      "revId": "8c098794de92b8469d55151a759b1ba8b665e640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
