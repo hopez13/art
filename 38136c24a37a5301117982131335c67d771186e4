@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5cb07e8_2fbdbd6b",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "hmm, quite a bit of defines here. Do we expect to grow? or we\u0027ll only have these 2?\n\nWorth adding a comment on the tradeoff you chose here (on using defines)\n#define usually is much less readable but could be more efficient, and allow us to do things without duplicating a log of code.",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaa37c3d_0e1a65de",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "some weird alignment.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e1be64_2be29db0",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "It\u0027s not entirely clear to me what the goal for these are.\n\nAre they meant to essentially clamp the values recorded by this histogram (to reduce noise maybe?)?",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6988f87d_bf2f7eb7",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "extra spaces",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 6
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c61f8b6_8dc92d87",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "What\u0027s the relation between these and the histogram definition? What if they don\u0027t match?",
+      "range": {
+        "startLine": 103,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9858708_a82671e8",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-06T21:45:43Z",
+      "side": 1,
+      "message": "nit: this is hard to read: I guess you said done, but maybe you forgot to upload the patch :)",
+      "range": {
+        "startLine": 140,
+        "startChar": 21,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
