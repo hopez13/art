@@ -16,6 +16,24 @@
       "message": "Daniel, the TH failures are from Python version \u003c 3.6.\n\ntest-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-640-checker-integer-valueof64\n/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/test/run-test  --output-path /buildbot/tmp/test-art-ydzkpgan/tmphlh0xxeg --always-clean  --dex2oat-jobs 4 --host --prebuild --compact-dex-level fast --optimizing --no-relocate --runtime-option -Xcheck:jni --64  640-checker-integer-valueof\n/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/test/640-checker-integer-valueof: building...\n/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/test/640-checker-integer-valueof: running...\nchecker exit status: 1\n/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/test/640-checker-integer-valueof: FAILED!\n \n#################### info\n# Test for Integer.valueOf.\n#################### diffs\n--- expected.txt\t2020-10-06 17:16:15.394065165 +0000\n+++ output.txt\t2020-10-06 17:30:34.347161892 +0000\n@@ -0,0 +1,10 @@\n+Traceback (most recent call last):\n+  File \"/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/test/../tools/checker/checker.py\", line 21, in \u003cmodule\u003e\n+    from common.logger                    import Logger\n+  File \"/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/tools/checker/common/logger.py\", line 20, in \u003cmodule\u003e\n+    class Logger:\n+  File \"/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/tools/checker/common/logger.py\", line 27, in Logger\n+    class Color(enum.Enum):\n+  File \"/usr/local/google/buildbot/src/googleplex-android/master-art-host/art/tools/checker/common/logger.py\", line 28, in Color\n+    DEFAULT \u003d enum.auto()\n+AttributeError: \u0027module\u0027 object has no attribute \u0027auto\u0027",
       "revId": "a41c4aeedf7a3941f17ba60568e76c300b8fe1db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecef8104_cb859eb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-07T08:52:22Z",
+      "side": 1,
+      "message": "Right – on that build/test configuration, we run with the version of Python installed on the build/tests machine, because tests are run via the current `run-test` script, which essentially ignores the build system and its sandboxing \u0026 tooling.\n\nDaniel, could you change the corresponding code so that it\u0027s compatible with that older version of Python 3? These build/test targets are still needed until the transition to TradeFed is complete.",
+      "parentUuid": "9d8c1eba_6821e2c1",
+      "revId": "a41c4aeedf7a3941f17ba60568e76c300b8fe1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
