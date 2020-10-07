@@ -135,6 +135,24 @@
       "parentUuid": "8ed10458_77c3d125",
       "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7eadece_7dd53e34",
+        "filename": "tools/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-07T11:57:41Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/art/+/1449215 has landed, so we can switch to Python 3 here too! :-)",
+      "parentUuid": "0e3b45c0_93fc234d",
+      "revId": "e188b1f4155878488ec06b3ad66093cda54eaf10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
