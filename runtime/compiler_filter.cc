@@ -57,20 +57,8 @@ bool CompilerFilter::IsJniCompilationEnabled(Filter filter) {
 }
 
 bool CompilerFilter::IsQuickeningCompilationEnabled(Filter filter) {
-  switch (filter) {
-    case CompilerFilter::kAssumeVerified:
-    case CompilerFilter::kExtract:
-    case CompilerFilter::kVerify: return false;
-
-    case CompilerFilter::kQuicken:
-    case CompilerFilter::kSpaceProfile:
-    case CompilerFilter::kSpace:
-    case CompilerFilter::kSpeedProfile:
-    case CompilerFilter::kSpeed:
-    case CompilerFilter::kEverythingProfile:
-    case CompilerFilter::kEverything: return true;
-  }
-  UNREACHABLE();
+  // b/170086509 Quickening compilation is being deprecated.
+  return (filter == CompilerFilter::kQuicken);
 }
 
 bool CompilerFilter::IsAnyCompilationEnabled(Filter filter) {
@@ -158,7 +146,7 @@ CompilerFilter::Filter CompilerFilter::GetSafeModeFilterFrom(Filter filter) {
     case CompilerFilter::kSpaceProfile:
     case CompilerFilter::kSpeedProfile:
     case CompilerFilter::kEverythingProfile:
-      return CompilerFilter::kQuicken;
+      return CompilerFilter::kVerify;
   }
   UNREACHABLE();
 }
@@ -221,7 +209,8 @@ bool CompilerFilter::ParseCompilerFilter(const char* option, Filter* filter) {
   } else if (strcmp(option, "verify") == 0) {
     *filter = kVerify;
   } else if (strcmp(option, "quicken") == 0) {
-    *filter = kQuicken;
+    // b/170086509 'quicken' becomes an alias to 'verify.
+    *filter = kVerify;
   } else if (strcmp(option, "space") == 0) {
     *filter = kSpace;
   } else if (strcmp(option, "space-profile") == 0) {
