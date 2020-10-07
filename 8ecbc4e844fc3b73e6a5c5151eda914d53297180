@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9996b27_feef0a2b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-07T16:00:20Z",
+      "side": 0,
+      "message": "This needs to stay, it\u0027s use for JIT Zygote.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 7,
+        "endLine": 1755,
+        "endChar": 23
+      },
+      "revId": "8ecbc4e844fc3b73e6a5c5151eda914d53297180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
