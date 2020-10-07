@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ed57a7_60c7dfdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-07T17:09:23Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4:\n\u003e \n\u003e Or move to the compilation script? Either way I don\u0027t propose we land this without a follow-up CL to take of this.\n\nNo, this method is compiling in memory the boot image extension (zygote and dex2oat need that in case there is no extension on disk).",
+      "revId": "3eddcd099c14ff8a8abb08af1dc3ff9f67702825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
