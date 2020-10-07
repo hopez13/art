@@ -35,8 +35,6 @@ namespace space {
 class ImageSpaceTest : public CommonRuntimeTest {
  protected:
   void SetUpRuntimeOptions(RuntimeOptions* options) override {
-    // Disable implicit dex2oat invocations when loading image spaces.
-    options->emplace_back("-Xnoimage-dex2oat", nullptr);
     // Disable relocation.
     options->emplace_back("-Xnorelocate", nullptr);
   }
@@ -383,7 +381,6 @@ class ImageSpaceLoadingTest : public CommonRuntimeTest {
     options->emplace_back(android::base::StringPrintf("-Ximage:%s", image_location.c_str()),
                           nullptr);
     options->emplace_back(kRelocate ? "-Xrelocate" : "-Xnorelocate", nullptr);
-    options->emplace_back(kImageDex2oat ? "-Ximage-dex2oat" : "-Xnoimage-dex2oat", nullptr);
 
     // We want to test the relocation behavior of ImageSpace. As such, don't pretend we're a
     // compiler.
