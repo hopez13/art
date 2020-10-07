@@ -106,7 +106,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasImage(JNIEnv* env ATTRIBUTE_U
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isImageDex2OatEnabled(JNIEnv* env ATTRIBUTE_UNUSED,
                                                                       jclass cls ATTRIBUTE_UNUSED) {
-  return Runtime::Current()->IsImageDex2OatEnabled();
+  return false;  // No longer an option.
 }
 
 // public static native boolean compiledWithOptimizing();

@@ -21,7 +21,7 @@
 
 // This file defines the list of keys for RuntimeOptions.
 // These can be used with RuntimeOptions.Get/Set/etc, for example:
-//         RuntimeOptions opt; bool* image_dex2oat_enabled = opt.Get(RuntimeOptions::ImageDex2Oat);
+//         RuntimeOptions opt; bool* use_jit_compilation = opt.Get(RuntimeOptions::UseJitCompilation);
 //
 // Column Descriptions:
 //                   <<Type>>             <<Key Name>>                  <<Default Value>>
@@ -95,7 +95,6 @@ RUNTIME_OPTIONS_KEY (std::vector<std::string>, \
                                           PropertiesList)  // -D<whatever> -D<whatever> ...
 RUNTIME_OPTIONS_KEY (std::string,         JniTrace)
 RUNTIME_OPTIONS_KEY (bool,                Relocate,                       kDefaultMustRelocate)
-RUNTIME_OPTIONS_KEY (bool,                ImageDex2Oat,                   true)
 RUNTIME_OPTIONS_KEY (bool,                Interpret,                      false) // -Xint
                                                         // Disable the compiler for CC (for now).
 RUNTIME_OPTIONS_KEY (XGcOption,           GcOption)  // -Xgc:
@@ -119,8 +118,6 @@ RUNTIME_OPTIONS_KEY (ProfileSaverOptions, ProfileSaverOpts)  // -Xjitsaveprofili
 RUNTIME_OPTIONS_KEY (std::string,         Compiler)
 RUNTIME_OPTIONS_KEY (std::vector<std::string>, \
                                           CompilerOptions)  // -Xcompiler-option ...
-RUNTIME_OPTIONS_KEY (std::vector<std::string>, \
-                                          ImageCompilerOptions)  // -Ximage-compiler-option ...
 RUNTIME_OPTIONS_KEY (verifier::VerifyMode, \
                                           Verify,                         verifier::VerifyMode::kEnable)
 RUNTIME_OPTIONS_KEY (unsigned int,        TargetSdkVersion, \
