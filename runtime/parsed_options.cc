@@ -294,9 +294,6 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define({"-Xrelocate", "-Xnorelocate"})
           .WithValues({true, false})
           .IntoKey(M::Relocate)
-      .Define({"-Ximage-dex2oat", "-Xnoimage-dex2oat"})
-          .WithValues({true, false})
-          .IntoKey(M::ImageDex2Oat)
       .Define("-XX:LargeObjectSpace=_")
           .WithType<gc::space::LargeObjectSpaceType>()
           .WithValueMap({{"disabled", gc::space::LargeObjectSpaceType::kDisabled},
@@ -334,10 +331,6 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .WithType<std::vector<std::string>>()
           .AppendValues()
           .IntoKey(M::CompilerOptions)
-      .Define("-Ximage-compiler-option _")
-          .WithType<std::vector<std::string>>()
-          .AppendValues()
-          .IntoKey(M::ImageCompilerOptions)
       .Define("-Xverify:_")
           .WithType<verifier::VerifyMode>()
           .WithValueMap({{"none",     verifier::VerifyMode::kNone},

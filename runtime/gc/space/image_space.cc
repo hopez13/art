@@ -50,7 +50,6 @@
 #include "gc/accounting/space_bitmap-inl.h"
 #include "gc/task_processor.h"
 #include "image-inl.h"
-#include "image_space_fs.h"
 #include "intern_table-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/executable-inl.h"
@@ -114,92 +113,6 @@ static int32_t ChooseRelocationOffsetDelta(int32_t min_delta, int32_t max_delta)
 
 static int32_t ChooseRelocationOffsetDelta() {
   return ChooseRelocationOffsetDelta(ART_BASE_ADDRESS_MIN_DELTA, ART_BASE_ADDRESS_MAX_DELTA);
-}
-
-static bool GenerateImage(const std::string& image_filename,
-                          InstructionSet image_isa,
-                          std::string* error_msg) {
-  Runtime* runtime = Runtime::Current();
-  const std::vector<std::string>& boot_class_path = runtime->GetBootClassPath();
-  if (boot_class_path.empty()) {
-    *error_msg = "Failed to generate image because no boot class path specified";
-    return false;
-  }
-  // We should clean up so we are more likely to have room for the image.
-  if (Runtime::Current()->IsZygote()) {
-    LOG(INFO) << "Pruning dalvik-cache since we are generating an image and will need to recompile";
-    PruneDalvikCache(image_isa);
-  }
-
-  std::vector<std::string> arg_vector;
-
-  std::string dex2oat(Runtime::Current()->GetCompilerExecutable());
-  arg_vector.push_back(dex2oat);
-
-  char* dex2oat_bcp = getenv("DEX2OATBOOTCLASSPATH");
-  std::vector<std::string> dex2oat_bcp_vector;
-  if (dex2oat_bcp != nullptr) {
-    arg_vector.push_back("--runtime-arg");
-    arg_vector.push_back(StringPrintf("-Xbootclasspath:%s", dex2oat_bcp));
-    Split(dex2oat_bcp, ':', &dex2oat_bcp_vector);
-  }
-
-  std::string image_option_string("--image=");
-  image_option_string += image_filename;
-  arg_vector.push_back(image_option_string);
-
-  if (!dex2oat_bcp_vector.empty()) {
-    for (size_t i = 0u; i < dex2oat_bcp_vector.size(); i++) {
-      arg_vector.push_back(std::string("--dex-file=") + dex2oat_bcp_vector[i]);
-      arg_vector.push_back(std::string("--dex-location=") + dex2oat_bcp_vector[i]);
-    }
-  } else {
-    const std::vector<std::string>& boot_class_path_locations =
-        runtime->GetBootClassPathLocations();
-    DCHECK_EQ(boot_class_path.size(), boot_class_path_locations.size());
-    for (size_t i = 0u; i < boot_class_path.size(); i++) {
-      arg_vector.push_back(std::string("--dex-file=") + boot_class_path[i]);
-      arg_vector.push_back(std::string("--dex-location=") + boot_class_path_locations[i]);
-    }
-  }
-
-  std::string oat_file_option_string("--oat-file=");
-  oat_file_option_string += ImageHeader::GetOatLocationFromImageLocation(image_filename);
-  arg_vector.push_back(oat_file_option_string);
-
-  // Note: we do not generate a fully debuggable boot image so we do not pass the
-  // compiler flag --debuggable here.
-
-  Runtime::Current()->AddCurrentRuntimeFeaturesAsDex2OatArguments(&arg_vector);
-  CHECK_EQ(image_isa, kRuntimeISA)
-      << "We should always be generating an image for the current isa.";
-
-  int32_t base_offset = ChooseRelocationOffsetDelta();
-  LOG(INFO) << "Using an offset of 0x" << std::hex << base_offset << " from default "
-            << "art base address of 0x" << std::hex << ART_BASE_ADDRESS;
-  arg_vector.push_back(StringPrintf("--base=0x%x", ART_BASE_ADDRESS + base_offset));
-
-  if (!kIsTargetBuild) {
-    arg_vector.push_back("--host");
-  }
-
-  // Check if there is a boot profile, and pass it to dex2oat.
-  if (OS::FileExists("/system/etc/boot-image.prof")) {
-    arg_vector.push_back("--profile-file=/system/etc/boot-image.prof");
-  } else {
-    // We will compile the boot image with compiler filter "speed" unless overridden below.
-    LOG(WARNING) << "Missing boot-image.prof file, /system/etc/boot-image.prof not found: "
-                 << strerror(errno);
-  }
-
-  const std::vector<std::string>& compiler_options = Runtime::Current()->GetImageCompilerOptions();
-  for (size_t i = 0; i < compiler_options.size(); ++i) {
-    arg_vector.push_back(compiler_options[i].c_str());
-  }
-
-  std::string command_line(Join(arg_vector, ' '));
-  LOG(INFO) << "GenerateImage: " << command_line;
-  return Exec(arg_vector, error_msg);
 }
 
 static bool FindImageFilenameImpl(const char* image_location,
@@ -305,36 +218,6 @@ static std::unique_ptr<ImageHeader> ReadSpecificImageHeader(const char* filename
     return nullptr;
   }
   return hdr;
-}
-
-static bool CanWriteToDalvikCache(const InstructionSet isa) {
-  const std::string dalvik_cache = GetDalvikCache(GetInstructionSetString(isa));
-  if (access(dalvik_cache.c_str(), O_RDWR) == 0) {
-    return true;
-  } else if (errno != EACCES) {
-    PLOG(WARNING) << "CanWriteToDalvikCache returned error other than EACCES";
-  }
-  return false;
-}
-
-static bool ImageCreationAllowed(bool is_global_cache,
-                                 const InstructionSet isa,
-                                 bool is_zygote,
-                                 std::string* error_msg) {
-  // Anyone can write into a "local" cache.
-  if (!is_global_cache) {
-    return true;
-  }
-
-  // Only the zygote running as root is allowed to create the global boot image.
-  // If the zygote is running as non-root (and cannot write to the dalvik-cache),
-  // then image creation is not allowed..
-  if (is_zygote) {
-    return CanWriteToDalvikCache(isa);
-  }
-
-  *error_msg = "Only the zygote can create the global boot image.";
-  return false;
 }
 
 void ImageSpace::VerifyImageAllocations() {
@@ -1752,13 +1635,6 @@ class ImageSpace::BootImageLayout {
                   size_t bcp_index,
                   /*out*/std::string* error_msg);
 
-  bool CompileExtension(const std::string& base_location,
-                        const std::string& base_filename,
-                        size_t bcp_index,
-                        const std::string& profile_filename,
-                        ArrayRef<std::string> dependencies,
-                        /*out*/std::string* error_msg);
-
   bool CheckAndRemoveLastChunkChecksum(/*inout*/std::string_view* oat_checksums,
                                        /*out*/std::string* error_msg);
 
@@ -2097,194 +1973,6 @@ bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
   return true;
 }
 
-bool ImageSpace::BootImageLayout::CompileExtension(const std::string& base_location,
-                                                   const std::string& base_filename,
-                                                   size_t bcp_index,
-                                                   const std::string& profile_filename,
-                                                   ArrayRef<std::string> dependencies,
-                                                   /*out*/std::string* error_msg) {
-  DCHECK_LE(total_component_count_, next_bcp_index_);
-  DCHECK_LE(next_bcp_index_, bcp_index);
-  size_t bcp_component_count = boot_class_path_.size();
-  DCHECK_LT(bcp_index, bcp_component_count);
-  DCHECK(!profile_filename.empty());
-  if (total_component_count_ != bcp_index) {
-    // We require all previous BCP components to have a boot image space (primary or extension).
-    *error_msg = "Cannot compile extension because of missing dependencies.";
-    return false;
-  }
-  Runtime* runtime = Runtime::Current();
-  if (!runtime->IsImageDex2OatEnabled()) {
-    *error_msg = "Cannot compile extension because dex2oat for image compilation is disabled.";
-    return false;
-  }
-
-  // Check dependencies.
-  DCHECK(!dependencies.empty());
-  size_t dependency_component_count = 0;
-  for (size_t i = 0, size = dependencies.size(); i != size; ++i) {
-    if (chunks_.size() == i || chunks_[i].start_index != dependency_component_count) {
-      *error_msg = StringPrintf("Missing extension dependency \"%s\"", dependencies[i].c_str());
-      return false;
-    }
-    dependency_component_count += chunks_[i].component_count;
-  }
-
-  // Collect locations from the profile.
-  std::set<std::string> dex_locations;
-  {
-    std::unique_ptr<File> profile_file(OS::OpenFileForReading(profile_filename.c_str()));
-    if (profile_file == nullptr) {
-      *error_msg = StringPrintf("Failed to open profile file \"%s\" for reading, error: %s",
-                                profile_filename.c_str(),
-                                strerror(errno));
-      return false;
-    }
-
-    // TODO: Rewrite ProfileCompilationInfo to provide a better interface and
-    // to store the dex locations in uncompressed section of the file.
-    auto collect_fn = [&dex_locations](const std::string& dex_location,
-                                       uint32_t checksum ATTRIBUTE_UNUSED) {
-      dex_locations.insert(dex_location);  // Just collect locations.
-      return false;                        // Do not read the profile data.
-    };
-    ProfileCompilationInfo info(/*for_boot_image=*/ true);
-    if (!info.Load(profile_file->Fd(), /*merge_classes=*/ true, collect_fn)) {
-      *error_msg = StringPrintf("Failed to scan profile from %s", profile_filename.c_str());
-      return false;
-    }
-  }
-
-  // Match boot class path components to locations from profile.
-  // Note that the profile records only filenames without paths.
-  size_t bcp_end = bcp_index;
-  for (; bcp_end != bcp_component_count; ++bcp_end) {
-    const std::string& bcp_component = boot_class_path_locations_[bcp_end];
-    size_t slash_pos = bcp_component.rfind('/');
-    DCHECK_NE(slash_pos, std::string::npos);
-    std::string bcp_component_name = bcp_component.substr(slash_pos + 1u);
-    if (dex_locations.count(bcp_component_name) == 0u) {
-      break;  // Did not find the current location in dex file.
-    }
-  }
-
-  if (bcp_end == bcp_index) {
-    // No data for the first (requested) component.
-    *error_msg = StringPrintf("The profile does not contain data for %s",
-                              boot_class_path_locations_[bcp_index].c_str());
-    return false;
-  }
-
-  // Create in-memory files.
-  std::string art_filename = ExpandLocation(base_filename, bcp_index);
-  std::string vdex_filename = ImageHeader::GetVdexLocationFromImageLocation(art_filename);
-  std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(art_filename);
-  android::base::unique_fd art_fd(memfd_create_compat(art_filename.c_str(), /*flags=*/ 0));
-  android::base::unique_fd vdex_fd(memfd_create_compat(vdex_filename.c_str(), /*flags=*/ 0));
-  android::base::unique_fd oat_fd(memfd_create_compat(oat_filename.c_str(), /*flags=*/ 0));
-  if (art_fd.get() == -1 || vdex_fd.get() == -1 || oat_fd.get() == -1) {
-    *error_msg = StringPrintf("Failed to create memfd handles for compiling extension for %s",
-                              boot_class_path_locations_[bcp_index].c_str());
-    return false;
-  }
-
-  // Construct the dex2oat command line.
-  std::string dex2oat = runtime->GetCompilerExecutable();
-  ArrayRef<const std::string> head_bcp =
-      boot_class_path_.SubArray(/*pos=*/ 0u, /*length=*/ dependency_component_count);
-  ArrayRef<const std::string> head_bcp_locations =
-      boot_class_path_locations_.SubArray(/*pos=*/ 0u, /*length=*/ dependency_component_count);
-  ArrayRef<const std::string> extension_bcp =
-      boot_class_path_.SubArray(/*pos=*/ bcp_index, /*length=*/ bcp_end - bcp_index);
-  ArrayRef<const std::string> extension_bcp_locations =
-      boot_class_path_locations_.SubArray(/*pos=*/ bcp_index, /*length=*/ bcp_end - bcp_index);
-  std::string boot_class_path = Join(head_bcp, ':') + ':' + Join(extension_bcp, ':');
-  std::string boot_class_path_locations =
-      Join(head_bcp_locations, ':') + ':' + Join(extension_bcp_locations, ':');
-
-  std::vector<std::string> args;
-  args.push_back(dex2oat);
-  args.push_back("--runtime-arg");
-  args.push_back("-Xbootclasspath:" + boot_class_path);
-  args.push_back("--runtime-arg");
-  args.push_back("-Xbootclasspath-locations:" + boot_class_path_locations);
-  args.push_back("--boot-image=" + Join(dependencies, kComponentSeparator));
-  for (size_t i = bcp_index; i != bcp_end; ++i) {
-    args.push_back("--dex-file=" + boot_class_path_[i]);
-    args.push_back("--dex-location=" + boot_class_path_locations_[i]);
-  }
-  args.push_back("--image-fd=" + std::to_string(art_fd.get()));
-  args.push_back("--output-vdex-fd=" + std::to_string(vdex_fd.get()));
-  args.push_back("--oat-fd=" + std::to_string(oat_fd.get()));
-  args.push_back("--oat-location=" + ImageHeader::GetOatLocationFromImageLocation(base_filename));
-  args.push_back("--single-image");
-  args.push_back("--image-format=uncompressed");
-
-  // We currently cannot guarantee that the boot class path has no verification failures.
-  // And we do not want to compile anything, compilation should be done by JIT in zygote.
-  args.push_back("--compiler-filter=verify");
-
-  // Pass the profile.
-  args.push_back("--profile-file=" + profile_filename);
-
-  // Do not let the file descriptor numbers change the compilation output.
-  args.push_back("--avoid-storing-invocation");
-
-  runtime->AddCurrentRuntimeFeaturesAsDex2OatArguments(&args);
-
-  if (!kIsTargetBuild) {
-    args.push_back("--host");
-  }
-
-  // Image compiler options go last to allow overriding above args, such as --compiler-filter.
-  for (const std::string& compiler_option : runtime->GetImageCompilerOptions()) {
-    args.push_back(compiler_option);
-  }
-
-  // Compile the extension.
-  VLOG(image) << "Compiling boot image extension for " << (bcp_end - bcp_index)
-              << " components, starting from " << boot_class_path_locations_[bcp_index];
-  if (!Exec(args, error_msg)) {
-    return false;
-  }
-
-  // Read and validate the image header.
-  ImageHeader header;
-  {
-    File image_file(art_fd.release(), /*check_usage=*/ false);
-    if (!ReadSpecificImageHeader(&image_file, "compiled image file", &header, error_msg)) {
-      return false;
-    }
-    art_fd.reset(image_file.Release());
-  }
-  const char* file_description = "compiled image file";
-  if (!ValidateHeader(header, bcp_index, file_description, error_msg)) {
-    return false;
-  }
-
-  DCHECK(!chunks_.empty());
-  ImageChunk chunk;
-  chunk.base_location = base_location;
-  chunk.base_filename = base_filename;
-  chunk.profile_file = profile_filename;
-  chunk.start_index = bcp_index;
-  chunk.component_count = header.GetComponentCount();
-  chunk.image_space_count = header.GetImageSpaceCount();
-  chunk.reservation_size = header.GetImageReservationSize();
-  chunk.checksum = header.GetImageChecksum();
-  chunk.boot_image_component_count = header.GetBootImageComponentCount();
-  chunk.boot_image_checksum = header.GetBootImageChecksum();
-  chunk.boot_image_size = header.GetBootImageSize();
-  chunk.art_fd.reset(art_fd.release());
-  chunk.vdex_fd.reset(vdex_fd.release());
-  chunk.oat_fd.reset(oat_fd.release());
-  chunks_.push_back(std::move(chunk));
-  next_bcp_index_ = bcp_index + header.GetComponentCount();
-  total_component_count_ += header.GetComponentCount();
-  total_reservation_size_ += header.GetImageReservationSize();
-  return true;
-}
-
 bool ImageSpace::BootImageLayout::CheckAndRemoveLastChunkChecksum(
     /*inout*/std::string_view* oat_checksums,
     /*out*/std::string* error_msg) {
@@ -2375,23 +2063,6 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
         !ReadHeader(base_location, base_filename, bcp_index, err_msg)) {
       if (i == 0u || validate) {
         return false;
-      }
-      VLOG(image) << "Error reading named image component header for " << base_location
-                  << ", error: " << local_error_msg;
-      if (profile_filename.empty() ||
-          !CompileExtension(base_location,
-                            base_filename,
-                            bcp_index,
-                            profile_filename,
-                            extension_dependencies,
-                            &local_error_msg)) {
-        if (!profile_filename.empty()) {
-          VLOG(image) << "Error compiling extension for " << boot_class_path_[bcp_index]
-                      << " error: " << local_error_msg;
-        }
-        bcp_pos = bcp_index + 1u;  // Skip at least this component.
-        DCHECK_GT(bcp_pos, GetNextBcpIndex());
-        continue;
       }
     }
     if (validate) {
@@ -3517,41 +3188,6 @@ bool ImageSpace::IsBootClassPathOnDisk(InstructionSet image_isa) {
   return image_header != nullptr;
 }
 
-static constexpr uint64_t kLowSpaceValue = 50 * MB;
-static constexpr uint64_t kTmpFsSentinelValue = 384 * MB;
-
-// Read the free space of the cache partition and make a decision whether to keep the generated
-// image. This is to try to mitigate situations where the system might run out of space later.
-static bool CheckSpace(const std::string& cache_filename, std::string* error_msg) {
-  // Using statvfs vs statvfs64 because of b/18207376, and it is enough for all practical purposes.
-  struct statvfs buf;
-
-  int res = TEMP_FAILURE_RETRY(statvfs(cache_filename.c_str(), &buf));
-  if (res != 0) {
-    // Could not stat. Conservatively tell the system to delete the image.
-    *error_msg = "Could not stat the filesystem, assuming low-memory situation.";
-    return false;
-  }
-
-  uint64_t fs_overall_size = buf.f_bsize * static_cast<uint64_t>(buf.f_blocks);
-  // Zygote is privileged, but other things are not. Use bavail.
-  uint64_t fs_free_size = buf.f_bsize * static_cast<uint64_t>(buf.f_bavail);
-
-  // Take the overall size as an indicator for a tmpfs, which is being used for the decryption
-  // environment. We do not want to fail quickening the boot image there, as it is beneficial
-  // for time-to-UI.
-  if (fs_overall_size > kTmpFsSentinelValue) {
-    if (fs_free_size < kLowSpaceValue) {
-      *error_msg = StringPrintf("Low-memory situation: only %4.2f megabytes available, need at "
-                                "least %" PRIu64 ".",
-                                static_cast<double>(fs_free_size) / MB,
-                                kLowSpaceValue / MB);
-      return false;
-    }
-  }
-  return true;
-}
-
 bool ImageSpace::LoadBootImage(
     const std::vector<std::string>& boot_class_path,
     const std::vector<std::string>& boot_class_path_locations,
@@ -3584,34 +3220,7 @@ bool ImageSpace::LoadBootImage(
                          executable,
                          is_zygote);
 
-  // Step 0: Extra zygote work.
-
   loader.FindImageFiles();
-
-  // Step 0.a: If we're the zygote, check for free space, and prune the cache preemptively,
-  //           if necessary. While the runtime may be fine (it is pretty tolerant to
-  //           out-of-disk-space situations), other parts of the platform are not.
-  //
-  //           The advantage of doing this proactively is that the later steps are simplified,
-  //           i.e., we do not need to code retries.
-  bool low_space = false;
-  if (loader.IsZygote() && loader.DalvikCacheExists()) {
-    // Extra checks for the zygote. These only apply when loading the first image, explained below.
-    const std::string& dalvik_cache = loader.GetDalvikCache();
-    DCHECK(!dalvik_cache.empty());
-    std::string local_error_msg;
-    bool check_space = CheckSpace(dalvik_cache, &local_error_msg);
-    if (!check_space) {
-      LOG(WARNING) << local_error_msg << " Preemptively pruning the dalvik cache.";
-      PruneDalvikCache(image_isa);
-
-      // Re-evaluate the image.
-      loader.FindImageFiles();
-
-      // Disable compilation/patching - we do not want to fill up the space again.
-      low_space = true;
-    }
-  }
 
   // Collect all the errors.
   std::vector<std::string> error_msgs;
@@ -3658,39 +3267,6 @@ bool ImageSpace::LoadBootImage(
     if (invoke_sequentially(try_load_from_cache, try_load_from_system)) {
       return true;
     }
-  }
-
-  // Step 3: We do not have an existing image in /system,
-  //         so generate an image into the dalvik cache.
-  if (!loader.HasSystem() && loader.DalvikCacheExists()) {
-    std::string local_error_msg;
-    if (low_space || !Runtime::Current()->IsImageDex2OatEnabled()) {
-      local_error_msg = "Image compilation disabled.";
-    } else if (ImageCreationAllowed(loader.IsGlobalCache(),
-                                    image_isa,
-                                    is_zygote,
-                                    &local_error_msg)) {
-      bool compilation_success =
-          GenerateImage(loader.GetCacheFilename(), image_isa, &local_error_msg);
-      if (compilation_success) {
-        if (loader.LoadFromDalvikCache(/*validate_oat_file=*/ false,
-                                       extra_reservation_size,
-                                       boot_image_spaces,
-                                       extra_reservation,
-                                       &local_error_msg)) {
-          return true;
-        }
-      }
-    }
-    error_msgs.push_back(StringPrintf("Cannot compile image to %s: %s",
-                                      loader.GetCacheFilename().c_str(),
-                                      local_error_msg.c_str()));
-  }
-
-  // We failed. Prune the cache the free up space, create a compound error message
-  // and return false.
-  if (loader.DalvikCacheExists()) {
-    PruneDalvikCache(image_isa);
   }
 
   std::ostringstream oss;

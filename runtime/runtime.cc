@@ -237,7 +237,6 @@ Runtime::Runtime()
       must_relocate_(false),
       is_concurrent_gc_enabled_(true),
       is_explicit_gc_disabled_(false),
-      image_dex2oat_enabled_(true),
       default_stack_size_(0),
       heap_(nullptr),
       max_spins_before_thin_lock_inflation_(Monitor::kDefaultMaxSpinsBeforeThinLockInflation),
@@ -869,7 +868,7 @@ bool Runtime::Start() {
 
   DoAndMaybeSwitchInterpreter([=](){ started_ = true; });
 
-  if (!IsImageDex2OatEnabled() || !GetHeap()->HasBootImageSpace()) {
+  if (!GetHeap()->HasBootImageSpace()) {
     ScopedObjectAccess soa(self);
     StackHandleScope<3> hs(soa.Self());
 
@@ -1291,7 +1290,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_zygote_ = runtime_options.Exists(Opt::Zygote);
   is_primary_zygote_ = runtime_options.Exists(Opt::PrimaryZygote);
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
-  image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);
   dump_native_stack_on_sig_quit_ = runtime_options.GetOrDefault(Opt::DumpNativeStackOnSigQuit);
 
   vfprintf_ = runtime_options.GetOrDefault(Opt::HookVfprintf);
@@ -1308,7 +1306,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       break;
     }
   }
-  image_compiler_options_ = runtime_options.ReleaseOrDefault(Opt::ImageCompilerOptions);
 
   finalizer_timeout_ms_ = runtime_options.GetOrDefault(Opt::FinalizerTimeoutMs);
   max_spins_before_thin_lock_inflation_ =
