@@ -19,6 +19,7 @@
  */
 #include "nterp.h"
 
+#include "arch/context.h"
 #include "base/quasi_atomic.h"
 #include "dex/dex_instruction_utils.h"
 #include "debugger.h"
@@ -48,8 +49,9 @@ bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {
 
 bool CanMethodUseNterp(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   return !method->IsNative() &&
-      method->SkipAccessChecks() &&
       method->IsInvokable() &&
+      // Nterp supports the same methods the compiler supports.
+      method->IsCompilable() &&
       !method->MustCountLocks() &&
       // Proxy methods do not go through the JIT like other methods, so we don't
       // run them with nterp.
@@ -311,12 +313,13 @@ static ArtField* ResolveFieldWithAccessChecks(Thread* self,
                                               uint16_t field_index,
                                               ArtMethod* caller,
                                               bool is_static,
-                                              bool is_put)
+                                              const Instruction* inst)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (caller->SkipAccessChecks()) {
     return class_linker->ResolveField(field_index, caller, is_static);
   }
 
+  bool is_put = IsInstructionIPut(inst->Opcode());
   caller = caller->GetInterfaceMethodIfProxy(kRuntimePointerSize);
 
   StackHandleScope<2> hs(self);
@@ -346,6 +349,48 @@ static ArtField* ResolveFieldWithAccessChecks(Thread* self,
     ThrowIllegalAccessErrorFinalField(caller, resolved_field);
     return nullptr;
   }
+
+  // If the instruction is storing an object to a field, and that object is not
+  // null, we need to ensure the field type is resolved.
+  switch (inst->Opcode()) {
+    case Instruction::SPUT_OBJECT:
+    case Instruction::IPUT_OBJECT: {
+      uint16_t dex_register = (inst->Opcode() == Instruction::SPUT_OBJECT)
+          ? inst->VRegA_21c()
+          : inst->VRegA_22c();
+
+      uint32_t value = 0u;
+      bool found = false;
+      StackVisitor::WalkStack(
+          [&](const StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+            ArtMethod* m = visitor->GetMethod();
+            if (m->IsRuntimeMethod()) {
+              // Continue if this is a runtime method.
+              return true;
+            }
+            found = visitor->GetVReg(m, dex_register, kReferenceVReg, &value);
+            return false;
+          },
+          Thread::Current(),
+          Context::Create(),
+          StackVisitor::StackWalkKind::kSkipInlinedFrames);
+      DCHECK(found);
+      if (value != 0u) {
+        StackArtFieldHandleScope<1> rhs(Thread::Current());
+        ReflectiveHandle<ArtField> field_handle(rhs.NewHandle(resolved_field));
+        if (resolved_field->ResolveType().IsNull()) {
+          // ArtField::ResolveType() may fail as evidenced with a dexing bug (b/78788577).
+          self->AssertPendingException();
+          return nullptr;
+        }
+        resolved_field = field_handle.Get();
+      }
+      break;
+    }
+    default: {
+      break;
+    }
+  }
   return resolved_field;
 }
 
@@ -361,7 +406,7 @@ extern "C" size_t NterpGetStaticField(Thread* self, ArtMethod* caller, uint16_t*
       field_index,
       caller,
       /* is_static */ true,
-      /* is_put */ IsInstructionSPut(inst->Opcode()));
+      inst);
 
   if (resolved_field == nullptr) {
     DCHECK(self->IsExceptionPending());
@@ -402,7 +447,7 @@ extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
       field_index,
       caller,
       /* is_static */ false,
-      /* is_put */ IsInstructionIPut(inst->Opcode()));
+      inst);
   if (resolved_field == nullptr) {
     DCHECK(self->IsExceptionPending());
     return 0;
