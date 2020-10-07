@@ -154,10 +154,6 @@ class Runtime {
     return must_relocate_;
   }
 
-  bool IsImageDex2OatEnabled() const {
-    return image_dex2oat_enabled_;
-  }
-
   CompilerCallbacks* GetCompilerCallbacks() {
     return compiler_callbacks_;
   }
@@ -204,10 +200,6 @@ class Runtime {
 
   void AddCompilerOption(const std::string& option) {
     compiler_options_.push_back(option);
-  }
-
-  const std::vector<std::string>& GetImageCompilerOptions() const {
-    return image_compiler_options_;
   }
 
   const std::string& GetImageLocation() const {
@@ -1053,11 +1045,9 @@ class Runtime {
   bool must_relocate_;
   bool is_concurrent_gc_enabled_;
   bool is_explicit_gc_disabled_;
-  bool image_dex2oat_enabled_;
 
   std::string compiler_executable_;
   std::vector<std::string> compiler_options_;
-  std::vector<std::string> image_compiler_options_;
   std::string image_location_;
 
   std::vector<std::string> boot_class_path_;

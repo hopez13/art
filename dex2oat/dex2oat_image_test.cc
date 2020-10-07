@@ -68,11 +68,6 @@ class Dex2oatImageTest : public CommonRuntimeTest {
   void TearDown() override {}
 
  protected:
-  void SetUpRuntimeOptions(RuntimeOptions* options) override {
-    // Disable implicit dex2oat invocations when loading image spaces.
-    options->emplace_back("-Xnoimage-dex2oat", nullptr);
-  }
-
   static void WriteLine(File* file, std::string line) {
     line += '\n';
     EXPECT_TRUE(file->WriteFully(&line[0], line.length()));
@@ -154,21 +149,6 @@ class Dex2oatImageTest : public CommonRuntimeTest {
       return false;
     }
     return file1->Compare(file2.get()) == 0;
-  }
-
-  void AddAndroidRootToImageCompilerOptions() {
-    const char* android_root = getenv("ANDROID_ROOT");
-    CHECK(android_root != nullptr);
-    Runtime::Current()->image_compiler_options_.push_back(
-        "--android-root=" + std::string(android_root));
-  }
-
-  void EnableImageDex2Oat() {
-    Runtime::Current()->image_dex2oat_enabled_ = true;
-  }
-
-  void DisableImageDex2Oat() {
-    Runtime::Current()->image_dex2oat_enabled_ = false;
   }
 };
 
@@ -585,8 +565,6 @@ TEST_F(Dex2oatImageTest, TestExtension) {
   EXPECT_TRUE(CompareFiles(single_ext_prefix + ".oat", single_ext_prefix2 + ".oat"));
 
   // Test parsing profile specification and creating the boot image extension on-the-fly.
-  // We must set --android-root in the image compiler options.
-  AddAndroidRootToImageCompilerOptions();
   for (bool r : { false, true }) {
     relocate = r;
 
@@ -622,41 +600,9 @@ TEST_F(Dex2oatImageTest, TestExtension) {
     // Load primary boot image and fail to load the single extension, specifying
     // invalid extension component name but a valid profile file.
     // (Running dex2oat to compile extension is disabled.)
-    ASSERT_FALSE(Runtime::Current()->IsImageDex2OatEnabled());
     load_ok = load(base_location + ":/non-existent/" + single_name + "!" + single_profile_filename);
     ASSERT_TRUE(load_ok) << error_msg;
     ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
-
-    EnableImageDex2Oat();
-
-    // Load primary boot image and the single extension, specifying invalid extension
-    // component name but a valid profile file. (Compile extension by running dex2oat.)
-    load_ok = load(base_location + ":/non-existent/" + single_name + "!" + single_profile_filename);
-    ASSERT_TRUE(load_ok) << error_msg;
-    ASSERT_EQ(head_dex_files.size() + 1u, boot_image_spaces.size());
-    ASSERT_EQ(single_dex_files.size(),
-              boot_image_spaces.back()->GetImageHeader().GetComponentCount());
-
-    // Load primary boot image and two extensions, specifying invalid extension component
-    // names but valid profile files. (Compile extensions by running dex2oat.)
-    load_ok = load(base_location + ":/non-existent/" + mid_name + "!" + mid_profile_filename
-                                 + ":/non-existent/" + tail_name + "!" + tail_profile_filename);
-    ASSERT_TRUE(load_ok) << error_msg;
-    ASSERT_EQ(head_dex_files.size() + 2u, boot_image_spaces.size());
-    ASSERT_EQ(mid_dex_files.size(),
-              boot_image_spaces[head_dex_files.size()]->GetImageHeader().GetComponentCount());
-    ASSERT_EQ(tail_dex_files.size(),
-              boot_image_spaces[head_dex_files.size() + 1u]->GetImageHeader().GetComponentCount());
-
-    // Load primary boot image and fail to load extensions, specifying invalid component
-    // names but valid profile file only for the second one. As we fail to load the first
-    // extension, the second extension has a missing dependency and cannot be compiled.
-    load_ok = load(base_location + ":/non-existent/" + mid_name
-                                 + ":/non-existent/" + tail_name + "!" + tail_profile_filename);
-    ASSERT_TRUE(load_ok) << error_msg;
-    ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
-
-    DisableImageDex2Oat();
   }
 }
 
