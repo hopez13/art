@@ -137,11 +137,11 @@ TEST_F(DexoptAnalyzerTest, ProfileOatUpToDate) {
 TEST_F(DexoptAnalyzerTest, Downgrade) {
   std::string dex_location = GetScratchDir() + "/Downgrade.jar";
   Copy(GetDexSrc1(), dex_location);
-  GenerateOatForTest(dex_location.c_str(), CompilerFilter::kQuicken);
+  GenerateOatForTest(dex_location.c_str(), CompilerFilter::kVerify);
 
   Verify(dex_location, CompilerFilter::kSpeedProfile, false, true);
-  Verify(dex_location, CompilerFilter::kQuicken, false, true);
   Verify(dex_location, CompilerFilter::kVerify, false, true);
+  Verify(dex_location, CompilerFilter::kExtract, false, true);
 }
 
 // Case: We have a MultiDEX file and up-to-date OAT file for it.
