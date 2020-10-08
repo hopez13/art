@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f812dc8_a814391f",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-10-08T18:55:09Z",
+      "side": 1,
+      "message": "Why is this protected instead of private?",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 34
+      },
+      "revId": "585bfbc8b12af1ba5d532f640e601ac78b0d1ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
