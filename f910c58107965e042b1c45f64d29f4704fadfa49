@@ -34,6 +34,24 @@
       "parentUuid": "d689c074_4496faee",
       "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d61563e_2005458a",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-10-08T12:23:11Z",
+      "side": 1,
+      "message": "Why the dynamic dependency though?\n1) Should we do the check even if the value is null?\n2) If the value is null the first time, but non-null the second time, does that mean we skip necessary checks second time?",
+      "parentUuid": "142fb476_54ebb5d3",
+      "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
