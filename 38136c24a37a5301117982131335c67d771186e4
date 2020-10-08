@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "733dd28e_f379eef4",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-08T16:53:33Z",
+      "side": 1,
+      "message": "Sounds good, I added a comment.",
+      "parentUuid": "67a31520_566bf404",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6988f87d_bf2f7eb7",
@@ -298,6 +322,30 @@
       "side": 1,
       "message": "so essentially the reporter needs to make sure that the values match the previously defined DatumId  (for consistency). worth mentioning in the doc.",
       "parentUuid": "7e082436_1df7b216",
+      "range": {
+        "startLine": 103,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d95060_1bc3d093",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-08T16:53:33Z",
+      "side": 1,
+      "message": "Sounds good. I added an extra sentence to the comment explaining that.",
+      "parentUuid": "02167a12_36a437a3",
       "range": {
         "startLine": 103,
         "startChar": 31,
