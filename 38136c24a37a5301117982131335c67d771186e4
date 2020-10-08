@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "419e854e_1db245fe",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-08T04:56:03Z",
+      "side": 1,
+      "message": "lgtm. thx.",
+      "parentUuid": "32e86ad3_56c2054a",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaa37c3d_0e1a65de",
@@ -144,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67a31520_566bf404",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-08T04:56:03Z",
+      "side": 1,
+      "message": "sounds good to me. please add the clamp explanations as a doc, together with the perf reasoning (essentially the above message).",
+      "parentUuid": "d729e1d0_43e0f38f",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6988f87d_bf2f7eb7",
         "filename": "libartbase/base/metrics.h",
         "patchSetId": 11
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "They will be provided from the histogram definition (see https://android-review.googlesource.com/c/platform/art/+/1442436/11/libartbase/base/metrics.cc#67)\n\nNormally I would have just passed the Histogram object and there\u0027d be GetMinimum() and GetMaximum() accessors, but we would require us to specialize ReportHistogram for every size histogram we create.",
       "parentUuid": "7c61f8b6_8dc92d87",
+      "range": {
+        "startLine": 103,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "38136c24a37a5301117982131335c67d771186e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02167a12_36a437a3",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-08T04:56:03Z",
+      "side": 1,
+      "message": "so essentially the reporter needs to make sure that the values match the previously defined DatumId  (for consistency). worth mentioning in the doc.",
+      "parentUuid": "7e082436_1df7b216",
       "range": {
         "startLine": 103,
         "startChar": 31,
