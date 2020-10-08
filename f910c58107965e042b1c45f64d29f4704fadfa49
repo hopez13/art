@@ -52,6 +52,24 @@
       "parentUuid": "142fb476_54ebb5d3",
       "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db40495_97c4c61a",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T13:03:39Z",
+      "side": 1,
+      "message": "1) This is to comply with current behavior, see the two other references in the code base of b/78788577.\n2) Ah, right. I was thinking the other way around, but you\u0027re right that we\u0027ll pass with null, and then cache it and be misbheaving in the second attempt. Turns out the verifier is marking such methods as \"DontBotherCompiling\", so I\u0027ve removed this entire addition.",
+      "parentUuid": "8d61563e_2005458a",
+      "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
