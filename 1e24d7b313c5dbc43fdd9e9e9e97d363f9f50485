@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "db63ccdd_c3cf8c54",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Here\u0027s the second in the stack. This adds the code for histograms.",
       "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bbe41761_cfdf698b",
         "filename": "libartbase/base/metrics.h",
@@ -37,10 +38,10 @@
         "endChar": 15
       },
       "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4aa7d4aa_8d7bf65b",
         "filename": "libartbase/base/metrics.h",
@@ -61,8 +62,31 @@
         "endChar": 15
       },
       "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da04ba43_d9f130ba",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-08T19:03:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4aa7d4aa_8d7bf65b",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "1e24d7b313c5dbc43fdd9e9e9e97d363f9f50485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

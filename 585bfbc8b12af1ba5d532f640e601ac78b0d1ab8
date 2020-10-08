@@ -22,6 +22,30 @@
       },
       "revId": "585bfbc8b12af1ba5d532f640e601ac78b0d1ab8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "851dbbb5_6c2e45d1",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-08T19:03:32Z",
+      "side": 1,
+      "message": "It\u0027s so that we can access it from test code: https://android-review.googlesource.com/c/platform/art/+/1442436/14/libartbase/base/metrics_test.cc#37",
+      "parentUuid": "2f812dc8_a814391f",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 34
+      },
+      "revId": "585bfbc8b12af1ba5d532f640e601ac78b0d1ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
