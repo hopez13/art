@@ -16,6 +16,24 @@
       "message": "I don\u0027t follow, what is happening here?",
       "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142fb476_54ebb5d3",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T12:13:09Z",
+      "side": 1,
+      "message": "This is to ensure that the field type is resolved. I\u0027ve added a comment.",
+      "parentUuid": "d689c074_4496faee",
+      "revId": "f910c58107965e042b1c45f64d29f4704fadfa49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
