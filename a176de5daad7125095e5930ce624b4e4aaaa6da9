@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd90b023_139cb2d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T11:41:18Z",
+      "side": 1,
+      "message": "Super nice!",
+      "revId": "a176de5daad7125095e5930ce624b4e4aaaa6da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c4640a_0959e98d",
+        "filename": "runtime/native/libcore_util_CharsetUtils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T11:41:18Z",
+      "side": 1,
+      "message": "Maybe it\u0027d be easier to read if this was moved out to its own method?",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 20
+      },
+      "revId": "a176de5daad7125095e5930ce624b4e4aaaa6da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
