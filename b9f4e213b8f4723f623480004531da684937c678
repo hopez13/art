@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb35cb4_40609aa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T11:36:26Z",
+      "side": 1,
+      "message": "Initially I wanted to keep it as some tests are still testing quickening, but in light of Calin\u0027s comment, I agree it\u0027s best to remove it.",
+      "parentUuid": "767e8e62_afe2e303",
+      "revId": "b9f4e213b8f4723f623480004531da684937c678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fad98133_b00a5ccf",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-10-08T04:47:04Z",
       "side": 1,
       "message": "I didn\u0027t have time to analyze all the implications of doing it here. Might be ok, but there are some things that makes it a bit hard to reason. Might just be cleaner to do it in dex2oat explicitly.\n\nThis method is used in GetDexOptNeeded and OatFile::GetCompilerFilter() which might create inconsistencies: a quicken app interpreted as only verified.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 22
+      },
+      "revId": "b9f4e213b8f4723f623480004531da684937c678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "152cc106_3fa9398a",
+        "filename": "runtime/compiler_filter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T11:36:26Z",
+      "side": 1,
+      "message": "Ah good point. To address this, I\u0027m bumping the oat version (so we never see \"quicken\" in oat files anymore), and removed the kQuicken enum value to be extra sure we\u0027re not missing any place.",
+      "parentUuid": "fad98133_b00a5ccf",
       "range": {
         "startLine": 212,
         "startChar": 0,
