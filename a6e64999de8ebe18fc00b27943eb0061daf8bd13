@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db98139_04d5ad7b",
+        "filename": "runtime/verifier/class_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-10-08T22:01:29Z",
+      "side": 1,
+      "message": "Could we reuse the auto timer to avoid needing this code?",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 3
+      },
+      "revId": "a6e64999de8ebe18fc00b27943eb0061daf8bd13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
