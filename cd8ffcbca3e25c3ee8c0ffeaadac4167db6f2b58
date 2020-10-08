@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "85bd933b_fabb1095",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
@@ -20,8 +21,31 @@
         "endChar": 75
       },
       "revId": "cd8ffcbca3e25c3ee8c0ffeaadac4167db6f2b58",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d903e78_cc8ac0f1",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-08T11:39:21Z",
+      "side": 0,
+      "message": "Good catch! It could have been local debugging for that CL. We could keep that code in heap.h, but I worry the fact we\u0027re not testing it means it\u0027s probably best to remove it and if someone needs it back for the next release, they can contribute a test to it? WDYT?",
+      "parentUuid": "85bd933b_fabb1095",
+      "range": {
+        "startLine": 387,
+        "startChar": 1,
+        "endLine": 387,
+        "endChar": 75
+      },
+      "revId": "cd8ffcbca3e25c3ee8c0ffeaadac4167db6f2b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
