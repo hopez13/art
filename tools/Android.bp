@@ -64,6 +64,14 @@ art_module_sh_binary {
     src: "art",
     filename_from_src: true,
     target: {
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
+=======
+        android: {
+            required: [
+                "com.android.art",
+            ],
+        },
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
         host: {
             // On device we require the ART APEX, but its Soong module name may
             // be different depending on branch, and it's always present anyway,
@@ -92,6 +100,14 @@ sh_binary {
     src: "dex2oat_wrapper",
     filename_from_src: true,
     target: {
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
+=======
+        android: {
+            required: [
+                "com.android.art",
+            ],
+        },
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
         host: {
             // On device we require the ART APEX, but its Soong module name may
             // be different depending on branch, and it's always present anyway,

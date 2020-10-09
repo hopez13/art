@@ -1032,10 +1032,16 @@ def art_apex_test_default(test_parser):
   # TODO: Add host support.
   # TODO: Add support for flattened APEX packages.
   configs = [
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
     {'name': 'com.android.art.capex',         'flavor': FLAVOR_RELEASE, 'host': False},
     {'name': 'com.android.art.debug.capex',   'flavor': FLAVOR_DEBUG,   'host': False},
     # Note: The Testing ART APEX is not a Compressed APEX.
     {'name': 'com.android.art.testing.apex',  'flavor': FLAVOR_TESTING, 'host': False},
+=======
+    {'name': 'com.android.art',         'flavor': FLAVOR_RELEASE, 'host': False},
+    {'name': 'com.android.art.debug',   'flavor': FLAVOR_DEBUG,   'host': False},
+    {'name': 'com.android.art.testing', 'flavor': FLAVOR_TESTING, 'host': False},
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
   ]
 
   for config in configs:

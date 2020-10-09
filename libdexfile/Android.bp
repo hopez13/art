@@ -334,8 +334,11 @@ cc_library_headers {
         "//apex_available:platform",
         "com.android.art",
         "com.android.art.debug",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
         "com.android.media",
         "com.android.runtime",
+=======
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     ],
 }
 
@@ -349,6 +352,72 @@ cc_library_headers {
 
     apex_available: [
         "com.android.art",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
+=======
+        "com.android.art.debug",
+    ],
+}
+
+cc_defaults {
+    name: "libdexfile_external-defaults",
+    host_supported: true,
+    srcs: [
+        "external/dex_file_ext.cc",
+    ],
+    header_libs: [
+        "jni_headers",
+        "libdexfile_external_headers",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+    stubs: {
+        symbol_file: "external/libdexfile_external.map.txt",
+        versions: ["1"],
+    },
+    export_header_lib_headers: [
+        "jni_headers",
+        "libdexfile_external_headers",
+    ],
+}
+
+art_cc_library {
+    name: "libdexfile_external",
+    defaults: [
+        "art_defaults",
+        "libdexfile_external-defaults",
+    ],
+    visibility: ["//visibility:public"],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
+    shared_libs: [
+        "libdexfile",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
+art_cc_library {
+    name: "libdexfiled_external",
+    defaults: [
+        "art_debug_defaults",
+        "libdexfile_external-defaults",
+    ],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
+    shared_libs: [
+        "libdexfiled",
+    ],
+    apex_available: [
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
         "com.android.art.debug",
     ],
 }
@@ -409,9 +478,12 @@ art_cc_library_static {
         "//apex_available:platform",
         "com.android.art",
         "com.android.art.debug",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
         "com.android.media",
         "com.android.media.swcodec",
         "com.android.runtime",
+=======
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     ],
 }
 

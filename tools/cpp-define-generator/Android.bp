@@ -41,6 +41,7 @@ cc_object {
     apex_available: [
         "com.android.art",
         "com.android.art.debug",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
     ],
 }
 
@@ -48,6 +49,8 @@ soong_config_module_type_import {
     from: "art/build/SoongConfig.bp",
     module_types: [
         "art_module_cc_genrule",
+=======
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     ],
 }
 

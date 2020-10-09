@@ -384,7 +384,11 @@ apex_test {
 // storage-constrained devices in userdebug and eng builds.
 art_apex {
     name: "com.android.art",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
     defaults: ["com.android.art-device-defaults"],
+=======
+    defaults: ["com.android.art-defaults"],
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     certificate: ":com.android.art.certificate",
 }
 

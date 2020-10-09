@@ -30,7 +30,10 @@ cc_library_headers {
         "//apex_available:platform",
         "com.android.art",
         "com.android.art.debug",
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
         "com.android.media",
+=======
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     ],
 }
 

@@ -895,6 +895,7 @@ art_cc_test {
     },
 }
 
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
 // Standalone version of ART gtest `art_runtime_compiler_tests`, not bundled with the ART APEX on
 // target.
 art_cc_test {
@@ -902,6 +903,17 @@ art_cc_test {
     defaults: [
         "art_standalone_gtest_defaults",
         "art_runtime_compiler_tests_defaults",
+=======
+cc_library_headers {
+    name: "libart_runtime_headers_ndk",
+    host_supported: true,
+    export_include_dirs: ["."],
+    sdk_version: "current",
+
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
     ],
     shared_libs: [
         "libart-compiler",

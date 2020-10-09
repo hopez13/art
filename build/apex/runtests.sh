@@ -142,6 +142,7 @@ function fail_check {
   exit_status=1
 }
 
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
 if [ ${#apex_modules[@]} -eq 0 ]; then
   # Test as many modules as possible.
   apex_modules=(
@@ -154,6 +155,19 @@ if [ ${#apex_modules[@]} -eq 0 ]; then
   else
     apex_modules+=("com.android.art.host")
   fi
+=======
+# Test all modules, if possible.
+
+apex_modules=(
+  "com.android.art"
+  "com.android.art.debug"
+  "com.android.art.testing"
+)
+if [[ "$HOST_PREFER_32_BIT" = true ]]; then
+  say "Skipping com.android.art.host, as \`HOST_PREFER_32_BIT\` equals \`true\`"
+else
+  apex_modules+=("com.android.art.host")
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
 fi
 
 # Build the APEX packages (optional).

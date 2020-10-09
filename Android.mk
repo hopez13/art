@@ -343,6 +343,67 @@ endif
 # "include $(BUILD_...)".
 LOCAL_PATH := $(art_path)
 
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
+=======
+#######################
+# ART APEX autoselect
+
+include $(CLEAR_VARS)
+
+# The ART APEX comes in three flavors:
+# - the release module (`com.android.art`), containing only "release"
+#   artifacts;
+# - the debug module (`com.android.art.debug`), containing both
+#   "release" and "debug" artifacts, as well as additional tools;
+# - the testing module (`com.android.art.testing`), containing
+#   both "release" and "debug" artifacts, as well as additional tools
+#   and ART gtests).
+#
+# `com.android.art-autoselect` is an "alias" for either the release or the debug
+# module. By default, "user" build variants contain the release module, while
+# "userdebug" and "eng" build variants contain the debug module. However, if
+# `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD` is defined, it overrides the previous
+# logic:
+# - if `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD` is set to `false`, the
+#   build will include the release module (whatever the build
+#   variant);
+# - if `PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD` is set to `true`, the
+#   build will include the debug module (whatever the build variant).
+
+art_target_include_debug_build := $(PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD)
+ifneq (false,$(art_target_include_debug_build))
+  ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+    art_target_include_debug_build := true
+  endif
+endif
+ifeq (true,$(art_target_include_debug_build))
+  # Module with both release and debug variants, as well as
+  # additional tools.
+  TARGET_ART_APEX := $(DEBUG_ART_APEX)
+  APEX_TEST_MODULE := art-check-debug-apex-gen-fakebin
+else
+  # Release module (without debug variants nor tools).
+  TARGET_ART_APEX := $(RELEASE_ART_APEX)
+  APEX_TEST_MODULE := art-check-release-apex-gen-fakebin
+endif
+
+LOCAL_MODULE := com.android.art-autoselect
+LOCAL_REQUIRED_MODULES := $(TARGET_ART_APEX)
+
+# Clear locally used variable.
+art_target_include_debug_build :=
+
+include $(BUILD_PHONY_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.android.art-autoselect
+LOCAL_IS_HOST_MODULE := true
+ifneq ($(HOST_OS),darwin)
+  LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
+endif
+include $(BUILD_PHONY_PACKAGE)
+
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
 # Create canonical name -> file name symlink in the symbol directory for the
 # debug APEX. The symbol files for it are installed to
 # $(TARGET_OUT_UNSTRIPPED)/apex/com.android.art.debug. However, since it's
@@ -353,11 +414,14 @@ LOCAL_PATH := $(art_path)
 # of the symlink is triggered by the apex_manifest.pb file which is the file
 # that is guaranteed to be created regardless of the value of
 # TARGET_FLATTEN_APEX.
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
 # TODO(b/171419613): the symlink is disabled because the
 # $OUT/symbols/apex/com.android.art name is taken by the com.android.art apex
 # even when com.android.art.debug is selected by TARGET_ART_APEX.
 # Disabling the symlink means that symbols for the com.android.art.debug apex
 # will not be found.
+=======
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
 ifeq ($(TARGET_FLATTEN_APEX),true)
 art_apex_manifest_file := $(PRODUCT_OUT)/system/apex/$(TARGET_ART_APEX)/apex_manifest.pb
 else
@@ -368,6 +432,7 @@ art_apex_symlink_timestamp := $(call intermediates-dir-for,FAKE,com.android.art)
 $(art_apex_manifest_file): $(art_apex_symlink_timestamp)
 $(art_apex_manifest_file): PRIVATE_LINK_NAME := $(TARGET_OUT_UNSTRIPPED)/apex/com.android.art
 $(art_apex_symlink_timestamp):
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
 #ifeq ($(TARGET_ART_APEX),com.android.art)
 #	$(hide) if [ -L $(PRIVATE_LINK_NAME) ]; then rm -f $(PRIVATE_LINK_NAME); fi
 #else
@@ -375,6 +440,15 @@ $(art_apex_symlink_timestamp):
 #	$(hide) rm -rf $(PRIVATE_LINK_NAME)
 #	$(hide) ln -sf $(TARGET_ART_APEX) $(PRIVATE_LINK_NAME)
 #endif
+=======
+ifeq ($(TARGET_ART_APEX),com.android.art)
+	$(hide) if [ -L $(PRIVATE_LINK_NAME) ]; then rm -f $(PRIVATE_LINK_NAME); fi
+else
+	$(hide) mkdir -p $(dir $(PRIVATE_LINK_NAME))
+	$(hide) rm -rf $(PRIVATE_LINK_NAME)
+	$(hide) ln -sf $(TARGET_ART_APEX) $(PRIVATE_LINK_NAME)
+endif
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
 	$(hide) touch $@
 $(art_apex_symlink_timestamp): .KATI_SYMLINK_OUTPUTS := $(PRIVATE_LINK_NAME)
 
@@ -407,6 +481,7 @@ endif
 
 # Base requirements.
 LOCAL_REQUIRED_MODULES := \
+<<<<<<< HEAD   (112023 Merge cherrypicks of [16671234] into tm-preview1-release.)
     $(call art_module_lib,dalvikvm) \
     $(call art_module_lib,dex2oat) \
     $(call art_module_lib,dexoptanalyzer) \
@@ -418,6 +493,18 @@ LOCAL_REQUIRED_MODULES := \
     $(call art_module_lib,profman) \
     $(call art_module_lib,libadbconnection) \
     $(call art_module_lib,libperfetto_hprof) \
+=======
+    dalvikvm.com.android.art \
+    dex2oat.com.android.art \
+    dexoptanalyzer.com.android.art \
+    libart.com.android.art \
+    libart-compiler.com.android.art \
+    libopenjdkjvm.com.android.art \
+    libopenjdkjvmti.com.android.art \
+    profman.com.android.art \
+    libadbconnection.com.android.art \
+    libperfetto_hprof.com.android.art \
+>>>>>>> CHANGE (3e9abf Rename ART release APEX to com.android.art.)
 
 # Potentially add in debug variants:
 #
