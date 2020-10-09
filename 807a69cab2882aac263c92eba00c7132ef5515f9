@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee6d8dd3_a9d3dad9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-09T13:37:56Z",
+      "side": 1,
+      "message": "You mean target.linux applies to android and host but not windows or darwin?",
+      "parentUuid": "5672f639_9bbb997c",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f93e2cb_407e33de",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 4
@@ -54,6 +78,24 @@
       "writtenOn": "2020-10-06T16:57:10Z",
       "side": 1,
       "message": "All these \"needed\" comments are nice, but I worry they get stale quickly in many cases so I\u0027m not sure it\u0027s a good idea to keep them in the final CL.",
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d610b14_c09c1e87",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-09T13:37:56Z",
+      "side": 1,
+      "message": "They are mainly to address the questions I get from you about why it is needed so they should be removed once we have cleaned up all the issues you raise.",
+      "parentUuid": "4f93e2cb_407e33de",
       "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f3ae3b_d213163f",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-09T13:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf6db68a_0b4d1dad",
+      "range": {
+        "startLine": 216,
+        "startChar": 16,
+        "endLine": 217,
+        "endChar": 38
+      },
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "042857a4_08e915aa",
@@ -94,6 +160,30 @@
       "writtenOn": "2020-10-06T16:57:10Z",
       "side": 1,
       "message": "b/155372760 should be fixed, and I expect most, hopefully all, of these to be unnecessary as of https://r.android.com/1441276. If that\u0027s not the case, can you please reopen that ticket with some info of where the dependencies come from?\n\nTo be clear, these are blockers for an updatable ART module (with the exception of libnativebridge and libdexfile_external, as mentioned above).",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 39
+      },
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ddae774_3d13fed1",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-09T13:37:56Z",
+      "side": 1,
+      "message": "I could remove all of them. Brilliant.",
+      "parentUuid": "042857a4_08e915aa",
       "range": {
         "startLine": 188,
         "startChar": 0,
