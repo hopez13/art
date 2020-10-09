@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14454dc6_95bc75e8",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T21:37:38Z",
+      "side": 1,
+      "message": "Yes, but I chose to reuse the timing code that was already here. Although now that AutoTimer returns the elapsed time from Stop(), maybe it\u0027s cleaner to use AutoTimer. I\u0027ll update it.",
+      "parentUuid": "f77a9953_bd92ddf7",
+      "range": {
+        "startLine": 194,
+        "startChar": 13,
+        "endLine": 194,
+        "endChar": 24
+      },
+      "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b97aecd_f1175932",
