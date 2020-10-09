@@ -272,5 +272,15 @@
   modes: [device],
   bug: 161420453,
   names: ["libcore.java.text.DecimalFormatTest#testCurrencySymbolSpacing"]
+},
+{
+  description: "Test failures due to need of update of conscrypt prebuilt",
+  result: EXEC_FAILED,
+  names: ["libcore.javax.net.ssl.DefaultHostnameVerifierTest#testAltIpOnlyCert",
+          "libcore.javax.net.ssl.DefaultHostnameVerifierTest#testSubjectAltOnlyCert",
+          "libcore.javax.net.ssl.DefaultHostnameVerifierTest#testSubjectWithAltNamesCert",
+          "libcore.javax.net.ssl.DefaultHostnameVerifierTest#testSubjectWithWildAltNamesCert",
+          "libcore.javax.net.ssl.DefaultHostnameVerifierTest#testWildAltNameOnlyCert"],
+  bug: 166619732
 }
 ]
