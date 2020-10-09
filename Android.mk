@@ -287,8 +287,8 @@ LOCAL_PATH := $(art_path)
 include $(CLEAR_VARS)
 
 # The ART APEX comes in three flavors:
-# - the release module (`com.android.art.release`), containing
-#   only "release" artifacts;
+# - the release module (`com.android.art`), containing only "release"
+#   artifacts;
 # - the debug module (`com.android.art.debug`), containing both
 #   "release" and "debug" artifacts, as well as additional tools;
 # - the testing module (`com.android.art.testing`), containing
@@ -376,16 +376,16 @@ LOCAL_MODULE := art-runtime
 
 # Base requirements.
 LOCAL_REQUIRED_MODULES := \
-    dalvikvm.com.android.art.release \
-    dex2oat.com.android.art.release \
-    dexoptanalyzer.com.android.art.release \
-    libart.com.android.art.release \
-    libart-compiler.com.android.art.release \
-    libopenjdkjvm.com.android.art.release \
-    libopenjdkjvmti.com.android.art.release \
-    profman.com.android.art.release \
-    libadbconnection.com.android.art.release \
-    libperfetto_hprof.com.android.art.release \
+    dalvikvm.com.android.art \
+    dex2oat.com.android.art \
+    dexoptanalyzer.com.android.art \
+    libart.com.android.art \
+    libart-compiler.com.android.art \
+    libopenjdkjvm.com.android.art \
+    libopenjdkjvmti.com.android.art \
+    profman.com.android.art \
+    libadbconnection.com.android.art \
+    libperfetto_hprof.com.android.art \
 
 # Potentially add in debug variants:
 #
@@ -708,8 +708,6 @@ build-art-target-golem: $(RELEASE_ART_APEX) com.android.runtime $(CONSCRYPT_APEX
 	sed -i '/libdexfiled.so/d' $(TARGET_OUT)/etc/public.libraries.txt
 	sed -i '/libprofiled.so/d' $(TARGET_OUT)/etc/public.libraries.txt
 	sed -i '/libartbased.so/d' $(TARGET_OUT)/etc/public.libraries.txt
-	# The 'art' script will look for a 'com.android.art' directory.
-	ln -sf com.android.art.release $(TARGET_OUT)/apex/com.android.art
 
 ########################################################################
 # Phony target for building what go/lem requires on host.
