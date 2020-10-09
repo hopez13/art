@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f77a9953_bd92ddf7",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-09T19:29:22Z",
+      "side": 1,
+      "message": "Didn\u0027t you add AutoTimer specifically for this case?",
+      "range": {
+        "startLine": 194,
+        "startChar": 13,
+        "endLine": 194,
+        "endChar": 24
+      },
+      "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b97aecd_f1175932",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 4
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "I would like to, but right now my focus is on adding what we need for telemetry in S without affecting existing workflows. Once we have the metrics needed for S in place, I plan to look at migrating the various custom stats to the new metrics framework.",
       "parentUuid": "0b97aecd_f1175932",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 98
+      },
+      "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac5c11b_202b9788",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-09T19:29:22Z",
+      "side": 1,
+      "message": "The short answer is yes. We should get to a state were all the metrics are migrated to the new infra. As Eric said, incremental progress :)",
+      "parentUuid": "94bd1d32_ef57f4f9",
       "range": {
         "startLine": 195,
         "startChar": 0,
