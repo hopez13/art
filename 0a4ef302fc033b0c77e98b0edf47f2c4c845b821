@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b97aecd_f1175932",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-09T17:30:06Z",
+      "side": 1,
+      "message": "Is there plans to remove the custom histograms like cumulative_timings_, and memory_use_ in the JIT data structure? Having two reporting structures is confusing.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 98
+      },
+      "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
