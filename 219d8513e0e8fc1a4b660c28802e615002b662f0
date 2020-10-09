@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e291fc_8e744f76",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-09T13:31:51Z",
+      "side": 1,
+      "message": "1. I\u0027ll add a comment - I\u0027ve added them because mterp doesn\u0027t support these cases.\n2. We could, but it\u0027s already done line 384 (which needs to be there as it\u0027s checked in a loop), so adding it here would be duplicated.",
+      "parentUuid": "30d9b107_9d17e30d",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 33
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "301ee330_68ba5e26",
@@ -83,6 +107,30 @@
       "writtenOn": "2020-10-09T13:24:16Z",
       "side": 1,
       "message": "As far as I can tell IsNterpSupported is not inline.",
+      "range": {
+        "startLine": 680,
+        "startChar": 20,
+        "endLine": 680,
+        "endChar": 41
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4802913_5afd0aa1",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-09T13:31:51Z",
+      "side": 1,
+      "message": "Nice catch! I\u0027ll update the comment. As mterp is a fallback for nterp today, I\u0027ll remove the entire comment.",
+      "parentUuid": "18f3a135_46e129d2",
       "range": {
         "startLine": 680,
         "startChar": 20,
