@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c08a056_5f2c625e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-09T14:27:54Z",
+      "side": 1,
+      "message": "Please make a topic with these changes so that TH works a bit better.",
+      "revId": "db563a278bd9e06c47ae81b34c02f8da2de98dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee701f7a_897b958b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-09T14:27:54Z",
+      "side": 1,
+      "message": "How did you notice the need for this? Why hasn\u0027t it failed before?",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 56
+      },
+      "revId": "db563a278bd9e06c47ae81b34c02f8da2de98dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
