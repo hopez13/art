@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f09e8668_54af8c55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-09T17:33:16Z",
+      "side": 1,
+      "message": "I\u0027ll get the update of the prebuilts in instead - I prefer not to mix updates with changes.",
+      "parentUuid": "0c08a056_5f2c625e",
+      "revId": "db563a278bd9e06c47ae81b34c02f8da2de98dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee701f7a_897b958b",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2020-10-09T14:27:54Z",
       "side": 1,
       "message": "How did you notice the need for this? Why hasn\u0027t it failed before?",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 56
+      },
+      "revId": "db563a278bd9e06c47ae81b34c02f8da2de98dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c2c817_35347288",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-09T17:33:16Z",
+      "side": 1,
+      "message": "system/logging is currently in the manifest, so we do build the implementation liblog.so currently. When we remove it from the manifest, we\u0027ll need the implementation.",
+      "parentUuid": "ee701f7a_897b958b",
       "range": {
         "startLine": 144,
         "startChar": 47,
