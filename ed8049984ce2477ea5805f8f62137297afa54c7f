@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe883c05_03ba4d65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "If it\u0027s convenient to do so, it wouldn\u0027t hurt to paste some golem results in here.",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767f1405_060dbcac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Reachability seems like something that\u0027ll be useful in a lot of other places too.",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2005d7_13d1d846",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "It seems like this paragraph is describing how the subgraph is built, not how it\u0027s used? Although I guess it\u0027s describing how code that builds a subgraph uses the ExecutionSubgraph class.",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8afa2e38_767b2536",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "I\u0027d consider removing this, since fields in a struct are public by default.",
+      "range": {
+        "startLine": 68,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c705dd31_052936c5",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Could you add a short comment about what SucceedsBlock means? I read this as returning whether there\u0027s a path from blk to any of the blocks in this cohort, but the block is not a part of the cohort. Is that right?",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 22
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f730679_4edd5de7",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Is this result something that makes sense to cache?",
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdd9906_8a0a4c09",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "This function could use a comment similar to SucceedsBlock too.",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18aa40c_75db3a17",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Here too, does caching this result make sense?",
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb44522_be3f7f62",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Is this to try to bound the runtime of the analysis? If so, it\u0027s worth mentioning that in a comment.",
+      "range": {
+        "startLine": 149,
+        "startChar": 28,
+        "endLine": 149,
+        "endChar": 52
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "444d297e_4e508260",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "What does valid mean?",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 45
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e321f22c_7ec03b6c",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "graph\u0027s",
+      "range": {
+        "startLine": 210,
+        "startChar": 5,
+        "endLine": 210,
+        "endChar": 11
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbbef73b_73703238",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Why does this need to be mutable?",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da0e19c_f6399648",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T22:42:47Z",
+      "side": 1,
+      "message": "Should this be for_partial_elimination?",
+      "range": {
+        "startLine": 962,
+        "startChar": 34,
+        "endLine": 962,
+        "endChar": 49
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
