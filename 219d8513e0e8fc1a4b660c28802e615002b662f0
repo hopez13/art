@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d9b107_9d17e30d",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-10-09T13:24:16Z",
+      "side": 1,
+      "message": "1. Why are these conditions added?\n2. Isn\u0027t it possible to add condition `!self-\u003eUseMterp()` here?\n\nNice simplification, previous implementation was rather hard to read.",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 33
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301ee330_68ba5e26",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-10-09T13:24:16Z",
+      "side": 1,
+      "message": "Nice work deduplicating these functions.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 26
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b70ac7_4be6b2c9",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-10-09T13:24:16Z",
+      "side": 1,
+      "message": "Nit: here and below I think the comment is not needed as the argument is quite descriptive on it own.",
+      "range": {
+        "startLine": 295,
+        "startChar": 29,
+        "endLine": 295,
+        "endChar": 50
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f3a135_46e129d2",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-10-09T13:24:16Z",
+      "side": 1,
+      "message": "As far as I can tell IsNterpSupported is not inline.",
+      "range": {
+        "startLine": 680,
+        "startChar": 20,
+        "endLine": 680,
+        "endChar": 41
+      },
+      "revId": "219d8513e0e8fc1a4b660c28802e615002b662f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
