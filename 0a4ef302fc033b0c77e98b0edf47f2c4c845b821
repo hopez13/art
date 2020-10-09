@@ -22,6 +22,30 @@
       },
       "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94bd1d32_ef57f4f9",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-09T17:47:40Z",
+      "side": 1,
+      "message": "I would like to, but right now my focus is on adding what we need for telemetry in S without affecting existing workflows. Once we have the metrics needed for S in place, I plan to look at migrating the various custom stats to the new metrics framework.",
+      "parentUuid": "0b97aecd_f1175932",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 98
+      },
+      "revId": "0a4ef302fc033b0c77e98b0edf47f2c4c845b821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
