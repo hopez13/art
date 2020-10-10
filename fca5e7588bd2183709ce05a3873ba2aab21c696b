@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce78907_225b8bf3",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-10T09:00:11Z",
+      "side": 1,
+      "message": "The linker does not need to know that we\u0027re using this only for @CriticalNative. If we try to inline @FastNative in the future, the same patch type would apply for patching references to the JNI entrypoint for those.",
+      "parentUuid": "972a7e89_0ce96bbf",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a9a64bd_29bed0e6",
