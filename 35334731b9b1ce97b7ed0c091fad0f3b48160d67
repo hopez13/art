@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc41ee6_1281f724",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-10T13:10:23Z",
+      "side": 1,
+      "message": "Odd that this is accepted, and it\u0027s not parens instead. Is that because of the template?",
+      "range": {
+        "startLine": 191,
+        "startChar": 28,
+        "endLine": 191,
+        "endChar": 29
+      },
+      "revId": "35334731b9b1ce97b7ed0c091fad0f3b48160d67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
