@@ -39,6 +39,30 @@
       },
       "revId": "a176de5daad7125095e5930ce624b4e4aaaa6da9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f8f0e2_f63c6a8c",
+        "filename": "runtime/native/libcore_util_CharsetUtils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-10T09:33:14Z",
+      "side": 1,
+      "message": "This is used only by this function and I prefer this to keep it close to the use. (And the code is really the core of the implementation of this function.)",
+      "parentUuid": "b2c4640a_0959e98d",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 20
+      },
+      "revId": "a176de5daad7125095e5930ce624b4e4aaaa6da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
