@@ -16,6 +16,46 @@
       "message": "I applaud your dedication to testing.\n\nI gave this patch a general once-over and didn\u0027t see anything concerning, but if you\u0027d like a more detailed review of any particular section please let me know.",
       "revId": "d1fdd49ab0ad0d81cea66d307cd1a0898161e299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fb322ff_1c894baa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-12T18:57:11Z",
+      "side": 1,
+      "message": "One small comment, but I\u0027m fine with landing this as is.",
+      "revId": "d1fdd49ab0ad0d81cea66d307cd1a0898161e299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ad0f8a_e392a8a7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 42
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-12T18:57:11Z",
+      "side": 1,
+      "message": "I\u0027d consider making this `auto*` instead, since that makes sure this is a pointer instead of accidentally making a potentially large copy. In this case, it doesn\u0027t matter, since GetReferenceInfo() returns a pointer, but as a general rule it can help avoid large copies.\n\nSimilarly for other uses of auto.",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 8
+      },
+      "revId": "d1fdd49ab0ad0d81cea66d307cd1a0898161e299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
