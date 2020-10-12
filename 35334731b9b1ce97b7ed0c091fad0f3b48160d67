@@ -22,6 +22,30 @@
       },
       "revId": "35334731b9b1ce97b7ed0c091fad0f3b48160d67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d41c52f_d902c279",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-12T18:11:46Z",
+      "side": 1,
+      "message": "This is uniform initialization, which was added in C++11: https://isocpp.org/wiki/faq/cpp11-language#uniform-init\n\nIt seems to be the preferred way of doing things now, since it can do the same thing as all the other ways of initializing variables.",
+      "parentUuid": "fbc41ee6_1281f724",
+      "range": {
+        "startLine": 191,
+        "startChar": 28,
+        "endLine": 191,
+        "endChar": 29
+      },
+      "revId": "35334731b9b1ce97b7ed0c091fad0f3b48160d67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
