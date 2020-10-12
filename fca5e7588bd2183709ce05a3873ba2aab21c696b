@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59a75e81_52fca52b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-12T11:58:57Z",
+      "side": 1,
+      "message": "And line 4629? Done.",
+      "parentUuid": "9a9a64bd_29bed0e6",
+      "range": {
+        "startLine": 4574,
+        "startChar": 0,
+        "endLine": 4576,
+        "endChar": 14
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71023459_2eb3abe8",
@@ -84,6 +108,30 @@
       "writtenOn": "2020-10-08T09:02:20Z",
       "side": 1,
       "message": "Can you add a comment what is being put here (the native method being called) - but also how do we guarantee there is always one and it does correspond to a native method and not a stub?",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a05079d2_19a5a5a6",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-12T11:58:57Z",
+      "side": 1,
+      "message": "The \"what\" is the address of the JniEntrypoint. That is included in the patch type and does not need an extra comment.\n\nI added an extra DCHECK() for the target method being native to address the second part of your comment.",
+      "parentUuid": "71023459_2eb3abe8",
       "range": {
         "startLine": 1891,
         "startChar": 0,
