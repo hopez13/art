@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ea7652d_b4ceba1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-12T09:46:51Z",
+      "side": 1,
+      "message": "In case one of the CLs need more review, or needs more work. I wouldn\u0027t want to delay the other to land.",
+      "parentUuid": "bb37a07e_926c9799",
+      "revId": "db563a278bd9e06c47ae81b34c02f8da2de98dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee701f7a_897b958b",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
