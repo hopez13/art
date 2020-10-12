@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749981b9_f8029248",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "This isn\u0027t quite accurate. These libs are just general exported APIs that should join libandroidio and libnativehelper above.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ad135de_60e5e74d",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "This one will need fixing. Please add:\n\n// TODO(b/142944043): Convert to APEX stubs and export as a shared lib, once linker support is in place.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e027ac00_d9e116ff",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "I\u0027d prefer to make this just \"//art:__subpackages__\". It\u0027s consistent with the default package visibility internally in art/, and I don\u0027t see a point with being more restrictive.",
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49de8c3_30aaf2cd",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "Dito.",
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

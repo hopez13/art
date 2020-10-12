@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfd3d325_3753189e",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "Exactly. https://cs.android.com/android/platform/superproject/+/master:build/soong/android/arch.go;l\u003d647-649;drc\u003dmaster",
+      "parentUuid": "ee6d8dd3_a9d3dad9",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f93e2cb_407e33de",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 4
@@ -184,6 +208,30 @@
       "side": 1,
       "message": "I could remove all of them. Brilliant.",
       "parentUuid": "042857a4_08e915aa",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 39
+      },
+      "revId": "807a69cab2882aac263c92eba00c7132ef5515f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e7d51dc_9f177c43",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-12T22:44:08Z",
+      "side": 1,
+      "message": "That\u0027s excellent!\n\nThe remaining native libs and headers look good except for a few nits. Can\u0027t vouch for the java side of things.",
+      "parentUuid": "5ddae774_3d13fed1",
       "range": {
         "startLine": 188,
         "startChar": 0,
