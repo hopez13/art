@@ -16,6 +16,24 @@
       "message": "Are we doing it right now?",
       "revId": "fc6f8cb44f3cfc01a84c9270e9244d5f5c54d596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125f4044_b3763f4e",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 0,
+      "message": "Accidentally removed that.\n\nRestored.",
+      "parentUuid": "4886b8d2_f7e4b631",
+      "revId": "fc6f8cb44f3cfc01a84c9270e9244d5f5c54d596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

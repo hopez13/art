@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fbec2c7b_fda6b232",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Ack.\n\nLet me run it again.",
+      "parentUuid": "fe883c05_03ba4d65",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "767f1405_060dbcac",
         "filename": "/COMMIT_MSG",
         "patchSetId": 40
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "Reachability seems like something that\u0027ll be useful in a lot of other places too.",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de627813_0927ec9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Probably. In many cases I think using dominators is sufficient but I wouldn\u0027t be surprised if this gets used elsewhere.",
+      "parentUuid": "767f1405_060dbcac",
       "range": {
         "startLine": 38,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc790193_e279633b",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2d2005d7_13d1d846",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8afa2e38_767b2536",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "I\u0027d consider removing this, since fields in a struct are public by default.",
+      "range": {
+        "startLine": 68,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe2593c_1553c361",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "In general our style seems to be to have these be explicit always.\n\nAnyway changed to class.",
+      "parentUuid": "8afa2e38_767b2536",
       "range": {
         "startLine": 68,
         "startChar": 3,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "734baaf0_314c0b63",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c705dd31_052936c5",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 22
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f730679_4edd5de7",
@@ -129,6 +249,24 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "Is this result something that makes sense to cache?",
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7972a889_b42d592c",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "generally there aren\u0027t that many entry-blocks so I don\u0027t think so.",
+      "parentUuid": "8f730679_4edd5de7",
       "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4792fe7e_dc79b632",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bdd9906_8a0a4c09",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e18aa40c_75db3a17",
@@ -173,6 +335,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "426faad3_0d62a7cf",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "see above. I don\u0027t think so.",
+      "parentUuid": "e18aa40c_75db3a17",
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cb44522_be3f7f62",
@@ -186,6 +366,30 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "Is this to try to bound the runtime of the analysis? If so, it\u0027s worth mentioning that in a comment.",
+      "range": {
+        "startLine": 149,
+        "startChar": 28,
+        "endLine": 149,
+        "endChar": 52
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e690212_ac0db96a",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "more the memory usage actually.\n\nDone",
+      "parentUuid": "0cb44522_be3f7f62",
       "range": {
         "startLine": 149,
         "startChar": 28,
@@ -219,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9459a876_3b295750",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "it means all blocks have a reasonable branching factor. I pass it down so I don\u0027t need to calculate it over and over.",
+      "parentUuid": "444d297e_4e508260",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 45
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e321f22c_7ec03b6c",
@@ -232,6 +460,30 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "graph\u0027s",
+      "range": {
+        "startLine": 210,
+        "startChar": 5,
+        "endLine": 210,
+        "endChar": 11
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b3f823d_f35915e2",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e321f22c_7ec03b6c",
       "range": {
         "startLine": 210,
         "startChar": 5,
@@ -265,6 +517,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0e08dc4_64e539a5",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "It doesn\u0027t. That was from an earlier PS. Removed.",
+      "parentUuid": "cbbef73b_73703238",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4da0e19c_f6399648",
@@ -278,6 +554,30 @@
       "writtenOn": "2020-10-09T22:42:47Z",
       "side": 1,
       "message": "Should this be for_partial_elimination?",
+      "range": {
+        "startLine": 962,
+        "startChar": 34,
+        "endLine": 962,
+        "endChar": 49
+      },
+      "revId": "ed8049984ce2477ea5805f8f62137297afa54c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7248e0_0fba4d23",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-12T17:06:03Z",
+      "side": 1,
+      "message": "no this switch is for when the scheduler runs this analysis",
+      "parentUuid": "4da0e19c_f6399648",
       "range": {
         "startLine": 962,
         "startChar": 34,
