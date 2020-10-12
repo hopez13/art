@@ -140,6 +140,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91d5581_e201fdb7",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-12T12:56:52Z",
+      "side": 1,
+      "message": "But even though it\u0027s native, how do we guarantee it doesn\u0027t contain a runtime stub that will lookup the native address?",
+      "parentUuid": "a05079d2_19a5a5a6",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
