@@ -28,6 +28,7 @@
 namespace art {
 
 static constexpr const char* kAndroidArtApexDefaultPath = "/apex/com.android.art";
+static constexpr const char* kArtApexDataDefaultPath = "/data/misc/apexdata/com.android.art";
 static constexpr const char* kAndroidConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 static constexpr const char* kAndroidI18nApexDefaultPath = "/apex/com.android.i18n";
 
@@ -62,6 +63,9 @@ std::string GetAndroidData();
 // Find $ANDROID_DATA, /data, or return an empty string.
 std::string GetAndroidDataSafe(/*out*/ std::string* error_msg);
 
+// Find $ART_APEX_DATA, /data/misc/apexdata/com.android.art, or abort.
+std::string GetArtApexData();
+
 // Returns the default boot image location (ANDROID_ROOT/framework/boot.art).
 // Returns an empty string if ANDROID_ROOT is not set.
 std::string GetDefaultBootImageLocation(std::string* error_msg);
@@ -82,8 +86,18 @@ void GetDalvikCache(const char* subdir, bool create_if_absent, std::string* dalv
 
 // Returns the absolute dalvik-cache path for a DexFile or OatFile. The path returned will be
 // rooted at cache_location.
-bool GetDalvikCacheFilename(const char* file_location, const char* cache_location,
+bool GetDalvikCacheFilename(const char* location, const char* cache_location,
                             std::string* filename, std::string* error_msg);
+
+// Gets the oat location in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework) or in the non-updatable I18n module.
+// return true and sets `filename` if `location` framework or I18N module, false otherwise.
+bool GetApexDataOatFilename(const char* location, InstructionSet isa, std::string* filename);
+
+// Gets the odex location in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework) or in the non-updatable I18n module.
+// return true and sets `filename` if `location` framework or I18N module, false otherwise.
+bool GetApexDataOdexFilename(const char* location, InstructionSet isa, std::string* filename);
 
 // Returns the system location for an image
 std::string GetSystemImageFilename(const char* location, InstructionSet isa);
@@ -96,7 +110,7 @@ std::string GetVdexFilename(const std::string& oat_filename);
 // a period, and `new_extension`.
 // Example: ReplaceFileExtension("foo.bar", "abc") == "foo.abc"
 //          ReplaceFileExtension("foo", "abc") == "foo.abc"
-std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension);
+std::string ReplaceFileExtension(std::string_view filename, std::string_view new_extension);
 
 // Return whether the location is on /apex/com.android.art
 bool LocationIsOnArtModule(const char* location);
@@ -110,7 +124,7 @@ bool LocationIsOnI18nModule(const char* location);
 // Return whether the location is on system (i.e. android root).
 bool LocationIsOnSystem(const char* location);
 
-// Return whether the location is on system/framework (i.e. android_root/framework).
+// Return whether the location is on system/framework (i.e. $ANDROID_ROOT/framework).
 bool LocationIsOnSystemFramework(const char* location);
 
 // Return whether the location is on system_ext/framework
