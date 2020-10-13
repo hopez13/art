@@ -28,6 +28,7 @@
 namespace art {
 
 static constexpr const char* kAndroidArtApexDefaultPath = "/apex/com.android.art";
+static constexpr const char* kArtApexDataDefaultPath = "/data/misc/apexdata/com.android.art";
 static constexpr const char* kAndroidConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 static constexpr const char* kAndroidI18nApexDefaultPath = "/apex/com.android.i18n";
 
@@ -62,30 +63,54 @@ std::string GetAndroidData();
 // Find $ANDROID_DATA, /data, or return an empty string.
 std::string GetAndroidDataSafe(/*out*/ std::string* error_msg);
 
+// Find $ART_APEX_DATA, /data/misc/apexdata/com.android.art, or abort.
+std::string GetArtApexData();
+
 // Returns the default boot image location (ANDROID_ROOT/framework/boot.art).
 // Returns an empty string if ANDROID_ROOT is not set.
 std::string GetDefaultBootImageLocation(std::string* error_msg);
 
-// Returns the default boot image location, based on the passed android root.
+// Returns the default boot image location, based on the passed `android_root`.
 std::string GetDefaultBootImageLocation(const std::string& android_root);
 
-// Returns the dalvik-cache location, with subdir appended. Returns the empty string if the cache
+// Returns the dalvik-cache location, with `subdir` appended. Returns the empty string if the cache
 // could not be found.
 std::string GetDalvikCache(const char* subdir);
 
 // Return true if we found the dalvik cache and stored it in the dalvik_cache argument.
-// have_android_data will be set to true if we have an ANDROID_DATA that exists,
-// dalvik_cache_exists will be true if there is a dalvik-cache directory that is present.
-// The flag is_global_cache tells whether this cache is /data/dalvik-cache.
+// `have_android_data` will be set to true if we have an ANDROID_DATA that exists,
+// `dalvik_cache_exists` will be true if there is a dalvik-cache directory that is present.
+// The flag `is_global_cache` tells whether this cache is /data/dalvik-cache.
 void GetDalvikCache(const char* subdir, bool create_if_absent, std::string* dalvik_cache,
                     bool* have_android_data, bool* dalvik_cache_exists, bool* is_global_cache);
 
 // Returns the absolute dalvik-cache path for a DexFile or OatFile. The path returned will be
-// rooted at cache_location.
-bool GetDalvikCacheFilename(const char* file_location, const char* cache_location,
+// rooted at `cache_location`.
+bool GetDalvikCacheFilename(const char* location, const char* cache_location,
                             std::string* filename, std::string* error_msg);
 
-// Returns the system location for an image
+// Gets the oat location in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework).
+// Returns the Oat filename if `location` is on framework, empty string otherwise.
+std::string GetApexDataOatFilename(const char* location, InstructionSet isa);
+
+// Gets the odex location in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework).
+// Returns the Odex filename if `location` is on framework, empty string otherwise.
+std::string GetApexDataOdexFilename(const char* location, InstructionSet isa);
+
+// Gets the boot image in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework).
+// Returns image location if `dex_location` is on framework, empty string otherwise.
+std::string GetApexDataBootImage(const char* dex_location);
+
+// Gets the image in the ART APEX data directory for a DEX file installed in
+// /system/framework (i.e. $ANDROID_ROOT/framework).
+// Returns image location if `dex_location` is on framework, empty string otherwise..
+std::string GetApexDataImage(const char* dex_location);
+
+// Returns the system location for an image. This method inserts the `isa` between the
+// dirname and basename of `location`.
 std::string GetSystemImageFilename(const char* location, InstructionSet isa);
 
 // Returns the vdex filename for the given oat filename.
@@ -96,10 +121,13 @@ std::string GetVdexFilename(const std::string& oat_filename);
 // a period, and `new_extension`.
 // Example: ReplaceFileExtension("foo.bar", "abc") == "foo.abc"
 //          ReplaceFileExtension("foo", "abc") == "foo.abc"
-std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension);
+std::string ReplaceFileExtension(std::string_view filename, std::string_view new_extension);
 
 // Return whether the location is on /apex/com.android.art
 bool LocationIsOnArtModule(const char* location);
+
+// Return whether the location is on /data/misc/apexdata/com.android.art/.
+bool LocationIsOnArtApexData(const char* location);
 
 // Return whether the location is on /apex/com.android.conscrypt
 bool LocationIsOnConscryptModule(const char* location);
@@ -110,7 +138,7 @@ bool LocationIsOnI18nModule(const char* location);
 // Return whether the location is on system (i.e. android root).
 bool LocationIsOnSystem(const char* location);
 
-// Return whether the location is on system/framework (i.e. android_root/framework).
+// Return whether the location is on system/framework (i.e. $ANDROID_ROOT/framework).
 bool LocationIsOnSystemFramework(const char* location);
 
 // Return whether the location is on system_ext/framework
