@@ -28,6 +28,7 @@
 namespace art {
 
 static constexpr const char* kAndroidArtApexDefaultPath = "/apex/com.android.art";
+static constexpr const char* kArtApexDataPath = "/data/misc/apexdata/com.android.art";
 static constexpr const char* kAndroidConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 static constexpr const char* kAndroidI18nApexDefaultPath = "/apex/com.android.i18n";
 
@@ -61,6 +62,9 @@ std::string GetArtBinDir();
 std::string GetAndroidData();
 // Find $ANDROID_DATA, /data, or return an empty string.
 std::string GetAndroidDataSafe(/*out*/ std::string* error_msg);
+
+// Find $ART_APEX_DATA, /data/misc/apexdata/com.android.art, or abort.
+std::string GetArtApexData();
 
 // Returns the default boot image location (ANDROID_ROOT/framework/boot.art).
 // Returns an empty string if ANDROID_ROOT is not set.
