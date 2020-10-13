@@ -92,3 +92,8 @@ enum PaletteStatus PaletteGetHooks(PaletteHooks** hooks) {
   *hooks = nullptr;
   return PaletteStatus::kNotSupported;
 }
+
+enum PaletteStatus PaletteSetSELinuxFileContext(const char* path ATTRIBUTE_UNUSED,
+                                              const char* context ATTRIBUTE_UNUSED) {
+  return PaletteStatus::kNotSupported;
+}
