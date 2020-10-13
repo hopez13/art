@@ -16,6 +16,24 @@
       "message": "I wonder why the file included itself in the first place.\n\nDo you have an easy way of running IWYU? I\u0027d like to start running that on my CLs too.",
       "revId": "2eb538ce3679fb53667750e5e0e2b848da400519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0cd1ef_55bc051a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T16:57:00Z",
+      "side": 1,
+      "message": "If you have clangd setup you can just use `iwyu_tool -p $ANDROID_BUILD_TOP/compile_commands.json \u003ccc file\u003e` and it mostly works.\n\nIt doesn\u0027t seem to deal with c++-std libs very well (wanting them to be included with \u0027\"\u0027) and can\u0027t understand our -inl.h things. It also isn\u0027t able to run on .h files (though adding an entry for it copied from the .cc one in the compdb will make it work).",
+      "parentUuid": "fbc9bab0_fe687938",
+      "revId": "2eb538ce3679fb53667750e5e0e2b848da400519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
