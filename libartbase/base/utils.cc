@@ -231,19 +231,7 @@ std::string PrettySize(uint64_t byte_count) {
 }
 
 void Split(const std::string& s, char separator, std::vector<std::string>* result) {
-  const char* p = s.data();
-  const char* end = p + s.size();
-  while (p != end) {
-    if (*p == separator) {
-      ++p;
-    } else {
-      const char* start = p;
-      while (++p != end && *p != separator) {
-        // Skip to the next occurrence of the separator.
-      }
-      result->push_back(std::string(start, p - start));
-    }
-  }
+  VisitTokens(s, separator, [result](std::string_view sv) { result->emplace_back(sv); });
 }
 
 void SetThreadName(const char* thread_name) {
