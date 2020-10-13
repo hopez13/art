@@ -169,4 +169,10 @@ enum PaletteStatus PaletteGetHooks(PaletteHooks** hooks) {
   return m(hooks);
 }
 
+enum PaletteStatus PaletteSetSELinuxFileContext(const char *path, const char *context) {
+  PaletteSetSELinuxFileContextMethod m =
+      PaletteLoader::Instance().GetPaletteSetSELinuxFileContextMethod();
+  return m(path, context);
+}
+
 }  // extern "C"
