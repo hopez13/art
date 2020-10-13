@@ -44,6 +44,7 @@
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
+#include "arch/instruction_set.h"
 #include "base/bit_utils.h"
 #include "base/globals.h"
 #include "base/os.h"
@@ -65,7 +66,6 @@ namespace art {
 using android::base::StringPrintf;
 
 static constexpr const char* kClassesDex = "classes.dex";
-static constexpr const char* kApexDefaultPath = "/apex/";
 static constexpr const char* kAndroidRootEnvVar = "ANDROID_ROOT";
 static constexpr const char* kAndroidRootDefaultPath = "/system";
 static constexpr const char* kAndroidSystemExtRootEnvVar = "ANDROID_SYSTEM_EXT";
@@ -75,6 +75,8 @@ static constexpr const char* kAndroidDataDefaultPath = "/data";
 static constexpr const char* kAndroidArtRootEnvVar = "ANDROID_ART_ROOT";
 static constexpr const char* kAndroidConscryptRootEnvVar = "ANDROID_CONSCRYPT_ROOT";
 static constexpr const char* kAndroidI18nRootEnvVar = "ANDROID_I18N_ROOT";
+static constexpr const char* kApexDefaultPath = "/apex/";
+static constexpr const char* kArtApexDataEnvVar = "ART_APEX_DATA";
 
 // Get the "root" directory containing the "lib" directory where this instance
 // of the libartbase library (which contains `GetRootContainingLibartbase`) is
@@ -275,10 +277,32 @@ std::string GetAndroidData() {
   return GetAndroidDir(kAndroidDataEnvVar, kAndroidDataDefaultPath);
 }
 
+std::string GetArtApexData() {
+  return GetAndroidDir(kArtApexDataEnvVar, kArtApexDataPath);
+}
+
 std::string GetDefaultBootImageLocation(const std::string& android_root) {
   // Boot image consists of two parts:
   //  - the primary boot image in the ART apex (contains the Core Libraries)
   //  - the boot image extension on the system partition (contains framework libraries)
+  if (kIsTargetBuild) {
+    // If the ART apex has been updated, the compiled boot image extension will be in the ART Apex
+    // data directory (assuming space).  Otherwise, for a factory installed ART Apex it is under
+    // $ANDROID_ROOT/framework/.
+    const char* isa = GetInstructionSetString(kRuntimeISA);
+    const std::string boot_extension_image =
+        StringPrintf("%s/system/framework/%s/boot-framework.art", kArtApexDataPath, isa);
+
+    if (OS::FileExists(boot_extension_image.c_str(), /*check_file_type=*/ true)) {
+      return StringPrintf("%s/javalib/boot.art:%s!%s/etc/boot-image.prof",
+                          kAndroidArtApexDefaultPath,
+                          boot_extension_image.c_str(),
+                          android_root.c_str());
+    } else if (errno == EACCES) {
+      // Additional warning for potential SELinux misconfiguration.
+      PLOG(ERROR) << "Default boot image check failed, could not stat: " << boot_extension_image;
+    }
+  }
   return StringPrintf("%s/javalib/boot.art:%s/framework/boot-framework.art!%s/etc/boot-image.prof",
                       kAndroidArtApexDefaultPath,
                       android_root.c_str(),
