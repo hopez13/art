@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66638bf2_e3cf3e50",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-13T17:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "749981b9_f8029248",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ad135de_60e5e74d",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-12T22:44:08Z",
       "side": 1,
       "message": "This one will need fixing. Please add:\n\n// TODO(b/142944043): Convert to APEX stubs and export as a shared lib, once linker support is in place.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e190eb41_e0d8220d",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-13T17:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ad135de_60e5e74d",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31781d4_45c7b51c",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-13T17:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e027ac00_d9e116ff",
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c49de8c3_30aaf2cd",
@@ -77,6 +143,24 @@
       "writtenOn": "2020-10-12T22:44:08Z",
       "side": 1,
       "message": "Dito.",
+      "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a65330e8_2a49b09b",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-13T17:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c49de8c3_30aaf2cd",
       "revId": "c2d519c829996d33a46ac47313170e8255dabacc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
