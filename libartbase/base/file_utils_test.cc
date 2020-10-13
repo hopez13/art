@@ -52,7 +52,6 @@ TEST_F(FileUtilsTest, GetDalvikCache) {
   EXPECT_STREQ((android_data_ + "/dalvik-cache/.").c_str(), GetDalvikCache(".").c_str());
 }
 
-
 TEST_F(FileUtilsTest, GetSystemImageFilename) {
   EXPECT_STREQ("/system/framework/arm/boot.art",
                GetSystemImageFilename("/system/framework/boot.art", InstructionSet::kArm).c_str());
@@ -156,6 +155,32 @@ TEST_F(FileUtilsTest, GetArtRootSafe) {
 
   // Reset ANDROID_ART_ROOT, as other things may depend on it.
   ASSERT_EQ(0, setenv("ANDROID_ART_ROOT", android_art_root_env.c_str(), /* overwrite */ 1));
+}
+
+TEST_F(FileUtilsTest, Basename) {
+  EXPECT_EQ("file.vdex", Basename("/a/file.vdex"));
+  EXPECT_EQ("file.vdex", Basename("a/file.vdex"));
+  EXPECT_EQ("file.vdex", Basename("/.vdex/file.vdex"));
+  EXPECT_EQ("file", Basename("/a/b/c/file.vdex", ".vdex"));
+  EXPECT_EQ("file", Basename("/.vdex/b/c/file.vdex", ".vdex"));
+  EXPECT_EQ("file.vdex", Basename("/a/b/c/file.vdex.vdex", ".vdex"));
+  EXPECT_EQ(".", Basename("."));  // From man basename(3).
+  EXPECT_EQ(".", Basename(".."));  // From man basename(3).
+}
+
+TEST_F(FileUtilsTest, Dirname) {
+  EXPECT_EQ("/a/b/c", Dirname("/a/b/c/d.txt"));
+  EXPECT_EQ("/a/b/c", Dirname("/a/b/c/"));
+  EXPECT_EQ("/a/b", Dirname("/a/b/c.txt"));
+  EXPECT_EQ("/a/b", Dirname("/a/b/"));
+  EXPECT_EQ("/a", Dirname("/a/b.txt"));
+  EXPECT_EQ("/a", Dirname("/a/"));
+  EXPECT_EQ("/", Dirname("/a.txt"));
+  EXPECT_EQ("/", Dirname("/"));
+  EXPECT_EQ(".", Dirname("a.txt"));
+  EXPECT_EQ(".", Dirname(""));
+  EXPECT_EQ(".", Basename("."));  // From man dirname(3).
+  EXPECT_EQ(".", Basename(".."));  // From man dirname(3).
 }
 
 TEST_F(FileUtilsTest, ReplaceFileExtension) {
