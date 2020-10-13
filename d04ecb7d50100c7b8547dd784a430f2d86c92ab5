@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80db48d2_5b427d7b",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T18:07:49Z",
+      "side": 1,
+      "message": "I think it makes more sense for it to be near LSE but done.\n\nmoved tests of this to their own module too.",
+      "parentUuid": "dd95ed3d_23dac167",
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cf0722a_17982e26",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-10-13T09:02:43Z",
       "side": 1,
       "message": "I think we can drop the explicit now.",
+      "range": {
+        "startLine": 530,
+        "startChar": 2,
+        "endLine": 530,
+        "endChar": 10
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b80a24_6658f872",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T18:07:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cf0722a_17982e26",
       "range": {
         "startLine": 530,
         "startChar": 2,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d33f7c9d_b6709931",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T18:07:49Z",
+      "side": 1,
+      "message": "Done\n\nIt\u0027t not a bug. If a previous pass removes a block the GetBlocks() list will have nulls in it. This is so that block \u003d\u003d block-\u003eGetGraph()-\u003eGetBlocks()[block-\u003eGetBlockId()] is always true for non-null blocks.",
+      "parentUuid": "5f2eb8bb_934cfa31",
+      "range": {
+        "startLine": 983,
+        "startChar": 0,
+        "endLine": 987,
+        "endChar": 26
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bc1768a_0c983250",
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "680804e2_1d9dc627",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T18:07:49Z",
+      "side": 1,
+      "message": "Done. I think we should reconsider this though TBH.",
+      "parentUuid": "7bc1768a_0c983250",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 4
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e974c505_555b7b56",
@@ -117,6 +207,30 @@
       "writtenOn": "2020-10-13T09:02:43Z",
       "side": 1,
       "message": "Please move this to its own abstraction class, encapsulating it into a RachabilityAnalysis class.",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 4
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "611a5476_dc0ef612",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-13T18:07:49Z",
+      "side": 1,
+      "message": "I really think this is clearer but done.",
+      "parentUuid": "e974c505_555b7b56",
       "range": {
         "startLine": 334,
         "startChar": 0,
