@@ -411,6 +411,7 @@ LOCAL_REQUIRED_MODULES := \
     $(call art_module_lib,libart-compiler) \
     $(call art_module_lib,libopenjdkjvm) \
     $(call art_module_lib,libopenjdkjvmti) \
+    $(call art_module_lib,odrefresh) \
     $(call art_module_lib,profman) \
     $(call art_module_lib,libadbconnection) \
     $(call art_module_lib,libperfetto_hprof) \
@@ -434,6 +435,7 @@ LOCAL_REQUIRED_MODULES += \
     $(call art_module_debug_lib,libopenjdkd) \
     $(call art_module_debug_lib,libopenjdkjvmd) \
     $(call art_module_debug_lib,libopenjdkjvmtid) \
+    $(call art_module_lib,odrefreshd) \
     $(call art_module_debug_lib,profmand) \
     $(call art_module_debug_lib,libadbconnectiond) \
     $(call art_module_debug_lib,libperfetto_hprofd) \
