@@ -478,14 +478,20 @@ bool OatFileAssistant::IsAnonymousVdexBasename(const std::string& basename) {
   return true;
 }
 
-static bool DexLocationToOdexNames(const std::string& location,
-                                   InstructionSet isa,
-                                   std::string* odex_filename,
-                                   std::string* oat_dir,
-                                   std::string* isa_dir,
-                                   std::string* error_msg) {
+bool OatFileAssistant::DexLocationToOdexFilename(const std::string& location,
+                                                 InstructionSet isa,
+                                                 std::string* odex_filename,
+                                                 std::string* error_msg) {
   CHECK(odex_filename != nullptr);
   CHECK(error_msg != nullptr);
+
+  // System server odex may be in the ART Apex data directory.
+  std::string apex_data_odex;
+  if (GetApexDataOdexFilename(location.c_str(), isa, &apex_data_odex) &&
+      OS::FileExists(odex_filename->c_str(), /*check_file_type=*/true)) {
+    *odex_filename = apex_data_odex;
+    return true;
+  }
 
   // The odex file name is formed by replacing the dex_location extension with
   // .odex and inserting an oat/<isa> directory. For example:
@@ -502,14 +508,9 @@ static bool DexLocationToOdexNames(const std::string& location,
   std::string dir = location.substr(0, pos+1);
   // Add the oat directory.
   dir += "oat";
-  if (oat_dir != nullptr) {
-    *oat_dir = dir;
-  }
+
   // Add the isa directory
   dir += "/" + std::string(GetInstructionSetString(isa));
-  if (isa_dir != nullptr) {
-    *isa_dir = dir;
-  }
 
   // Get the base part of the file without the extension.
   std::string file = location.substr(pos+1);
@@ -524,13 +525,6 @@ static bool DexLocationToOdexNames(const std::string& location,
   return true;
 }
 
-bool OatFileAssistant::DexLocationToOdexFilename(const std::string& location,
-                                                 InstructionSet isa,
-                                                 std::string* odex_filename,
-                                                 std::string* error_msg) {
-  return DexLocationToOdexNames(location, isa, odex_filename, nullptr, nullptr, error_msg);
-}
-
 bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
                                                 InstructionSet isa,
                                                 std::string* oat_filename,
@@ -543,6 +537,13 @@ bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
   if (GetAndroidDataSafe(error_msg).empty()) {
     *error_msg = "GetAndroidDataSafe failed: " + *error_msg;
     return false;
+  }
+
+  // Boot classpath extension oat files may be in the ART Apex data directory.
+  std::string apex_data_odex;
+  if (GetApexDataOatFilename(location.c_str(), isa, oat_filename) &&
+      OS::FileExists(oat_filename->c_str(), /*check_file_type=*/true)) {
+    return true;
   }
 
   std::string dalvik_cache;

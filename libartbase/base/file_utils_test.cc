@@ -26,6 +26,30 @@ namespace art {
 
 class FileUtilsTest : public CommonArtTest {};
 
+// Helper class that unsets an environment variable whilst in scope.
+class ScopedUnsetEnvironmentVariable {
+ public:
+  explicit ScopedUnsetEnvironmentVariable(const char* variable)
+    : variable_{variable}, value_{getenv(variable)}, data_{value_} {
+    unsetenv(variable);
+  }
+
+  ~ScopedUnsetEnvironmentVariable() {
+    if (value_ == nullptr) {
+      unsetenv(variable_);
+    } else {
+      setenv(variable_, data_.c_str(), kReplace);
+    }
+  }
+
+ private:
+  static constexpr int kReplace = 1;
+  const char* variable_;
+  const char* value_;  // Old-value, only used to check if was null or not.
+  std::string data_;
+  DISALLOW_COPY_AND_ASSIGN(ScopedUnsetEnvironmentVariable);
+};
+
 TEST_F(FileUtilsTest, GetDalvikCacheFilename) {
   std::string name;
   std::string error;
@@ -51,7 +75,6 @@ TEST_F(FileUtilsTest, GetDalvikCache) {
 
   EXPECT_STREQ((android_data_ + "/dalvik-cache/.").c_str(), GetDalvikCache(".").c_str());
 }
-
 
 TEST_F(FileUtilsTest, GetSystemImageFilename) {
   EXPECT_STREQ("/system/framework/arm/boot.art",
@@ -163,6 +186,56 @@ TEST_F(FileUtilsTest, ReplaceFileExtension) {
   EXPECT_EQ("/.directory/file.vdex", ReplaceFileExtension("/.directory/file.oat", "vdex"));
   EXPECT_EQ("/directory/file.vdex", ReplaceFileExtension("/directory/file", "vdex"));
   EXPECT_EQ("/.directory/file.vdex", ReplaceFileExtension("/.directory/file", "vdex"));
+}
+
+TEST_F(FileUtilsTest, GetApexDataOatFilename) {
+  ScopedUnsetEnvironmentVariable android_root("ANDROID_ROOT");
+  ScopedUnsetEnvironmentVariable i18n_root("ANDROID_I18N_ROOT");
+
+  std::string filename;
+  EXPECT_FALSE(GetApexDataOatFilename("/data/blah/blah.jar", InstructionSet::kArm, &filename));
+  EXPECT_TRUE(filename.empty());
+
+  std::string art_apex_jar = std::string(kAndroidArtApexDefaultPath) + "/javalib/some.jar";
+  EXPECT_FALSE(GetApexDataOatFilename(art_apex_jar.c_str(), InstructionSet::kArm, &filename));
+  EXPECT_TRUE(filename.empty());
+
+  std::string i18n_jar = std::string(kAndroidI18nApexDefaultPath) + "/javalib/core-icu4j.jar";
+  const std::string i18n_oat =
+      std::string(kArtApexDataDefaultPath) + "/system/framework/arm/core-icu4j.oat";
+  EXPECT_TRUE(GetApexDataOatFilename(i18n_jar.c_str(), InstructionSet::kArm, &filename));
+  EXPECT_EQ(i18n_oat, filename);
+
+  const std::string system_jar_apexdata_oat =
+    std::string(kArtApexDataDefaultPath) + "/system/framework/x86/flub.oat";
+  EXPECT_TRUE(
+      GetApexDataOatFilename("/system/framework/flub.jar", InstructionSet::kX86, &filename));
+  EXPECT_EQ(system_jar_apexdata_oat, filename);
+}
+
+TEST_F(FileUtilsTest, GetApexDataOdexFilename) {
+  ScopedUnsetEnvironmentVariable android_root("ANDROID_ROOT");
+  ScopedUnsetEnvironmentVariable i18n_root("ANDROID_I18N_ROOT");
+
+  std::string filename;
+  EXPECT_FALSE(GetApexDataOdexFilename("/data/some/code.dex", InstructionSet::kArm, &filename));
+  EXPECT_TRUE(filename.empty());
+
+  std::string art_apex_jar = std::string(kAndroidArtApexDefaultPath) + "/javalib/some.jar";
+  EXPECT_FALSE(GetApexDataOdexFilename(art_apex_jar.c_str(), InstructionSet::kArm, &filename));
+  EXPECT_TRUE(filename.empty());
+
+  std::string i18n_jar = std::string(kAndroidI18nApexDefaultPath) + "/javalib/core-icu4j.jar";
+  const std::string i18n_oat =
+      std::string(kArtApexDataDefaultPath) + "/system/framework/oat/arm/core-icu4j.odex";
+  EXPECT_TRUE(GetApexDataOdexFilename(i18n_jar.c_str(), InstructionSet::kArm, &filename));
+  EXPECT_EQ(i18n_oat, filename);
+
+  const std::string system_jar_apexdata_oat =
+    std::string(kArtApexDataDefaultPath) + "/system/framework/oat/x86/flub.odex";
+  EXPECT_TRUE(
+      GetApexDataOdexFilename("/system/framework/flub.jar", InstructionSet::kX86, &filename));
+  EXPECT_EQ(system_jar_apexdata_oat, filename);
 }
 
 }  // namespace art
