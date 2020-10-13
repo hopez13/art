@@ -34,8 +34,7 @@
 #
 # TODO: Logging failure / error handling.
 
-# Output directory for generated files. Real location is TBD.
-output=$PWD/out
+output=/data/misc/apexdata/com.android.art/system/framework
 
 function mkdir_clean() {
   # mkdir_clean <dir_path>
@@ -132,6 +131,9 @@ done
 
 # Compile system_server and related jars.
 classloader_context=""
+arch_output="${output}/oat/${systemserver_arch}"
+mkdir_clean "${arch_output}"
+
 for jar in ${SYSTEMSERVERCLASSPATH//:/ }; do
   # Skip class path components in APEXes
   if [[ ${jar} = "/apex"* ]]; then
