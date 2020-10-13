@@ -28,6 +28,7 @@ LIBARTPALETTE_1 {
     PaletteAshmemCreateRegion;
     PaletteAshmemSetProtRegion;
     PaletteGetHooks;
+    PaletteSetSELinuxFileContext;
 
   local:
     *;
