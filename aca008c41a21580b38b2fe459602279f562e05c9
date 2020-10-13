@@ -16,6 +16,24 @@
       "message": "This means we will now crash with some logs, right? So the CL isn\u0027t fixing the bug, but adds more diagnostics?",
       "revId": "aca008c41a21580b38b2fe459602279f562e05c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3feb92f_24e37f0e",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-10-13T14:30:33Z",
+      "side": 1,
+      "message": "That is right, if the iterator is invalid we would presumably crash when we dereference it below. If there is a real reason that the class might not be in the tables we could also make the code handle this case instead of crashing.",
+      "parentUuid": "02f2a9e7_2922e863",
+      "revId": "aca008c41a21580b38b2fe459602279f562e05c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
