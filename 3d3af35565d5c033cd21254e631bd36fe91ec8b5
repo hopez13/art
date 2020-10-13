@@ -22,6 +22,30 @@
       },
       "revId": "3d3af35565d5c033cd21254e631bd36fe91ec8b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2a11c81_61b4ae5a",
+        "filename": "tools/checker/match/file.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-13T15:24:22Z",
+      "side": 1,
+      "message": "Yes, file function does not exist anymore in python3. I just missed it in the original CL",
+      "parentUuid": "54f000eb_caa391d3",
+      "range": {
+        "startLine": 339,
+        "startChar": 11,
+        "endLine": 339,
+        "endChar": 15
+      },
+      "revId": "3d3af35565d5c033cd21254e631bd36fe91ec8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
