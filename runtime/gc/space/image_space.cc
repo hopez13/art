@@ -2964,10 +2964,7 @@ class ImageSpace::BootImageLoader {
 
     // Should this be a RDWR lock? This is only a defensive measure, as at
     // this point the image should exist.
-    // However, only the zygote can write into the global dalvik-cache, so
-    // restrict to zygote processes, or any process that isn't using
-    // /data/dalvik-cache (which we assume to be allowed to write there).
-    const bool rw_lock = is_zygote_ || !is_global_cache_;
+    const bool rw_lock = !is_global_cache_;
 
     // Note that we must not use the file descriptor associated with
     // ScopedFlock::GetFile to Init the image file. We want the file

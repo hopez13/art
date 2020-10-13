@@ -158,6 +158,15 @@ TEST_F(FileUtilsTest, GetArtRootSafe) {
   ASSERT_EQ(0, setenv("ANDROID_ART_ROOT", android_art_root_env.c_str(), /* overwrite */ 1));
 }
 
+TEST_F(FileUtilsTest, Basename) {
+  EXPECT_EQ("file.vdex", Basename("/a/file.vdex"));
+  EXPECT_EQ("file.vdex", Basename("a/file.vdex"));
+  EXPECT_EQ("file.vdex", Basename("/.vdex/file.vdex"));
+  EXPECT_EQ("file", Basename("/a/b/c/file.vdex", ".vdex"));
+  EXPECT_EQ("file", Basename("/.vdex/b/c/file.vdex", ".vdex"));
+  EXPECT_EQ("file.vdex", Basename("/a/b/c/file.vdex.vdex", ".vdex"));
+}
+
 TEST_F(FileUtilsTest, ReplaceFileExtension) {
   EXPECT_EQ("/directory/file.vdex", ReplaceFileExtension("/directory/file.oat", "vdex"));
   EXPECT_EQ("/.directory/file.vdex", ReplaceFileExtension("/.directory/file.oat", "vdex"));
