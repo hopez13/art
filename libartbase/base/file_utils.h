@@ -28,6 +28,7 @@
 namespace art {
 
 static constexpr const char* kAndroidArtApexDefaultPath = "/apex/com.android.art";
+static constexpr const char* kArtApexDataPath = "/data/misc/apexdata/com.android.art";
 static constexpr const char* kAndroidConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 static constexpr const char* kAndroidI18nApexDefaultPath = "/apex/com.android.i18n";
 
@@ -62,6 +63,9 @@ std::string GetAndroidData();
 // Find $ANDROID_DATA, /data, or return an empty string.
 std::string GetAndroidDataSafe(/*out*/ std::string* error_msg);
 
+// Find $ART_APEX_DATA, /data/misc/apexdata/com.android.art, or abort.
+std::string GetArtApexData();
+
 // Returns the default boot image location (ANDROID_ROOT/framework/boot.art).
 // Returns an empty string if ANDROID_ROOT is not set.
 std::string GetDefaultBootImageLocation(std::string* error_msg);
@@ -90,6 +94,9 @@ std::string GetSystemImageFilename(const char* location, InstructionSet isa);
 
 // Returns the vdex filename for the given oat filename.
 std::string GetVdexFilename(const std::string& oat_filename);
+
+// Return basename in `path` and strip specified extension (if any).
+std::string_view Basename(std::string_view path, std::string_view extension = "");
 
 // Returns `filename` with the text after the last occurrence of '.' replaced with
 // `extension`. If `filename` does not contain a period, returns a string containing `filename`,

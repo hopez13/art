@@ -499,17 +499,8 @@ static bool DexLocationToOdexNames(const std::string& location,
     *error_msg = "Dex location " + location + " has no directory.";
     return false;
   }
+
   std::string dir = location.substr(0, pos+1);
-  // Add the oat directory.
-  dir += "oat";
-  if (oat_dir != nullptr) {
-    *oat_dir = dir;
-  }
-  // Add the isa directory
-  dir += "/" + std::string(GetInstructionSetString(isa));
-  if (isa_dir != nullptr) {
-    *isa_dir = dir;
-  }
 
   // Get the base part of the file without the extension.
   std::string file = location.substr(pos+1);
@@ -520,7 +511,27 @@ static bool DexLocationToOdexNames(const std::string& location,
   }
   std::string base = file.substr(0, pos);
 
-  *odex_filename = dir + "/" + base + ".odex";
+  const char* isaString = GetInstructionSetString(isa);
+  std::string system_odex = StringPrintf("%soat/%s/%s.odex", dir.c_str(), isaString, base.c_str());
+  std::string apexdata_odex = StringPrintf("%s%s", kArtApexDataPath, system_odex.c_str());
+
+  // Check if we've recompiled odex due to ART module update, use this if so.
+  if (OS::FileExists(apexdata_odex.c_str())) {
+    *odex_filename = apexdata_odex;
+  } else {
+    *odex_filename = system_odex;
+  }
+
+  // Move pos to last separator.
+  pos = odex_filename->rfind('/');
+  if (isa_dir != nullptr) {
+    *isa_dir = std::string(*odex_filename, pos);
+  }
+  if (oat_dir != nullptr) {
+    pos = odex_filename->rfind('/', pos - 1);
+    *oat_dir = std::string(*odex_filename, pos);
+  }
+
   return true;
 }
 

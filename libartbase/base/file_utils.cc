@@ -65,7 +65,6 @@ namespace art {
 using android::base::StringPrintf;
 
 static constexpr const char* kClassesDex = "classes.dex";
-static constexpr const char* kApexDefaultPath = "/apex/";
 static constexpr const char* kAndroidRootEnvVar = "ANDROID_ROOT";
 static constexpr const char* kAndroidRootDefaultPath = "/system";
 static constexpr const char* kAndroidSystemExtRootEnvVar = "ANDROID_SYSTEM_EXT";
@@ -75,6 +74,8 @@ static constexpr const char* kAndroidDataDefaultPath = "/data";
 static constexpr const char* kAndroidArtRootEnvVar = "ANDROID_ART_ROOT";
 static constexpr const char* kAndroidConscryptRootEnvVar = "ANDROID_CONSCRYPT_ROOT";
 static constexpr const char* kAndroidI18nRootEnvVar = "ANDROID_I18N_ROOT";
+static constexpr const char* kApexDefaultPath = "/apex/";
+static constexpr const char* kArtApexDataEnvVar = "ART_APEX_DATA";
 
 // Get the "root" directory containing the "lib" directory where this instance
 // of the libartbase library (which contains `GetRootContainingLibartbase`) is
@@ -275,10 +276,26 @@ std::string GetAndroidData() {
   return GetAndroidDir(kAndroidDataEnvVar, kAndroidDataDefaultPath);
 }
 
+std::string GetArtApexData() {
+  return GetAndroidDir(kArtApexDataEnvVar, kArtApexDataPath);
+}
+
 std::string GetDefaultBootImageLocation(const std::string& android_root) {
   // Boot image consists of two parts:
   //  - the primary boot image in the ART apex (contains the Core Libraries)
   //  - the boot image extension on the system partition (contains framework libraries)
+  if (kIsTargetBuild) {
+    // If the ART apex has been updated, the compiled boot image extension will be in the ART Apex
+    // data directory (assuming space).  Otherwise, for a factory installed ART Apex it is under
+    // $ANDROID_ROOT/framework/.
+    std::string updated_boot_framework_path = StringPrintf("%s/system/framework", kArtApexDataPath);
+    if (OS::DirectoryExists(updated_boot_framework_path.c_str())) {
+      return StringPrintf("%s/javalib/boot.art:%s/boot-framework.art!%s/etc/boot-image.prof",
+                          kAndroidArtApexDefaultPath,
+                          updated_boot_framework_path.c_str(),
+                          android_root.c_str());
+    }
+  }
   return StringPrintf("%s/javalib/boot.art:%s/framework/boot-framework.art!%s/etc/boot-image.prof",
                       kAndroidArtApexDefaultPath,
                       android_root.c_str(),
@@ -376,6 +393,15 @@ std::string GetSystemImageFilename(const char* location, const InstructionSet is
   std::string filename(location);
   InsertIsaDirectory(isa, &filename);
   return filename;
+}
+
+std::string_view Basename(std::string_view path, std::string_view extension) {
+  size_t start = path.rfind('/') + 1;
+  size_t length = path.size() - start;
+  if (length >= extension.size() && path.substr(path.size() - extension.size()) == extension) {
+    length -= extension.size();
+  }
+  return path.substr(start, length);
 }
 
 std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension) {
