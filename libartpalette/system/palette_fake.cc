@@ -92,3 +92,8 @@ enum PaletteStatus PaletteGetHooks(PaletteHooks** hooks) {
   *hooks = nullptr;
   return PaletteStatus::kNotSupported;
 }
+
+enum PaletteStatus PaletteCreateOdrefreshStagingDirectory(const char** staging_dir) {
+  *staging_dir = nullptr;
+  return PaletteStatus::kNotSupported;
+}
