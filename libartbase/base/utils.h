@@ -22,6 +22,7 @@
 
 #include <random>
 #include <string>
+#include <string_view>
 
 #include <android-base/logging.h>
 #include <android-base/parseint.h>
@@ -45,6 +46,23 @@ std::string PrettySize(uint64_t size_in_bytes);
 // Splits a string using the given separator character into a vector of
 // strings. Empty strings will be omitted.
 void Split(const std::string& s, char separator, std::vector<std::string>* result);
+
+// Find tokens in input string and apply a function to each token of non-zero size.
+// The visit function should take a string_view parameter.
+template <typename V>
+void VisitTokens(std::string_view input, char separator, V const& visit) {
+  size_t current = 0;
+  while (current < input.size()) {
+    size_t next = input.find(separator, current);
+    if (current != next) {
+      visit(input.substr(current, next - current));
+    }
+    if (next == std::string::npos) {
+      return;
+    }
+    current = next + 1;
+  }
+}
 
 // Returns the calling thread's tid. (The C libraries don't expose this.)
 uint32_t GetTid();
