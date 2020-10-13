@@ -21,6 +21,7 @@
 #include <sys/stat.h>
 #include "zlib.h"
 
+#include "android-base/file.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
@@ -500,16 +501,6 @@ static bool DexLocationToOdexNames(const std::string& location,
     return false;
   }
   std::string dir = location.substr(0, pos+1);
-  // Add the oat directory.
-  dir += "oat";
-  if (oat_dir != nullptr) {
-    *oat_dir = dir;
-  }
-  // Add the isa directory
-  dir += "/" + std::string(GetInstructionSetString(isa));
-  if (isa_dir != nullptr) {
-    *isa_dir = dir;
-  }
 
   // Get the base part of the file without the extension.
   std::string file = location.substr(pos+1);
@@ -520,7 +511,27 @@ static bool DexLocationToOdexNames(const std::string& location,
   }
   std::string base = file.substr(0, pos);
 
-  *odex_filename = dir + "/" + base + ".odex";
+  const char* isaString = GetInstructionSetString(isa);
+  std::string system_odex = StringPrintf("%soat/%s/%s.odex", dir.c_str(), isaString, base.c_str());
+  std::string apexdata_odex = StringPrintf("%s%s", kArtApexDataPath, system_odex.c_str());
+
+  // Check if we've recompiled odex due to ART module update, use this if so.
+  if (OS::FileExists(apexdata_odex.c_str())) {
+    *odex_filename = apexdata_odex;
+  } else {
+    *odex_filename = system_odex;
+  }
+
+  // Move pos to last separator.
+  pos = odex_filename->rfind('/');
+  if (isa_dir != nullptr) {
+    *isa_dir = std::string(*odex_filename, pos);
+  }
+  if (oat_dir != nullptr) {
+    pos = odex_filename->rfind('/', pos - 1);
+    *oat_dir = std::string(*odex_filename, pos);
+  }
+
   return true;
 }
 
@@ -545,7 +556,21 @@ bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
     return false;
   }
 
-  std::string cache_dir = GetDalvikCache(GetInstructionSetString(isa));
+  const char* isa_string = GetInstructionSetString(isa);
+
+  // Check if oat file exists in the apexdata directory and use if so.
+  std::string oat_name = ReplaceFileExtension(android::base::Basename(location), "odex");
+  std::string apexdata_oat =
+    StringPrintf("%s/system/framework/oat/%s/%s", kArtApexDataPath, isa_string, oat_name.c_str());
+  if (OS::FileExists(apexdata_oat.c_str())) {
+    VLOG(oat) << "using oat file: " << apexdata_oat;
+    *oat_filename = apexdata_oat;
+    return true;
+  } else {
+    VLOG(oat) << "oat file not found: " << apexdata_oat;
+  }
+
+  std::string cache_dir = GetDalvikCache(isa_string);
   if (cache_dir.empty()) {
     *error_msg = "Dalvik cache directory does not exist";
     return false;
