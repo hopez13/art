@@ -614,9 +614,9 @@ class ReleaseTargetChecker:
     # removed in Android R.
 
     # Check binaries for ART.
-    self._checker.check_executable("compile_bcp.sh")
-    self._checker.check_executable('oatdump')
     self._checker.check_multilib_executable('dex2oat')
+    self._checker.check_executable('oatdump')
+    self._checker.check_executable("odrefresh")
 
     # Check internal libraries for ART.
     self._checker.check_native_library('libperfetto_hprof')
@@ -641,6 +641,8 @@ class ReleaseHostChecker:
     self._checker.check_executable('hprof-conv')
     self._checker.check_symlinked_first_executable('dex2oatd')
     self._checker.check_symlinked_first_executable('dex2oat')
+    self._checker.check_executable("odrefresh")
+    self._checker.check_executable("odrefreshd")
 
     # Check exported native libraries for Managed Core Library.
     self._checker.check_native_library('libicu')
@@ -699,6 +701,7 @@ class DebugTargetChecker:
     self._checker.check_multilib_executable('dex2oatd')
     self._checker.check_multilib_executable('dex2oat')
     self._checker.check_executable('oatdumpd')
+    self._checker.check_executable('odrefreshd')
 
     # Check ART internal libraries.
     self._checker.check_native_library('libdexfiled_external')
