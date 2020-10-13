@@ -107,6 +107,57 @@ TEST_F(UtilsTest, Split) {
   EXPECT_EQ(expected, actual);
 }
 
+TEST_F(UtilsTest, VisitTokens) {
+  std::vector<std::string> output;
+
+  auto append = [&output](std::string_view s){ output.emplace_back(s); };
+
+  // No token cases
+  std::vector<std::string> expected;
+  VisitTokens("", ':', append);
+  EXPECT_EQ(expected, output);
+  VisitTokens(":", ':', append);
+  EXPECT_EQ(expected, output);
+  VisitTokens("::", ':', append);
+  EXPECT_EQ(expected, output);
+
+  // One token cases
+  expected = { "hello" };
+  VisitTokens("hello", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens(":hello", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens("hello:", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens("hello::", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  // Two token cases
+  expected = { "hello" , "world"};
+  VisitTokens("hello:world", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens(":hello:world", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens("hello::world", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+
+  VisitTokens("hello:world:", ':', append);
+  EXPECT_EQ(expected, output);
+  output.clear();
+}
+
 TEST_F(UtilsTest, GetProcessStatus) {
   EXPECT_EQ("art_libartbase_", GetProcessStatus("Name"));
   EXPECT_EQ("R (running)", GetProcessStatus("State"));
