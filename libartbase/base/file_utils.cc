@@ -41,9 +41,11 @@
 
 #include <memory>
 
+#include "android-base/file.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
+#include "arch/instruction_set.h"
 #include "base/bit_utils.h"
 #include "base/globals.h"
 #include "base/os.h"
@@ -65,7 +67,6 @@ namespace art {
 using android::base::StringPrintf;
 
 static constexpr const char* kClassesDex = "classes.dex";
-static constexpr const char* kApexDefaultPath = "/apex/";
 static constexpr const char* kAndroidRootEnvVar = "ANDROID_ROOT";
 static constexpr const char* kAndroidRootDefaultPath = "/system";
 static constexpr const char* kAndroidSystemExtRootEnvVar = "ANDROID_SYSTEM_EXT";
@@ -75,6 +76,8 @@ static constexpr const char* kAndroidDataDefaultPath = "/data";
 static constexpr const char* kAndroidArtRootEnvVar = "ANDROID_ART_ROOT";
 static constexpr const char* kAndroidConscryptRootEnvVar = "ANDROID_CONSCRYPT_ROOT";
 static constexpr const char* kAndroidI18nRootEnvVar = "ANDROID_I18N_ROOT";
+static constexpr const char* kApexDefaultPath = "/apex/";
+static constexpr const char* kArtApexDataEnvVar = "ART_APEX_DATA";
 
 // Get the "root" directory containing the "lib" directory where this instance
 // of the libartbase library (which contains `GetRootContainingLibartbase`) is
@@ -174,9 +177,11 @@ static const char* GetAndroidDirSafe(const char* env_var,
   return android_dir;
 }
 
-static const char* GetAndroidDir(const char* env_var, const char* default_dir) {
+static const char* GetAndroidDir(const char* env_var,
+                                 const char* default_dir,
+                                 bool must_exist = true) {
   std::string error_msg;
-  const char* dir = GetAndroidDirSafe(env_var, default_dir, /* must_exist= */ true, &error_msg);
+  const char* dir = GetAndroidDirSafe(env_var, default_dir, must_exist, &error_msg);
   if (dir != nullptr) {
     return dir;
   } else {
@@ -275,10 +280,32 @@ std::string GetAndroidData() {
   return GetAndroidDir(kAndroidDataEnvVar, kAndroidDataDefaultPath);
 }
 
+std::string GetArtApexData() {
+  return GetAndroidDir(kArtApexDataEnvVar, kArtApexDataDefaultPath, /*must_exist=*/false);
+}
+
 std::string GetDefaultBootImageLocation(const std::string& android_root) {
   // Boot image consists of two parts:
   //  - the primary boot image in the ART apex (contains the Core Libraries)
   //  - the boot image extension on the system partition (contains framework libraries)
+  if (kIsTargetBuild) {
+    // If the ART apex has been updated, the compiled boot image extension will be in the ART Apex
+    // data directory (assuming space).  Otherwise, for a factory installed ART Apex it is under
+    // $ANDROID_ROOT/framework/.
+    const std::string boot_extension_image =
+        StringPrintf("%s/system/framework/boot-framework.art", GetArtApexData().c_str());
+    const std::string boot_extension_filename =
+        GetSystemImageFilename(boot_extension_image.c_str(), kRuntimeISA);
+    if (OS::FileExists(boot_extension_filename.c_str(), /*check_file_type=*/ true)) {
+      return StringPrintf("%s/javalib/boot.art:%s!%s/etc/boot-image.prof",
+                          kAndroidArtApexDefaultPath,
+                          boot_extension_image.c_str(),
+                          android_root.c_str());
+    } else if (errno == EACCES) {
+      // Additional warning for potential SELinux misconfiguration.
+      PLOG(ERROR) << "Default boot image check failed, could not stat: " << boot_extension_image;
+    }
+  }
   return StringPrintf("%s/javalib/boot.art:%s/framework/boot-framework.art!%s/etc/boot-image.prof",
                       kAndroidArtApexDefaultPath,
                       android_root.c_str(),
@@ -357,6 +384,46 @@ bool GetDalvikCacheFilename(const char* location, const char* cache_location,
   return true;
 }
 
+std::string GetApexDataOatFilename(const char* location, InstructionSet isa) {
+  if (!LocationIsOnSystemFramework(location) && !LocationIsOnApex(location)) {
+    return {};
+  }
+
+  // Oat files in the APEX data directory are for the boot classpath, hence "boot-" prefix.
+  const std::string arch = GetInstructionSetString(isa);
+  const std::string oat_file = ReplaceFileExtension(android::base::Basename(location), "oat");
+  return StringPrintf("%s/system/framework/%s/boot-%s", GetArtApexData().c_str(), arch.c_str(),
+                      oat_file.c_str());
+}
+
+std::string GetApexDataOdexFilename(const char* location, InstructionSet isa) {
+  if (!LocationIsOnSystemFramework(location) && !LocationIsOnApex(location)) {
+    return {};
+  }
+
+  // Odex files in the APEX data directory are for system_server and under the "oat/" directory.
+  const std::string arch = GetInstructionSetString(isa);
+  const std::string odex_file = ReplaceFileExtension(android::base::Basename(location), "odex");
+  return StringPrintf("%s/system/framework/oat/%s/%s", GetArtApexData().c_str(), arch.c_str(),
+                      odex_file.c_str());
+}
+
+std::string GetApexDataBootImage(const char* dex_location) {
+  if (!LocationIsOnSystemFramework(dex_location) && !LocationIsOnApex(dex_location)) {
+    return {};
+  }
+  const std::string art_file = ReplaceFileExtension(android::base::Basename(dex_location), "art");
+  return StringPrintf("%s/system/framework/boot-%s", GetArtApexData().c_str(), art_file.c_str());
+}
+
+std::string GetApexDataImage(const char* dex_location) {
+  if (!LocationIsOnSystemFramework(dex_location) && !LocationIsOnApex(dex_location)) {
+    return {};
+  }
+  const std::string art_file = ReplaceFileExtension(android::base::Basename(dex_location), "art");
+  return StringPrintf("%s/system/framework/oat/%s", GetArtApexData().c_str(), art_file.c_str());
+}
+
 std::string GetVdexFilename(const std::string& oat_location) {
   return ReplaceFileExtension(oat_location, "vdex");
 }
@@ -378,13 +445,17 @@ std::string GetSystemImageFilename(const char* location, const InstructionSet is
   return filename;
 }
 
-std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension) {
+std::string ReplaceFileExtension(std::string_view filename, std::string_view new_extension) {
   const size_t last_ext = filename.find_last_of("./");
+  std::string result;
   if (last_ext == std::string::npos || filename[last_ext] != '.') {
-    return filename + "." + new_extension;
+    result.reserve(filename.size() + 1 + new_extension.size());
+    result.append(filename).append(".").append(new_extension);
   } else {
-    return filename.substr(0, last_ext + 1) + new_extension;
+    result.reserve(last_ext + 1 + new_extension.size());
+    result.append(filename.substr(0, last_ext + 1)).append(new_extension);
   }
+  return result;
 }
 
 bool LocationIsOnArtModule(const char* full_path) {
@@ -394,6 +465,11 @@ bool LocationIsOnArtModule(const char* full_path) {
     return false;
   }
   return android::base::StartsWith(full_path, module_path);
+}
+
+bool LocationIsOnArtApexData(const char *location) {
+  const std::string art_apex_data = GetArtApexData();
+  return android::base::StartsWith(location, art_apex_data);
 }
 
 static bool StartsWithSlash(const char* str) {
