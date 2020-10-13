@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7918f2cc_08bc975d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "My first round of comments.",
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd95ed3d_23dac167",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "At this point, I think ExecutionSubgraph deserves its own header file?",
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cf0722a_17982e26",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "I think we can drop the explicit now.",
+      "range": {
+        "startLine": 530,
+        "startChar": 2,
+        "endLine": 530,
+        "endChar": 10
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f2eb8bb_934cfa31",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "Add a comment why you need this (ok to reference the comment for kMaxFilterableSuccessors). Also, the null check seems like a bug?",
+      "range": {
+        "startLine": 983,
+        "startChar": 0,
+        "endLine": 987,
+        "endChar": 26
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc1768a_0c983250",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "Please don\u0027t add new styles in the codebase (at least compiler). We rarely use lambdas, and even less the syntax \" -\u003e \".",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 4
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e974c505_555b7b56",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-13T09:02:43Z",
+      "side": 1,
+      "message": "Please move this to its own abstraction class, encapsulating it into a RachabilityAnalysis class.",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 4
+      },
+      "revId": "d04ecb7d50100c7b8547dd784a430f2d86c92ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
