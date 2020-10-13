@@ -28,6 +28,7 @@
 namespace art {
 
 static constexpr const char* kAndroidArtApexDefaultPath = "/apex/com.android.art";
+static constexpr const char* kArtApexDataPath = "/data/misc/apexdata/com.android.art";
 static constexpr const char* kAndroidConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 static constexpr const char* kAndroidI18nApexDefaultPath = "/apex/com.android.i18n";
 
