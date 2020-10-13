@@ -16,6 +16,24 @@
       "message": "Should we tweak the script to report the input file and line that raises an exception? Possibly obvious in most cases because it\u0027s in the edit and fails tests.",
       "revId": "ea23d1a62ab374c48bfb3c9fa5a11ee754d5c47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6d89db_ce452c6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-13T15:01:11Z",
+      "side": 1,
+      "message": "This sounds like a good idea, but I\u0027d rather have it implemented in another CL. Daniel, would you like to work on this?",
+      "parentUuid": "87b85024_44a0450d",
+      "revId": "ea23d1a62ab374c48bfb3c9fa5a11ee754d5c47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
