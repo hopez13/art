@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54f000eb_caa391d3",
+        "filename": "tools/checker/match/file.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-13T15:23:06Z",
+      "side": 1,
+      "message": "This was `file` in the original change; is there any reason for this change (likewise below line 356)?",
+      "range": {
+        "startLine": 339,
+        "startChar": 11,
+        "endLine": 339,
+        "endChar": 15
+      },
+      "revId": "3d3af35565d5c033cd21254e631bd36fe91ec8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
