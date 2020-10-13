@@ -34,6 +34,24 @@
       "parentUuid": "87b85024_44a0450d",
       "revId": "ea23d1a62ab374c48bfb3c9fa5a11ee754d5c47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd428f5d_b921699b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-13T15:12:40Z",
+      "side": 1,
+      "message": "Is there a need for this? Such malformed expressions will already cause python re library to throw an exception (which, btw, contains the offending regexp). Why should it be handled on an upper level?",
+      "parentUuid": "2d6d89db_ce452c6e",
+      "revId": "ea23d1a62ab374c48bfb3c9fa5a11ee754d5c47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
