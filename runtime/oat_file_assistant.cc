@@ -21,6 +21,7 @@
 #include <sys/stat.h>
 #include "zlib.h"
 
+#include "android-base/file.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
@@ -478,14 +479,20 @@ bool OatFileAssistant::IsAnonymousVdexBasename(const std::string& basename) {
   return true;
 }
 
-static bool DexLocationToOdexNames(const std::string& location,
-                                   InstructionSet isa,
-                                   std::string* odex_filename,
-                                   std::string* oat_dir,
-                                   std::string* isa_dir,
-                                   std::string* error_msg) {
+bool OatFileAssistant::DexLocationToOdexFilename(const std::string& location,
+                                                 InstructionSet isa,
+                                                 std::string* odex_filename,
+                                                 std::string* error_msg) {
   CHECK(odex_filename != nullptr);
   CHECK(error_msg != nullptr);
+
+  // Check if `location` could have an odex file in the ART APEX data directory. If so, and the
+  // odex file exists, use it.
+  std::string apex_data_odex = GetApexDataOdexFilename(location.c_str(), isa);
+  if (!apex_data_odex.empty() && OS::FileExists(apex_data_odex.c_str(), /*check_file_type=*/true)) {
+    *odex_filename = apex_data_odex;
+    return true;
+  }
 
   // The odex file name is formed by replacing the dex_location extension with
   // .odex and inserting an oat/<isa> directory. For example:
@@ -502,14 +509,9 @@ static bool DexLocationToOdexNames(const std::string& location,
   std::string dir = location.substr(0, pos+1);
   // Add the oat directory.
   dir += "oat";
-  if (oat_dir != nullptr) {
-    *oat_dir = dir;
-  }
+
   // Add the isa directory
   dir += "/" + std::string(GetInstructionSetString(isa));
-  if (isa_dir != nullptr) {
-    *isa_dir = dir;
-  }
 
   // Get the base part of the file without the extension.
   std::string file = location.substr(pos+1);
@@ -522,13 +524,6 @@ static bool DexLocationToOdexNames(const std::string& location,
 
   *odex_filename = dir + "/" + base + ".odex";
   return true;
-}
-
-bool OatFileAssistant::DexLocationToOdexFilename(const std::string& location,
-                                                 InstructionSet isa,
-                                                 std::string* odex_filename,
-                                                 std::string* error_msg) {
-  return DexLocationToOdexNames(location, isa, odex_filename, nullptr, nullptr, error_msg);
 }
 
 bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
@@ -805,7 +800,7 @@ const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
     if (filename_provided_) {
       bool executable = oat_file_assistant_->load_executable_;
       if (executable && oat_file_assistant_->only_load_system_executable_) {
-        executable = LocationIsOnSystem(filename_.c_str());
+        executable = LocationIsOnSystem(filename_.c_str()) || LocationIsOnApex(filename_.c_str());
       }
       VLOG(oat) << "Loading " << filename_ << " with executable: " << executable;
       std::string error_msg;
