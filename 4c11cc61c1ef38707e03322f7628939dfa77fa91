@@ -50,6 +50,29 @@
       "message": "Martin, would you mind giving this +2. AFAIK there aren\u0027t any serious issues with this and any minor issues can easily be rectified later.",
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f3c1f4_46f0ba82",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-14T14:11:05Z",
+      "side": 1,
+      "message": "Sorry for not bringing this up earlier, but why do we need to enable the host exports for device? The android java_libs below can\u0027t be in the SDK?",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
