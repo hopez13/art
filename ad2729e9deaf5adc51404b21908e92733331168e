@@ -110,6 +110,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e1299e_61883ab3",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T16:14:47Z",
+      "side": 1,
+      "message": "Done.\n\nThis is most of what iwyu says we want (a few like ostream, vector, non-arena versions etc are excluded).",
+      "parentUuid": "b25c74d0_5c5b00e5",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acda9e84_84bde581",
@@ -133,6 +157,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b2e4f3f_c3283402",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T16:14:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acda9e84_84bde581",
+      "range": {
+        "startLine": 427,
+        "startChar": 7,
+        "endLine": 427,
+        "endChar": 25
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cea0f2a_415ac6da",
@@ -146,6 +194,30 @@
       "writtenOn": "2020-10-14T09:04:19Z",
       "side": 1,
       "message": "Should this be iostream? (also add one new line between load_store_elimination.h include and other includes).",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a97c9a_1d95df55",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T16:14:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cea0f2a_415ac6da",
       "range": {
         "startLine": 18,
         "startChar": 10,
