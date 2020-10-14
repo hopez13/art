@@ -115,7 +115,7 @@ class VdexFile {
 
     // The format version of the verifier deps header and the verifier deps.
     // Last update: Add boot checksum, class loader context.
-    static constexpr uint8_t kVerifierDepsVersion[] = { '0', '2', '1', '\0' };
+    static constexpr uint8_t kVerifierDepsVersion[] = { '0', '2', '2', '\0' };
 
     // The format version of the dex section header and the dex section, containing
     // both the dex code and the quickening data.
