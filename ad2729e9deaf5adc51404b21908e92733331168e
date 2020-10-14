@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4619c93_e872c003",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Move to its own (static?) method.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 4
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2829676_55c9c365",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Please add comments about what those steps are for.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 30
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ff339c_a2781cde",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Ditto about comments what those loops are for.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 3
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c4c5d3_2973a90d",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Added by mistake?",
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25c74d0_5c5b00e5",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "A bit concerned about so much additions to a header file - now that you\u0027ve moved execution_subgraph, can you trim some? And maybe you can move some methods to the .cc file too?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acda9e84_84bde581",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Those Dump methods are good candidates for moving to the .cc file. And in general, anything non trivial.",
+      "range": {
+        "startLine": 427,
+        "startChar": 7,
+        "endLine": 427,
+        "endChar": 25
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cea0f2a_415ac6da",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Should this be iostream? (also add one new line between load_store_elimination.h include and other includes).",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5016c6d_76aad1da",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "Why is this here? Can you move it to its (only?) user instead? (execution_subgraph)",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 739,
+        "endChar": 3
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4988c26_01d6ba65",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-14T09:04:19Z",
+      "side": 1,
+      "message": "This is only used for LSE, right? Could you move it there? (along with the reachability and PAthBetween methods)",
+      "range": {
+        "startLine": 790,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 37
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
