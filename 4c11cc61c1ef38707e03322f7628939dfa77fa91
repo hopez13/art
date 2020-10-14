@@ -121,6 +121,30 @@
       },
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f044cca_eae99112",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-14T15:29:28Z",
+      "side": 1,
+      "message": "No, because they\u0027re nothing to do with tests either. These are basically \"extra things that we cannot include in the SDK\".",
+      "parentUuid": "605fe9e6_038ae903",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
