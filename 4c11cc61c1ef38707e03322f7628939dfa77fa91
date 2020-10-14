@@ -73,6 +73,30 @@
       },
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a64ee8_dbdbe376",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-10-14T14:57:58Z",
+      "side": 1,
+      "message": "The name of the module sucks and I will fix that in a follow up CL.\n\nNo it can\u0027t because the SDK cannot contain Java implementation code and the first is an implementation jar. The second is a container for resources and so while doesn\u0027t contain any Java code is considered an implementation jar too.",
+      "parentUuid": "c7f3c1f4_46f0ba82",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
