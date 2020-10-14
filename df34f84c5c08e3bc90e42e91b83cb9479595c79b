@@ -34,6 +34,24 @@
       "parentUuid": "cc7c0ec5_89140446",
       "revId": "df34f84c5c08e3bc90e42e91b83cb9479595c79b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f24ba776_63c9a28e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-14T13:55:20Z",
+      "side": 1,
+      "message": "It looks like the failing test in TH has been downgraded to advisory only, starting a new TH run.",
+      "parentUuid": "38316269_512f3d53",
+      "revId": "df34f84c5c08e3bc90e42e91b83cb9479595c79b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
