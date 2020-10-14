@@ -200,6 +200,30 @@
       },
       "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87037941_bfddb3a0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T15:57:38Z",
+      "side": 1,
+      "message": "it\u0027s also used in LSA and execution-subgraph calculation.\n\nSince this is basically an intrinsic part of the graph and passing the data around everywhere else would be challenging and liable to mistakes such as accidentally creating multiple reachability graphs I think this should stay here.",
+      "parentUuid": "f4988c26_01d6ba65",
+      "range": {
+        "startLine": 790,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 37
+      },
+      "revId": "ad2729e9deaf5adc51404b21908e92733331168e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
