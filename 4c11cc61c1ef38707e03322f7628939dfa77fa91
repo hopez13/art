@@ -145,6 +145,30 @@
       },
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a73713_82093673",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-14T15:31:11Z",
+      "side": 1,
+      "message": "Isn\u0027t this really a gap in what can go into the SDK? On the native side we can have non-stubbed libs (e.g. libdexfile_support) that\u0027s on the client side of the API. This sounds like the same thing for Java iiuc. Iow, androidx-style stuff, but in a module SDK for other modules.\n\nThat\u0027s a bit of a different topic to sort out anyway, so +2 on this and let\u0027s discuss it tomorrow.",
+      "parentUuid": "605fe9e6_038ae903",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
