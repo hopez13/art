@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec2646ca_9fe2f61c",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T20:16:42Z",
+      "side": 1,
+      "message": "Passing down 3-4 arguments (results, visiting, unreachable, current-subgraph) about the state is not great style (in the lambda version they were in the closure).",
+      "parentUuid": "d8aa369a_dd8a7f3c",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba199ae_bc59e60e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c9337a_ffb8a643",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T20:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba199ae_bc59e60e",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 60
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7b89b49_adf2c578",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-10-14T18:45:06Z",
       "side": 1,
       "message": "That\u0027s still a lot of headers included here (having to include algorithm may be a sign the header is doing too much?) - I think moving PrunePartialEscapeWrites could avoid adding some of these headers?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4198d90_37bc1641",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-14T20:16:42Z",
+      "side": 1,
+      "message": "Done\n\nThis is what IWYU thinks should be there BTW:\n```\n% iwyu_tool -p $PWD/compile_commands.json art/compiler/optimizing/load_store_analysis.cc\nerror: no such file or directory: \u0027\u0027-DART_CLANG_PATH\u003d\"prebuilts/clang/host/linux-x86/clang-r399163\"\u0027\u0027\nerror: unknown warning option \u0027-Wno-pointer-compare\u0027 [-Werror,-Wunknown-warning-option]\nerror: unknown warning option \u0027-Wno-xor-used-as-pow\u0027; did you mean \u0027-Wno-unused-macros\u0027? [-Werror,-Wunknown-warning-option]\nerror: unknown warning option \u0027-Wno-final-dtor-non-final-class\u0027; did you mean \u0027-Wno-abstract-final-class\u0027? [-Werror,-Wunknown-warning-option]\nerror: unknown warning option \u0027-Wno-psabi\u0027 [-Werror,-Wunknown-warning-option]\nerror: unknown warning option \u0027-Wno-c99-designator\u0027; did you mean \u0027-Wno-gnu-designator\u0027? [-Werror,-Wunknown-warning-option]\n\nart/compiler/optimizing/load_store_analysis.h should add these lines:\n#include \u003cstddef.h\u003e                        // for size_t\n#include \u003cstdint.h\u003e                        // for int16_t, uint16_t, uint32_t\n#include \u003cstring\u003e                          // for char_traits\n#include \"android-base/logging.h\"          // for LogMessage, DCHECK, LogNul...\n#include \"android-base/macros.h\"           // for DISALLOW_COPY_AND_ASSIGN\n#include \"base/arena_object.h\"             // for ArenaObject, DeletableAren...\n#include \"base/dchecked_vector.h\"          // for dchecked_vector\n#include \"offsets.h\"                       // for MemberOffset\n#include \"optimizing/data_type.h\"          // for DataType, DataType::Type\n#include \"ostream\"                         // for operator\u003c\u003c, basic_ostream\n#include \"vector\"                          // for vector\u003c\u003e::iterator, vector...\nnamespace art { class OptimizingCompilerStats; }\n\nart/compiler/optimizing/load_store_analysis.h should remove these lines:\n- #include \u003calgorithm\u003e  // lines 20-20\n- #include \"base/iteration_range.h\"  // lines 25-25\n- #include \"base/transform_iterator.h\"  // lines 29-29\n- #include \"optimizing/optimizing_compiler_stats.h\"  // lines 33-33\n- #include \"runtime_globals.h\"  // lines 34-34\n\nThe full include-list for art/compiler/optimizing/load_store_analysis.h:\n#include \u003cstddef.h\u003e                        // for size_t\n#include \u003cstdint.h\u003e                        // for int16_t, uint16_t, uint32_t\n#include \u003cstring\u003e                          // for char_traits\n#include \"android-base/logging.h\"          // for LogMessage, DCHECK, LogNul...\n#include \"android-base/macros.h\"           // for DISALLOW_COPY_AND_ASSIGN\n#include \"base/arena_allocator.h\"          // for kArenaAllocLSA\n#include \"base/arena_bit_vector.h\"         // for ArenaBitVector\n#include \"base/arena_object.h\"             // for ArenaObject, DeletableAren...\n#include \"base/bit_vector-inl.h\"           // for BitVector::ClearAllBits\n#include \"base/dchecked_vector.h\"          // for dchecked_vector\n#include \"base/scoped_arena_allocator.h\"   // for ScopedArenaAllocator\n#include \"base/scoped_arena_containers.h\"  // for ScopedArenaAllocatorAdapter\n#include \"base/stl_util.h\"                 // for STLDeleteContainerPointers\n#include \"escape.h\"                        // for CalculateEscape, VisitEscapes\n#include \"execution_subgraph.h\"            // for ExecutionSubgraph\n#include \"nodes.h\"                         // for HInstruction, HVecLoad\n#include \"offsets.h\"                       // for MemberOffset\n#include \"optimizing/data_type.h\"          // for DataType, DataType::Type\n#include \"ostream\"                         // for operator\u003c\u003c, basic_ostream\n#include \"vector\"                          // for vector\u003c\u003e::iterator, vector...\nnamespace art { class OptimizingCompilerStats; }\n---\n\nart/compiler/optimizing/load_store_analysis.cc should add these lines:\n#include \"__bit_reference\"                         // for __bit_reference\n#include \"algorithm\"                               // for all_of, any_of, max\n#include \"base/array_ref.h\"                        // for ArrayRef\n#include \"base/bit_vector.h\"                       // for BitVector::IndexCo...\n#include \"base/intrusive_forward_list.h\"           // for IntrusiveForwardLi...\n#include \"base/iteration_range.h\"                  // for IterationRange\u003c\u003e::...\n#include \"base/transform_iterator.h\"               // for operator!\u003d\n#include \"optimizing/execution_subgraph.h\"         // for ExecutionSubgraph\n#include \"optimizing/nodes.h\"                      // for HInstruction, HBin...\n#include \"optimizing/optimizing_compiler_stats.h\"  // for MaybeRecordStat\n\nart/compiler/optimizing/load_store_analysis.cc should remove these lines:\n\nThe full include-list for art/compiler/optimizing/load_store_analysis.cc:\n#include \"load_store_analysis.h\"\n#include \"__bit_reference\"                         // for __bit_reference\n#include \"algorithm\"                               // for all_of, any_of, max\n#include \"base/array_ref.h\"                        // for ArrayRef\n#include \"base/bit_vector.h\"                       // for BitVector::IndexCo...\n#include \"base/intrusive_forward_list.h\"           // for IntrusiveForwardLi...\n#include \"base/iteration_range.h\"                  // for IterationRange\u003c\u003e::...\n#include \"base/transform_iterator.h\"               // for operator!\u003d\n#include \"optimizing/execution_subgraph.h\"         // for ExecutionSubgraph\n#include \"optimizing/nodes.h\"                      // for HInstruction, HBin...\n#include \"optimizing/optimizing_compiler_stats.h\"  // for MaybeRecordStat\n---\n```",
+      "parentUuid": "c7b89b49_adf2c578",
       "range": {
         "startLine": 20,
         "startChar": 0,
