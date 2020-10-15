@@ -38,6 +38,8 @@
 
 namespace art {
 
+static constexpr const char* kHostArtBootImagesPath = "/apex/art_boot_images";
+
 using LogSeverity = android::base::LogSeverity;
 using ScopedLogSeverity = android::base::ScopedLogSeverity;
 
@@ -298,6 +300,7 @@ class CommonArtTestImpl {
   std::string CreateClassPathWithChecksums(
       const std::vector<std::unique_ptr<const DexFile>>& dex_files);
 
+  static std::string GetImageDirectory();
   static std::string GetCoreFileLocation(const char* suffix);
 
   std::vector<std::unique_ptr<const DexFile>> loaded_dex_files_;
