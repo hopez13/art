@@ -12,14 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
 class ImmutableDict(dict):
   def __setitem__(self, key, value):
-    raise RuntimeError("Cannot modify ImmutableDict")
+    raise RuntimeError('Cannot modify ImmutableDict')
 
   def __delitem__(self, key):
-    raise RuntimeError("Cannot modify ImmutableDict")
+    raise RuntimeError('Cannot modify ImmutableDict')
 
-  def copyWith(self, key, value):
-    newDict = ImmutableDict(self)
-    dict.__setitem__(newDict, key, value)
-    return newDict
+  def copy_with(self, key, value):
+    new_dict = ImmutableDict(self)
+    dict.__setitem__(new_dict, key, value)
+    return new_dict
