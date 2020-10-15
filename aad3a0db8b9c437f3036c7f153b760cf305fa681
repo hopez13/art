@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dac1c326_70a67c03",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-15T09:01:51Z",
+      "side": 1,
+      "message": "I would argue adding a class abstraction just for a recursive function is unnecessary cognitive load, but that\u0027s minor.\n\nThis actually makes me realize we actually do not want recursive functions in the compiler, as it could (and has) blown up the stack for large methods. Can you rewrite this with a loop?",
+      "parentUuid": "ec2646ca_9fe2f61c",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ba199ae_bc59e60e",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 45
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "8ba199ae_bc59e60e",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 60
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c1cc1cd_d26b3cef",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-15T09:01:51Z",
+      "side": 1,
+      "message": "Did you forget to upload?",
+      "parentUuid": "19c9337a_ffb8a643",
       "range": {
         "startLine": 139,
         "startChar": 5,
