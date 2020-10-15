@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ce0cfbd_22aa5952",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-15T16:50:37Z",
+      "side": 1,
+      "message": "I\u0027ll take a look at doing this but I think it would be better to leave it as is.\n\nI generally find recursive algos like this much easier to follow and doing this iteratively would be extremely complicated (basically needing to put the entire stack-frame into a stack and generally making the whole algo a mess). There weren\u0027t any issues running on the scanner so I\u0027m pretty sure it\u0027s fine.\n\nWDYT?",
+      "parentUuid": "dac1c326_70a67c03",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ba199ae_bc59e60e",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 45
