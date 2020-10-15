@@ -16,8 +16,8 @@ class EqualityMixin:
   """ Object equality via equality of dictionaries. """
 
   def __eq__(self, other):
-    return isinstance(other, self.__class__) \
-       and self.__dict__ == other.__dict__
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
 
 class PrintableMixin:
   """ Prints object as name-dictionary pair. """
