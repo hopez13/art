@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15229d56_9dd1aedf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-16T16:49:59Z",
+      "side": 1,
+      "message": "Newlines and whitespace are done by automated formatter, renames are semi-manual.\n\nSome minor refactorings are done by hand",
+      "parentUuid": "87c9c779_9b9e5d3c",
+      "revId": "6530a16944d763461aeb89b8604ab3c5ef94465d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99343b94_23cb75b3",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-10-16T16:43:31Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 119
+      },
+      "revId": "6530a16944d763461aeb89b8604ab3c5ef94465d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2312877_5536de64",
+        "filename": "tools/checker/match/test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-10-16T16:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99343b94_23cb75b3",
       "range": {
         "startLine": 117,
         "startChar": 0,
