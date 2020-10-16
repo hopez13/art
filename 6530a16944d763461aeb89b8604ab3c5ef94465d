@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd4078a_ec5fb6bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-16T16:43:31Z",
+      "side": 1,
+      "message": "I think this is essentially fine as-is, but I\u0027d prefer to have Martin and/or Orion double-check before submitting.",
+      "revId": "6530a16944d763461aeb89b8604ab3c5ef94465d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99343b94_23cb75b3",
+        "filename": "tools/checker/match/test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-16T16:43:31Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 119
+      },
+      "revId": "6530a16944d763461aeb89b8604ab3c5ef94465d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
