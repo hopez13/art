@@ -104,6 +104,12 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromRuntim
     case InstructionSet::kArm64:
       return Arm64InstructionSetFeatures::FromHwcap();
 #endif
+    case InstructionSet::kThumb2:
+      return ArmInstructionSetFeatures::FromCpuFeatures();
+    case InstructionSet::kX86:
+      return X86InstructionSetFeatures::FromCpuFeatures();
+    case InstructionSet::kX86_64:
+      return X86_64InstructionSetFeatures::FromCpuFeatures();
     default:
       return nullptr;
   }
