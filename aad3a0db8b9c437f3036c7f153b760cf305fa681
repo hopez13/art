@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91341c40_9bfb640a",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-16T16:39:29Z",
+      "side": 1,
+      "message": "Looks like I might have only done top 1000 (why isn\u0027t that listed as a config?). I\u0027ll run it again.\n\nI\u0027ll try to get something elegant again but as-is each recur should only have a stack-frame of 40-ish bytes and recursion depth is limited to the longest single path from the first block to exit block. I think we should have plenty of room.\n\n(Also even vmarko\u0027s change was to solve an issue that only appeared in -O0, I wonder if we should really be optimizing for that or if we should instead just #pragma this up.)",
+      "parentUuid": "d5d95edc_22015aa5",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ba199ae_bc59e60e",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 45
