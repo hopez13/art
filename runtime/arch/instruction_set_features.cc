@@ -228,9 +228,9 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::AddFeature
   DCHECK((!use_default && !use_runtime_detection) || features.empty());
 
   std::unique_ptr<const InstructionSetFeatures> runtime_detected_features;
-  if (use_runtime_detection) {
-    runtime_detected_features = FromRuntimeDetection();
-  }
+//  if (use_runtime_detection) {
+//    runtime_detected_features = FromRuntimeDetection();
+//  }
 
   if (runtime_detected_features != nullptr) {
     return AddRuntimeDetectedFeatures(runtime_detected_features.get());
