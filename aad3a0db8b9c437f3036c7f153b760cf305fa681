@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5d95edc_22015aa5",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-16T09:58:43Z",
+      "side": 1,
+      "message": "Did you run entire scan? (I thought that was broken)\n\nI agree recursive style is often nicer, and this implementation works well with it. However, we were forced to rewrite to loops for stability (for example, see https://android-review.googlesource.com/q/owner:vmarko+recursive). If you did an entire scan, it could be that you\u0027re not hitting an issue thanks to the limit you\u0027ve put on the number of edges a block can have, but it can also be pure luck which we won\u0027t get under JIT for example.",
+      "parentUuid": "4ce0cfbd_22aa5952",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ba199ae_bc59e60e",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 45
