@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1729cc2_ed0290b6",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-17T01:22:54Z",
+      "side": 1,
+      "message": "counter_type",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 34
+      },
+      "revId": "0835a8730ea24626c6ec623e1e74eda0b0ec98fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06fcfc0f_90ceac3f",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-17T01:22:54Z",
+      "side": 1,
+      "message": "this seems to be a refactoring that can be done in a parent CL:\n\nI\u0027d split this from the stream backend. It will make things clearer for review.",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 19
+      },
+      "revId": "0835a8730ea24626c6ec623e1e74eda0b0ec98fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
