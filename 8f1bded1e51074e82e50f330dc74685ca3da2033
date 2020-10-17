@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9c9884_b985a788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-17T20:34:48Z",
+      "side": 1,
+      "message": "Output of `art/test/utils/regen-test-files`:\n\n  $ art/test/utils/regen-test-files\n  Generated Blueprint files for 616 ART run-tests ouf of 913 (67%).\n  Generated TEST_MAPPING entries for 253 ART run-tests ouf of 913 (27%):\n    12 tests (5%) in `presubmit` test group;\n    241 tests (95%) in `postsubmit` test group.\n",
+      "revId": "8f1bded1e51074e82e50f330dc74685ca3da2033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
