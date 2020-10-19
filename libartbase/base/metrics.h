@@ -198,10 +198,27 @@ class MetricsHistogram {
     return std::vector<value_t>{buckets_.begin(), buckets_.end()};
   }
 
-  std::array<std::atomic<uint32_t>, num_buckets_> buckets_;
+  std::array<std::atomic<value_t>, num_buckets_> buckets_;
+  static_assert(std::atomic<value_t>::is_always_lock_free);
+};
 
-  friend class ArtMetrics;
-  static_assert(std::atomic<uint32_t>::is_always_lock_free);
+// A backend that writes metrics in a human-readable format to an std::ostream.
+class StreamBackend : public MetricsBackend {
+ public:
+  explicit StreamBackend(std::ostream& os);
+
+  void BeginSession(const SessionData& session_data) override;
+  void EndSession() override;
+
+  void ReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void ReportHistogram(DatumId histogram_type,
+                       int64_t low_value_,
+                       int64_t high_value,
+                       const std::vector<uint32_t>& buckets) override;
+
+ private:
+  std::ostream& os_;
 };
 
 /**
@@ -281,6 +298,7 @@ class ArtMetrics {
   ArtMetrics();
 
   void ReportAllMetrics(MetricsBackend* backend) const;
+  void DumpForSigQuit(std::ostream& os) const;
 
 #define ART_COUNTER(name)                                       \
   MetricsCounter<DatumId::k##name>* name() { return &name##_; } \
