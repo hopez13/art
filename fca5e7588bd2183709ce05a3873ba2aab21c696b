@@ -188,6 +188,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4e2d095_9f69b210",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-19T13:37:16Z",
+      "side": 1,
+      "message": "Oh, right, so what we end up putting in the generated code is a load of the entrypoint, and then call? I read the CL as actually loading directly the code pointer, is that doable?",
+      "parentUuid": "7e459d33_57cb5b4d",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
