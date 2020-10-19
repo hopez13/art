@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a618ebcd_8298eb30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Thanks for taking the effort to do this.",
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48781778_f7601d3b",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Style guide says \"Pick \u0027 or \" and stick with it\" (go/pystyle#strings). It\u0027s clear that \" is much more dominant than \u0027 in art/tools/checker:\n\n```\n$ find art/tools/checker/ -name \\*.py | xargs grep \"\u0027\" | wc\n     53     473    5312\n$ find art/tools/checker/ -name \\*.py | xargs grep \u0027\"\u0027 | wc\n    749    3240   55754\n```\n\nPlease fix the places that use \u0027 instead. (Even after this CL there are many \" strings left, and it\u0027s also better to pick the less invasive option to limit clobbering of blame history.)",
+      "range": {
+        "startLine": 53,
+        "startChar": 78,
+        "endLine": 53,
+        "endChar": 79
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13299f3b_32377943",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "This and at least one more Logger line below are better off using format strings.",
+      "range": {
+        "startLine": 69,
+        "startChar": 24,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5ad65b_cc86fbb0",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "(Using \u0027 to avoid escaping is ok though.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 23,
+        "endLine": 69,
+        "endChar": 24
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876a2ba3_e806a7ba",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "The docstrings don\u0027t follow the style guide, both with the padding spaces inside \"\"\" and the indentation. It\u0027d be nice to fix that too, but consider it optional. Also, if you do I\u0027d much prefer that it\u0027s done in a separate CL since this one touches a lot of lines already.\n\n(The docstrings also don\u0027t have short first summary lines, \"Args\" and \"Returns\" sections, etc, but that\u0027s a different matter and I don\u0027t think it\u0027s worth the effort (both for author and reviewers) to rewrite them to follow that.)",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c082c8e_41a37df7",
+        "filename": "tools/checker/common/logger.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Please don\u0027t use format to do plain string concatenation (go/pystyle#strings, 2nd \"no\" example).",
+      "range": {
+        "startLine": 56,
+        "startChar": 16,
+        "endLine": 56,
+        "endChar": 24
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5bcf92c_8485ac57",
+        "filename": "tools/checker/file_format/c1visualizer/test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Style.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a58d7e4_320872ba",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Personally I think all these \"r\" prefixes add to the clutter and I\u0027d prefer to dispense with them when there are no escapes in the literals, but the style guide doesn\u0027t mention it, so optional.",
+      "range": {
+        "startLine": 34,
+        "startChar": 19,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded0aaac_f108ec1d",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Please use formatting instead of concatenation.",
+      "range": {
+        "startLine": 165,
+        "startChar": 16,
+        "endLine": 165,
+        "endChar": 58
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

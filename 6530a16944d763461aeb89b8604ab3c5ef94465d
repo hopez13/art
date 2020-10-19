@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae01ee21_499e4a32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-19T17:54:54Z",
+      "side": 1,
+      "message": "Separate CLs for the automated changes and the manual ones are good, because that makes it easier for reviewers to have the right expectations about the mistakes to look for. But please don\u0027t split this one now.",
+      "parentUuid": "15229d56_9dd1aedf",
+      "revId": "6530a16944d763461aeb89b8604ab3c5ef94465d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99343b94_23cb75b3",
