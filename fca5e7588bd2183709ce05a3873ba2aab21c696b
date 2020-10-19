@@ -212,6 +212,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cfa3efb_43e4e84d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-19T13:48:11Z",
+      "side": 1,
+      "message": "That\u0027s not doable as we do not even know which function shall be registered at runtime. (If we did, and if we knew that the .so file shall be loaded when we\u0027re loading the oat file, we could use standard ELF relocations. But those conditions cannot be guaranteed in the JNI world.)",
+      "parentUuid": "e4e2d095_9f69b210",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
