@@ -236,6 +236,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c2fdd9_5baa4bb0",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-19T13:55:07Z",
+      "side": 1,
+      "message": "Right, we could with JIT though (but that would only apply to JIT Zygote as all CriticalNative normally end up being AOTed?)",
+      "parentUuid": "4cfa3efb_43e4e84d",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
