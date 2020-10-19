@@ -45,6 +45,54 @@
       },
       "revId": "0835a8730ea24626c6ec623e1e74eda0b0ec98fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b5f3c0_b426f615",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-19T19:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1729cc2_ed0290b6",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 34
+      },
+      "revId": "0835a8730ea24626c6ec623e1e74eda0b0ec98fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24abdfe1_9bc5787a",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-19T19:48:53Z",
+      "side": 1,
+      "message": "Sounds good. I split the refactoring parts off into https://r.android.com/c/1466623",
+      "parentUuid": "06fcfc0f_90ceac3f",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 19
+      },
+      "revId": "0835a8730ea24626c6ec623e1e74eda0b0ec98fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
