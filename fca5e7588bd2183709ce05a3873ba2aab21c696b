@@ -260,6 +260,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c9acd2_ce9da4cf",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-19T15:42:25Z",
+      "side": 1,
+      "message": "Not even JIT can guarantee that the native method shall not be explicitly unregistered, so you\u0027d then have to invalidate the JITted code, similar to CHA.",
+      "parentUuid": "47c2fdd9_5baa4bb0",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
