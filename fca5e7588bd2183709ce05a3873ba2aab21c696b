@@ -164,6 +164,30 @@
       },
       "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e459d33_57cb5b4d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-19T13:23:24Z",
+      "side": 1,
+      "message": "For @CriticalNative, it initially _does_ contain a pointer to a lookup stub (or to a trampoline to the lookup stub for methods in the boot/app image). That\u0027s WAI and covered by the tests.\n\nFor non-@CriticalNative, we\u0027re not using this patch type at the moment but if we start using it, it shall have the same behavior and initially point to a lookup stub or trampoline.",
+      "parentUuid": "e91d5581_e201fdb7",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 20
+      },
+      "revId": "fca5e7588bd2183709ce05a3873ba2aab21c696b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
