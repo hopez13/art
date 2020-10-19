@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb8a10a2_95683042",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-19T20:47:44Z",
+      "side": 1,
+      "message": "I always forget how annoying it is to do anything with graphs without recursion. Anyway here is a non-recursive version of the algorithm.",
+      "parentUuid": "91341c40_9bfb640a",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "aad3a0db8b9c437f3036c7f153b760cf305fa681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba199ae_bc59e60e",
