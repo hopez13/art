@@ -22,6 +22,30 @@
       },
       "revId": "9871e61b7020da51a393b1048838be2d0e312423",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "597452a3_b64a1e0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-20T14:07:09Z",
+      "side": 1,
+      "message": "I intentionally chose a path outside of any (potential) APEX directory, because these are files that don\u0027t go into an APEX (although they may also get installed into one later, but that doesn\u0027t happen on host at least).\n\nThe examples you mention are unpacked APEXes, this is not. I think it\u0027s less confusing to make that clear with a path that doesn\u0027t look like an APEX name.\n\nBut maybe I didn\u0027t follow your reason for putting them into an APEX directory?",
+      "parentUuid": "31b94187_c24c0e98",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "9871e61b7020da51a393b1048838be2d0e312423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
