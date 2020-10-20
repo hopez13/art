@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc03b39_dab3db46",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-10-20T00:56:33Z",
+      "side": 1,
+      "message": "Why does the variable end with _ here but not above in the declaration?",
+      "range": {
+        "startLine": 132,
+        "startChar": 18,
+        "endLine": 132,
+        "endChar": 31
+      },
+      "revId": "d523f3ab184d70c191d3de9abbf55af82ec44db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
