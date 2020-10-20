@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf3b1aa_a4f17ba0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-20T22:02:24Z",
+      "side": 1,
+      "message": "It would be awesome if the JSON parser could be extended with a comment syntax, like for the TEST_MAPPING files.",
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1240b99_c3c6c284",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-20T22:02:24Z",
+      "side": 1,
+      "message": "Roland, this ticket is closed but I think this should be possible fix this by splitting up the art-linker-config module and have a separate linker.config-test.json file. WDYT?",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
