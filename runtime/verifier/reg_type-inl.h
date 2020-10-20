@@ -113,11 +113,11 @@ inline bool RegType::AssignableFrom(const RegType& lhs,
         } else if (lhs.HasClass() && rhs.HasClass()) {
           // Test assignability from the Class point-of-view.
           bool result = lhs.GetClass()->IsAssignableFrom(rhs.GetClass());
-          // Record assignability dependency. The `verifier` is null during unit tests and
-          // VerifiedMethod::GenerateSafeCastSet.
-          if (verifier != nullptr) {
+          // Record assignability dependency. The `verifier` is null when the caller doesn't
+          // want to record assignability.
+          if (verifier != nullptr && result) {
             VerifierDeps::MaybeRecordAssignability(
-                verifier->GetDexFile(), lhs.GetClass(), rhs.GetClass(), strict, result);
+                verifier->GetDexFile(), lhs.GetClass(), rhs.GetClass());
           }
           return result;
         } else {
