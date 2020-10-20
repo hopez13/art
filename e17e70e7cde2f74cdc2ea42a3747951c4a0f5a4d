@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "5c6be9dc_9dc7c3da",
         "filename": "oatdump/oatdump.cc",
@@ -20,10 +21,34 @@
         "endChar": 56
       },
       "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c66ed13_f33e2738",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:01:21Z",
+      "side": 1,
+      "message": "Done, also added the new quick generic jni case.",
+      "parentUuid": "5c6be9dc_9dc7c3da",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 56
+      },
+      "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "3c80f5c3_bc3c09d1",
         "filename": "runtime/class_linker.cc",
@@ -43,10 +68,34 @@
         "endChar": 23
       },
       "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c66ed13_f399471c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:01:21Z",
+      "side": 1,
+      "message": "done in PS2",
+      "parentUuid": "3c80f5c3_bc3c09d1",
+      "range": {
+        "startLine": 584,
+        "startChar": 22,
+        "endLine": 584,
+        "endChar": 23
+      },
+      "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "5c6be9dc_bdc407d6",
         "filename": "runtime/thread.cc",
@@ -66,8 +115,31 @@
         "endChar": 53
       },
       "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c66ed13_9386cbbb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:01:21Z",
+      "side": 1,
+      "message": "merged. will rebase.",
+      "parentUuid": "5c6be9dc_bdc407d6",
+      "range": {
+        "startLine": 1712,
+        "startChar": 0,
+        "endLine": 1712,
+        "endChar": 53
+      },
+      "revId": "e17e70e7cde2f74cdc2ea42a3747951c4a0f5a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
