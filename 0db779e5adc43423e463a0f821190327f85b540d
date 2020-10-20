@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26dd157d_4a97fa38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-20T08:56:13Z",
+      "side": 1,
+      "message": "Just a handful of nits on previous comments. Thanks for taking this on.",
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48781778_f7601d3b",
@@ -112,6 +129,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5eefc56a_0dfd2985",
+        "filename": "tools/checker/common/logger.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-20T08:56:13Z",
+      "side": 1,
+      "message": "These were \u003d range(3) before your previous CL here (same with Color). There seem to be more instances of this, could be consistent.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c082c8e_41a37df7",
         "filename": "tools/checker/common/logger.py",
         "patchSetId": 3
@@ -181,6 +221,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1d14a6e_a2c4f462",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-20T08:56:13Z",
+      "side": 1,
+      "message": "_process_line?",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 16
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ded0aaac_f108ec1d",
         "filename": "tools/checker/file_format/checker/parser.py",
         "patchSetId": 3
@@ -197,6 +260,29 @@
         "startChar": 16,
         "endLine": 165,
         "endChar": 58
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c497e8_6435eb3e",
+        "filename": "tools/checker/match/file.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-20T08:56:13Z",
+      "side": 1,
+      "message": "_if? _elif?",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 8
       },
       "revId": "0db779e5adc43423e463a0f821190327f85b540d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
