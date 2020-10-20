@@ -22,6 +22,30 @@
       },
       "revId": "d523f3ab184d70c191d3de9abbf55af82ec44db7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6c0768_875d9ba2",
+        "filename": "libartbase/base/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-10-20T16:08:24Z",
+      "side": 1,
+      "message": "Here I was treating it sort of as a class-local variable, where up above it was more like a parameter. I\u0027m not really sure what the right style is for this, although the _ is weird here so I\u0027d be fine with removing it.",
+      "parentUuid": "9cc03b39_dab3db46",
+      "range": {
+        "startLine": 132,
+        "startChar": 18,
+        "endLine": 132,
+        "endChar": 31
+      },
+      "revId": "d523f3ab184d70c191d3de9abbf55af82ec44db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
