@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b94187_c24c0e98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-20T11:36:32Z",
+      "side": 1,
+      "message": "What about using something like `$(ANDROID_HOST_OUT)/com.android.art/art_boot_images`? I\u0027m suggesting this because we already have `$ANDROID_HOST_OUT/com.android.i18n` and `$ANDROID_HOST_OUT/com.android.tzdata` for host artifacts used in ART testing.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "9871e61b7020da51a393b1048838be2d0e312423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
