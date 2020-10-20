@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "e47c09a6_781c3d3d",
         "filename": "runtime/jni_internal.cc",
@@ -20,10 +21,34 @@
         "endChar": 7
       },
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4466b513_fb25ab14",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_781c3d3d",
+      "range": {
+        "startLine": 139,
+        "startChar": 6,
+        "endLine": 139,
+        "endChar": 7
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "04975d03_e81f1cba",
         "filename": "runtime/mirror/class.cc",
@@ -43,10 +68,34 @@
         "endChar": 9
       },
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4466b513_9b090f94",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:02:13Z",
+      "side": 1,
+      "message": "this code is a cut/paste of below, which apparently is the pattern for having a StringPiece vs Signature variant. \n\nI\u0027m not sure that is great, but that is why I left it as is.\n\nas far as why it is int32_t, its because it is a Java int field.",
+      "parentUuid": "04975d03_e81f1cba",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 9
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "64d659dd_20c77425",
         "filename": "runtime/mirror/class.cc",
@@ -66,10 +115,34 @@
         "endChar": 44
       },
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "846c2df2_dd853fba",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d659dd_20c77425",
+      "range": {
+        "startLine": 341,
+        "startChar": 41,
+        "endLine": 341,
+        "endChar": 44
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "2492a112_b4689632",
         "filename": "runtime/mirror/class.cc",
@@ -89,10 +162,34 @@
         "endChar": 22
       },
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6471f9c6_9c3909c6",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2492a112_b4689632",
+      "range": {
+        "startLine": 343,
+        "startChar": 18,
+        "endLine": 343,
+        "endChar": 22
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "04975d03_082928ef",
         "filename": "runtime/mirror/class.cc",
@@ -112,8 +209,31 @@
         "endChar": 13
       },
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4466b513_7b1afbd2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2020-10-20T17:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04975d03_082928ef",
+      "range": {
+        "startLine": 347,
+        "startChar": 9,
+        "endLine": 347,
+        "endChar": 13
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
