@@ -22,6 +22,30 @@
       },
       "revId": "8f1bded1e51074e82e50f330dc74685ca3da2033",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef4bade_6303629a",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T16:57:59Z",
+      "side": 0,
+      "message": "It\u0027s actually already covered in RegType::AssignableFrom.",
+      "parentUuid": "b81c4646_f8d9c110",
+      "range": {
+        "startLine": 302,
+        "startChar": 6,
+        "endLine": 302,
+        "endChar": 47
+      },
+      "revId": "8f1bded1e51074e82e50f330dc74685ca3da2033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
