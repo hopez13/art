@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "35bfe76a_1d812206",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 50
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbcd003f_306dfc2c",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "586123d9_4faa54f1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 50
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d45f4c_42339791",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6207e386_8c71c060",
+      "range": {
+        "startLine": 40,
+        "startChar": 20,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea74f1da_656d34bd",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-10-20T08:43:46Z",
       "side": 1,
       "message": "You can drop this, many parts of the compiler write block ids as uint32_t.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e634730_f804f0be",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea74f1da_656d34bd",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2d20bde_0ee3c81b",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "I think we should change to including these type-hints when possible TBH.\n\nDone for now though.",
+      "parentUuid": "3f17b4d2_951ad003",
+      "range": {
+        "startLine": 78,
+        "startChar": 49,
+        "endLine": 78,
+        "endChar": 52
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "060aac10_8d2754c0",
@@ -123,6 +219,30 @@
       "writtenOn": "2020-10-20T08:43:46Z",
       "side": 1,
       "message": "Can fit into only one DCHECK_GE.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e827ec_440cc1a4",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "060aac10_8d2754c0",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41f077f_2d9b7939",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83de9e77_a5f6f35d",
+      "range": {
+        "startLine": 110,
+        "startChar": 29,
+        "endLine": 110,
+        "endChar": 50
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb006293_d66000c0",
@@ -169,6 +313,30 @@
       "writtenOn": "2020-10-20T08:43:46Z",
       "side": 1,
       "message": "why does this need to be a pointer?",
+      "range": {
+        "startLine": 119,
+        "startChar": 11,
+        "endLine": 119,
+        "endChar": 13
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359a8dc8_079ce9ca",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "because we use that to know when we\u0027ve finished the DFS. Made a little clearer.",
+      "parentUuid": "cb006293_d66000c0",
       "range": {
         "startLine": 119,
         "startChar": 11,
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc41290_c6fbf2f5",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c84d7ff7_697c15d7",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04a1cb8e_bd894c55",
@@ -215,6 +407,30 @@
       "writtenOn": "2020-10-20T08:43:46Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 73
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89559c4e_c5c7f761",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-20T17:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a1cb8e_bd894c55",
       "range": {
         "startLine": 178,
         "startChar": 0,
