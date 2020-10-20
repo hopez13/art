@@ -46,6 +46,30 @@
       },
       "revId": "9871e61b7020da51a393b1048838be2d0e312423",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf850cea_55ea9e09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-20T14:14:45Z",
+      "side": 1,
+      "message": "I should also add that I regard this as a quick fix only - what really should be done is to figure out why the images don\u0027t get installed into the proper APEX directory on host and fix that to work more like for device APEXes (this may be in scope of b/170935728). Then the test code can go back to looking for them in the APEX.",
+      "parentUuid": "597452a3_b64a1e0f",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "9871e61b7020da51a393b1048838be2d0e312423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
