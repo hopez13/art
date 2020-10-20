@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbcd003f_306dfc2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 50
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "Can you add a link and a summary with numbers?",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "586123d9_4faa54f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 50
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "Thanks for writing the iterative version (which doesn\u0027t look so bad).",
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6207e386_8c71c060",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "Can we instead guarantee the bitset is initialized with zeros and drop the std::optional? This would make it for a less verbose code.",
+      "range": {
+        "startLine": 40,
+        "startChar": 20,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea74f1da_656d34bd",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "You can drop this, many parts of the compiler write block ids as uint32_t.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f17b4d2_951ad003",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "nit: consistency style, use \u0027{\u0027 (same for lambdas below).",
+      "range": {
+        "startLine": 78,
+        "startChar": 49,
+        "endLine": 78,
+        "endChar": 52
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060aac10_8d2754c0",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "Can fit into only one DCHECK_GE.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83de9e77_a5f6f35d",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "what does this mean? All paths end with the exit block.",
+      "range": {
+        "startLine": 110,
+        "startChar": 29,
+        "endLine": 110,
+        "endChar": 50
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb006293_d66000c0",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "why does this need to be a pointer?",
+      "range": {
+        "startLine": 119,
+        "startChar": 11,
+        "endLine": 119,
+        "endChar": 13
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c84d7ff7_697c15d7",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "For being consistent with compiler code base, please use a pointer instead (and then you can drop the need for the NB above).",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04a1cb8e_bd894c55",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 50
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-20T08:43:46Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 73
+      },
+      "revId": "553be7a0b0d61c88e51431b5263ba8a098e9ab49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
