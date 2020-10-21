@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbfc2ce_499c991e",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-10-21T17:04:00Z",
+      "side": 1,
+      "message": "Are we sure that adding another enum value (and a corresponding ToString switch case) is not going to byte us later?\nAs far as I can see, this could only be passed through the hiddenapi tool, but all changes are only to the list merge tool.",
+      "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
