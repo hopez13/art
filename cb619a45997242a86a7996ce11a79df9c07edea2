@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b03eb5d6_4ba8a1b8",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-21T11:40:41Z",
+      "side": 1,
+      "message": "My thought was to have a file that could cover manifest-art.json as well. I\u0027m going to clean up the dependencies there and will probably add some comments about that soon.",
+      "parentUuid": "fd4b26f1_6ea65258",
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c31beb8_694e007c",
@@ -95,6 +113,30 @@
       "side": 1,
       "message": "I think that would work when testing in a chroot environment; but what about the case where we test the ART Module present in the system partition?",
       "parentUuid": "d1240b99_c3c6c284",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef26c18d_26677994",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-21T11:40:41Z",
+      "side": 1,
+      "message": "Is that for boot tests in CI? It\u0027s not the testing APEX that gets installed then?",
+      "parentUuid": "06ef4bc5_e443401b",
       "range": {
         "startLine": 12,
         "startChar": 4,
