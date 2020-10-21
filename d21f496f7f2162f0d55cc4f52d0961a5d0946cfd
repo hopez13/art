@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005662651",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/181171?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "12929a0f_8dc01544",
+          "description": "Change to \"oatdump/oatdump.cc\"",
+          "replacements": [
+            {
+              "path": "oatdump/oatdump.cc",
+              "range": {
+                "startLine": 2637,
+                "startChar": 48,
+                "endLine": 2637,
+                "endChar": 57
+              },
+              "replacement": "additional"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6e28096c_559661b5",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2637,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-21T20:02:55Z",
+      "side": 1,
+      "message": "Common typo found: \"aditional\" -- should it be \"additional\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2637,
+        "startChar": 48,
+        "endLine": 2637,
+        "endChar": 57
+      },
+      "revId": "d21f496f7f2162f0d55cc4f52d0961a5d0946cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
