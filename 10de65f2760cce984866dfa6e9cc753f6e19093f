@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005662808",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/112165?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "15086bef_d30a27a7",
+          "description": "Change to \"tools/gdb-load-java-symbols-helper.sh\"",
+          "replacements": [
+            {
+              "path": "tools/gdb-load-java-symbols-helper.sh",
+              "range": {
+                "startLine": 28,
+                "startChar": 19,
+                "endLine": 28,
+                "endChar": 27
+              },
+              "replacement": "variants"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "5a0e219a_a537fc78",
+        "filename": "tools/gdb-load-java-symbols-helper.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-21T20:04:09Z",
+      "side": 1,
+      "message": "Common typo found: \"varients\" -- should it be \"variants\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "10de65f2760cce984866dfa6e9cc753f6e19093f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
