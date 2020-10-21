@@ -34,6 +34,24 @@
       "parentUuid": "300c2298_8178257b",
       "revId": "abfb2a4ba63a015af5ce4f6c263c7883385b0eea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5edc27e_f747dfe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-10-21T16:04:46Z",
+      "side": 1,
+      "message": "Alternatively, art_common might be complete but the gtest can not find it (and there no linker path set)",
+      "parentUuid": "f6730c97_22edb4ff",
+      "revId": "abfb2a4ba63a015af5ce4f6c263c7883385b0eea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
