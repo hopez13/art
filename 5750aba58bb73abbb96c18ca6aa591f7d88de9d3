@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "391b645a_a119545e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 51
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-21T15:59:30Z",
+      "side": 1,
+      "message": "I\u0027ll take a look but I already made attempts to do that and things like branchless code won\u0027t be slow since nothing would really be triggered. The only thing I can really think of would be to avoid doing anything at all on especially large graphs but those are the ones we are most likely to have benefits from. Also I think the fact that these are all \u003c1 noise is more important TBH.\n\nAnyway I\u0027ll take a look and see if I can shake anything loose.\n\nAny suggestions on where to look or how to check impact without the 3-4 hour golem delay would be appreciated.",
+      "parentUuid": "f85767b9_048d6ae0",
+      "range": {
+        "startLine": 36,
+        "startChar": 42,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "5750aba58bb73abbb96c18ca6aa591f7d88de9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da5f5cc4_37099c27",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 51
