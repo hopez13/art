@@ -31,6 +31,8 @@
 #include "mirror/class_loader.h"
 #include "oat_file.h"
 #include "obj_ptr-inl.h"
+#include "reg_type.h"
+#include "reg_type_cache-inl.h"
 #include "runtime.h"
 
 namespace art {
@@ -374,6 +376,34 @@ void VerifierDeps::AddAssignability(const DexFile& dex_file,
   }
 }
 
+void VerifierDeps::AddAssignability(const DexFile& dex_file,
+                                    const RegType& destination,
+                                    const RegType& source) {
+  DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
+  if (dex_deps == nullptr) {
+    // This invocation is from verification of a DEX file which is not being compiled.
+    return;
+  }
+
+  CHECK(destination.IsUnresolvedReference() || destination.HasClass());
+  CHECK(!destination.IsUnresolvedMergedReference());
+
+  if (source.IsUnresolvedReference() || source.HasClass()) {
+    // Get string IDs for both descriptors and store in the appropriate set.
+    dex::StringIndex destination_id =
+        GetIdFromString(dex_file, std::string(destination.GetDescriptor()));
+    dex::StringIndex source_id = GetIdFromString(dex_file, std::string(source.GetDescriptor()));
+    dex_deps->assignable_types_.emplace(TypeAssignability(destination_id, source_id));
+  } else {
+    CHECK(source.IsUnresolvedMergedReference());
+    const UnresolvedMergedType& merge = *down_cast<const UnresolvedMergedType*>(&source);
+    AddAssignability(dex_file, destination, merge.GetResolvedPart());
+    for (uint32_t idx : merge.GetUnresolvedTypes().Indexes()) {
+      AddAssignability(dex_file, destination, merge.GetRegTypeCache()->GetFromId(idx));
+    }
+  }
+}
+
 void VerifierDeps::MaybeRecordClassRedefinition(const DexFile& dex_file,
                                                 const dex::ClassDef& class_def) {
   VerifierDeps* thread_deps = GetThreadLocalVerifierDeps();
@@ -411,6 +441,15 @@ void VerifierDeps::MaybeRecordAssignability(const DexFile& dex_file,
   VerifierDeps* thread_deps = GetThreadLocalVerifierDeps();
   if (thread_deps != nullptr) {
     thread_deps->AddAssignability(dex_file, destination, source, is_strict, is_assignable);
+  }
+}
+
+void VerifierDeps::MaybeRecordAssignability(const DexFile& dex_file,
+                                            const RegType& destination,
+                                            const RegType& source) {
+  VerifierDeps* thread_deps = GetThreadLocalVerifierDeps();
+  if (thread_deps != nullptr) {
+    thread_deps->AddAssignability(dex_file, destination, source);
   }
 }
 
