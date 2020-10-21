@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d4f0761_435942a8",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-21T16:43:34Z",
+      "side": 1,
+      "message": "Well, I didn\u0027t plan to document the APEX build setup in general. If other things need docs then comments in Android.bp are probably preferable, and I don\u0027t want to create (more) uncertainty where they should go.",
+      "parentUuid": "12a5baab_2bda6283",
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c31beb8_694e007c",
@@ -84,6 +102,30 @@
       "writtenOn": "2020-10-21T11:30:19Z",
       "side": 1,
       "message": "Note: This anchor does not seem to exist in https://android.googlesource.com/platform/system/linkerconfig/+/master/README.md.",
+      "range": {
+        "startLine": 6,
+        "startChar": 80,
+        "endLine": 6,
+        "endChar": 106
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f54d70_bba2d67b",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-21T16:43:34Z",
+      "side": 1,
+      "message": "Dropped the anchor, it\u0027s not that long doc.",
+      "parentUuid": "7c31beb8_694e007c",
       "range": {
         "startLine": 6,
         "startChar": 80,
@@ -179,6 +221,30 @@
       "side": 1,
       "message": "I should have made my point clearer; I actually wanted to mention the cases where we run ART tests on a non-Testing ART APEX (which include the case where the ART APEX is the one installed in the system partition).\n\nThere are several situation where we need to test a non-Testing ART APEX, e.g.:\n- testing a full \"official\" Android device image (e.g. before sending out a build for dogfooding / preview / release);\n- testing on a third-party device where we want to assess the ART APEX living in the system partition;\n- a developer checking a local full Android build containing the bundled ART APEX.",
       "parentUuid": "ef26c18d_26677994",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "586dcdda_bba06048",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-21T16:43:34Z",
+      "side": 1,
+      "message": "Iow we need a solution in the linker (b/129539670) to get rid of this? Shall I update the TODO to point to that instead?\n\nThe other question is if we\u0027re comfortable with permitting /data. I\u0027d definitely prefer not having it in the released APEX to avoid worry, but the real implications aren\u0027t quite clear to me.",
+      "parentUuid": "922dc07b_0b702d21",
       "range": {
         "startLine": 12,
         "startChar": 4,
