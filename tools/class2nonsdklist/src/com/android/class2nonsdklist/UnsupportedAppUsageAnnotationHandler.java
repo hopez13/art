@@ -28,11 +28,12 @@ import java.util.function.Predicate;
  */
 public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
 
-    // properties of greylist annotations:
+    // properties of @UnsupportedAppUsage annotations:
     private static final String EXPECTED_SIGNATURE_PROPERTY = "expectedSignature";
     private static final String MAX_TARGET_SDK_PROPERTY = "maxTargetSdk";
     private static final String IMPLICIT_MEMBER_PROPERTY = "implicitMember";
     private static final String PUBLIC_ALTERNATIVES_PROPERTY = "publicAlternatives";
+    private static final String TRACKING_BUG_PROPERTY = "trackingBug";
 
     private final Status mStatus;
     private final Predicate<ClassMember> mClassMemberFilter;
@@ -98,6 +99,7 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
 
         String signature = context.getMemberDescriptor();
         Integer maxTargetSdk = null;
+        Long trackingBug = null;
         String implicitMemberSignature = null;
         String publicAlternativesString = null;
 
@@ -140,6 +142,16 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
                 case PUBLIC_ALTERNATIVES_PROPERTY:
                     publicAlternativesString = property.getValue().stringifyValue();
                     break;
+                case TRACKING_BUG_PROPERTY:
+                    if (property.getValue().getElementValueType() != ElementValue.PRIMITIVE_LONG) {
+                        context.reportError("Expected property %s to be of type int; got %d",
+                                property.getNameString(),
+                                property.getValue().getElementValueType());
+                        return;
+                    }
+                    trackingBug = ((SimpleElementValue) property.getValue()).getValueLong();
+                    break;
+
             }
         }
 
@@ -160,18 +172,20 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
             return;
         }
 
-        try {
-            mApiResolver.resolvePublicAlternatives(publicAlternativesString, signature,
-                    maxTargetSdk);
-        } catch (MultipleAlternativesFoundWarning e) {
-            context.reportWarning(e.toString());
-        } catch (JavadocLinkSyntaxError | AlternativeNotFoundError e) {
-            context.reportError(e.toString());
-        } catch (RequiredAlternativeNotSpecifiedError e) {
-            context.reportError("Signature %s moved to %s without specifying public "
-                            + "alternatives; Refer to go/unsupportedappusage-public-alternatives "
-                            + "for details.",
-                    signature, mSdkVersionToFlagMap.get(maxTargetSdk));
+        if (trackingBug == null || trackingBug != 170729553L) {
+            try {
+                mApiResolver.resolvePublicAlternatives(publicAlternativesString, signature,
+                        maxTargetSdk);
+            } catch (MultipleAlternativesFoundWarning e) {
+                context.reportWarning(e.toString());
+            } catch (JavadocLinkSyntaxError | AlternativeNotFoundError e) {
+                context.reportError(e.toString());
+            } catch (RequiredAlternativeNotSpecifiedError e) {
+                context.reportError("Signature %s moved to %s without specifying public "
+                                + "alternatives; Refer to go/unsupportedappusage-public-alternatives "
+                                + "for details.",
+                        signature, mSdkVersionToFlagMap.get(maxTargetSdk));
+            }
         }
 
         // Consume this annotation if it matches the predicate.
