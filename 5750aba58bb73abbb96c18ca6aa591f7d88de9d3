@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85767b9_048d6ae0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 51
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-21T13:50:37Z",
+      "side": 1,
+      "message": "This isn\u0027t minor (up to 30% on docs, though the good news is no memory regression) - we should see if there\u0027s pathological cases that would trigger this increase and we could avoid, but also, are there methods we know we should skip the optimization (eg doesn\u0027t have branches, doesn\u0027t have allocations, etc).",
+      "range": {
+        "startLine": 36,
+        "startChar": 42,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "5750aba58bb73abbb96c18ca6aa591f7d88de9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5f5cc4_37099c27",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 51
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-21T13:50:37Z",
+      "side": 1,
+      "message": "nit: one condition per line.",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 38
+      },
+      "revId": "5750aba58bb73abbb96c18ca6aa591f7d88de9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
