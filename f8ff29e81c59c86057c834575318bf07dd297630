@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3da960c8_ea54f5d5",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T13:55:18Z",
+      "side": 1,
+      "message": "Based on the build error I saw without this flag:\nhttps://android-build.googleplex.com/builds/pending/P17352104/wembley-userdebug/latest/view/logs/build_error.log\n\nFrom here:\nhttps://cs.android.com/android/platform/superproject/+/master:art/tools/veridex/hidden_api.cc;l\u003d38;bpv\u003d1;bpt\u003d1?q\u003dhidden_api.cc:38\u0026sq\u003d\n\nI think this should be ok. I\u0027ll check again.",
+      "parentUuid": "acbfc2ce_499c991e",
+      "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4775a1c2_0670feba",
         "filename": "libartbase/base/hiddenapi_stubs.h",
         "patchSetId": 1
