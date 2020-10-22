@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93884afb_1590e57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T10:02:35Z",
+      "side": 1,
+      "message": "Looks good 😊",
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a255c04d_2fd51823",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T10:02:35Z",
+      "side": 1,
+      "message": "maybe call this RESTRICT_UNUSED_APIS_BUG",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 53
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485f9376_d614deab",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T10:02:35Z",
+      "side": 1,
+      "message": "should clip all lines to 100 chars",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 106
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a673f80_b21d85fc",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T10:02:35Z",
+      "side": 1,
+      "message": "if you made SPECIAL_TRACKING_BUG_ID a Long you could make this simply SPECIAL_TRACKING_BUG_ID.equals(trackingBug)",
+      "range": {
+        "startLine": 159,
+        "startChar": 40,
+        "endLine": 159,
+        "endChar": 97
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2542848_e21d5e68",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T10:02:35Z",
+      "side": 1,
+      "message": "Let\u0027s make it more specific: only do this if trackingBug \u003d\u003d SPECIAL_TRACKING_BUG_ID and maxTargetSdk \u003d\u003d 30",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 32
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
