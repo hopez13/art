@@ -24,6 +24,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a4b0b8_0de0e207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "First portion of comment.",
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b80f105_c5dfead7",
@@ -157,6 +174,161 @@
         "startChar": 0,
         "endLine": 324,
         "endChar": 18
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b861a9c_550ff493",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "Nit: maybe a full stop in the end of the comment, here and elsewhere.",
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4979aca_92b0c57f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "Could you please comment why it is so and not graph_-\u003eGetBlocks().size()?",
+      "range": {
+        "startLine": 315,
+        "startChar": 42,
+        "endLine": 315,
+        "endChar": 53
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7189fd_6eafab8f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "Could you please add a comment why all_visited_nodes_ is updated here but not in the second loop?",
+      "range": {
+        "startLine": 335,
+        "startChar": 6,
+        "endLine": 335,
+        "endChar": 25
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21d6e71e_cad0c843",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "4?",
+      "range": {
+        "startLine": 353,
+        "startChar": 74,
+        "endLine": 353,
+        "endChar": 75
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a54ebea_99c7ef43",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "Could you please elaborate on this please? Does this mean that your algorithm also works for graphs where the post_order set doesn\u0027t contain all the blocks?",
+      "range": {
+        "startLine": 413,
+        "startChar": 17,
+        "endLine": 413,
+        "endChar": 40
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d96421c_fecb230a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "As you are using a special approach (rounding up with block_size for padding) of representing reachability matrix rather then a plain continuous BitVector representation, I think it might be reasonable to introduce a wrapper class over the BitVector and put all the low level bit manipulations there (e.g. PathBetween(), UnionBlock(), AddEdge(). It would make reachability_graph_ more safe to use (should it ever be used outside LSE) and also make ReachabilityAnalysisHelper simpler - just to have the algorithmic/traversal part in it.",
+      "range": {
+        "startLine": 421,
+        "startChar": 15,
+        "endLine": 421,
+        "endChar": 25
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e62261e1_8d1e9838",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-10-22T16:46:19Z",
+      "side": 1,
+      "message": "It looks like you are relying on BitVector::kWordBits to be 32; could you insert a static_assert for that?",
+      "range": {
+        "startLine": 427,
+        "startChar": 37,
+        "endLine": 427,
+        "endChar": 43
       },
       "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
