@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d05e118_c298e7ae",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2020-10-22T10:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a255c04d_2fd51823",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 53
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "485f9376_d614deab",
@@ -87,6 +111,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01d463ca_345d8f41",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2020-10-22T10:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a673f80_b21d85fc",
+      "range": {
+        "startLine": 159,
+        "startChar": 40,
+        "endLine": 159,
+        "endChar": 97
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3a8748_581d9f9f",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2020-10-22T10:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "485f9376_d614deab",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 106
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2542848_e21d5e68",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-10-22T10:02:35Z",
       "side": 1,
       "message": "Let\u0027s make it more specific: only do this if trackingBug \u003d\u003d SPECIAL_TRACKING_BUG_ID and maxTargetSdk \u003d\u003d 30",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 32
+      },
+      "revId": "2a4439aaff55921cd4b86ab7432879e51c873b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32a14505_53e0b023",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2020-10-22T10:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2542848_e21d5e68",
       "range": {
         "startLine": 160,
         "startChar": 12,
