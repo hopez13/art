@@ -1330,6 +1330,7 @@ class Runtime {
   bool perfetto_hprof_enabled_;
 
   metrics::ArtMetrics metrics_;
+  std::unique_ptr<metrics::MetricsReporter> metrics_reporter_;
 
   // Note: See comments on GetFaultMessage.
   friend std::string GetFaultMessageForAbortLogging();
