@@ -39,6 +39,30 @@
       },
       "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "092f366f_1494697d",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T13:38:05Z",
+      "side": 1,
+      "message": "Because I copy pasted another constant name and did not update it properly 😊\n\nThanks for spotting.",
+      "parentUuid": "4775a1c2_0670feba",
+      "range": {
+        "startLine": 59,
+        "startChar": 36,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
