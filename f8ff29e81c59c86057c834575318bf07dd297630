@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f3047a_1c8d8b7c",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T14:00:48Z",
+      "side": 1,
+      "message": "Looks like \"hiddenapi encode\" ignores flags it doens\u0027t know about:\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/hiddenapi_flags.h;drc\u003dmaster;bpv\u003d1;bpt\u003d1;l\u003d208",
+      "parentUuid": "3da960c8_ea54f5d5",
+      "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4775a1c2_0670feba",
