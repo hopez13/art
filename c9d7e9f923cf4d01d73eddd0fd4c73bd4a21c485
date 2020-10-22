@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2437b16a_8ee3eb6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T12:26:10Z",
+      "side": 1,
+      "message": "can you also add Bug: 170729553",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "c9d7e9f923cf4d01d73eddd0fd4c73bd4a21c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a05cd04a_b212d624",
@@ -14,6 +37,69 @@
       "writtenOn": "2020-10-22T10:22:54Z",
       "side": 1,
       "message": "Addressed comments",
+      "revId": "c9d7e9f923cf4d01d73eddd0fd4c73bd4a21c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df563e55_125167dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T12:26:10Z",
+      "side": 1,
+      "message": "Great :)",
+      "revId": "c9d7e9f923cf4d01d73eddd0fd4c73bd4a21c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feab5bfa_72305ebe",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T12:26:10Z",
+      "side": 1,
+      "message": "make a constant SDK_VERSION_R",
+      "range": {
+        "startLine": 160,
+        "startChar": 32,
+        "endLine": 160,
+        "endChar": 34
+      },
+      "revId": "c9d7e9f923cf4d01d73eddd0fd4c73bd4a21c485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0ae365_f8ebfab3",
+        "filename": "tools/class2nonsdklist/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-10-22T12:26:10Z",
+      "side": 1,
+      "message": "this is also a Long so could be null?",
+      "range": {
+        "startLine": 160,
+        "startChar": 16,
+        "endLine": 160,
+        "endChar": 28
+      },
       "revId": "c9d7e9f923cf4d01d73eddd0fd4c73bd4a21c485",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
