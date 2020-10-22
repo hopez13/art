@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d88703fb_6175780a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 59
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "Nice improvements!",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b80f105_c5dfead7",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "Why do we need a copy? Can you add a comment?",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 36
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85e67b7_b5761d1d",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "If I\u0027m understanding this comment right, should unreachable_blocks_vec_ just be a vector instead?",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b73809e_665b65e2",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "Can you explain what \"this\" is? \"Unreachable blocks\" ?",
+      "range": {
+        "startLine": 203,
+        "startChar": 5,
+        "endLine": 203,
+        "endChar": 9
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d2c1547_2e141e39",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "Would it make sense to allocate this outside of the loop and clear it on each iteration?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 51
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d6e53e_e5ec114d",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "Can you add comments what this loop does (the \u0027Zip\u0027 in ZipCount is pretty obscure btw, and I couldn\u0027t find the documentation on why \u0027Zip\u0027 in ZipLeftIter).",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 5
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828a90e2_d2f40771",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T09:00:23Z",
+      "side": 1,
+      "message": "I was looking for documentation around needs_prune_, but it\u0027d be great to add documentation for all these fields.",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 18
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
