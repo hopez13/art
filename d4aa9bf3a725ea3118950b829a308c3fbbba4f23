@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b57cde08_b1818b94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 59
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d88703fb_6175780a",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b4a4b0b8_0de0e207",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 59
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-22T09:00:23Z",
       "side": 1,
       "message": "Why do we need a copy? Can you add a comment?",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 36
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9979390_233eea69",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Actually we don\u0027t need one anymore (we used to need it to prevent invalidating the Indexes iterators).",
+      "parentUuid": "2b80f105_c5dfead7",
       "range": {
         "startLine": 200,
         "startChar": 0,
@@ -110,6 +158,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "955020b4_3c772474",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "No we mostly want to do contains checks so we need either a set or the bitmap.",
+      "parentUuid": "a85e67b7_b5761d1d",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6cd586_6d5964fe",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b73809e_665b65e2",
+      "range": {
+        "startLine": 203,
+        "startChar": 5,
+        "endLine": 203,
+        "endChar": 9
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d2c1547_2e141e39",
@@ -123,6 +219,30 @@
       "writtenOn": "2020-10-22T09:00:23Z",
       "side": 1,
       "message": "Would it make sense to allocate this outside of the loop and clear it on each iteration?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 51
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c72d920_4cd1b4ea",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "kMaxFilterableSuccessors \u003d\u003d 8 and looking at the compiled code everything is able to be optimized nicely. For example: https://godbolt.org/z/KMEab3",
+      "parentUuid": "1d2c1547_2e141e39",
       "range": {
         "startLine": 230,
         "startChar": 0,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2036902_8b4bceb0",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done.\n\nThe zip and zip count are named from python for \u0027zip\u0027 and zip(iter, count()).",
+      "parentUuid": "63d6e53e_e5ec114d",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 5
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "828a90e2_d2f40771",
@@ -169,6 +313,30 @@
       "writtenOn": "2020-10-22T09:00:23Z",
       "side": 1,
       "message": "I was looking for documentation around needs_prune_, but it\u0027d be great to add documentation for all these fields.",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 18
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea58210_1db64247",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "828a90e2_d2f40771",
       "range": {
         "startLine": 319,
         "startChar": 0,
@@ -196,6 +364,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7b715c_e9b49be1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b861a9c_550ff493",
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4979aca_92b0c57f",
@@ -209,6 +395,30 @@
       "writtenOn": "2020-10-22T16:46:19Z",
       "side": 1,
       "message": "Could you please comment why it is so and not graph_-\u003eGetBlocks().size()?",
+      "range": {
+        "startLine": 315,
+        "startChar": 42,
+        "endLine": 315,
+        "endChar": 53
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b088106f_03fb6f1c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "no reason. Changed.",
+      "parentUuid": "a4979aca_92b0c57f",
       "range": {
         "startLine": 315,
         "startChar": 42,
@@ -242,6 +452,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1433ba07_ceb05cd4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "By mistake. It should be updated in both.",
+      "parentUuid": "3a7189fd_6eafab8f",
+      "range": {
+        "startLine": 335,
+        "startChar": 6,
+        "endLine": 335,
+        "endChar": 25
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21d6e71e_cad0c843",
@@ -255,6 +489,30 @@
       "writtenOn": "2020-10-22T16:46:19Z",
       "side": 1,
       "message": "4?",
+      "range": {
+        "startLine": 353,
+        "startChar": 74,
+        "endLine": 353,
+        "endChar": 75
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbba22cb_016864b3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21d6e71e_cad0c843",
       "range": {
         "startLine": 353,
         "startChar": 74,
@@ -288,6 +546,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5b44d93_8305cd4d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "yes because the PostOrder set doesn\u0027t contain all blocks.",
+      "parentUuid": "0a54ebea_99c7ef43",
+      "range": {
+        "startLine": 413,
+        "startChar": 17,
+        "endLine": 413,
+        "endChar": 40
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d96421c_fecb230a",
@@ -311,6 +593,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "329b1f25_434dd1f9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "Done\n\nMade a BitVectorArray type to handle this.",
+      "parentUuid": "8d96421c_fecb230a",
+      "range": {
+        "startLine": 421,
+        "startChar": 15,
+        "endLine": 421,
+        "endChar": 25
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e62261e1_8d1e9838",
@@ -324,6 +630,30 @@
       "writtenOn": "2020-10-22T16:46:19Z",
       "side": 1,
       "message": "It looks like you are relying on BitVector::kWordBits to be 32; could you insert a static_assert for that?",
+      "range": {
+        "startLine": 427,
+        "startChar": 37,
+        "endLine": 427,
+        "endChar": 43
+      },
+      "revId": "d4aa9bf3a725ea3118950b829a308c3fbbba4f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed3724d_4bf262ff",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-22T20:53:07Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure I always use kWordBits everywhere. I\u0027ll change the comment.",
+      "parentUuid": "e62261e1_8d1e9838",
       "range": {
         "startLine": 427,
         "startChar": 37,
