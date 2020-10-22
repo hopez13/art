@@ -16,6 +16,24 @@
       "message": "Two issues found so far on ART gtests (when building the ART APEX + tests with lunch target `aosp_arm64-userdebug` and running the gtests on a Pixel 3 device in chroot environment):\n\n  /apex/com.android.art/bin/art/arm64/art_dex2oat_tests\n  [\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] Running 175 tests from 26 test suites (8 jobs).\n  […]\n  [ RUN      ] Dex2oatISAFeaturesRuntimeDetectionTest.TestCurrentRuntimeFeaturesAsDex2OatArguments\n  art/dex2oat/dex2oat_test.cc:(2307) Failure in test Dex2oatISAFeaturesRuntimeDetectionTest.TestCurrentRuntimeFeaturesAsDex2OatArguments\n  Expected: (option_pos) !\u003d (std::end(argv)), actual: 8-byte object \u003c40-7F 26-F3 72-00 00-00\u003e vs 8-byte object \u003c40-7F 26-F3 72-00 00-00\u003e\n  Dex2oatISAFeaturesRuntimeDetectionTest.TestCurrentRuntimeFeaturesAsDex2OatArguments exited with exitcode 1.\n  [  FAILED  ] Dex2oatISAFeaturesRuntimeDetectionTest.TestCurrentRuntimeFeaturesAsDex2OatArguments (473 ms)\n  \n  […]\n  \n  /apex/com.android.art/bin/art/arm64/art_runtime_tests\n  [\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] Running 666 tests from 92 test suites (8 jobs).\n  […]\n  [ RUN      ] Arm64InstructionSetFeaturesTest.AddFeaturesFromStringRuntime\n  art/runtime/arch/arm64/instruction_set_features_arm64_test.cc:(219) Failure in test Arm64InstructionSetFeaturesTest.AddFeaturesFromStringRuntime\n  Value of: features-\u003eEquals(hwcap_features.get())\n    Actual: false\n  Expected: true\n  art/runtime/arch/arm64/instruction_set_features_arm64_test.cc:(220) Failure in test Arm64InstructionSetFeaturesTest.AddFeaturesFromStringRuntime\n  Expected equality of these values:\n    features-\u003eGetFeatureString()\n      Which is: \"-a53,-crc,-lse,-fp16,-dotprod,-sve\"\n    hwcap_features-\u003eGetFeatureString()\n      Which is: \"-a53,crc,lse,fp16,-dotprod,-sve\"\n  Arm64InstructionSetFeaturesTest.AddFeaturesFromStringRuntime exited with exitcode 1.\n  [  FAILED  ] Arm64InstructionSetFeaturesTest.AddFeaturesFromStringRuntime (17 ms)\n\nI\u0027ll run ART run-tests now.\n",
       "revId": "324572edfd5c8467d24f25f15909f2c6c0e70572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff456793_8b7d1a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-22T13:34:12Z",
+      "side": 1,
+      "message": "All ART run-tests passed in the same environment!",
+      "parentUuid": "8251caa1_5bec40fc",
+      "revId": "324572edfd5c8467d24f25f15909f2c6c0e70572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
