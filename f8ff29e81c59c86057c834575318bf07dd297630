@@ -16,6 +16,29 @@
       "message": "Are we sure that adding another enum value (and a corresponding ToString switch case) is not going to byte us later?\nAs far as I can see, this could only be passed through the hiddenapi tool, but all changes are only to the list merge tool.",
       "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4775a1c2_0670feba",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-10-22T13:34:47Z",
+      "side": 1,
+      "message": "Why is this being called CoreRemoved and not just Removed?",
+      "range": {
+        "startLine": 59,
+        "startChar": 36,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "f8ff29e81c59c86057c834575318bf07dd297630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
