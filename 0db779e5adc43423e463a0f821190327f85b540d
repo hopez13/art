@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "701853f3_07d3ef9a",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-22T18:14:02Z",
+      "side": 1,
+      "message": "Very nice, thanks.",
+      "parentUuid": "beb939ef_7be93905",
+      "range": {
+        "startLine": 53,
+        "startChar": 78,
+        "endLine": 53,
+        "endChar": 79
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13299f3b_32377943",
@@ -259,6 +283,30 @@
       "side": 1,
       "message": "This also performs a cast to a string",
       "parentUuid": "5c082c8e_41a37df7",
+      "range": {
+        "startLine": 56,
+        "startChar": 16,
+        "endLine": 56,
+        "endChar": 24
+      },
+      "revId": "0db779e5adc43423e463a0f821190327f85b540d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0728b0a7_90932cda",
+        "filename": "tools/checker/common/logger.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-22T18:14:02Z",
+      "side": 1,
+      "message": "I\u0027m not sure that matters; it\u0027s still a roundabout way to do a plain concatenation, with the drawback that the number of args get encoded in two places.\n\nAnyway, since this got submitted now there\u0027s no need to fix it in a separate CL.",
+      "parentUuid": "f2c855a9_97e9ce56",
       "range": {
         "startLine": 56,
         "startChar": 16,
