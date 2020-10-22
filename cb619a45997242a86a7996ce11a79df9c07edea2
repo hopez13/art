@@ -253,6 +253,30 @@
       },
       "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0079445c_b0036cd5",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-22T14:21:12Z",
+      "side": 1,
+      "message": "\u003e Iow we need a solution in the linker (b/129539670) to get rid of this? Shall I update the TODO to point to that instead?\n\nI think b/129539670 is indeed a more relevant bug for this issue.\n\nI think we should have a discussion about this (maybe with Jiyong). Eventually I\u0027d like to get rid of the Testing ART APEX (which adds complexity everywhere).\n\nAs for permitting `/data`: I was indeed thinking about permitting a very specific path (e.g. `/data/local/tmp/com.android.art`) for ART testing.\n\nMaybe the issue could also be addressed at the linker level, but I\u0027m not sure this is cleaner.",
+      "parentUuid": "586dcdda_bba06048",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
