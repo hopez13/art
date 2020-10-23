@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffe7d5e1_3fca2cd5",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-23T10:09:03Z",
+      "side": 1,
+      "message": "Kiyoung is adding support for comments in linker.config.json in https://r.android.com/1471502, so I\u0027ll wait for that and put them back and get rid of this file.",
+      "parentUuid": "8d4f0761_435942a8",
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c31beb8_694e007c",
         "filename": "build/apex/README.json.md",
         "patchSetId": 2
