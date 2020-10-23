@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28412b80_3b4d5732",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-23T06:06:18Z",
+      "side": 1,
+      "message": "Hmm, is this enough?\n\nThe sampling starts 5s later of after fully drawn. By that time the app started and I think we\u0027ll not gonna see this in slow starts.",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 13
+      },
+      "revId": "35b132e3377029a356cfbc9e4682e3ebceb83edf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
