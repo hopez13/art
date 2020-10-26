@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005733264",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1470144?revision\u003d5",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "ba7782dd_b9adfc63",
+        "filename": "tools/class2nonsdklist/test/src/com/android/class2nonsdklist/UnsupportedAppUsageAnnotationHandlerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-26T11:59:44Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 603,
+        "startChar": 60,
+        "endLine": 603,
+        "endChar": 68
+      },
+      "revId": "b47a7220552b9e7287404a74be6c3ef51df74e4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
