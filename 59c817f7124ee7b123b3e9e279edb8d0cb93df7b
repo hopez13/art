@@ -52,6 +52,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a63270a_9c4aae63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 60
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc2f1fcf_95149146",
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3249cd_89c0bae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 60
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c6cc1a7_ac737fc4",
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "863f6776_f99de05d",
@@ -65,6 +101,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "This method is 160 LOC. It\u0027s pretty heavy imo, and a bit hard to follow. Prefer functionality split as much as you can.\n\nFeel free to ignore this comment for this particular CL, especially if the previous reviewers already analyzed it since it may just add confusion and unnecessary overhead.",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba99ef4_30845afe",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure there\u0027s a good way to really do this. I\u0027ve tried to do that as much as possible with the lambdas encapsulating the state-transitions. The issue is that doing a DFS iteratively just isn\u0027t terribly concise or elegant.",
+      "parentUuid": "863f6776_f99de05d",
       "range": {
         "startLine": 31,
         "startChar": 24,
@@ -98,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ae329c_61305acd",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "532a729b_478f39f5",
+      "range": {
+        "startLine": 59,
+        "startChar": 25,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fdbebd8_713910c3",
@@ -111,6 +195,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "sometimes you use the LSE, sometimes you use LSA. Is that intended?",
+      "range": {
+        "startLine": 68,
+        "startChar": 65,
+        "endLine": 68,
+        "endChar": 79
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab5dae1d_f035f3ca",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done.\n\nShould be LSA everywhere.",
+      "parentUuid": "7fdbebd8_713910c3",
       "range": {
         "startLine": 68,
         "startChar": 65,
@@ -144,6 +252,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86434403_4a2da879",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15ce5b0f_084cde23",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a02949e9_95bba8d2",
@@ -157,6 +289,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "nit: itemize as a list",
+      "range": {
+        "startLine": 72,
+        "startChar": 62,
+        "endLine": 72,
+        "endChar": 66
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f335db_eda4001e",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a02949e9_95bba8d2",
       "range": {
         "startLine": 72,
         "startChar": 62,
@@ -190,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4837423e_70035b31",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "At least this and Preceeds seems close enough to a one-liner to leave here IMO. Moved the other ones you pointed out.",
+      "parentUuid": "94b7e2c8_04e2329d",
+      "range": {
+        "startLine": 139,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 9
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c65ca0c_91e2c021",
@@ -203,6 +383,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "nit: enable_partial_lse sounds like a better name based on description?",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 14
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bca071e_31789d56",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "valid_ means the subgraph still has a path to the end.\n\nDone. changed to analysis_possible.",
+      "parentUuid": "5c65ca0c_91e2c021",
       "range": {
         "startLine": 195,
         "startChar": 8,
@@ -236,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced48ec5_b78b664b",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590b47f0_d762f319",
+      "range": {
+        "startLine": 188,
+        "startChar": 1,
+        "endLine": 202,
+        "endChar": 5
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de54c4df_723e004c",
@@ -249,6 +477,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "move to .cc\n\nditto for all bit methods in this file.",
+      "range": {
+        "startLine": 217,
+        "startChar": 7,
+        "endLine": 217,
+        "endChar": 18
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c415d3a_2efac57e",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de54c4df_723e004c",
       "range": {
         "startLine": 217,
         "startChar": 7,
@@ -282,6 +534,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f262a472_5501b7a6",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "B/c it shouldn\u0027t really be needed in that case but it\u0027s good to have dchecks that we actually prune when we need to.",
+      "parentUuid": "9d443990_708255df",
+      "range": {
+        "startLine": 223,
+        "startChar": 10,
+        "endLine": 223,
+        "endChar": 23
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "addf183f_d568aabf",
@@ -295,6 +571,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "please choose a more intention revealing name (at L234 set.set() reads odd)",
+      "range": {
+        "startLine": 230,
+        "startChar": 44,
+        "endLine": 230,
+        "endChar": 47
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0561943_3549a77c",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addf183f_d568aabf",
       "range": {
         "startLine": 230,
         "startChar": 44,
@@ -328,6 +628,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d9da09_79f72c19",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30947e48_a9bb9c49",
+      "range": {
+        "startLine": 287,
+        "startChar": 4,
+        "endLine": 288,
+        "endChar": 52
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1f7903e_f43f383b",
@@ -341,6 +665,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "nit: line breaks in between.",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 323,
+        "endChar": 79
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bac6096_3a4fac85",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1f7903e_f43f383b",
       "range": {
         "startLine": 320,
         "startChar": 2,
@@ -374,6 +722,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17ae67d7_d3274171",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78305895_82ff21d7",
+      "range": {
+        "startLine": 103,
+        "startChar": 7,
+        "endLine": 113,
+        "endChar": 22
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74250a48_95509730",
@@ -387,6 +759,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "nit: same comment",
+      "range": {
+        "startLine": 130,
+        "startChar": 11,
+        "endLine": 139,
+        "endChar": 26
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "346febf0_9f666608",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74250a48_95509730",
       "range": {
         "startLine": 130,
         "startChar": 11,
@@ -420,6 +816,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cdfa715_fd38234f",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db8e2be7_6bb47d81",
+      "range": {
+        "startLine": 630,
+        "startChar": 5,
+        "endLine": 630,
+        "endChar": 20
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b39892e_e255b609",
@@ -433,6 +853,30 @@
       "writtenOn": "2020-10-26T22:21:21Z",
       "side": 1,
       "message": "nit: all non liners should go to the .cc",
+      "range": {
+        "startLine": 309,
+        "startChar": 6,
+        "endLine": 309,
+        "endChar": 24
+      },
+      "revId": "59c817f7124ee7b123b3e9e279edb8d0cb93df7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374f4e1d_c909856a",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-26T23:18:56Z",
+      "side": 1,
+      "message": "Moved resize and UnionRows",
+      "parentUuid": "0b39892e_e255b609",
       "range": {
         "startLine": 309,
         "startChar": 6,
