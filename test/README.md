@@ -92,15 +92,28 @@ To see command flags run:
 $ art/test.py -h
 ```
 
+## Building tests
+
+In general all tests require some dependencies to be built before they can be run. 
+In general you can pass the `--build-dependencies` flag to `./test.py` program to
+automatically build required dependencies. One can also directly use the various
+`test-art-...-dependencies` targets listed below.
+
 ## Running all tests on the build host
 
 ```sh
+$ # Build test files
+$ m test-art-host-run-test-dependencies
+$ # Run the tests
 $ art/test.py --host
 ```
 
 ## Running all tests on the target device
 
 ```sh
+$ # Build test files
+$ m test-art-target-run-test-dependencies
+$ # Run the tests
 $ art/test.py --target
 ```
 
@@ -119,6 +132,8 @@ $ art/test.py --target -g
 ## Running all run-tests on the build host
 
 ```sh
+$ # Build test files
+$ m test-art-host-run-test-dependencies
 $ art/test.py --host -r
 ```
 
@@ -131,6 +146,9 @@ $ art/test.py --target -r
 ## Running one run-test on the build host
 
 ```sh
+$ # Build test files
+$ m test-art-host-run-test-dependencies
+$ # Run the tests
 $ art/test.py --host -r -t 001-HelloWorld
 ```
 
