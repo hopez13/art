@@ -16,6 +16,29 @@
       "message": "PTAL, diff PS2 PS3.",
       "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e5587c_83c7166f",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-26T21:04:02Z",
+      "side": 1,
+      "message": "nit: could you rename this to something more intention revealing: new/old etc...?\nIt will make it easier to prevent typos",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 63
+      },
+      "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
