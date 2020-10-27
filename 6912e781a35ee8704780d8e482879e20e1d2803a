@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2a91ed0_6e1b8960",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f068ee2_64b0529e",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "232f1aa9_e6f385a7",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eaa513f_bbc2c4ec",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "232f1aa9_e6f385a7",
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6d92bcb_6b230ba5",
@@ -54,6 +96,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "Do you have any evidence for that?",
+      "range": {
+        "startLine": 248,
+        "startChar": 33,
+        "endLine": 248,
+        "endChar": 66
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e3c3dd_ac8a318a",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "linux-perf. This version is ~50% faster than the one using Indexes() in a nested loop IIRC.",
+      "parentUuid": "a6d92bcb_6b230ba5",
       "range": {
         "startLine": 248,
         "startChar": 33,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6ef7012_c81459c5",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "27d3bcf0_f6fc81b9",
+      "range": {
+        "startLine": 266,
+        "startChar": 6,
+        "endLine": 267,
+        "endChar": 61
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b2cc8f5_ef2d01ac",
@@ -100,6 +190,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "Move to the *_test.cc?",
+      "range": {
+        "startLine": 381,
+        "startChar": 3,
+        "endLine": 381,
+        "endChar": 14
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c80dbb64_b0882c8f",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b2cc8f5_ef2d01ac",
       "range": {
         "startLine": 381,
         "startChar": 3,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dda0e080_3b4795fd",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19082cb8_b3c6de22",
+      "range": {
+        "startLine": 401,
+        "startChar": 10,
+        "endLine": 401,
+        "endChar": 25
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f140575b_0274cbb9",
@@ -146,6 +284,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "remove (repeats something already said on the previous line)",
+      "range": {
+        "startLine": 73,
+        "startChar": 59,
+        "endLine": 73,
+        "endChar": 75
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34aa9940_434335df",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f140575b_0274cbb9",
       "range": {
         "startLine": 73,
         "startChar": 59,
@@ -179,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d0b023_23a08e3c",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e88d91a_5078b55f",
+      "range": {
+        "startLine": 74,
+        "startChar": 50,
+        "endLine": 74,
+        "endChar": 61
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4809d8af_8568e20e",
@@ -192,6 +378,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "This reverses the meaning of the function; it is about the cohort succeeding the block. (Similar for the PrecedesBlock comment.)",
+      "range": {
+        "startLine": 137,
+        "startChar": 21,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ce96d6_7780b804",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean.\n\nReworded.",
+      "parentUuid": "4809d8af_8568e20e",
       "range": {
         "startLine": 137,
         "startChar": 21,
@@ -219,6 +429,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4d670ff_f6935a17",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "742e715e_d9f9dcbf",
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66ea3047_a7772b85",
@@ -232,6 +460,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 149,
+        "startChar": 21,
+        "endLine": 149,
+        "endChar": 27
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da8b2da_839a95f8",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66ea3047_a7772b85",
       "range": {
         "startLine": 149,
         "startChar": 21,
@@ -265,6 +517,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c453223d_aac9f291",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af0c301_5ba93fbf",
+      "range": {
+        "startLine": 182,
+        "startChar": 46,
+        "endLine": 182,
+        "endChar": 47
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c722dee_dbbfab78",
@@ -278,6 +554,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 253,
+        "startChar": 48,
+        "endLine": 253,
+        "endChar": 54
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1b79d2_24c25844",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c722dee_dbbfab78",
       "range": {
         "startLine": 253,
         "startChar": 48,
@@ -311,6 +611,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec53f60_bdba9e37",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22e72802_c01a74b6",
+      "range": {
+        "startLine": 294,
+        "startChar": 36,
+        "endLine": 294,
+        "endChar": 40
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdc37996_ca1f71d1",
@@ -324,6 +648,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "This shall yield kMaxFilterableSuccessors-2 successors. Compare with the previous test that has `cur + ExecutionSubgraph::kMaxFilterableSuccessors + 1`.",
+      "range": {
+        "startLine": 753,
+        "startChar": 44,
+        "endLine": 753,
+        "endChar": 68
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "391d2e8c_b93424a8",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "yes. The idea is to have a graph on the edge of the analysis.",
+      "parentUuid": "cdc37996_ca1f71d1",
       "range": {
         "startLine": 753,
         "startChar": 44,
@@ -357,6 +705,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9845934e_d86dfa24",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ec2bcdc_3bdbdfd7",
+      "range": {
+        "startLine": 409,
+        "startChar": 37,
+        "endLine": 409,
+        "endChar": 81
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9596bdaa_080d61d0",
@@ -370,6 +742,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "arena_stack",
+      "range": {
+        "startLine": 308,
+        "startChar": 41,
+        "endLine": 308,
+        "endChar": 47
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d87a87f_f1bd2b8b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9596bdaa_080d61d0",
       "range": {
         "startLine": 308,
         "startChar": 41,
@@ -403,6 +799,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97857cee_f45b89c3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b810397e_f16f4c73",
+      "range": {
+        "startLine": 357,
+        "startChar": 25,
+        "endLine": 357,
+        "endChar": 35
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9cf1bd1_ba834dbd",
@@ -416,6 +836,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "I\u0027d prefer a work queue. Recursion is bad for compiler threads with limited stack.",
+      "range": {
+        "startLine": 381,
+        "startChar": 8,
+        "endLine": 381,
+        "endChar": 33
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "250ca199_294cea5f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c9cf1bd1_ba834dbd",
       "range": {
         "startLine": 381,
         "startChar": 8,
@@ -449,6 +893,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "757b186f_53effba9",
+        "filename": "libartbase/base/bit_vector.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b57518_9407c006",
+      "range": {
+        "startLine": 395,
+        "startChar": 2,
+        "endLine": 395,
+        "endChar": 33
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "572524da_4e5d8484",
@@ -462,6 +930,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "Remove (unnecessary).",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49c09085_ae0925a5",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "572524da_4e5d8484",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -489,6 +981,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98799924_bf257598",
+        "filename": "libartbase/base/bit_vector_test.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14f8267c_473eb074",
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54108260_5d5b8a2d",
@@ -502,6 +1012,30 @@
       "writtenOn": "2020-10-27T16:32:37Z",
       "side": 1,
       "message": "You can test the entire matrix. The expected value is \"row \u003d\u003d column || (row \u003d\u003d 0 \u0026\u0026 column \u003c bva.NumRows())\".",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 0
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e0d1ed_0083ca3c",
+        "filename": "libartbase/base/bit_vector_test.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T18:45:57Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "54108260_5d5b8a2d",
       "range": {
         "startLine": 412,
         "startChar": 0,
