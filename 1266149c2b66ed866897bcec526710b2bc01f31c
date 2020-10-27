@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10b9c8d7_63c45d5b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-27T16:32:37Z",
+      "side": 1,
+      "message": "A \"merged unknown\" holds a Phi placeholder (in PS61, not PS38), so let the KeepStores() access that and mark it in `phi_placeholders_to_search_for_kept_stores_`. Then you can drop `kept_merged_unknowns_` and the entire SearchMergedUnknownsForKeptStores().",
+      "parentUuid": "0caa0e4f_4a013b28",
+      "range": {
+        "startLine": 2161,
+        "startChar": 4,
+        "endLine": 2163,
+        "endChar": 24
+      },
+      "revId": "1266149c2b66ed866897bcec526710b2bc01f31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c603be06_f4ace860",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 38
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "c603be06_f4ace860",
+      "range": {
+        "startLine": 1578,
+        "startChar": 40,
+        "endLine": 1578,
+        "endChar": 51
+      },
+      "revId": "1266149c2b66ed866897bcec526710b2bc01f31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66cf87bb_80bab93a",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-27T16:32:37Z",
+      "side": 1,
+      "message": "Still not done in PS61.",
+      "parentUuid": "7cc83400_b3ee39f6",
       "range": {
         "startLine": 1578,
         "startChar": 40,
