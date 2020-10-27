@@ -213,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f0b23a_e74d60d1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T19:06:00Z",
+      "side": 1,
+      "message": "Possibly there just is something I\u0027m not getting but that doesn\u0027t seem to work AFAICT.\n\nIt\u0027s failing this test here: PartialLoadPreserved\n\n// // ENTRY\n// obj \u003d new Obj();\n// if (parameter_value) {\n//   // LEFT\n//   obj.field \u003d 1;\n//   call_func(obj);\n//   // We don\u0027t know what obj.field is now we aren\u0027t able to eliminate the read below!\n// } else {\n//   // DO NOT ELIMINATE\n//   obj.field \u003d 2;\n//   // RIGHT\n// }\n// EXIT\n// return obj.field\n\nIn the future we will be able to remove the obj.field \u003d 2 by replacing the return obj.field with a predicated read but this CL doesn\u0027t do that yet so we need to preserve the write.\n\n\nIs there something I need to do in SearchPhiPlaceholdersForKeptStores?\n\nPlease advise.",
+      "parentUuid": "10b9c8d7_63c45d5b",
+      "range": {
+        "startLine": 2161,
+        "startChar": 4,
+        "endLine": 2163,
+        "endChar": 24
+      },
+      "revId": "1266149c2b66ed866897bcec526710b2bc01f31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c603be06_f4ace860",
