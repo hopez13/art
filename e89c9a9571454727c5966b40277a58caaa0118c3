@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2d9479b_9abd4171",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-27T16:37:35Z",
+      "side": 1,
+      "message": "IIUC If we do this correlating crash stack-traces with the test that caused them will become impossible or at least significantly more difficult. I\u0027m not sure if we shouldn\u0027t just fix ICU for now.\n\nLonger term it might be good to maybe try some fd shenanigans to get everything related to run-tests printing to custom FDs but that\u0027s a bigger project.",
+      "revId": "e89c9a9571454727c5966b40277a58caaa0118c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
