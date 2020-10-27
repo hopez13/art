@@ -39,6 +39,30 @@
       },
       "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a186e78_749ccf1f",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-27T09:40:37Z",
+      "side": 1,
+      "message": "I don\u0027t want to include such rename in a Revert^2 but we can do that in a follow-up.\n\nWe should probably rename the function as well. It\u0027s used only for String.concat(), so maybe DoConcat() would be a good name similar to DoReplace() above.",
+      "parentUuid": "96e5587c_83c7166f",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 63
+      },
+      "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
