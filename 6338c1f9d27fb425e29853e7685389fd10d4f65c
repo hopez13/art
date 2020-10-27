@@ -63,6 +63,30 @@
       },
       "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b27f83_35960315",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-27T12:43:13Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/1476148",
+      "parentUuid": "5a186e78_749ccf1f",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 63
+      },
+      "revId": "6338c1f9d27fb425e29853e7685389fd10d4f65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
