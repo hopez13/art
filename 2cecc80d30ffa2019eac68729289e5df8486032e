@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8209b70c_74c184f7",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 64
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-28T09:44:02Z",
+      "side": 1,
+      "message": "This is a write in the middle of iteration over indexes, preventing proper optimization with BitVector::IndexIterator. The question is whether the iteration can be properly optimized by clang if there are no writes in the loop. (I guess not. The reasoning I would use for optimizing is a bit complex.)\n\nFor example, you can rewrite this as\n\n  for (const HBasicBlock* blk : graph_-\u003eGetBlocks()) {\n    if (blk \u003d\u003d nullptr || unreachable_blocks_.IsBitSet(blk-\u003eGetBlockId())) {\n      continue;\n    }\n    uint32_t blk_id \u003d blk-\u003eGetBlockId();\n    if (std::any_of(unreachable_blocks_.Indexes().begin(),\n                    unreachable_blocks_.Indexes().end(),\n                    [this, blk](uint32_t skipped) {\n                      return graph_-\u003ePathBetween(skipped, blkid);\n                    }) \u0026\u0026\n        std::any_of(unreachable_blocks_.Indexes().begin(),\n                    unreachable_blocks_.Indexes().end(),\n                    [this, blk](uint32_t skipped) {\n                      return graph_-\u003ePathBetween(blkid, skipped);\n                    })) {\n      RemoveBlock(blk);\n    }\n  }",
+      "range": {
+        "startLine": 267,
+        "startChar": 8,
+        "endLine": 267,
+        "endChar": 55
+      },
+      "revId": "2cecc80d30ffa2019eac68729289e5df8486032e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9dd6230_f3a7ce9e",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 64
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-28T09:44:02Z",
+      "side": 1,
+      "message": "The function is \"cohort succeeds block\" while this comment says \"block succeeds cohort\".\n\nWhat about `s/succeed the cohort/be succeeded by the cohort/`?",
+      "range": {
+        "startLine": 137,
+        "startChar": 10,
+        "endLine": 138,
+        "endChar": 13
+      },
+      "revId": "2cecc80d30ffa2019eac68729289e5df8486032e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

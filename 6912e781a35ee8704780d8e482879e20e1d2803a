@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05bbc99f_029a24a4",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-28T09:44:02Z",
+      "side": 1,
+      "message": "linux-perf on what architecture?\n\nYou should definitely use arm/arm64 for this. x86/x86-64 does not have a CLZ instruction, so I\u0027d expect that to be slow.\n\nAnd maybe re-check with PS64 where we\u0027re doing fewer iterations over these indexes.",
+      "parentUuid": "61e3c3dd_ac8a318a",
+      "range": {
+        "startLine": 248,
+        "startChar": 33,
+        "endLine": 248,
+        "endChar": 66
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27d3bcf0_f6fc81b9",
         "filename": "compiler/optimizing/execution_subgraph.cc",
         "patchSetId": 61
@@ -672,6 +696,30 @@
       "side": 1,
       "message": "yes. The idea is to have a graph on the edge of the analysis.",
       "parentUuid": "cdc37996_ca1f71d1",
+      "range": {
+        "startLine": 753,
+        "startChar": 44,
+        "endLine": 753,
+        "endChar": 68
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c61391_f8a6cbe7",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-28T09:44:02Z",
+      "side": 1,
+      "message": "The thing is that the previous test has `kMaxFilterableSuccessors` successors and this one has `kMaxFilterableSuccessors-2` successors. Why not `kMaxFilterableSuccessors-1`?",
+      "parentUuid": "391d2e8c_b93424a8",
       "range": {
         "startLine": 753,
         "startChar": 44,
