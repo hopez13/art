@@ -14,7 +14,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-933-misc-events-expected",
-    out: ["art-run-test-933-misc-events-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-933-misc-events-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }

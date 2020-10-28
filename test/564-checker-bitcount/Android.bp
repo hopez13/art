@@ -17,7 +17,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-564-checker-bitcount-expected",
-    out: ["art-run-test-564-checker-bitcount-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-564-checker-bitcount-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }

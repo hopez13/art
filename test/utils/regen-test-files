@@ -379,8 +379,8 @@ $include_src}
 // Test's expected output.
 genrule {
     name: "$run_test_name-expected",
-    out: ["$run_test_name-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["$run_test_name-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f \$(in) \$(out)",
 }
 EOF

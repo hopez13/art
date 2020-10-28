@@ -14,7 +14,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-689-multi-catch-expected",
-    out: ["art-run-test-689-multi-catch-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-689-multi-catch-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }

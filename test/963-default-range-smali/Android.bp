@@ -14,7 +14,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-963-default-range-smali-expected",
-    out: ["art-run-test-963-default-range-smali-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-963-default-range-smali-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }

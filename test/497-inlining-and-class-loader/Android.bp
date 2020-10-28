@@ -14,7 +14,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-497-inlining-and-class-loader-expected",
-    out: ["art-run-test-497-inlining-and-class-loader-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-497-inlining-and-class-loader-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }

@@ -17,7 +17,7 @@ java_test {
 // Test's expected output.
 genrule {
     name: "art-run-test-665-checker-simd-zero-expected",
-    out: ["art-run-test-665-checker-simd-zero-expected.txt"],
-    srcs: ["expected.txt"],
+    out: ["art-run-test-665-checker-simd-zero-expected-stdout.txt"],
+    srcs: ["expected-stdout.txt"],
     cmd: "cp -f $(in) $(out)",
 }
