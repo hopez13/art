@@ -695,7 +695,7 @@ if [ "$USE_JVM" = "y" ]; then
   if [ "$CREATE_RUNNER" = "y" ]; then
     echo "#!/bin/bash" > runit.sh
     echo "export LD_LIBRARY_PATH=\"$LD_LIBRARY_PATH\""
-    echo $cmdline "2>&1" >> runit.sh
+    echo $cmdline >> runit.sh
     chmod u+x runit.sh
     echo "Runnable test script written to $PWD/runit.sh"
   else
@@ -1365,12 +1365,18 @@ else
         echo export $var="${!var}" >> ${DEX_LOCATION}/runit.sh
       done
       if [ "$DEV_MODE" = "y" ]; then
-        echo $cmdline "2>&1" >> ${DEX_LOCATION}/runit.sh
+        echo $cmdline >> ${DEX_LOCATION}/runit.sh
       else
+        # FIXME: Use a here-doc to clean this up.
         echo 'STDERR=$(mktemp)' >> ${DEX_LOCATION}/runit.sh
         echo 'STDOUT=$(mktemp)' >> ${DEX_LOCATION}/runit.sh
-        echo $cmdline '2>${STDERR} >${STDOUT}' >> ${DEX_LOCATION}/runit.sh
+        echo $cmdline '>${STDOUT} 2>${STDERR}' >> ${DEX_LOCATION}/runit.sh
+        # FIXME: Don't hardcode the name/path to the expected standard output.
         echo 'if diff ${STDOUT} $ANDROID_DATA/expected-stdout.txt; then' >> ${DEX_LOCATION}/runit.sh
+        echo '  rm -f ${STDOUT} ${STDERR}' >> ${DEX_LOCATION}/runit.sh
+        echo '  exit 0' >> ${DEX_LOCATION}/runit.sh
+        # FIXME: Don't hardcode the name/path to the expected standard error.
+        echo 'elif diff ${STDERR} $ANDROID_DATA/expected-stderr.txt; then' >> ${DEX_LOCATION}/runit.sh
         echo '  rm -f ${STDOUT} ${STDERR}' >> ${DEX_LOCATION}/runit.sh
         echo '  exit 0' >> ${DEX_LOCATION}/runit.sh
         echo 'else' >> ${DEX_LOCATION}/runit.sh
@@ -1403,16 +1409,16 @@ else
           # This temporary host only path is for ICU lazy initialization output (b/171770326).
           # We are attempting to remove the ICU log entries that now happens lazily and go to
           # stderr on host.
-          $cmdline "$@" 2>&1 | sed -e '/^No timezone override.*icu_tzdata.dat$/d' \
-                                   -e '/^Time zone APEX ICU file found:.*icu_tzdata.dat$/d' \
-                                   -e '/^I18n APEX ICU file found: .*icudt6[6-7]l.dat$/d' \
-                                   -e 's/No timezone override.*icudt6[6-7]l.dat//'
-          exit_value=${PIPESTATUS[0]}
+          $cmdline "$@" 2> >(sed -e '/^No timezone override.*icu_tzdata.dat$/d' \
+                                 -e '/^Time zone APEX ICU file found:.*icu_tzdata.dat$/d' \
+                                 -e '/^I18n APEX ICU file found: .*icudt6[6-7]l.dat$/d' \
+                                 -e 's/No timezone override.*icudt6[6-7]l.dat//' >&2) &
         else
-          $cmdline "$@" 2>&1 & pid=$!
-          wait $pid
-          exit_value=$?
+          $cmdline "$@" &
         fi
+        pid=$!
+        wait $pid
+        exit_value=$?
         # Add extra detail if time out is enabled.
         if [ $exit_value = 124 ] && [ "$TIME_OUT" = "timeout" ]; then
           echo -e "\e[91mTEST TIMED OUT!\e[0m" >&2
@@ -1421,7 +1427,7 @@ else
       else
         # With a thread dump that uses gdb if a timeout.
         trap 'kill -INT -$pid' INT
-        $cmdline "$@" 2>&1 & pid=$!
+        $cmdline "$@" & pid=$!
         # Spawn a watcher process.
         ( sleep $TIME_OUT_VALUE && \
           echo "##### Thread dump using gdb on test timeout" && \
