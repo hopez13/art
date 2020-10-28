@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8cc943c_c66ffa67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-28T15:50:36Z",
+      "side": 1,
+      "message": "This is just to test the corresponding fix in icu which adds ANDROID_LOG_TAGS checking to the new host logging code.\n\nThe tests here were run without the recent changes to art/run-test so break if the log level is too low.",
+      "revId": "6a5eb7fecb83536fa1d657f78ad98a3865d1785d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
