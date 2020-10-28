@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04a444d1_2ac2dd70",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 64
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-28T20:13:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8209b70c_74c184f7",
+      "range": {
+        "startLine": 267,
+        "startChar": 8,
+        "endLine": 267,
+        "endChar": 55
+      },
+      "revId": "2cecc80d30ffa2019eac68729289e5df8486032e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9dd6230_f3a7ce9e",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-28T09:44:02Z",
       "side": 1,
       "message": "The function is \"cohort succeeds block\" while this comment says \"block succeeds cohort\".\n\nWhat about `s/succeed the cohort/be succeeded by the cohort/`?",
+      "range": {
+        "startLine": 137,
+        "startChar": 10,
+        "endLine": 138,
+        "endChar": 13
+      },
+      "revId": "2cecc80d30ffa2019eac68729289e5df8486032e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267df238_516a0852",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 64
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-28T20:13:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9dd6230_f3a7ce9e",
       "range": {
         "startLine": 137,
         "startChar": 10,

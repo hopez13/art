@@ -178,6 +178,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b2b23bd_14a15d7c",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-28T20:13:38Z",
+      "side": 1,
+      "message": "Looks like it makes no difference on either with the reduced use of indexes so removed.",
+      "parentUuid": "4274a3a1_84e5028a",
+      "range": {
+        "startLine": 248,
+        "startChar": 33,
+        "endLine": 248,
+        "endChar": 66
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27d3bcf0_f6fc81b9",
@@ -744,6 +768,30 @@
       "side": 1,
       "message": "The thing is that the previous test has `kMaxFilterableSuccessors` successors and this one has `kMaxFilterableSuccessors-2` successors. Why not `kMaxFilterableSuccessors-1`?",
       "parentUuid": "391d2e8c_b93424a8",
+      "range": {
+        "startLine": 753,
+        "startChar": 44,
+        "endLine": 753,
+        "endChar": 68
+      },
+      "revId": "6912e781a35ee8704780d8e482879e20e1d2803a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c4740e_cb01765b",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 61
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-28T20:13:38Z",
+      "side": 1,
+      "message": "No real reason. Changed.",
+      "parentUuid": "d5c61391_f8a6cbe7",
       "range": {
         "startLine": 753,
         "startChar": 44,
