@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "832c9edb_a0354303",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-10-28T11:35:47Z",
+      "side": 1,
+      "message": "Actually, I think you can replace this with `master` – I\u0027ve observed that locally on a full AOSP tree.",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "5e0074d29e6e0669819cffa6ee10690379820220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6d057082_a29267b3",
