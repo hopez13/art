@@ -181,6 +181,9 @@ while true; do
         DEX_LOCATION=$tmp_dir
         run_args+=(--host)
         shift
+    elif [ "x$1" = "x--external-log-tags" ]; then
+        run_args+=(--external-log-tags)
+        shift
     elif [ "x$1" = "x--quiet" ]; then
         quiet="yes"
         shift
