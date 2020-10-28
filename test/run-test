@@ -352,6 +352,9 @@ while true; do
     elif [ "x$1" = "x--no-precise" ]; then
         run_args+=(--no-precise)
         shift
+    elif [ "x$1" = "x--external-log-tags" ]; then
+        run_args+=(--external-log-tags)
+        shift
     elif [ "x$1" = "x--invoke-with" ]; then
         shift
         what="$1"
