@@ -41,6 +41,10 @@
 #include "thread_list.h"
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
+// MIUI ADD:
+#include "javavmsupervision_callbacks.h"
+// MIUI ADD:
+using namespace android::os::statistics;
 
 namespace art {
 
@@ -209,6 +213,22 @@ void Monitor::SetLockingMethodNoProxy(Thread *owner) {
   DCHECK(lock_owner_method == nullptr || !lock_owner_method->IsProxyMethod());
   SetLockOwnerInfo(lock_owner_method, lock_owner_dex_pc, owner);
 }
+
+// MIUI ADD: START
+inline bool IsPerfSupervisionOn() {
+  return Runtime::Current()->GetJavaVMSupervisionCallBacks() != nullptr &&
+    Runtime::Current()->GetJavaVMSupervisionCallBacks()->isPerfSupervisionOn();
+}
+
+inline int64_t GetCoarseUptimeMillis() {
+  JavaVMSupervisionCallBacks *pJavaVMSupervisionCallBacks = Runtime::Current()->GetJavaVMSupervisionCallBacks();
+  if (pJavaVMSupervisionCallBacks != nullptr && pJavaVMSupervisionCallBacks->isPerfSupervisionOn()) {
+    return pJavaVMSupervisionCallBacks->getUptimeMillisFast();
+  } else {
+    return (int64_t) MilliTime();
+  }
+}
+// END
 
 bool Monitor::Install(Thread* self) NO_THREAD_SAFETY_ANALYSIS {
   // This may or may not result in acquiring monitor_lock_. Its behavior is much more complicated

@@ -46,6 +46,8 @@
 #include "quick/quick_method_frame_info.h"
 #include "reflective_value_visitor.h"
 #include "runtime_stats.h"
+// MIUI ADD:
+#include "javavmsupervision_callbacks.h"
 
 namespace art {
 
@@ -979,6 +981,12 @@ class Runtime {
   // Return true if we should load oat files as executable or not.
   bool GetOatFilesExecutable() const;
 
+  // MIUI ADD : START
+  struct android::os::statistics::JavaVMSupervisionCallBacks* GetJavaVMSupervisionCallBacks() {
+    return javavmsupervision_callbacks_;
+  }
+  // END
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -1140,6 +1148,10 @@ class Runtime {
   jint (*vfprintf_)(FILE* stream, const char* format, va_list ap);
   void (*exit_)(jint status);
   void (*abort_)();
+  // MIUI ADD: START
+  struct android::os::statistics::JavaVMSupervisionCallBacks* javavmsupervision_callbacks_;
+  struct android::os::statistics::JavaVMInterface javavmsupervision_vminterface_;
+  // END
 
   bool stats_enabled_;
   RuntimeStats stats_;
