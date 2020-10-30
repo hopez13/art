@@ -16,6 +16,24 @@
       "message": "Presumably this information is present in one of the other output formats so we do not lose any test coverage by removing this.",
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9346c97_64283df6",
+        "filename": "test/dexdump/invoke-custom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-10-30T17:46:49Z",
+      "side": 0,
+      "message": "Yes. I added the output we are tweaking here because it was never clear what the xml output was for until today (it didn\u0027t pique any curiosity tbh).",
+      "parentUuid": "baf078ae_53daaa2a",
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
