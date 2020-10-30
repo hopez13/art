@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae68fbda_2ba66ee3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-10-30T17:51:43Z",
+      "side": 1,
+      "message": "I guess that\u0027s because of the changes you made to the SearchPhiPlaceholdersForKeptStores().\n\nBut this makes me worried about correctness. What if we replace `write_right` in the RIGHT block with a diamond pattern with two different stores? The KeepStores() from SearchMergedUnknownsForKeptStores() shall just add the merging Phi placeholder to `phi_placeholders_to_search_for_kept_stores_` and when we see those stores in SearchPhiPlaceholdersForKeptStores(), they shall satisfy the IsPartialNoEscape() condition and therefore they shall be erroneously removed.",
+      "parentUuid": "d0f0b23a_e74d60d1",
+      "range": {
+        "startLine": 2161,
+        "startChar": 4,
+        "endLine": 2163,
+        "endChar": 24
+      },
+      "revId": "1266149c2b66ed866897bcec526710b2bc01f31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c603be06_f4ace860",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 38
