@@ -139,11 +139,9 @@ class ImageWriter final {
     return GetImageInfo(oat_index).oat_file_begin_;
   }
 
-  // If image_fd is not kInvalidFd, then we use that for the image file. Otherwise we open
+  // If image_fds are not empty, then we use those for the image files. Otherwise we open
   // the names in image_filenames.
-  // If oat_fd is not kInvalidFd, then we use that for the oat file. Otherwise we open
-  // the names in oat_filenames.
-  bool Write(int image_fd,
+  bool Write(std::vector<int> image_fds,
              const std::vector<std::string>& image_filenames,
              size_t component_count)
       REQUIRES(!Locks::mutator_lock_);
