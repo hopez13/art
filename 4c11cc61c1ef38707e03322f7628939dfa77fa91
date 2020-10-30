@@ -52,6 +52,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21b20975_3ef8a51a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-10-30T00:53:53Z",
+      "side": 1,
+      "message": "Trying TH again since the hwasan build errors should be fixed with https://r.android.com/1479299.",
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7f3c1f4_46f0ba82",
