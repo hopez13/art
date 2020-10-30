@@ -400,14 +400,14 @@ class ImageWriter::ImageFileGuard {
   std::unique_ptr<File> image_file_;
 };
 
-bool ImageWriter::Write(int image_fd,
+bool ImageWriter::Write(std::vector<int> image_fds,
                         const std::vector<std::string>& image_filenames,
                         size_t component_count) {
   // If image_fd or oat_fd are not kInvalidFd then we may have empty strings in image_filenames or
   // oat_filenames.
   CHECK(!image_filenames.empty());
-  if (image_fd != kInvalidFd) {
-    CHECK_EQ(image_filenames.size(), 1u);
+  if (!image_fds.empty()) {
+    CHECK_EQ(image_filenames.size(), image_fds.size());
   }
   DCHECK(!oat_filenames_.empty());
   CHECK_EQ(image_filenames.size(), oat_filenames_.size());
@@ -444,9 +444,9 @@ bool ImageWriter::Write(int image_fd,
     const std::string& image_filename = image_filenames[i];
     ImageInfo& image_info = GetImageInfo(i);
     ImageFileGuard image_file;
-    if (image_fd != kInvalidFd) {
+    if (image_fds.size() != 0) {
       // Ignore image_filename, it is supplied only for better diagnostic.
-      image_file.reset(new File(image_fd, unix_file::kCheckSafeUsage));
+      image_file.reset(new File(image_fds[i], unix_file::kCheckSafeUsage));
       // Empty the file in case it already exists.
       if (image_file != nullptr) {
         TEMP_FAILURE_RETRY(image_file->SetLength(0));
@@ -462,7 +462,8 @@ bool ImageWriter::Write(int image_fd,
     }
 
     // Make file world readable if we have created it, i.e. when not passed as file descriptor.
-    if (image_fd == -1 && !compiler_options_.IsAppImage() && fchmod(image_file->Fd(), 0644) != 0) {
+    if (image_fds.size() == 0 && !compiler_options_.IsAppImage() &&
+        fchmod(image_file->Fd(), 0644) != 0) {
       PLOG(ERROR) << "Failed to make image file world readable: " << image_filename;
       return false;
     }
@@ -495,7 +496,7 @@ bool ImageWriter::Write(int image_fd,
                              sizeof(ImageHeader));
     // Copy and compress blocks.
     size_t out_offset = sizeof(ImageHeader);
-    for (const std::pair<uint32_t, uint32_t> block : block_sources) {
+    for (const std::pair<uint32_t, uint32_t>& block : block_sources) {
       ArrayRef<const uint8_t> raw_image_data(image_info.image_.Begin() + block.first,
                                              block.second);
       std::vector<uint8_t> compressed_data;

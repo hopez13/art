@@ -511,13 +511,10 @@ class Dex2Oat final {
       start_ns_(NanoTime()),
       start_cputime_ns_(ProcessCpuNanoTime()),
       strip_(false),
-      oat_fd_(-1),
       input_vdex_fd_(-1),
-      output_vdex_fd_(-1),
       input_vdex_file_(nullptr),
       dm_fd_(-1),
       zip_fd_(-1),
-      image_fd_(-1),
       have_multi_image_arg_(false),
       multi_image_(false),
       image_base_(0U),
@@ -633,7 +630,7 @@ class Dex2Oat final {
     }
 
     DCHECK(compiler_options_->image_type_ == CompilerOptions::ImageType::kNone);
-    if (!image_filenames_.empty() || image_fd_ != -1) {
+    if (!image_filenames_.empty() || !image_fds_.empty()) {
       // If no boot image is provided, then dex2oat is compiling the primary boot image,
       // otherwise it is compiling the boot image extension.
       compiler_options_->image_type_ = boot_image_filename_.empty()
@@ -647,11 +644,11 @@ class Dex2Oat final {
       compiler_options_->image_type_ = CompilerOptions::ImageType::kAppImage;
     }
 
-    if (!image_filenames_.empty() && image_fd_ != -1) {
+    if (!image_filenames_.empty() && !image_fds_.empty()) {
       Usage("Can't have both --image and --image-fd");
     }
 
-    if (oat_filenames_.empty() && oat_fd_ == -1) {
+    if (oat_filenames_.empty() && oat_fds_.empty()) {
       Usage("Output must be supplied with either --oat-file or --oat-fd");
     }
 
@@ -659,24 +656,24 @@ class Dex2Oat final {
       Usage("Can't have both --input-vdex-fd and --input-vdex");
     }
 
-    if (output_vdex_fd_ != -1 && !output_vdex_.empty()) {
+    if (!output_vdex_fds_.empty() && !output_vdex_.empty()) {
       Usage("Can't have both --output-vdex-fd and --output-vdex");
     }
 
-    if (!oat_filenames_.empty() && oat_fd_ != -1) {
+    if (!oat_filenames_.empty() && !oat_fds_.empty()) {
       Usage("--oat-file should not be used with --oat-fd");
     }
 
-    if ((output_vdex_fd_ == -1) != (oat_fd_ == -1)) {
+    if ((output_vdex_fds_.size() != oat_fds_.size())) {
       Usage("VDEX and OAT output must be specified either with one --oat-file "
             "or with --oat-fd and --output-vdex-fd file descriptors");
     }
 
-    if ((image_fd_ != -1) && (oat_fd_ == -1)) {
+    if (image_fds_.size() != 0 && oat_fds_.size() == 0) {
       Usage("--image-fd must be used with --oat_fd and --output_vdex_fd");
     }
 
-    if (!parser_options->oat_symbols.empty() && oat_fd_ != -1) {
+    if (!parser_options->oat_symbols.empty() && !oat_fds_.empty()) {
       Usage("--oat-symbols should not be used with --oat-fd");
     }
 
@@ -684,11 +681,11 @@ class Dex2Oat final {
       Usage("--oat-symbols should not be used with --host");
     }
 
-    if (output_vdex_fd_ != -1 && !image_filenames_.empty()) {
+    if (!output_vdex_fds_.empty() && !image_filenames_.empty()) {
       Usage("--output-vdex-fd should not be used with --image");
     }
 
-    if (oat_fd_ != -1 && !image_filenames_.empty()) {
+    if (!oat_fds_.empty() && !image_filenames_.empty()) {
       Usage("--oat-fd should not be used with --image");
     }
 
@@ -764,7 +761,7 @@ class Dex2Oat final {
       Usage("--multi-image specified for app image");
     }
 
-    if (image_fd_ != -1 && multi_image_) {
+    if (image_fds_.size() != 0u && multi_image_ && !IsBootImageExtension()) {
       Usage("--single-image not specified for --image-fd");
     }
 
@@ -887,7 +884,7 @@ class Dex2Oat final {
     if (!multi_image_) {
       locations = locations.SubArray(/*pos=*/ 0u, /*length=*/ 1u);
     }
-    if (image_fd_ == -1) {
+    if (image_fds_.empty()) {
       if (image_filenames_[0].rfind('/') == std::string::npos) {
         Usage("Unusable boot image filename %s", image_filenames_[0].c_str());
       }
@@ -899,12 +896,31 @@ class Dex2Oat final {
       }
       oat_filenames_ = ImageSpace::ExpandMultiImageLocations(
           locations, oat_filenames_[0], IsBootImageExtension());
+    } else if (multi_image_) {
+      DCHECK(IsBootImageExtension());  // TBD: too restrictive (?)
+      if (image_fds_.size() != image_locations_.size()) {
+        Usage("Expected number of image_locations and image_fds to be the same.");
+      }
+      if (oat_locations_.size() != image_locations_.size()) {
+        Usage("Expected number of image_locations and oat_locations to be the same.");
+      }
+      if (oat_fds_.size() != oat_locations_.size()) {
+        Usage("Expected number of oat_fds and oat_locations to be the same.");
+      }
+      if (output_vdex_locations_.size() != image_locations_.size()) {
+        Usage("Expected number of image_locations and output_vdex_locations to be the same.");
+      }
+      if (output_vdex_fds_.size() != output_vdex_locations_.size()) {
+        Usage("Expected number of output_vdex_fds and output_vdex_locations to be the same.");
+      }
     } else {
       DCHECK(!multi_image_);
-      std::vector<std::string> oat_locations = ImageSpace::ExpandMultiImageLocations(
-          locations, oat_location_, IsBootImageExtension());
-      DCHECK_EQ(1u, oat_locations.size());
-      oat_location_ = oat_locations[0];
+      if (oat_locations_.size() == 1) {
+        std::vector<std::string> oat_locations = ImageSpace::ExpandMultiImageLocations(
+            locations, oat_locations_[0], IsBootImageExtension());
+        DCHECK_EQ(1u, oat_locations.size());
+        oat_locations_[0] = oat_locations[0];
+      }
     }
 
     if (!oat_unstripped_.empty()) {
@@ -1028,17 +1044,19 @@ class Dex2Oat final {
     AssignIfExists(args, M::OatSymbols, &parser_options->oat_symbols);
     AssignTrueIfExists(args, M::Strip, &strip_);
     AssignIfExists(args, M::ImageFilename, &image_filenames_);
-    AssignIfExists(args, M::ImageFd, &image_fd_);
+    AssignIfExists(args, M::ImageFds, &image_fds_);
+    AssignIfExists(args, M::ImageLocations, &image_locations_);
     AssignIfExists(args, M::ZipFd, &zip_fd_);
     AssignIfExists(args, M::ZipLocation, &zip_location_);
     AssignIfExists(args, M::InputVdexFd, &input_vdex_fd_);
-    AssignIfExists(args, M::OutputVdexFd, &output_vdex_fd_);
+    AssignIfExists(args, M::OutputVdexFds, &output_vdex_fds_);
+    AssignIfExists(args, M::OutputVdexLocations, &output_vdex_locations_);
     AssignIfExists(args, M::InputVdex, &input_vdex_);
     AssignIfExists(args, M::OutputVdex, &output_vdex_);
     AssignIfExists(args, M::DmFd, &dm_fd_);
     AssignIfExists(args, M::DmFile, &dm_file_location_);
-    AssignIfExists(args, M::OatFd, &oat_fd_);
-    AssignIfExists(args, M::OatLocation, &oat_location_);
+    AssignIfExists(args, M::OatFds, &oat_fds_);
+    AssignIfExists(args, M::OatLocations, &oat_locations_);
     AssignIfExists(args, M::Watchdog, &parser_options->watch_dog_enabled);
     AssignIfExists(args, M::WatchdogTimeout, &parser_options->watch_dog_timeout_in_ms);
     AssignIfExists(args, M::Threads, &thread_count_);
@@ -1175,7 +1193,7 @@ class Dex2Oat final {
     }
 
     // OAT and VDEX file handling
-    if (oat_fd_ == -1) {
+    if (oat_fds_.empty()) {
       DCHECK(!oat_filenames_.empty());
       for (const std::string& oat_filename : oat_filenames_) {
         std::unique_ptr<File> oat_file(OS::CreateEmptyFile(oat_filename.c_str()));
@@ -1199,7 +1217,7 @@ class Dex2Oat final {
                                             &error_msg);
         }
 
-        DCHECK_EQ(output_vdex_fd_, -1);
+        DCHECK(output_vdex_fds_.empty());
         std::string vdex_filename = output_vdex_.empty()
             ? ReplaceFileExtension(oat_filename, "vdex")
             : output_vdex_;
@@ -1222,18 +1240,21 @@ class Dex2Oat final {
         }
       }
     } else {
-      std::unique_ptr<File> oat_file(
-          new File(DupCloexec(oat_fd_), oat_location_, /* check_usage */ true));
-      if (!oat_file->IsOpened()) {
-        PLOG(ERROR) << "Failed to create oat file: " << oat_location_;
-        return false;
+      for (size_t i = 0; i < oat_fds_.size(); ++i) {
+        std::unique_ptr<File> oat_file(
+            new File(DupCloexec(oat_fds_[i]), oat_locations_[i], /* check_usage */ true));
+        if (!oat_file->IsOpened()) {
+          PLOG(ERROR) << "Failed to dup() oat fd " << oat_fds_[i]
+                      << " location " << oat_locations_[i];
+          return false;
+        }
+        if (oat_file->SetLength(0) != 0) {
+          PLOG(WARNING) << "Truncating oat file " << oat_locations_[i] << " failed.";
+          oat_file->Erase();
+          return false;
+        }
+        oat_files_.push_back(std::move(oat_file));
       }
-      if (oat_file->SetLength(0) != 0) {
-        PLOG(WARNING) << "Truncating oat file " << oat_location_ << " failed.";
-        oat_file->Erase();
-        return false;
-      }
-      oat_files_.push_back(std::move(oat_file));
 
       if (input_vdex_fd_ != -1) {
         struct stat s;
@@ -1257,26 +1278,28 @@ class Dex2Oat final {
         }
       }
 
-      DCHECK_NE(output_vdex_fd_, -1);
-      std::string vdex_location = ReplaceFileExtension(oat_location_, "vdex");
-      std::unique_ptr<File> vdex_file(new File(
-          DupCloexec(output_vdex_fd_), vdex_location, /* check_usage */ true));
-      if (!vdex_file->IsOpened()) {
-        PLOG(ERROR) << "Failed to create vdex file: " << vdex_location;
-        return false;
-      }
-      if (input_vdex_file_ != nullptr && output_vdex_fd_ == input_vdex_fd_) {
-        update_input_vdex_ = true;
-      } else {
-        if (vdex_file->SetLength(0) != 0) {
-          PLOG(ERROR) << "Truncating vdex file " << vdex_location << " failed.";
-          vdex_file->Erase();
+      DCHECK_GT(output_vdex_fds_.size(), 0u);
+      for (size_t i = 0; i < output_vdex_fds_.size(); ++i) {
+        std::string vdex_location = ReplaceFileExtension(oat_locations_[i], "vdex");
+        std::unique_ptr<File> vdex_file(new File(
+          DupCloexec(output_vdex_fds_[i]), vdex_location, /* check_usage */ true));
+        if (!vdex_file->IsOpened()) {
+          PLOG(ERROR) << "Failed to create vdex file: " << vdex_location;
           return false;
         }
+        if (input_vdex_file_ != nullptr && output_vdex_fds_[i] == input_vdex_fd_) {
+          update_input_vdex_ = true;
+        } else {
+          if (vdex_file->SetLength(0) != 0) {
+            PLOG(ERROR) << "Truncating vdex file " << vdex_location << " failed.";
+            vdex_file->Erase();
+            return false;
+          }
+        }
+        vdex_files_.push_back(std::move(vdex_file));
       }
-      vdex_files_.push_back(std::move(vdex_file));
 
-      oat_filenames_.push_back(oat_location_);
+      oat_filenames_.push_back(oat_locations_[0]);
     }
 
     // If we're updating in place a vdex file, be defensive and put an invalid vdex magic in case
@@ -1284,18 +1307,23 @@ class Dex2Oat final {
     // Note: we're only invalidating the magic data in the file, as dex2oat needs the rest of
     // the information to remain valid.
     if (update_input_vdex_) {
-      File* vdex_file = vdex_files_.back().get();
-      if (!vdex_file->PwriteFully(&VdexFile::VerifierDepsHeader::kVdexInvalidMagic,
-                                  arraysize(VdexFile::VerifierDepsHeader::kVdexInvalidMagic),
-                                  /*offset=*/ 0u)) {
-        PLOG(ERROR) << "Failed to invalidate vdex header. File: " << vdex_file->GetPath();
-        return false;
-      }
+      for (const auto& vdex_file : vdex_files_) {
+        if (vdex_file->Fd() != input_vdex_fd_) {
+          continue;
+        }
 
-      if (vdex_file->Flush() != 0) {
-        PLOG(ERROR) << "Failed to flush stream after invalidating header of vdex file."
-                    << " File: " << vdex_file->GetPath();
-        return false;
+        if (!vdex_file->PwriteFully(&VdexFile::VerifierDepsHeader::kVdexInvalidMagic,
+                                    arraysize(VdexFile::VerifierDepsHeader::kVdexInvalidMagic),
+                                    /*offset=*/ 0u)) {
+          PLOG(ERROR) << "Failed to invalidate vdex header. File: " << vdex_file->GetPath();
+          return false;
+        }
+
+        if (vdex_file->Flush() != 0) {
+          PLOG(ERROR) << "Failed to flush stream after invalidating header of vdex file."
+                      << " File: " << vdex_file->GetPath();
+          return false;
+        }
       }
     }
 
@@ -1705,9 +1733,9 @@ class Dex2Oat final {
     PaletteHooks* hooks = nullptr;
     if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
       hooks->NotifyStartDex2oatCompilation(zip_fd_,
-                                           IsAppImage() ? app_image_fd_ : image_fd_,
-                                           oat_fd_,
-                                           output_vdex_fd_);
+                                           IsAppImage() ? app_image_fd_ : image_fds_[0],
+                                           oat_fds_[0],
+                                           output_vdex_fds_[0]);
     }
 
     return dex2oat::ReturnCode::kNoFailure;
@@ -1715,7 +1743,7 @@ class Dex2Oat final {
 
   // If we need to keep the oat file open for the image writer.
   bool ShouldKeepOatFileOpen() const {
-    return IsImage() && oat_fd_ != kInvalidFd;
+    return IsImage() && oat_fds_[0] != kInvalidFd;
   }
 
   // Doesn't return the class loader since it's not meant to be used for image compilation.
@@ -1997,10 +2025,11 @@ class Dex2Oat final {
       }
       VLOG(compiler) << "Image base=" << reinterpret_cast<void*>(image_base_);
 
+      const auto& oat_paths = oat_fds_.empty() ? oat_filenames_ : oat_locations_;
       image_writer_.reset(new linker::ImageWriter(*compiler_options_,
                                                   image_base_,
                                                   image_storage_mode_,
-                                                  oat_filenames_,
+                                                  oat_paths,
                                                   dex_file_oat_index_map_,
                                                   class_loader,
                                                   dirty_image_objects_.get()));
@@ -2110,7 +2139,6 @@ class Dex2Oat final {
         if (IsImage()) {
           // Update oat header information.
           DCHECK(image_writer_ != nullptr);
-          DCHECK_LT(i, oat_filenames_.size());
           image_writer_->UpdateOatFileHeader(i, oat_writer->GetOatHeader());
         }
 
@@ -2122,11 +2150,11 @@ class Dex2Oat final {
           return false;
         }
 
-        if (!FlushOutputFile(&vdex_files_[i]) || !FlushOutputFile(&oat_files_[i])) {
+        if (!FlushOutputFile(&vdex_files_[i]) || !FlushOutputFile(&oat_file)) {
           return false;
         }
 
-        VLOG(compiler) << "Oat file written successfully: " << oat_filenames_[i];
+        VLOG(compiler) << "Oat file written successfully: " << oat_file->GetPath();
 
         oat_writer.reset();
         // We may still need the ELF writer later for stripping.
@@ -2138,9 +2166,9 @@ class Dex2Oat final {
     PaletteHooks* hooks = nullptr;
     if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
       hooks->NotifyEndDex2oatCompilation(zip_fd_,
-                                         IsAppImage() ? app_image_fd_ : image_fd_,
-                                         oat_fd_,
-                                         output_vdex_fd_);
+                                         IsAppImage() ? app_image_fd_ : image_fds_[0],
+                                         oat_fds_[0],
+                                         output_vdex_fds_[0]);
     }
 
     return true;
@@ -2601,14 +2629,25 @@ class Dex2Oat final {
       } else {
         image_filenames_.push_back(app_image_file_name_);
       }
-    }
-    if (image_fd_ != -1) {
+    } else if (image_fds_.size() != 0u) {
       DCHECK(image_filenames_.empty());
-      image_filenames_.push_back(StringPrintf("FileDescriptor[%d]", image_fd_));
+      for (int image_fd : image_fds_) {
+        image_filenames_.push_back(StringPrintf("FileDescriptor[%d]", image_fd));
+      }
     }
-    if (!image_writer_->Write(IsAppImage() ? app_image_fd_ : image_fd_,
-                              image_filenames_,
-                              IsAppImage() ? 1u : dex_locations_.size())) {
+
+    std::vector<int> image_fds;
+    size_t component_count;
+    if (IsAppImage()) {
+      if (app_image_fd_ != kInvalidFd) {
+        image_fds.push_back(app_image_fd_);
+      }
+      component_count = 1u;
+    } else {
+      image_fds = image_fds_;
+      component_count = dex_locations_.size();
+    }
+    if (!image_writer_->Write(image_fds, image_filenames_, component_count)) {
       LOG(ERROR) << "Failure during image file creation";
       return false;
     }
@@ -2751,13 +2790,14 @@ class Dex2Oat final {
   std::unique_ptr<WatchDog> watchdog_;
   std::vector<std::unique_ptr<File>> oat_files_;
   std::vector<std::unique_ptr<File>> vdex_files_;
-  std::string oat_location_;
+  std::vector<int> oat_fds_;
+  std::vector<std::string> oat_locations_;
   std::vector<std::string> oat_filenames_;
   std::vector<std::string> oat_unstripped_;
   bool strip_;
-  int oat_fd_;
   int input_vdex_fd_;
-  int output_vdex_fd_;
+  std::vector<int> output_vdex_fds_;
+  std::vector<std::string> output_vdex_locations_;
   std::string input_vdex_;
   std::string output_vdex_;
   std::unique_ptr<VdexFile> input_vdex_file_;
@@ -2771,7 +2811,8 @@ class Dex2Oat final {
   std::string boot_image_filename_;
   std::vector<const char*> runtime_args_;
   std::vector<std::string> image_filenames_;
-  int image_fd_;
+  std::vector<int> image_fds_;
+  std::vector<std::string> image_locations_;
   bool have_multi_image_arg_;
   bool multi_image_;
   uintptr_t image_base_;
