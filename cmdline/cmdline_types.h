@@ -457,8 +457,18 @@ struct CmdlineType<std::vector<int32_t>> : CmdlineTypeParser<std::vector<int32_t
     return Result::Success(std::move(list));
   }
 
+  Result ParseAndAppend(const std::string& str,
+                        std::vector<int32_t>& existing_value) {
+    CmdlineParseResult<int> int_result = ParseNumeric<int>(str);
+    if (int_result.IsSuccess()) {
+      existing_value.emplace_back(int_result.GetValue());
+      return Result::SuccessNoValue();
+    }
+    return Result::CastError(int_result);
+  }
+
   static const char* Name() { return "std::vector<int32_t>"; }
-  static const char* DescribeType() { return "unsigned integer value"; }
+  static const char* DescribeType() { return "integer value"; }
 };
 
 static gc::CollectorType ParseCollectorType(const std::string& option) {
