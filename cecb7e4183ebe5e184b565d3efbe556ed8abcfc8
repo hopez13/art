@@ -69,6 +69,24 @@
       "parentUuid": "06cc5391_1fe0db69",
       "revId": "cecb7e4183ebe5e184b565d3efbe556ed8abcfc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41713dbe_e173ca0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-10-30T01:23:59Z",
+      "side": 1,
+      "message": "Actually I think Changed-Id has be last. I once hit a problem were Change-Id was not last ant repo kept creating a new CL for me instead of updating the existing one to a new PS.",
+      "parentUuid": "5cfb110a_12837ab4",
+      "revId": "cecb7e4183ebe5e184b565d3efbe556ed8abcfc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
