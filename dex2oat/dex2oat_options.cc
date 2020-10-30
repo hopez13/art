@@ -109,14 +109,19 @@ static void AddGeneratedArtifactMappings(Builder& builder) {
           .WithType<std::string>()
           .WithHelp("specifies the vdex input source via a filename.")
           .IntoKey(M::InputVdex)
-      .Define("--output-vdex-fd=_")
-          .WithHelp("specifies the vdex output destination via a file descriptor.")
-          .WithType<int>()
-          .IntoKey(M::OutputVdexFd)
       .Define("--output-vdex=_")
           .WithType<std::string>()
           .WithHelp("specifies the vdex output destination via a filename.")
           .IntoKey(M::OutputVdex)
+      .Define("--output-vdex-fd=_")
+          .WithHelp("specifies a vdex output destination via a file descriptor.")
+          .WithType<std::vector<std::int32_t>>().AppendValues()
+          .IntoKey(M::OutputVdexFds)
+      .Define("--output-vdex-location=_")
+          .WithHelp("specifies a symbolic name for the file corresponding to the file descriptor\n"
+                    "specified by --output-vdex-fd.\n")
+          .WithType<std::vector<std::string>>().AppendValues()
+          .IntoKey(M::OutputVdexLocations)
       .Define("--dm-fd=_")
           .WithType<int>()
           .WithHelp("specifies the dm output destination via a file descriptor.")
@@ -142,15 +147,15 @@ static void AddGeneratedArtifactMappings(Builder& builder) {
                     "Eg: --oat-symbols=/symbols/system/framework/boot.oat")
           .IntoKey(M::Strip)
       .Define("--oat-fd=_")
-          .WithType<int>()
+          .WithType<std::vector<std::int32_t>>().AppendValues()
           .WithHelp("Specifies the oat output destination via a file descriptor. Eg: --oat-fd=5")
-          .IntoKey(M::OatFd)
+          .IntoKey(M::OatFds)
       .Define("--oat-location=_")
-          .WithType<std::string>()
+          .WithType<std::vector<std::string>>().AppendValues()
           .WithHelp("specifies a symbolic name for the file corresponding to the file descriptor\n"
                     "specified by --oat-fd.\n"
                     "Eg: --oat-location=/data/dalvik-cache/system@app@Calculator.apk.oat")
-          .IntoKey(M::OatLocation);
+          .IntoKey(M::OatLocations);
 }
 
 static void AddImageMappings(Builder& builder) {
@@ -160,10 +165,15 @@ static void AddImageMappings(Builder& builder) {
           .WithHelp("specifies an output image filename. Eg: --image=/system/framework/boot.art")
           .IntoKey(M::ImageFilename)
       .Define("--image-fd=_")
-          .WithType<int>()
+          .WithType<std::vector<std::int32_t>>().AppendValues()
           .WithHelp("specifies an output image file descriptor. Cannot be used with --image.\n"
                     "Eg: --image-fd=7")
-          .IntoKey(M::ImageFd)
+          .IntoKey(M::ImageFds)
+      .Define("--image-location=_")
+          .WithType<std::vector<std::string>>().AppendValues()
+          .WithHelp("specifies a symbolic name for the image file corresponding to the file descriptor\n"
+                    "specified by --image-fd.\n")
+          .IntoKey(M::ImageLocations)
       .Define("--base=_")
           .WithType<std::string>()
           .WithHelp("Specifies the base address when creating a boot image. Eg: --base=0x50000000")
@@ -293,7 +303,7 @@ Parser CreateDex2oatArgumentParser() {
                     "of detected hardware threads available on the host system.")
           .IntoKey(M::Threads)
       .Define("--cpu-set=_")
-          .WithType<std::vector<int32_t>>()
+          .WithType<std::vector<std::int32_t>>()
           .WithHelp("sets the cpu affinitiy to the given <set>. The <set> is a comma separated\n"
                     "list of cpus. Eg: --cpu-set=0,1,2,3")
           .WithMetavar("<set>")
