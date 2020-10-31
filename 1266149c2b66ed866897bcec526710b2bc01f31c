@@ -285,6 +285,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "908f6353_48c59330",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-10-31T00:30:30Z",
+      "side": 1,
+      "message": "Ok That all makes sense and I finally understand what you were suggesting with doing everything in SearchPhiPlaceholders. I think part of my confusion was mis-reading the function and using the heap-location idx as the phi idx 😒.\n\nNot that I don\u0027t get the reasons for it but I think we should maybe go through and do a ObjPtr-like wrapping around all the various index types in the compiler (Make a HeapLocIdx, PhiIdx, etc types). We use BitVectors all over the place and it can quickly get confusing which indexs are meant to go with which one.\n\nCleaned up a bit (Can use ArenaBitVector for kept-merged-unknowns) and done.",
+      "parentUuid": "097c1d82_8a8e505b",
+      "range": {
+        "startLine": 2161,
+        "startChar": 4,
+        "endLine": 2163,
+        "endChar": 24
+      },
+      "revId": "1266149c2b66ed866897bcec526710b2bc01f31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c603be06_f4ace860",
