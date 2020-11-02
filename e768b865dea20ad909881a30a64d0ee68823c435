@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59151374_46daf9da",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-02T15:43:48Z",
+      "side": 1,
+      "message": "This only started failing when the SDK snapshot got prebuilts of these libraries, because the snapshot adds some apex_available entries without retaining the implicit //apex_available:platform we get here when there\u0027s no apex_available list  at all.\n\nI guess the consistent thing is to add //apex_available:platform to the prebuilts in that situation (although I\u0027d rather we didn\u0027t have that implicit rule at all). WDYT, should we add that to the SDK snapshot generation?",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 36
+      },
+      "revId": "e768b865dea20ad909881a30a64d0ee68823c435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
