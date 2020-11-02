@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deac8489_c8bf2a3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T12:17:22Z",
+      "side": 1,
+      "message": "lgtm, trivial comments.",
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "994e9f57_8acd1101",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T12:17:22Z",
+      "side": 1,
+      "message": "Yes, same thought occurred in the prior CL.",
+      "range": {
+        "startLine": 1370,
+        "startChar": 10,
+        "endLine": 1370,
+        "endChar": 17
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec8ee08_bb606da4",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T12:17:22Z",
+      "side": 1,
+      "message": "Line length, but okay with the FIXME imo.",
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fca93b6_63f2c258",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T12:17:22Z",
+      "side": 1,
+      "message": "loop",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 885,
+        "endChar": 0
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a46be01_45587f5f",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T12:17:22Z",
+      "side": 1,
+      "message": "Suggest doing an exit code check per diff and having the error message point out what failed. It\u0027ll save time when looking into failures.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 10
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
