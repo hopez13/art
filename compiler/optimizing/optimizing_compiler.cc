@@ -194,7 +194,8 @@ class PassObserver : public ValueObject {
         GraphChecker checker(graph_, codegen_);
         last_seen_graph_size_ = checker.Run(pass_change, last_seen_graph_size_);
         if (!checker.IsValid()) {
-          LOG(FATAL) << "Error after " << pass_name << ": " << Dumpable<GraphChecker>(checker);
+          LOG(FATAL) << "Error after " << pass_name << "(" << graph_->PrettyMethod()
+                     << "): " << Dumpable<GraphChecker>(checker);
         }
       }
     }
