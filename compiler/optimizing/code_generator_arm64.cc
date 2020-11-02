@@ -3788,10 +3788,18 @@ void CodeGeneratorARM64::GenerateNop() {
   __ Nop();
 }
 
+void LocationsBuilderARM64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
 void LocationsBuilderARM64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
+void InstructionCodeGeneratorARM64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
 void InstructionCodeGeneratorARM64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }

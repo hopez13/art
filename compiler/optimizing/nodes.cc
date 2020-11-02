@@ -46,6 +46,34 @@ namespace art {
 // double).
 static constexpr bool kEnableFloatingPointStaticEvaluation = (FLT_EVAL_METHOD == 0);
 
+std::ostream& operator<<(std::ostream& oss, const HUseList<HInstruction*>& lst) {
+  oss << "Instructions[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      oss << ", ";
+    }
+    first = false;
+    oss << hi.GetUser()->DebugName() << "[id: " << hi.GetUser()->GetId()
+        << ", blk: " << hi.GetUser()->GetBlock()->GetBlockId() << "]@" << hi.GetIndex();
+  }
+  oss << "]";
+  return oss;
+}
+std::ostream& operator<<(std::ostream& oss, const HUseList<HEnvironment*>& lst) {
+  oss << "Environments[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      oss << ", ";
+    }
+    first = false;
+    oss << hi.GetUser()->GetHolder()->DebugName() << "[dexpc: " << hi.GetUser()->GetDexPc()
+        << ", id: " << hi.GetUser()->GetHolder()->GetId() << "]@" << hi.GetIndex();
+  }
+  oss << "]";
+  return oss;
+}
 ReferenceTypeInfo::TypeHandle HandleCache::CreateRootHandle(VariableSizedHandleScope* handles,
                                                             ClassRoot class_root) {
   // Mutator lock is required for NewHandle and GetClassRoot().
@@ -824,6 +852,18 @@ void HGraph::InsertConstant(HConstant* constant) {
     entry_block_->AddInstruction(constant);
   } else {
     entry_block_->InsertInstructionBefore(constant, insert_before);
+  }
+}
+
+HConstant* HGraph::GetDefaultValueConstant(DataType::Type type) {
+  if (DataType::IsIntegralType(type)) {
+    return GetConstant(type, 0)->AsConstant();
+  } else if (type == DataType::Type::kFloat32) {
+    return GetFloatConstant(0.0f)->AsConstant();
+  } else if (type == DataType::Type::kFloat64) {
+    return GetDoubleConstant(0.0)->AsConstant();
+  } else {
+    return GetNullConstant()->AsConstant();
   }
 }
 
@@ -1872,6 +1912,17 @@ HInstruction* HBinaryOperation::GetLeastConstantLeft() const {
   } else {
     return GetLeft();
   }
+}
+
+std::ostream& HInstruction::Dump(std::ostream& os) const {
+  const HBasicBlock* blk = GetBlock();
+  os << DebugName() << "[id: " << GetId() << ", blk: " << (blk == nullptr ? -1 : blk->GetBlockId())
+     << "]";
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const HInstruction& ins) {
+  return ins.Dump(os);
 }
 
 std::ostream& operator<<(std::ostream& os, ComparisonBias rhs) {

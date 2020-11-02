@@ -260,6 +260,11 @@ class HeapLocationCollector : public HGraphVisitor {
     return heap_locations_[index];
   }
 
+  size_t GetHeapLocationIndex(const HeapLocation* hl) const {
+    auto res = std::find(heap_locations_.cbegin(), heap_locations_.cend(), hl);
+    return std::distance(heap_locations_.cbegin(), res);
+  }
+
   HInstruction* HuntForOriginalReference(HInstruction* ref) const {
     // An original reference can be transformed by instructions like:
     //   i0 NewArray
@@ -539,6 +544,10 @@ class HeapLocationCollector : public HGraphVisitor {
                             HeapLocation::kDeclaringClassDefIndexForArrays);
   }
 
+  void VisitPredicatedInstanceFieldGet(HPredicatedInstanceFieldGet* instruction) override {
+    VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
+    CreateReferenceInfoForReferenceType(instruction);
+  }
   void VisitInstanceFieldGet(HInstanceFieldGet* instruction) override {
     VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
     CreateReferenceInfoForReferenceType(instruction);
