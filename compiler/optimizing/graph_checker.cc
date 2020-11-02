@@ -381,19 +381,33 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
   // Ensure the inputs of `instruction` are defined in a block of the graph.
   for (HInstruction* input : instruction->GetInputs()) {
     if (input->GetBlock() == nullptr) {
-      AddError(StringPrintf("Input %d of instruction %d is not in any "
-                            "basic block of the control-flow graph.",
-                            input->GetId(),
-                            instruction->GetId()));
+      std::ostringstream oss1;
+      oss1 << *input;
+      std::ostringstream oss2;
+      oss2 << *instruction;
+      AddError(
+          StringPrintf("Input %d (%s) of instruction %d (%s) is not in any "
+                       "basic block of the control-flow graph.",
+                       input->GetId(),
+                       oss1.str().c_str(),
+                       instruction->GetId(),
+                       oss2.str().c_str()));
     } else {
       const HInstructionList& list = input->IsPhi()
           ? input->GetBlock()->GetPhis()
           : input->GetBlock()->GetInstructions();
       if (!list.Contains(input)) {
-        AddError(StringPrintf("Input %d of instruction %d is not defined "
-                              "in a basic block of the control-flow graph.",
-                              input->GetId(),
-                              instruction->GetId()));
+        std::ostringstream oss1;
+        oss1 << *input;
+        std::ostringstream oss2;
+        oss2 << *instruction;
+          AddError(
+            StringPrintf("Input %d (%s) of instruction %d (%s) is not in any "
+                         "basic block of the control-flow graph.",
+                         input->GetId(),
+                         oss1.str().c_str(),
+                         instruction->GetId(),
+                         oss2.str().c_str()));
       }
     }
   }
