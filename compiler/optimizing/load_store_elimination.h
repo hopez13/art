@@ -21,6 +21,10 @@
 
 namespace art {
 
+// Whether or not we should attempt partial Load-store-elimination which
+// requires additional blocks and predicated instructions.
+static constexpr bool kEnablePartialLSE = true;
+
 class SideEffectsAnalysis;
 
 class LoadStoreElimination : public HOptimization {
@@ -30,7 +34,12 @@ class LoadStoreElimination : public HOptimization {
                        const char* name = kLoadStoreEliminationPassName)
       : HOptimization(graph, name, stats) {}
 
-  bool Run() override;
+  bool Run() override {
+    return Run(kEnablePartialLSE);
+  }
+
+  // Exposed for testing.
+  bool Run(bool enable_partial_lse);
 
   static constexpr const char* kLoadStoreEliminationPassName = "load_store_elimination";
 

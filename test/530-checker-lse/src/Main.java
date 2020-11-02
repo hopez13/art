@@ -86,6 +86,9 @@ public class Main {
 
   static Object ESCAPE = null;
   static void $noinline$Escape(TestClass o) {
+    if (o == null) {
+      return;
+    }
     ESCAPE = o;
     o.next.i++;
   }
@@ -3792,6 +3795,66 @@ public class Main {
     return res;
   }
 
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (before)
+  /// CHECK-DAG:     ParameterValue
+  /// CHECK-DAG:     NewInstance
+  /// CHECK-DAG:     InvokeStaticOrDirect
+  /// CHECK-DAG:     InvokeStaticOrDirect
+  /// CHECK-DAG:     InstanceFieldSet
+  /// CHECK-DAG:     InstanceFieldSet
+  /// CHECK-DAG:     InstanceFieldSet
+  /// CHECK-DAG:     InstanceFieldGet
+  /// CHECK-DAG:     InstanceFieldGet
+  //
+  /// CHECK-NOT:     NewInstance
+  /// CHECK-NOT:     InvokeStaticOrDirect
+  /// CHECK-NOT:     InstanceFieldSet
+  /// CHECK-NOT:     InstanceFieldGet
+  //
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (after)
+  /// CHECK-DAG:     ParameterValue
+  /// CHECK-DAG:     NewInstance
+  /// CHECK-DAG:     Phi
+  //
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (after)
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InvokeStaticOrDirect
+  /// CHECK:         InvokeStaticOrDirect
+  //
+  /// CHECK-NOT:     InvokeStaticOrDirect
+
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (after)
+  /// CHECK:         InstanceFieldSet
+  /// CHECK:         InstanceFieldSet
+  //
+  /// CHECK-NOT:     InstanceFieldSet
+  //
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (after)
+  /// CHECK-DAG:     InstanceFieldGet
+  //
+  /// CHECK-NOT:     InstanceFieldGet
+  //
+  /// CHECK-START: int Main.$noinline$testPartialEscape2(TestClass, boolean) load_store_elimination (after)
+  /// CHECK-DAG:     PredicatedInstanceFieldGet
+  //
+  /// CHECK-NOT:     PredicatedInstanceFieldGet
+  private static int $noinline$testPartialEscape2(TestClass obj, boolean escape) {
+    TestClass i = new SubTestClass();
+    int res;
+    if ($noinline$getBoolean(escape)) {
+      i.next = obj;
+      $noinline$Escape(i);
+    } else {
+      i.next = obj;
+    }
+    $noinline$Escape(null);
+    // Predicated-get
+    TestClass res2 = i.next;
+    // Predicated-set
+    i.next = null;
+    return res2.i;
+  }
+
 
   private static void $noinline$clobberObservables() {}
 
@@ -4196,5 +4259,7 @@ public class Main {
     assertLongEquals(testOverlapLoop(50), 7778742049l);
     assertIntEquals($noinline$testPartialEscape1(new TestClass(), true), 1);
     assertIntEquals($noinline$testPartialEscape1(new TestClass(), false), 0);
+    assertIntEquals($noinline$testPartialEscape2(new TestClass(), true), 1);
+    assertIntEquals($noinline$testPartialEscape2(new TestClass(), false), 0);
   }
 }

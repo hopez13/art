@@ -650,6 +650,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return CreateConstant(bit_cast<int64_t, double>(value), &cached_double_constants_, dex_pc);
   }
 
+  HConstant* GetDefaultValueConstant(DataType::Type type);
+
   HCurrentMethod* GetCurrentMethod();
 
   const DexFile& GetDexFile() const {
@@ -885,6 +887,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // directly jump to.
   const CompilationKind compilation_kind_;
 
+  bool dangerous_shit_;
+
   // List of methods that are assumed to have single implementation.
   ArenaSet<ArtMethod*> cha_single_implementation_list_;
 
@@ -1105,6 +1109,10 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
 
   const ArenaVector<HBasicBlock*>& GetPredecessors() const {
     return predecessors_;
+  }
+
+  size_t GetNumberOfPredecessors() const {
+    return GetPredecessors().size();
   }
 
   const ArenaVector<HBasicBlock*>& GetSuccessors() const {
@@ -1449,6 +1457,7 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
 
   friend class HGraph;
   friend class HInstruction;
+  friend class OptimizingUnitTestHelper;  // To be able to manually swap successors
 
   DISALLOW_COPY_AND_ASSIGN(HBasicBlock);
 };
@@ -1478,96 +1487,97 @@ class HLoopInformationOutwardIterator : public ValueObject {
   DISALLOW_COPY_AND_ASSIGN(HLoopInformationOutwardIterator);
 };
 
-#define FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M)                  \
-  M(Above, Condition)                                                   \
-  M(AboveOrEqual, Condition)                                            \
-  M(Abs, UnaryOperation)                                                \
-  M(Add, BinaryOperation)                                               \
-  M(And, BinaryOperation)                                               \
-  M(ArrayGet, Instruction)                                              \
-  M(ArrayLength, Instruction)                                           \
-  M(ArraySet, Instruction)                                              \
-  M(Below, Condition)                                                   \
-  M(BelowOrEqual, Condition)                                            \
-  M(BooleanNot, UnaryOperation)                                         \
-  M(BoundsCheck, Instruction)                                           \
-  M(BoundType, Instruction)                                             \
-  M(CheckCast, Instruction)                                             \
-  M(ClassTableGet, Instruction)                                         \
-  M(ClearException, Instruction)                                        \
-  M(ClinitCheck, Instruction)                                           \
-  M(Compare, BinaryOperation)                                           \
-  M(ConstructorFence, Instruction)                                      \
-  M(CurrentMethod, Instruction)                                         \
-  M(ShouldDeoptimizeFlag, Instruction)                                  \
-  M(Deoptimize, Instruction)                                            \
-  M(Div, BinaryOperation)                                               \
-  M(DivZeroCheck, Instruction)                                          \
-  M(DoubleConstant, Constant)                                           \
-  M(Equal, Condition)                                                   \
-  M(Exit, Instruction)                                                  \
-  M(FloatConstant, Constant)                                            \
-  M(Goto, Instruction)                                                  \
-  M(GreaterThan, Condition)                                             \
-  M(GreaterThanOrEqual, Condition)                                      \
-  M(If, Instruction)                                                    \
-  M(InstanceFieldGet, Instruction)                                      \
-  M(InstanceFieldSet, Instruction)                                      \
-  M(InstanceOf, Instruction)                                            \
-  M(IntConstant, Constant)                                              \
-  M(IntermediateAddress, Instruction)                                   \
-  M(InvokeUnresolved, Invoke)                                           \
-  M(InvokeInterface, Invoke)                                            \
-  M(InvokeStaticOrDirect, Invoke)                                       \
-  M(InvokeVirtual, Invoke)                                              \
-  M(InvokePolymorphic, Invoke)                                          \
-  M(InvokeCustom, Invoke)                                               \
-  M(LessThan, Condition)                                                \
-  M(LessThanOrEqual, Condition)                                         \
-  M(LoadClass, Instruction)                                             \
-  M(LoadException, Instruction)                                         \
-  M(LoadMethodHandle, Instruction)                                      \
-  M(LoadMethodType, Instruction)                                        \
-  M(LoadString, Instruction)                                            \
-  M(LongConstant, Constant)                                             \
-  M(Max, Instruction)                                                   \
-  M(MemoryBarrier, Instruction)                                         \
-  M(Min, BinaryOperation)                                               \
-  M(MonitorOperation, Instruction)                                      \
-  M(Mul, BinaryOperation)                                               \
-  M(NativeDebugInfo, Instruction)                                       \
-  M(Neg, UnaryOperation)                                                \
-  M(NewArray, Instruction)                                              \
-  M(NewInstance, Instruction)                                           \
-  M(Not, UnaryOperation)                                                \
-  M(NotEqual, Condition)                                                \
-  M(NullConstant, Instruction)                                          \
-  M(NullCheck, Instruction)                                             \
-  M(Or, BinaryOperation)                                                \
-  M(PackedSwitch, Instruction)                                          \
-  M(ParallelMove, Instruction)                                          \
-  M(ParameterValue, Instruction)                                        \
-  M(Phi, Instruction)                                                   \
-  M(Rem, BinaryOperation)                                               \
-  M(Return, Instruction)                                                \
-  M(ReturnVoid, Instruction)                                            \
-  M(Ror, BinaryOperation)                                               \
-  M(Shl, BinaryOperation)                                               \
-  M(Shr, BinaryOperation)                                               \
-  M(StaticFieldGet, Instruction)                                        \
-  M(StaticFieldSet, Instruction)                                        \
-  M(StringBuilderAppend, Instruction)                                   \
-  M(UnresolvedInstanceFieldGet, Instruction)                            \
-  M(UnresolvedInstanceFieldSet, Instruction)                            \
-  M(UnresolvedStaticFieldGet, Instruction)                              \
-  M(UnresolvedStaticFieldSet, Instruction)                              \
-  M(Select, Instruction)                                                \
-  M(Sub, BinaryOperation)                                               \
-  M(SuspendCheck, Instruction)                                          \
-  M(Throw, Instruction)                                                 \
-  M(TryBoundary, Instruction)                                           \
-  M(TypeConversion, Instruction)                                        \
-  M(UShr, BinaryOperation)                                              \
+#define FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M) \
+  M(Above, Condition)                                  \
+  M(AboveOrEqual, Condition)                           \
+  M(Abs, UnaryOperation)                               \
+  M(Add, BinaryOperation)                              \
+  M(And, BinaryOperation)                              \
+  M(ArrayGet, Instruction)                             \
+  M(ArrayLength, Instruction)                          \
+  M(ArraySet, Instruction)                             \
+  M(Below, Condition)                                  \
+  M(BelowOrEqual, Condition)                           \
+  M(BooleanNot, UnaryOperation)                        \
+  M(BoundsCheck, Instruction)                          \
+  M(BoundType, Instruction)                            \
+  M(CheckCast, Instruction)                            \
+  M(ClassTableGet, Instruction)                        \
+  M(ClearException, Instruction)                       \
+  M(ClinitCheck, Instruction)                          \
+  M(Compare, BinaryOperation)                          \
+  M(ConstructorFence, Instruction)                     \
+  M(CurrentMethod, Instruction)                        \
+  M(ShouldDeoptimizeFlag, Instruction)                 \
+  M(Deoptimize, Instruction)                           \
+  M(Div, BinaryOperation)                              \
+  M(DivZeroCheck, Instruction)                         \
+  M(DoubleConstant, Constant)                          \
+  M(Equal, Condition)                                  \
+  M(Exit, Instruction)                                 \
+  M(FloatConstant, Constant)                           \
+  M(Goto, Instruction)                                 \
+  M(GreaterThan, Condition)                            \
+  M(GreaterThanOrEqual, Condition)                     \
+  M(If, Instruction)                                   \
+  M(InstanceFieldGet, Instruction)                     \
+  M(InstanceFieldSet, Instruction)                     \
+  M(PredicatedInstanceFieldGet, Instruction)           \
+  M(InstanceOf, Instruction)                           \
+  M(IntConstant, Constant)                             \
+  M(IntermediateAddress, Instruction)                  \
+  M(InvokeUnresolved, Invoke)                          \
+  M(InvokeInterface, Invoke)                           \
+  M(InvokeStaticOrDirect, Invoke)                      \
+  M(InvokeVirtual, Invoke)                             \
+  M(InvokePolymorphic, Invoke)                         \
+  M(InvokeCustom, Invoke)                              \
+  M(LessThan, Condition)                               \
+  M(LessThanOrEqual, Condition)                        \
+  M(LoadClass, Instruction)                            \
+  M(LoadException, Instruction)                        \
+  M(LoadMethodHandle, Instruction)                     \
+  M(LoadMethodType, Instruction)                       \
+  M(LoadString, Instruction)                           \
+  M(LongConstant, Constant)                            \
+  M(Max, Instruction)                                  \
+  M(MemoryBarrier, Instruction)                        \
+  M(Min, BinaryOperation)                              \
+  M(MonitorOperation, Instruction)                     \
+  M(Mul, BinaryOperation)                              \
+  M(NativeDebugInfo, Instruction)                      \
+  M(Neg, UnaryOperation)                               \
+  M(NewArray, Instruction)                             \
+  M(NewInstance, Instruction)                          \
+  M(Not, UnaryOperation)                               \
+  M(NotEqual, Condition)                               \
+  M(NullConstant, Instruction)                         \
+  M(NullCheck, Instruction)                            \
+  M(Or, BinaryOperation)                               \
+  M(PackedSwitch, Instruction)                         \
+  M(ParallelMove, Instruction)                         \
+  M(ParameterValue, Instruction)                       \
+  M(Phi, Instruction)                                  \
+  M(Rem, BinaryOperation)                              \
+  M(Return, Instruction)                               \
+  M(ReturnVoid, Instruction)                           \
+  M(Ror, BinaryOperation)                              \
+  M(Shl, BinaryOperation)                              \
+  M(Shr, BinaryOperation)                              \
+  M(StaticFieldGet, Instruction)                       \
+  M(StaticFieldSet, Instruction)                       \
+  M(StringBuilderAppend, Instruction)                  \
+  M(UnresolvedInstanceFieldGet, Instruction)           \
+  M(UnresolvedInstanceFieldSet, Instruction)           \
+  M(UnresolvedStaticFieldGet, Instruction)             \
+  M(UnresolvedStaticFieldSet, Instruction)             \
+  M(Select, Instruction)                               \
+  M(Sub, BinaryOperation)                              \
+  M(SuspendCheck, Instruction)                         \
+  M(Throw, Instruction)                                \
+  M(TryBoundary, Instruction)                          \
+  M(TypeConversion, Instruction)                       \
+  M(UShr, BinaryOperation)                             \
   M(Xor, BinaryOperation)
 
 #define FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(M)                  \
@@ -1690,8 +1700,7 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
   H##type& operator=(const H##type&) = delete;                          \
   public:
 
-#define DEFAULT_COPY_CONSTRUCTOR(type)                                  \
-  explicit H##type(const H##type& other) = default;
+#define DEFAULT_COPY_CONSTRUCTOR(type) H##type(const H##type& other) = default;
 
 template <typename T>
 class HUseListNode : public ArenaObject<kArenaAllocUseListNode>,
@@ -2465,6 +2474,17 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
     UNREACHABLE();
   }
 
+  virtual bool IsFieldAccess() const {
+    return false;
+  }
+
+  virtual const FieldInfo& GetFieldInfo() const {
+    CHECK(IsFieldAccess()) << "Only callable on field accessors not " << DebugName() << " "
+                           << GetId();
+    LOG(FATAL) << "Must be overridden by field accessors. Not implemented by " << DebugName();
+    UNREACHABLE();
+  }
+
   // Return whether instruction can be cloned (copied).
   virtual bool IsClonable() const { return false; }
 
@@ -2723,8 +2743,6 @@ class HInstructionIterator : public ValueObject {
  private:
   HInstruction* instruction_;
   HInstruction* next_;
-
-  DISALLOW_COPY_AND_ASSIGN(HInstructionIterator);
 };
 
 // Iterates over the instructions without saving the next instruction,
@@ -2744,8 +2762,6 @@ class HInstructionIteratorHandleChanges : public ValueObject {
 
  private:
   HInstruction* instruction_;
-
-  DISALLOW_COPY_AND_ASSIGN(HInstructionIteratorHandleChanges);
 };
 
 
@@ -2766,9 +2782,44 @@ class HBackwardInstructionIterator : public ValueObject {
  private:
   HInstruction* instruction_;
   HInstruction* next_;
-
-  DISALLOW_COPY_AND_ASSIGN(HBackwardInstructionIterator);
 };
+
+template <typename InnerIter>
+struct HSTLInstructionIterator : public ValueObject,
+                                 public std::iterator<std::forward_iterator_tag, HInstruction*> {
+ public:
+  explicit HSTLInstructionIterator(InnerIter inner) : inner_(inner) {}
+  HInstruction* operator*() const {
+    DCHECK(inner_.Current() != nullptr);
+    return inner_.Current();
+  }
+
+  HSTLInstructionIterator<InnerIter>& operator++() {
+    inner_.Advance();
+    return *this;
+  }
+  HSTLInstructionIterator<InnerIter> operator++(int) {
+    HSTLInstructionIterator<InnerIter> prev(*this);
+    ++(*this);
+    return prev;
+  }
+  bool operator==(const HSTLInstructionIterator<InnerIter>& other) const {
+    return inner_.Current() == other.inner_.Current();
+  }
+  bool operator!=(const HSTLInstructionIterator<InnerIter>& other) const {
+    return !(*this == other);
+  }
+
+ private:
+  InnerIter inner_;
+};
+
+template <typename InnerIter>
+IterationRange<HSTLInstructionIterator<InnerIter>> MakeSTLInstructionIteratorRange(InnerIter iter) {
+  HInstructionList empty;
+  return MakeIterationRange(HSTLInstructionIterator<InnerIter>(iter),
+                            HSTLInstructionIterator<InnerIter>(InnerIter(empty)));
+}
 
 class HVariableInputSizeInstruction : public HInstruction {
  public:
@@ -6001,6 +6052,21 @@ class FieldInfo : public ValueObject {
   const DexFile& GetDexFile() const { return dex_file_; }
   bool IsVolatile() const { return is_volatile_; }
 
+  bool Equal(const FieldInfo& other) const {
+    return field_ == other.field_ && field_offset_ == other.field_offset_ &&
+           field_type_ == other.field_type_ && is_volatile_ == other.is_volatile_ &&
+           index_ == other.index_ &&
+           declaring_class_def_index_ == other.declaring_class_def_index_ &&
+           &dex_file_ == &other.dex_file_;
+  }
+
+  std::ostream& Dump(std::ostream& os) const {
+    os << field_ << ", off: " << field_offset_ << ", type: " << field_type_
+       << ", volatile: " << std::boolalpha << is_volatile_ << ", index_: " << std::dec << index_
+       << ", declaring_class: " << declaring_class_def_index_ << ", dex: " << dex_file_;
+    return os;
+  }
+
  private:
   ArtField* const field_;
   const MemberOffset field_offset_;
@@ -6010,6 +6076,14 @@ class FieldInfo : public ValueObject {
   const uint16_t declaring_class_def_index_;
   const DexFile& dex_file_;
 };
+
+inline bool operator==(const FieldInfo& a, const FieldInfo& b) {
+  return a.Equal(b);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const FieldInfo& a) {
+  return a.Dump(os);
+}
 
 class HInstanceFieldGet final : public HExpression<1> {
  public:
@@ -6054,10 +6128,21 @@ class HInstanceFieldGet final : public HExpression<1> {
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
-  MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
-  DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
-  bool IsVolatile() const { return field_info_.IsVolatile(); }
+  bool IsFieldAccess() const override {
+    return true;
+  }
+  const FieldInfo& GetFieldInfo() const override {
+    return field_info_;
+  }
+  MemberOffset GetFieldOffset() const {
+    return field_info_.GetFieldOffset();
+  }
+  DataType::Type GetFieldType() const {
+    return field_info_.GetFieldType();
+  }
+  bool IsVolatile() const {
+    return field_info_.IsVolatile();
+  }
 
   void SetType(DataType::Type new_type) {
     DCHECK(DataType::IsIntegralType(GetType()));
@@ -6070,6 +6155,104 @@ class HInstanceFieldGet final : public HExpression<1> {
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(InstanceFieldGet);
+
+ private:
+  const FieldInfo field_info_;
+};
+
+class HPredicatedInstanceFieldGet final : public HExpression<2> {
+ public:
+  HPredicatedInstanceFieldGet(HInstanceFieldGet* orig,
+                              HInstruction* target,
+                              HInstruction* default_val)
+      : HExpression(kPredicatedInstanceFieldGet,
+                    orig->GetFieldType(),
+                    orig->GetSideEffects(),
+                    orig->GetDexPc()),
+        field_info_(orig->GetFieldInfo()) {
+    SetRawInputAt(0, target);
+    SetRawInputAt(1, default_val);
+  }
+
+  HPredicatedInstanceFieldGet(HInstruction* value,
+                              ArtField* field,
+                              HInstruction* default_value,
+                              DataType::Type field_type,
+                              MemberOffset field_offset,
+                              bool is_volatile,
+                              uint32_t field_idx,
+                              uint16_t declaring_class_def_index,
+                              const DexFile& dex_file,
+                              uint32_t dex_pc)
+      : HExpression(kPredicatedInstanceFieldGet,
+                    field_type,
+                    SideEffects::FieldReadOfType(field_type, is_volatile),
+                    dex_pc),
+        field_info_(field,
+                    field_offset,
+                    field_type,
+                    is_volatile,
+                    field_idx,
+                    declaring_class_def_index,
+                    dex_file) {
+    SetRawInputAt(0, value);
+    SetRawInputAt(1, default_value);
+  }
+
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* bv) const override;
+
+  bool IsClonable() const override {
+    return true;
+  }
+  bool CanBeMoved() const override {
+    return !IsVolatile();
+  }
+
+  HInstruction* GetDefaultValue() const {
+    return InputAt(1);
+  }
+
+  bool InstructionDataEquals(const HInstruction* other) const override {
+    const HPredicatedInstanceFieldGet* other_get = other->AsPredicatedInstanceFieldGet();
+    return GetFieldOffset().SizeValue() == other_get->GetFieldOffset().SizeValue() &&
+           GetDefaultValue() == other_get->GetDefaultValue();
+  }
+
+  bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
+    return (obj == InputAt(0)) && art::CanDoImplicitNullCheckOn(GetFieldOffset().Uint32Value());
+  }
+
+  size_t ComputeHashCode() const override {
+    return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
+  }
+
+  bool IsFieldAccess() const override {
+    return true;
+  }
+  const FieldInfo& GetFieldInfo() const override {
+    return field_info_;
+  }
+  MemberOffset GetFieldOffset() const {
+    return field_info_.GetFieldOffset();
+  }
+  DataType::Type GetFieldType() const {
+    return field_info_.GetFieldType();
+  }
+  bool IsVolatile() const {
+    return field_info_.IsVolatile();
+  }
+
+  void SetType(DataType::Type new_type) {
+    DCHECK(DataType::IsIntegralType(GetType()));
+    DCHECK(DataType::IsIntegralType(new_type));
+    DCHECK_EQ(DataType::Size(GetType()), DataType::Size(new_type));
+    SetPackedField<TypeField>(new_type);
+  }
+
+  DECLARE_INSTRUCTION(PredicatedInstanceFieldGet);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(PredicatedInstanceFieldGet);
 
  private:
   const FieldInfo field_info_;
@@ -6098,6 +6281,7 @@ class HInstanceFieldSet final : public HExpression<2> {
                     declaring_class_def_index,
                     dex_file) {
     SetPackedFlag<kFlagValueCanBeNull>(true);
+    SetPackedFlag<kFlagIsPredicatedSet>(false);
     SetRawInputAt(0, object);
     SetRawInputAt(1, value);
   }
@@ -6110,7 +6294,12 @@ class HInstanceFieldSet final : public HExpression<2> {
     return (obj == InputAt(0)) && art::CanDoImplicitNullCheckOn(GetFieldOffset().Uint32Value());
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override {
+    return true;
+  }
+  const FieldInfo& GetFieldInfo() const override {
+    return field_info_;
+  }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -6118,6 +6307,12 @@ class HInstanceFieldSet final : public HExpression<2> {
   bool GetValueCanBeNull() const { return GetPackedFlag<kFlagValueCanBeNull>(); }
   void ClearValueCanBeNull() {
     SetPackedFlag<kFlagValueCanBeNull>(false);
+  }
+  bool GetIsPredicatedSet() const {
+    return GetPackedFlag<kFlagIsPredicatedSet>();
+  }
+  void SetIsPredicatedSet(bool value = true) {
+    SetPackedFlag<kFlagIsPredicatedSet>(value);
   }
 
   DECLARE_INSTRUCTION(InstanceFieldSet);
@@ -6127,7 +6322,8 @@ class HInstanceFieldSet final : public HExpression<2> {
 
  private:
   static constexpr size_t kFlagValueCanBeNull = kNumberOfGenericPackedBits;
-  static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagValueCanBeNull + 1;
+  static constexpr size_t kFlagIsPredicatedSet = kFlagValueCanBeNull + 1;
+  static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagIsPredicatedSet + 1;
   static_assert(kNumberOfInstanceFieldSetPackedBits <= kMaxNumberOfPackedBits,
                 "Too many packed fields.");
 
@@ -6145,7 +6341,7 @@ class HArrayGet final : public HExpression<2> {
                  type,
                  SideEffects::ArrayReadOfType(type),
                  dex_pc,
-                 /* is_string_char_at= */ false){
+                 /* is_string_char_at= */ false) {
   }
 
   HArrayGet(HInstruction* array,
@@ -7060,7 +7256,12 @@ class HStaticFieldGet final : public HExpression<1> {
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override {
+    return true;
+  }
+  const FieldInfo& GetFieldInfo() const override {
+    return field_info_;
+  }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -7108,8 +7309,15 @@ class HStaticFieldSet final : public HExpression<2> {
     SetRawInputAt(1, value);
   }
 
-  bool IsClonable() const override { return true; }
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsClonable() const override {
+    return true;
+  }
+  bool IsFieldAccess() const override {
+    return true;
+  }
+  const FieldInfo& GetFieldInfo() const override {
+    return field_info_;
+  }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
