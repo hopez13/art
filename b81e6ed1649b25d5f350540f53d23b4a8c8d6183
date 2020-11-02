@@ -16,6 +16,46 @@
       "message": "Thanks Orion! PTAL.",
       "revId": "b81e6ed1649b25d5f350540f53d23b4a8c8d6183",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "073b7fb7_744ac048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T15:40:36Z",
+      "side": 1,
+      "message": "Thanks Roland, one tiny nit, but lgtm otherwise.",
+      "revId": "b81e6ed1649b25d5f350540f53d23b4a8c8d6183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef492b2_8978b5b2",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-02T15:40:36Z",
+      "side": 1,
+      "message": "td_file",
+      "range": {
+        "startLine": 873,
+        "startChar": 16,
+        "endLine": 873,
+        "endChar": 23
+      },
+      "revId": "b81e6ed1649b25d5f350540f53d23b4a8c8d6183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
