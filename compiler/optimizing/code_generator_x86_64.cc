@@ -39,6 +39,7 @@
 #include "utils/assembler.h"
 #include "utils/stack_checks.h"
 #include "utils/x86_64/assembler_x86_64.h"
+#include "utils/x86_64/constants_x86_64.h"
 #include "utils/x86_64/managed_register_x86_64.h"
 
 namespace art {
@@ -499,13 +500,10 @@ class ReadBarrierMarkSlowPathX86_64 : public SlowPathCode {
     Register ref_reg = ref_cpu_reg.AsRegister();
     DCHECK(locations->CanCall());
     DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(ref_reg)) << ref_reg;
-    DCHECK(instruction_->IsInstanceFieldGet() ||
-           instruction_->IsStaticFieldGet() ||
-           instruction_->IsArrayGet() ||
-           instruction_->IsArraySet() ||
-           instruction_->IsLoadClass() ||
-           instruction_->IsLoadString() ||
-           instruction_->IsInstanceOf() ||
+    DCHECK(instruction_->IsInstanceFieldGet() || instruction_->IsPredicatedInstanceFieldGet() ||
+           instruction_->IsStaticFieldGet() || instruction_->IsArrayGet() ||
+           instruction_->IsArraySet() || instruction_->IsLoadClass() ||
+           instruction_->IsLoadString() || instruction_->IsInstanceOf() ||
            instruction_->IsCheckCast() ||
            (instruction_->IsInvokeVirtual() && instruction_->GetLocations()->Intrinsified()) ||
            (instruction_->IsInvokeStaticOrDirect() && instruction_->GetLocations()->Intrinsified()))
@@ -761,6 +759,7 @@ class ReadBarrierForHeapReferenceSlowPathX86_64 : public SlowPathCode {
     DCHECK(locations->CanCall());
     DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(reg_out.AsRegister())) << out_;
     DCHECK(instruction_->IsInstanceFieldGet() ||
+           instruction_->IsPredicatedInstanceFieldGet() ||
            instruction_->IsStaticFieldGet() ||
            instruction_->IsArrayGet() ||
            instruction_->IsInstanceOf() ||
@@ -4856,7 +4855,8 @@ void CodeGeneratorX86_64::GenerateMemoryBarrier(MemBarrierKind kind) {
 }
 
 void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
-  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
+  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet() ||
+         instruction->IsPredicatedInstanceFieldGet());
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == DataType::Type::kReference);
@@ -4869,6 +4869,13 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
+  if (instruction->IsPredicatedInstanceFieldGet()) {
+    if (DataType::IsFloatingPointType(instruction->GetType())) {
+      locations->SetInAt(1, Location::RequiresFpuRegister());
+    } else {
+      locations->SetInAt(1, Location::RequiresRegister());
+    }
+  }
   if (DataType::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
@@ -4883,7 +4890,8 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
 
 void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
                                                     const FieldInfo& field_info) {
-  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
+  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet() ||
+         instruction->IsPredicatedInstanceFieldGet());
 
   LocationSummary* locations = instruction->GetLocations();
   Location base_loc = locations->InAt(0);
@@ -5023,7 +5031,8 @@ void LocationsBuilderX86_64::HandleFieldSet(HInstruction* instruction,
 
 void InstructionCodeGeneratorX86_64::HandleFieldSet(HInstruction* instruction,
                                                     const FieldInfo& field_info,
-                                                    bool value_can_be_null) {
+                                                    bool value_can_be_null,
+                                                    bool is_predicated) {
   DCHECK(instruction->IsInstanceFieldSet() || instruction->IsStaticFieldSet());
 
   LocationSummary* locations = instruction->GetLocations();
@@ -5038,6 +5047,15 @@ void InstructionCodeGeneratorX86_64::HandleFieldSet(HInstruction* instruction,
   }
 
   bool maybe_record_implicit_null_check_done = false;
+
+  NearLabel pred_is_null;
+  if (is_predicated) {
+    DCHECK(instruction->IsInstanceFieldSet() &&
+           instruction->AsInstanceFieldSet()->GetIsPredicatedSet())
+        << *instruction;
+    __ cmpl(base, Immediate(0));
+    __ j(kEqual, &pred_is_null);
+  }
 
   switch (field_type) {
     case DataType::Type::kBool:
@@ -5145,6 +5163,10 @@ void InstructionCodeGeneratorX86_64::HandleFieldSet(HInstruction* instruction,
   if (is_volatile) {
     codegen_->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
   }
+
+  if (is_predicated) {
+    __ Bind(&pred_is_null);
+  }
 }
 
 void LocationsBuilderX86_64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
@@ -5152,11 +5174,33 @@ void LocationsBuilderX86_64::VisitInstanceFieldSet(HInstanceFieldSet* instructio
 }
 
 void InstructionCodeGeneratorX86_64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+  HandleFieldSet(instruction,
+                 instruction->GetFieldInfo(),
+                 instruction->GetValueCanBeNull(),
+                 instruction->GetIsPredicatedSet());
+}
+
+void LocationsBuilderX86_64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction) {
+  HandleFieldGet(instruction);
 }
 
 void LocationsBuilderX86_64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction);
+}
+
+void InstructionCodeGeneratorX86_64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction) {
+  NearLabel use_normal_field_get, finish;
+  LocationSummary* locations = instruction->GetLocations();
+  Location out = locations->Out();
+  __ cmpl(locations->InAt(0).AsRegister<CpuRegister>(), Immediate(0));
+  __ j(kNotEqual, &use_normal_field_get);
+  codegen_->MoveLocation(out, locations->InAt(1), instruction->GetType());
+  __ jmp(&finish);
+  __ Bind(&use_normal_field_get);
+  HandleFieldGet(instruction, instruction->GetFieldInfo());
+  __ Bind(&finish);
 }
 
 void InstructionCodeGeneratorX86_64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
@@ -5176,7 +5220,7 @@ void LocationsBuilderX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
 }
 
 void InstructionCodeGeneratorX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull(), false);
 }
 
 void LocationsBuilderX86_64::VisitStringBuilderAppend(HStringBuilderAppend* instruction) {
