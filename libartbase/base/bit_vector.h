@@ -303,6 +303,20 @@ class BitVector {
   const bool expandable_;         // Should the bitmap expand if too small?
 };
 
+class BitVecThunk {
+ public:
+  explicit BitVecThunk(const BitVector& bv) : bv_(bv) {}
+  BitVecThunk(BitVecThunk&&) = default;
+  BitVecThunk(const BitVecThunk&) = default;
+
+  bool operator()(uint32_t idx) const {
+    return bv_.IsBitSet(idx);
+  }
+
+ private:
+  const BitVector& bv_;
+};
+
 // Helper for dealing with 2d bit-vector arrays packed into a single bit-vec
 class BaseBitVectorArray {
  public:
