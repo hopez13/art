@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-#include <string>
-
 #include "scheduler.h"
+
+#include <string>
 
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "data_type-inl.h"
+#include "optimizing/load_store_analysis.h"
 #include "prepare_for_register_allocation.h"
 
 #ifdef ART_ENABLE_CODEGEN_arm64
@@ -105,10 +106,9 @@ static bool IsArrayAccess(const HInstruction* instruction) {
 }
 
 static bool IsInstanceFieldAccess(const HInstruction* instruction) {
-  return instruction->IsInstanceFieldGet() ||
-         instruction->IsInstanceFieldSet() ||
-         instruction->IsUnresolvedInstanceFieldGet() ||
-         instruction->IsUnresolvedInstanceFieldSet();
+  return instruction->IsInstanceFieldGet() || instruction->IsInstanceFieldSet() ||
+         instruction->IsPredicatedInstanceFieldGet() ||
+         instruction->IsUnresolvedInstanceFieldGet() || instruction->IsUnresolvedInstanceFieldSet();
 }
 
 static bool IsStaticFieldAccess(const HInstruction* instruction) {
@@ -119,9 +119,8 @@ static bool IsStaticFieldAccess(const HInstruction* instruction) {
 }
 
 static bool IsResolvedFieldAccess(const HInstruction* instruction) {
-  return instruction->IsInstanceFieldGet() ||
-         instruction->IsInstanceFieldSet() ||
-         instruction->IsStaticFieldGet() ||
+  return instruction->IsInstanceFieldGet() || instruction->IsInstanceFieldSet() ||
+         instruction->IsPredicatedInstanceFieldGet() || instruction->IsStaticFieldGet() ||
          instruction->IsStaticFieldSet();
 }
 
@@ -137,18 +136,7 @@ static bool IsFieldAccess(const HInstruction* instruction) {
 }
 
 static const FieldInfo* GetFieldInfo(const HInstruction* instruction) {
-  if (instruction->IsInstanceFieldGet()) {
-    return &instruction->AsInstanceFieldGet()->GetFieldInfo();
-  } else if (instruction->IsInstanceFieldSet()) {
-    return &instruction->AsInstanceFieldSet()->GetFieldInfo();
-  } else if (instruction->IsStaticFieldGet()) {
-    return &instruction->AsStaticFieldGet()->GetFieldInfo();
-  } else if (instruction->IsStaticFieldSet()) {
-    return &instruction->AsStaticFieldSet()->GetFieldInfo();
-  } else {
-    LOG(FATAL) << "Unexpected field access type";
-    UNREACHABLE();
-  }
+  return &instruction->GetFieldInfo();
 }
 
 size_t SideEffectDependencyAnalysis::MemoryDependencyAnalysis::FieldAccessHeapLocation(
@@ -560,7 +548,7 @@ void HScheduler::Schedule(HGraph* graph) {
   // should run the analysis or not.
   const HeapLocationCollector* heap_location_collector = nullptr;
   ScopedArenaAllocator allocator(graph->GetArenaStack());
-  LoadStoreAnalysis lsa(graph, /*stats=*/nullptr, &allocator, /*for_elimination=*/false);
+  LoadStoreAnalysis lsa(graph, /*stats=*/nullptr, &allocator, LoadStoreAnalysisType::kBasic);
   if (!only_optimize_loop_blocks_ || graph->HasLoops()) {
     lsa.Run();
     heap_location_collector = &lsa.GetHeapLocationCollector();
@@ -729,36 +717,23 @@ bool HScheduler::IsSchedulable(const HInstruction* instruction) const {
   //    HTryBoundary
   // TODO: Some of the instructions above may be safe to schedule (maybe as
   // scheduling barriers).
-  return instruction->IsArrayGet() ||
-      instruction->IsArraySet() ||
-      instruction->IsArrayLength() ||
-      instruction->IsBoundType() ||
-      instruction->IsBoundsCheck() ||
-      instruction->IsCheckCast() ||
-      instruction->IsClassTableGet() ||
-      instruction->IsCurrentMethod() ||
-      instruction->IsDivZeroCheck() ||
-      (instruction->IsInstanceFieldGet() && !instruction->AsInstanceFieldGet()->IsVolatile()) ||
-      (instruction->IsInstanceFieldSet() && !instruction->AsInstanceFieldSet()->IsVolatile()) ||
-      instruction->IsInstanceOf() ||
-      instruction->IsInvokeInterface() ||
-      instruction->IsInvokeStaticOrDirect() ||
-      instruction->IsInvokeUnresolved() ||
-      instruction->IsInvokeVirtual() ||
-      instruction->IsLoadString() ||
-      instruction->IsNewArray() ||
-      instruction->IsNewInstance() ||
-      instruction->IsNullCheck() ||
-      instruction->IsPackedSwitch() ||
-      instruction->IsParameterValue() ||
-      instruction->IsPhi() ||
-      instruction->IsReturn() ||
-      instruction->IsReturnVoid() ||
-      instruction->IsSelect() ||
-      (instruction->IsStaticFieldGet() && !instruction->AsStaticFieldGet()->IsVolatile()) ||
-      (instruction->IsStaticFieldSet() && !instruction->AsStaticFieldSet()->IsVolatile()) ||
-      instruction->IsSuspendCheck() ||
-      instruction->IsTypeConversion();
+  return instruction->IsArrayGet() || instruction->IsArraySet() || instruction->IsArrayLength() ||
+         instruction->IsBoundType() || instruction->IsBoundsCheck() || instruction->IsCheckCast() ||
+         instruction->IsClassTableGet() || instruction->IsCurrentMethod() ||
+         instruction->IsDivZeroCheck() ||
+         (instruction->IsInstanceFieldGet() && !instruction->AsInstanceFieldGet()->IsVolatile()) ||
+         (instruction->IsPredicatedInstanceFieldGet() &&
+          !instruction->AsPredicatedInstanceFieldGet()->IsVolatile()) ||
+         (instruction->IsInstanceFieldSet() && !instruction->AsInstanceFieldSet()->IsVolatile()) ||
+         instruction->IsInstanceOf() || instruction->IsInvokeInterface() ||
+         instruction->IsInvokeStaticOrDirect() || instruction->IsInvokeUnresolved() ||
+         instruction->IsInvokeVirtual() || instruction->IsLoadString() ||
+         instruction->IsNewArray() || instruction->IsNewInstance() || instruction->IsNullCheck() ||
+         instruction->IsPackedSwitch() || instruction->IsParameterValue() || instruction->IsPhi() ||
+         instruction->IsReturn() || instruction->IsReturnVoid() || instruction->IsSelect() ||
+         (instruction->IsStaticFieldGet() && !instruction->AsStaticFieldGet()->IsVolatile()) ||
+         (instruction->IsStaticFieldSet() && !instruction->AsStaticFieldSet()->IsVolatile()) ||
+         instruction->IsSuspendCheck() || instruction->IsTypeConversion();
 }
 
 bool HScheduler::IsSchedulable(const HBasicBlock* block) const {
