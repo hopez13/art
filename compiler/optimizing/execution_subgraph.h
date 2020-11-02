@@ -110,6 +110,10 @@ class ExecutionSubgraph : public ArenaObject<kArenaAllocLSA> {
       return BlockIterRange(entry_blocks_);
     }
 
+    bool IsEntryBlock(const HBasicBlock* blk) const {
+      return entry_blocks_.IsBitSet(blk->GetBlockId());
+    }
+
     // Blocks that have successors outside of the cohort. The successors of
     // these blocks will need to have PHI's to restore state.
     BitVecBlockRange ExitBlocks() const {
