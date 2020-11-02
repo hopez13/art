@@ -22,6 +22,30 @@
       },
       "revId": "e768b865dea20ad909881a30a64d0ee68823c435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d65a4e_420b29e7",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-11-02T16:00:08Z",
+      "side": 1,
+      "message": "I was wondering why you would need to explicitly add the default setting.\n\nThe SDK snapshot code should already include apex_available entries that are in the hard coded allow list. The main reason for doing that was to avoid having to manually update the prebuilt snapshots when trying to clean up the allow list.\n\nSimilarly, the snapshot explicitly specifies //visibility:public even though that is the default in order to make it easy to change the default which will happen eventually.\n\nI think a similar argument applies to the default apex_available setting. The platform default was chosen because it matched the current behavior but it is probably going to change at some point as the platform shrinks and more and more items end up in APEXes.\n\nSo, yes. I think the SDK snapshot generation code should explicitly set apex_available to //apex_available:platform in the snapshot.",
+      "parentUuid": "59151374_46daf9da",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 36
+      },
+      "revId": "e768b865dea20ad909881a30a64d0ee68823c435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
