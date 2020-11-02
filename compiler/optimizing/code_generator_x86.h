@@ -279,7 +279,8 @@ class InstructionCodeGeneratorX86 : public InstructionCodeGenerator {
 
   void HandleFieldSet(HInstruction* instruction,
                       const FieldInfo& field_info,
-                      bool value_can_be_null);
+                      bool value_can_be_null,
+                      bool is_predicated);
   void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
 
   // Generate a heap reference load using one register `out`:
