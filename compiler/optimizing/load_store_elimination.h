@@ -21,6 +21,8 @@
 
 namespace art {
 
+static constexpr bool kEnablePartialLSE = true;
+
 class SideEffectsAnalysis;
 
 class LoadStoreElimination : public HOptimization {
@@ -30,7 +32,10 @@ class LoadStoreElimination : public HOptimization {
                        const char* name = kLoadStoreEliminationPassName)
       : HOptimization(graph, name, stats) {}
 
-  bool Run() override;
+  bool Run() override {
+    return Run(kEnablePartialLSE);
+  }
+  bool Run(bool enable_partial_lse);
 
   static constexpr const char* kLoadStoreEliminationPassName = "load_store_elimination";
 
