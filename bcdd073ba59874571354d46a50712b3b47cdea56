@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e561d34_4d517c56",
+        "filename": "compiler/optimizing/execution_subgraph.cc",
+        "patchSetId": 68
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done.\n\nI think we should consider standardizing on a clang-format ruleset though which doesn\u0027t support that type of formatting and what I have here is much more standard.",
+      "parentUuid": "b75cea47_f6c545b4",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 230,
+        "endChar": 41
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "131b1714_c57f54c0",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-02T09:48:14Z",
       "side": 1,
       "message": "Including this doesn\u0027t look right?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa831d97_b2833057",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 68
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "131b1714_c57f54c0",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8f7320_938075ca",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 68
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0421ec20_4e8ea12d",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 96
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2214e5f_5b8d6e69",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-11-02T09:48:14Z",
       "side": 1,
       "message": "Any reason this isn\u0027t like the line above (using GetPhiPlaceholder())?",
+      "range": {
+        "startLine": 409,
+        "startChar": 37,
+        "endLine": 409,
+        "endChar": 79
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9150049_dc232c33",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 68
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2214e5f_5b8d6e69",
       "range": {
         "startLine": 409,
         "startChar": 37,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a5a384_208d2962",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 68
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "299e10ba_2de500a4",
+      "range": {
+        "startLine": 1222,
+        "startChar": 6,
+        "endLine": 1222,
+        "endChar": 14
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5524184f_d152d47a",
@@ -129,6 +249,30 @@
       "writtenOn": "2020-11-02T09:48:14Z",
       "side": 1,
       "message": "Add a comment on why we need to escape the loop?",
+      "range": {
+        "startLine": 1227,
+        "startChar": 6,
+        "endLine": 1227,
+        "endChar": 11
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b8fc16f_5244aee0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 68
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5524184f_d152d47a",
       "range": {
         "startLine": 1227,
         "startChar": 6,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee9c3ae_73cc77b4",
+        "filename": "libartbase/base/arena_bit_vector.h",
+        "patchSetId": 68
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e94b13db_5461b493",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccc7e00e_331183e1",
@@ -175,6 +343,30 @@
       "writtenOn": "2020-11-02T09:48:14Z",
       "side": 1,
       "message": "What does this mean? That we can add more helper functions? If yes, then I think it\u0027s OK to remove the TODO.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 42
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47360b45_a0a0aa8a",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 68
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ccc7e00e_331183e1",
       "range": {
         "startLine": 307,
         "startChar": 0,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93daf0f_d0433b86",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 68
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e88be93_faa9d54b",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 56
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43a48ced_1d35f552",
@@ -221,6 +437,30 @@
       "writtenOn": "2020-11-02T09:48:14Z",
       "side": 1,
       "message": "High-level comment needed.",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 63
+      },
+      "revId": "bcdd073ba59874571354d46a50712b3b47cdea56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53209979_696bd9b1",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 68
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-02T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43a48ced_1d35f552",
       "range": {
         "startLine": 414,
         "startChar": 0,
