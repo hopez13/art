@@ -30,15 +30,15 @@
 #include "dex/standard_dex_file.h"
 #include "driver/dex_compilation_unit.h"
 #include "graph_checker.h"
+#include "gtest/gtest.h"
 #include "handle_scope-inl.h"
+#include "handle_scope.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "scoped_thread_state_change.h"
 #include "ssa_builder.h"
 #include "ssa_liveness_analysis.h"
-
-#include "gtest/gtest.h"
 
 namespace art {
 
@@ -183,8 +183,8 @@ class OptimizingUnitTestHelper {
     }
   }
 
-  void InitGraph() {
-    CreateGraph();
+  void InitGraph(VariableSizedHandleScope* handles = nullptr) {
+    CreateGraph(handles);
     entry_block_ = AddNewBlock();
     return_block_ = AddNewBlock();
     exit_block_ = AddNewBlock();
@@ -341,6 +341,12 @@ class AdjacencyListGraph {
   AdjacencyListGraph(const AdjacencyListGraph&) = default;
   AdjacencyListGraph& operator=(AdjacencyListGraph&&) = default;
   AdjacencyListGraph& operator=(const AdjacencyListGraph&) = default;
+
+  void Dump(std::ostream& oss) const {
+    for (auto [name, blk] : name_to_block_) {
+      oss << name << " -> " << blk->GetBlockId() << std::endl;
+    }
+  }
 
  private:
   HGraph* graph_;

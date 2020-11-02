@@ -1098,6 +1098,9 @@ static inline bool TryReplaceFieldOrArrayGetType(HInstruction* maybe_get, DataTy
   if (maybe_get->IsInstanceFieldGet()) {
     maybe_get->AsInstanceFieldGet()->SetType(new_type);
     return true;
+  } else if (maybe_get->IsPredicatedInstanceFieldGet()) {
+    maybe_get->AsPredicatedInstanceFieldGet()->SetType(new_type);
+    return true;
   } else if (maybe_get->IsStaticFieldGet()) {
     maybe_get->AsStaticFieldGet()->SetType(new_type);
     return true;

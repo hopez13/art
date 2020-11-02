@@ -6010,10 +6010,18 @@ void InstructionCodeGeneratorX86::VisitInstanceFieldSet(HInstanceFieldSet* instr
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderX86::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
 void LocationsBuilderX86::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
+void InstructionCodeGeneratorX86::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
 void InstructionCodeGeneratorX86::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
