@@ -18,8 +18,10 @@
 #define ART_COMPILER_OPTIMIZING_OPTIMIZING_UNIT_TEST_H_
 
 #include <memory>
+#include <string_view>
 #include <vector>
 
+#include "base/indenter.h"
 #include "base/malloc_arena_pool.h"
 #include "base/scoped_arena_allocator.h"
 #include "builder.h"
@@ -30,15 +32,15 @@
 #include "dex/standard_dex_file.h"
 #include "driver/dex_compilation_unit.h"
 #include "graph_checker.h"
+#include "gtest/gtest.h"
 #include "handle_scope-inl.h"
+#include "handle_scope.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "scoped_thread_state_change.h"
 #include "ssa_builder.h"
 #include "ssa_liveness_analysis.h"
-
-#include "gtest/gtest.h"
 
 namespace art {
 
@@ -183,8 +185,8 @@ class OptimizingUnitTestHelper {
     }
   }
 
-  void InitGraph() {
-    CreateGraph();
+  void InitGraph(VariableSizedHandleScope* handles = nullptr) {
+    CreateGraph(handles);
     entry_block_ = AddNewBlock();
     return_block_ = AddNewBlock();
     exit_block_ = AddNewBlock();
@@ -341,6 +343,65 @@ class AdjacencyListGraph {
   AdjacencyListGraph(const AdjacencyListGraph&) = default;
   AdjacencyListGraph& operator=(AdjacencyListGraph&&) = default;
   AdjacencyListGraph& operator=(const AdjacencyListGraph&) = default;
+
+  void Dump(std::ostream& oss) const {
+    VariableIndentationOutputStream vios(&oss);
+    struct DumpIns : public HGraphVisitor {
+     public:
+      explicit DumpIns(HGraph* graph,
+                       const AdjacencyListGraph& alg,
+                       VariableIndentationOutputStream& oss)
+          : HGraphVisitor(graph), alg_(alg), oss_(oss) {}
+      void VisitInstruction(HInstruction* ins) override {
+        oss_.Stream() << *ins << std::endl;
+      }
+      void VisitBasicBlock(HBasicBlock* blk) override {
+        PrintAdjLine(blk);
+        ScopedIndentation si(&oss_);
+        HGraphVisitor::VisitBasicBlock(blk);
+      }
+
+     private:
+      std::string_view GetName(HBasicBlock* blk) {
+        if (alg_.HasBlock(blk)) {
+          return alg_.GetName(blk);
+        } else {
+          return "<Unnamed>";
+        }
+      }
+
+      void PrintAdjLine(HBasicBlock* blk) {
+        oss_.Stream() << GetName(blk) << "(" << blk->GetBlockId() << ") -> [";
+        bool first = true;
+        for (HBasicBlock* succ : blk->GetSuccessors()) {
+          if (!first) {
+            oss_.Stream() << ", ";
+          }
+          first = false;
+          oss_.Stream() << GetName(succ) << "(" << std::dec << succ->GetBlockId() << ")";
+        }
+        oss_.Stream() << "] (preds: [";
+        first = true;
+        for (HBasicBlock* pred : blk->GetPredecessors()) {
+          if (!first) {
+            oss_.Stream() << ", ";
+          }
+          first = false;
+          oss_.Stream() << GetName(pred) << "(" << std::dec << pred->GetBlockId() << ")";
+        }
+        oss_.Stream() << "])" << std::endl;
+      }
+
+      const AdjacencyListGraph& alg_;
+      VariableIndentationOutputStream& oss_;
+    };
+
+    vios.Stream() << "Blocks: " << std::endl;
+    {
+      ScopedIndentation si2(&vios);
+      DumpIns(graph_, *this, vios).VisitInsertionOrder();
+    }
+  }
 
  private:
   HGraph* graph_;
