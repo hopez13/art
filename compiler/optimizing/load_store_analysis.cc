@@ -96,18 +96,18 @@ void ReferenceInfo::PrunePartialEscapeWrites() {
     return;
   }
   HGraph* graph = reference_->GetBlock()->GetGraph();
+  if (graph->EnableWIPLSE()) {
+    return;
+  }
   ArenaBitVector additional_exclusions(
       allocator_, graph->GetBlocks().size(), false, kArenaAllocLSA);
   for (const HUseListNode<HInstruction*>& use : reference_->GetUses()) {
     const HInstruction* user = use.GetUser();
-    const bool possible_exclusion =
-        !additional_exclusions.IsBitSet(user->GetBlock()->GetBlockId()) &&
-        subgraph_.ContainsBlock(user->GetBlock());
-    const bool is_written_to =
+    if (!additional_exclusions.IsBitSet(user->GetBlock()->GetBlockId()) &&
+        subgraph_.ContainsBlock(user->GetBlock()) &&
         (user->IsUnresolvedInstanceFieldSet() || user->IsUnresolvedStaticFieldSet() ||
          user->IsInstanceFieldSet() || user->IsStaticFieldSet() || user->IsArraySet()) &&
-        (reference_ == user->InputAt(0));
-    if (possible_exclusion && is_written_to &&
+        (reference_ == user->InputAt(0)) &&
         std::any_of(subgraph_.UnreachableBlocks().begin(),
                     subgraph_.UnreachableBlocks().end(),
                     [&](const HBasicBlock* excluded) -> bool {
@@ -116,7 +116,6 @@ void ReferenceInfo::PrunePartialEscapeWrites() {
                     })) {
       // This object had memory written to it somewhere, if it escaped along
       // some paths prior to the current block this write also counts as an
-      // escape.
       additional_exclusions.SetBit(user->GetBlock()->GetBlockId());
     }
   }
