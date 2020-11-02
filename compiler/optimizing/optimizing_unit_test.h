@@ -18,8 +18,10 @@
 #define ART_COMPILER_OPTIMIZING_OPTIMIZING_UNIT_TEST_H_
 
 #include <memory>
+#include <string_view>
 #include <vector>
 
+#include "base/indenter.h"
 #include "base/malloc_arena_pool.h"
 #include "base/scoped_arena_allocator.h"
 #include "builder.h"
@@ -30,15 +32,15 @@
 #include "dex/standard_dex_file.h"
 #include "driver/dex_compilation_unit.h"
 #include "graph_checker.h"
+#include "gtest/gtest.h"
 #include "handle_scope-inl.h"
+#include "handle_scope.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "scoped_thread_state_change.h"
 #include "ssa_builder.h"
 #include "ssa_liveness_analysis.h"
-
-#include "gtest/gtest.h"
 
 namespace art {
 
@@ -183,8 +185,8 @@ class OptimizingUnitTestHelper {
     }
   }
 
-  void InitGraph() {
-    CreateGraph();
+  void InitGraph(VariableSizedHandleScope* handles = nullptr) {
+    CreateGraph(handles);
     entry_block_ = AddNewBlock();
     return_block_ = AddNewBlock();
     exit_block_ = AddNewBlock();
@@ -244,6 +246,37 @@ class OptimizingUnitTestHelper {
     environment->CopyFrom(ArrayRef<HInstruction* const>(*current_locals));
     instruction->SetRawEnvironment(environment);
     return environment;
+  }
+
+  void EnsurePredecessorOrder(HBasicBlock* target, std::initializer_list<HBasicBlock*> preds) {
+    // ASSERT_EQ(preds.size(), target->GetPredecessors().size());
+    bool correct_preds = preds.size() == target->GetPredecessors().size() &&
+
+                         std::all_of(preds.begin(), preds.end(), [&](HBasicBlock* pred) {
+                           return std::any_of(target->GetPredecessors().begin(),
+                                              target->GetPredecessors().end(),
+                                              [&](HBasicBlock* cand) { return cand == pred; });
+                         });
+    auto dump_list = [](auto it) {
+      std::ostringstream oss;
+      oss << "[";
+      bool first = true;
+      for (HBasicBlock* b : it) {
+        if (!first) {
+          oss << ", ";
+        }
+        first = false;
+        oss << b->GetBlockId();
+      }
+      oss << "]";
+      return oss.str();
+    };
+    ASSERT_TRUE(correct_preds) << "Predecessors of " << target->GetBlockId() << " are "
+                               << dump_list(target->GetPredecessors()) << " not "
+                               << dump_list(preds);
+    if (correct_preds) {
+      std::copy(preds.begin(), preds.end(), target->predecessors_.begin());
+    }
   }
 
  protected:
@@ -342,11 +375,28 @@ class AdjacencyListGraph {
   AdjacencyListGraph& operator=(AdjacencyListGraph&&) = default;
   AdjacencyListGraph& operator=(const AdjacencyListGraph&) = default;
 
+  std::ostream& Dump(std::ostream& oss) const {
+    struct Namer : public BlockNamer {
+     public:
+      explicit Namer(const AdjacencyListGraph& alg) : BlockNamer(), alg_(alg) {}
+      std::string_view GetName(HBasicBlock* blk) const override {
+        return alg_.HasBlock(blk) ? alg_.GetName(blk) : "<Unnamed>";
+      }
+      const AdjacencyListGraph& alg_;
+    };
+    Namer namer(*this);
+    return graph_->Dump(oss, namer);
+  }
+
  private:
   HGraph* graph_;
   SafeMap<const std::string_view, HBasicBlock*> name_to_block_;
   SafeMap<const HBasicBlock*, const std::string_view> block_to_name_;
 };
+
+inline std::ostream& operator<<(std::ostream& oss, const AdjacencyListGraph& alg) {
+  return alg.Dump(oss);
+}
 
 }  // namespace art
 
