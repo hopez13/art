@@ -6099,6 +6099,16 @@ void LocationsBuilderARMVIXL::VisitInstanceFieldGet(HInstanceFieldGet* instructi
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
+void LocationsBuilderARMVIXL::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction ATTRIBUTE_UNUSED) {
+  LOG(FATAL) << "Lol no";
+}
+
 void InstructionCodeGeneratorARMVIXL::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
