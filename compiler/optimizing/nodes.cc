@@ -1938,6 +1938,14 @@ std::ostream& HInstanceFieldGet::DumpArguments(std::ostream& os, ArenaBitVector*
   return HExpression<1>::DumpArguments(os, visited);
 }
 
+std::ostream& HPredicatedInstanceFieldGet::DumpArguments(std::ostream& os,
+                                                         ArenaBitVector* visited) const {
+  return HExpression<2>::DumpArguments(
+      os << "Target: " << GetFieldType() << "("
+         << GetFieldInfo().GetDexFile().PrettyField(GetFieldInfo().GetFieldIndex()) << "), ",
+      visited);
+}
+
 std::ostream& HIf::DumpArguments(std::ostream& os, ArenaBitVector* visited) const {
   return HExpression<1>::DumpArguments(os, visited)
          << ", true block: " << IfTrueSuccessor()->GetBlockId()
@@ -1961,9 +1969,18 @@ std::ostream& HInstruction::DumpArguments(std::ostream& os, ArenaBitVector* visi
 
 std::ostream& HInstanceFieldSet::DumpArguments(std::ostream& os, ArenaBitVector* bv) const {
   bool have_tags = false;
-  if (IsVolatile()) {
+  if (GetIsPredicatedSet()) {
     have_tags = true;
-    os << "[volatile";
+    os << "[Predicated";
+  }
+  if (IsVolatile()) {
+    if (!have_tags) {
+      os << "[";
+    } else {
+      os << ", ";
+    }
+    have_tags = true;
+    os << "volatile";
   }
   if (GetType() == DataType::Type::kReference && !CanBeNull()) {
     if (!have_tags) {
