@@ -382,9 +382,9 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
   for (HInstruction* input : instruction->GetInputs()) {
     if (input->GetBlock() == nullptr) {
       AddError(StringPrintf("Input %d of instruction %d is not in any "
-                            "basic block of the control-flow graph.",
-                            input->GetId(),
-                            instruction->GetId()));
+                      "basic block of the control-flow graph.",
+                      input->GetId(),
+                      instruction->GetId()));
     } else {
       const HInstructionList& list = input->IsPhi()
           ? input->GetBlock()->GetPhis()
