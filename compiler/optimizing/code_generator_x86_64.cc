@@ -39,6 +39,7 @@
 #include "utils/assembler.h"
 #include "utils/stack_checks.h"
 #include "utils/x86_64/assembler_x86_64.h"
+#include "utils/x86_64/constants_x86_64.h"
 #include "utils/x86_64/managed_register_x86_64.h"
 
 namespace art {
@@ -499,13 +500,10 @@ class ReadBarrierMarkSlowPathX86_64 : public SlowPathCode {
     Register ref_reg = ref_cpu_reg.AsRegister();
     DCHECK(locations->CanCall());
     DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(ref_reg)) << ref_reg;
-    DCHECK(instruction_->IsInstanceFieldGet() ||
-           instruction_->IsStaticFieldGet() ||
-           instruction_->IsArrayGet() ||
-           instruction_->IsArraySet() ||
-           instruction_->IsLoadClass() ||
-           instruction_->IsLoadString() ||
-           instruction_->IsInstanceOf() ||
+    DCHECK(instruction_->IsInstanceFieldGet() || instruction_->IsPredicatedInstanceFieldGet() ||
+           instruction_->IsStaticFieldGet() || instruction_->IsArrayGet() ||
+           instruction_->IsArraySet() || instruction_->IsLoadClass() ||
+           instruction_->IsLoadString() || instruction_->IsInstanceOf() ||
            instruction_->IsCheckCast() ||
            (instruction_->IsInvokeVirtual() && instruction_->GetLocations()->Intrinsified()) ||
            (instruction_->IsInvokeStaticOrDirect() && instruction_->GetLocations()->Intrinsified()))
@@ -4849,7 +4847,8 @@ void CodeGeneratorX86_64::GenerateMemoryBarrier(MemBarrierKind kind) {
 }
 
 void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
-  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
+  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet() ||
+         instruction->IsPredicatedInstanceFieldGet());
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == DataType::Type::kReference);
@@ -4862,6 +4861,13 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
+  if (instruction->IsPredicatedInstanceFieldGet()) {
+    if (DataType::IsFloatingPointType(instruction->GetType())) {
+      locations->SetInAt(1, Location::RequiresFpuRegister());
+    } else {
+      locations->SetInAt(1, Location::RequiresRegister());
+    }
+  }
   if (DataType::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
@@ -4876,7 +4882,8 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
 
 void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
                                                     const FieldInfo& field_info) {
-  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
+  DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet() ||
+         instruction->IsPredicatedInstanceFieldGet());
 
   LocationSummary* locations = instruction->GetLocations();
   Location base_loc = locations->InAt(0);
@@ -5148,8 +5155,31 @@ void InstructionCodeGeneratorX86_64::VisitInstanceFieldSet(HInstanceFieldSet* in
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderX86_64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction) {
+  HandleFieldGet(instruction);
+}
+
 void LocationsBuilderX86_64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction);
+}
+
+void InstructionCodeGeneratorX86_64::VisitPredicatedInstanceFieldGet(
+    HPredicatedInstanceFieldGet* instruction) {
+  NearLabel use_default, finish;
+  LocationSummary* locations = instruction->GetLocations();
+  Location out = locations->Out();
+  __ cmpl(locations->InAt(0).AsRegister<CpuRegister>(), Immediate(0));
+  __ j(kNotEqual, &use_default);
+  if (DataType::IsFloatingPointType(instruction->GetType())) {
+    __ movss(out.AsFpuRegister<XmmRegister>(), locations->InAt(2).AsFpuRegister<XmmRegister>());
+  } else {
+    __ movq(out.AsRegister<CpuRegister>(), locations->InAt(2).AsRegister<CpuRegister>());
+  }
+  __ jmp(&finish);
+  __ Bind(&use_default);
+  HandleFieldGet(instruction, instruction->GetFieldInfo());
+  __ Bind(&finish);
 }
 
 void InstructionCodeGeneratorX86_64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
