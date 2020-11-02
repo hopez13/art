@@ -84,6 +84,7 @@ ArenaBitVector::ArenaBitVector(ArenaAllocator* allocator,
   :  BitVector(start_bits,
                expandable,
                ArenaBitVectorAllocator<ArenaAllocator>::Create(allocator, kind)) {
+  // ClearAllBits();
 }
 
 ArenaBitVector::ArenaBitVector(ScopedArenaAllocator* allocator,
@@ -93,6 +94,7 @@ ArenaBitVector::ArenaBitVector(ScopedArenaAllocator* allocator,
   :  BitVector(start_bits,
                expandable,
                ArenaBitVectorAllocator<ScopedArenaAllocator>::Create(allocator, kind)) {
+  // ClearAllBits();
 }
 
 }  // namespace art

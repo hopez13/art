@@ -27,6 +27,7 @@
 #include "base/bit_vector-inl.h"
 #include "base/globals.h"
 #include "base/iteration_range.h"
+#include "base/mutex.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "base/stl_util.h"
@@ -34,6 +35,18 @@
 #include "nodes.h"
 
 namespace art {
+
+// Helper for transforming blocks to block_ids.
+class BlockToBlockIdTransformer {
+ public:
+  BlockToBlockIdTransformer(BlockToBlockIdTransformer&&) = default;
+  BlockToBlockIdTransformer(const BlockToBlockIdTransformer&) = default;
+  BlockToBlockIdTransformer() {}
+
+  inline uint32_t operator()(const HBasicBlock* b) const {
+    return b->GetBlockId();
+  }
+};
 
 // Helper for transforming block ids to blocks.
 class BlockIdToBlockTransformer {
@@ -61,6 +74,22 @@ class BlockIdToBlockTransformer {
   const HGraph* const graph_;
 };
 
+template <typename Inner>
+class BlockIdWrapperThunk {
+ public:
+  explicit BlockIdWrapperThunk(Inner i) : inner_(i) {}
+  BlockIdWrapperThunk(BlockIdWrapperThunk<Inner>&& other) noexcept = default;
+  BlockIdWrapperThunk(const BlockIdWrapperThunk<Inner>&) = default;
+
+  using Result = typename std::invoke_result<Inner, uint32_t>::type;
+  Result operator()(const HBasicBlock* b) const {
+    return inner_(b->GetBlockId());
+  }
+
+ private:
+  Inner inner_;
+};
+
 // A representation of a particular section of the graph. The graph is split
 // into an excluded and included area and is used to track escapes.
 //
@@ -80,10 +109,18 @@ class BlockIdToBlockTransformer {
 // cohort-exit block to reach any cohort-entry block. This means we can use the
 // boundary between the cohort and the rest of the graph to insert
 // materialization blocks for partial LSE.
+//
+// TODO We really should expand this to take into account where the object
+// allocation takes place directly. Currently we always act as though it were
+// allocated in the entry block. This is a massively simplifying assumption but
+// means we can't partially remove objects that are repeatedly allocated in a
+// loop.
 class ExecutionSubgraph : public ArenaObject<kArenaAllocLSA> {
  public:
   using BitVecBlockRange =
       IterationRange<TransformIterator<BitVector::IndexIterator, BlockIdToBlockTransformer>>;
+  using FilteredBitVecBlockRange = IterationRange<
+      FilterIterator<ArenaVector<HBasicBlock*>::const_iterator, BlockIdWrapperThunk<BitVecThunk>>>;
 
   // A set of connected blocks which are connected and removed from the
   // ExecutionSubgraph. See above comment for explanation.
@@ -108,6 +145,15 @@ class ExecutionSubgraph : public ArenaObject<kArenaAllocLSA> {
     // need to have PHIs/control-flow added to create the escaping value.
     BitVecBlockRange EntryBlocks() const {
       return BlockIterRange(entry_blocks_);
+    }
+
+    FilteredBitVecBlockRange EntryBlocksReversePostOrder() const {
+      return Filter(MakeIterationRange(graph_->GetReversePostOrder()),
+                    BlockIdWrapperThunk(BitVecThunk(entry_blocks_)));
+    }
+
+    bool IsEntryBlock(const HBasicBlock* blk) const {
+      return entry_blocks_.IsBitSet(blk->GetBlockId());
     }
 
     // Blocks that have successors outside of the cohort. The successors of

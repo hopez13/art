@@ -40,7 +40,9 @@ namespace art {
 
 class LoadStoreAnalysisTest : public OptimizingUnitTest {
  public:
-  LoadStoreAnalysisTest() : graph_(CreateGraph()) {}
+  LoadStoreAnalysisTest() : graph_(CreateGraph()) {
+    graph_->ForceWIPLSE();
+  }
 
   AdjacencyListGraph SetupFromAdjacencyList(
       const std::string_view entry_name,
@@ -1165,6 +1167,7 @@ TEST_F(LoadStoreAnalysisTest, PartialEscape3) {
   ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
 }
 
+// before we had predicated-set we needed to remove the store as well.
 // // ENTRY
 // obj = new Obj();
 // if (parameter_value) {
@@ -1253,6 +1256,8 @@ TEST_F(LoadStoreAnalysisTest, TotalEscapeAdjacent) {
   exit->AddInstruction(write_final);
 
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  graph_->ClearDominanceInformation();
+  graph_->BuildDominatorTree();
   LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
   lsa.Run();
 
@@ -1260,16 +1265,16 @@ TEST_F(LoadStoreAnalysisTest, TotalEscapeAdjacent) {
   ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
   const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
 
-  ASSERT_FALSE(esg->IsValid()) << esg->GetExcludedCohorts();
-  ASSERT_FALSE(IsValidSubgraph(esg));
+  EXPECT_TRUE(esg->IsValid()) << esg->GetExcludedCohorts();
+  EXPECT_TRUE(IsValidSubgraph(esg));
   std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
                                                   esg->ReachableBlocks().end());
 
-  ASSERT_EQ(contents.size(), 0u);
-  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("right")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("entry")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("exit")) == contents.end());
+  EXPECT_EQ(contents.size(), 3u);
+  EXPECT_TRUE(contents.find(blks.Get("left")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("right")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("entry")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("exit")) == contents.end());
 }
 
 // // ENTRY

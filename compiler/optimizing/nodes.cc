@@ -46,6 +46,33 @@ namespace art {
 // double).
 static constexpr bool kEnableFloatingPointStaticEvaluation = (FLT_EVAL_METHOD == 0);
 
+std::ostream& operator<<(std::ostream& oss, const HUseList<HInstruction*>& lst) {
+  oss << "Instructions[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      oss << ", ";
+    }
+    first = false;
+    oss << hi.GetUser()->DebugName() << "[id: " << hi.GetUser()->GetId()
+        << ", blk: " << hi.GetUser()->GetBlock()->GetBlockId() << "]@" << hi.GetIndex();
+  }
+  oss << "]";
+  return oss;
+}
+std::ostream& operator<<(std::ostream& oss, const HUseList<HEnvironment*>& lst) {
+  oss << "Environments[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      oss << ", ";
+    }
+    first = false;
+    oss << *hi.GetUser()->GetHolder() << "@" << hi.GetIndex();
+  }
+  oss << "]";
+  return oss;
+}
 ReferenceTypeInfo::TypeHandle HandleCache::CreateRootHandle(VariableSizedHandleScope* handles,
                                                             ClassRoot class_root) {
   // Mutator lock is required for NewHandle and GetClassRoot().
@@ -53,7 +80,7 @@ ReferenceTypeInfo::TypeHandle HandleCache::CreateRootHandle(VariableSizedHandleS
   return handles->NewHandle(GetClassRoot(class_root));
 }
 
-void HGraph::AddBlock(HBasicBlock* block) {
+void __attribute__((optnone)) HGraph::AddBlock(HBasicBlock* block) {
   block->SetBlockId(blocks_.size());
   blocks_.push_back(block);
 }
@@ -170,6 +197,8 @@ void HGraph::RemoveDeadBlocks(const ArenaBitVector& visited) {
       if (block == nullptr) continue;
       // We only need to update the successor, which might be live.
       for (HBasicBlock* successor : block->GetSuccessors()) {
+        LOG(WARNING) << "Removing dead edge " << block->GetBlockId() << "->"
+                     << successor->GetBlockId();
         successor->RemovePredecessor(block);
       }
       // Remove the block from the list of blocks, so that further analyses
@@ -827,6 +856,18 @@ void HGraph::InsertConstant(HConstant* constant) {
   }
 }
 
+HConstant* HGraph::GetDefaultValueConstant(DataType::Type type) {
+  if (DataType::IsIntegralType(type)) {
+    return GetConstant(type, 0)->AsConstant();
+  } else if (type == DataType::Type::kFloat32) {
+    return GetFloatConstant(0.0f)->AsConstant();
+  } else if (type == DataType::Type::kFloat64) {
+    return GetDoubleConstant(0.0)->AsConstant();
+  } else {
+    return GetNullConstant()->AsConstant();
+  }
+}
+
 HNullConstant* HGraph::GetNullConstant(uint32_t dex_pc) {
   // For simplicity, don't bother reviving the cached null constant if it is
   // not null and not in a block. Otherwise, we need to clear the instruction
@@ -1076,7 +1117,9 @@ size_t HLoopInformation::GetLifetimeEnd() const {
 
 bool HLoopInformation::HasBackEdgeNotDominatedByHeader() const {
   for (HBasicBlock* back_edge : GetBackEdges()) {
-    DCHECK(back_edge->GetDominator() != nullptr);
+    DCHECK(back_edge->GetDominator() != nullptr)
+        << back_edge->GetBlockId() << " header: " << header_->GetBlockId() << " dom? "
+        << std::boolalpha << header_->Dominates(back_edge);
     if (!header_->Dominates(back_edge)) {
       return true;
     }
@@ -1869,6 +1912,55 @@ HInstruction* HBinaryOperation::GetLeastConstantLeft() const {
   } else {
     return GetLeft();
   }
+}
+
+std::ostream& HInstruction::Dump(std::ostream& os, std::optional<ArenaBitVector*> visited) const {
+  const HBasicBlock* blk = GetBlock();
+  os << DebugName() << "[id: " << GetId()
+     << ", blk: " << (blk == nullptr ? -1 : static_cast<int32_t>(blk->GetBlockId())) << "]";
+  bool recur;
+  std::optional<ArenaBitVector> my_bv = std::nullopt;
+  if (visited) {
+    if ((*visited)->IsBitSet(GetId())) {
+      recur = false;
+    } else {
+      recur = true;
+    }
+  } else {
+    recur = true;
+    my_bv.emplace(
+        GetAllocator(), GetBlock()->GetGraph()->GetNextInstructionId(), false, kArenaAllocGraph);
+    visited = &(*my_bv);
+  }
+
+  if (recur) {
+    (*visited)->SetBit(GetId());
+    os << "(";
+    DumpArguments(os, *visited);
+    os << ")";
+    (*visited)->ClearBit(GetId());
+  }
+  return os;
+}
+
+std::ostream& HVariableInputSizeInstruction::DumpArguments(std::ostream& os,
+                                                           ArenaBitVector* visited) const {
+  for (auto i : Range(inputs_.size())) {
+    if (i != 0) {
+      os << ", ";
+    }
+    HInstruction* in = InputAt(i);
+    if (in != nullptr) {
+      in->Dump(os, visited);
+    } else {
+      os << "NULL";
+    }
+  }
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const HInstruction& ins) {
+  return ins.Dump(os);
 }
 
 std::ostream& operator<<(std::ostream& os, ComparisonBias rhs) {
