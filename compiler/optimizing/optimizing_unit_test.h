@@ -18,8 +18,10 @@
 #define ART_COMPILER_OPTIMIZING_OPTIMIZING_UNIT_TEST_H_
 
 #include <memory>
+#include <string_view>
 #include <vector>
 
+#include "base/indenter.h"
 #include "base/malloc_arena_pool.h"
 #include "base/scoped_arena_allocator.h"
 #include "builder.h"
@@ -30,15 +32,15 @@
 #include "dex/standard_dex_file.h"
 #include "driver/dex_compilation_unit.h"
 #include "graph_checker.h"
+#include "gtest/gtest.h"
 #include "handle_scope-inl.h"
+#include "handle_scope.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "scoped_thread_state_change.h"
 #include "ssa_builder.h"
 #include "ssa_liveness_analysis.h"
-
-#include "gtest/gtest.h"
 
 namespace art {
 
@@ -183,8 +185,8 @@ class OptimizingUnitTestHelper {
     }
   }
 
-  void InitGraph() {
-    CreateGraph();
+  void InitGraph(VariableSizedHandleScope* handles = nullptr) {
+    CreateGraph(handles);
     entry_block_ = AddNewBlock();
     return_block_ = AddNewBlock();
     exit_block_ = AddNewBlock();
@@ -244,6 +246,37 @@ class OptimizingUnitTestHelper {
     environment->CopyFrom(ArrayRef<HInstruction* const>(*current_locals));
     instruction->SetRawEnvironment(environment);
     return environment;
+  }
+
+  void EnsurePredecessorOrder(HBasicBlock* target, std::initializer_list<HBasicBlock*> preds) {
+    // ASSERT_EQ(preds.size(), target->GetPredecessors().size());
+    bool correct_preds = preds.size() == target->GetPredecessors().size() &&
+
+                         std::all_of(preds.begin(), preds.end(), [&](HBasicBlock* pred) {
+                           return std::any_of(target->GetPredecessors().begin(),
+                                              target->GetPredecessors().end(),
+                                              [&](HBasicBlock* cand) { return cand == pred; });
+                         });
+    auto dump_list = [](auto it) {
+      std::ostringstream oss;
+      oss << "[";
+      bool first = true;
+      for (HBasicBlock* b : it) {
+        if (!first) {
+          oss << ", ";
+        }
+        first = false;
+        oss << b->GetBlockId();
+      }
+      oss << "]";
+      return oss.str();
+    };
+    ASSERT_TRUE(correct_preds) << "Predecessors of " << target->GetBlockId() << " are "
+                               << dump_list(target->GetPredecessors()) << " not "
+                               << dump_list(preds);
+    if (correct_preds) {
+      std::copy(preds.begin(), preds.end(), target->predecessors_.begin());
+    }
   }
 
  protected:
@@ -341,6 +374,65 @@ class AdjacencyListGraph {
   AdjacencyListGraph(const AdjacencyListGraph&) = default;
   AdjacencyListGraph& operator=(AdjacencyListGraph&&) = default;
   AdjacencyListGraph& operator=(const AdjacencyListGraph&) = default;
+
+  void Dump(std::ostream& oss) const {
+    VariableIndentationOutputStream vios(&oss);
+    struct DumpIns : public HGraphVisitor {
+     public:
+      explicit DumpIns(HGraph* graph,
+                       const AdjacencyListGraph& alg,
+                       VariableIndentationOutputStream& oss)
+          : HGraphVisitor(graph), alg_(alg), oss_(oss) {}
+      void VisitInstruction(HInstruction* ins) override {
+        oss_.Stream() << *ins << std::endl;
+      }
+      void VisitBasicBlock(HBasicBlock* blk) override {
+        PrintAdjLine(blk);
+        ScopedIndentation si(&oss_);
+        HGraphVisitor::VisitBasicBlock(blk);
+      }
+
+     private:
+      std::string_view GetName(HBasicBlock* blk) {
+        if (alg_.HasBlock(blk)) {
+          return alg_.GetName(blk);
+        } else {
+          return "<Unnamed>";
+        }
+      }
+
+      void PrintAdjLine(HBasicBlock* blk) {
+        oss_.Stream() << GetName(blk) << "(" << blk->GetBlockId() << ") -> [";
+        bool first = true;
+        for (HBasicBlock* succ : blk->GetSuccessors()) {
+          if (!first) {
+            oss_.Stream() << ", ";
+          }
+          first = false;
+          oss_.Stream() << GetName(succ) << "(" << std::dec << succ->GetBlockId() << ")";
+        }
+        oss_.Stream() << "] (preds: [";
+        first = true;
+        for (HBasicBlock* pred : blk->GetPredecessors()) {
+          if (!first) {
+            oss_.Stream() << ", ";
+          }
+          first = false;
+          oss_.Stream() << GetName(pred) << "(" << std::dec << pred->GetBlockId() << ")";
+        }
+        oss_.Stream() << "])" << std::endl;
+      }
+
+      const AdjacencyListGraph& alg_;
+      VariableIndentationOutputStream& oss_;
+    };
+
+    vios.Stream() << "Blocks: " << std::endl;
+    {
+      ScopedIndentation si2(&vios);
+      DumpIns(graph_, *this, vios).VisitInsertionOrder();
+    }
+  }
 
  private:
   HGraph* graph_;

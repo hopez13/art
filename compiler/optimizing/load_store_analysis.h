@@ -50,9 +50,8 @@ class ReferenceInfo : public DeletableArenaObject<kArenaAllocLSA> {
     // for now just ignore it.
     bool can_be_partial =
         for_partial_elimination && (/* reference_->IsNewArray() || */ reference_->IsNewInstance());
-    LambdaEscapeVisitor func([&](HInstruction* inst) { return HandleEscape(inst); });
     if (can_be_partial) {
-      VisitEscapes(reference_, func);
+      CollectPartialEscapes(reference_->GetBlock()->GetGraph());
     }
     CalculateEscape(reference_,
                     nullptr,
@@ -112,6 +111,7 @@ class ReferenceInfo : public DeletableArenaObject<kArenaAllocLSA> {
   }
 
  private:
+  void CollectPartialEscapes(HGraph* graph);
   bool HandleEscape(HInstruction* escape) {
     subgraph_.RemoveBlock(escape->GetBlock());
     return true;
@@ -258,6 +258,11 @@ class HeapLocationCollector : public HGraphVisitor {
 
   HeapLocation* GetHeapLocation(size_t index) const {
     return heap_locations_[index];
+  }
+
+  size_t GetHeapLocationIndex(const HeapLocation* hl) const {
+    auto res = std::find(heap_locations_.cbegin(), heap_locations_.cend(), hl);
+    return std::distance(heap_locations_.cbegin(), res);
   }
 
   HInstruction* HuntForOriginalReference(HInstruction* ref) const {
@@ -539,6 +544,10 @@ class HeapLocationCollector : public HGraphVisitor {
                             HeapLocation::kDeclaringClassDefIndexForArrays);
   }
 
+  void VisitPredicatedInstanceFieldGet(HPredicatedInstanceFieldGet* instruction) override {
+    VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
+    CreateReferenceInfoForReferenceType(instruction);
+  }
   void VisitInstanceFieldGet(HInstanceFieldGet* instruction) override {
     VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
     CreateReferenceInfoForReferenceType(instruction);

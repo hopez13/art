@@ -40,7 +40,9 @@ namespace art {
 
 class LoadStoreAnalysisTest : public OptimizingUnitTest {
  public:
-  LoadStoreAnalysisTest() : graph_(CreateGraph()) {}
+  LoadStoreAnalysisTest() : graph_(CreateGraph()) {
+    graph_->ForceWIPLSE();
+  }
 
   AdjacencyListGraph SetupFromAdjacencyList(
       const std::string_view entry_name,
@@ -1165,6 +1167,7 @@ TEST_F(LoadStoreAnalysisTest, PartialEscape3) {
   ASSERT_TRUE(contents.find(blks.Get("exit")) != contents.end());
 }
 
+// before we had predicated-set we needed to remove the store as well.
 // // ENTRY
 // obj = new Obj();
 // if (parameter_value) {
@@ -1253,6 +1256,8 @@ TEST_F(LoadStoreAnalysisTest, TotalEscapeAdjacent) {
   exit->AddInstruction(write_final);
 
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  graph_->ClearDominanceInformation();
+  graph_->BuildDominatorTree();
   LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
   lsa.Run();
 
@@ -1260,16 +1265,16 @@ TEST_F(LoadStoreAnalysisTest, TotalEscapeAdjacent) {
   ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
   const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
 
-  ASSERT_FALSE(esg->IsValid()) << esg->GetExcludedCohorts();
-  ASSERT_FALSE(IsValidSubgraph(esg));
+  EXPECT_TRUE(esg->IsValid()) << esg->GetExcludedCohorts();
+  EXPECT_TRUE(IsValidSubgraph(esg));
   std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
                                                   esg->ReachableBlocks().end());
 
-  ASSERT_EQ(contents.size(), 0u);
-  ASSERT_TRUE(contents.find(blks.Get("left")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("right")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("entry")) == contents.end());
-  ASSERT_TRUE(contents.find(blks.Get("exit")) == contents.end());
+  EXPECT_EQ(contents.size(), 3u);
+  EXPECT_TRUE(contents.find(blks.Get("left")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("right")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("entry")) == contents.end());
+  EXPECT_FALSE(contents.find(blks.Get("exit")) == contents.end());
 }
 
 // // ENTRY
@@ -1633,4 +1638,188 @@ TEST_F(LoadStoreAnalysisTest, DoubleDiamondEscape) {
   ASSERT_EQ(contents.size(), 0u);
 }
 
+// // ENTRY
+// Obj new_inst = new Obj();
+// new_inst.foo = 12;
+// Obj obj;
+// Obj out;
+// if (param1) {
+//   // LEFT_START
+//   if (param2) {
+//     // LEFT_LEFT
+//     obj = new_inst;
+//   } else {
+//     // LEFT_RIGHT
+//     obj = obj_param;
+//   }
+//   // LEFT_MERGE
+//   // technically the phi is enough to cause an escape but might as well be
+//   // thorough.
+//   // obj = phi[new_inst, param]
+//   escape(obj);
+//   out = obj;
+// } else {
+//   // RIGHT
+//   out = obj_param;
+// }
+// // EXIT
+// // Can't do anything with this since we don't have good tracking for the heap-locations
+// // out = phi[param, phi[new_inst, param]]
+// return out.foo
+TEST_F(LoadStoreAnalysisTest, PartialPhiPropogation1) {
+  CreateGraph();
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 {{"entry", "left_crit_break"},
+                                                  {"entry", "right"},
+                                                  {"left_crit_break", "left"},
+                                                  {"left", "left_left"},
+                                                  {"left", "left_right"},
+                                                  {"left_left", "left_merge"},
+                                                  {"left_right", "left_merge"},
+                                                  {"left_merge", "left_merge_crit_break"},
+                                                  {"left_merge_crit_break", "breturn"},
+                                                  {"right", "breturn"},
+                                                  {"breturn", "exit"}}));
+#define GET_BLOCK(name) HBasicBlock* name = blks.Get(#name)
+  GET_BLOCK(entry);
+  GET_BLOCK(exit);
+  GET_BLOCK(breturn);
+  GET_BLOCK(left);
+  GET_BLOCK(right);
+  GET_BLOCK(left_crit_break);
+  GET_BLOCK(left_left);
+  GET_BLOCK(left_right);
+  GET_BLOCK(left_merge);
+  GET_BLOCK(left_merge_crit_break);
+#undef GET_BLOCK
+  if (breturn->GetPredecessors()[0] != left_merge_crit_break) {
+    breturn->SwapPredecessors();
+  }
+  if (left_merge->GetPredecessors()[0] != left_left) {
+    left_merge->SwapPredecessors();
+  }
+  HInstruction* param1 = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kBool);
+  HInstruction* param2 = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 2, DataType::Type::kBool);
+  HInstruction* obj_param = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(10), 3, DataType::Type::kReference);
+  HInstruction* c12 = graph_->GetIntConstant(12);
+  HInstruction* cls = new (GetAllocator()) HLoadClass(graph_->GetCurrentMethod(),
+                                                      dex::TypeIndex(10),
+                                                      graph_->GetDexFile(),
+                                                      ScopedNullHandle<mirror::Class>(),
+                                                      false,
+                                                      0,
+                                                      false);
+  HInstruction* new_inst =
+      new (GetAllocator()) HNewInstance(cls,
+                                        0,
+                                        dex::TypeIndex(10),
+                                        graph_->GetDexFile(),
+                                        false,
+                                        QuickEntrypointEnum::kQuickAllocObjectInitialized);
+  HInstruction* store = new (GetAllocator()) HInstanceFieldSet(new_inst,
+                                                               c12,
+                                                               nullptr,
+                                                               DataType::Type::kInt32,
+                                                               MemberOffset(10),
+                                                               false,
+                                                               0,
+                                                               0,
+                                                               graph_->GetDexFile(),
+                                                               0);
+  HInstruction* if_param1 = new (GetAllocator()) HIf(param1);
+  entry->AddInstruction(param1);
+  entry->AddInstruction(param2);
+  entry->AddInstruction(obj_param);
+  entry->AddInstruction(cls);
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(store);
+  entry->AddInstruction(if_param1);
+  ArenaVector<HInstruction*> current_locals({}, GetAllocator()->Adapter(kArenaAllocInstruction));
+  ManuallyBuildEnvFor(cls, &current_locals);
+  new_inst->CopyEnvironmentFrom(cls->GetEnvironment());
+
+  HInstruction* left_crit_break_goto = new (GetAllocator()) HGoto();
+  left_crit_break->AddInstruction(left_crit_break_goto);
+
+  HInstruction* if_left = new (GetAllocator()) HIf(param2);
+  left->AddInstruction(if_left);
+
+  HInstruction* goto_left_left = new (GetAllocator()) HGoto();
+  left_left->AddInstruction(goto_left_left);
+
+  HInstruction* goto_left_right = new (GetAllocator()) HGoto();
+  left_right->AddInstruction(goto_left_right);
+
+  HPhi* left_phi =
+      new (GetAllocator()) HPhi(GetAllocator(), kNoRegNumber, 2, DataType::Type::kReference);
+  HInstruction* call_left = new (GetAllocator())
+      HInvokeStaticOrDirect(GetAllocator(),
+                            1,
+                            DataType::Type::kVoid,
+                            0,
+                            {nullptr, 0},
+                            nullptr,
+                            {},
+                            InvokeType::kStatic,
+                            {nullptr, 0},
+                            HInvokeStaticOrDirect::ClinitCheckRequirement::kNone);
+  HInstruction* goto_left_merge = new (GetAllocator()) HGoto();
+  left_phi->SetRawInputAt(0, obj_param);
+  left_phi->SetRawInputAt(1, new_inst);
+  call_left->AsInvoke()->SetRawInputAt(0, left_phi);
+  // NB The call-left needs to be added first.
+  left_merge->AddInstruction(call_left);
+  left_merge->AddPhi(left_phi);
+  left_merge->AddInstruction(goto_left_merge);
+  left_phi->SetCanBeNull(true);
+  call_left->CopyEnvironmentFrom(cls->GetEnvironment());
+
+  HInstruction* goto_left_merge_crit_break = new (GetAllocator()) HGoto();
+  left_merge_crit_break->AddInstruction(goto_left_merge_crit_break);
+
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(goto_right);
+
+  HPhi* return_phi =
+      new (GetAllocator()) HPhi(GetAllocator(), kNoRegNumber, 2, DataType::Type::kReference);
+  HInstruction* read_exit = new (GetAllocator()) HInstanceFieldGet(return_phi,
+                                                                   nullptr,
+                                                                   DataType::Type::kReference,
+                                                                   MemberOffset(10),
+                                                                   false,
+                                                                   0,
+                                                                   0,
+                                                                   graph_->GetDexFile(),
+                                                                   0);
+  HInstruction* return_exit = new (GetAllocator()) HReturn(read_exit);
+  return_phi->SetRawInputAt(0, left_phi);
+  return_phi->SetRawInputAt(1, obj_param);
+  breturn->AddPhi(return_phi);
+  breturn->AddInstruction(read_exit);
+  breturn->AddInstruction(return_exit);
+
+  HInstruction* exit_instruction = new (GetAllocator()) HExit();
+  exit->AddInstruction(exit_instruction);
+
+  // PerformLSE expects this to be empty.
+  graph_->ClearDominanceInformation();
+  graph_->BuildDominatorTree();
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator, /*for_elimination=*/true);
+  lsa.Run();
+
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+  ReferenceInfo* info = heap_location_collector.FindReferenceInfoOf(new_inst);
+  const ExecutionSubgraph* esg = info->GetNoEscapeSubgraph();
+  std::unordered_set<const HBasicBlock*> contents(esg->ReachableBlocks().begin(),
+                                                  esg->ReachableBlocks().end());
+
+  ASSERT_EQ(contents.size(), 0u);
+  ASSERT_FALSE(esg->IsValid());
+}
 }  // namespace art
