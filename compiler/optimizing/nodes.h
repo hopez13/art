@@ -72,6 +72,7 @@ class HParameterValue;
 class HPhi;
 class HSuspendCheck;
 class HTryBoundary;
+class FieldInfo;
 class LiveInterval;
 class LocationSummary;
 class SlowPathCode;
@@ -1106,6 +1107,10 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
     return predecessors_;
   }
 
+  size_t GetNumberOfPredecessors() const {
+    return GetPredecessors().size();
+  }
+
   const ArenaVector<HBasicBlock*>& GetSuccessors() const {
     return successors_;
   }
@@ -1448,6 +1453,8 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
 
   friend class HGraph;
   friend class HInstruction;
+  // Allow manual control of the ordering of predecessors/successors
+  friend class OptimizingUnitTestHelper;
 
   DISALLOW_COPY_AND_ASSIGN(HBasicBlock);
 };
@@ -1512,6 +1519,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(If, Instruction)                                                    \
   M(InstanceFieldGet, Instruction)                                      \
   M(InstanceFieldSet, Instruction)                                      \
+  M(PredicatedInstanceFieldGet, Instruction)                            \
   M(InstanceOf, Instruction)                                            \
   M(IntConstant, Constant)                                              \
   M(IntermediateAddress, Instruction)                                   \
@@ -1689,8 +1697,7 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
   H##type& operator=(const H##type&) = delete;                          \
   public:
 
-#define DEFAULT_COPY_CONSTRUCTOR(type)                                  \
-  explicit H##type(const H##type& other) = default;
+#define DEFAULT_COPY_CONSTRUCTOR(type) H##type(const H##type& other) = default;
 
 template <typename T>
 class HUseListNode : public ArenaObject<kArenaAllocUseListNode>,
@@ -2132,6 +2139,8 @@ class HEnvironment : public ArenaObject<kArenaAllocEnvironment> {
   DISALLOW_COPY_AND_ASSIGN(HEnvironment);
 };
 
+std::ostream& operator<<(std::ostream& os, const HInstruction& ins);
+
 class HInstruction : public ArenaObject<kArenaAllocInstruction> {
  public:
 #define DECLARE_KIND(type, super) k##type,
@@ -2239,6 +2248,10 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
   // Does the instruction always throw an exception unconditionally?
   virtual bool AlwaysThrows() const { return false; }
+  // Will this instruction only cause async exceptions if it causes any at all?
+  virtual bool OnlyThrowsAsyncExceptions() const {
+    return false;
+  }
 
   bool CanThrowIntoCatchBlock() const { return CanThrow() && block_->IsTryBlock(); }
 
@@ -2457,6 +2470,17 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   virtual HInstruction* Clone(ArenaAllocator* arena ATTRIBUTE_UNUSED) const {
     LOG(FATAL) << "Cloning is not implemented for the instruction " <<
                   DebugName() << " " << GetId();
+    UNREACHABLE();
+  }
+
+  virtual bool IsFieldAccess() const {
+    return false;
+  }
+
+  virtual const FieldInfo& GetFieldInfo() const {
+    CHECK(IsFieldAccess()) << "Only callable on field accessors not " << DebugName() << " "
+                           << *this;
+    LOG(FATAL) << "Must be overridden by field accessors. Not implemented by " << *this;
     UNREACHABLE();
   }
 
@@ -2695,8 +2719,8 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   friend class HGraph;
   friend class HInstructionList;
 };
+
 std::ostream& operator<<(std::ostream& os, HInstruction::InstructionKind rhs);
-std::ostream& operator<<(std::ostream& os, const HInstruction& ins);
 
 // Iterates over the instructions, while preserving the next instruction
 // in case the current instruction gets removed from the list by the user
@@ -2718,8 +2742,6 @@ class HInstructionIterator : public ValueObject {
  private:
   HInstruction* instruction_;
   HInstruction* next_;
-
-  DISALLOW_COPY_AND_ASSIGN(HInstructionIterator);
 };
 
 // Iterates over the instructions without saving the next instruction,
@@ -2739,8 +2761,6 @@ class HInstructionIteratorHandleChanges : public ValueObject {
 
  private:
   HInstruction* instruction_;
-
-  DISALLOW_COPY_AND_ASSIGN(HInstructionIteratorHandleChanges);
 };
 
 
@@ -2761,9 +2781,52 @@ class HBackwardInstructionIterator : public ValueObject {
  private:
   HInstruction* instruction_;
   HInstruction* next_;
-
-  DISALLOW_COPY_AND_ASSIGN(HBackwardInstructionIterator);
 };
+
+template <typename InnerIter>
+struct HSTLInstructionIterator : public ValueObject,
+                                 public std::iterator<std::forward_iterator_tag, HInstruction*> {
+ public:
+  static_assert(std::is_same_v<InnerIter, HBackwardInstructionIterator> ||
+                    std::is_same_v<InnerIter, HInstructionIterator> ||
+                    std::is_same_v<InnerIter, HInstructionIteratorHandleChanges>,
+                "Unknown wrapped iterator!");
+
+  explicit HSTLInstructionIterator(InnerIter inner) : inner_(inner) {}
+  HInstruction* operator*() const {
+    DCHECK(inner_.Current() != nullptr);
+    return inner_.Current();
+  }
+
+  HSTLInstructionIterator<InnerIter>& operator++() {
+    inner_.Advance();
+    return *this;
+  }
+
+  HSTLInstructionIterator<InnerIter> operator++(int) {
+    HSTLInstructionIterator<InnerIter> prev(*this);
+    ++(*this);
+    return prev;
+  }
+
+  bool operator==(const HSTLInstructionIterator<InnerIter>& other) const {
+    return inner_.Current() == other.inner_.Current();
+  }
+
+  bool operator!=(const HSTLInstructionIterator<InnerIter>& other) const {
+    return !(*this == other);
+  }
+
+ private:
+  InnerIter inner_;
+};
+
+template <typename InnerIter>
+IterationRange<HSTLInstructionIterator<InnerIter>> MakeSTLInstructionIteratorRange(InnerIter iter) {
+  HInstructionList empty;
+  return MakeIterationRange(HSTLInstructionIterator<InnerIter>(iter),
+                            HSTLInstructionIterator<InnerIter>(InnerIter(empty)));
+}
 
 class HVariableInputSizeInstruction : public HInstruction {
  public:
@@ -4358,10 +4421,15 @@ class HNewInstance final : public HExpression<1> {
         dex_file_(dex_file),
         entrypoint_(entrypoint) {
     SetPackedFlag<kFlagFinalizable>(finalizable);
+    SetPackedFlag<kFlagPartialMaterialization>(false);
     SetRawInputAt(0, cls);
   }
 
   bool IsClonable() const override { return true; }
+
+  void SetPartialMatialization() {
+    SetPackedFlag<kFlagPartialMaterialization>(true);
+  }
 
   dex::TypeIndex GetTypeIndex() const { return type_index_; }
   const DexFile& GetDexFile() const { return dex_file_; }
@@ -4371,6 +4439,9 @@ class HNewInstance final : public HExpression<1> {
 
   // Can throw errors when out-of-memory or if it's not instantiable/accessible.
   bool CanThrow() const override { return true; }
+  bool OnlyThrowsAsyncExceptions() const override {
+    return !IsFinalizable() && !NeedsChecks();
+  }
 
   bool NeedsChecks() const {
     return entrypoint_ == kQuickAllocObjectWithChecks;
@@ -4379,6 +4450,10 @@ class HNewInstance final : public HExpression<1> {
   bool IsFinalizable() const { return GetPackedFlag<kFlagFinalizable>(); }
 
   bool CanBeNull() const override { return false; }
+
+  bool IsPartialMaterialization() const {
+    return GetPackedFlag<kFlagPartialMaterialization>();
+  }
 
   QuickEntrypointEnum GetEntrypoint() const { return entrypoint_; }
 
@@ -4404,7 +4479,8 @@ class HNewInstance final : public HExpression<1> {
 
  private:
   static constexpr size_t kFlagFinalizable = kNumberOfGenericPackedBits;
-  static constexpr size_t kNumberOfNewInstancePackedBits = kNumberOfGenericPackedBits + 1;
+  static constexpr size_t kFlagPartialMaterialization = kFlagFinalizable + 1;
+  static constexpr size_t kNumberOfNewInstancePackedBits = kFlagPartialMaterialization + 1;
   static_assert(kNumberOfNewInstancePackedBits <= kMaxNumberOfPackedBits,
                 "Too many packed fields.");
 
@@ -5983,6 +6059,21 @@ class FieldInfo : public ValueObject {
   const DexFile& GetDexFile() const { return dex_file_; }
   bool IsVolatile() const { return is_volatile_; }
 
+  bool Equal(const FieldInfo& other) const {
+    return field_ == other.field_ && field_offset_ == other.field_offset_ &&
+           field_type_ == other.field_type_ && is_volatile_ == other.is_volatile_ &&
+           index_ == other.index_ &&
+           declaring_class_def_index_ == other.declaring_class_def_index_ &&
+           &dex_file_ == &other.dex_file_;
+  }
+
+  std::ostream& Dump(std::ostream& os) const {
+    os << field_ << ", off: " << field_offset_ << ", type: " << field_type_
+       << ", volatile: " << std::boolalpha << is_volatile_ << ", index_: " << std::dec << index_
+       << ", declaring_class: " << declaring_class_def_index_ << ", dex: " << dex_file_;
+    return os;
+  }
+
  private:
   ArtField* const field_;
   const MemberOffset field_offset_;
@@ -5992,6 +6083,14 @@ class FieldInfo : public ValueObject {
   const uint16_t declaring_class_def_index_;
   const DexFile& dex_file_;
 };
+
+inline bool operator==(const FieldInfo& a, const FieldInfo& b) {
+  return a.Equal(b);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const FieldInfo& a) {
+  return a.Dump(os);
+}
 
 class HInstanceFieldGet final : public HExpression<1> {
  public:
@@ -6036,7 +6135,8 @@ class HInstanceFieldGet final : public HExpression<1> {
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override { return true; }
+  const FieldInfo& GetFieldInfo() const override { return field_info_; }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -6052,6 +6152,94 @@ class HInstanceFieldGet final : public HExpression<1> {
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(InstanceFieldGet);
+
+ private:
+  const FieldInfo field_info_;
+};
+
+class HPredicatedInstanceFieldGet final : public HExpression<2> {
+ public:
+  HPredicatedInstanceFieldGet(HInstanceFieldGet* orig,
+                              HInstruction* target,
+                              HInstruction* default_val)
+      : HExpression(kPredicatedInstanceFieldGet,
+                    orig->GetFieldType(),
+                    orig->GetSideEffects(),
+                    orig->GetDexPc()),
+        field_info_(orig->GetFieldInfo()) {
+    SetRawInputAt(0, target);
+    SetRawInputAt(1, default_val);
+  }
+
+  HPredicatedInstanceFieldGet(HInstruction* value,
+                              ArtField* field,
+                              HInstruction* default_value,
+                              DataType::Type field_type,
+                              MemberOffset field_offset,
+                              bool is_volatile,
+                              uint32_t field_idx,
+                              uint16_t declaring_class_def_index,
+                              const DexFile& dex_file,
+                              uint32_t dex_pc)
+      : HExpression(kPredicatedInstanceFieldGet,
+                    field_type,
+                    SideEffects::FieldReadOfType(field_type, is_volatile),
+                    dex_pc),
+        field_info_(field,
+                    field_offset,
+                    field_type,
+                    is_volatile,
+                    field_idx,
+                    declaring_class_def_index,
+                    dex_file) {
+    SetRawInputAt(0, value);
+    SetRawInputAt(1, default_value);
+  }
+
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* bv) const override;
+
+  bool IsClonable() const override {
+    return true;
+  }
+  bool CanBeMoved() const override {
+    return !IsVolatile();
+  }
+
+  HInstruction* GetDefaultValue() const {
+    return InputAt(1);
+  }
+
+  bool InstructionDataEquals(const HInstruction* other) const override {
+    const HPredicatedInstanceFieldGet* other_get = other->AsPredicatedInstanceFieldGet();
+    return GetFieldOffset().SizeValue() == other_get->GetFieldOffset().SizeValue() &&
+           GetDefaultValue() == other_get->GetDefaultValue();
+  }
+
+  bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
+    return (obj == InputAt(0)) && art::CanDoImplicitNullCheckOn(GetFieldOffset().Uint32Value());
+  }
+
+  size_t ComputeHashCode() const override {
+    return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
+  }
+
+  bool IsFieldAccess() const override { return true; }
+  const FieldInfo& GetFieldInfo() const override { return field_info_; }
+  MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
+  DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
+  bool IsVolatile() const { return field_info_.IsVolatile(); }
+
+  void SetType(DataType::Type new_type) {
+    DCHECK(DataType::IsIntegralType(GetType()));
+    DCHECK(DataType::IsIntegralType(new_type));
+    DCHECK_EQ(DataType::Size(GetType()), DataType::Size(new_type));
+    SetPackedField<TypeField>(new_type);
+  }
+
+  DECLARE_INSTRUCTION(PredicatedInstanceFieldGet);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(PredicatedInstanceFieldGet);
 
  private:
   const FieldInfo field_info_;
@@ -6080,6 +6268,7 @@ class HInstanceFieldSet final : public HExpression<2> {
                     declaring_class_def_index,
                     dex_file) {
     SetPackedFlag<kFlagValueCanBeNull>(true);
+    SetPackedFlag<kFlagIsPredicatedSet>(false);
     SetRawInputAt(0, object);
     SetRawInputAt(1, value);
   }
@@ -6092,7 +6281,8 @@ class HInstanceFieldSet final : public HExpression<2> {
     return (obj == InputAt(0)) && art::CanDoImplicitNullCheckOn(GetFieldOffset().Uint32Value());
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override { return true; }
+  const FieldInfo& GetFieldInfo() const override { return field_info_; }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -6100,6 +6290,12 @@ class HInstanceFieldSet final : public HExpression<2> {
   bool GetValueCanBeNull() const { return GetPackedFlag<kFlagValueCanBeNull>(); }
   void ClearValueCanBeNull() {
     SetPackedFlag<kFlagValueCanBeNull>(false);
+  }
+  bool GetIsPredicatedSet() const {
+    return GetPackedFlag<kFlagIsPredicatedSet>();
+  }
+  void SetIsPredicatedSet(bool value = true) {
+    SetPackedFlag<kFlagIsPredicatedSet>(value);
   }
 
   DECLARE_INSTRUCTION(InstanceFieldSet);
@@ -6109,7 +6305,8 @@ class HInstanceFieldSet final : public HExpression<2> {
 
  private:
   static constexpr size_t kFlagValueCanBeNull = kNumberOfGenericPackedBits;
-  static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagValueCanBeNull + 1;
+  static constexpr size_t kFlagIsPredicatedSet = kFlagValueCanBeNull + 1;
+  static constexpr size_t kNumberOfInstanceFieldSetPackedBits = kFlagIsPredicatedSet + 1;
   static_assert(kNumberOfInstanceFieldSetPackedBits <= kMaxNumberOfPackedBits,
                 "Too many packed fields.");
 
@@ -7042,7 +7239,8 @@ class HStaticFieldGet final : public HExpression<1> {
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override { return true; }
+  const FieldInfo& GetFieldInfo() const override { return field_info_; }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -7091,7 +7289,8 @@ class HStaticFieldSet final : public HExpression<2> {
   }
 
   bool IsClonable() const override { return true; }
-  const FieldInfo& GetFieldInfo() const { return field_info_; }
+  bool IsFieldAccess() const override { return true; }
+  const FieldInfo& GetFieldInfo() const override { return field_info_; }
   MemberOffset GetFieldOffset() const { return field_info_.GetFieldOffset(); }
   DataType::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
@@ -8010,7 +8209,7 @@ class HParallelMove final : public HExpression<0> {
         DCHECK(!destination.OverlapsWith(move.GetDestination()))
             << "Overlapped destination for two moves in a parallel move: "
             << move.GetSource() << " ==> " << move.GetDestination() << " and "
-            << source << " ==> " << destination;
+            << source << " ==> " << destination << " for " << *instruction;
       }
     }
     moves_.emplace_back(source, destination, type, instruction);
