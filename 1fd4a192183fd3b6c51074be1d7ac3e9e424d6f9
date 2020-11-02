@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5fa1a1a2_4e430a00",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T14:37:32Z",
+      "side": 1,
+      "message": "Sorry about that, this FIXME was not meant to be part of the uploaded change (I was planning to refactor this in a follow-up CL); FIXME removed in PS2.",
+      "parentUuid": "994e9f57_8acd1101",
+      "range": {
+        "startLine": 1370,
+        "startChar": 10,
+        "endLine": 1370,
+        "endChar": 17
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eec8ee08_bb606da4",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2020-11-02T12:17:22Z",
       "side": 1,
       "message": "Line length, but okay with the FIXME imo.",
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9d9d80_9a9aeaab",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T14:37:32Z",
+      "side": 1,
+      "message": "I wrapped the long lines in PS2 (and removed the FIXMEs).",
+      "parentUuid": "eec8ee08_bb606da4",
       "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "199668d6_3659a989",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T14:37:32Z",
+      "side": 1,
+      "message": "Good idea; done in PS2.",
+      "parentUuid": "5fca93b6_63f2c258",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 885,
+        "endChar": 0
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a46be01_45587f5f",
@@ -94,6 +160,30 @@
       "writtenOn": "2020-11-02T12:17:22Z",
       "side": 1,
       "message": "Suggest doing an exit code check per diff and having the error message point out what failed. It\u0027ll save time when looking into failures.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 10
+      },
+      "revId": "1fd4a192183fd3b6c51074be1d7ac3e9e424d6f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd584f9_3f49fc42",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-02T14:37:32Z",
+      "side": 1,
+      "message": "Thanks for the suggestion; implemented in PS2.",
+      "parentUuid": "0a46be01_45587f5f",
       "range": {
         "startLine": 1029,
         "startChar": 0,
