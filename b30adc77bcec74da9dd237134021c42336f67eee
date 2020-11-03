@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "984833db_b541696a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "I\u0027d replace this with something that builds and run ART test, e.g.:\n\n  Test: atest --test-mapping art:all",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80947eed_fb9b1a07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "Addin Vladimir and Nicolas for additional reviews.",
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6c7e5db_2e77b429",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "I think it\u0027s probably fine to use the CPU features detected at run time by cpu_features here (instead of CPU features identified at build time from the C/C++ preprocessor), but this comments needs to be updated.",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 65
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb53355c_10fa5956",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "Likewise, this comment needs to be updated.",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad1d979_3c158e93",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "I\u0027d replace this with `FromCpuFeatures` too.",
+      "range": {
+        "startLine": 105,
+        "startChar": 42,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4daa473a_4641afc3",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T15:43:10Z",
+      "side": 1,
+      "message": "I think these new cases should be inside the `ART_TARGET_ANDROID` conditional (lines 103–106).",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 61
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
