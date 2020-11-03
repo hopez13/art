@@ -46,6 +46,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04763f10_ba2db25c",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-03T15:58:36Z",
+      "side": 0,
+      "message": "Note the intermediate path out/soong/.intermediates/art/runtime/libart/android_arm_armv8-a_cortex-a53_shared/unstripped/libart.so - it\u0027s not an APEX variant and shouldn\u0027t be built at all. Maybe one of the continuous test targets causes ART to be compiled in platform?\n\n\u003e why do we have a version script\n\nIt was probably seen as a belt-and-suspenders approach, but it only works as long as we\u0027re using the same symbols both internally and externally. I agree this needs to go away.",
+      "parentUuid": "7e383a20_3ddf5dd6",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
