@@ -51,15 +51,6 @@ art_cc_library {
     // TODO(jiyong): remove this line after aosp/885921 lands
     export_include_dirs: ["include"],
 
-    target: {
-        android: {
-            version_script: "libnativebridge.map.txt",
-        },
-        linux: {
-            version_script: "libnativebridge.map.txt",
-        },
-    },
-
     stubs: {
         symbol_file: "libnativebridge.map.txt",
         versions: ["1"],
