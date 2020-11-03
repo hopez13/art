@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9561a483_c504511e",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-03T17:06:59Z",
+      "side": 1,
+      "message": "Maybe this should only be done in `gcstress` mode?",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 66
+      },
+      "revId": "b5a0e91e38dfd10bf6c532e071a8712cb7cca957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
