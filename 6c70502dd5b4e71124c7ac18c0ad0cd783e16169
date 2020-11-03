@@ -16,6 +16,24 @@
       "message": "CC Jiyong for the need of permitting /data.",
       "revId": "6c70502dd5b4e71124c7ac18c0ad0cd783e16169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e6ff06_eb9f2b9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-11-03T05:48:16Z",
+      "side": 1,
+      "message": "Thanks. And I\u0027m sorry that what I said in the meeting is a very different thing. I thought you are talking about here: https://source.corp.google.com/android/system/linkerconfig/contents/namespace/systemdefault.cc;rcl\u003d7f98bff5cc3cc457cfc8dac5bcf3bc5299699071;l\u003d90\n\n\nI see this was first added here: https://android-review.googlesource.com/c/platform/system/linkerconfig/+/1220460/9/contents/namespace/art.cc#40\n\nThe bug was originally b/129534335, which is marked as fixed :(",
+      "parentUuid": "bfd53878_6939cfe4",
+      "revId": "6c70502dd5b4e71124c7ac18c0ad0cd783e16169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
