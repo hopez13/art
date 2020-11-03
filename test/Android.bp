@@ -887,7 +887,8 @@ java_genrule {
         "990-field-trace/expected.txt",
         "991-field-trace-2/expected.txt",
         "992-source-data/expected.txt",
-        "993-breakpoints/expected.txt",
+        // Need to avoid using hidden-apis
+        "993-breakpoints/expected_cts.txt",
         "994-breakpoint-line/expected.txt",
         "995-breakpoints-throw/expected.txt",
         "996-breakpoint-obsolete/expected.txt",
