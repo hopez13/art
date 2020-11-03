@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96edd91_495b1989",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-03T18:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b03b9a_b2dcc55c",
+      "range": {
+        "startLine": 791,
+        "startChar": 54,
+        "endLine": 791,
+        "endChar": 75
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db5e1f94_183d2c38",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-03T15:26:22Z",
       "side": 1,
       "message": "`IsPureUnknown` and reorder to be the first check.",
+      "range": {
+        "startLine": 606,
+        "startChar": 14,
+        "endLine": 606,
+        "endChar": 23
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb6e479_1880934e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-03T18:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db5e1f94_183d2c38",
       "range": {
         "startLine": 606,
         "startChar": 14,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49fb08a1_34e9de23",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2150,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-03T18:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2278fc41_3524f909",
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69343f63_41f492b2",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-11-03T15:26:22Z",
       "side": 1,
       "message": "But maybe we have already visited that Phi placeholder and this shall have no effect.\n\nYou should increase test coverage by adding tests with extra exit nodes. (Similar to Main.test34() in 530-checker-lse.)",
+      "range": {
+        "startLine": 2218,
+        "startChar": 12,
+        "endLine": 2222,
+        "endChar": 13
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0cfc49a_eaeba6d3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2222,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-03T18:25:26Z",
+      "side": 1,
+      "message": "It will get pushed onto the work-queue if it\u0027s not kept and if it is then we don\u0027t need to do anything since it was already kept.\n\nTest done. (I assume you mean multiple return-blocks. There is never more than one exit node.) It did show me that there was a small case I missed in HandleExit.",
+      "parentUuid": "69343f63_41f492b2",
       "range": {
         "startLine": 2218,
         "startChar": 12,
