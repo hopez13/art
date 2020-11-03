@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b03b9a_b2dcc55c",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-03T15:26:22Z",
+      "side": 1,
+      "message": "This is not what I had in mind. I wanted you to add the \"-1\" back to `kTestMaxSuccessors` at line 780. In other words, just add the \"+ 1\" here to the version from PS64.",
+      "range": {
+        "startLine": 791,
+        "startChar": 54,
+        "endLine": 791,
+        "endChar": 75
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5e1f94_183d2c38",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-03T15:26:22Z",
+      "side": 1,
+      "message": "`IsPureUnknown` and reorder to be the first check.",
+      "range": {
+        "startLine": 606,
+        "startChar": 14,
+        "endLine": 606,
+        "endChar": 23
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2278fc41_3524f909",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-03T15:26:22Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69343f63_41f492b2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-03T15:26:22Z",
+      "side": 1,
+      "message": "But maybe we have already visited that Phi placeholder and this shall have no effect.\n\nYou should increase test coverage by adding tests with extra exit nodes. (Similar to Main.test34() in 530-checker-lse.)",
+      "range": {
+        "startLine": 2218,
+        "startChar": 12,
+        "endLine": 2222,
+        "endChar": 13
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c6a04c2_967afde9",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 70
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-03T15:26:22Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 417,
+        "startChar": 35,
+        "endLine": 417,
+        "endChar": 44
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
