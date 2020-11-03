@@ -70,6 +70,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33f5e1f_3f38b4b9",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-03T22:54:54Z",
+      "side": 0,
+      "message": "$ env NINJA_ARGS\u003d\"-t path platform_tests out/soong/.intermediates/art/runtime/libart/android_x86_shared/unstripped/libart.so\" m\nplatform_tests\nout/target/product/vsoc_x86/obj/PACKAGING/platform_tests_intermediates/platform_tests.zip\nout/target/product/vsoc_x86/obj/SHARED_LIBRARIES/libarttest_intermediates/libarttest.so\nout/target/product/vsoc_x86/symbols/data/nativetest/art/x86/libarttest.so\nout/soong/.intermediates/art/test/libarttest/android_x86_shared/unstripped/libarttest.so\nout/soong/.intermediates/art/runtime/libart/android_x86_shared/libart.so.toc\nout/soong/.intermediates/art/runtime/libart/android_x86_shared/libart.so\nout/soong/.intermediates/art/runtime/libart/android_x86_shared/unstripped/libart.so\n\nplatform_tests probably shouldn\u0027t depend on ART anymore. Exactly how it happens I don\u0027t know - they\u0027re make-stage expansions that aren\u0027t reflected in ninja. +rpl, do you know what this is?",
+      "parentUuid": "04763f10_ba2db25c",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
