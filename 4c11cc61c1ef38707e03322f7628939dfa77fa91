@@ -227,6 +227,30 @@
       },
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d44374_ef3a10c9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-03T00:27:47Z",
+      "side": 1,
+      "message": "Can you please point me to that discussion? Maybe it\u0027s worth bringing it up again, because whatever we do we shouldn\u0027t do it differently between native and java.",
+      "parentUuid": "53f74d33_3ec814e9",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
