@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9439bc5_6c82de6e",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "315257d5_006a8dad",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 33
+      },
+      "revId": "ecaac526d9fab46eba03ea6eb9deef81bd435a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b534b1e_64fcfe94",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da5f1ea4_3c3102b3",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:41:04Z",
+      "side": 1,
+      "message": "The strings are given as parameters, not type IDs. This makes it nicer at the call sites of HasAssignable.",
+      "parentUuid": "1b534b1e_64fcfe94",
+      "revId": "ecaac526d9fab46eba03ea6eb9deef81bd435a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84744bb2_b94f6e40",
@@ -71,6 +113,30 @@
       "writtenOn": "2020-11-04T12:00:48Z",
       "side": 1,
       "message": "Is it certain that the other vector has the same size? Maybe add a DCHECK?",
+      "range": {
+        "startLine": 72,
+        "startChar": 29,
+        "endLine": 72,
+        "endChar": 63
+      },
+      "revId": "ecaac526d9fab46eba03ea6eb9deef81bd435a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb7e6fee_1187e6ec",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84744bb2_b94f6e40",
       "range": {
         "startLine": 72,
         "startChar": 29,
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c224657_df5611bc",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71cf71f6_0bab2d6b",
+      "range": {
+        "startLine": 527,
+        "startChar": 8,
+        "endLine": 527,
+        "endChar": 20
+      },
+      "revId": "ecaac526d9fab46eba03ea6eb9deef81bd435a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1779f99c_25d0a34f",
@@ -117,6 +207,30 @@
       "writtenOn": "2020-11-04T12:00:48Z",
       "side": 1,
       "message": "Comment needs updating.",
+      "range": {
+        "startLine": 166,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 10
+      },
+      "revId": "ecaac526d9fab46eba03ea6eb9deef81bd435a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c919edf9_31b7c0c6",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1779f99c_25d0a34f",
       "range": {
         "startLine": 166,
         "startChar": 4,
