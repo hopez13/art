@@ -166,6 +166,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9d7e4c_cb9cb623",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-04T11:37:51Z",
+      "side": 0,
+      "message": "Thanks Martin. I tried to reproduce this on AOSP, to no avail. Looking for `platform_test` in internal master, I found this: \n\nhttp://cs/android/vendor/google/build/tasks/tests/platform_test_list.mk?l\u003d161-174\u0026rcl\u003dad834fecec34da605a2fc7691fc2edf320c96f16\n\n  ifeq ($(HOST_OS),linux)\n    platform_tests +\u003d \\\n      $(ART_TEST_DEX_MAKE_TARGETS) \\\n      $(ART_TEST_OAT_MAKE_TARGETS) \\\n      $(COMPILER_TARGET_GTEST_MAKE_TARGETS) \\\n      $(RUNTIME_TARGET_GTEST_MAKE_TARGETS) \\\n      dex2oatd.com.android.art.debug \\\n      libartd.com.android.art.debug \\\n      libartd-compiler.com.android.art.debug \\\n      libopenjdk.com.android.art.debug \\\n      libopenjdkd.com.android.art.debug \\\n      libopenjdkjvm.com.android.art.debug \\\n      libopenjdkjvmd.com.android.art.debug\n  endif\n\nNot sure why we do have this here. Dan, do you know?\n\nMaybe we could remove this.",
+      "parentUuid": "1660e7d4_cbd03a63",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
