@@ -190,6 +190,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "820f82a5_4474ad44",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T13:26:16Z",
+      "side": 0,
+      "message": "\u003e Thanks Martin. I tried to reproduce this on AOSP, to no avail.\n\nYeah, only on internal do we get the failure.\n\n\u003e Looking for `platform_test` in internal master, I found this: \n\u003e \n\u003e http://cs/android/vendor/google/build/tasks/tests/platform_test_list.mk?l\u003d161-174\u0026rcl\u003dad834fecec34da605a2fc7691fc2edf320c96f16\n\u003e \n\u003e   ifeq ($(HOST_OS),linux)\n\u003e     platform_tests +\u003d \\\n\u003e       $(ART_TEST_DEX_MAKE_TARGETS) \\\n\u003e       $(ART_TEST_OAT_MAKE_TARGETS) \\\n\u003e       $(COMPILER_TARGET_GTEST_MAKE_TARGETS) \\\n\u003e       $(RUNTIME_TARGET_GTEST_MAKE_TARGETS) \\\n\u003e       dex2oatd.com.android.art.debug \\\n\u003e       libartd.com.android.art.debug \\\n\u003e       libartd-compiler.com.android.art.debug \\\n\u003e       libopenjdk.com.android.art.debug \\\n\u003e       libopenjdkd.com.android.art.debug \\\n\u003e       libopenjdkjvm.com.android.art.debug \\\n\u003e       libopenjdkjvmd.com.android.art.debug\n\u003e   endif\n\u003e \n\u003e Not sure why we do have this here. Dan, do you know?\n\u003e \n\u003e Maybe we could remove this.\n\nAre these problematic though? They\u0027re explicit that the libraries are in the apex.",
+      "parentUuid": "9f9d7e4c_cb9cb623",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
