@@ -238,6 +238,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af7f943_183b8660",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-04T13:53:47Z",
+      "side": 0,
+      "message": "\u003e Are these problematic though? They\u0027re explicit that the libraries are in the apex.\n\nYes, but the libarttest dependencies aren\u0027t - they\u0027re just libarttest and libarttestd, without .android.art.debug. Presumably they come from the variables, maybe from here: http://cs/android/art/build/Android.gtest.mk?l\u003d358-368\u0026rcl\u003d13769d244d44334efe4e9f3807f32a9b4a34db7a\n\n\u003e I think to fix this, libarttest needs to be in the testing apex?\n\nThese are make module dependencies, so if we can\u0027t remove them from this zip file, we\u0027ll have to add them as prebuilts to art-module-test-exports, right?",
+      "parentUuid": "0e2c0d9e_db0a3256",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
