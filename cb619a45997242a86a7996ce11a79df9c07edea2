@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf1c317_3d1f5ed9",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-04T01:55:22Z",
+      "side": 1,
+      "message": "This is done, PTAL.",
+      "parentUuid": "ffe7d5e1_3fca2cd5",
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c31beb8_694e007c",
@@ -311,6 +329,30 @@
       "side": 1,
       "message": "Ok, updated the TODO.\n\n\u003e I was indeed thinking about permitting a very specific path (e.g. `/data/local/tmp/com.android.art`) for ART testing.\n\nYes, that sounds like a quick way to make the problem a lot less severe. Shall I open a ticket to track that?\n\n\u003e Maybe the issue could also be addressed at the linker level, but I\u0027m not sure this is cleaner.\n\nThe idea with that is that it\u0027d address the problem for all modules, but it\u0027s of course still open for discussion.",
       "parentUuid": "0079445c_b0036cd5",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "cb619a45997242a86a7996ce11a79df9c07edea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af68d0f2_69733386",
+        "filename": "build/apex/README.json.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-04T01:55:22Z",
+      "side": 1,
+      "message": "The TODO now points to b/171732668 for restricting the /data paths.",
+      "parentUuid": "23463ff3_d15965bd",
       "range": {
         "startLine": 12,
         "startChar": 4,
