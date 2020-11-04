@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ede2ab6_4243aa81",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-04T06:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6c7e5db_2e77b429",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 65
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb53355c_10fa5956",
@@ -77,6 +101,30 @@
       "writtenOn": "2020-11-03T15:43:10Z",
       "side": 1,
       "message": "Likewise, this comment needs to be updated.",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd93a9ac_53665f22",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-04T06:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb53355c_10fa5956",
       "range": {
         "startLine": 109,
         "startChar": 4,
@@ -123,6 +171,30 @@
       "writtenOn": "2020-11-03T15:43:10Z",
       "side": 1,
       "message": "I think these new cases should be inside the `ART_TARGET_ANDROID` conditional (lines 103–106).",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 61
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cf6717_1e71da52",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-04T06:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4daa473a_4641afc3",
       "range": {
         "startLine": 107,
         "startChar": 0,
