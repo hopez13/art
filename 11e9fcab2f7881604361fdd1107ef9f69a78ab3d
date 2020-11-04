@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37dbd7d_bba2c663",
+        "filename": "test/993-breakpoints/src/art/Test993.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-04T16:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f988eb4_c2af4215",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 3
+      },
+      "revId": "11e9fcab2f7881604361fdd1107ef9f69a78ab3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "588b8edf_3f727c55",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-04T03:40:31Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 437,
+        "startChar": 100,
+        "endLine": 437,
+        "endChar": 101
+      },
+      "revId": "11e9fcab2f7881604361fdd1107ef9f69a78ab3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "608ddce2_891e5095",
+        "filename": "test/993-breakpoints/src/art/Test993.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-04T16:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "588b8edf_3f727c55",
       "range": {
         "startLine": 437,
         "startChar": 100,
