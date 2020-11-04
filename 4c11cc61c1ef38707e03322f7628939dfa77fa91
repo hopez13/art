@@ -251,6 +251,30 @@
       },
       "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37103181_20f15e28",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-04T13:14:36Z",
+      "side": 1,
+      "message": "\u003e I did want to add this to sdk as well but got a lot of pushback from I think it was jiyong@ and possibly ccross@ but I\u0027m not 100% sure.\n\nI\u0027ve put this on the agenda for the build meeting tomorrow, but if you got more context then I\u0027m all ears.",
+      "parentUuid": "79d44374_ef3a10c9",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4c11cc61c1ef38707e03322f7628939dfa77fa91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
