@@ -94,6 +94,30 @@
       },
       "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec09df28_d7b94760",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-04T10:13:32Z",
+      "side": 0,
+      "message": "Also, how come this build is currently successful when libartd says apex_available only com.android.art.debug ?",
+      "parentUuid": "e33f5e1f_3f38b4b9",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "de91ca90389e4b41ed27b320a6c43ff56a6d75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
