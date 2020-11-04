@@ -322,6 +322,9 @@
       "name": "art-run-test-160-read-barrier-stress"
     },
     {
+      "name": "art-run-test-161-final-abstract-class"
+    },
+    {
       "name": "art-run-test-163-app-image-methods"
     },
     {
@@ -688,6 +691,9 @@
       "name": "art-run-test-628-vdex"
     },
     {
+      "name": "art-run-test-630-safecast-array"
+    },
+    {
       "name": "art-run-test-636-arm64-veneer-pool"
     },
     {
@@ -773,6 +779,12 @@
     },
     {
       "name": "art-run-test-963-default-range-smali"
+    },
+    {
+      "name": "art-run-test-974-verify-interface-super"
+    },
+    {
+      "name": "art-run-test-976-conflict-no-methods"
     }
   ]
 }
