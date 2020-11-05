@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9d7589_0f4fcbf4",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-11-05T18:40:22Z",
+      "side": 1,
+      "message": "I checked ... it never happens.  \nI mean, unlike methods, classes should have unique names, right?",
+      "parentUuid": "7666e58a_01934ca5",
+      "range": {
+        "startLine": 56,
+        "startChar": 43,
+        "endLine": 56,
+        "endChar": 45
+      },
+      "revId": "55e97bf4972ef68e2a433ddaaba01d76a0673868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79c3650c_51c4aa64",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-05T14:30:23Z",
       "side": 1,
       "message": "I\u0027m not sure this is better than strcmp. And for the same dex file you could instead compare the name indexes.",
+      "range": {
+        "startLine": 59,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 81
+      },
+      "revId": "55e97bf4972ef68e2a433ddaaba01d76a0673868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce68abde_620b2f3f",
+        "filename": "compiler/debug/elf_symtab_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-11-05T18:40:22Z",
+      "side": 1,
+      "message": "Done.  I have doing more elaborate thing with string_view.\nI dropped the complexity, but forgot to simplify all the way to C.",
+      "parentUuid": "79c3650c_51c4aa64",
       "range": {
         "startLine": 59,
         "startChar": 11,
