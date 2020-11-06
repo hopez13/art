@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6728f49b_ccb567aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-06T11:46:07Z",
+      "side": 1,
+      "message": "by (or perhaps it is better to say \"due to\")",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9b2654_5d812b57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-06T11:46:07Z",
+      "side": 1,
+      "message": "This says \"boot classpath\", but the removed code mentions \"classpath\". Was it named incorrectly? Looking at the removed IsInClasspath(), it was in fact everything that was not compiled, and now it is just everything.\n\nIs this (part of) the effort on deprecating DEX2OAT_BOOTCLASSPATH? What is the performance impact, since now we need to do strictly more assignability checks at runtime?",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6550cb_b151b516",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-06T11:46:07Z",
+      "side": 1,
+      "message": "need",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad13d818_847ac93b",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-06T11:46:07Z",
+      "side": 1,
+      "message": "I don\u0027t understand the changes in the tests: why java.net.SocketTimeoutException has to be replaced with MySocketTimeoutException? Is it a simplification, now that we don\u0027t check bootclasspath boundaries we can have a non-bootclasspath class? Can you explain that in the commit message?",
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
