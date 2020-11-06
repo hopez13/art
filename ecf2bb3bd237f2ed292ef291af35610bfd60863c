@@ -49,6 +49,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e958878a_fdb609ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-06T11:57:45Z",
+      "side": 1,
+      "message": "Yeah, the code should have been mentioning boot classpath instead of just classpath.\n\nThis isn\u0027t related to the deprecation of DEX2OAT_BOOTCLASSPATH, this is so we don\u0027t need to resolve all classes in the dex file (we used to do that to ensure there are no redefinition of classes, which would invalidate the verification results).",
+      "parentUuid": "1d9b2654_5d812b57",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "accac508_575af99b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-06T11:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6728f49b_ccb567aa",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea6550cb_b151b516",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-06T11:46:07Z",
       "side": 1,
       "message": "need",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "156fb553_f384fde1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-06T11:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea6550cb_b151b516",
       "range": {
         "startLine": 10,
         "startChar": 42,
@@ -83,6 +155,24 @@
       "writtenOn": "2020-11-06T11:46:07Z",
       "side": 1,
       "message": "I don\u0027t understand the changes in the tests: why java.net.SocketTimeoutException has to be replaced with MySocketTimeoutException? Is it a simplification, now that we don\u0027t check bootclasspath boundaries we can have a non-bootclasspath class? Can you explain that in the commit message?",
+      "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37e1526_161616f9",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-06T11:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad13d818_847ac93b",
       "revId": "ecf2bb3bd237f2ed292ef291af35610bfd60863c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
