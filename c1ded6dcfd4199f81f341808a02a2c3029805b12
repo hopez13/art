@@ -225,6 +225,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb8f3a4_64c6c511",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2222,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-06T21:59:28Z",
+      "side": 1,
+      "message": "Actually the dcheck is wrong since we don\u0027t clear the bits.\n\nThese are the kept phis so everything is safe since either we already visited it and kept the phi-predecessors or haven\u0027t and we add it to the work queue.",
+      "parentUuid": "ec20a72e_3ebdd9ec",
+      "range": {
+        "startLine": 2218,
+        "startChar": 12,
+        "endLine": 2222,
+        "endChar": 13
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c6a04c2_967afde9",
