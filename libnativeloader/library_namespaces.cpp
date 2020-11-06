@@ -343,16 +343,22 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     }
   }
 
+  LOG(WARNING) << "__TEST__ DEX Path : " << dex_path;
   auto apex_ns_name = FindApexNamespaceName(dex_path);
   if (apex_ns_name.ok()) {
+    LOG(WARNING) << "__TEST__ JNI APEX Namespace Name : " << *apex_ns_name;
     const auto& jni_libs = apex_jni_libraries(*apex_ns_name);
     if (jni_libs != "") {
+      LOG(WARNING) << "__TEST__ APEX Namespace " << *apex_ns_name << "contains jni libs : " << jni_libs;
       auto apex_ns = NativeLoaderNamespace::GetExportedNamespace(*apex_ns_name, is_bridged);
       if (apex_ns.ok()) {
+        LOG(WARNING) << "__TEST__ APEX Namespace " << *apex_ns_name << " exported.";
         linked = app_ns->Link(*apex_ns, jni_libs);
         if (!linked.ok()) {
           return linked.error();
         }
+      } else {
+        return apex_ns.error();
       }
     }
   }
