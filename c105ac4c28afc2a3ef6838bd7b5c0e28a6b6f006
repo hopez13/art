@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2443bd15_95e118fd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-06T14:11:25Z",
+      "side": 1,
+      "message": "Note that we currently rely on this to stop inlining HLoadClass/kBssEntry and HLoadString/kBssEntry across dex files. This is important for the resolution entrypoints in quick_dexcache_entrypoints.cc, see CanReferenceBss(), otherwise we would repeatedly go to the slow path for such inlined instructions. (Note: That file should be renamed, it has nothing to do with DexCache anymore.)\n\nNo action needed. Just making sure you are aware of this.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 2,
+        "endLine": 1761,
+        "endChar": 15
+      },
+      "revId": "c105ac4c28afc2a3ef6838bd7b5c0e28a6b6f006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
