@@ -16,6 +16,75 @@
       "message": "seems to be some treehugger error.",
       "revId": "edb69007cf821cef3616e7349cc86c4d8ecc4fd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe96bea_ed54010c",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 72
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-06T14:46:28Z",
+      "side": 1,
+      "message": "Replace with `kTestMaxSuccessors` and remove the two lines above. (Since `kTestMaxSuccessors \u003d kMaxFilterableSuccessors - 1`, there is a spare successor for the first block.) The diff from PS64 should be just \u0027s/cur/cur + 1/\u0027",
+      "range": {
+        "startLine": 791,
+        "startChar": 54,
+        "endLine": 791,
+        "endChar": 79
+      },
+      "revId": "edb69007cf821cef3616e7349cc86c4d8ecc4fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bcc8dcd_5a20b86d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 72
+      },
+      "lineNbr": 2217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-06T14:46:28Z",
+      "side": 1,
+      "message": "This looks wrong. You\u0027re now keeping completely unrelated (`may_alias(i) \u003d\u003d false`) stores through the back-edges when propagating a MergedUnknown across a loop header.\n\nAnd you have added zero tests with loops.",
+      "range": {
+        "startLine": 2217,
+        "startChar": 41,
+        "endLine": 2217,
+        "endChar": 71
+      },
+      "revId": "edb69007cf821cef3616e7349cc86c4d8ecc4fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96192db5_8ba8c03d",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 72
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-06T14:46:28Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 417,
+        "startChar": 35,
+        "endLine": 417,
+        "endChar": 43
+      },
+      "revId": "edb69007cf821cef3616e7349cc86c4d8ecc4fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

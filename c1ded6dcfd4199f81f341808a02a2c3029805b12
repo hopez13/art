@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0669af8_8f96d484",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 70
+      },
+      "lineNbr": 2222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-06T14:46:28Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether it is possible here that\n\n    is_partial_kept_merged_unknown \u0026\u0026\n    !kept_merged_unknowns_.IsBitSet(phi_placeholder_index) \u0026\u0026\n    phi_placeholders_to_search_for_kept_stores_.IsBitSet(phi_placeholder_index)\n\nIf yes, we should add such test and my comment above applies.\nIf not, we should DCHECK() that.",
+      "parentUuid": "f0cfc49a_eaeba6d3",
+      "range": {
+        "startLine": 2218,
+        "startChar": 12,
+        "endLine": 2222,
+        "endChar": 13
+      },
+      "revId": "c1ded6dcfd4199f81f341808a02a2c3029805b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c6a04c2_967afde9",
         "filename": "libartbase/base/bit_vector.h",
         "patchSetId": 70
