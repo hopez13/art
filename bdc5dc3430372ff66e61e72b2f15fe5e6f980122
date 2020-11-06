@@ -16,6 +16,98 @@
       "message": "Very nice!",
       "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7175c124_330ea7fa",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-06T13:15:48Z",
+      "side": 1,
+      "message": "\"Tests with both Smali and Java sources are currently not supported.\"",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 47
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3effb43_3796fa9a",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-06T13:15:48Z",
+      "side": 1,
+      "message": "Please reserve upper case variable names for environment variables.",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 13
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46190de_62b62e2b",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-06T13:15:48Z",
+      "side": 1,
+      "message": "assemble?",
+      "range": {
+        "startLine": 392,
+        "startChar": 40,
+        "endLine": 392,
+        "endChar": 43
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e064b930_159a51cb",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-06T13:15:48Z",
+      "side": 1,
+      "message": "I think we should use `$(location soong_zip)` here.",
+      "range": {
+        "startLine": 392,
+        "startChar": 73,
+        "endLine": 392,
+        "endChar": 76
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
