@@ -54,7 +54,19 @@ class VerifierDeps;
 //      DEX[D]
 //
 //   VerifierDeps
-//      uint8[D][]                 verification dependencies
+//      4-byte alignment
+//      uint32[D]                  DexFileDeps offsets for each dex file
+//      DexFileDeps[D][]           verification dependencies
+//        4-byte alignment
+//        uint32[class_def_size]     TypeAssignability offsets (-1 for a class
+//                                        that isn't verified)
+//        uint32                     Offset of end of AssignabilityType sets
+//        uint8[]                    AssignabilityType sets
+//        4-byte alignment
+//        uint32                     Number of strings
+//        uint32[]                   String data offsets for each string
+//        uint8[]                    String data
+//
 //
 //   Optionally:
 //      QuickeningInfo
