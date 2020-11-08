@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "37198195_eab3c6be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-08T03:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c672ce2_5055ec91",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ddf8f88d_5e61bcd1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c9e3e6_d6e140f7",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-08T03:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7175c124_330ea7fa",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 47
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3effb43_3796fa9a",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-11-06T13:15:48Z",
       "side": 1,
       "message": "Please reserve upper case variable names for environment variables.",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 13
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da3e97d_c5548514",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-08T03:54:28Z",
+      "side": 1,
+      "message": "Ok, it is done with upper case in `default-build` and I didn\u0027t look around here",
+      "parentUuid": "b3effb43_3796fa9a",
       "range": {
         "startLine": 315,
         "startChar": 4,
@@ -123,6 +195,54 @@
       "writtenOn": "2020-11-06T13:15:48Z",
       "side": 1,
       "message": "I think we should use `$(location soong_zip)` here.",
+      "range": {
+        "startLine": 392,
+        "startChar": 73,
+        "endLine": 392,
+        "endChar": 76
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "984596d9_7b5da8dd",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-08T03:54:28Z",
+      "side": 1,
+      "message": "In my defense, this is from `smali help`",
+      "parentUuid": "a46190de_62b62e2b",
+      "range": {
+        "startLine": 392,
+        "startChar": 40,
+        "endLine": 392,
+        "endChar": 43
+      },
+      "revId": "bdc5dc3430372ff66e61e72b2f15fe5e6f980122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8aba47_01435824",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-08T03:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e064b930_159a51cb",
       "range": {
         "startLine": 392,
         "startChar": 73,
