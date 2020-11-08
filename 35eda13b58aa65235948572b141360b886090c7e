@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a7fd682_e265a7c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-08T17:12:53Z",
+      "side": 1,
+      "message": "The presubmit build failure in an error on an \"erroprone\" build about an unused import:\n\n  FAILED: //tools/tradefederation/core/test_framework:tradefed-test-framework errorprone [linux_glibc common]\n  Outputs: out/soong/.intermediates/tools/tradefederation/core/test_framework/tradefed-test-framework/linux_glibc_common/errorprone/tradefed-test-framework.jar\n  Error: exited with code: 1\n  […]\n  tools/tradefederation/core/test_framework/com/android/tradefed/testtype/ArtRunTest.java:20: error: [RemoveUnusedImports] Unused imports\n  import com.android.tradefed.device.CollectingOutputReceiver;\n  ^\n      (see https://errorprone.info/bugpattern/RemoveUnusedImports)\n    Did you mean to remove this line?\n",
+      "revId": "35eda13b58aa65235948572b141360b886090c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
