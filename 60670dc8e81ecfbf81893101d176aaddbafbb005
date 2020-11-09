@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b50fdfc7_3ec4b53b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-09T10:31:49Z",
+      "side": 1,
+      "message": "Is there a bug for this? It\u0027d be good to surface this with security folks as there was a lot of discussion around dual-view.\n\nI think we toggle the full cache because we don\u0027t second-guess the metadata in mspace operations. Perhaps larger pages would help? It\u0027s a double edged sword because paging then requires more I/O.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07178fe9_a80f6d54",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-09T10:31:49Z",
+      "side": 1,
+      "message": "Doesn\u0027t this need to be in the scope (may touch exec_mspace_ memory)?",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
