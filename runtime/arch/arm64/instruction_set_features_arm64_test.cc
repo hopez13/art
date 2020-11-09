@@ -20,6 +20,8 @@
 
 namespace art HIDDEN {
 
+// Don't test the features as SVE is hardcoded to be on.
+#if 0
 TEST(Arm64InstructionSetFeaturesTest, Arm64Features) {
   // Build features for an ARM64 processor.
   std::string error_msg;
@@ -185,6 +187,7 @@ TEST(Arm64InstructionSetFeaturesTest, IsRuntimeDetectionSupported) {
     EXPECT_TRUE(InstructionSetFeatures::IsRuntimeDetectionSupported());
   }
 }
+#endif
 
 TEST(Arm64InstructionSetFeaturesTest, FeaturesFromRuntimeDetection) {
   if (kRuntimeISA != InstructionSet::kArm64) {
