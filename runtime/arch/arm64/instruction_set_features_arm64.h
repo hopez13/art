@@ -22,8 +22,8 @@
 
 namespace art HIDDEN {
 
-// SVE is currently not enabled.
-static constexpr bool kArm64AllowSVE = false;
+// Note: enable SVE for testing.
+static constexpr bool kArm64AllowSVE = true;
 
 class Arm64InstructionSetFeatures;
 using Arm64FeaturesUniquePtr = std::unique_ptr<const Arm64InstructionSetFeatures>;

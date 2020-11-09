@@ -128,8 +128,8 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
                                         arraysize(arm64_variants_with_dotprod),
                                         variant);
 
-  // Currently there are no cpu variants which support SVE.
-  bool has_sve = false;
+  // Note: enable SVE for testing.
+  bool has_sve = true;
 
   if (!needs_a53_835769_fix) {
     // Check to see if this is an expected variant. `other_arm64_known_variants` contains the
@@ -388,7 +388,8 @@ Arm64InstructionSetFeatures::AddFeaturesFromSplitString(
   bool has_lse = has_lse_;
   bool has_fp16 = has_fp16_;
   bool has_dotprod = has_dotprod_;
-  bool has_sve = has_sve_;
+  // Note: enable SVE for testing.
+  bool has_sve = true;
   for (const std::string& feature : features) {
     DCHECK_EQ(android::base::Trim(feature), feature)
         << "Feature name is not trimmed: '" << feature << "'";
