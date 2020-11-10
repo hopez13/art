@@ -109,6 +109,11 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("      in the specified profile file to standard output (default) in a human");
   UsageError("      readable form. The output is valid input for --create-profile-from");
   UsageError("");
+  UsageError("  --dump-classes-and-methods-and-ics: dumps a sorted list of classes, methods and");
+  UsageError("      inline-caches that are in the specified profile file to standard output");
+  UsageError("      (default) in a human readable form. The output is valid input for");
+  UsageError("      --create-profile-from");
+  UsageError("");
   UsageError("  --profile-file=<filename>: specify profiler output file to use for compilation.");
   UsageError("      Can be specified multiple time, in which case the data from the different");
   UsageError("      profiles will be aggregated.");
