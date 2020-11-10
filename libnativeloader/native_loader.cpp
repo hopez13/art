@@ -76,17 +76,23 @@ void ResetNativeLoader() {
 }
 
 jstring CreateClassLoaderNamespace(JNIEnv* env, int32_t target_sdk_version, jobject class_loader,
-                                   bool is_shared, jstring dex_path, jstring library_path,
+                                   bool is_shared, jstring dex_path_j, jstring library_path,
                                    jstring permitted_path, jstring uses_library_list) {
 #if defined(ART_TARGET_ANDROID)
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
-  auto ns = g_namespaces->Create(env, target_sdk_version, class_loader, is_shared, dex_path,
+  std::string dex_path;
+  if (dex_path_j != nullptr) {
+    ScopedUtfChars dex_path_chars(env, dex_path_j);
+    dex_path = dex_path_chars.c_str();
+  }
+  auto ns = g_namespaces->Create(env, target_sdk_version, class_loader, is_shared,
+                                 dex_path_j != nullptr ? dex_path.c_str() : nullptr,
                                  library_path, permitted_path, uses_library_list);
   if (!ns.ok()) {
     return env->NewStringUTF(ns.error().message().c_str());
   }
 #else
-  UNUSED(env, target_sdk_version, class_loader, is_shared, dex_path, library_path, permitted_path,
+  UNUSED(env, target_sdk_version, class_loader, is_shared, dex_path_j, library_path, permitted_path,
          uses_library_list);
 #endif
   return nullptr;
@@ -127,8 +133,8 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
     // This is the case where the classloader was not created by ApplicationLoaders
     // In this case we create an isolated not-shared namespace for it.
     Result<NativeLoaderNamespace*> isolated_ns =
-        g_namespaces->Create(env, target_sdk_version, class_loader, false /* is_shared */, nullptr,
-                             library_path, nullptr, nullptr);
+        g_namespaces->Create(env, target_sdk_version, class_loader, false /* is_shared */,
+                             caller_location, library_path, nullptr, nullptr);
     if (!isolated_ns.ok()) {
       *error_msg = strdup(isolated_ns.error().message().c_str());
       return nullptr;

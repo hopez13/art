@@ -97,15 +97,18 @@ jobject GetParentClassLoader(JNIEnv* env, jobject class_loader) {
   return env->CallObjectMethod(class_loader, get_parent);
 }
 
-ApkOrigin GetApkOriginFromDexPath(const std::string& dex_path) {
+ApkOrigin GetApkOriginFromDexPath(const char* dex_path) {
   ApkOrigin apk_origin = APK_ORIGIN_DEFAULT;
+  if (dex_path == nullptr) {
+    return apk_origin;
+  }
   if (std::regex_search(dex_path, kVendorDexPathRegex)) {
     apk_origin = APK_ORIGIN_VENDOR;
   }
   if (std::regex_search(dex_path, kProductDexPathRegex)) {
     LOG_ALWAYS_FATAL_IF(apk_origin == APK_ORIGIN_VENDOR,
                         "Dex path contains both vendor and product partition : %s",
-                        dex_path.c_str());
+                        dex_path);
 
     apk_origin = APK_ORIGIN_PRODUCT;
   }
@@ -168,21 +171,15 @@ static const std::string filter_public_libraries(
 
 Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t target_sdk_version,
                                                          jobject class_loader, bool is_shared,
-                                                         jstring dex_path_j,
+                                                         const char* dex_path,
                                                          jstring java_library_path,
                                                          jstring java_permitted_path,
                                                          jstring uses_library_list) {
   std::string library_path;  // empty string by default.
-  std::string dex_path;
 
   if (java_library_path != nullptr) {
     ScopedUtfChars library_path_utf_chars(env, java_library_path);
     library_path = library_path_utf_chars.c_str();
-  }
-
-  if (dex_path_j != nullptr) {
-    ScopedUtfChars dex_path_chars(env, dex_path_j);
-    dex_path = dex_path_chars.c_str();
   }
 
   std::vector<std::string> uses_libraries;
@@ -408,17 +405,18 @@ NativeLoaderNamespace* LibraryNamespaces::FindParentNamespaceByClassLoader(JNIEn
   return nullptr;
 }
 
-base::Result<std::string> FindApexNamespaceName(const std::string& location) {
+base::Result<std::string> FindApexNamespaceName(const char* location) {
   // Lots of implicit assumptions here: we expect `location` to be of the form:
   // /apex/modulename/...
   //
   // And we extract from it 'modulename', and then apply mangling rule to get namespace name for it.
-  if (android::base::StartsWith(location, kApexPath)) {
+  if (location != nullptr && android::base::StartsWith(location, kApexPath)) {
     size_t start_index = strlen(kApexPath);
-    size_t slash_index = location.find_first_of('/', start_index);
+    std::string_view loc_str(location);
+    size_t slash_index = loc_str.find_first_of('/', start_index);
     LOG_ALWAYS_FATAL_IF((slash_index == std::string::npos),
-                        "Error finding namespace of apex: no slash in path %s", location.c_str());
-    std::string name = location.substr(start_index, slash_index - start_index);
+                        "Error finding namespace of apex: no slash in path %s", location);
+    std::string name = std::string(loc_str.substr(start_index, slash_index - start_index));
     std::replace(name.begin(), name.end(), '.', '_');
     return name;
   }

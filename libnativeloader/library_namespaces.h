@@ -54,7 +54,7 @@ class LibraryNamespaces {
     app_main_namespace_ = nullptr;
   }
   Result<NativeLoaderNamespace*> Create(JNIEnv* env, uint32_t target_sdk_version,
-                                        jobject class_loader, bool is_shared, jstring dex_path,
+                                        jobject class_loader, bool is_shared, const char* dex_path,
                                         jstring java_library_path, jstring java_permitted_path,
                                         jstring uses_library_list);
   NativeLoaderNamespace* FindNamespaceByClassLoader(JNIEnv* env, jobject class_loader);
@@ -68,7 +68,7 @@ class LibraryNamespaces {
   std::list<std::pair<jweak, NativeLoaderNamespace>> namespaces_;
 };
 
-Result<std::string> FindApexNamespaceName(const std::string& location);
+Result<std::string> FindApexNamespaceName(const char* location);
 
 }  // namespace android::nativeloader
 
