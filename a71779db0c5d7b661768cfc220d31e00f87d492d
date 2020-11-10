@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ba349f_34ee0978",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-10T16:37:13Z",
+      "side": 1,
+      "message": "Should we deprecate this option? We could start by printing a warning (on the standard error) saying that this option is deprecated, then check users of this script (and the associated logs on the ART Buildbot), and eventually remove this flag altogether.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 8
+      },
+      "revId": "a71779db0c5d7b661768cfc220d31e00f87d492d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
