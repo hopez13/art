@@ -1605,6 +1605,75 @@ TEST_F(ProfileCompilationInfoTest, MergeWithAnnotations) {
   }
 }
 
+// Verify we can merge samples with annotations.
+TEST_F(ProfileCompilationInfoTest, MergeWithInlineCaches) {
+  ProfileCompilationInfo info1;
+  ProfileCompilationInfo info2;
+  std::vector<TypeReference> dex1_type_12 { TypeReference(dex1, dex::TypeIndex(1)),
+                                            TypeReference(dex1, dex::TypeIndex(2)) };
+  std::vector<TypeReference> dex1_type_48 { TypeReference(dex1, dex::TypeIndex(4)),
+                                            TypeReference(dex1, dex::TypeIndex(8)) };
+  std::vector<TypeReference> dex2_type_12 { TypeReference(dex2, dex::TypeIndex(1)),
+                                            TypeReference(dex2, dex::TypeIndex(2)) };
+  std::vector<TypeReference> dex2_type_48 { TypeReference(dex2, dex::TypeIndex(4)),
+                                            TypeReference(dex2, dex::TypeIndex(8)) };
+  std::vector<ProfileInlineCache> ic1 { ProfileInlineCache(
+                                            /* pc= */ 12,
+                                            /* missing_types= */ true,
+                                            /* profile_classes= */ dex1_type_12),
+                                        ProfileInlineCache(
+                                            /* pc= */ 15,
+                                            /* missing_types= */ true,
+                                            /* profile_classes= */ dex1_type_48) };
+  std::vector<ProfileInlineCache> ic2 { ProfileInlineCache(
+                                            /* pc= */ 12,
+                                            /* missing_types= */ true,
+                                            /* profile_classes= */ dex2_type_48),
+                                        ProfileInlineCache(
+                                            /* pc= */ 15,
+                                            /* missing_types= */ true,
+                                            /* profile_classes= */ dex2_type_12) };
+
+  for (uint16_t i = 0; i < 10; i++) {
+    ASSERT_TRUE(AddMethod(&info1, dex1, /* method_idx= */ i, ic1));
+    ASSERT_TRUE(AddClass(&info1, dex1, dex::TypeIndex(i)));
+    ASSERT_TRUE(AddClass(&info1, dex2, dex::TypeIndex(i)));
+    ASSERT_TRUE(AddMethod(&info2, dex1, /* method_idx= */ i, ic2));
+    ASSERT_TRUE(AddClass(&info2, dex1, dex::TypeIndex(i)));
+    ASSERT_TRUE(AddClass(&info2, dex2, dex::TypeIndex(i)));
+  }
+
+  ProfileCompilationInfo info_12;
+  ASSERT_TRUE(info_12.MergeWith(info1));
+  ASSERT_TRUE(info_12.MergeWith(info2));
+
+  // Check that all items are in.
+  for (uint16_t i = 0; i < 10; i++) {
+    EXPECT_TRUE(info_12.GetMethodHotness(MethodReference(dex1, i)).IsInProfile());
+    EXPECT_TRUE(info_12.ContainsClass(*dex1, dex::TypeIndex(i)));
+    std::unique_ptr<ProfileCompilationInfo::OfflineProfileMethodInfo> loaded_ic_12 =
+        GetMethod(info_12, dex1, /* method_idx= */ i);
+    ASSERT_TRUE(loaded_ic_12 != nullptr);
+    std::vector<TypeReference> cls_pc12;
+    cls_pc12.resize(dex1_type_12.size() + dex2_type_48.size(), TypeReference(nullptr, dex::TypeIndex(-1)));
+    auto copy_end_12 = std::copy(dex1_type_12.begin(), dex1_type_12.end(), cls_pc12.begin());
+    std::copy(dex2_type_48.begin(), dex2_type_48.end(), copy_end_12);
+    std::vector<TypeReference> cls_pc15;
+    cls_pc15.resize(dex2_type_12.size() + dex1_type_48.size(), TypeReference(nullptr, dex::TypeIndex(-1)));
+    auto copy_end_15 = std::copy(dex2_type_12.begin(), dex2_type_12.end(), cls_pc15.begin());
+    std::copy(dex1_type_48.begin(), dex1_type_48.end(), copy_end_15);
+    std::vector<ProfileInlineCache> exp{ ProfileInlineCache(
+                                                      /* pc= */ 12,
+                                                      /* missing_types= */ true,
+                                                      /* profile_classes= */ cls_pc12),
+                                                  ProfileInlineCache(
+                                                      /* pc= */ 15,
+                                                      /* missing_types= */ true,
+                                                      /* profile_classes= */ cls_pc15) };
+    ASSERT_TRUE(*loaded_ic_12 == exp);
+  }
+}
+
 // Verify the bulk extraction API.
 TEST_F(ProfileCompilationInfoTest, ExtractInfoWithAnnations) {
   ProfileCompilationInfo info;
