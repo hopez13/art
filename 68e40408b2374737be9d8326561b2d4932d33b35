@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0fde15_7bd52f4b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 75
+      },
+      "lineNbr": 2460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-10T17:06:32Z",
+      "side": 1,
+      "message": "Why is this not eliminated? It is not observable until it is overwritten by value 3 in the loop.",
+      "range": {
+        "startLine": 2460,
+        "startChar": 5,
+        "endLine": 2460,
+        "endChar": 19
+      },
+      "revId": "68e40408b2374737be9d8326561b2d4932d33b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
