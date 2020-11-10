@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "403b0155_28bdb24b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 74
+      },
+      "lineNbr": 2462,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-10T16:56:07Z",
+      "side": 1,
+      "message": "It doesn\u0027t. That is a bad name and I\u0027ll change it.\n\nThis test is checking that we don\u0027t erroneously get rid of the writes in this loop which are needed to ensure the read at the bottom can still work.",
+      "parentUuid": "53ac6b08_0676c695",
+      "range": {
+        "startLine": 2462,
+        "startChar": 18,
+        "endLine": 2462,
+        "endChar": 27
+      },
+      "revId": "78de87ad7942c9537d80ee1fd01165cca6283021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fae28d17_f334d11c",
@@ -37,6 +61,24 @@
       "writtenOn": "2020-11-10T12:10:38Z",
       "side": 1,
       "message": "Remove blank line.",
+      "revId": "78de87ad7942c9537d80ee1fd01165cca6283021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dab0ba4_3a75e4d9",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 74
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-10T16:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae28d17_f334d11c",
       "revId": "78de87ad7942c9537d80ee1fd01165cca6283021",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
