@@ -278,23 +278,6 @@ class ProfileCompilationInfo {
     friend class ProfileCompilationInfo;
   };
 
-  // Encodes the full set of inline caches for a given method.
-  // The dex_references vector is indexed according to the ClassReference::dex_profile_index.
-  // i.e. the dex file of any ClassReference present in the inline caches can be found at
-  // dex_references[ClassReference::dex_profile_index].
-  struct OfflineProfileMethodInfo {
-    explicit OfflineProfileMethodInfo(const InlineCacheMap* inline_cache_map)
-        : inline_caches(inline_cache_map) {}
-
-    bool operator==(const OfflineProfileMethodInfo& other) const;
-    // Checks that this offline representation of inline caches matches the runtime view of the
-    // data.
-    bool operator==(const std::vector<ProfileMethodInfo::ProfileInlineCache>& other) const;
-
-    const InlineCacheMap* const inline_caches;
-    std::vector<DexReference> dex_references;
-  };
-
   // Encapsulates metadata that can be associated with the methods and classes added to the profile.
   // The additional metadata is serialized in the profile and becomes part of the profile key
   // representation. It can be used to differentiate the samples that are added to the profile
@@ -320,6 +303,27 @@ class ProfileCompilationInfo {
    private:
     // The name of the package that generated the samples.
     const std::string origin_package_name_;
+  };
+
+  // Encodes the full set of inline caches for a given method.
+  // The dex_references vector is indexed according to the ClassReference::dex_profile_index.
+  // i.e. the dex file of any ClassReference present in the inline caches can be found at
+  // dex_references[ClassReference::dex_profile_index].
+  struct OfflineProfileMethodInfo {
+    explicit OfflineProfileMethodInfo(const InlineCacheMap* inline_cache_map)
+        : inline_caches(inline_cache_map) {}
+
+    bool operator==(const OfflineProfileMethodInfo& other) const;
+    // Checks that this offline representation of inline caches matches the runtime view of the
+    // data.
+    bool operator==(const std::vector<ProfileMethodInfo::ProfileInlineCache>& other) const;
+    bool operator==(
+        const std::pair<
+            std::reference_wrapper<const std::vector<ProfileMethodInfo::ProfileInlineCache>>,
+            ProfileSampleAnnotation>& other) const;
+
+    const InlineCacheMap* const inline_caches;
+    std::vector<DexReference> dex_references;
   };
 
   // Public methods to create, extend or query the profile.
