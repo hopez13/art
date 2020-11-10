@@ -39,6 +39,30 @@
       },
       "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c0ff87_e42593cb",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2020-11-10T20:05:48Z",
+      "side": 1,
+      "message": "If I\u0027m correctly remembering how genrules and sbox work, the original cmd will write classes.dex to the top of the source tree, which could easily cause races.  If you remove the `rm classes.dex` does it leave a classes.dex in the top of the source tree?  If so, then Roland\u0027s suggestion is definitely necessary.",
+      "parentUuid": "589bba38_37cc15e3",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 155
+      },
+      "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
