@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a7448d_a1bddd92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-10T19:45:04Z",
+      "side": 1,
+      "message": "Adding Colin for guidance around genrule\u0027s usage/style.",
+      "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "589bba38_37cc15e3",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-10T19:45:04Z",
+      "side": 1,
+      "message": "Actually, I think we should be using genrule\u0027s sandbox directory (`$(genDir)`) here (see genrule\u0027s documentation). For a non-Checker test, I think the command should be:\n\n  cmd: \"rm -rf $(genDir)/files \u0026\u0026 \" +\n      \"mkdir -p $(genDir)/files \u0026\u0026 \" +\n      \"$(location smali) -JXmx512m assemble --output $(genDir)/files/classes.dex $(in) \u0026\u0026 \" +\n      \"$(location soong_zip) -C $(genDir)/files -D $(genDir)/files -o $(out)\",\n\nand for a Checker test:\n\n  cmd: \"rm -rf $(genDir)/files \u0026\u0026 \" +\n      \"mkdir -p $(genDir)/files \u0026\u0026 \" +\n      \"$(location smali) -JXmx512m assemble --output $(genDir)/files/classes.dex $(in) \u0026\u0026 \" +\n      \"cp $(in) $(genDir)/files \u0026\u0026 \" +\n      \"$(location soong_zip) -C $(genDir)/files -D $(genDir)/files -o $(out)\",",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 155
+      },
+      "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
