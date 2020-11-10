@@ -22,6 +22,30 @@
       },
       "revId": "68e40408b2374737be9d8326561b2d4932d33b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7979076c_34613aca",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 75
+      },
+      "lineNbr": 2460,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-10T17:24:53Z",
+      "side": 1,
+      "message": "It is removed. Sorry I think that comment was from an earlier version of the test and I forgot to remove it (or assert that the write is removed).\n\nDone for both.",
+      "parentUuid": "8a0fde15_7bd52f4b",
+      "range": {
+        "startLine": 2460,
+        "startChar": 5,
+        "endLine": 2460,
+        "endChar": 19
+      },
+      "revId": "68e40408b2374737be9d8326561b2d4932d33b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
