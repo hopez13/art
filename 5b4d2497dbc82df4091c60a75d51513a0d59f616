@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e23cdf_61e51f30",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-11T09:08:39Z",
+      "side": 1,
+      "message": "I like the new wording. Please update arm64 as well.",
+      "range": {
+        "startLine": 2968,
+        "startChar": 6,
+        "endLine": 2968,
+        "endChar": 91
+      },
+      "revId": "5b4d2497dbc82df4091c60a75d51513a0d59f616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea9b22e2_2cfefbed",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2988,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-11T09:08:39Z",
+      "side": 1,
+      "message": "Same comment, please update.",
+      "range": {
+        "startLine": 2988,
+        "startChar": 4,
+        "endLine": 2988,
+        "endChar": 74
+      },
+      "revId": "5b4d2497dbc82df4091c60a75d51513a0d59f616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac90c79_643a4611",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-11T09:08:39Z",
+      "side": 1,
+      "message": "Use the same wording as line 1228?",
+      "range": {
+        "startLine": 1295,
+        "startChar": 3,
+        "endLine": 1295,
+        "endChar": 41
+      },
+      "revId": "5b4d2497dbc82df4091c60a75d51513a0d59f616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acf28095_852c18a5",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-11T09:08:39Z",
+      "side": 1,
+      "message": "Use the same wording as line 1507?",
+      "range": {
+        "startLine": 1575,
+        "startChar": 3,
+        "endLine": 1575,
+        "endChar": 41
+      },
+      "revId": "5b4d2497dbc82df4091c60a75d51513a0d59f616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
