@@ -1462,8 +1462,6 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     movq %xmm6, 48(%rsp)
     movq %xmm7, 56(%rsp)
 
-    // Save method in callee-save rbx.
-    movq %rdi, %rbx
     call SYMBOL(NterpGetShorty)
     // Save shorty in callee-save rbp.
     movq %rax, %rbp
