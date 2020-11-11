@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "488fed77_b3caf412",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2020-11-11T20:35:15Z",
+      "side": 1,
+      "message": "I think it\u0027s part of presubmit. You can run it manually using \u0027atest ahat-tests\u0027 if I remember correctly, or worst case: \u0027m ahat-tests; java -jar out/host/linux-x86/framework/ahat-tests.jar\u0027",
+      "parentUuid": "3fc26466_996c8cce",
+      "revId": "f85fb91e166b0563fa7049792f38156f13f41e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c3d26abb_086c21c1",
