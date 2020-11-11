@@ -202,7 +202,7 @@
     str     \reg, [xFP, \vreg, uxtw #2]
     str     wzr, [xREFS, \vreg, uxtw #2]
 .endm
-.macro SET_VREG_OBJECT reg, vreg, tmpreg
+.macro SET_VREG_OBJECT reg, vreg
     str     \reg, [xFP, \vreg, uxtw #2]
     str     \reg, [xREFS, \vreg, uxtw #2]
 .endm
@@ -1546,8 +1546,6 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     // TODO: Get shorty in a better way and remove below
     SPILL_ALL_ARGUMENTS
 
-    // Save method in callee-save xINST
-    mov xINST, x0
     bl NterpGetShorty
     // Save shorty in callee-save xIBASE.
     mov xIBASE, x0
@@ -1632,7 +1630,7 @@ common_errDivideByZero:
     EXPORT_PC
     bl art_quick_throw_div_zero
 
-// Expect array in w0, index in w1, length in w2
+// Expect index in w1, length in w3.
 common_errArrayIndex:
     EXPORT_PC
     mov x0, x1
