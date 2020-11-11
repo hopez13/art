@@ -96,7 +96,7 @@ module_exports {
             compile_multilib: "64",
 
             java_libs: [
-                "timezone-host",
+                "timezone_host_libcore_files",
             ],
             native_binaries: [
                 "hiddenapi",
