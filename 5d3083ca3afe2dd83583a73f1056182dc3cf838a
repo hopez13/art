@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae7918c_c85a3350",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-11T17:45:05Z",
+      "side": 1,
+      "message": "maybe atest regex support will arrive soon?\n+yangbill",
+      "range": {
+        "startLine": 31,
+        "startChar": 60,
+        "endLine": 31,
+        "endChar": 73
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d9fc3d1_4336c759",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-11T17:45:05Z",
+      "side": 1,
+      "message": "Have you tried atest syntax to do directly filter? e.g.,\natest ArtGtestsTargetInstallApex#*JniInternalTest* \n\nBill, would that work for gtest?",
+      "range": {
+        "startLine": 78,
+        "startChar": 43,
+        "endLine": 78,
+        "endChar": 65
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da22db88_59313cb9",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-11T17:45:05Z",
+      "side": 1,
+      "message": "Do we want to be clear that this is the path to the TEST_MAPPING file?",
+      "range": {
+        "startLine": 116,
+        "startChar": 21,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
