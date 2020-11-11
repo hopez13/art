@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d8ffd3_6d2c9d11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2020-11-11T16:58:40Z",
+      "side": 1,
+      "message": "The Value class is not intended to be extended by external users, and I would be very surprised if there were any external implementations. As long as it doesn\u0027t break any of the other ahat tests, making the Value constructor private is a good thing to do.",
+      "parentUuid": "79e73d62_1e8f8b03",
+      "revId": "f85fb91e166b0563fa7049792f38156f13f41e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c3d26abb_086c21c1",
