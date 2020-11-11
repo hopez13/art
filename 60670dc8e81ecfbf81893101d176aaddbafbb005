@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae3846a_b0cef9e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-11T10:57:35Z",
+      "side": 1,
+      "message": "On reflection, I\u0027m okay with this. There is no connection between the R/RW and RX addresses during execution. If an attacker can figure out where the R/RW region is (need to read the memory map or be able to walk JIT metadata), it is a small delta to mprotect it.\n\nThis toggling originally existed to force a TLB shootdown, but the membarrier is a much better approach to invalidating pipeline state.",
+      "parentUuid": "b50fdfc7_3ec4b53b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07178fe9_a80f6d54",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Yes, but SetFootprintLimit has its own ScopedCodeCacheWrite.",
       "parentUuid": "07178fe9_a80f6d54",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cc22993_bf8c595b",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-11T10:57:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f2f0465_658b7b0e",
       "range": {
         "startLine": 293,
         "startChar": 4,
