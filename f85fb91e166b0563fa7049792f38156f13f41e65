@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea9d188_7280a8dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-11-11T10:21:16Z",
+      "side": 1,
+      "message": "While it may have been possible for it to be implemented externally if any of those abstract methods were called on such an object then it would fail. If those hidden abstract methods are called often then the chances are that no one has implemented this class so this change is safe. However, if they are only called in limited cases then it is possible that external implementations may exist and perform some useful function.\n\nWhat are the hidden abstract methods? Do you know whether it is possible to provide an implementation of this that provides some value (pun not intended)?",
+      "revId": "f85fb91e166b0563fa7049792f38156f13f41e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c3d26abb_086c21c1",
