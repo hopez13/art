@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e73d62_1e8f8b03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1086749
+      },
+      "writtenOn": "2020-11-11T16:50:21Z",
+      "side": 1,
+      "message": "How would an external implementor implement `abstract Type getType();` which is package private? The way I see it, if someone external tries to do it, it will crash at runtime with AbstractMethodError",
+      "parentUuid": "cea9d188_7280a8dd",
+      "revId": "f85fb91e166b0563fa7049792f38156f13f41e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c3d26abb_086c21c1",
