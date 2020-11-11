@@ -48,6 +48,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f16363_cc634638",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-11-11T11:21:14Z",
+      "side": 1,
+      "message": "I see the value of mprotect for security when using single view.\nBut since we switched to double, it seems unnecessary to me.\n(but also harmful, which is why I guess we have not removed it yet)\n\nSo the mprotect feels like obsolete code to me.  I suppose I am also in part to blame:\nFor example https://android-review.googlesource.com/c/platform/art/+/1105362\nwhere I have switched the data from single view to double view (but kept the mprotect).",
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07178fe9_a80f6d54",
