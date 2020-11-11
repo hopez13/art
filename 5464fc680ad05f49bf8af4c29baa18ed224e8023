@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960e9368_bca4763a",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-11T14:20:23Z",
+      "side": 0,
+      "message": "There is one call site that needs to be updated: https://source.corp.google.com/aosp-master/art/runtime/interpreter/mterp/arm64ng/other.S;l\u003d231\n\nAnd I think a similar change is needed for arm.",
+      "range": {
+        "startLine": 205,
+        "startChar": 34,
+        "endLine": 205,
+        "endChar": 40
+      },
+      "revId": "5464fc680ad05f49bf8af4c29baa18ed224e8023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
