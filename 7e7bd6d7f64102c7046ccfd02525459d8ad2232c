@@ -24,6 +24,47 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7420b0_4be4d92c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-11T14:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1095d5ce_46bf9493",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "7e7bd6d7f64102c7046ccfd02525459d8ad2232c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3afffb8_97615532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-11T14:40:06Z",
+      "side": 1,
+      "message": "Thanks Ulya, PTAL.",
+      "revId": "7e7bd6d7f64102c7046ccfd02525459d8ad2232c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f154a8fb_86e77370",
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df19c0c_fa3c91fe",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-11T14:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f154a8fb_86e77370",
+      "range": {
+        "startLine": 1633,
+        "startChar": 0,
+        "endLine": 1633,
+        "endChar": 48
+      },
+      "revId": "7e7bd6d7f64102c7046ccfd02525459d8ad2232c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ce12841_60e727dd",
@@ -60,6 +125,30 @@
       "writtenOn": "2020-11-11T14:16:12Z",
       "side": 1,
       "message": "Isn\u0027t w0 (an input parameter) overwritten by this before it can be used?",
+      "range": {
+        "startLine": 1636,
+        "startChar": 0,
+        "endLine": 1636,
+        "endChar": 14
+      },
+      "revId": "7e7bd6d7f64102c7046ccfd02525459d8ad2232c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f80c2b8_7ec904d3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-11T14:40:06Z",
+      "side": 1,
+      "message": "Yeah, I actually removed the reference of x0 above (it\u0027s unused).",
+      "parentUuid": "3ce12841_60e727dd",
       "range": {
         "startLine": 1636,
         "startChar": 0,
