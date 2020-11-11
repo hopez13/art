@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9bef4ec_ad1926ac",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-11T18:06:27Z",
+      "side": 1,
+      "message": "It looked like a nice coverage feature to run our tests with it - making sure there\u0027s no place that inadvertently update the cache.",
+      "parentUuid": "fd2f49f9_5e8b88aa",
+      "range": {
+        "startLine": 202,
+        "startChar": 39,
+        "endLine": 202,
+        "endChar": 52
+      },
+      "revId": "60670dc8e81ecfbf81893101d176aaddbafbb005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07178fe9_a80f6d54",
