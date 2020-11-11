@@ -43,6 +43,8 @@ class ProfileAssistant {
    public:
     static constexpr bool kForceMergeDefault = false;
     static constexpr bool kBootImageMergeDefault = false;
+    static constexpr uint32_t kMinNewMethodsPercentChangeForCompilation = 20;
+    static constexpr uint32_t kMinNewClassesPercentChangeForCompilation = 20;
 
     Options()
         : force_merge_(kForceMergeDefault),
