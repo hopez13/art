@@ -16,6 +16,92 @@
       "message": "I\u0027m going to merge this at noon PST unless anyone has any other comments.",
       "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae91a85_075d2ff9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 77
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-11-11T19:05:13Z",
+      "side": 1,
+      "message": "Sorry it took me so long to get back; if you are still interested I could continue my review, but of course, it is probably time to merge the CL.\n\nThree small comments on documentation: I am trying to understand what the new ExecutionSubgraph class does only by looking into API and tests, and am struggling a bit. ",
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd2b456_535489c7",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-11-11T19:05:13Z",
+      "side": 1,
+      "message": "does this mean that: Any block A such as: Block_deleted post-dominates Block_A?",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c123a0_c2f2f2fd",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-11-11T19:05:13Z",
+      "side": 1,
+      "message": "Could you comment this function please?\n - what a reachable/unreachable block is?\n - does this correspond to ALL_NODES minus the removed ones? (definition \"This will extend the removed area to include:...\")?\n - how RemoveConcavity relates to the the contain-set?",
+      "range": {
+        "startLine": 192,
+        "startChar": 7,
+        "endLine": 192,
+        "endChar": 20
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4159c8d1_12737394",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-11-11T19:05:13Z",
+      "side": 1,
+      "message": "Could you define this in a comment?",
+      "range": {
+        "startLine": 276,
+        "startChar": 13,
+        "endLine": 276,
+        "endChar": 17
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
