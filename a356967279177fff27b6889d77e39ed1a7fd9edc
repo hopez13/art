@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1cd8851_8205f0e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 77
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-11T19:32:42Z",
+      "side": 1,
+      "message": "Anything else will likely need to go in followups. I\u0027ve added some to the comments you identified however.",
+      "parentUuid": "eae91a85_075d2ff9",
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cd2b456_535489c7",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-11-11T19:05:13Z",
       "side": 1,
       "message": "does this mean that: Any block A such as: Block_deleted post-dominates Block_A?",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1e9df6b_e60fcbf0",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-11T19:32:42Z",
+      "side": 1,
+      "message": "yes.",
+      "parentUuid": "9cd2b456_535489c7",
       "range": {
         "startLine": 73,
         "startChar": 23,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1301edb9_fd734f60",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-11T19:32:42Z",
+      "side": 1,
+      "message": "Done.\n\nReachable \u003d not removed either explicitly or implicitly.\n\nRemove concavity ensures that Unreachable(A) \u0026\u0026 Unreachable(C) \u0026\u0026 PathBetween(A, B) \u0026\u0026 PathBetween(B, C) implies Unreachable(B)",
+      "parentUuid": "37c123a0_c2f2f2fd",
+      "range": {
+        "startLine": 192,
+        "startChar": 7,
+        "endLine": 192,
+        "endChar": 20
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4159c8d1_12737394",
@@ -94,6 +160,30 @@
       "writtenOn": "2020-11-11T19:05:13Z",
       "side": 1,
       "message": "Could you define this in a comment?",
+      "range": {
+        "startLine": 276,
+        "startChar": 13,
+        "endLine": 276,
+        "endChar": 17
+      },
+      "revId": "a356967279177fff27b6889d77e39ed1a7fd9edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9565ae24_46b7367d",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 77
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-11T19:32:42Z",
+      "side": 1,
+      "message": "Done.\n\nJust is nodes which have no path to the exit node without passing through a removed ndoe.",
+      "parentUuid": "4159c8d1_12737394",
       "range": {
         "startLine": 276,
         "startChar": 13,
