@@ -208,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "223c9a21_62b14089",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-12T15:54:57Z",
+      "side": 1,
+      "message": "https://github.com/google/cpu_features#whats-supported says that AArch64 is supported on Android, so this should be fine, I think. Adding Guillaume to confirm.\n\nI\u0027ll check locally with an Arm64 device.",
+      "parentUuid": "ff5ed59a_4173d8d0",
+      "range": {
+        "startLine": 105,
+        "startChar": 42,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4daa473a_4641afc3",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 3
