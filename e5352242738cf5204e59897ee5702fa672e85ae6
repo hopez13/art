@@ -111,6 +111,30 @@
       },
       "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904b3958_828a5b8d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-12T15:18:06Z",
+      "side": 1,
+      "message": "I checked and fixed the race.",
+      "parentUuid": "633b1469_b3214057",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 155
+      },
+      "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
