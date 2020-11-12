@@ -122,6 +122,24 @@
       "parentUuid": "aa185d7d_e44001fa",
       "revId": "8043eff27376590a73d561eb5d25bb6aa453bef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2577e1_a62c07b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-12T19:15:09Z",
+      "side": 1,
+      "message": "So the problems comes from this assertion:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/utils/x86_64/assembler_x86_64.cc;l\u003d2676\n\n  /* VEX.128.0F.WIG 57 /r VXORPS xmm1,xmm2, xmm3/m128 */\n  void X86_64Assembler::vxorps(XmmRegister dst, XmmRegister src1, XmmRegister src2) {\n    DCHECK(CpuHasAVXorAVX2FeatureFlag());\n    // ...\n\nThis function is called from the x86-64 code generator here:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/code_generator_vector_x86_64.cc;l\u003d61;drc\u003d077188411c692f82b0785597fee030810a2a5841\n\n  void \n  InstructionCodeGeneratorX86_64::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {\n    LocationSummary* locations \u003d instruction-\u003eGetLocations();\n    XmmRegister dst \u003d locations-\u003eOut().AsFpuRegister\u003cXmmRegister\u003e();\n    \n    bool cpu_has_avx \u003d CpuHasAvxFeatureFlag();\n\nI think the problem comes from the discrepancy between the definitions of `X86_64Assembler::CpuHasAVXorAVX2FeatureFlag` (used in `X86_64Assembler::vxorps`) and `CpuHasAvxFeatureFlag` (used in `InstructionCodeGeneratorX86_64::VisitVecReplicateScalar`). The former checks the host where the test is running:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/utils/x86_64/assembler_x86_64.cc;l\u003d67;drc\u003d9e5ad47aeae004c45f434301e5bb3cb5ba43755c\n\n  bool X86_64Assembler::CpuHasAVXorAVX2FeatureFlag() {\n    if (has_AVX_ || has_AVX2_) {\n      return true;\n    }\n    return false;\n  }\n\nwhile the latter checks the InstructionSetFeatures associated with the current compilation:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/code_generator_x86_64.cc;l\u003d7977;drc\u003d94d2c81caaa0a7155b0ec45ac2bd55247a50fb9a\n\n  bool InstructionCodeGeneratorX86_64::CpuHasAvxFeatureFlag() {\n    return codegen_-\u003eGetInstructionSetFeatures().HasAVX();\n  }",
+      "parentUuid": "1e6672c8_4ef5f2f2",
+      "revId": "8043eff27376590a73d561eb5d25bb6aa453bef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
