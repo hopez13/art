@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdd8de4_5b36bfad",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T12:55:37Z",
+      "side": 1,
+      "message": "That or \"loading the declaring class in the case of static field varhandles\".",
+      "parentUuid": "adabb825_222dce79",
+      "range": {
+        "startLine": 4102,
+        "startChar": 6,
+        "endLine": 4102,
+        "endChar": 56
+      },
+      "revId": "e7e0c8b110464116a1fc7e9169603ebf13c4d895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aa2b492_ff7ca268",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "As the commit message says, this CL \"leaves support code in place\" for non-Baker read barriers.",
       "parentUuid": "1aa2b492_ff7ca268",
+      "revId": "e7e0c8b110464116a1fc7e9169603ebf13c4d895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08b9ce01_6b74fa19",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4363,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T12:55:37Z",
+      "side": 1,
+      "message": "The reality is you\u0027ll be the one dealing with this in future most likely so it can be left. Otherwise, I think the DCHECK makes clear what the tested / expected path is for someone looking at the code.",
+      "parentUuid": "49015abe_529d1e9e",
       "revId": "e7e0c8b110464116a1fc7e9169603ebf13c4d895",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
