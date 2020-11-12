@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c334ece5_eb2ef197",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-12T11:07:53Z",
+      "side": 1,
+      "message": "Just like the previous CL, I prefer to have the support code for non-Baker barriers here even though it is currently unused. We could fix the slow path and this code should then work fine.\n\nAs a matter of fact, we _should_ fix the slow path as it is a trap for new architecture bringup, potentially causing subtle issues for code that reaches artReadBarrierSlow(). The trivial fix would be to replace the artReadBarrierSlow() implementation with a forwarding call to artReadBarrierMark(ref). There are other options if we want to keep looking at the holder\u0027s gray bit.",
+      "parentUuid": "20a928c1_e07ba3a9",
+      "range": {
+        "startLine": 4588,
+        "startChar": 0,
+        "endLine": 4589,
+        "endChar": 49
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81fba301_e8c2197b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-12T09:55:13Z",
       "side": 1,
       "message": "Unnecessary? L4520",
+      "range": {
+        "startLine": 4627,
+        "startChar": 0,
+        "endLine": 4633,
+        "endChar": 67
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e59bfa_4dd155f9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-12T11:07:53Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "81fba301_e8c2197b",
       "range": {
         "startLine": 4627,
         "startChar": 0,
