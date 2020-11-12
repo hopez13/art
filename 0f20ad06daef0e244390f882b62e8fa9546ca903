@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a083e5_df19ea3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T09:55:13Z",
+      "side": 1,
+      "message": "Looks great.",
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a928c1_e07ba3a9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4589,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T09:55:13Z",
+      "side": 1,
+      "message": "Unnecessary?  L4520",
+      "range": {
+        "startLine": 4588,
+        "startChar": 0,
+        "endLine": 4589,
+        "endChar": 49
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81fba301_e8c2197b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T09:55:13Z",
+      "side": 1,
+      "message": "Unnecessary? L4520",
+      "range": {
+        "startLine": 4627,
+        "startChar": 0,
+        "endLine": 4633,
+        "endChar": 67
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
