@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8fb9fb_4cd7c412",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3780,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T15:22:46Z",
+      "side": 1,
+      "message": "I know it\u0027s in the commit message, but any reason not to compare to PrimitiveType::kPrimNot here? (fine as-is, we static_assert it\u0027s zero elsewhere).",
+      "range": {
+        "startLine": 3780,
+        "startChar": 47,
+        "endLine": 3780,
+        "endChar": 49
+      },
+      "revId": "8029d9d68b76dc95fbe47a7f7b003deb0b11977f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
