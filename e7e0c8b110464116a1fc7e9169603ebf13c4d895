@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5b6fa39_37752b13",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T10:09:55Z",
+      "side": 1,
+      "message": "For static field setter only seems quite subtle, merits a comment?",
+      "range": {
+        "startLine": 4102,
+        "startChar": 6,
+        "endLine": 4102,
+        "endChar": 56
+      },
+      "revId": "e7e0c8b110464116a1fc7e9169603ebf13c4d895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa2b492_ff7ca268",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4363,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T10:09:55Z",
+      "side": 1,
+      "message": "DCHECK(kUseBakerReadBarrier);",
+      "revId": "e7e0c8b110464116a1fc7e9169603ebf13c4d895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
