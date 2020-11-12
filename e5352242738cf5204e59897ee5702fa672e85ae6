@@ -87,6 +87,30 @@
       },
       "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633b1469_b3214057",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-12T15:10:46Z",
+      "side": 1,
+      "message": "Daniel, did you check the potential race condition mentioned by Colin? I think it is important to prevent race conditions ahead of time as they are usually not trivial to identify / debug once they start happening in the various systems where we build Android.",
+      "parentUuid": "79b632c2_53b5ddda",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 155
+      },
+      "revId": "e5352242738cf5204e59897ee5702fa672e85ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
