@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ee59cc_5b1ffec5",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-12T14:50:34Z",
+      "side": 1,
+      "message": "I filed a bug and I\u0027m adding references to it in https://android-review.googlesource.com/1497439 . However, I\u0027m not too fond of having to many references, so I kept it to the places where we refuse to build intrinsic locations.\n\nFor the sake of preserving TH resources, I\u0027d prefer further clarifications to be done on that CL.",
+      "parentUuid": "e999e7f1_48ae7808",
+      "range": {
+        "startLine": 4588,
+        "startChar": 0,
+        "endLine": 4589,
+        "endChar": 49
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81fba301_e8c2197b",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "Same comment as above.",
       "parentUuid": "32e59bfa_4dd155f9",
+      "range": {
+        "startLine": 4627,
+        "startChar": 0,
+        "endLine": 4633,
+        "endChar": 67
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1439195_c5b4ed24",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-12T14:50:34Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "91ee0070_fbde8946",
       "range": {
         "startLine": 4627,
         "startChar": 0,
