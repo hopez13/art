@@ -232,6 +232,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea87eb78_7a705309",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1467076
+      },
+      "writtenOn": "2020-11-12T16:23:39Z",
+      "side": 1,
+      "message": "Yes it\u0027s covered and tested but let me know if you find an edge case.",
+      "parentUuid": "223c9a21_62b14089",
+      "range": {
+        "startLine": 105,
+        "startChar": 42,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4daa473a_4641afc3",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 3
