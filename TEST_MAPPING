@@ -199,14 +199,14 @@
       "name": "art-run-test-084-class-init"
     },
     {
+      "name": "art-run-test-088-monitor-verification"
+    },
+    {
       "name": "art-run-test-090-loop-formation"
     },
     {
       "name": "art-run-test-092-locale"
-    }
-  ],
-  "postsubmit": [
-    // ART run-tests.
+    },
     {
       "name": "art-run-test-093-serialization"
     },
@@ -254,12 +254,18 @@
     },
     {
       "name": "art-run-test-110-field-access"
-    },
+    }
+  ],
+  "postsubmit": [
+    // ART run-tests.
     {
       "name": "art-run-test-112-double-math"
     },
     {
       "name": "art-run-test-114-ParallelGC"
+    },
+    {
+      "name": "art-run-test-118-noimage-dex2oat"
     },
     {
       "name": "art-run-test-120-hashcode"
@@ -292,6 +298,12 @@
       "name": "art-run-test-133-static-invoke-super"
     },
     {
+      "name": "art-run-test-134-reg-promotion"
+    },
+    {
+      "name": "art-run-test-135-MirandaDispatch"
+    },
+    {
       "name": "art-run-test-140-dce-regression"
     },
     {
@@ -319,6 +331,9 @@
       "name": "art-run-test-159-app-image-fields"
     },
     {
+      "name": "art-run-test-160-read-barrier-stress"
+    },
+    {
       "name": "art-run-test-161-final-abstract-class"
     },
     {
@@ -326,6 +341,9 @@
     },
     {
       "name": "art-run-test-165-lock-owner-proxy"
+    },
+    {
+      "name": "art-run-test-167-visit-locks"
     },
     {
       "name": "art-run-test-168-vmstack-annotated"
@@ -341,6 +359,9 @@
     },
     {
       "name": "art-run-test-176-app-image-string"
+    },
+    {
+      "name": "art-run-test-1929-exception-catch-exception"
     },
     {
       "name": "art-run-test-2019-constantcalculationsinking"
@@ -430,10 +451,16 @@
       "name": "art-run-test-411-optimizing-arith"
     },
     {
+      "name": "art-run-test-412-new-array"
+    },
+    {
       "name": "art-run-test-413-regalloc-regression"
     },
     {
       "name": "art-run-test-414-static-fields"
+    },
+    {
+      "name": "art-run-test-416-optimizing-arith-not"
     },
     {
       "name": "art-run-test-418-const-string"
@@ -463,6 +490,9 @@
       "name": "art-run-test-424-checkcast"
     },
     {
+      "name": "art-run-test-425-invoke-super"
+    },
+    {
       "name": "art-run-test-426-monitor"
     },
     {
@@ -478,10 +508,22 @@
       "name": "art-run-test-430-live-register-slow-path"
     },
     {
+      "name": "art-run-test-431-type-propagation"
+    },
+    {
+      "name": "art-run-test-432-optimizing-cmp"
+    },
+    {
       "name": "art-run-test-433-gvn"
     },
     {
+      "name": "art-run-test-434-invoke-direct"
+    },
+    {
       "name": "art-run-test-434-shifter-operand"
+    },
+    {
+      "name": "art-run-test-435-new-instance"
     },
     {
       "name": "art-run-test-435-try-finally-without-catch"
@@ -511,16 +553,37 @@
       "name": "art-run-test-443-not-bool-inline"
     },
     {
+      "name": "art-run-test-448-multiple-returns"
+    },
+    {
       "name": "art-run-test-451-regression-add-float"
     },
     {
       "name": "art-run-test-451-spill-splot"
     },
     {
+      "name": "art-run-test-452-multiple-returns2"
+    },
+    {
+      "name": "art-run-test-453-not-byte"
+    },
+    {
       "name": "art-run-test-456-baseline-array-set"
     },
     {
+      "name": "art-run-test-457-regs"
+    },
+    {
       "name": "art-run-test-458-long-to-fpu"
+    },
+    {
+      "name": "art-run-test-459-dead-phi"
+    },
+    {
+      "name": "art-run-test-460-multiple-returns3"
+    },
+    {
+      "name": "art-run-test-467-regalloc-pair"
     },
     {
       "name": "art-run-test-469-condition-materialization"
@@ -532,13 +595,22 @@
       "name": "art-run-test-471-deopt-environment"
     },
     {
+      "name": "art-run-test-471-uninitialized-locals"
+    },
+    {
       "name": "art-run-test-472-type-propagation"
+    },
+    {
+      "name": "art-run-test-472-unreachable-if-regression"
     },
     {
       "name": "art-run-test-473-remove-dead-block"
     },
     {
       "name": "art-run-test-474-fp-sub-neg"
+    },
+    {
+      "name": "art-run-test-475-regression-inliner-ids"
     },
     {
       "name": "art-run-test-475-simplify-mul-zero"
@@ -565,13 +637,31 @@
       "name": "art-run-test-491-current-method"
     },
     {
+      "name": "art-run-test-498-type-propagation"
+    },
+    {
       "name": "art-run-test-499-bce-phi-array-length"
     },
     {
       "name": "art-run-test-500-instanceof"
     },
     {
+      "name": "art-run-test-501-null-constant-dce"
+    },
+    {
+      "name": "art-run-test-501-regression-packed-switch"
+    },
+    {
+      "name": "art-run-test-503-dead-instructions"
+    },
+    {
+      "name": "art-run-test-504-regression-baseline-entry"
+    },
+    {
       "name": "art-run-test-505-simplifier-type-propagation"
+    },
+    {
+      "name": "art-run-test-506-verify-aput"
     },
     {
       "name": "art-run-test-507-boolean-test"
@@ -583,13 +673,31 @@
       "name": "art-run-test-508-referrer-method"
     },
     {
+      "name": "art-run-test-509-pre-header"
+    },
+    {
+      "name": "art-run-test-511-clinit-interface"
+    },
+    {
       "name": "art-run-test-513-array-deopt"
     },
     {
       "name": "art-run-test-514-shifts"
     },
     {
+      "name": "art-run-test-515-dce-dominator"
+    },
+    {
+      "name": "art-run-test-516-dead-move-result"
+    },
+    {
+      "name": "art-run-test-518-null-array-get"
+    },
+    {
       "name": "art-run-test-519-bound-load-class"
+    },
+    {
+      "name": "art-run-test-520-equivalent-phi"
     },
     {
       "name": "art-run-test-521-regression-integer-field-set"
@@ -610,7 +718,19 @@
       "name": "art-run-test-530-instanceof-checkcast"
     },
     {
+      "name": "art-run-test-531-regression-debugphi"
+    },
+    {
+      "name": "art-run-test-533-regression-debugphi"
+    },
+    {
       "name": "art-run-test-535-deopt-and-inlining"
+    },
+    {
+      "name": "art-run-test-535-regression-const-val"
+    },
+    {
+      "name": "art-run-test-541-regression-inlined-deopt"
     },
     {
       "name": "art-run-test-542-bitfield-rotates"
@@ -622,13 +742,31 @@
       "name": "art-run-test-542-unresolved-access-check"
     },
     {
+      "name": "art-run-test-543-env-long-ref"
+    },
+    {
       "name": "art-run-test-545-tracing-and-jit"
+    },
+    {
+      "name": "art-run-test-546-regression-simplify-catch"
+    },
+    {
+      "name": "art-run-test-547-regression-trycatch-critic-edge"
     },
     {
       "name": "art-run-test-550-new-instance-clinit"
     },
     {
       "name": "art-run-test-551-implicit-null-checks"
+    },
+    {
+      "name": "art-run-test-551-invoke-super"
+    },
+    {
+      "name": "art-run-test-552-invoke-non-existent-super"
+    },
+    {
+      "name": "art-run-test-553-invoke-super"
     },
     {
       "name": "art-run-test-558-switch"
@@ -649,6 +787,12 @@
       "name": "art-run-test-562-bce-preheader"
     },
     {
+      "name": "art-run-test-571-irreducible-loop"
+    },
+    {
+      "name": "art-run-test-574-irreducible-and-constant-area"
+    },
+    {
       "name": "art-run-test-576-polymorphic-inlining"
     },
     {
@@ -667,10 +811,34 @@
       "name": "art-run-test-581-rtp"
     },
     {
+      "name": "art-run-test-585-inline-unresolved"
+    },
+    {
+      "name": "art-run-test-587-inline-class-error"
+    },
+    {
       "name": "art-run-test-589-super-imt"
     },
     {
+      "name": "art-run-test-590-infinite-loop-with-nop"
+    },
+    {
+      "name": "art-run-test-591-new-instance-string"
+    },
+    {
+      "name": "art-run-test-594-invoke-super"
+    },
+    {
       "name": "art-run-test-594-load-string-regression"
+    },
+    {
+      "name": "art-run-test-595-error-class"
+    },
+    {
+      "name": "art-run-test-600-verifier-fails"
+    },
+    {
+      "name": "art-run-test-601-method-access"
     },
     {
       "name": "art-run-test-605-new-string-from-bytes"
@@ -685,6 +853,9 @@
       "name": "art-run-test-617-clinit-oome"
     },
     {
+      "name": "art-run-test-622-simplifyifs-exception-edges"
+    },
+    {
       "name": "art-run-test-628-vdex"
     },
     {
@@ -694,13 +865,22 @@
       "name": "art-run-test-636-arm64-veneer-pool"
     },
     {
+      "name": "art-run-test-641-irreducible-inline"
+    },
+    {
       "name": "art-run-test-641-iterations"
+    },
+    {
+      "name": "art-run-test-647-sinking-catch"
     },
     {
       "name": "art-run-test-657-branches"
     },
     {
       "name": "art-run-test-658-fp-read-barrier"
+    },
+    {
+      "name": "art-run-test-660-store-8-16"
     },
     {
       "name": "art-run-test-662-regression-alias"
@@ -710,6 +890,9 @@
     },
     {
       "name": "art-run-test-667-out-of-bounds"
+    },
+    {
+      "name": "art-run-test-668-aiobe"
     },
     {
       "name": "art-run-test-671-npe-field-opts"
@@ -727,7 +910,16 @@
       "name": "art-run-test-680-sink-regression"
     },
     {
+      "name": "art-run-test-682-double-catch-phi"
+    },
+    {
       "name": "art-run-test-684-select-condition"
+    },
+    {
+      "name": "art-run-test-685-shifts"
+    },
+    {
+      "name": "art-run-test-686-get-this"
     },
     {
       "name": "art-run-test-689-multi-catch"
@@ -757,13 +949,40 @@
       "name": "art-run-test-705-register-conflict"
     },
     {
+      "name": "art-run-test-710-varhandle-creation"
+    },
+    {
+      "name": "art-run-test-713-varhandle-invokers"
+    },
+    {
+      "name": "art-run-test-715-clinit-implicit-parameter-annotations"
+    },
+    {
       "name": "art-run-test-718-zipfile-finalizer"
     },
     {
       "name": "art-run-test-721-osr"
     },
     {
+      "name": "art-run-test-723-string-init-range"
+    },
+    {
+      "name": "art-run-test-724-invoke-super-npe"
+    },
+    {
+      "name": "art-run-test-725-imt-conflict-object"
+    },
+    {
       "name": "art-run-test-726-array-store"
+    },
+    {
+      "name": "art-run-test-800-smali"
+    },
+    {
+      "name": "art-run-test-802-deoptimization"
+    },
+    {
+      "name": "art-run-test-803-no-super"
     },
     {
       "name": "art-run-test-804-class-extends-itself"
@@ -775,13 +994,34 @@
       "name": "art-run-test-806-TooWideClassInstanceOf"
     },
     {
+      "name": "art-run-test-807-method-handle-and-mr"
+    },
+    {
       "name": "art-run-test-812-recursive-default"
+    },
+    {
+      "name": "art-run-test-953-invoke-polymorphic-compiler"
     },
     {
       "name": "art-run-test-955-methodhandles-smali"
     },
     {
+      "name": "art-run-test-956-methodhandles"
+    },
+    {
+      "name": "art-run-test-957-methodhandle-transforms"
+    },
+    {
+      "name": "art-run-test-959-invoke-polymorphic-accessors"
+    },
+    {
+      "name": "art-run-test-962-iface-static"
+    },
+    {
       "name": "art-run-test-963-default-range-smali"
+    },
+    {
+      "name": "art-run-test-972-default-imt-collision"
     },
     {
       "name": "art-run-test-974-verify-interface-super"
