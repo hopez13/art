@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e999e7f1_48ae7808",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4589,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T13:05:22Z",
+      "side": 1,
+      "message": "This is not my domain, but as a reviewer I\u0027d prefer a comment that covers what you just said with a bug number when leaving vestigial support like this. No objections to fixing the issue at all.",
+      "parentUuid": "c334ece5_eb2ef197",
+      "range": {
+        "startLine": 4588,
+        "startChar": 0,
+        "endLine": 4589,
+        "endChar": 49
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81fba301_e8c2197b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "81fba301_e8c2197b",
+      "range": {
+        "startLine": 4627,
+        "startChar": 0,
+        "endLine": 4633,
+        "endChar": 67
+      },
+      "revId": "0f20ad06daef0e244390f882b62e8fa9546ca903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ee0070_fbde8946",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-12T13:05:22Z",
+      "side": 1,
+      "message": "Same comment as above.",
+      "parentUuid": "32e59bfa_4dd155f9",
       "range": {
         "startLine": 4627,
         "startChar": 0,
