@@ -256,6 +256,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d29ae3a_0606f65a",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-12T16:25:54Z",
+      "side": 1,
+      "message": "Thanks for confirming Guillaume!\n\nI\u0027ll post the test results here.",
+      "parentUuid": "ea87eb78_7a705309",
+      "range": {
+        "startLine": 105,
+        "startChar": 42,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b30adc77bcec74da9dd237134021c42336f67eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4daa473a_4641afc3",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 3
