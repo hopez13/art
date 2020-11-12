@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c072b15f_b4e74a5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1752579
+      },
+      "writtenOn": "2020-11-12T04:23:59Z",
+      "side": 1,
+      "message": "All the new tests work fine except for art-run-test-954-invoke-polymorphic-verifier, which expect exact error message. The current message produced on my machine is essentially the same, but exactly. ",
+      "revId": "0b5b7352a767f54f3bafe588eaa1fb9b47f272ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
