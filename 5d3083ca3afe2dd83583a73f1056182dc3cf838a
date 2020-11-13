@@ -83,6 +83,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3af64bd4_70a6ceb1",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2020-11-13T07:40:36Z",
+      "side": 1,
+      "message": "For module regix should be fine.\nLet me open a bug for that. (b/173176275)",
+      "parentUuid": "0ae7918c_c85a3350",
+      "range": {
+        "startLine": 31,
+        "startChar": 60,
+        "endLine": 31,
+        "endChar": 73
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "02d6d9e9_b62dfdf4",
         "filename": "test/README.atest.md",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "writtenOn": "2020-11-11T17:45:05Z",
       "side": 1,
       "message": "Have you tried atest syntax to do directly filter? e.g.,\natest ArtGtestsTargetInstallApex#*JniInternalTest* \n\nBill, would that work for gtest?",
+      "range": {
+        "startLine": 78,
+        "startChar": 43,
+        "endLine": 78,
+        "endChar": 65
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11750b14_8750c0f4",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2020-11-13T07:40:36Z",
+      "side": 1,
+      "message": "Due to that JniInternalTest is a class, could use below turn to run the test.\natest ArtGtestsTargetInstallApex:JniInternalTest\n\nBy the way, current atest could also run this term\natest ArtGtestsTargetInstallApex:*JniInternalTest*\natest ArtGtestsTargetInstallApex:*Test*",
+      "parentUuid": "0d9fc3d1_4336c759",
       "range": {
         "startLine": 78,
         "startChar": 43,
