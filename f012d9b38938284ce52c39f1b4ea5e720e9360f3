@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79595d0e_6c5fe468",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Yes 😊",
+      "parentUuid": "585d4ed5_bfb6b41f",
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d6dce04_26becf95",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-10T15:06:24Z",
       "side": 1,
       "message": "Can you document the D constant somewhere in the beginning of this comment?",
+      "range": {
+        "startLine": 58,
+        "startChar": 15,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa36555_27f86720",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d6dce04_26becf95",
       "range": {
         "startLine": 58,
         "startChar": 15,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9620d355_0cfada85",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1fc38d3_e99cd206",
+      "range": {
+        "startLine": 61,
+        "startChar": 64,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fee2fbf4_8dba7abd",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-11-10T15:06:24Z",
       "side": 1,
       "message": "The comment seems misplaced or obsolete after the changes.",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 0
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36372b07_e8ad3da4",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee2fbf4_8dba7abd",
       "range": {
         "startLine": 291,
         "startChar": 0,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b9ca17_f53612b9",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7daefdbb_b9163622",
+      "range": {
+        "startLine": 386,
+        "startChar": 7,
+        "endLine": 386,
+        "endChar": 13
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb8a64ce_fe99ad0e",
@@ -123,6 +237,30 @@
       "writtenOn": "2020-11-10T15:06:24Z",
       "side": 1,
       "message": "It would be cleaner to have a helper function that would do the reinterpret cast and DCHECK alignment requirements (the same construct is used in a few places).",
+      "range": {
+        "startLine": 397,
+        "startChar": 7,
+        "endLine": 397,
+        "endChar": 34
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f09dac_b7dc2d04",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb8a64ce_fe99ad0e",
       "range": {
         "startLine": 397,
         "startChar": 7,
@@ -150,6 +288,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "477e1cb8_08129764",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "We have those already in verifier_deps_test.cc, see EncodeDecode and EncodeDecodeMulti.",
+      "parentUuid": "3a031e37_13959609",
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cffcc39_90db2002",
@@ -163,6 +319,30 @@
       "writtenOn": "2020-11-10T15:06:24Z",
       "side": 1,
       "message": "Maybe also add a comment \"+1 for ...\", as in the encoder?",
+      "range": {
+        "startLine": 419,
+        "startChar": 28,
+        "endLine": 419,
+        "endChar": 32
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de7c470_9c60b2ed",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cffcc39_90db2002",
       "range": {
         "startLine": 419,
         "startChar": 28,
@@ -196,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4798bec0_da19fe08",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "It\u0027s outside of the loop to avoid having to look it up for every iteration.\n\nWe know it\u0027s going to terminate as the last entry in the offsets array is the offset of the end of the assignable types. I\u0027ve added a comment.",
+      "parentUuid": "d9f8aa94_a663a2ba",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 100
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a0fcf2b_4cf7ec7e",
@@ -209,6 +413,30 @@
       "writtenOn": "2020-11-10T15:06:24Z",
       "side": 1,
       "message": "Maybe lift it out of the loop?",
+      "range": {
+        "startLine": 436,
+        "startChar": 21,
+        "endLine": 436,
+        "endChar": 61
+      },
+      "revId": "f012d9b38938284ce52c39f1b4ea5e720e9360f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "140fafbe_3bdb9180",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-14T15:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a0fcf2b_4cf7ec7e",
       "range": {
         "startLine": 436,
         "startChar": 21,
