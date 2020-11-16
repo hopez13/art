@@ -313,11 +313,10 @@ END \name
     ldr r0, [sp]
     ldrh r2, [r0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     add r2, r2, #1
-    ubfx r2, r2, #0, #NTERP_HOTNESS_BITS
+    mov ip, #NTERP_HOTNESS_SLOW_PATH
+    cmp r2, ip
+    bge NterpHandleHotnessOverflow
     strh r2, [r0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // If the counter overflows, handle this in the runtime.
-    cmp r2, #0
-    beq NterpHandleHotnessOverflow
     // Otherwise, do a suspend check.
     ldr r0, [rSELF, #THREAD_FLAGS_OFFSET]
     ands r0, r0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
@@ -452,11 +451,11 @@ END \name
     ldr r0, [sp]
     ldrh r2, [r0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     add r2, r2, #1
-    ubfx r2, r2, #0, #NTERP_HOTNESS_BITS
-    strh r2, [r0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
+    mov ip, #NTERP_HOTNESS_SLOW_PATH
+    cmp r2, ip
     // If the counter overflows, handle this in the runtime.
-    cmp r2, #0
-    beq 2f
+    bge 2f
+    strh r2, [r0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     ldr r0, [rSELF, #THREAD_FLAGS_OFFSET]
     tst r0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     bne 3f

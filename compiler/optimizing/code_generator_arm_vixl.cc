@@ -2110,17 +2110,18 @@ void CodeGeneratorARMVIXL::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
     UseScratchRegisterScope temps(GetVIXLAssembler());
     vixl32::Register temp = temps.Acquire();
-    static_assert(ArtMethod::MaxCounter() == 0xFFFF, "asm is probably wrong");
     if (!is_frame_entry) {
       __ Push(vixl32::Register(kMethodRegister));
       GetAssembler()->cfi().AdjustCFAOffset(kArmWordSize);
       GetAssembler()->LoadFromOffset(kLoadWord, kMethodRegister, sp, kArmWordSize);
     }
-    // Load with zero extend to clear the high bits for integer overflow check.
+    static_assert(ArtMethod::MaxCounter() != std::numeric_limits<uint32_t>::max(),
+        "asm is probably wrong");
     __ Ldrh(temp, MemOperand(kMethodRegister, ArtMethod::HotnessCountOffset().Int32Value()));
-    __ Add(temp, temp, 1);
-    // Subtract one if the counter would overflow.
-    __ Sub(temp, temp, Operand(temp, ShiftType::LSR, 16));
+    // If carry will be set if no borrow: temp >= ArtMethod::MaxCounter().
+    __ Mov(ip, ArtMethod::MaxCounter() - 1);
+    __ Subs(ip, ip, temp);
+    __ Adc(temp, temp, 0);
     __ Strh(temp, MemOperand(kMethodRegister, ArtMethod::HotnessCountOffset().Int32Value()));
     if (!is_frame_entry) {
       __ Pop(vixl32::Register(kMethodRegister));

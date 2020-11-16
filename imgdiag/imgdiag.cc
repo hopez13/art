@@ -62,6 +62,11 @@ namespace {
 
 constexpr size_t kMaxAddressPrint = 5;
 
+size_t total_pd_pages = 0;
+size_t total_nz_counter = 0;
+size_t total_counter = 0;
+size_t total_methods = 0;
+
 enum class ProcessType {
   kZygote,
   kRemote
@@ -730,7 +735,6 @@ class RegionSpecializedBase<ArtMethod> : public RegionCommon<ArtMethod> {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     RegionCommon<ArtMethod>::image_header_.VisitPackedArtMethods(*visitor, base, pointer_size);
   }
-
   void VisitEntry(ArtMethod* method ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(Locks::mutator_lock_) {
   }
@@ -1322,7 +1326,6 @@ class ImgDiagDumper {
     size_t page_idx = 0;           // Page index relative to 0
     size_t previous_page_idx = 0;  // Previous page index relative to 0
 
-
     // Iterate through one page at a time. Boot map begin/end already implicitly aligned.
     for (uintptr_t begin = boot_map.start; begin != boot_map.end; begin += kPageSize) {
       ptrdiff_t offset = begin - boot_map.start;
@@ -1589,6 +1592,46 @@ class ImgDiagDumper {
       remotes = RemoteProcesses::kImageOnly;
     }
 
+    std::vector<uint8_t> fixed_remote(remote_contents.begin(), remote_contents.end());
+    auto diff = [&]() -> size_t {
+      size_t zygote_diff = 0;
+      for (uintptr_t begin = boot_map.start; begin != boot_map.end; begin += kPageSize) {
+        ptrdiff_t offset = begin - boot_map.start;
+
+        // We treat the image header as part of the memory map for now
+        // If we wanted to change this, we could pass base=start+sizeof(ImageHeader)
+        // But it might still be interesting to see if any of the ImageHeader data mutated
+        const uint8_t* local_ptr = &zygote_contents[offset];
+        const uint8_t* remote_ptr = &fixed_remote[offset];
+
+        if (memcmp(local_ptr, remote_ptr, kPageSize) != 0) {
+          zygote_diff++;
+        }
+      }
+      return zygote_diff;
+    };
+
+    size_t diff_before = diff();
+    PointerSize pointer_size = InstructionSetPointerSize(Runtime::Current()->GetInstructionSet());
+    auto* local_start = const_cast<uint8_t*>(reinterpret_cast<const uint8_t*>(&image_header));
+    image_header.VisitPackedArtMethods([&](ArtMethod& img) NO_THREAD_SAFETY_ANALYSIS {
+      size_t offset = reinterpret_cast<uint8_t*>(&img) - local_start;
+      ArtMethod* method = reinterpret_cast<ArtMethod*>(&zygote_contents[0] + offset);
+      ArtMethod* remote = reinterpret_cast<ArtMethod*>(&fixed_remote[0] + offset);
+      if (remote->GetRawCounter() != method->GetRawCounter()) {
+        ++total_nz_counter;
+        if (method->GetRawCounter() > remote->GetRawCounter()) {
+          total_counter += method->GetCounter() - remote->GetCounter();
+        }
+        remote->SetRawCounter(method->GetRawCounter());
+        CHECK_EQ(remote->GetRawCounter(), method->GetRawCounter());
+      }
+      ++total_methods;
+    }, local_start, pointer_size);
+    // Iterate through one page at a time. Boot map begin/end already implicitly aligned.
+    size_t diff_after = diff();
+    total_pd_pages += diff_before - diff_after;
+
     // Check all the mirror::Object entries in the image.
     RegionData<mirror::Object> object_region_data(os_,
                                                   remote_contents,
@@ -1850,6 +1893,7 @@ static int DumpImage(Runtime* runtime,
       return EXIT_FAILURE;
     }
   }
+  std::cout << "Estimated JIT counter KB saved," << total_pd_pages * 4 << "," << total_nz_counter << "," << total_methods << "," << total_counter << std::endl;
   return EXIT_SUCCESS;
 }
 

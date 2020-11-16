@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 #define ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 
+#include "art_method.h"
 #include "base/globals.h"
 
 extern "C" void* artNterpAsmInstructionStart[];
@@ -34,8 +35,12 @@ bool CanRuntimeUseNterp();
 bool CanMethodUseNterp(ArtMethod* method);
 const void* GetNterpEntryPoint();
 
+
+// Go slowpath whenever the counter is larger or equal to the slow path value.
+constexpr uint16_t kNterpHotnessSlowPath = ArtMethod::kHotnessCounterUseSideTable - 1;
+
 // The hotness threshold where we trigger JIT compilation or OSR.
-constexpr uint16_t kNterpHotnessMask = 0xffff;
+constexpr uint16_t kNterpHotnessCompile = ArtMethod::kHotnessCounterUseSideTable - 1;
 
 // The hotness threshold for the baseline compiler to trigger optimized
 // compilation.

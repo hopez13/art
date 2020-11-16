@@ -256,10 +256,10 @@ END_FUNCTION \name
     GOTO_NEXT
 3:
     movq (%rsp), %rdi
-    addw $$1, ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
-    andw $$(NTERP_HOTNESS_MASK), ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
+    cmpw $$(NTERP_HOTNESS_SLOW_PATH), ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
     // If the counter overflows, handle this in the runtime.
-    jz NterpHandleHotnessOverflow
+    jge NterpHandleHotnessOverflow
+    addw $$1, ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
     // Otherwise, do a suspend check.
     testl   $$(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), rSELF:THREAD_FLAGS_OFFSET
     jz      2b
@@ -817,7 +817,7 @@ END_FUNCTION \name
 .macro START_EXECUTING_INSTRUCTIONS
    movq (%rsp), %rdi
    addw $$1, ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
-   andw $$(NTERP_HOTNESS_MASK), ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
+   # andw $$(NTERP_HOTNESS_MASK), ART_METHOD_HOTNESS_COUNT_OFFSET(%rdi)
    jz 2f
    testl $$(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), rSELF:THREAD_FLAGS_OFFSET
    jz 1f

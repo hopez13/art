@@ -3103,6 +3103,10 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
       }
     }
   }
+  if (!orig->IsAbstract()) {
+    // Use the side table for all boot image JIT counters.
+    // copy->SetRawCounter(ArtMethod::kHotnessCounterUseSideTable);
+  }
   if (quick_code != nullptr) {
     copy->SetEntryPointFromQuickCompiledCodePtrSize(quick_code, target_ptr_size_);
   }

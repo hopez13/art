@@ -61,6 +61,12 @@ inline void Jit::AddSamples(Thread* self,
   method->SetCounter(new_count);
 }
 
+
+inline uint16_t* Jit::GetCounterAddress(Thread* self, ArtMethod* method) {
+  MutexLock mu(self, lock_);
+  return &hotness_counters_[method];
+}
+
 }  // namespace jit
 }  // namespace art
 

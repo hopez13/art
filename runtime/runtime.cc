@@ -1609,12 +1609,39 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       }
       class_linker_->AddExtraBootDexFiles(self, std::move(extra_boot_class_path));
     }
-    if (IsJavaDebuggable() || jit_options_->GetProfileSaverOptions().GetProfileBootClassPath()) {
+    const bool profile_bcp = jit_options_->GetProfileSaverOptions().GetProfileBootClassPath();
+    if (IsJavaDebuggable() || profile_bcp) {
       // Deoptimize the boot image if debuggable  as the code may have been compiled non-debuggable.
       // Also deoptimize if we are profiling the boot class path.
       ScopedThreadSuspension sts(self, ThreadState::kNative);
       ScopedSuspendAll ssa(__FUNCTION__);
       DeoptimizeBootImage();
+
+      if (profile_bcp) {
+        // Reset the hotness so that the boot image methods don't use the side table and function
+        // with JIT zygote and AOT hotness counters.
+        // Used to patch boot image method entry point to interpreter bridge.
+        class ResetHotnessClassVisitor : public ClassVisitor {
+         public:
+          ResetHotnessClassVisitor() {}
+
+          bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
+            DCHECK(Locks::mutator_lock_->IsExclusiveHeld(Thread::Current()));
+            auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+            for (auto& m : klass->GetMethods(pointer_size)) {
+              if (Runtime::Current()->GetHeap()->IsBootImageAddress(&m) &&
+                  !m.IsNative() &&
+                  !m.IsProxyMethod() &&
+                  m.IsInvokable()) {
+                m.SetRawCounter(ArtMethod::kInitialHotness);
+              }
+            }
+            return true;
+          }
+        };
+        ResetHotnessClassVisitor visitor;
+        GetClassLinker()->VisitClasses(&visitor);
+      }
     }
   } else {
     std::vector<std::unique_ptr<const DexFile>> boot_class_path;

@@ -78,6 +78,15 @@ class ArtMethod final {
   // constexpr, and ensure that the value is correct in art_method.cc.
   static constexpr uint32_t kRuntimeMethodDexMethodIndex = 0xFFFFFFFF;
 
+  // If the counter is set to this special value, use the side table instead of actual counter.
+  static constexpr uint16_t kHotnessCounterUseSideTable = 0xFFFF;
+
+  // Maximum allowed hotness bit for compiled code.
+  static constexpr uint32_t kMaxHotnessBit = 15;
+
+  // Initial value for hotness that represents no samples.
+  static constexpr uint32_t kInitialHotness = 0;
+
   ArtMethod() : access_flags_(0), dex_method_index_(0),
       method_index_(0), hotness_count_(0) { }
 
@@ -682,12 +691,18 @@ class ArtMethod final {
   void CopyFrom(ArtMethod* src, PointerSize image_pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ALWAYS_INLINE void SetCounter(uint16_t hotness_count) REQUIRES_SHARED(Locks::mutator_lock_);
+  // Get/set the value of the counter stored in the ART method, does not ever defer to the side table.
+  ALWAYS_INLINE void SetRawCounter(uint16_t hotness_count) REQUIRES_SHARED(Locks::mutator_lock_);
+  ALWAYS_INLINE uint16_t GetRawCounter() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ALWAYS_INLINE void SetCounter(uint16_t hotness_count) REQUIRES_SHARED(Locks::mutator_lock_);
   ALWAYS_INLINE uint16_t GetCounter() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ALWAYS_INLINE bool AddToCounter(uint16_t addition, uint16_t max_value)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   ALWAYS_INLINE static constexpr uint16_t MaxCounter() {
-    return std::numeric_limits<decltype(hotness_count_)>::max();
+    return kHotnessCounterUseSideTable - 1;
   }
 
   ALWAYS_INLINE uint32_t GetImtIndex() REQUIRES_SHARED(Locks::mutator_lock_);

@@ -33,6 +33,7 @@
 #include "gc_root-inl.h"
 #include "imtable-inl.h"
 #include "intrinsics_enum.h"
+#include "jit/jit-inl.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
@@ -413,13 +414,37 @@ inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
 }
 
 inline void ArtMethod::SetCounter(uint16_t hotness_count) {
-  DCHECK(!IsAbstract()) << PrettyMethod();
+  uint32_t raw_value = GetRawCounter();
+  if (raw_value == kHotnessCounterUseSideTable) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      *jit->GetCounterAddress(Thread::Current(), this) = hotness_count;
+      return;
+    }
+  }
+  SetRawCounter(hotness_count);
+}
+
+inline void ArtMethod::SetRawCounter(uint16_t hotness_count) {
   hotness_count_ = hotness_count;
+}
+
+inline uint16_t ArtMethod::GetRawCounter() {
+  DCHECK(!IsAbstract()) << PrettyMethod();
+  return hotness_count_;
 }
 
 inline uint16_t ArtMethod::GetCounter() {
   DCHECK(!IsAbstract()) << PrettyMethod();
-  return hotness_count_;
+  uint32_t raw_value = GetRawCounter();
+  if (raw_value == kHotnessCounterUseSideTable) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      uint16_t* ptr = jit->GetCounterAddress(Thread::Current(), this);
+      return *ptr;
+    }
+  }
+  return raw_value;
 }
 
 inline uint32_t ArtMethod::GetImtIndex() {
@@ -435,6 +460,27 @@ inline uint32_t ArtMethod::GetImtIndex() {
 inline void ArtMethod::CalculateAndSetImtIndex() {
   DCHECK(IsAbstract()) << PrettyMethod();
   imt_index_ = ~ImTable::GetImtIndex(this);
+}
+
+inline bool ArtMethod::AddToCounter(uint16_t addition, uint16_t max_value) {
+  uint32_t raw_value = GetRawCounter();
+  if (raw_value == kHotnessCounterUseSideTable) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      uint16_t* ptr = jit->GetCounterAddress(Thread::Current(), this);
+      uint16_t previous_value = *ptr;
+      *ptr = static_cast<uint16_t>(std::min(static_cast<uintptr_t>(previous_value) + addition,
+                                            static_cast<uintptr_t>(max_value)));
+      return *ptr == max_value && previous_value != max_value;
+    }
+  }
+  uint32_t new_value = raw_value + addition;
+  if (new_value >= max_value) {
+    SetRawCounter(max_value);
+    return raw_value < max_value;
+  }
+  SetRawCounter(new_value);
+  return false;
 }
 
 }  // namespace art

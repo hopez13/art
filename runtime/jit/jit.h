@@ -19,6 +19,8 @@
 
 #include <android-base/unique_fd.h>
 
+#include <unordered_map>
+
 #include "base/histogram-inl.h"
 #include "base/macros.h"
 #include "base/mutex.h"
@@ -448,6 +450,9 @@ class Jit {
   void EnqueueCompilationFromNterp(ArtMethod* method, Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+
+  uint16_t* GetCounterAddress(Thread* self, ArtMethod* method);
+
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
 
@@ -518,6 +523,9 @@ class Jit {
   // The size of the memory pointed by `fd_methods_`. Cached here to avoid
   // recomputing it.
   size_t fd_methods_size_;
+
+  // Hotness counter map.
+  std::unordered_map<ArtMethod*, uint16_t> hotness_counters_ GUARDED_BY(lock_);
 
   DISALLOW_COPY_AND_ASSIGN(Jit);
 };

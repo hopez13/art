@@ -79,7 +79,6 @@ void CheckNterpAsmConstants() {
       LOG(FATAL) << "ERROR: unexpected asm interp size " << interp_size
                  << "(did an instruction handler exceed " << width << " bytes?)";
   }
-  static_assert(IsPowerOfTwo(kNterpHotnessMask + 1), "Hotness mask must be a (power of 2) - 1");
   static_assert(IsPowerOfTwo(kTieredHotnessMask + 1),
                 "Tiered hotness mask must be a (power of 2) - 1");
 }
@@ -88,18 +87,10 @@ inline void UpdateHotness(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock
   // The hotness we will add to a method when we perform a
   // field/method/class/string lookup.
   constexpr uint16_t kNterpHotnessLookup = 0xf;
-
-  // Convert to uint32_t to handle uint16_t overflow.
-  uint32_t counter = method->GetCounter();
-  uint32_t new_counter = counter + kNterpHotnessLookup;
-  if (new_counter > kNterpHotnessMask) {
-    // Let the nterp code actually call the compilation: we want to make sure
-    // there's at least a second execution of the method or a back-edge to avoid
-    // compiling straightline initialization methods.
-    method->SetCounter(kNterpHotnessMask);
-  } else {
-    method->SetCounter(new_counter);
-  }
+  // Let the nterp code actually call the compilation: we want to make sure
+  // there's at least a second execution of the method or a back-edge to avoid
+  // compiling straightline initialization methods.
+  method->AddToCounter(kNterpHotnessLookup, kNterpHotnessCompile);
 }
 
 template<typename T>
@@ -731,6 +722,16 @@ extern "C" jit::OsrData* NterpHotMethod(ArtMethod* method, uint16_t* dex_pc_ptr,
       }
     }
     jit->EnqueueCompilationFromNterp(method, Thread::Current());
+  }
+  return nullptr;
+}
+
+extern "C" jit::OsrData* NterpHotnessIncrement(ArtMethod* method, uint16_t* dex_pc_ptr, uint32_t* vregs)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedAssertNoThreadSuspension sants("In nterp");
+  if (method->AddToCounter(1, kNterpHotnessCompile)) {
+    VLOG(compiler) << "Nterp compiler " << method->PrettyMethod();
+    return NterpHotMethod(method, dex_pc_ptr, vregs);
   }
   return nullptr;
 }

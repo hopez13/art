@@ -1158,7 +1158,7 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
     __ Ldrh(counter, MemOperand(method, ArtMethod::HotnessCountOffset().Int32Value()));
     __ Add(counter, counter, 1);
     // Subtract one if the counter would overflow.
-    __ Sub(counter, counter, Operand(counter, LSR, 16));
+    __ Sub(counter, counter, Operand(counter, LSR, ArtMethod::kMaxHotnessBit));
     __ Strh(counter, MemOperand(method, ArtMethod::HotnessCountOffset().Int32Value()));
   }
 

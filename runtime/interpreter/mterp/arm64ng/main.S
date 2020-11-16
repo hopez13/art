@@ -302,7 +302,7 @@ END \name
 
 .macro BRANCH
     // Update method counter and do a suspend check if the branch is negative.
-    tbnz wINST, #31, 2f
+    tbnz wINST, #31, 3f
 1:
     add w2, wINST, wINST                // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update xPC, load wINST
@@ -312,17 +312,23 @@ END \name
     ldr x0, [sp]
     ldrh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     add x2, x2, #1
-    and w2, w2, #NTERP_HOTNESS_MASK
+    // If the counter overflows is supposed to go slow path, handle in runtime.
+    mov xIP0, #NTERP_HOTNESS_SLOW_PATH
+    cmp x2, xIP0
+    b.ge 4f
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // If the counter overflows, handle this in the runtime.
-    cbz w2, NterpHandleHotnessOverflow
-    // Otherwise, do a suspend check.
+    b 1b
+3:
+    // Do the suspend check first since hotness overflow doesn't return.
     ldr x0, [xSELF, #THREAD_FLAGS_OFFSET]
     ands x0, x0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    b.eq 1b
+    b.eq 2b
     EXPORT_PC
     bl    art_quick_test_suspend
-    b 1b
+    b 2b
+4:
+    // Proxy since it is out of range.
+    b NterpHandleHotnessOverflow
 .endm
 
 // Uses x12, x13, and x14 as temporaries.
@@ -433,10 +439,12 @@ END \name
     ldr x0, [sp]
     ldrh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     add x2, x2, #1
-    and w2, w2, #NTERP_HOTNESS_MASK
+    // If the counter overflows is supposed to go slow path, handle in runtime.
+    mov xIP0, #NTERP_HOTNESS_SLOW_PATH
+    cmp x2, xIP0
+    b.ge 2f
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // If the counter overflows, handle this in the runtime.
-    cbz w2, 2f
+0:
     ldr x0, [xSELF, #THREAD_FLAGS_OFFSET]
     tst x0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     b.ne 3f
@@ -447,8 +455,8 @@ END \name
 2:
     mov x1, xzr
     mov x2, xFP
-    bl nterp_hot_method
-    b 1b
+    bl nterp_hotness_increment
+    b 0b
 3:
     EXPORT_PC
     bl art_quick_test_suspend
@@ -1521,7 +1529,7 @@ NterpNewArray:
 NterpHandleHotnessOverflow:
     add x1, xPC, xINST, lsl #1
     mov x2, xFP
-    bl nterp_hot_method
+    bl nterp_hotness_increment
     cbnz x0, 1f
     add w2, wINST, wINST                // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update xPC, load wINST
@@ -1658,7 +1666,7 @@ NTERP_TRAMPOLINE nterp_filled_new_array, NterpFilledNewArray
 NTERP_TRAMPOLINE nterp_filled_new_array_range, NterpFilledNewArrayRange
 NTERP_TRAMPOLINE nterp_get_class_or_allocate_object, NterpGetClassOrAllocateObject
 NTERP_TRAMPOLINE nterp_get_method, NterpGetMethod
-NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
+NTERP_TRAMPOLINE nterp_hotness_increment, NterpHotnessIncrement
 NTERP_TRAMPOLINE nterp_load_object, NterpLoadObject
 
 // gen_mterp.py will inline the following definitions
