@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fe90fde8_61dbf726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-16T18:09:13Z",
+      "side": 1,
+      "message": "(Oops, had a draft comment I missed sending off.)",
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0ae7918c_c85a3350",
         "filename": "test/README.atest.md",
         "patchSetId": 1
@@ -123,6 +140,29 @@
         "startChar": 4,
         "endLine": 32,
         "endChar": 16
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc382c35_da85e001",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-16T18:09:13Z",
+      "side": 1,
+      "message": "Probably a side question, but this is necessary because the ART APEX is still a bootstrap APEX?  We\u0027ll be able to dispense with it when that\u0027s no longer the case?",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 21
       },
       "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
