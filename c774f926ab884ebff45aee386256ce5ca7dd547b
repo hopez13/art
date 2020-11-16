@@ -16,6 +16,29 @@
       "message": "Thanks Ulya, PTAL.",
       "revId": "c774f926ab884ebff45aee386256ce5ca7dd547b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ef543b_65ba1c76",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-16T14:29:51Z",
+      "side": 1,
+      "message": "Nit: this was a bit unclear for me on the first reading, I\u0027d clarify that it\u0027s about terminating the loop:\n\n  Note that the last entry in the `offsets` array points to the end of the assignability\n  types data, so the loop will terminate correctly.",
+      "range": {
+        "startLine": 438,
+        "startChar": 27,
+        "endLine": 439,
+        "endChar": 76
+      },
+      "revId": "c774f926ab884ebff45aee386256ce5ca7dd547b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
