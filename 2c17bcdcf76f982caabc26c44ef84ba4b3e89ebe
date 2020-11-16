@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5829a4ca_6118f0db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-16T17:53:49Z",
+      "side": 1,
+      "message": "Thanks Dan. PS3 adds some Checker tests to the exclusion list, as they currently fail on Cuttlefish.\n\nIt seems some tests are also failing on physical devices; I\u0027ll look into this shortly.",
+      "revId": "2c17bcdcf76f982caabc26c44ef84ba4b3e89ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
