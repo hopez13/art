@@ -397,9 +397,11 @@ extern "C" mirror::Object* artReadBarrierMark(mirror::Object* obj) {
   return ReadBarrier::Mark(obj);
 }
 
-extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref ATTRIBUTE_UNUSED,
-                                              mirror::Object* obj,
-                                              uint32_t offset) {
+extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref,
+                                              mirror::Object* obj ATTRIBUTE_UNUSED,
+                                              uint32_t offset ATTRIBUTE_UNUSED) {
+  return artReadBarrierMark(ref);
+#if 0
   // Used only in connection with non-volatile loads.
   DCHECK(kEmitCompilerReadBarrier);
   uint8_t* raw_addr = reinterpret_cast<uint8_t*>(obj) + offset;
@@ -413,6 +415,7 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref ATTRIBUTE_UNUS
         MemberOffset(offset),
         ref_addr);
   return result;
+#endif
 }
 
 extern "C" mirror::Object* artReadBarrierForRootSlow(GcRoot<mirror::Object>* root) {

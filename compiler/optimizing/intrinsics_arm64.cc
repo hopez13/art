@@ -930,7 +930,7 @@ static void CreateUnsafeCASLocations(ArenaAllocator* allocator, HInvoke* invoke)
                                           ? LocationSummary::kCallOnSlowPath
                                           : LocationSummary::kNoCall,
                                       kIntrinsified);
-  if (can_call) {
+  if (can_call && kUseBakerReadBarrier) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::NoLocation());        // Unused receiver.
@@ -1326,12 +1326,6 @@ void IntrinsicLocationsBuilderARM64::VisitUnsafeCASLong(HInvoke* invoke) {
   CreateUnsafeCASLocations(allocator_, invoke);
 }
 void IntrinsicLocationsBuilderARM64::VisitUnsafeCASObject(HInvoke* invoke) {
-  // The only read barrier implementation supporting the
-  // UnsafeCASObject intrinsic is the Baker-style read barriers. b/173104084
-  if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
-    return;
-  }
-
   CreateUnsafeCASLocations(allocator_, invoke);
   if (kEmitCompilerReadBarrier) {
     // We need two non-scratch temporary registers for read barrier.
@@ -1358,10 +1352,6 @@ void IntrinsicCodeGeneratorARM64::VisitUnsafeCASLong(HInvoke* invoke) {
   GenUnsafeCas(invoke, DataType::Type::kInt64, codegen_);
 }
 void IntrinsicCodeGeneratorARM64::VisitUnsafeCASObject(HInvoke* invoke) {
-  // The only read barrier implementation supporting the
-  // UnsafeCASObject intrinsic is the Baker-style read barriers.
-  DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
-
   GenUnsafeCas(invoke, DataType::Type::kReference, codegen_);
 }
 
@@ -4095,16 +4085,6 @@ static void CreateVarHandleGetLocations(HInvoke* invoke) {
     return;
   }
 
-  if ((kEmitCompilerReadBarrier && !kUseBakerReadBarrier) &&
-      invoke->GetType() == DataType::Type::kReference &&
-      invoke->GetIntrinsic() != Intrinsics::kVarHandleGet &&
-      invoke->GetIntrinsic() != Intrinsics::kVarHandleGetOpaque) {
-    // Unsupported for non-Baker read barrier because the artReadBarrierSlow() ignores
-    // the passed reference and reloads it from the field. This gets the memory visibility
-    // wrong for Acquire/Volatile operations. b/173104084
-    return;
-  }
-
   CreateVarHandleFieldLocations(invoke);
 }
 
@@ -4287,28 +4267,25 @@ static void CreateVarHandleCompareAndSetOrExchangeLocations(HInvoke* invoke, boo
     return;
   }
 
-  uint32_t number_of_arguments = invoke->GetNumberOfArguments();
-  DataType::Type value_type = invoke->InputAt(number_of_arguments - 1u)->GetType();
-  if ((kEmitCompilerReadBarrier && !kUseBakerReadBarrier) &&
-      value_type == DataType::Type::kReference) {
-    // Unsupported for non-Baker read barrier because the artReadBarrierSlow() ignores
-    // the passed reference and reloads it from the field. This breaks the read barriers
-    // in slow path in different ways. The marked old value may not actually be a to-space
-    // reference to the same object as `old_value`, breaking slow path assumptions. And
-    // for CompareAndExchange, marking the old value after comparison failure may actually
-    // return the reference to `expected`, erroneously indicating success even though we
-    // did not set the new value. (And it also gets the memory visibility wrong.) b/173104084
-    return;
-  }
-
   LocationSummary* locations = CreateVarHandleFieldLocations(invoke);
 
-  if ((kEmitCompilerReadBarrier && !kUseBakerReadBarrier) &&
-      GetExpectedVarHandleCoordinatesCount(invoke) == 0u) {  // For static fields.
-    // Not implemented for references, see above.
-    // Note that we would need a callee-save register instead of the temporary
-    // reserved in CreateVarHandleFieldLocations() for the class object.
-    DCHECK_NE(value_type, DataType::Type::kReference);
+  uint32_t number_of_arguments = invoke->GetNumberOfArguments();
+  DataType::Type value_type = invoke->InputAt(number_of_arguments - 1u)->GetType();
+  if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
+    // We need callee-save registers for both the class object and offset instead of
+    // the temporaries reserved in CreateVarHandleFieldLocations().
+    uint32_t first_callee_save = CTZ(kArm64CalleeSaveRefSpills);
+    uint32_t second_callee_save = CTZ(kArm64CalleeSaveRefSpills ^ (1u << first_callee_save));
+    if (GetExpectedVarHandleCoordinatesCount(invoke) == 0u) {  // For static fields.
+      DCHECK_EQ(locations->GetTempCount(), 2u);
+      DCHECK(locations->GetTemp(0u).Equals(Location::RequiresRegister()));
+      DCHECK(locations->GetTemp(1u).Equals(Location::RegisterLocation(first_callee_save)));
+      locations->SetTempAt(0u, Location::RegisterLocation(second_callee_save));
+    } else {
+      DCHECK_EQ(locations->GetTempCount(), 1u);
+      DCHECK(locations->GetTemp(0u).Equals(Location::RequiresRegister()));
+      locations->SetTempAt(0u, Location::RegisterLocation(first_callee_save));
+    }
   }
   if (!return_success && DataType::IsFloatingPointType(value_type)) {
     // Add a temporary for old value and exclusive store result if floating point
@@ -4558,14 +4535,6 @@ void IntrinsicCodeGeneratorARM64::VisitVarHandleWeakCompareAndSetRelease(HInvoke
 static void CreateVarHandleGetAndUpdateLocations(HInvoke* invoke,
                                                  GetAndUpdateOp get_and_update_op) {
   if (!IsValidFieldVarHandleExpected(invoke)) {
-    return;
-  }
-
-  if ((kEmitCompilerReadBarrier && !kUseBakerReadBarrier) &&
-      invoke->GetType() == DataType::Type::kReference) {
-    // Unsupported for non-Baker read barrier because the artReadBarrierSlow() ignores
-    // the passed reference and reloads it from the field, thus seeing the new value
-    // that we have just stored. (And it also gets the memory visibility wrong.) b/173104084
     return;
   }
 
