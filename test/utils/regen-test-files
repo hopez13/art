@@ -345,8 +345,7 @@ while read run_test; do
   # currently break some test runs (see b/169852871).
   # TODO(b/162408889): Complete Checker integration and re-include Checker
   # tests in test mapping.
-  if array_contains "$run_test_name" "${known_failing_tests[@]}" \
-       || [[ "$run_test_name" =~ ^art-run-test-[0-9]+-checker- ]]; then
+  if array_contains "$run_test_name" "${known_failing_tests[@]}"; then
     test_config_template="art-run-test-target-no-test-suite-tag-template"
   else
     test_config_template="art-run-test-target-template"
