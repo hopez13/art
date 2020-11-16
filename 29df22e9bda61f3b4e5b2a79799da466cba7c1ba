@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f8c85f9_a6c54581",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-16T21:35:27Z",
+      "side": 1,
+      "message": "There seems to be 2 subtle bugs that caused the failures.\n\n1) the way we materialize (or fail to materialize) loop phis could lead to Unknown values which could merge with Unknowns from invokes causing stores to sometimes be improperly removed. This can be easily fixed by no longer considering the merge of 2 PureUnknowns to be a PureUnknown.\n\n2) there was a mismatch between what VisitInvoke and SearchPhiPlaceholdersForKeptStores considered escapes. This could lead to Search incorrectly handling values. \n\nAnnoyingly the second one might cause enough additional reads that I\u0027ll need to run go/lem on it again and possibly change the implementation of ExecutionSubgraph a bit to preserve performance.",
+      "revId": "29df22e9bda61f3b4e5b2a79799da466cba7c1ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
