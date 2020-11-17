@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e9bbecc_c4b25a3c",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2020-11-17T16:32:09Z",
+      "side": 1,
+      "message": "Naive post-submit drive-by.\n\nDid we intend to assign the result of AlignUp() to \"*cursor\" here (instead of just \"cursor\"), to set a value which is returned from this function.  The comment and fact that we\u0027re doing this right at the end of the function suggest that might be the case.",
+      "revId": "07b62e3d0808cc0890717a3a589c1f7b1ac51e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
