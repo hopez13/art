@@ -34,6 +34,24 @@
       "parentUuid": "2e9bbecc_c4b25a3c",
       "revId": "07b62e3d0808cc0890717a3a589c1f7b1ac51e5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8d1a4a_15b9f7b1",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2020-11-17T23:05:08Z",
+      "side": 1,
+      "message": "Static analysis.  A Google internal doc has more details if you\u0027re curious: https://docs.google.com/document/d/1ktQcnhExp0gUM2BqTmyJM8j5d6_qPpPMyWGV4-K9InU",
+      "parentUuid": "b222f8f1_f238c139",
+      "revId": "07b62e3d0808cc0890717a3a589c1f7b1ac51e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
