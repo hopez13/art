@@ -18,6 +18,8 @@
 
 #include "android-base/logging.h"
 #include "base/macros.h"
+#include "runtime.h"
+#include "thread-current-inl.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic error "-Wconversion"
@@ -111,16 +113,16 @@ void StreamBackend::ReportHistogram(DatumId histogram_type,
   }
 }
 
-std::unique_ptr<MetricsReporter> MetricsReporter::Create(ReportingConfig config,
-                                                         const ArtMetrics* metrics) {
+std::unique_ptr<MetricsReporter> MetricsReporter::Create(ReportingConfig config, Runtime* runtime) {
   std::unique_ptr<MetricsBackend> backend;
 
   // We can't use std::make_unique here because the MetricsReporter constructor is private.
-  return std::unique_ptr<MetricsReporter>{new MetricsReporter{config, metrics}};
+  return std::unique_ptr<MetricsReporter>{new MetricsReporter{config, runtime}};
 }
 
-MetricsReporter::MetricsReporter(ReportingConfig config, const ArtMetrics* metrics)
-    : config_{config}, metrics_{metrics} {}
+MetricsReporter::MetricsReporter(ReportingConfig config, Runtime* runtime)
+    : config_{config}, runtime_{runtime} {
+}
 
 MetricsReporter::~MetricsReporter() {
   // If we are configured to report metrics, do one final report at the end.
@@ -132,9 +134,70 @@ MetricsReporter::~MetricsReporter() {
     // dump the metrics.
     [this](std::ostream& os) {
       StreamBackend backend{os};
-      metrics_->ReportAllMetrics(&backend);
+      runtime_->GetMetrics()->ReportAllMetrics(&backend);
     }(LOG_STREAM(ERROR));
     LOG_STREAM(ERROR) << "\n*** Done dumping ART internal metrics ***\n";
+  }
+
+  StopBackgroundThreadIfRunning();
+}
+
+void MetricsReporter::StartBackgroundThreadIfNeeded() {
+  if (config_.BackgroundReportingEnabled()) {
+    CHECK(!thread_.has_value());
+
+    thread_.emplace(&MetricsReporter::BackgroundThreadRun, this);
+  }
+}
+
+void MetricsReporter::StopBackgroundThreadIfRunning() {
+  if (thread_.has_value()) {
+    messages_.SendMessage(ShutdownRequestedMessage{});
+    thread_->join();
+  }
+}
+
+namespace {
+template <class... Ts>
+struct match : Ts... {
+  using Ts::operator()...;
+};
+template <class... Ts>
+match(Ts...) -> match<Ts...>;
+}  // namespace
+
+void MetricsReporter::BackgroundThreadRun() {
+  runtime_->AttachCurrentThread("Metrics Background Reporting Thread",
+                                /*as_daemon=*/true,
+                                runtime_->GetSystemThreadGroup(),
+                                /*create_peer=*/true);
+  LOG_STREAM(INFO) << "Metrics reporting thread started";
+  bool running = true;
+
+  ResetTimeoutIfNeeded();
+
+  while (running) {
+    messages_.SwitchReceive(
+        [&]([[maybe_unused]] ShutdownRequestedMessage message) {
+          LOG_STREAM(INFO) << "Shutdown request received";
+          running = false;
+        },
+        [&]([[maybe_unused]] TimeoutExpiredMessage message) {
+          LOG_STREAM(INFO) << "Timer expired";
+
+          // TODO: report metrics
+
+          ResetTimeoutIfNeeded();
+        });
+  }
+
+  runtime_->DetachCurrentThread();
+  LOG_STREAM(INFO) << "Metrics reporting thread terminating";
+}
+
+void MetricsReporter::ResetTimeoutIfNeeded() {
+  if (config_.periodic_report_seconds.has_value()) {
+    messages_.SetTimeout(SecondsToMs(config_.periodic_report_seconds.value()));
   }
 }
 
