@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4eecd4f9_9264250e",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-17T16:33:54Z",
+      "side": 1,
+      "message": "The new TH errors are because I submitted https://r.android.com/1492920 that removes the windows sources for these, so removing this should resolve that.",
+      "parentUuid": "d03943bf_1370b8cd",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 14
+      },
+      "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96fba308_6ed60761",
         "filename": "build/sdk/Android.bp",
         "patchSetId": 10
