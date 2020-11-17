@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b18dfa5_62d10e57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-17T22:18:15Z",
+      "side": 1,
+      "message": "It seems like the test breakage was because the default log level got raised from INFO to ERROR between when I wrote and uploaded this CL.",
+      "revId": "ac70daaf6abd8be82cca3439d5d9191c84025752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
