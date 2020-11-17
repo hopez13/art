@@ -16,6 +16,138 @@
       "message": "PTAL",
       "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c1fef8_2291c81d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "default?",
+      "range": {
+        "startLine": 1468,
+        "startChar": 5,
+        "endLine": 1468,
+        "endChar": 11
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "930fe2af_faab6fac",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "This is part of the loop but how can we express that here? Maybe\n\n  while (P1 \u003d PHI[3, loop_val], test()) {\n    ...\n  }",
+      "range": {
+        "startLine": 1473,
+        "startChar": 10,
+        "endLine": 1473,
+        "endChar": 31
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f99c49_cabdedd4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "Missing store. Add \"obj.field \u003d 5;\" or \"...\".",
+      "range": {
+        "startLine": 1475,
+        "startChar": 41,
+        "endLine": 1475,
+        "endChar": 42
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e3c7f7_1825e389",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c01c08f_38500fce",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "Not eliminated.",
+      "range": {
+        "startLine": 3209,
+        "startChar": 8,
+        "endLine": 3209,
+        "endChar": 17
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cff4c19_47ef39e1",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-17T17:08:37Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 342,
+        "endChar": 0
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
