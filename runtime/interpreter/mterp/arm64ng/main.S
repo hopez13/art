@@ -1166,7 +1166,7 @@ END \name
    cmp ip, #68       // Test if result type char == 'D'.
    b.eq .Lreturn_double_range_\suffix
    cmp ip, #70
-   b.ne .Ldone_return_\suffix
+   b.ne .Ldone_return_range_\suffix
 .Lreturn_float_range_\suffix:
    fmov w0, s0
    b .Ldone_return_range_\suffix
