@@ -16,6 +16,98 @@
       "message": "PTAL",
       "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03943bf_1370b8cd",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-17T02:55:03Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary anymore - the only use cases I could find were in libandroid_runtime and libhwui for the sake of Android Studio, but I\u0027ve removed those.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 14
+      },
+      "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96fba308_6ed60761",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-17T02:55:03Z",
+      "side": 1,
+      "message": "Please add a TODO on b/173186484 here too, so that it\u0027s clear that it\u0027s the only reason we have this.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26c8ff09_c6958123",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-17T02:55:03Z",
+      "side": 1,
+      "message": "Leftover.",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 43
+      },
+      "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a5f64d_b0309e23",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-17T02:55:03Z",
+      "side": 1,
+      "message": "Please add a TODO on b/173186484.",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 145,
+        "endChar": 54
+      },
+      "revId": "4c32a12c762f2708491b1c9de3a1bfcb5f52ed76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
