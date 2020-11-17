@@ -134,7 +134,7 @@ TEST_F(MessageQueueTest, SwitchReceiveTest) {
 
           ASSERT_EQ(message.other_value, 43);
         },
-        // The timeout message is here to make sure the the cases can go in any order
+        // The timeout message is here to make sure the cases can go in any order
         [&]([[maybe_unused]] TimeoutExpiredMessage message) {
           ASSERT_FALSE(timeout_received);
           timeout_received = true;

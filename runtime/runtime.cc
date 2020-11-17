@@ -446,6 +446,9 @@ Runtime::~Runtime() {
   delete signal_catcher_;
   signal_catcher_ = nullptr;
 
+  // Shutdown metrics reporting.
+  metrics_reporter_.reset();
+
   // Make sure all other non-daemon threads have terminated, and all daemon threads are suspended.
   // Also wait for daemon threads to quiesce, so that in addition to being "suspended", they
   // no longer access monitor and thread list data structures. We leak user daemon threads
@@ -913,6 +916,8 @@ bool Runtime::Start() {
   InitThreadGroups(self);
 
   Thread::FinishStartup();
+
+  metrics_reporter_->StartBackgroundThreadIfNeeded();
 
   // Create the JIT either if we have to use JIT compilation or save profiling info. This is
   // done after FinishStartup as the JIT pool needs Java thread peers, which require the main
@@ -1715,8 +1720,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Class-roots are setup, we can now finish initializing the JniIdManager.
   GetJniIdManager()->Init(self);
 
-  metrics_reporter_ =
-      metrics::MetricsReporter::Create(ParseMetricsReportingConfig(runtime_options), &metrics_);
+  InitMetrics(runtime_options);
 
   // Runtime initialization is largely done now.
   // We load plugins first since that can modify the runtime state slightly.
@@ -1814,6 +1818,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   }
 
   return true;
+}
+
+void Runtime::InitMetrics(const RuntimeArgumentMap& runtime_options) {
+  auto metrics_config = ParseMetricsReportingConfig(runtime_options);
+  if (metrics_config.ReportingEnabled()) {
+    metrics_reporter_ = metrics::MetricsReporter::Create(metrics_config, this);
+  }
 }
 
 bool Runtime::EnsurePluginLoaded(const char* plugin_name, std::string* error_msg) {

@@ -21,11 +21,17 @@
 
 #include <array>
 #include <atomic>
+#include <chrono>
+#include <deque>
+#include <optional>
 #include <ostream>
 #include <string_view>
+#include <thread>
+#include <variant>
 #include <vector>
 
 #include "android-base/logging.h"
+#include "base/message_queue.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -58,6 +64,9 @@
 // per metric.
 
 namespace art {
+
+class Runtime;
+
 namespace metrics {
 
 /**
@@ -341,23 +350,48 @@ std::string DatumName(DatumId datum);
 
 struct ReportingConfig {
   bool dump_to_logcat;
-  // TODO(eholk): this will grow to support other configurations, such as logging to a file, or
-  // statsd. There will also be options for reporting after a period of time, or at certain events.
+
+  // If set, metrics will be reported every time this many seconds elapses.
+  std::optional<size_t> periodic_report_seconds;
+
+  // Returns whether any options are set that enables metrics reporting.
+  constexpr bool ReportingEnabled() const { return dump_to_logcat; }
+
+  // Returns whether any options are set that requires a background reporting thread.
+  constexpr bool BackgroundReportingEnabled() const {
+    return ReportingEnabled() && periodic_report_seconds.has_value();
+  }
 };
 
 // MetricsReporter handles periodically reporting ART metrics.
 class MetricsReporter {
  public:
   // Creates a MetricsReporter instance that matches the options selected in ReportingConfig.
-  static std::unique_ptr<MetricsReporter> Create(ReportingConfig config, const ArtMetrics* metrics);
+  static std::unique_ptr<MetricsReporter> Create(ReportingConfig config, Runtime* runtime);
 
   ~MetricsReporter();
 
- private:
-  explicit MetricsReporter(ReportingConfig config, const ArtMetrics* metrics);
+  // Creates and runs the background reporting thread.
+  void StartBackgroundThreadIfNeeded();
+  void StopBackgroundThreadIfRunning();
 
-  ReportingConfig config_;
-  const ArtMetrics* metrics_;
+ private:
+  explicit MetricsReporter(ReportingConfig config, Runtime* runtime);
+
+  // The background reporting thread main loop.
+  void BackgroundThreadRun();
+
+  // Calls messages_.SetTimeout if needed.
+  void ResetTimeoutIfNeeded();
+
+  const ReportingConfig config_;
+  Runtime* runtime_;
+
+  std::optional<std::thread> thread_;
+
+  // A message indicating that the reporting thread should shut down.
+  class ShutdownRequestedMessage {};
+  MessageQueue<ShutdownRequestedMessage> messages_;
 };
 
 
