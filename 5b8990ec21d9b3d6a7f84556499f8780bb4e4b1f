@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c76e1c_d5905410",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-18T09:38:32Z",
+      "side": 1,
+      "message": "I find the union nicer to read. Why are you moving away from it?",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 86
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3f57810_3d64d133",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-18T09:38:32Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 30
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a3171ac_01008709",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-18T09:38:32Z",
+      "side": 1,
+      "message": "Line too long (here and others below).",
+      "range": {
+        "startLine": 1095,
+        "startChar": 0,
+        "endLine": 1095,
+        "endChar": 114
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
