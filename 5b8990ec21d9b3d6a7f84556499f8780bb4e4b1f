@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "973827a9_13708aba",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T20:40:14Z",
+      "side": 1,
+      "message": "I don\u0027t like unions. std::variant is the c++ way to do the same. \n\nIf you really want I can switch back but I think this forces better style.",
+      "parentUuid": "03c76e1c_d5905410",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 86
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3f57810_3d64d133",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "210a862a_34817fbf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T20:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3f57810_3d64d133",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 30
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a3171ac_01008709",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-18T09:38:32Z",
       "side": 1,
       "message": "Line too long (here and others below).",
+      "range": {
+        "startLine": 1095,
+        "startChar": 0,
+        "endLine": 1095,
+        "endChar": 114
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648ff450_6f270347",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T20:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a3171ac_01008709",
       "range": {
         "startLine": 1095,
         "startChar": 0,
