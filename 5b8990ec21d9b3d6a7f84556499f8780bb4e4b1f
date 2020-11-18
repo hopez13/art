@@ -68,6 +68,29 @@
       },
       "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "911b494c_567f1db8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T17:55:27Z",
+      "side": 1,
+      "message": "So this isn\u0027t quite right but I\u0027m honestly not sure how the RTP stuff worked consistently anyway. What\u0027s actually needed is for phis with only phi inputs to be sorted topologically. Phis with non-phi (or phis not being fixed up) must be ordered first. I think I\u0027ll just fix the RTP to handle this.",
+      "range": {
+        "startLine": 1811,
+        "startChar": 0,
+        "endLine": 1813,
+        "endChar": 0
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
