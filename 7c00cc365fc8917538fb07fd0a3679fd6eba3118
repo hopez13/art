@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1f59ed_c40a9819",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T22:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a48e4752_e50bcba9",
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f670406e_67094853",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-18T21:59:03Z",
       "side": 1,
       "message": "Can this be const?\n\nIf so, the whole function could probably be constexpr.",
+      "range": {
+        "startLine": 980,
+        "startChar": 54,
+        "endLine": 980,
+        "endChar": 67
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac2f9f20_6d333b09",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T22:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f670406e_67094853",
       "range": {
         "startLine": 980,
         "startChar": 54,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "520f748a_98463e0c",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T22:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0e8a1a8_56edd465",
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "680d7569_f95a88ae",
@@ -75,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02ec50a5_440e3d51",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T22:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "680d7569_f95a88ae",
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b42454e_087ab606",
@@ -88,6 +166,30 @@
       "writtenOn": "2020-11-18T21:59:03Z",
       "side": 1,
       "message": "I\u0027d use an explicit seed here (although there\u0027s a reasonable chance there\u0027s a fixed seed already). Otherwise, if this test ever fails it\u0027s going to be a pain to debug.\n\nIt may not hurt to run a few iterations of shuffling and running the test to get better coverage of weird orderings.",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b450317a_90520d28",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-18T22:28:40Z",
+      "side": 1,
+      "message": "Honestly no matter how this test fails it\u0027s going to be a pain to debug.\n\nYou can set the gtest random seed by passing `--no_isolate --gtest_random_seed\u003d\u003cnumber\u003e` so it should be easily repeatable at least.\n\nWe can\u0027t run it again without re-running everything.\n\nThis is mostly just here as a final sanity check.",
+      "parentUuid": "4b42454e_087ab606",
       "range": {
         "startLine": 275,
         "startChar": 31,
