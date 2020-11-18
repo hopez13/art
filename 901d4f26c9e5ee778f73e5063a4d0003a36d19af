@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a8138ec_445a888c",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T09:28:57Z",
+      "side": 1,
+      "message": "I understand that. I was just commenting on the fact that the Phi in that case should be part of the while-loop but you made it appear outside that loop.",
+      "parentUuid": "bd769a0d_3ef92ad2",
+      "range": {
+        "startLine": 1473,
+        "startChar": 10,
+        "endLine": 1473,
+        "endChar": 31
+      },
+      "revId": "901d4f26c9e5ee778f73e5063a4d0003a36d19af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41f99c49_cabdedd4",
