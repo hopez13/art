@@ -172,6 +172,7 @@ void ReferenceTypePropagation::Visit(ArrayRef<HInstruction* const> instructions)
                      hint_dex_cache_,
                      is_first_run_);
   for (HInstruction* instruction : instructions) {
+    LOG(ERROR) << "Fixing up ins: " << instruction->DebugName() << "@" << instruction->GetId();
     instruction->Accept(&visitor);
   }
   visitor.ProcessWorklist();
