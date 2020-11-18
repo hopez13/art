@@ -52,6 +52,24 @@
       "parentUuid": "b222f8f1_f238c139",
       "revId": "07b62e3d0808cc0890717a3a589c1f7b1ac51e5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6521637_c041c234",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-18T09:09:33Z",
+      "side": 1,
+      "message": "Awesome, thanks Greg. Fix is here FYI:\nhttps://android-review.googlesource.com/c/platform/art/+/1501996",
+      "parentUuid": "6c8d1a4a_15b9f7b1",
+      "revId": "07b62e3d0808cc0890717a3a589c1f7b1ac51e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
