@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1613977_3a7f22ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-11-18T22:50:36Z",
+      "side": 1,
+      "message": "Adding this logcat dump to sigquit and maybe sigusr1 is also a good idea I think.",
+      "revId": "e70c6a17450cb41343cbd2c3aeb0c6714c6c39c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98ce680_4830bae0",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-11-18T22:50:36Z",
+      "side": 1,
+      "message": "INFO? It\u0027s not an error right?",
+      "range": {
+        "startLine": 128,
+        "startChar": 15,
+        "endLine": 128,
+        "endChar": 20
+      },
+      "revId": "e70c6a17450cb41343cbd2c3aeb0c6714c6c39c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
