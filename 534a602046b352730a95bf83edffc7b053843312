@@ -1,0 +1,319 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c858907_16f9ee1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "You should definitely add a gtest for this, see Dex2oatImageTest.TestExtension in dex2oat_image_test.cc .\n\nAnd why is this CL a part of a topic? It can be submitted on its own before anything that depends on it.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3300fdb_274afe56",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "int32_t to match the `existing_value`.",
+      "range": {
+        "startLine": 462,
+        "startChar": 54,
+        "endLine": 462,
+        "endChar": 57
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ad70f7_5cb6e731",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "Check `image_fds_.size() !\u003d oat_fds_.size()` as we need the same number of file descriptors. And update the error message.",
+      "range": {
+        "startLine": 672,
+        "startChar": 34,
+        "endLine": 672,
+        "endChar": 54
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca69c28_7a672f1a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "This could be dropped to allow primary boot image compilation with file descriptors. (But we do not need this as the primary image should always be compiled as part of the build process of the ART apex.)\n\nNit: Replace `image_fds_.size() !\u003d 0u` -\u003e `!image_fds_.empty()`.",
+      "range": {
+        "startLine": 764,
+        "startChar": 4,
+        "endLine": 766,
+        "endChar": 5
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa21e1d_86831d5c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "See my comment above.",
+      "range": {
+        "startLine": 900,
+        "startChar": 6,
+        "endLine": 900,
+        "endChar": 66
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36a38437_b1763caf",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "These checks belong to ProcessOptions(). You should only DCHECK_EQ() here.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "539d7158_8940f5c9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "What about `output_vdex_locations_`?",
+      "range": {
+        "startLine": 1283,
+        "startChar": 8,
+        "endLine": 1283,
+        "endChar": 84
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bbe0242_95437c7e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "I guess ProcessOptions() should check that --input_vdex* options are used only for app compilation. We should DCHECK() here that there is only one output vdex.",
+      "range": {
+        "startLine": 1291,
+        "startChar": 10,
+        "endLine": 1291,
+        "endChar": 36
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc44ee08_caf64c8e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "DCHECK() that there is only one vdex file and undo all other changes here, reverting to use `vdex_files_.back()`.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a21bcf90_0fa664b3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "The hook\u0027s arguments are now insufficient.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "636f67d3_ab0915bf",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "Again, the arguments are insufficient.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163d014d_9b8c0b95",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "Remove, we use `int32_t`, not `std::int32_t`. (Also several times below.)",
+      "range": {
+        "startLine": 118,
+        "startChar": 32,
+        "endLine": 118,
+        "endChar": 37
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31be4732_4f597ddf",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "You prefer multiple `--output-vdex-fd\u003d` arguments over a single argument with comma-separated list?",
+      "range": {
+        "startLine": 118,
+        "startChar": 49,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ef5abbb_8b2e8564",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "81 characters. Move the last word to the next line.",
+      "range": {
+        "startLine": 174,
+        "startChar": 21,
+        "endLine": 174,
+        "endChar": 102
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f4a343d_8c1d815b",
+        "filename": "dex2oat/dex2oat_options.def",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-18T16:03:56Z",
+      "side": 1,
+      "message": "Remove here and below.",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
