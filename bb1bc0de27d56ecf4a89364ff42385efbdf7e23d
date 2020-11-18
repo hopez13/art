@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba33106e_213e2fe0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-18T21:50:09Z",
+      "side": 1,
+      "message": "Since you\u0027re changing this anyway, you could probably make this function just be\n```\nreturn { .type_ \u003d Type::kInvalid };\n```\n\nThe function could probably even be constexpr. You could do the same things with the other static constructors too. Although it\u0027s fine to leave everything as is too.",
+      "revId": "bb1bc0de27d56ecf4a89364ff42385efbdf7e23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -163,6 +163,30 @@
       },
       "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc7d5a5_e141d191",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-18T21:50:09Z",
+      "side": 1,
+      "message": "Does this mean RTP needs to be fixed before this CL is safe?",
+      "parentUuid": "911b494c_567f1db8",
+      "range": {
+        "startLine": 1811,
+        "startChar": 0,
+        "endLine": 1813,
+        "endChar": 0
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
