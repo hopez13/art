@@ -18,9 +18,10 @@
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "base/arena_allocator.h"
+#include "base/enums.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
-#include "base/enums.h"
 #include "class_linker-inl.h"
 #include "class_root-inl.h"
 #include "handle_scope-inl.h"
@@ -96,6 +97,7 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
                                const DexFile& dex_file,
                                bool is_exact);
 
+  static bool Updateable(HInstruction* instr);
   void AddToWorklist(HInstruction* instruction);
   void AddDependentInstructionsToWorklist(HInstruction* instruction);
 
@@ -112,6 +114,8 @@ class ReferenceTypePropagation::RTPVisitor : public HGraphDelegateVisitor {
   ScopedArenaAllocator allocator_;
   ScopedArenaVector<HInstruction*> worklist_;
   const bool is_first_run_;
+
+  friend class ReferenceTypePropagation;
 };
 
 ReferenceTypePropagation::ReferenceTypePropagation(HGraph* graph,
@@ -173,6 +177,11 @@ void ReferenceTypePropagation::Visit(ArrayRef<HInstruction* const> instructions)
                      is_first_run_);
   for (HInstruction* instruction : instructions) {
     instruction->Accept(&visitor);
+    // We don't know if the instruction list is ordered in the same way normal
+    // visiting would be so we need to process every instruction manually.
+    if (RTPVisitor::Updateable(instruction)) {
+      visitor.AddToWorklist(instruction);
+    }
   }
   visitor.ProcessWorklist();
 }
@@ -968,13 +977,15 @@ void ReferenceTypePropagation::RTPVisitor::UpdatePhi(HPhi* instr) {
   }
 }
 
+bool ReferenceTypePropagation::RTPVisitor::Updateable(HInstruction* instr) {
+  return (instr->IsPhi() && instr->AsPhi()->IsLive()) || instr->IsBoundType() ||
+         instr->IsNullCheck() || instr->IsArrayGet();
+}
+
 // Re-computes and updates the nullability of the instruction. Returns whether or
 // not the nullability was changed.
 bool ReferenceTypePropagation::RTPVisitor::UpdateNullability(HInstruction* instr) {
-  DCHECK((instr->IsPhi() && instr->AsPhi()->IsLive())
-      || instr->IsBoundType()
-      || instr->IsNullCheck()
-      || instr->IsArrayGet());
+  DCHECK(Updateable(instr));
 
   if (!instr->IsPhi() && !instr->IsBoundType()) {
     return false;
