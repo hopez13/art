@@ -307,6 +307,30 @@
       },
       "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d1ec4c4_dd5760e6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-19T19:27:37Z",
+      "side": 1,
+      "message": "Ah, right. I didn\u0027t notice until after I wrote that that this CL depends on the RTP change.",
+      "parentUuid": "d41c42a0_4aba52a5",
+      "range": {
+        "startLine": 1811,
+        "startChar": 0,
+        "endLine": 1813,
+        "endChar": 0
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
