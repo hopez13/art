@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b74a7172_c3006ef9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-19T16:51:20Z",
+      "side": 1,
+      "message": "https://paste.googleplex.com/6162090596237312 is every use of \u0027union \u0027 after this patch.\n\nI see in code:\n\n- cmsg use\n- linker for oat file\n- dexfile reading\n- dexfile writing\n- JNI \u0026 JVMTI structs\n- GC/class/method-fields used by ASM\n- almost everything else is union used in other contexts\n\nThe only use of union that is possibly an unneeded c-union is one use in dex_method_analysis.h.\n\nHonestly I\u0027d say that c-unions with the bizarre state of unchecked-overlapping fields is more complicated and difficult to understand than the relatively simple, well documented std::variant.\n\nI\u0027d also say that people are probably more likely to be familiar with discriminated-unions like std::variant then the old unsafe c-unions. It has other benefits such as being less confusing when looked at in debuggers and just generally being more explicit.\n\nAlso frankly std::union is a fairly simple struct to understand and I\u0027m the one currently doing work in this area.",
+      "parentUuid": "b620d572_0ee8ac5f",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 86
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3f57810_3d64d133",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
