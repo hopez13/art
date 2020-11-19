@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f387653_960242a0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-19T18:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e549f015_acc773e1",
+      "range": {
+        "startLine": 102,
+        "startChar": 24,
+        "endLine": 102,
+        "endChar": 34
+      },
+      "revId": "494746f17d244f7f0e24763b811e88bc86a1ef5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b247c91d_e8f5190c",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-19T09:24:56Z",
       "side": 1,
       "message": "Nit: one per line.",
+      "range": {
+        "startLine": 983,
+        "startChar": 9,
+        "endLine": 984,
+        "endChar": 53
+      },
+      "revId": "494746f17d244f7f0e24763b811e88bc86a1ef5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f198c0a_d8c119b4",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-19T18:38:53Z",
+      "side": 1,
+      "message": "Done.\n\nAlso this is the sort of comment that I think having an authoritative code-style program would avoid. This is what clang-format gives (there doesn\u0027t seem to be a way to get the one-case-per-line-behavior) and I think its fine.",
+      "parentUuid": "b247c91d_e8f5190c",
       "range": {
         "startLine": 983,
         "startChar": 9,
