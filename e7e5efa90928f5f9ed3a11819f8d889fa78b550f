@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11adc67d_ced665d8",
+        "filename": "build/build-art-module.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-19T01:03:21Z",
+      "side": 1,
+      "message": "I think this script is more discoverable in build/, but it can also be argued it should go into tools/ since there are other build scripts there.",
+      "revId": "e7e5efa90928f5f9ed3a11819f8d889fa78b550f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
