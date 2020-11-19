@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b620d572_0ee8ac5f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-19T16:28:18Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s true - a \"grep union\" in art/ gives me lots of cases.\n\nNot everyone is familiar with latest C++ style, I certainly aren\u0027t, and I don\u0027t want to raise the barrier to entry for any newcomer in ART.",
+      "parentUuid": "932d9f6d_2cb98477",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 86
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3f57810_3d64d133",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
