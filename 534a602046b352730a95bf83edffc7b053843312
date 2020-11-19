@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ec8017_6b43be08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-19T13:57:48Z",
+      "side": 1,
+      "message": "We\u0027ll simplify this change: the aggregate approach suggested by Nicolas works fine and doesn\u0027t need most of this.\n\nOn the Vladmir\u0027s complaint about a single topic in the comments: these CLs are a logical sequence and were split out of a single change into a set of narrower changes with CL3 depending on CL1 and CL2. It is easy to move a CL out of a topic and land it independently as done here with the first CL in this series. The topic is just convenient for keeping things together until you start landing.",
+      "revId": "534a602046b352730a95bf83edffc7b053843312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3300fdb_274afe56",
