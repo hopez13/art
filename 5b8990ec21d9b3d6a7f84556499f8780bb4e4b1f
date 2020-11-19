@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "932d9f6d_2cb98477",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-19T16:22:19Z",
+      "side": 1,
+      "message": "As far as I can tell this is the only `union` use in ART not required for bit-conversion magic or because the in-memory layout is important (e.g. for reading binaries or in asm).\n\nEverywhere else in ART we\u0027ve gradually moved towards a more c++ style of doing things with more explicit and checked types. I think we should do so here as well since I\u0027m changing this type anyway.",
+      "parentUuid": "a24d8db0_d67056a1",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 86
+      },
+      "revId": "5b8990ec21d9b3d6a7f84556499f8780bb4e4b1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3f57810_3d64d133",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
