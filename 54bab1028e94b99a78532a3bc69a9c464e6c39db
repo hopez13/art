@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2864b5da_1f0deb42",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-20T17:45:27Z",
+      "side": 1,
+      "message": "You\u0027re kind of encoding the type twice here as the `value_.index()` gives you similar but less granular information. The abstraction definitely adds overhead.",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 71
+      },
+      "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
