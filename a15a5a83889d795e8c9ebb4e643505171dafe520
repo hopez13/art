@@ -34,6 +34,24 @@
       "parentUuid": "c4fad02f_cc2b450c",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a5bce5_7e831622",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-20T18:56:49Z",
+      "side": 1,
+      "message": "I\u0027m wondering if it would be better to simply enforce the right ordering.",
+      "parentUuid": "2682a8a3_0bdbf159",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
