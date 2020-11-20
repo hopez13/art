@@ -52,6 +52,24 @@
       "parentUuid": "2682a8a3_0bdbf159",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afbdd19f_6777fa8c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-20T19:10:42Z",
+      "side": 1,
+      "message": "There\u0027s no fast way to recover that ordering unfortunately I don\u0027t think. Especially since LSE is the only place this is used I think just having it support any ordering is better. WDYT?",
+      "parentUuid": "72a5bce5_7e831622",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
