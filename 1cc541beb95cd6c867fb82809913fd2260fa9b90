@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006301574",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1496642?revision\u003d8",
+      "fixSuggestions": [
+        {
+          "fixId": "c650aff0_5485ae56",
+          "description": "Change to \"compiler/optimizing/load_store_elimination.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_elimination.cc",
+              "range": {
+                "startLine": 2665,
+                "startChar": 59,
+                "endLine": 2665,
+                "endChar": 67
+              },
+              "replacement": "exclusion"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "84a4591b_0ff449a6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-11-20T23:29:20Z",
+      "side": 1,
+      "message": "Common typo found: \"excusion\" -- should it be \"exclusion\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2665,
+        "startChar": 59,
+        "endLine": 2665,
+        "endChar": 67
+      },
+      "revId": "1cc541beb95cd6c867fb82809913fd2260fa9b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
