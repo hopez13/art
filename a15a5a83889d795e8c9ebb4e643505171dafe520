@@ -16,6 +16,24 @@
       "message": "Even for the simple case with two new Phis,\n\n  field \u003d new Object();\n  for (int i \u003d 0; i \u003c n; ++i) {  // LSE: Create Phi1 for `field`\n    if (cond) {\n      field \u003d new Object();\n    }\n    // LSE: Create Phi2 for `field`.\n  }\n  field.foo();\n\nif we passed Phi2 before Phi1, we would not determine the right nullability. The order of updates would be\n\n  VisitPhi(Phi2);  // can_be_null \u003d\u003d true because of the Phi1 input.\n  AddToWorklist(Phi2);\n  VisitPhi(Phi1);  // can_be_null \u003d\u003d false because of the pre-header input.\n    // Adds Phi1 to the work list because it is a loop Phi.\n  AddToWorklist(Phi1);\n  ProcessWorklist()\n    UpdatePhi(Phi1);  // can_be_null \u003d\u003d true because of the Phi2 input.\n      // Add dependent instruction Phi2 to the worklist.\n    UpdatePhi(Phi2);  // can_be_null \u003d\u003d true because of the \"Phi (2)\" input.\n    UpdatePhi(Phi1);  // can_be_null \u003d\u003d true because of the Phi2 input.\n      // No change.\n    UpdatePhi(Phi2);  // can_be_null \u003d\u003d true because of the \"Phi (2)\" input.\n      // No change.\n\nThe type would be correct because MergeTypes() ignores invalid input.",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2682a8a3_0bdbf159",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-20T18:25:13Z",
+      "side": 1,
+      "message": "so is there anything you want me to add here?",
+      "parentUuid": "c4fad02f_cc2b450c",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
