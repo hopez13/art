@@ -22,6 +22,30 @@
       },
       "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60fc85d_f6b27b26",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-20T23:21:11Z",
+      "side": 1,
+      "message": "Since these are now just short-lived temporaries I don\u0027t think that really matters much TBH.\n\nI can make a version without the type_ field if you want using marker structs.",
+      "parentUuid": "2864b5da_1f0deb42",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 71
+      },
+      "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
