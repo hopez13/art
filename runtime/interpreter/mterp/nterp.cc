@@ -118,6 +118,110 @@ inline void UpdateCache(Thread* self, uint16_t* dex_pc_ptr, T* value) {
   UpdateCache(self, dex_pc_ptr, reinterpret_cast<size_t>(value));
 }
 
+extern "C" void NterpStoreArm32Fprs(const char* shorty,
+                                    uint32_t* registers,
+                                    uint32_t* old_sp,
+                                    const uint32_t* fprs) {
+  ScopedAssertNoThreadSuspension sants("In nterp");
+  static constexpr size_t kCalleeSavesSize = 9 + 16;
+  // +1 for the ArtMethod.
+  static constexpr size_t kOffsetToFirstArgumentInStack = (kCalleeSavesSize + 1);
+  uint32_t arg_index = 0;
+  uint32_t fpr_double_index = 0;
+  uint32_t fpr_index = 0;
+  for (uint32_t shorty_index = 0; shorty[shorty_index] != '\0'; ++shorty_index) {
+    char arg_type = shorty[shorty_index];
+    switch (arg_type) {
+      case 'D': {
+        // Double should not overlap with float.
+        fpr_double_index = std::max(fpr_double_index, RoundUp(fpr_index, 2));
+        if (fpr_double_index < 16) {
+          registers[arg_index] = fprs[fpr_double_index++];
+          registers[arg_index + 1] = fprs[fpr_double_index++];
+        } else {
+          registers[arg_index] = old_sp[arg_index + kOffsetToFirstArgumentInStack];
+          registers[arg_index + 1] = old_sp[arg_index + 1 + kOffsetToFirstArgumentInStack];
+        }
+        arg_index += 2;
+        break;
+      }
+      case 'F': {
+        if (fpr_index % 2 == 0) {
+          fpr_index = std::max(fpr_double_index, fpr_index);
+        }
+        if (fpr_index < 16) {
+          registers[arg_index] = fprs[fpr_index++];
+        } else {
+          registers[arg_index] = old_sp[arg_index + kOffsetToFirstArgumentInStack];
+        }
+        arg_index++;
+        break;
+      }
+      case 'J': {
+        arg_index += 2;
+        break;
+      }
+      default: {
+        arg_index++;
+        break;
+      }
+    }
+  }
+}
+
+extern "C" void NterpSetupArm32Fprs(const char* shorty,
+                                    uint32_t dex_register,
+                                    uint32_t stack_index,
+                                    uint32_t* fprs,
+                                    uint32_t* registers) {
+  ScopedAssertNoThreadSuspension sants("In nterp");
+  uint32_t fpr_double_index = 0;
+  uint32_t fpr_index = 0;
+  // Stack pointer to store the arguments. +1 for ArtMethod, +2 for saved
+  // registers in caller, and +16 for floating point registers.
+  uint32_t* sp = fprs + 1 + 2 + 16;
+  for (uint32_t shorty_index = 0; shorty[shorty_index] != '\0'; ++shorty_index) {
+    char arg_type = shorty[shorty_index];
+    switch (arg_type) {
+      case 'D': {
+        // Double should not overlap with float.
+        fpr_double_index = std::max(fpr_double_index, RoundUp(fpr_index, 2));
+        if (fpr_double_index < 16) {
+          fprs[fpr_double_index++] = registers[dex_register++];
+          fprs[fpr_double_index++] = registers[dex_register++];
+          stack_index += 2;
+        } else {
+          sp[stack_index++] = registers[dex_register++];
+          sp[stack_index++] = registers[dex_register++];
+        }
+        break;
+      }
+      case 'F': {
+        if (fpr_index % 2 == 0) {
+          fpr_index = std::max(fpr_double_index, fpr_index);
+        }
+        if (fpr_index < 16) {
+          fprs[fpr_index++] = registers[dex_register++];
+          stack_index++;
+        } else {
+          sp[stack_index++] = registers[dex_register++];
+        }
+        break;
+      }
+      case 'J': {
+        stack_index += 2;
+        dex_register += 2;
+        break;
+      }
+      default: {
+        stack_index++;
+        dex_register++;
+        break;
+      }
+    }
+  }
+}
+
 extern "C" const dex::CodeItem* NterpGetCodeItem(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedAssertNoThreadSuspension sants("In nterp");
@@ -294,6 +398,7 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_
   } else if (resolved_method->GetDeclaringClass()->IsStringClass()
              && !resolved_method->IsStatic()
              && resolved_method->IsConstructor()) {
+    CHECK_NE(invoke_type, kSuper);
     resolved_method = WellKnownClasses::StringInitToStringFactory(resolved_method);
     // Or the result with 1 to notify to nterp this is a string init method. We
     // also don't cache the result as we don't want nterp to have its fast path always
