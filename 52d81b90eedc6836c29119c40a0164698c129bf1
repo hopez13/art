@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23323e82_ebdf2bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T20:04:28Z",
+      "side": 1,
+      "message": "I realized this would be handy for communicating with the metrics background reporting thread, and might be useful in other places where we have background threads that need to communicate.\n\nFor the WIP CL that uses this, see https://r.android.com/c/1508836.\n",
+      "revId": "52d81b90eedc6836c29119c40a0164698c129bf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
