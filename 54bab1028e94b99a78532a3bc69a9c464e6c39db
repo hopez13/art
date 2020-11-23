@@ -46,6 +46,30 @@
       },
       "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce520ffc_30a8d670",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T21:52:19Z",
+      "side": 1,
+      "message": "On the overhead question, this CL seems to get rid of the phi_placeholders_, which should at least save a little memory, and a little overhead in looking up the placeholders. Maybe that\u0027s comparable?",
+      "parentUuid": "a60fc85d_f6b27b26",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 71
+      },
+      "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
