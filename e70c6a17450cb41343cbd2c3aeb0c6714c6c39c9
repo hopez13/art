@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "991c0e06_3ea450ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T21:07:08Z",
+      "side": 1,
+      "message": "We have it for sigquit already: https://cs.android.com/android/platform/superproject/+/master:art/runtime/runtime.cc;l\u003d2027\n\nAlthough maybe I should refactor it to go through this code instead.",
+      "parentUuid": "b1613977_3a7f22ea",
+      "revId": "e70c6a17450cb41343cbd2c3aeb0c6714c6c39c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e98ce680_4830bae0",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-18T22:50:36Z",
       "side": 1,
       "message": "INFO? It\u0027s not an error right?",
+      "range": {
+        "startLine": 128,
+        "startChar": 15,
+        "endLine": 128,
+        "endChar": 20
+      },
+      "revId": "e70c6a17450cb41343cbd2c3aeb0c6714c6c39c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a5c5764_62a726e7",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T21:07:08Z",
+      "side": 1,
+      "message": "Correct. It\u0027s fixed now. I switched this to ERROR in an effort to make the tests pass, but I figured out how to use ANDROID_LOG_TAGS and --external-log-tags to make it work with INFO.",
+      "parentUuid": "e98ce680_4830bae0",
       "range": {
         "startLine": 128,
         "startChar": 15,
