@@ -46,6 +46,47 @@
       },
       "revId": "6e71c66b35f6a96908e3d371316cba15dcb75d1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5f77fb_3cc06e17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018026
+      },
+      "writtenOn": "2020-11-23T18:34:39Z",
+      "side": 1,
+      "message": "Thanks.\nAutoMerger uses Merged-In to validate presence.  The Change-Id being same does not cause AM to skip (validating with Alexa).  I can totally see a issue on goto/WIMCL which simply looks up by Change-Id (and not merged-in)\n\nUsing a different change-Id on aosp would result in a different CL than this.\nhttps://android-review.googlesource.com/c/platform/art/+/1508064",
+      "parentUuid": "fddf30c0_49c9c7b1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "6e71c66b35f6a96908e3d371316cba15dcb75d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459deb56_ecd47878",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018026
+      },
+      "writtenOn": "2020-11-23T18:34:39Z",
+      "side": 1,
+      "message": "I am totally fine, moving this to https://android-review.googlesource.com/c/platform/art/+/1508064 , which is result of changing the Change-Id.",
+      "revId": "6e71c66b35f6a96908e3d371316cba15dcb75d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
