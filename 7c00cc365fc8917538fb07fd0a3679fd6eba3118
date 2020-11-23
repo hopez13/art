@@ -246,6 +246,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a15fd4_00284ab5",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T21:25:06Z",
+      "side": 1,
+      "message": "Do you mean the other tests will start failing too? If so, does this test add any additional value? Or do you mean every permutation would fail?\n\nI like the idea of a random test to catch corner cases we didn\u0027t expect. I just worry that someday this will fail in TreeHugger and we\u0027ll have no way to figure out what went wrong. It could end up just being an inherently flaky test.",
+      "parentUuid": "8590f4b9_5a7d75bf",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
