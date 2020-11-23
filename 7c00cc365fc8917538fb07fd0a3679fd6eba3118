@@ -198,6 +198,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a11a22b3_164fa03c",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-23T20:56:42Z",
+      "side": 1,
+      "message": "If I run the test and it fails, do I also get the seed that caused it to fail? `--gtest_random_seed` seems helpful, since we can control the seed ahead of time, but I also want to make sure that if we run this and it fails randomly that we can immediately re-run it with the same seed so that it will fail in the same way. Otherwise, we don\u0027t know if we fixed the bug or are just continuing to get lucky.",
+      "parentUuid": "b450317a_90520d28",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
