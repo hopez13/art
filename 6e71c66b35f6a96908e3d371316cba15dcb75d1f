@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "72945c17_20bdd17c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-23T18:47:33Z",
+      "side": 1,
+      "message": "Thank you.\n\n\u003e The Change-Id being same does not cause AM to skip (validating with Alexa).\n\nYes, I\u0027ve never understood the reasoning behind that - I can\u0027t see any situation where one would want to have the same Change-Id more than once in the history. I think a Merged-In with the same hash should be implied by the Change-Id.\n\n(If I cherry-pick between branches in any shape or form I try to set both Merged-In and Change-Id everywhere with the same hash to not have to think about automerger edge directions, intermediates, etc, even though that has recently started to produce warnings when the Merged-In hash isn\u0027t found in the history.)",
+      "parentUuid": "fb5f77fb_3cc06e17",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "6e71c66b35f6a96908e3d371316cba15dcb75d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "459deb56_ecd47878",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
