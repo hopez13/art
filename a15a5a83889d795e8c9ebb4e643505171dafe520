@@ -106,6 +106,24 @@
       "parentUuid": "92b03f16_a6dc0b4a",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32eca3b3_47627e36",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-23T18:28:16Z",
+      "side": 1,
+      "message": "OTOH what we have here is O(n) both mem and time (n \u003d # of PHIs being added). Technically this requires (n + n) iterations but since it doesn\u0027t require a sort step I think this will still be faster in many circumstances.\n\nAlso adding a radix-sort routine is honestly the sort of additional complexity I\u0027d like to avoid if possible.",
+      "parentUuid": "030b4c65_f9a77825",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
