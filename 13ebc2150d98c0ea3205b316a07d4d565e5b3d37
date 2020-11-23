@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3369a90f_8d69e085",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "IS it ok for a binary in the apex to depend on this?",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef91cc15_9ee9b8b6",
+        "filename": "odrefresh/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "path",
+      "range": {
+        "startLine": 7,
+        "startChar": 56,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d3f9c3_36a82798",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "I\u0027m still wondering if you need this check. A valid configuration could be to have the factory apex, but no artifacts, and then we\u0027ll want them to be compiled on /data on first boot.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288d672d_d2a57ab4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "There\u0027s a missing dexoptanalyzer check here, right?",
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9292f854_599dc6f0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "The \u0027*\u0027s are misplaced.",
+      "range": {
+        "startLine": 379,
+        "startChar": 28,
+        "endLine": 379,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b81c778_09b01f56",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "\u0027boot\u0027 ?",
+      "range": {
+        "startLine": 599,
+        "startChar": 46,
+        "endLine": 599,
+        "endChar": 54
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b750d0_5d863304",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-23T18:40:34Z",
+      "side": 1,
+      "message": "If this is the only use of selinux, let\u0027s move it to palette?",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 640,
+        "endChar": 5
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
