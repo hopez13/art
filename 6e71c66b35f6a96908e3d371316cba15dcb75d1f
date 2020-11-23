@@ -122,6 +122,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "262254ad_045600f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-11-23T19:06:37Z",
+      "side": 1,
+      "message": "(Oops, this got submitted anyway due to autosubmit.)\n\n\u003e One use-case I think it does help in is goto/wimcl\n\nFair enough, but while that may be an argument for not reusing the Change-Id in cherry-picks, it\u0027s not an argument to not let a Change-Id imply Merged-In with the same hash.",
+      "parentUuid": "8f172025_1c8d694b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "6e71c66b35f6a96908e3d371316cba15dcb75d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "459deb56_ecd47878",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
