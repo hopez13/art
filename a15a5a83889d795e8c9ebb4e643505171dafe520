@@ -88,6 +88,24 @@
       "parentUuid": "afbdd19f_6777fa8c",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030b4c65_f9a77825",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-23T18:01:26Z",
+      "side": 1,
+      "message": "Correction: The sorting needs graph_-\u003eGetBlocks().size() buckets which may be a bit more than graph_-\u003eGetReversePostOrder().size().",
+      "parentUuid": "92b03f16_a6dc0b4a",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
