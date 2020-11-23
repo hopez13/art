@@ -70,6 +70,24 @@
       "parentUuid": "72a5bce5_7e831622",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b03f16_a6dc0b4a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-23T15:26:30Z",
+      "side": 1,
+      "message": "Now that I think of it, maybe we should validate the ordering and sort if instructions are out of order.\n\nValidating the ordering: O(m + n) where m \u003d graph_-\u003eGetReversePostOrder().size() and n \u003d instructions.size() by going over instructions and \"catching up\" with the block. Sorting: O(m + n) time and memory by assigning instructions to m buckets with singly-linked linked lists and then concatenating them.",
+      "parentUuid": "afbdd19f_6777fa8c",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
