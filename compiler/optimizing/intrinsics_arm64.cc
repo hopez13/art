@@ -1391,6 +1391,175 @@ enum class GetAndUpdateOp {
   kXor
 };
 
+static bool CanGenerateGetAndUpdateLSEVersion(CodeGeneratorARM64* codegen,
+                                              GetAndUpdateOp get_and_update_op,
+                                              DataType::Type load_store_type,
+                                              bool is_fp_op) {
+  if (!codegen->GetInstructionSetFeatures().HasFP16() ||
+      is_fp_op ||
+      load_store_type == DataType::Type::kReference) {
+    return false;
+  }
+
+  return get_and_update_op == GetAndUpdateOp::kAdd;
+}
+
+static void GenerateGetAndUpdateLSEImplByte(CodeGeneratorARM64* codegen,
+                                            GetAndUpdateOp get_and_update_op,
+                                            std::memory_order order,
+                                            Register ptr,
+                                            Register old_value_reg,
+                                            Register arg_reg) {
+  MacroAssembler* masm = codegen->GetVIXLAssembler();
+  switch (get_and_update_op) {
+    case GetAndUpdateOp::kAdd:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldaddb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldaddab(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldaddlb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldaddalb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    default:
+      LOG(FATAL) << "Unexpected op for LSE implementation";
+      UNREACHABLE();
+  }
+}
+
+
+static void GenerateGetAndUpdateLSEImplHalfword(CodeGeneratorARM64* codegen,
+                                                GetAndUpdateOp get_and_update_op,
+                                                std::memory_order order,
+                                                Register ptr,
+                                                Register old_value_reg,
+                                                Register arg_value) {
+  MacroAssembler* masm = codegen->GetVIXLAssembler();
+  switch (get_and_update_op) {
+    case GetAndUpdateOp::kAdd:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldaddh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldaddah(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldaddlh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldaddalh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    default:
+      LOG(FATAL) << "Unexpected op for LSE implementation";
+      UNREACHABLE();
+  }
+}
+
+static void GenerateGetAndUpdateLSEImplWordOrDoubleword(CodeGeneratorARM64* codegen,
+                                                        GetAndUpdateOp get_and_update_op,
+                                                        std::memory_order order,
+                                                        Register ptr,
+                                                        Register old_value_reg,
+                                                        Register arg_value) {
+  MacroAssembler* masm = codegen->GetVIXLAssembler();
+  switch (get_and_update_op) {
+    case GetAndUpdateOp::kAdd:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldadd(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldadda(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldaddl(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldaddal(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    default:
+      LOG(FATAL) << "Unexpected op for LSE implementation";
+      UNREACHABLE();
+  }
+}
+
+static void GenerateGetAndUpdateLSEImpl(CodeGeneratorARM64* codegen,
+                                        GetAndUpdateOp get_and_update_op,
+                                        DataType::Type load_store_type,
+                                        std::memory_order order,
+                                        Register ptr,
+                                        Register old_value_reg,
+                                        Register arg_reg) {
+  MacroAssembler* masm = codegen->GetVIXLAssembler();
+  DCHECK(codegen->GetInstructionSetFeatures().HasFP16());
+
+  switch (load_store_type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8:
+      GenerateGetAndUpdateLSEImplByte(codegen,
+                                      get_and_update_op,
+                                      order,
+                                      ptr,
+                                      old_value_reg,
+                                      arg_reg);
+      break;
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
+      GenerateGetAndUpdateLSEImplHalfword(codegen,
+                                          get_and_update_op,
+                                          order,
+                                          ptr,
+                                          old_value_reg,
+                                          arg_reg);
+      break;
+    case DataType::Type::kInt32:
+    case DataType::Type::kInt64:
+      GenerateGetAndUpdateLSEImplWordOrDoubleword(codegen,
+                                                  get_and_update_op,
+                                                  order,
+                                                  ptr,
+                                                  old_value_reg,
+                                                  arg_reg);
+      break;
+    default:
+      LOG(FATAL) << "Unexpected type for LSE implementation" << load_store_type;
+      UNREACHABLE();
+  }
+
+  switch (load_store_type) {
+    case DataType::Type::kInt8:
+      __ Sxtb(old_value_reg, old_value_reg);
+      break;
+    case DataType::Type::kInt16:
+      __ Sxth(old_value_reg, old_value_reg);
+      break;;
+    default:
+      break;
+  }
+}
+
 static void GenerateGetAndUpdate(CodeGeneratorARM64* codegen,
                                  GetAndUpdateOp get_and_update_op,
                                  DataType::Type load_store_type,
@@ -1400,11 +1569,11 @@ static void GenerateGetAndUpdate(CodeGeneratorARM64* codegen,
                                  CPURegister old_value) {
   MacroAssembler* masm = codegen->GetVIXLAssembler();
   UseScratchRegisterScope temps(masm);
-  Register store_result = temps.AcquireW();
 
   DCHECK_EQ(old_value.GetSizeInBits(), arg.GetSizeInBits());
   Register old_value_reg;
   Register new_value;
+  bool is_fp_op = arg.IsVRegister();
   switch (get_and_update_op) {
     case GetAndUpdateOp::kSet:
       old_value_reg = old_value.IsX() ? old_value.X() : old_value.W();
@@ -1412,7 +1581,7 @@ static void GenerateGetAndUpdate(CodeGeneratorARM64* codegen,
       break;
     case GetAndUpdateOp::kAddWithByteSwap:
     case GetAndUpdateOp::kAdd:
-      if (arg.IsVRegister()) {
+      if (is_fp_op) {
         old_value_reg = arg.IsD() ? temps.AcquireX() : temps.AcquireW();
         new_value = old_value_reg;  // Use the same temporary.
         break;
@@ -1432,44 +1601,57 @@ static void GenerateGetAndUpdate(CodeGeneratorARM64* codegen,
       (order == std::memory_order_release) || (order == std::memory_order_seq_cst);
   DCHECK(use_load_acquire || use_store_release);
 
-  vixl::aarch64::Label loop_label;
-  __ Bind(&loop_label);
-  EmitLoadExclusive(codegen, load_store_type, ptr, old_value_reg, use_load_acquire);
-  switch (get_and_update_op) {
-    case GetAndUpdateOp::kSet:
-      break;
-    case GetAndUpdateOp::kAddWithByteSwap:
-      // To avoid unnecessary sign extension before REV16, the caller must specify `kUint16`
-      // instead of `kInt16` and do the sign-extension explicitly afterwards.
-      DCHECK_NE(load_store_type, DataType::Type::kInt16);
-      GenerateReverseBytes(masm, load_store_type, old_value_reg, old_value_reg);
-      FALLTHROUGH_INTENDED;
-    case GetAndUpdateOp::kAdd:
-      if (arg.IsVRegister()) {
-        VRegister old_value_vreg = old_value.IsD() ? old_value.D() : old_value.S();
-        VRegister sum = temps.AcquireSameSizeAs(old_value_vreg);
-        __ Fmov(old_value_vreg, old_value_reg);
-        __ Fadd(sum, old_value_vreg, arg.IsD() ? arg.D() : arg.S());
-        __ Fmov(new_value, sum);
-      } else {
-        __ Add(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
-      }
-      if (get_and_update_op == GetAndUpdateOp::kAddWithByteSwap) {
-        GenerateReverseBytes(masm, load_store_type, new_value, new_value);
-      }
-      break;
-    case GetAndUpdateOp::kAnd:
-      __ And(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
-      break;
-    case GetAndUpdateOp::kOr:
-      __ Orr(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
-      break;
-    case GetAndUpdateOp::kXor:
-      __ Eor(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
-      break;
+  if (CanGenerateGetAndUpdateLSEVersion(codegen, get_and_update_op, load_store_type, is_fp_op)) {
+    Register arg_reg = arg.IsX() ? arg.X() : arg.W();
+    GenerateGetAndUpdateLSEImpl(codegen,
+                                get_and_update_op,
+                                load_store_type,
+                                order,
+                                ptr,
+                                old_value_reg,
+                                arg_reg);
+  } else {
+    Register store_result = temps.AcquireW();
+    vixl::aarch64::Label loop_label;
+    __ Bind(&loop_label);
+
+    EmitLoadExclusive(codegen, load_store_type, ptr, old_value_reg, use_load_acquire);
+    switch (get_and_update_op) {
+      case GetAndUpdateOp::kSet:
+        break;
+       case GetAndUpdateOp::kAddWithByteSwap:
+        // To avoid unnecessary sign extension before REV16, the caller must specify `kUint16`
+        // instead of `kInt16` and do the sign-extension explicitly afterwards.
+        DCHECK_NE(load_store_type, DataType::Type::kInt16);
+        GenerateReverseBytes(masm, load_store_type, old_value_reg, old_value_reg);
+        FALLTHROUGH_INTENDED;
+      case GetAndUpdateOp::kAdd:
+        if (is_fp_op) {
+          VRegister old_value_vreg = old_value.IsD() ? old_value.D() : old_value.S();
+          VRegister sum = temps.AcquireSameSizeAs(old_value_vreg);
+          __ Fmov(old_value_vreg, old_value_reg);
+          __ Fadd(sum, old_value_vreg, arg.IsD() ? arg.D() : arg.S());
+          __ Fmov(new_value, sum);
+        } else {
+          __ Add(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
+        }
+        if (get_and_update_op == GetAndUpdateOp::kAddWithByteSwap) {
+          GenerateReverseBytes(masm, load_store_type, new_value, new_value);
+        }
+        break;
+      case GetAndUpdateOp::kAnd:
+        __ And(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
+        break;
+      case GetAndUpdateOp::kOr:
+        __ Orr(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
+        break;
+      case GetAndUpdateOp::kXor:
+        __ Eor(new_value, old_value_reg, arg.IsX() ? arg.X() : arg.W());
+        break;
+    }
+    EmitStoreExclusive(codegen, load_store_type, ptr, store_result, new_value, use_store_release);
+    __ Cbnz(store_result, &loop_label);
   }
-  EmitStoreExclusive(codegen, load_store_type, ptr, store_result, new_value, use_store_release);
-  __ Cbnz(store_result, &loop_label);
 }
 
 void IntrinsicLocationsBuilderARM64::VisitStringCompareTo(HInvoke* invoke) {
