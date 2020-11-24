@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "984de893_df044a01",
+        "filename": "test/723-string-init-range/smali/new-instance.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-11-24T12:38:09Z",
+      "side": 1,
+      "message": "It is hard to understand why 19 here, and why you are using registers 16 and 17 and not, say, 2 and 3 (and have `.registers 4` instead of 19). Can you add a comment?",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "b65756cafb869681f1c5aaed69aa35a64dbf633b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
