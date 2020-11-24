@@ -240,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4e92fd7_5aa5bf21",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T14:07:39Z",
+      "side": 1,
+      "message": "I guess, you could check whether it\u0027s the factory apex and the system image is available. Otherwise you\u0027ll need mulitple image checking in dexoptanalyzer (?) which could be tricky?",
+      "parentUuid": "9609a433_0fdeb7e7",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "288d672d_d2a57ab4",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 14
