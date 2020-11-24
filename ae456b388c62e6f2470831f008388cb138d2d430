@@ -46,6 +46,30 @@
       },
       "revId": "ae456b388c62e6f2470831f008388cb138d2d430",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc05e34_ff6caca6",
+        "filename": "test/723-string-init-range/smali/new-instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T09:43:10Z",
+      "side": 1,
+      "message": "Moved to 9.",
+      "parentUuid": "b18b2a4b_88b31cac",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "ae456b388c62e6f2470831f008388cb138d2d430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
