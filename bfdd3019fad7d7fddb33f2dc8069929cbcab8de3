@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f53eb8_96dfdcf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T21:32:42Z",
+      "side": 1,
+      "message": "I spent a few minutes trying to use libfmq as the backend. It looks like doing so requires taking a new dependency in ART, and libfmq doesn\u0027t seem to have all the build flavors we need. Because of that, I think it makes more since to stick with our own implementation instead.",
+      "parentUuid": "fa32a4f3_1821a4b5",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa6906b_afc603e8",
