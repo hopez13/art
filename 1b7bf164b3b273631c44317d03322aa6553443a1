@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f666d5_03e5fcfb",
+        "filename": "runtime/base/message_queue_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-24T22:05:31Z",
+      "side": 1,
+      "message": "This test seems to go out of its way not to check that the messages are received in any particular order. But in fact they should be received in a very specific order, right? And to check SwitchReceive, you want that. Maybe just clone this test and have a second version that checks receive order?",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "1b7bf164b3b273631c44317d03322aa6553443a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

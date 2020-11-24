@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b440058_4ffc6b52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-24T22:05:31Z",
+      "side": 1,
+      "message": "ART pretty consistently uses its own Mutex and CV inside. Whether it ideally still should or not is an interesting question that we\u0027ve discussed a few times before. I think at this point it\u0027s not possible to switch everything to pthreads without providing additional functionality in bionic. (See e.g. ExclusiveLockUncontendedFor().) And currently the ART one probably performs a bit better? I don\u0027t think the bionic one spins before calling futex wait, though it almost certainly should. Posix\u0027 interface that doesn\u0027t distinguish mutex kinds by type also adds a bit of inherent overhead, and there are other historical issues with 32-bit bionic mutexes being a bit too small.\n\nSo I think they will both stay in the foreseeable future. I would use the ART one in ART code.",
+      "parentUuid": "e2f53eb8_96dfdcf0",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa6906b_afc603e8",
