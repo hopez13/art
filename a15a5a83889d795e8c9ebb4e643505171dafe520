@@ -124,6 +124,24 @@
       "parentUuid": "030b4c65_f9a77825",
       "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74c897fc_0099128f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T09:48:41Z",
+      "side": 1,
+      "message": "The problem is that the result still depends on the order of input instructions (at least for CanBeNull()), see the example in my first comment in this thread.",
+      "parentUuid": "32eca3b3_47627e36",
+      "revId": "a15a5a83889d795e8c9ebb4e643505171dafe520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
