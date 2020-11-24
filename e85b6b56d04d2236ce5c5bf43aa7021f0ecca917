@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0488dba5_fbf32b5c",
+        "filename": "libartbase/base/metrics.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T21:38:22Z",
+      "side": 1,
+      "message": "So far I haven\u0027t had trouble verifying the output using a custom check script. I\u0027d prefer to verify the actual output if at all possible, since the behavior I care about is whether the metrics actually make it to logcat more than the specific format.",
+      "parentUuid": "486db1d2_9b678a3a",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 72
+      },
+      "revId": "e85b6b56d04d2236ce5c5bf43aa7021f0ecca917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e31df0e_12a7a2d8",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-24T00:47:53Z",
       "side": 1,
       "message": "I\u0027m not sure that this will pass on all bot configuration. I think some don\u0027t ignore all the output, so you might have to revert if that\u0027s the case.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "e85b6b56d04d2236ce5c5bf43aa7021f0ecca917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da72334e_47206366",
+        "filename": "test/2232-write-metrics-to-log/run",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T21:38:22Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m wondering about that too. I\u0027d like to go ahead and try and be ready to revert if necessary.",
+      "parentUuid": "7e31df0e_12a7a2d8",
       "range": {
         "startLine": 16,
         "startChar": 0,
