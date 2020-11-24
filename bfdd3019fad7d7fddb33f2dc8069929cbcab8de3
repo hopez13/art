@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93558379_9600b382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-24T00:42:20Z",
+      "side": 1,
+      "message": "I have a vague uneasiness about the number of message queues we have lying around. Try grep -i MessageQueue -r system for some more C++ ones. But it may well be that we have nothing that\u0027s usable for what you want.\n\nThe implementation looks fine to me, so long as you care more about simplicity than minimizing contention, which sounds like it may be right here. For algorithms with less contention, see e.g. \"Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms\" by Michael and Scott.",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa6906b_afc603e8",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-24T00:42:20Z",
+      "side": 1,
+      "message": "Mention that it\u0027s unbounded.",
+      "range": {
+        "startLine": 32,
+        "startChar": 65,
+        "endLine": 32,
+        "endChar": 70
+      },
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad84961_4ef9f173",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-24T00:42:20Z",
+      "side": 1,
+      "message": "scheduled",
+      "range": {
+        "startLine": 53,
+        "startChar": 70,
+        "endLine": 53,
+        "endChar": 78
+      },
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
