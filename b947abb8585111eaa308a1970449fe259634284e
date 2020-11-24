@@ -16,6 +16,24 @@
       "message": "They are slightly different, `done_return_\\suffix` has `and x11, x11, #0xf`. Presumably this change is intended, but I haven\u0027t read the code to the point where I understand it. \n\nIf it\u0027s a typo, maybe we should have a linter that requires a special-form comment when jumping to a label outside a macro.",
       "revId": "b947abb8585111eaa308a1970449fe259634284e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2af5af_868ecb34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T11:50:31Z",
+      "side": 1,
+      "message": "Thanks for nothing this Ulya! We actually had a bug there, I\u0027ve added a regression test. PTAL.",
+      "parentUuid": "7a327ca2_25a44b61",
+      "revId": "b947abb8585111eaa308a1970449fe259634284e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
