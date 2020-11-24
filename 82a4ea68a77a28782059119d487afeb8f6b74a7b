@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be08e9dd_badce3d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T13:24:38Z",
+      "side": 1,
+      "message": "Thanks for the CL! Can you resolve the merge conflicts with latest aosp?",
+      "revId": "82a4ea68a77a28782059119d487afeb8f6b74a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e4dcf58_2b8094ad",
+        "filename": "runtime/javavmsupervision_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T13:24:38Z",
+      "side": 1,
+      "message": "Instead of adding new callbacks, please follow the palette hooks patterns we\u0027ve added to accommodate such callbacks, see:\nhttps://android-review.googlesource.com/c/platform/art/+/1394003/\nhttps://android-review.googlesource.com/c/platform/art/+/1393181",
+      "revId": "82a4ea68a77a28782059119d487afeb8f6b74a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc7a467d_eb75e39a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-24T13:24:38Z",
+      "side": 1,
+      "message": "Can you move all stack-trace related changes and hooks to its own CL?",
+      "revId": "82a4ea68a77a28782059119d487afeb8f6b74a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
