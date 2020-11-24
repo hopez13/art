@@ -1,6 +1,102 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20b211d_f4325c9d",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "d723900d_0a15561b",
+      "range": {
+        "startLine": 167,
+        "startChar": 42,
+        "endLine": 167,
+        "endChar": 45
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc1bc97e_42ef2d8b",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "83256f51_1d0015c5",
+      "range": {
+        "startLine": 168,
+        "startChar": 43,
+        "endLine": 168,
+        "endChar": 46
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5609292f_9afa10c6",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "137a2de3_615d6dcf",
+      "range": {
+        "startLine": 182,
+        "startChar": 42,
+        "endLine": 182,
+        "endChar": 45
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "126f0976_d044248d",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "61664313_33d3b405",
+      "range": {
+        "startLine": 183,
+        "startChar": 43,
+        "endLine": 183,
+        "endChar": 46
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3369a90f_8d69e085",
@@ -24,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2bbe90_13007381",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Let\u0027s remove it. It\u0027s mostly for my own sanity with the the SELinux changes.",
+      "parentUuid": "3369a90f_8d69e085",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef91cc15_9ee9b8b6",
@@ -37,6 +157,30 @@
       "writtenOn": "2020-11-23T18:40:34Z",
       "side": 1,
       "message": "path",
+      "range": {
+        "startLine": 7,
+        "startChar": 56,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f7508f_3464bd0d",
+        "filename": "odrefresh/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef91cc15_9ee9b8b6",
       "range": {
         "startLine": 7,
         "startChar": 56,
@@ -72,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9609a433_0fdeb7e7",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Ack, let\u0027s drop it.\n\nsystem apex with/without boot extensions with/without system server jars\n\nboot extensions might be single or multiple image when checking.",
+      "parentUuid": "e9d3f9c3_36a82798",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "288d672d_d2a57ab4",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 14
@@ -83,6 +251,24 @@
       "writtenOn": "2020-11-23T18:40:34Z",
       "side": 1,
       "message": "There\u0027s a missing dexoptanalyzer check here, right?",
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04497bd4_c657d498",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Yes, but to follow. Added a TODO.",
+      "parentUuid": "288d672d_d2a57ab4",
       "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -100,6 +286,30 @@
       "writtenOn": "2020-11-23T18:40:34Z",
       "side": 1,
       "message": "The \u0027*\u0027s are misplaced.",
+      "range": {
+        "startLine": 379,
+        "startChar": 28,
+        "endLine": 379,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd08fb2_01b78254",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Done. man page cut-and-pasto.",
+      "parentUuid": "9292f854_599dc6f0",
       "range": {
         "startLine": 379,
         "startChar": 28,
@@ -133,6 +343,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65727fd9_397ce80c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b81c778_09b01f56",
+      "range": {
+        "startLine": 599,
+        "startChar": 46,
+        "endLine": 599,
+        "endChar": 54
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7b750d0_5d863304",
@@ -146,6 +380,30 @@
       "writtenOn": "2020-11-23T18:40:34Z",
       "side": 1,
       "message": "If this is the only use of selinux, let\u0027s move it to palette?",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 640,
+        "endChar": 5
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b76a526f_d640b5cb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-11-24T13:59:15Z",
+      "side": 1,
+      "message": "Ack, dropped.",
+      "parentUuid": "a7b750d0_5d863304",
       "range": {
         "startLine": 637,
         "startChar": 0,
