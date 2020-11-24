@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa32a4f3_1821a4b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T20:29:53Z",
+      "side": 1,
+      "message": "I agree, I was hoping we already had something like this around. Thanks for the suggestion to look for other queues in system. The options there were libfmq, and AidlMessageQueue, which seems to be built on libfmq. There were some other queues throughout the platform too, but these seemed mostly built into drivers and probably shouldn\u0027t be used here.\n\nLibfmq looks like it\u0027d work, but I\u0027d still need to build the SetTimeout functionality on top of it. Libfmq is a bounded queue, so there will be additional cases to handle like sending when the queue is full. \n\nThe version I have here makes use of ART\u0027s Mutex and ConditionVariable classes, which looks like they give us additional visibility into thread states, or more debugging options. Are those worth keeping?\n\nThanks for the paper suggestion as well. My main use case for this is to send sporadic messages to a low-priority background thread, so I don\u0027t expect contention will be an issue. I think simplicity is the more important aspect here.",
+      "parentUuid": "93558379_9600b382",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fa6906b_afc603e8",
         "filename": "runtime/base/message_queue.h",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-24T00:42:20Z",
       "side": 1,
       "message": "Mention that it\u0027s unbounded.",
+      "range": {
+        "startLine": 32,
+        "startChar": 65,
+        "endLine": 32,
+        "endChar": 70
+      },
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a74f0fc_1114d98c",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T20:29:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fa6906b_afc603e8",
       "range": {
         "startLine": 32,
         "startChar": 65,
@@ -54,6 +96,30 @@
       "writtenOn": "2020-11-24T00:42:20Z",
       "side": 1,
       "message": "scheduled",
+      "range": {
+        "startLine": 53,
+        "startChar": 70,
+        "endLine": 53,
+        "endChar": 78
+      },
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8b69f0_1c5a72f0",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T20:29:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad84961_4ef9f173",
       "range": {
         "startLine": 53,
         "startChar": 70,
