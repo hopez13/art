@@ -1,0 +1,895 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e42a44_1c218cb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Is there something missing here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 38,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64738d42_fd8b9f31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b8dc07_da146166",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "With a SMART_CBNZ we could simplify RETURN_OR_DELIVER_PENDING_EXCEPTION to just call this macro. I\u0027m not sure it\u0027s worth introducing the SMART_CBNZ. (See SMART_CBZ in quick_entrypoints_arm.S .)",
+      "range": {
+        "startLine": 312,
+        "startChar": 4,
+        "endLine": 312,
+        "endChar": 17
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70bc8199_b220f64e",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "If you want to try out T32, you should start using the unified syntax with explicit IT instructions and use a low register instead of IP to avoid deprecated 32-bit instructions in IT-block:\n\n  mov     r3, #-1\n  it      ge\n  movge   r3, #1 \n  it      eq\n  cmpeq   r0, r2\n  it      eq\n  moveq   r3, #0",
+      "range": {
+        "startLine": 352,
+        "startChar": 4,
+        "endLine": 355,
+        "endChar": 18
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229dc1d3_bcce566a",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Only on older architectures:\n\n  if ArchVersion() \u003c 6 \u0026\u0026 d \u003d\u003d n then UNPREDICTABLE;\n\nFor T32, this operand order allows using a 16-bit instruction (encoding T1) while the other order would require 32-bit instruction (encoding T2).",
+      "range": {
+        "startLine": 504,
+        "startChar": 47,
+        "endLine": 504,
+        "endChar": 54
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecac4bae_06ec86be",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "This is wrong. Rd and Rn cannot be the same but Rd and Rm can. This also applies to the UMULL, so we could rename registers below to end up with a result in r0, r1:\n\n  mul     ip, r0, r3\n  umull   r0, lr, r2, r0  // RdLo \u003d\u003d Rn - this is OK.\n  mla     r3, r1, r2, ip\n  mov     r4, rINST, lsr #8  @ r4\u003c- AA\n  add     r1, r3, lr",
+      "range": {
+        "startLine": 535,
+        "startChar": 62,
+        "endLine": 536,
+        "endChar": 26
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9694b58d_9ed81d16",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Good that we\u0027re using STMIA for this. The A32 STRD would be broken:\n\n  if Rt\u003c0\u003e \u003d\u003d \u00271\u0027 then UNPREDICTABLE;",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 37
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3502cf48_26d34c02",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 639,
+        "startChar": 8,
+        "endLine": 639,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cac69944_cd62b9d7",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Is this a synonym for LSL? I would prefer LSL here and below.",
+      "range": {
+        "startLine": 762,
+        "startChar": 64,
+        "endLine": 762,
+        "endChar": 67
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e3153a_b7ff4956",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Add explicit IT.",
+      "range": {
+        "startLine": 792,
+        "startChar": 4,
+        "endLine": 792,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f99d98_5046d7bc",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 817,
+        "startChar": 4,
+        "endLine": 817,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6cba1a4_06cd3253",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "lsl",
+      "range": {
+        "startLine": 852,
+        "startChar": 24,
+        "endLine": 852,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08123c3_e8e7be8f",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 854,
+        "startChar": 4,
+        "endLine": 854,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "174e4971_09a5ff8e",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "lsl",
+      "range": {
+        "startLine": 876,
+        "startChar": 24,
+        "endLine": 876,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f5cb59_af241afd",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 879,
+        "startChar": 4,
+        "endLine": 879,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45a7511_c85bde85",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "lsl",
+      "range": {
+        "startLine": 926,
+        "startChar": 24,
+        "endLine": 926,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a01a458_a5f4003d",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 928,
+        "startChar": 4,
+        "endLine": 928,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85761423_c6ff2504",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "lsl",
+      "range": {
+        "startLine": 950,
+        "startChar": 24,
+        "endLine": 950,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df58732_bbd663c7",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 953,
+        "startChar": 4,
+        "endLine": 953,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab170a4d_7226ecc9",
+        "filename": "runtime/interpreter/mterp/armng/array.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "OBJECT",
+      "range": {
+        "startLine": 118,
+        "startChar": 55,
+        "endLine": 118,
+        "endChar": 58
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4275f45_7f52ac71",
+        "filename": "runtime/interpreter/mterp/armng/array.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 142,
+        "startChar": 38,
+        "endLine": 142,
+        "endChar": 39
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52975bb_fac8c404",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "You could just jump straight to the goto/16 instead (code reuse). Unless you\u0027re hoping to help the branch predictor with a different PC, or try to stay within one cache line here (for which the BRANCH macro seems to be too big.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f12574f_be658b16",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "330fac95_ccff6fdb",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Why set condition codes?",
+      "range": {
+        "startLine": 135,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 8
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f18ccd_a8c99006",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Missing period compared to the line 162.",
+      "range": {
+        "startLine": 156,
+        "startChar": 27,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255d12c3_2f0bf516",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Should load the old LR straight to PC.",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffeba468_90dacda6",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Use explicit IT.\n\nTry to find a different set of flags, so that you can start with -1 and conditionally set 0 or 1. (MVN is a 32-bit instruction that\u0027s deprecated in IT block for T32.) Alternatively, use conditional `rsbmi r0, r0, #0` which is a 16-bit T32 instruction.",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 56
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5adc7b9_567fff1a",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 56
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e14a7f3a_416b9fdb",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Use explicit IT.",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 266,
+        "endChar": 56
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6290c0d8_c5d2aabc",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "IT",
+      "range": {
+        "startLine": 301,
+        "startChar": 4,
+        "endLine": 302,
+        "endChar": 56
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b5504e_e8a7837d",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "vcvtr.s32.f64 (update to UAL syntax)",
+      "range": {
+        "startLine": 322,
+        "startChar": 24,
+        "endLine": 322,
+        "endChar": 31
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d809b10f_7909fbe6",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "vcvtr.s32.f32",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 23
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f9612f_b3bfce54",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "The manual says that this is now \"vcvt.f64.s32\" but links to both VCVT and VCVTR, yet neither seems to document this particular use case.",
+      "range": {
+        "startLine": 337,
+        "startChar": 21,
+        "endLine": 337,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdc4493_b0428c24",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Maybe \"vcvt.f32.s32\" with the same caveat as above.",
+      "range": {
+        "startLine": 340,
+        "startChar": 16,
+        "endLine": 340,
+        "endChar": 22
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d0660b_44459fe4",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "I would use EOR but ADD works too.",
+      "range": {
+        "startLine": 387,
+        "startChar": 19,
+        "endLine": 387,
+        "endChar": 22
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "310d73e1_98c03032",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "Is this needed for invoke-super?",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "744c7cc7_3f551a03",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "I find this difficult to read. Why not\n\n  tst r0, #0x80000000\n  beq 1b",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 9
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c2458d_30b94180",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "0xfff looks like an incorrect constant, it should be 0xffff based on the comment above. Either can be materialized with a single MOVW but that\u0027s unnecessary if you simply use UXTH/UBFX on r0.",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f182d68c_2091201a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T17:11:23Z",
+      "side": 1,
+      "message": "If you do not want to define constants for making this a single UBFX instruction, at least materialize the constant with a single MOVW.",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 319,
+        "endChar": 18
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
