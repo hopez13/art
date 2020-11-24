@@ -22,6 +22,30 @@
       },
       "revId": "ae456b388c62e6f2470831f008388cb138d2d430",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18b2a4b_88b31cac",
+        "filename": "test/723-string-init-range/smali/new-instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-24T09:38:36Z",
+      "side": 1,
+      "message": "I see 9 registers being used, v0-v4, p0-p3.",
+      "parentUuid": "f26d7701_37d5c70c",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "ae456b388c62e6f2470831f008388cb138d2d430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
