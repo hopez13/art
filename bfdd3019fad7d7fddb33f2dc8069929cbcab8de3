@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d392b7_506d9a6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T22:54:12Z",
+      "side": 1,
+      "message": "That\u0027s helpful context. When I started working on this patch, I noticed C++ also has nice concurrency support now too (although I\u0027m guessing it is built on pthreads), so it wasn\u0027t clear whether we should use the standard library or our own versions. It sounds like the ART versions are best for now.",
+      "parentUuid": "3b440058_4ffc6b52",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa6906b_afc603e8",

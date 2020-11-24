@@ -22,6 +22,30 @@
       },
       "revId": "1b7bf164b3b273631c44317d03322aa6553443a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674e8221_310e0aa0",
+        "filename": "runtime/base/message_queue_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-24T22:54:12Z",
+      "side": 1,
+      "message": "That\u0027s a good question. As implemented, the messages will mostly come in order. The exception is the timeout, which can come at any time (for example, if we get descheduled for a second or two sometime after line 109 and before here, the TimeoutExpiredMessage will be received first).\n\nFor the use cases I envisioned, the order is not particularly important. I had imagined standalone events that can usually be processed in any order. But, I could imagine someone relying on in-order delivery. I went ahead and added an extra test to make sure messages are received in order at the end of this file.",
+      "parentUuid": "72f666d5_03e5fcfb",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "1b7bf164b3b273631c44317d03322aa6553443a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
