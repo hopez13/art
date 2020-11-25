@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0972a975_1d786edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-11-25T00:56:23Z",
+      "side": 1,
+      "message": "I think that\u0027s right. Last I looked, things like std::mutex, are indeed currntly built on primitives like pthread_mutex, which means there\u0027s still unnecessary dispatching going on inside.",
+      "parentUuid": "30d392b7_506d9a6f",
+      "revId": "bfdd3019fad7d7fddb33f2dc8069929cbcab8de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa6906b_afc603e8",
