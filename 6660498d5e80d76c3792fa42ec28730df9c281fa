@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "662bd611_9fc7c40e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-25T18:52:44Z",
+      "side": 1,
+      "message": "For the most part, the metrics background thread will be doing:\n\n    while(running) {\n      sleep(5min /*or whatever time we want*/);\n      ReportMetrics();\n    }\n\nBut we\u0027ll have other reasons we need to wake up the thread. For example, when the runtime starts shutting down, we\u0027d want to set running to false and wake up the thread. We also want to be able to request a metrics report on certain events, like right after startup is completed.\n\nThe MessageQueue simplifies the logic around figuring out why the thread was woken up. The loop turns into something like:\n\n    while(running) {\n      message \u003d queue.ReceiveMessage();\n      if (message is TimeoutExpiredMessage) {\n        ReportMetrics();\n        queue.SetTimeout(5min);\n      }\n      if (message is ShutdownRequestedMessage) {\n        running \u003d false;\n      }\n      if (message is ReportMetricsRequestMessage) {\n        ReportMetrics();\n      }\n    }\n\nThe logic could just be built into the MetricsReporter directly, but this way seems cleaner, and it makes it easier to reuse the logic if we have additional threads in the future (or want to rewrite existing threads).",
+      "parentUuid": "ef575e51_c88da49a",
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6801c134_13ff047a",
         "filename": "runtime/base/message_queue.h",
         "patchSetId": 7
@@ -54,6 +72,54 @@
       "writtenOn": "2020-11-25T03:38:34Z",
       "side": 1,
       "message": "This assumes that the messages are very small structures.\n\nI think you should explicitly mention this, otherwise the arg and return copying will be very expensive.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd697bf_fff4e076",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-25T18:52:44Z",
+      "side": 1,
+      "message": "Since this is a class template, the implementation needs to stay here. I could move it to a -impl.h file if you wanted though.",
+      "parentUuid": "6801c134_13ff047a",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 18
+      },
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73080131_ba094ff1",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-25T18:52:44Z",
+      "side": 1,
+      "message": "I added a comment saying small messages should be preferred since they are passed by value.",
+      "parentUuid": "ac27b3b1_e75cd100",
       "range": {
         "startLine": 89,
         "startChar": 0,
