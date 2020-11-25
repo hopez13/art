@@ -12,7 +12,7 @@ bootstrap_go_package {
     ],
     srcs: [
         "art.go",
-        "codegen.go",
+        "codgen.go",
         "makevars.go",
     ],
     pluginFor: ["soong_build"],
