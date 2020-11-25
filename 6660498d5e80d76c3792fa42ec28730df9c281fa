@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dce9603f_658ee9de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-25T20:28:03Z",
+      "side": 1,
+      "message": "See https://android-review.googlesource.com/c/platform/art/+/1508836/3/runtime/metrics/metrics.cc#145 for the how it\u0027s going to be used (that CL is still WIP though).\n\nThe queue is encapsulated inside MetricsReporter, which hangs off the Runtime object. The runtime won\u0027t call SendMessage directly, but it will call StopBackgroundThreadIfRunning which will send the message.",
+      "parentUuid": "6f4e9d1d_33e648ca",
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6801c134_13ff047a",
         "filename": "runtime/base/message_queue.h",
         "patchSetId": 7
