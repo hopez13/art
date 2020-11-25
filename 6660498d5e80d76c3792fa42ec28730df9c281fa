@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f4e9d1d_33e648ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-11-25T20:23:48Z",
+      "side": 1,
+      "message": "Who will be using SendMessage()? And how do they acquire the queue?, will we have a global one?",
+      "parentUuid": "662bd611_9fc7c40e",
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6801c134_13ff047a",
         "filename": "runtime/base/message_queue.h",
         "patchSetId": 7
@@ -125,6 +143,30 @@
         "startChar": 0,
         "endLine": 89,
         "endChar": 5
+      },
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fb1c9b_4220af70",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-11-25T20:23:48Z",
+      "side": 1,
+      "message": "right :)",
+      "parentUuid": "1bd697bf_fff4e076",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 18
       },
       "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
