@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b4f7602_4f6bb393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-11-25T20:32:57Z",
+      "side": 1,
+      "message": "oki, so the message queue will only be used to control the state of the reporting thread. The usual metric reporting won\u0027t go through it. Is this correct?",
+      "parentUuid": "dce9603f_658ee9de",
+      "revId": "6660498d5e80d76c3792fa42ec28730df9c281fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6801c134_13ff047a",
         "filename": "runtime/base/message_queue.h",
         "patchSetId": 7
