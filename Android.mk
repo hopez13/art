@@ -335,7 +335,11 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := com.android.art-autoselect
 LOCAL_IS_HOST_MODULE := true
 ifneq ($(HOST_OS),darwin)
-  LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
+  # The testing APEX is enabled only when compiling from ART Module sources,
+  # which is controlled by this Soong variable.
+  ifeq (true,$(SOONG_CONFIG_art_module_enable_module))
+    LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
+  endif
 endif
 include $(BUILD_PHONY_PACKAGE)
 

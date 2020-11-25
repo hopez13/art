@@ -3,6 +3,15 @@
 // Contains both the Android Managed Runtime (ART) and the Android Core Library
 // (Libcore).
 
+soong_config_module_type_import {
+    from: "art/build/SoongConfig.bp",
+    module_types: [
+        "art_module_apex_defaults",
+        "art_module_cc_defaults",
+        "art_module_genrule_defaults",
+    ],
+}
+
 // Modules listed in LOCAL_REQUIRED_MODULES for module art-runtime in art/Android.mk.
 // - Base requirements (binaries for which both 32- and 64-bit versions are built, if possible).
 art_runtime_base_binaries_both = [
@@ -191,8 +200,17 @@ apex_key {
 }
 
 // Default values shared by device ART APEXes.
-apex_defaults {
+art_module_apex_defaults {
     name: "com.android.art-defaults",
+
+    // Enable only if SOONG_CONFIG_art_module_enable_module := true.
+    enabled: false,
+    soong_config_variables: {
+        enable_module: {
+            enabled: true,
+        },
+    },
+
     compile_multilib: "both",
     manifest: "manifest-art.json",
     java_libs: libcore_java_libs,
@@ -388,18 +406,36 @@ art_check_apex_gen_stem = "$(location art-apex-tester)" +
 
 // The non-flattened APEXes are always checked, as they are always generated
 // (even when APEX flattening is enabled).
-genrule_defaults {
+art_module_genrule_defaults {
     name: "art-check-apex-gen-defaults",
+
+    // Enable only if SOONG_CONFIG_art_module_enable_module := true.
+    enabled: false,
+    soong_config_variables: {
+        enable_module: {
+            enabled: true,
+        },
+    },
+
     tools: [
         "art-apex-tester",
         "debugfs",
     ],
 }
 
-cc_defaults {
+art_module_cc_defaults {
     name: "art-check-apex-gen-fakebin-defaults",
     host_supported: true,
     device_supported: false,
+
+    // Enable only if SOONG_CONFIG_art_module_enable_module := true.
+    enabled: false,
+    soong_config_variables: {
+        enable_module: {
+            enabled: true,
+        },
+    },
+
     target: {
         darwin: {
             enabled: false, // No python3.
