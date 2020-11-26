@@ -124,6 +124,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d07ece6d_6d6f3784",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-26T18:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19e63d39_6ca3ac9b",
+      "range": {
+        "startLine": 31,
+        "startChar": 60,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "02d6d9e9_b62dfdf4",
         "filename": "test/README.atest.md",
         "patchSetId": 1
@@ -135,6 +159,30 @@
       "writtenOn": "2020-11-11T19:13:18Z",
       "side": 1,
       "message": "Could link [Test Mapping](#Test-Mapping)? Or [ART specific Test Mapping]",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9cb5e5f_fe85a57a",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-26T18:25:00Z",
+      "side": 1,
+      "message": "Thanks for the suggestion! Implemented in PS3. It looks like it should work on https://android.googlesource.com/, but it\u0027s not clear to me whether it will work on https://cs.android.com/android/platform/superproject.",
+      "parentUuid": "02d6d9e9_b62dfdf4",
       "range": {
         "startLine": 32,
         "startChar": 4,
@@ -158,6 +206,30 @@
       "writtenOn": "2020-11-16T18:09:13Z",
       "side": 1,
       "message": "Probably a side question, but this is necessary because the ART APEX is still a bootstrap APEX?  We\u0027ll be able to dispense with it when that\u0027s no longer the case?",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995426c9_1c84d0e3",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-26T18:25:00Z",
+      "side": 1,
+      "message": "Good question; I\u0027m not sure, but yes, this looks like it. Do you know when (if?) the ART APEX will cease to be a bootstrap APEX?",
+      "parentUuid": "fc382c35_da85e001",
       "range": {
         "startLine": 64,
         "startChar": 3,
@@ -215,6 +287,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1f09245_19870d4d",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-26T18:25:00Z",
+      "side": 1,
+      "message": "\u003e Have you tried atest syntax to do directly filter? e.g.,\n\u003e atest ArtGtestsTargetInstallApex#*JniInternalTest* \n\nThis did not work on my local tree (\"No test found for: ArtGtestsTargetInstallApex#*JniInternalTest*\").\n\n\u003e Due to that JniInternalTest is a class, could use below turn to run the test.\n\u003e atest ArtGtestsTargetInstallApex:JniInternalTest\n\u003e \n\u003e By the way, current atest could also run this term\n\u003e atest ArtGtestsTargetInstallApex:*JniInternalTest*\n\u003e atest ArtGtestsTargetInstallApex:*Test*\n\nThanks, all these invocations worked for me; I\u0027ve amended this section of the doc in PS3.",
+      "parentUuid": "11750b14_8750c0f4",
+      "range": {
+        "startLine": 78,
+        "startChar": 43,
+        "endLine": 78,
+        "endChar": 65
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da22db88_59313cb9",
@@ -228,6 +324,30 @@
       "writtenOn": "2020-11-11T17:45:05Z",
       "side": 1,
       "message": "Do we want to be clear that this is the path to the TEST_MAPPING file?",
+      "range": {
+        "startLine": 116,
+        "startChar": 21,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b9977b_0e2ec023",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-26T18:25:00Z",
+      "side": 1,
+      "message": "Thanks, done in PS3.",
+      "parentUuid": "da22db88_59313cb9",
       "range": {
         "startLine": 116,
         "startChar": 21,
