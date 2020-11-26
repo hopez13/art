@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006400764",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1120950?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "8f3713dd_092e2cb4",
+          "description": "Change to \"dex2oat/dex2oat_vdex_test.cc\"",
+          "replacements": [
+            {
+              "path": "dex2oat/dex2oat_vdex_test.cc",
+              "range": {
+                "startLine": 189,
+                "startChar": 0,
+                "endLine": 189,
+                "endChar": 16
+              },
+              "replacement": "  // TODO(calin)"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a166a62d_7b69681e",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-11-26T03:18:59Z",
+      "side": 1,
+      "message": "Common typo found: \"  // TOOD(calin)\" -- should it be \"  // TODO(calin)\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 16
+      },
+      "revId": "59a59789caf4976ab460f90e8a45d2862c886369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
