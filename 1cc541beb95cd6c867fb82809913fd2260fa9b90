@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "566d8c07_b4b7d46d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2512,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "This really needs cleanup.\n\nI might move this all into another whole struct.",
+      "range": {
+        "startLine": 2512,
+        "startChar": 0,
+        "endLine": 2512,
+        "endChar": 64
+      },
+      "revId": "1cc541beb95cd6c867fb82809913fd2260fa9b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

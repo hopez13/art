@@ -1,0 +1,429 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b19bfa9_68d329e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Hi Vladimir, This is still pretty WIP but I figured since I\u0027m off for Thanksgiving I might as well let you take a look at it if you want.\n\nAFAICT there are 4 things I still need to do (1) keep track of stores a bit more precisely so we can handle things like \n\n```\nfoo.b \u003d 10;\na \u003d foo.b;  // \u003c- 10\nnoescape();\nb \u003d foo.b;  // \u003c- 10\nfoo.b \u003d 33;\nnoescape();\nc \u003d foo.b;  // \u003c- 33\n```\n\nNormal LSE has lost this information but it\u0027s easy enough to extend LSE to keep it when needed.\n\n(2) Support materializing loop phis.\n\nI don\u0027t think either should be super difficult TBH.\n\n(3) fix up tests for old LSE to work with partial LSE\n\nAlso not difficult. Most tests need no changes or rather minimal ones.\n\n(4) Speed/efficency things. Currently I just use normal std::containers but several places we can use bitmaps or flat arrays. This makes things easier to write though.\n\nI added some comments explaining what everything does. Almost all the interesting changes are in the MovePartialEscapes function at the moment (though with a lot of lambdas for helpers).",
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25677e26_f9357522",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "this is mostly just to allow for Parameterized testing\n\nI\u0027ll probably split this out before I submit.",
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15d67e3_e47fb4f9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Should really replace this with a LOG(FATAL) we shouldn\u0027t get these.",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 3
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "011784c6_1e077fd0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Temporary expedient.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 4,
+        "endLine": 1524,
+        "endChar": 3
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9624f4_60de54b7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Stores what the NewInstance (or Phi of several NewInstance) instruction the partially eliminated value is. Null if before escape, Phi w/ null if after cohort.",
+      "range": {
+        "startLine": 2609,
+        "startChar": 0,
+        "endLine": 2609,
+        "endChar": 58
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d2f8524_5bf35b70",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Actually create materialization blocks. Don\u0027t add them to the graph fully yet.",
+      "range": {
+        "startLine": 2623,
+        "startChar": 7,
+        "endLine": 2634,
+        "endChar": 13
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a0dc62_f15cb9fc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2677,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "This sets up all the materialization\u0027s field values",
+      "range": {
+        "startLine": 2645,
+        "startChar": 0,
+        "endLine": 2677,
+        "endChar": 13
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38842c81_104f4968",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Create materialization blocks",
+      "range": {
+        "startLine": 2698,
+        "startChar": 3,
+        "endLine": 2714,
+        "endChar": 9
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e43e5094_da3ff492",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2737,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "PHI the materialized value through the rest of the function. Since these aren\u0027t normal HeapLocation we can\u0027t use the Materialize...Phis functions. Simple enough though.",
+      "range": {
+        "startLine": 2715,
+        "startChar": 7,
+        "endLine": 2737,
+        "endChar": 7
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b09c88d_fee3b293",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Fill in the rest of the materializations.\n\nEvery block has an entry in the \u0027materializations\u0027 map.",
+      "range": {
+        "startLine": 2758,
+        "startChar": 2,
+        "endLine": 2800,
+        "endChar": 5
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "951ed992_9d8d167a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2839,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Get all the uses. Since changing these invalidates the iterators (intrusive lists 😞) we need to stash them and update in another pass.",
+      "range": {
+        "startLine": 2815,
+        "startChar": 0,
+        "endLine": 2839,
+        "endChar": 5
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e0b894b_e2b1026d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2844,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Within excluded cohort so we just replace with appropriate materialization.",
+      "range": {
+        "startLine": 2841,
+        "startChar": 11,
+        "endLine": 2844,
+        "endChar": 5
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d83f98d_0d5b2bd7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Before anything could have escaped. Can just remove (except for direct comparisons with the object (obj \u003d\u003d CLASS.STATIC_VAL?) which we need to replace with an appropriate constant",
+      "range": {
+        "startLine": 2845,
+        "startChar": 3,
+        "endLine": 2847,
+        "endChar": 8
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d32c86ea_fd893bd0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2896,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Constructor-fences should just be duplicated to each of the materializations (after all the fields are created).\n\nSince this has to before escape everything is cool.",
+      "range": {
+        "startLine": 2877,
+        "startChar": 0,
+        "endLine": 2896,
+        "endChar": 5
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a8215f_b33aaad6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2900,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "helper to get what the value will be if escape didn\u0027t happen. Currently limited to only materializing non-loop phis.",
+      "range": {
+        "startLine": 2898,
+        "startChar": 4,
+        "endLine": 2900,
+        "endChar": 6
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bde9a16_ff56d3ab",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2928,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Where we replace predicated values.\n\nSince deopt, invokes, monitor, return, throw \u0026 phis are escapes the only possible nodes here are HEqual, HNotEqual, HInstanceGet \u0026 HInstanceSet so deal with each of them.",
+      "range": {
+        "startLine": 2924,
+        "startChar": 0,
+        "endLine": 2928,
+        "endChar": 13
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6075c0d_134c8bd3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2983,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Fixup env. Since only deopt\u0027s env use counts as an escape (which is handled by LSA) we don\u0027t need to do anything fancy here.",
+      "range": {
+        "startLine": 2975,
+        "startChar": 5,
+        "endLine": 2983,
+        "endChar": 5
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43e979e_f86aa750",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "Changes to allow paraterized testing of replacing partial escape comparison.",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 92
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29011809_01655b2f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4550,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-11-26T01:03:40Z",
+      "side": 1,
+      "message": "This plus next 3 are paraterized tests checking we correctly replace comparisons using the partially escaped values.",
+      "range": {
+        "startLine": 4550,
+        "startChar": 0,
+        "endLine": 4550,
+        "endChar": 67
+      },
+      "revId": "c97a8f2c383f61f6c656810d08704832070f9031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
