@@ -16,6 +16,121 @@
       "message": "I plan to add a few more tests but please take a look for an initial round of comments.",
       "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792d89b4_b7bf95ce",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-26T13:22:22Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbc3c16e_bedf8b35",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-26T13:22:22Z",
+      "side": 1,
+      "message": "predefined",
+      "range": {
+        "startLine": 137,
+        "startChar": 40,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5841ff1_dde46c70",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-26T13:22:22Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "349af44b_355e4515",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-26T13:22:22Z",
+      "side": 1,
+      "message": "Move to AotClassLinker, add another virtual method (or three given how you use this in hiddenapi) similar to IsUpdatableBootClassPathDescriptor() and guard the call to it with IsAotCompiler().\n\n(We should try to move AotClassLinker from libart.so to dex2oat to reduce memory footprint of zygote and all children. The ApiChecker also conceptually belongs to dex2oat.)",
+      "range": {
+        "startLine": 798,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 0
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b781be9_072fba1c",
+        "filename": "test/Dex2oatVdexPublicApiDex/Readme.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-26T13:22:22Z",
+      "side": 1,
+      "message": "singular",
+      "range": {
+        "startLine": 1,
+        "startChar": 9,
+        "endLine": 1,
+        "endChar": 14
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
