@@ -1498,6 +1498,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d44822_5ddcae2d",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-11-27T13:09:07Z",
+      "side": 1,
+      "message": "I guess the links in the manual are wrong as there are VCVT variants that actually describe these instructions correctly.",
+      "parentUuid": "4e2c4a53_56986de5",
+      "range": {
+        "startLine": 337,
+        "startChar": 21,
+        "endLine": 337,
+        "endChar": 27
+      },
+      "revId": "ca94d6abc9d849f2b3dbab1de327a465817c8276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cdc4493_b0428c24",
