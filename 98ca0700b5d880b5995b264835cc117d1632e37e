@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4fe148c_dd2a6df3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "It\u0027s not really a classpath, is it? Could we just call it public_api_ / public_sdk_ ?",
+      "range": {
+        "startLine": 2860,
+        "startChar": 9,
+        "endLine": 2860,
+        "endChar": 18
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29184942_66d72c3e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 2863,
+        "startChar": 0,
+        "endLine": 2863,
+        "endChar": 43
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "792d89b4_b7bf95ce",
         "filename": "dex2oat/dex2oat_vdex_test.cc",
         "patchSetId": 4
@@ -66,6 +112,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd619607_af5cfb96",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "If the method is public API, why do we check its return and signature? (we should assume the stubs are consistent).",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc10258_cf2f91be",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "Look like an expansive lookup - comment why it\u0027s OK ?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "231acd72_655e9d9a",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "ditto about why we check the type of the field if it\u0027s public api.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5841ff1_dde46c70",
         "filename": "runtime/api_checker.h",
         "patchSetId": 4
@@ -89,6 +204,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "342270ef_04bb591d",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "Move to the end?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e21a0101_cce10889",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "type_descriptor ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ade2eca_6bbb097a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "IsBootClassLoader ?",
+      "range": {
+        "startLine": 3326,
+        "startChar": 8,
+        "endLine": 3326,
+        "endChar": 31
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9daf08_ab42e7b8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "Please add a comment that we\u0027re only blocking boot classpath APIs, hence the null check.",
+      "range": {
+        "startLine": 3326,
+        "startChar": 9,
+        "endLine": 3326,
+        "endChar": 31
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "349af44b_355e4515",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -105,6 +312,52 @@
         "startChar": 0,
         "endLine": 801,
         "endChar": 0
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea7db0b_897d6fdc",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "ditto about moving this to api_checker.",
+      "range": {
+        "startLine": 1475,
+        "startChar": 0,
+        "endLine": 1475,
+        "endChar": 43
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce664bdd_88bc800d",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-27T10:05:19Z",
+      "side": 1,
+      "message": "class_linker-\u003eIsBootClassLoader ?",
+      "range": {
+        "startLine": 414,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 64
       },
       "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
