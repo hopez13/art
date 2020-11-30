@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d760409f_8f99280c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-30T18:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5149d000_f356741c",
+      "revId": "050e045eeae895050a767cee6618389b6c326526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3db6c75_d2bd9cdd",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-14T01:21:59Z",
       "side": 1,
       "message": "std::optional ?",
+      "range": {
+        "startLine": 1333,
+        "startChar": 7,
+        "endLine": 1333,
+        "endChar": 17
+      },
+      "revId": "050e045eeae895050a767cee6618389b6c326526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab7bc34_9314e197",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-11-30T18:49:37Z",
+      "side": 1,
+      "message": "Maybe? I tried std::optional briefly, but I think I like the unique_ptr version better, so I\u0027ll stick with that.",
+      "parentUuid": "c3db6c75_d2bd9cdd",
       "range": {
         "startLine": 1333,
         "startChar": 7,
