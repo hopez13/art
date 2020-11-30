@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "001c4bb2_d3e8b5d3",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7b41cd_e2ce9220",
+      "range": {
+        "startLine": 551,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 22
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdb75cc4_b0e11bd3",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Update just like op_mul_long.",
+      "range": {
+        "startLine": 579,
+        "startChar": 4,
+        "endLine": 584,
+        "endChar": 68
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06fb8e15_9d10f583",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb75cc4_b0e11bd3",
       "range": {
         "startLine": 579,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b5860ab_9d5e15c5",
+        "filename": "runtime/interpreter/mterp/armng/arithmetic.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5700bbb5_dbf713c5",
+      "range": {
+        "startLine": 797,
+        "startChar": 7,
+        "endLine": 797,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48996bd6_46d0f8e4",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "indentation",
+      "range": {
+        "startLine": 135,
+        "startChar": 10,
+        "endLine": 135,
+        "endChar": 11
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a61253_fdd25320",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48996bd6_46d0f8e4",
       "range": {
         "startLine": 135,
         "startChar": 10,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82ff7e4_82ba5f3b",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28034c72_a1bfa133",
+      "range": {
+        "startLine": 190,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 20
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ea8e8a9_7e0e2529",
@@ -146,6 +266,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 20
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae8f869_b2fb5c0f",
+        "filename": "runtime/interpreter/mterp/armng/floating_point.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ea8e8a9_7e0e2529",
       "range": {
         "startLine": 227,
         "startChar": 4,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dc453a_bc65c665",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ddcd461_c8fcf9d7",
+      "range": {
+        "startLine": 102,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcb56580_c21d199c",
@@ -192,6 +360,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "16",
+      "range": {
+        "startLine": 104,
+        "startChar": 21,
+        "endLine": 104,
+        "endChar": 22
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f523fd_c7162752",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Good catch, done.",
+      "parentUuid": "dcb56580_c21d199c",
       "range": {
         "startLine": 104,
         "startChar": 21,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff7412f_c79bb0ea",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Added a comment, and no, we\u0027re not using r4 assuming it\u0027s callee-save when calling managed code.",
+      "parentUuid": "1bcccd1c_c05e9d04",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da9c6410_75af29fa",
@@ -238,6 +454,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "We\u0027re using soft-float, so as long as you\u0027re describing native ABI, FP results are returned in r0 or r0-r1.",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 71
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9267d3_dc6756fc",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da9c6410_75af29fa",
       "range": {
         "startLine": 49,
         "startChar": 3,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3007433f_9ec3ef4e",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2072015c_8ca51b28",
+      "range": {
+        "startLine": 69,
+        "startChar": 58,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51365b05_fb6ecd62",
@@ -284,6 +548,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Remove line.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 2
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6480ecfe_6a5d1098",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51365b05_fb6ecd62",
       "range": {
         "startLine": 142,
         "startChar": 0,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa1068dd_b287e19d",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fea08bf_f3b7f852",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 8
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beaafe7f_d560b9e2",
@@ -330,6 +642,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "vldr",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 221,
+        "endChar": 8
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e3fbc05_b4ae620f",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beaafe7f_d560b9e2",
       "range": {
         "startLine": 221,
         "startChar": 4,
@@ -363,6 +699,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3461ad3_2635cd7a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42d8325_33e317b2",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 224,
+        "endChar": 8
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5042a563_93402cca",
@@ -386,6 +746,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb464065_59352626",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5042a563_93402cca",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 8
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9741bdaa_cfb0e72c",
@@ -399,6 +783,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "vstr",
+      "range": {
+        "startLine": 230,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 8
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb2e91d6_8bac87d6",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9741bdaa_cfb0e72c",
       "range": {
         "startLine": 230,
         "startChar": 4,
@@ -455,6 +863,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7b7eb4_46a631fc",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57c86c0b_b007753a",
+      "range": {
+        "startLine": 337,
+        "startChar": 19,
+        "endLine": 337,
+        "endChar": 26
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d241e46_f13d2d9d",
@@ -468,6 +900,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "ldrh lr, [ip, #-2]!",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 363,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d61431e3_d8dc3f28",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d241e46_f13d2d9d",
       "range": {
         "startLine": 362,
         "startChar": 4,
@@ -524,6 +980,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ba66bc_d04bedb0",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c26512f_8e7b594d",
+      "range": {
+        "startLine": 369,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7df94766_5b21ecf6",
@@ -537,6 +1017,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "ldrh lr, [ip, #-2]!",
+      "range": {
+        "startLine": 380,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818eb667_3633ca47",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7df94766_5b21ecf6",
       "range": {
         "startLine": 380,
         "startChar": 4,
@@ -564,6 +1068,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7666c63e_146e737f",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80bb7112_9a1ee3f6",
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db22fdfe_cfff8a05",
@@ -577,6 +1099,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "add ip, ip, rINST, lsl #1",
+      "range": {
+        "startLine": 416,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 21
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "208c48f0_73784ae0",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db22fdfe_cfff8a05",
       "range": {
         "startLine": 416,
         "startChar": 4,
@@ -610,6 +1156,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "086b2513_dbaf9736",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa80e5e1_0e5cc872",
+      "range": {
+        "startLine": 418,
+        "startChar": 4,
+        "endLine": 422,
+        "endChar": 18
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bd51842_6dd2e6ed",
@@ -623,6 +1193,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "This comment belongs on the next line.\n\n(Note: In T32, the two stores could be merged with `strd r0, r0, [lr], #8`.)",
+      "range": {
+        "startLine": 447,
+        "startChar": 22,
+        "endLine": 447,
+        "endChar": 43
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e371fa_213dbb62",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bd51842_6dd2e6ed",
       "range": {
         "startLine": 447,
         "startChar": 22,
@@ -656,6 +1250,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67e4fa7_b8af0083",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Only for thumb 😊",
+      "parentUuid": "4390c3ea_9baa3ad3",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 464,
+        "endChar": 10
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5de0e8e9_34fe030a",
@@ -669,6 +1287,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Maybe `add sp, sp, #4`?\n\nAlso, missing .cfi_adjust_cfa_offset for this line and the previous one.",
+      "range": {
+        "startLine": 493,
+        "startChar": 4,
+        "endLine": 493,
+        "endChar": 12
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f4fd21_8ae21841",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de0e8e9_34fe030a",
       "range": {
         "startLine": 493,
         "startChar": 4,
@@ -702,6 +1344,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b30a2e5_05818ccf",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07452472_6871d19d",
+      "range": {
+        "startLine": 499,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 30
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47841076_5132c9ec",
@@ -715,6 +1381,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "... for range invokes, up to 4 arguments for non-range invokes.",
+      "range": {
+        "startLine": 542,
+        "startChar": 9,
+        "endLine": 542,
+        "endChar": 27
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c07bebb_56217348",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47841076_5132c9ec",
       "range": {
         "startLine": 542,
         "startChar": 9,
@@ -748,6 +1438,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f5464e2_81e1934f",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b43e3172_34f8d410",
+      "range": {
+        "startLine": 579,
+        "startChar": 9,
+        "endLine": 579,
+        "endChar": 27
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a18787c_4f4823a0",
@@ -761,6 +1475,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "What about\n\n  .if is_static\n  asrs   r0, r2, #4\n  beq    6f\n  .else\n  asr    r0, r2, #4\n  .endif\n\n(It is possible to specialize this further for string_init to avoid the next 2 instructions for empty string but I would not bother.)",
+      "range": {
+        "startLine": 586,
+        "startChar": 3,
+        "endLine": 588,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e13d704_06e00027",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a18787c_4f4823a0",
       "range": {
         "startLine": 586,
         "startChar": 3,
@@ -794,6 +1532,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c20a0e_06a76da4",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Only for thumb.",
+      "parentUuid": "a57e8f5d_137aff81",
+      "range": {
+        "startLine": 681,
+        "startChar": 3,
+        "endLine": 682,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d76bf28_38d24b77",
@@ -807,6 +1569,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Remove. Change the SUB to SUBS on line 690 instead.",
+      "range": {
+        "startLine": 694,
+        "startChar": 3,
+        "endLine": 694,
+        "endChar": 13
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e52e700_85d31887",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d76bf28_38d24b77",
       "range": {
         "startLine": 694,
         "startChar": 3,
@@ -840,6 +1626,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f27d0f1_2d722c11",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Sigh, why do PC related instructions are so annoying. I\u0027ve added a comment.",
+      "parentUuid": "24b953e8_3251385e",
+      "range": {
+        "startLine": 744,
+        "startChar": 3,
+        "endLine": 744,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccfcb707_664e8f24",
@@ -853,6 +1663,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "You could order the cases so that this is usually a fall-through and add explicit branch if it isn\u0027t:\n\n  load d0/s0  double-\u003ed1/s2\n  load d1/s1  double-\u003ed2/s1\n  load d1/s2  double-\u003ed2/s4\n  load d2/s3  double-\u003eend\n  b d2/s4\n  load d2/s1  double-\u003eend\n  load d2/s4  double should not be found",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 15
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a324a209_8251da5a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Indeed, looks much nicer. Done.",
+      "parentUuid": "ccfcb707_664e8f24",
       "range": {
         "startLine": 815,
         "startChar": 4,
@@ -909,6 +1743,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0105e24_bde01f6d",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e3e5032_e3b7e9ac",
+      "range": {
+        "startLine": 989,
+        "startChar": 101,
+        "endLine": 989,
+        "endChar": 106
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a47b52ad_c7fd82e2",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f225d0a_32c955d7",
+      "range": {
+        "startLine": 989,
+        "startChar": 84,
+        "endLine": 989,
+        "endChar": 89
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff23b8f7_ce5541b0",
@@ -922,6 +1804,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Bad case, see above.",
+      "range": {
+        "startLine": 991,
+        "startChar": 32,
+        "endLine": 991,
+        "endChar": 38
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa78c46_e01746e5",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff23b8f7_ce5541b0",
       "range": {
         "startLine": 991,
         "startChar": 32,
@@ -955,6 +1861,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2becfc53_66617a32",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfc9d88a_aa92fe6d",
+      "range": {
+        "startLine": 993,
+        "startChar": 99,
+        "endLine": 993,
+        "endChar": 114
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6809c4e8_0df1743a",
@@ -978,6 +1908,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04ba4fe3_71c3f5f6",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6809c4e8_0df1743a",
+      "range": {
+        "startLine": 995,
+        "startChar": 32,
+        "endLine": 995,
+        "endChar": 38
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e85669e2_43be4096",
@@ -991,6 +1945,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Cannot find double.",
+      "range": {
+        "startLine": 997,
+        "startChar": 112,
+        "endLine": 997,
+        "endChar": 140
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c66d5052_5f18f478",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85669e2_43be4096",
       "range": {
         "startLine": 997,
         "startChar": 112,
@@ -1047,6 +2025,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff073ea_6d845fef",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "I now push another argument.",
+      "parentUuid": "413fd4db_37728082",
+      "range": {
+        "startLine": 1188,
+        "startChar": 3,
+        "endLine": 1188,
+        "endChar": 13
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edfc1184_4df47d05",
@@ -1070,6 +2072,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b9a892f_347c50dc",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edfc1184_4df47d05",
+      "range": {
+        "startLine": 1190,
+        "startChar": 3,
+        "endLine": 1190,
+        "endChar": 12
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ac6ef68_91fe5279",
@@ -1083,6 +2109,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Does this need `.if !\\string_init` as in COMMON_INVOKE_NON_RANGE?",
+      "range": {
+        "startLine": 1211,
+        "startChar": 3,
+        "endLine": 1211,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6229fd7b_d904cb38",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "No, because in COMMON_INVOKE_NON_RANGE we\u0027re using arg_index to know how to decode the instruction, whereas here we\u0027re using a stack index, which needs to be adjusted always.",
+      "parentUuid": "0ac6ef68_91fe5279",
       "range": {
         "startLine": 1211,
         "startChar": 3,
@@ -1139,6 +2189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13544487_b1fd7fb6",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d9d541d_29a388ab",
+      "range": {
+        "startLine": 1313,
+        "startChar": 3,
+        "endLine": 1313,
+        "endChar": 22
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3a4a8ec_f43030b2",
@@ -1152,6 +2226,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1400,
+        "startChar": 36,
+        "endLine": 1400,
+        "endChar": 37
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7733787b_39beefe9",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a4a8ec_f43030b2",
       "range": {
         "startLine": 1400,
         "startChar": 36,
@@ -1185,6 +2283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "993d831a_ae7b9867",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e07aee89_dc9ebbae",
+      "range": {
+        "startLine": 1427,
+        "startChar": 3,
+        "endLine": 1428,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cd7d3b9_3e4c7f68",
@@ -1198,6 +2320,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "cmp r0, #0; blt 1b",
+      "range": {
+        "startLine": 1486,
+        "startChar": 3,
+        "endLine": 1487,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a89473d_d5f7f19c",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd7d3b9_3e4c7f68",
       "range": {
         "startLine": 1486,
         "startChar": 3,
@@ -1231,6 +2377,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7122257b_73ac2291",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b021ebc0_4970270d",
+      "range": {
+        "startLine": 1497,
+        "startChar": 2,
+        "endLine": 1497,
+        "endChar": 22
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d7eee01_5b46bccf",
@@ -1244,6 +2414,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Unaligned SP at function call. (Need 8-byte alignment, spilled 9+16+4+16 words.)",
+      "range": {
+        "startLine": 1616,
+        "startChar": 4,
+        "endLine": 1616,
+        "endChar": 21
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6f07cc_dfbb9999",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d7eee01_5b46bccf",
       "range": {
         "startLine": 1616,
         "startChar": 4,
@@ -1277,6 +2471,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0557fa92_bb96e2a8",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "NterpStoreArm32Fprs doesn\u0027t know whether the method is instance or not - so it needs the increment of lr here in case it\u0027s an instance method.",
+      "parentUuid": "ef99f9f6_873951b5",
+      "range": {
+        "startLine": 1646,
+        "startChar": 4,
+        "endLine": 1646,
+        "endChar": 18
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b8f3a5a_422e7f6f",
@@ -1290,6 +2508,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "We are allowed to clobber these now, so simply adjusting SP would be OK, keeping whatever the call above clobbered.",
+      "range": {
+        "startLine": 1664,
+        "startChar": 4,
+        "endLine": 1664,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34d9a92_e848f115",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b8f3a5a_422e7f6f",
       "range": {
         "startLine": 1664,
         "startChar": 4,
@@ -1323,6 +2565,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4ac9ad7_7b62fbbd",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a5a495_5f1659f6",
+      "range": {
+        "startLine": 1693,
+        "startChar": 10,
+        "endLine": 1693,
+        "endChar": 20
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "469689e8_dc7a63c7",
@@ -1336,6 +2602,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "I don\u0027t think we need to mark a newly-allocated object.",
+      "range": {
+        "startLine": 1765,
+        "startChar": 3,
+        "endLine": 1767,
+        "endChar": 39
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a936add_3eae329f",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "469689e8_dc7a63c7",
       "range": {
         "startLine": 1765,
         "startChar": 3,
@@ -1369,6 +2659,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95dcd63d_6b096e72",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Only for thumb.",
+      "parentUuid": "879c978f_084da7e8",
+      "range": {
+        "startLine": 1811,
+        "startChar": 3,
+        "endLine": 1812,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c5f54b1_096f0175",
@@ -1382,6 +2696,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "cmp r0, #0; blt 1b",
+      "range": {
+        "startLine": 1826,
+        "startChar": 3,
+        "endLine": 1827,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78fc21c_838a212a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c5f54b1_096f0175",
       "range": {
         "startLine": 1826,
         "startChar": 3,
@@ -1415,6 +2753,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f5bca0_2da4ff5c",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390dd5ce_2c3cfdab",
+      "range": {
+        "startLine": 1840,
+        "startChar": 3,
+        "endLine": 1843,
+        "endChar": 7
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9775e509_1ccf5fac",
@@ -1428,6 +2790,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "cmp r0, #0; blt 1b",
+      "range": {
+        "startLine": 1871,
+        "startChar": 3,
+        "endLine": 1872,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89c244f1_57cff788",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9775e509_1ccf5fac",
       "range": {
         "startLine": 1871,
         "startChar": 3,
@@ -1461,6 +2847,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "846d3ba3_8a2ffa8b",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1883,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "323b66b1_68da1fcc",
+      "range": {
+        "startLine": 1883,
+        "startChar": 7,
+        "endLine": 1883,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32494e13_e4f628e4",
@@ -1474,6 +2884,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "CBZ",
+      "range": {
+        "startLine": 1905,
+        "startChar": 3,
+        "endLine": 1906,
+        "endChar": 9
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97f2bf0_266cad0d",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1906,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Only on thumb.",
+      "parentUuid": "32494e13_e4f628e4",
       "range": {
         "startLine": 1905,
         "startChar": 3,
@@ -1507,6 +2941,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb2914c_760f9556",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd0acc3a_524fad10",
+      "range": {
+        "startLine": 1938,
+        "startChar": 3,
+        "endLine": 1941,
+        "endChar": 7
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c120f9c_22079b20",
@@ -1520,6 +2978,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Could reuse code at label 2b.",
+      "range": {
+        "startLine": 1987,
+        "startChar": 0,
+        "endLine": 1992,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d317ab9_57af1f6a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c120f9c_22079b20",
       "range": {
         "startLine": 1987,
         "startChar": 0,
@@ -1553,6 +3035,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "984b0955_33ece6f9",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54af545b_89e25632",
+      "range": {
+        "startLine": 2016,
+        "startChar": 21,
+        "endLine": 2016,
+        "endChar": 22
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f179899_a6417ac6",
@@ -1566,6 +3072,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Indentation.",
+      "range": {
+        "startLine": 2065,
+        "startChar": 3,
+        "endLine": 2065,
+        "endChar": 4
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f465b0bb_15f5acb7",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f179899_a6417ac6",
       "range": {
         "startLine": 2065,
         "startChar": 3,
@@ -1599,6 +3129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "170a8085_85cf4f70",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afcaefc2_52d65202",
+      "range": {
+        "startLine": 2125,
+        "startChar": 11,
+        "endLine": 2125,
+        "endChar": 12
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2394c15_7d64a6c9",
@@ -1612,6 +3166,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Add \"if \".",
+      "range": {
+        "startLine": 2136,
+        "startChar": 11,
+        "endLine": 2136,
+        "endChar": 12
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0debdf51_6aa943dc",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2394c15_7d64a6c9",
       "range": {
         "startLine": 2136,
         "startChar": 11,
@@ -1645,6 +3223,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0b6174_ac498ab4",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Only on thumb.",
+      "parentUuid": "452cdaf9_ce6c7818",
+      "range": {
+        "startLine": 2146,
+        "startChar": 4,
+        "endLine": 2147,
+        "endChar": 10
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39d1236b_405ba65c",
@@ -1658,6 +3260,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Add explicit `is_string_init\u003d0`.",
+      "range": {
+        "startLine": 2230,
+        "startChar": 48,
+        "endLine": 2230,
+        "endChar": 49
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b66deb_f4cd1fdf",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d1236b_405ba65c",
       "range": {
         "startLine": 2230,
         "startChar": 48,
@@ -1691,6 +3317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e3f091_75b48bd9",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151e750e_acb015c1",
+      "range": {
+        "startLine": 2236,
+        "startChar": 48,
+        "endLine": 2236,
+        "endChar": 49
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40d9e88e_31b67acf",
@@ -1704,6 +3354,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Why not FETCH_ADVANCE_INST?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "592bfe94_d29f346a",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Looks like braino from mterp. Changed.",
+      "parentUuid": "40d9e88e_31b67acf",
       "range": {
         "startLine": 39,
         "startChar": 4,
@@ -1737,6 +3411,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4763d64_09dc6915",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40ec7e69_1b2b1a68",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a632e2e2_8ea4b1f7",
@@ -1750,6 +3448,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Move right after op_check_cast.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 20
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27486bb9_7f8648d6",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a632e2e2_8ea4b1f7",
       "range": {
         "startLine": 84,
         "startChar": 0,
@@ -1783,6 +3505,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b57efd_49a7789c",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf781c2b_93083ef5",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 26
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "885ce232_02317778",
@@ -1796,6 +3542,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Move before op_iput_quick.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38493311_317865cc",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "885ce232_02317778",
       "range": {
         "startLine": 90,
         "startChar": 0,
@@ -1829,6 +3599,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae1502a_f706b6d3",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acd10fca_7570cb7c",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 54
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2b60845_f13036ae",
@@ -1842,6 +3636,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Move after op_sget_object.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 31
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f695c7e6_97e891e7",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2b60845_f13036ae",
       "range": {
         "startLine": 162,
         "startChar": 0,
@@ -1875,6 +3693,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7f7ddf_e3f3a33f",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b77fbe79_cfc0ebfa",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 24
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc710e49_606525c7",
@@ -1888,6 +3730,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Remove? Then remove the `cls` argument?",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 60,
+        "endChar": 6
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d19a639b_8a27b244",
+        "filename": "runtime/interpreter/mterp/armng/other.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Ah, leftover debugging, nice spotting it. Removed.",
+      "parentUuid": "fc710e49_606525c7",
       "range": {
         "startLine": 56,
         "startChar": 3,
@@ -1921,6 +3787,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a5b8e9_0dc72756",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4785992f_3c40826a",
+      "range": {
+        "startLine": 121,
+        "startChar": 36,
+        "endLine": 121,
+        "endChar": 54
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b3b157_0e4745b0",
@@ -1934,6 +3824,30 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "The assembly should adjust the `old_sp` to point to stack args. (And then s/old_sp/stack_args/ .)",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 81
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f1155c9_7159750b",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b3b157_0e4745b0",
       "range": {
         "startLine": 126,
         "startChar": 2,
@@ -1967,6 +3881,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8089132_dd992903",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a91e6bf_fb9d888a",
+      "range": {
+        "startLine": 172,
+        "startChar": 36,
+        "endLine": 172,
+        "endChar": 54
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "057d4b43_3a43e7b2",
@@ -1990,6 +3928,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59a4f709_179c5a18",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "057d4b43_3a43e7b2",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 35
+      },
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1657d8bc_704d6c6a",
@@ -2003,6 +3965,24 @@
       "writtenOn": "2020-11-27T13:09:07Z",
       "side": 1,
       "message": "Should these helpers be guarded by `#ifdef __arm__`?",
+      "revId": "77696c08c89f25e05dc291787285495179cbbf43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed36f7d_57cc38de",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-11-30T08:51:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1657d8bc_704d6c6a",
       "revId": "77696c08c89f25e05dc291787285495179cbbf43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
