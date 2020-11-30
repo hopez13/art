@@ -266,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ffc33a1_b63c461c",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2020-11-30T21:32:47Z",
+      "side": 1,
+      "message": "I hope that we will be able to remove art from list of bootstrap apexes. Here is tracking bug: b/169779935, although I didn\u0027t have time to work on it.\n\nEven after you remove art from list of bootstrap apexes, you\u0027ll still need to reboot device in order to install test version, no?",
+      "parentUuid": "7c2f67d0_aece9daf",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d9fc3d1_4336c759",
         "filename": "test/README.atest.md",
         "patchSetId": 1
