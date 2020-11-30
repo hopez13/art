@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "19ebdd0b_68959391",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-30T19:22:55Z",
+      "side": 1,
+      "message": "Thanks Mathieu and Eric.\n\nWe should be able to revert this CL once https://android-review.googlesource.com/c/platform/art/+/1513256/ is merged.\n",
+      "revId": "30d0d149d2f5417584997469f0e6e3aa53f3307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "913b9ae0_02c47c0b",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
@@ -14,6 +31,24 @@
       "writtenOn": "2020-11-30T18:35:03Z",
       "side": 1,
       "message": "Out of curiosity, why do we generate this file rather than just checking it in and manually updating it?",
+      "revId": "30d0d149d2f5417584997469f0e6e3aa53f3307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb51b7f_ce6fcfbc",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-11-30T19:22:55Z",
+      "side": 1,
+      "message": "For the largest part, this file is generated from the contents of ART\u0027s `test` directory (see the logic below): manually updating the `TEST_MAPPING` file at every test change would be cumbersome and error-prone.\n\nThe next step here is to semi-automate the regeneration of this file (using a pre-upload hook). An even further step is to integrate all that logic into Soong (which will likely require a lot of non-trivial work).",
+      "parentUuid": "913b9ae0_02c47c0b",
       "revId": "30d0d149d2f5417584997469f0e6e3aa53f3307e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
