@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee78a430_8f77dd51",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-01T20:17:02Z",
+      "side": 1,
+      "message": "As discussed, we need to add unit tests here.\n\nThere are 2 possible places:\n1) profile_compilation_info_test -\u003e this is more basis functionality testing\n2) profile_assistant_test -\u003e this is integration testing\n\nIf you go with 1) you will need to combine or test separately boot profile merge + filtering in the same test (E.g. https://cs.android.com/android/platform/superproject/+/master:art/libprofile/profile/profile_compilation_info_test.cc;drc\u003d2d53643ca0e05e7c67894aa75eba899acbb9f287;l\u003d1566 and https://cs.android.com/android/platform/superproject/+/master:art/libprofile/profile/profile_compilation_info_test.cc;drc\u003d2d53643ca0e05e7c67894aa75eba899acbb9f287;l\u003d981 + inline caches)\n\nIf you go with 2) all the paths are tested by you need need to come with some more complex inline caches structure like here: https://cs.android.com/android/platform/superproject/+/master:art/profman/profile_assistant_test.cc;drc\u003db209a043a0d5965f25dcb9fde2049df493dcf602;l\u003d1304 + boot image + inline cache.\n\nI\u0027d probably go with 2) but 1) may give you more control",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 729,
+        "endChar": 23
+      },
+      "revId": "f924d2da5f2a4440e8d321c136f47cf1ca61e5f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
