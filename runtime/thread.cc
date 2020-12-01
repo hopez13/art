@@ -2564,7 +2564,6 @@ ObjPtr<mirror::Object> Thread::DecodeJObject(jobject obj) const {
   IndirectRef ref = reinterpret_cast<IndirectRef>(obj);
   IndirectRefKind kind = IndirectReferenceTable::GetIndirectRefKind(ref);
   ObjPtr<mirror::Object> result;
-  bool expect_null = false;
   // The "kinds" below are sorted by the frequency we expect to encounter them.
   if (kind == kLocal) {
     IndirectReferenceTable& locals = tlsPtr_.jni_env->locals_;
@@ -2572,16 +2571,10 @@ ObjPtr<mirror::Object> Thread::DecodeJObject(jobject obj) const {
     result = locals.Get<kWithoutReadBarrier>(ref);
   } else if (kind == kHandleScopeOrInvalid) {
     // TODO: make stack indirect reference table lookup more efficient.
-    // Check if this is a local reference in the handle scope.
-    if (LIKELY(HandleScopeContains(obj))) {
-      // Read from handle scope.
-      result = reinterpret_cast<StackReference<mirror::Object>*>(obj)->AsMirrorPtr();
-      VerifyObject(result);
-    } else {
-      tlsPtr_.jni_env->vm_->JniAbortF(nullptr, "use of invalid jobject %p", obj);
-      expect_null = true;
-      result = nullptr;
-    }
+    // Read from handle scope.
+    DCHECK(HandleScopeContains(obj));
+    result = reinterpret_cast<StackReference<mirror::Object>*>(obj)->AsMirrorPtr();
+    VerifyObject(result);
   } else if (kind == kGlobal) {
     result = tlsPtr_.jni_env->vm_->DecodeGlobal(ref);
   } else {
@@ -2589,15 +2582,10 @@ ObjPtr<mirror::Object> Thread::DecodeJObject(jobject obj) const {
     result = tlsPtr_.jni_env->vm_->DecodeWeakGlobal(const_cast<Thread*>(this), ref);
     if (Runtime::Current()->IsClearedJniWeakGlobal(result)) {
       // This is a special case where it's okay to return null.
-      expect_null = true;
       result = nullptr;
     }
   }
 
-  if (UNLIKELY(!expect_null && result == nullptr)) {
-    tlsPtr_.jni_env->vm_->JniAbortF(nullptr, "use of deleted %s %p",
-                                   ToStr<IndirectRefKind>(kind).c_str(), obj);
-  }
   return result;
 }
 
