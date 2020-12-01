@@ -287,6 +287,23 @@ static inline IterationRange<FilterIterator<Iter, Filter>> Filter(
                             FilterIterator(end, cond, std::make_optional(end)));
 }
 
+template <typename Val>
+struct NonNullFilter {
+ public:
+  static_assert(std::is_pointer<Val>::value, "Must be pointer type!");
+  constexpr bool operator()(typename std::add_const<Val>::type v) const {
+    return v != nullptr;
+  }
+};
+
+template <typename InnerIter>
+using FilterNull = FilterIterator<InnerIter, NonNullFilter<typename InnerIter::value_type>>;
+
+template <typename InnerIter>
+static inline IterationRange<FilterNull<InnerIter>> FilterOutNull(IterationRange<InnerIter> inner) {
+  return Filter(inner, NonNullFilter<typename InnerIter::value_type>());
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_STL_UTIL_H_
