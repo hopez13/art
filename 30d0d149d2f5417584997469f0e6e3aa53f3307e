@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "449b4a32_0f03d882",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-01T17:27:03Z",
+      "side": 1,
+      "message": "Yes, that\u0027s also my understanding of how `TEST_MAPPING` files work. I think we did have some changes in project `platform/art` (that changed files under the `art/` directory, which is the directory that contains `TEST_MAPPING`) that did not trigger the issue (e.g. https://android-review.googlesource.com/c/platform/art/+/1513730). Or is Test Mapping more subtle? (I added the question to the agenda of our weekly meeting with Android EngProd.)",
+      "parentUuid": "84e56208_c663f111",
+      "revId": "30d0d149d2f5417584997469f0e6e3aa53f3307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "913b9ae0_02c47c0b",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
