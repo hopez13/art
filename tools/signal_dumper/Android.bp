@@ -67,4 +67,9 @@ art_cc_binary {
         "libbacktrace",
         "libbase",
     ],
+
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.art.testing",
+    ],
 }
