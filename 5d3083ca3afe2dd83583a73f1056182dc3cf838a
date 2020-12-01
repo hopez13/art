@@ -336,6 +336,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8726e57a_205219ed",
+        "filename": "test/README.atest.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-01T16:52:36Z",
+      "side": 1,
+      "message": "Thanks for confirming. I think the time added by the reboot is acceptable for now.\n\nI\u0027ll also document the chroot-based approach in this document (in a follow-up CL), which does not require an actual APEX update (nor a reboot).",
+      "parentUuid": "175e3764_a44684bf",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "5d3083ca3afe2dd83583a73f1056182dc3cf838a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d9fc3d1_4336c759",
