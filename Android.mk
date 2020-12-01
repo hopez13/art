@@ -387,16 +387,16 @@ LOCAL_MODULE := art-runtime
 
 # Base requirements.
 LOCAL_REQUIRED_MODULES := \
-    dalvikvm.com.android.art \
-    dex2oat.com.android.art \
-    dexoptanalyzer.com.android.art \
-    libart.com.android.art \
-    libart-compiler.com.android.art \
-    libopenjdkjvm.com.android.art \
-    libopenjdkjvmti.com.android.art \
-    profman.com.android.art \
-    libadbconnection.com.android.art \
-    libperfetto_hprof.com.android.art \
+    dalvikvm \
+    dex2oat \
+    dexoptanalyzer \
+    libart \
+    libart-compiler \
+    libopenjdkjvm \
+    libopenjdkjvmti \
+    profman \
+    libadbconnection \
+    libperfetto_hprof \
 
 # Potentially add in debug variants:
 #
@@ -410,16 +410,16 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 endif
 ifeq (true,$(art_target_include_debug_build))
 LOCAL_REQUIRED_MODULES += \
-    dex2oatd.com.android.art.debug \
-    dexoptanalyzerd.com.android.art.debug \
-    libartd.com.android.art.debug \
-    libartd-compiler.com.android.art.debug \
-    libopenjdkd.com.android.art.debug \
-    libopenjdkjvmd.com.android.art.debug \
-    libopenjdkjvmtid.com.android.art.debug \
-    profmand.com.android.art.debug \
-    libadbconnectiond.com.android.art.debug \
-    libperfetto_hprofd.com.android.art.debug \
+    dex2oatd \
+    dexoptanalyzerd \
+    libartd \
+    libartd-compiler \
+    libopenjdkd \
+    libopenjdkjvmd \
+    libopenjdkjvmtid \
+    profmand \
+    libadbconnectiond \
+    libperfetto_hprofd \
 
 endif
 endif

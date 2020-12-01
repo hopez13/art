@@ -77,7 +77,7 @@ endif
 
 # Both the primary and the secondary arches of the libs are built by depending
 # on the module name.
-ART_DEBUG_TARGET_SHARED_LIBRARY_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_LIBRARIES), $(lib).com.android.art.debug)
+ART_DEBUG_TARGET_SHARED_LIBRARY_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_LIBRARIES), $(lib))
 ART_TARGET_SHARED_LIBRARY_DEBUG_DEPENDENCIES := $(foreach lib,$(ART_CORE_SHARED_DEBUG_LIBRARIES), $(TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
 ifdef TARGET_2ND_ARCH
 ART_TARGET_SHARED_LIBRARY_DEBUG_DEPENDENCIES += $(foreach lib,$(ART_CORE_SHARED_DEBUG_LIBRARIES), $(2ND_TARGET_OUT_SHARED_LIBRARIES)/$(lib).so)
