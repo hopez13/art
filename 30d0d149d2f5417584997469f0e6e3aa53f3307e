@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b61392e4_4bd76c79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-01T10:35:15Z",
+      "side": 1,
+      "message": "\u003e I\u0027ve just landed that change, so maybe we don\u0027t need to land this one?\n\nAgreed; I\u0027ll abandon this change.\n\n\u003e Also, is this presubmit? If it is, how come we were not affected by it?\n\nNot sure what\u0027s happening here, but I did hit that test failure as a presubmit (https://android-build.googleplex.com/builds/tests/view?invocationId\u003dI82300006685940330\u0026redirect\u003dhttp%3A%2F%2Fsponge2%2F12a5dc94-6bdb-44f8-93ed-8863877e5c21\u0026testResultId\u003dTR16615448515601199) while working on another change (https://android-review.googlesource.com/c/platform/art/+/1435791/4).\n\nWe did have a few CLs merged in `platform/art` between the moment b/173677667 and b/174260111 were filed (resp. 19 November and 25 November) and the moment https://android-review.googlesource.com/c/platform/art/+/1513256/ was merged (today, 1 December), so I would have expected this test to be run as part of presubmits (and fail).\n\nI\u0027ll check with the Android EngProd team.",
+      "parentUuid": "070a475d_3616d40d",
+      "revId": "30d0d149d2f5417584997469f0e6e3aa53f3307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "913b9ae0_02c47c0b",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
