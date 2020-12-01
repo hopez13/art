@@ -16,6 +16,23 @@
       "message": "TH failure appears to be unrelated, but is in art :-(",
       "revId": "3bb3b65a848448a512d318882e26dc35757bd9a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "483d9b1a_6bc8a54f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-01T12:17:28Z",
+      "side": 1,
+      "message": "Failure looks similar to:\n\n b/129597278 | P3 | comment | ASSIGNED | hboehm | 1336-short-finalizer-timeout flake\n\nbut we\u0027re seeing it across 5 different test configs:\n\n* test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-1336-short-finalizer-timeout32\n* test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-1336-short-finalizer-timeout64\n* test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-1336-short-finalizer-timeout32\n* test-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-1336-short-finalizer-timeout64\n* test-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-1336-short-finalizer-timeout64\n\n",
+      "revId": "3bb3b65a848448a512d318882e26dc35757bd9a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
