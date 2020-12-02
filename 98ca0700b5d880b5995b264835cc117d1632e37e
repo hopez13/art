@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "053aa3f5_adee2cd9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Now that you mention, SDK sounds better and more appropriate for the intention.",
+      "parentUuid": "e4fe148c_dd2a6df3",
+      "range": {
+        "startLine": 2860,
+        "startChar": 9,
+        "endLine": 2860,
+        "endChar": 18
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29184942_66d72c3e",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-27T10:05:19Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 2863,
+        "startChar": 0,
+        "endLine": 2863,
+        "endChar": 43
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31907cd2_d3f44188",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29184942_66d72c3e",
       "range": {
         "startLine": 2863,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbf9a24b_17d7a7be",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "792d89b4_b7bf95ce",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbc3c16e_bedf8b35",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-26T13:22:22Z",
       "side": 1,
       "message": "predefined",
+      "range": {
+        "startLine": 137,
+        "startChar": 40,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6c2177_e62784fd",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbc3c16e_bedf8b35",
       "range": {
         "startLine": 137,
         "startChar": 40,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f896db2_bb638763",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "We needed it to create the proto_id to fetch the method_id from the dex file. The dex file APIs are not super friendly.\n\nYou\u0027re right that we don\u0027t need it from a logical point of view.",
+      "parentUuid": "dd619607_af5cfb96",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cc10258_cf2f91be",
@@ -146,6 +266,30 @@
       "writtenOn": "2020-11-27T10:05:19Z",
       "side": 1,
       "message": "Look like an expansive lookup - comment why it\u0027s OK ?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd35bc9d_eaf11fc5",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "I added docs in the header.\n\nI was tempted to add a cache but decided to go with a straightforward check that\u0027s trivial to follow.",
+      "parentUuid": "9cc10258_cf2f91be",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fd3b425_b6fd199e",
+        "filename": "runtime/api_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "231acd72_655e9d9a",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5841ff1_dde46c70",
@@ -192,6 +360,30 @@
       "writtenOn": "2020-11-26T13:22:22Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8faa4672_37be8994",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5841ff1_dde46c70",
       "range": {
         "startLine": 37,
         "startChar": 42,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "458a6d98_bc8acfc4",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "342270ef_04bb591d",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e21a0101_cce10889",
@@ -238,6 +454,30 @@
       "writtenOn": "2020-11-27T10:05:19Z",
       "side": 1,
       "message": "type_descriptor ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6cbbc5_cfb0b886",
+        "filename": "runtime/api_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e21a0101_cce10889",
       "range": {
         "startLine": 46,
         "startChar": 36,
@@ -296,6 +536,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edf93fda_08f6d618",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "IsBootClassLoader also check the well_known_classloader for which  we need to acquire a SOA which seems a bit overkill from a (code) complexity perspective.\n\nThe null check is consistent with the above IsUpdatableBootClassPathDescriptor check which is nice.\n\nNo strong preference, so I can change if you want.",
+      "parentUuid": "8ade2eca_6bbb097a",
+      "range": {
+        "startLine": 3326,
+        "startChar": 8,
+        "endLine": 3326,
+        "endChar": 31
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b8934e_3703a2a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa9daf08_ab42e7b8",
+      "range": {
+        "startLine": 3326,
+        "startChar": 9,
+        "endLine": 3326,
+        "endChar": 31
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "349af44b_355e4515",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -307,6 +595,30 @@
       "writtenOn": "2020-11-26T13:22:22Z",
       "side": 1,
       "message": "Move to AotClassLinker, add another virtual method (or three given how you use this in hiddenapi) similar to IsUpdatableBootClassPathDescriptor() and guard the call to it with IsAotCompiler().\n\n(We should try to move AotClassLinker from libart.so to dex2oat to reduce memory footprint of zygote and all children. The ApiChecker also conceptually belongs to dex2oat.)",
+      "range": {
+        "startLine": 798,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 0
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7585f977_d8fb386b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Good thoughts. Done.",
+      "parentUuid": "349af44b_355e4515",
       "range": {
         "startLine": 798,
         "startChar": 0,
@@ -340,6 +652,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d36b77_04a7e89b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea7db0b_897d6fdc",
+      "range": {
+        "startLine": 1475,
+        "startChar": 0,
+        "endLine": 1475,
+        "endChar": 43
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce664bdd_88bc800d",
@@ -353,6 +689,30 @@
       "writtenOn": "2020-11-27T10:05:19Z",
       "side": 1,
       "message": "class_linker-\u003eIsBootClassLoader ?",
+      "range": {
+        "startLine": 414,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 64
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94011e0c_811e801f",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-02T07:20:29Z",
+      "side": 1,
+      "message": "ditto: lemme know what you prefer.",
+      "parentUuid": "ce664bdd_88bc800d",
       "range": {
         "startLine": 414,
         "startChar": 8,
