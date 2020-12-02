@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86110c12_dc572926",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-02T13:36:10Z",
+      "side": 1,
+      "message": "To actually submit this I\u0027ll need to change these lines to enabled:true. They\u0027d then be changed back at the same time we submit prebuilts with prefer:true.\n\nFrom that point on, any build that doesn\u0027t use any of the ART-specific product targets in https://r.android.com/1513781 will be forced to use the prebuilts, and building ART from sources will only work in manifests where the prebuilts aren\u0027t present, i.e. on master-art but not AOSP/internal master.\n\nRoland, how will this affect testing? Do we depend on sources in platform branches for CI?",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
