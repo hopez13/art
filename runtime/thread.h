@@ -80,6 +80,8 @@ class MethodVerifier;
 class VerifierDeps;
 }  // namespace verifier
 
+#define MAX_JNI_INVOCATION_SUPERVISION_DEPTH 5
+
 class ArtMethod;
 class BaseMutex;
 class ClassLinker;
@@ -636,6 +638,9 @@ class Thread {
   }
 
   void SetClassLoaderOverride(jobject class_loader_override);
+
+  void beginJniMethodInvocation();
+  void endJniMethodInvocation();
 
   // Create the internal representation of a stack trace, that is more time
   // and space efficient to compute than the StackTraceElement[].
@@ -1890,6 +1895,10 @@ class Thread {
   // Set during execution of JNI methods that get field and method id's as part of determining if
   // the caller is allowed to access all fields and methods in the Core Platform API.
   uint32_t core_platform_api_cookie_ = 0;
+
+  int64_t jni_invocation_beginuptimemillis_[MAX_JNI_INVOCATION_SUPERVISION_DEPTH];
+  int32_t jni_invocation_reportedtimemillis_[MAX_JNI_INVOCATION_SUPERVISION_DEPTH];
+  int32_t jni_invocation_depth_;
 
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.
