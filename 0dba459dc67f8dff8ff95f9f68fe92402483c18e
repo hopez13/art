@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfffc14d_400f44d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-02T15:20:02Z",
+      "side": 1,
+      "message": "\"interfere with\"?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ed592d_ebd4bf4f",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-02T15:20:02Z",
+      "side": 1,
+      "message": "Will this interfere with Android build targets which build the Testing ART APEX (e.g. `test_suites_arm64` and `test_suites_x86_64` on `git_master`)?",
+      "range": {
+        "startLine": 338,
+        "startChar": 4,
+        "endLine": 338,
+        "endChar": 75
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86110c12_dc572926",
         "filename": "build/apex/Android.bp",
         "patchSetId": 1
@@ -14,6 +60,30 @@
       "writtenOn": "2020-12-02T13:36:10Z",
       "side": 1,
       "message": "To actually submit this I\u0027ll need to change these lines to enabled:true. They\u0027d then be changed back at the same time we submit prebuilts with prefer:true.\n\nFrom that point on, any build that doesn\u0027t use any of the ART-specific product targets in https://r.android.com/1513781 will be forced to use the prebuilts, and building ART from sources will only work in manifests where the prebuilts aren\u0027t present, i.e. on master-art but not AOSP/internal master.\n\nRoland, how will this affect testing? Do we depend on sources in platform branches for CI?",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72218e3a_1e43cbda",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2020-12-02T15:20:02Z",
+      "side": 1,
+      "message": "Yes, we do. ART gtests and run-tests are currently build as part of platform builds (e.g. during presubmits) or as part of test suites builds (which are built from full-manifest branches). Adding David to the discussion.",
+      "parentUuid": "86110c12_dc572926",
       "range": {
         "startLine": 207,
         "startChar": 4,
