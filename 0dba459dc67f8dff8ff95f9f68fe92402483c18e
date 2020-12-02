@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91459666_e40925c5",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-02T15:35:40Z",
+      "side": 1,
+      "message": "Yes, it will. Let\u0027s discuss it in the other thread.",
+      "parentUuid": "13ed592d_ebd4bf4f",
+      "range": {
+        "startLine": 338,
+        "startChar": 4,
+        "endLine": 338,
+        "endChar": 75
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86110c12_dc572926",
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, we do. ART gtests and run-tests are currently build as part of platform builds (e.g. during presubmits) or as part of test suites builds (which are built from full-manifest branches). Adding David to the discussion.",
       "parentUuid": "86110c12_dc572926",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "0dba459dc67f8dff8ff95f9f68fe92402483c18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ffbde5_9b420ba1",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-02T15:35:40Z",
+      "side": 1,
+      "message": "Ok, thanks. Then I think it\u0027s necessary to control the prefer flags on the prebuilts as well, so that we can set them false and SOONG_CONFIG_art_module_enable_module true in platform builds.\n\nSince the premise is that we\u0027ll postprocess the generated Android.bp files to set prefer:true I suppose we can just as well change them to use a Soong config variable override much like this CL does here.",
+      "parentUuid": "72218e3a_1e43cbda",
       "range": {
         "startLine": 207,
         "startChar": 4,
