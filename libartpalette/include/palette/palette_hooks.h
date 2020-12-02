@@ -17,7 +17,9 @@
 #ifndef ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_HOOKS_H_
 #define ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_HOOKS_H_
 
+#include <string>
 #include "palette_types.h"
+#include "jni.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,6 +41,15 @@ typedef struct paletteHooksInterface_ {
 
   // Notify the Hooks object that the runtime is loading a .oat file.
   void (*NotifyOatFileLoaded)(const char* path);
+
+  // Judge whether the performace supervision from Hooks object is on.
+  bool (*isPerfSupervisionOn)();
+
+  // Get time from Hooks object.
+  int64_t (*getUptimeMillisFast)();
+
+  // Notify the Hooks object that the jni invocation is end.
+  void (*reportJniMethodInvocation)(JNIEnv* env, int64_t beginUptimeMs, int64_t endUptimeMs, int32_t& reportedTimeMillis);
 } paletteHooksInterface;
 
 struct PaletteHooks {
@@ -55,6 +66,15 @@ struct PaletteHooks {
   }
   void NotifyOatFileLoaded(const char* path) {
     return functions->NotifyOatFileLoaded(path);
+  }
+  bool isPerfSupervisionOn() {
+    return functions->isPerfSupervisionOn();
+  }
+  int64_t getUptimeMillisFast() {
+    return functions->getUptimeMillisFast();
+  }
+  void reportJniMethodInvocation(JNIEnv* env, int64_t beginUptimeMs, int64_t endUptimeMs, int32_t& reportedTimeMillis) {
+    return functions->reportJniMethodInvocation(env, beginUptimeMs, endUptimeMs, reportedTimeMillis);
   }
 #endif
 };

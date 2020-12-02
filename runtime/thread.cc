@@ -2295,7 +2295,8 @@ void Thread::NotifyThreadGroup(ScopedObjectAccessAlreadyRunnable& soa, jobject t
 Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
-      is_runtime_thread_(false) {
+      is_runtime_thread_(false),
+      jni_invocation_depth_(0) {
   wait_mutex_ = new Mutex("a thread wait mutex", LockLevel::kThreadWaitLock);
   wait_cond_ = new ConditionVariable("a thread wait condition variable", *wait_mutex_);
   tlsPtr_.instrumentation_stack =
@@ -2911,6 +2912,39 @@ static ObjPtr<mirror::StackTraceElement> CreateStackTraceElement(
                                           method_name_object,
                                           source_name_object,
                                           line_number);
+}
+
+void Thread::beginJniMethodInvocation() {
+  jni_invocation_depth_++;
+  if (jni_invocation_depth_ > MAX_JNI_INVOCATION_SUPERVISION_DEPTH) {
+    return;
+  }
+  PaletteHooks* hooks = nullptr;
+  if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay && hooks->isPerfSupervisionOn()) {
+    const int32_t pos = jni_invocation_depth_ - 1;
+    jni_invocation_beginuptimemillis_[pos] = hooks->getUptimeMillisFast();
+    jni_invocation_reportedtimemillis_[pos] = 0;
+  }
+}
+
+void Thread::endJniMethodInvocation() {
+  if (jni_invocation_depth_ == 0) {
+    return;
+  }
+  jni_invocation_depth_--;
+  if (jni_invocation_depth_ >= MAX_JNI_INVOCATION_SUPERVISION_DEPTH) {
+    return;
+  }
+  PaletteHooks* hooks = nullptr;
+  if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay && hooks->isPerfSupervisionOn()) {
+    const int32_t pos = jni_invocation_depth_;
+    int64_t beinUptimeMillis = jni_invocation_beginuptimemillis_[pos];
+    int64_t endUptimeMillis = hooks->getUptimeMillisFast();
+    hooks->reportJniMethodInvocation(GetJniEnv(), beinUptimeMillis, endUptimeMillis, jni_invocation_reportedtimemillis_[pos]);
+    if (pos > 0) {
+      jni_invocation_reportedtimemillis_[pos - 1] += jni_invocation_reportedtimemillis_[pos];
+    }
+  }
 }
 
 jobjectArray Thread::InternalStackTraceToStackTraceElementArray(

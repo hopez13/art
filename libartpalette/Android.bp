@@ -37,7 +37,10 @@ cc_library_headers {
 art_cc_library {
     name: "libartpalette",
     defaults: ["libartpalette_defaults"],
-    header_libs: ["libbase_headers"],
+    header_libs: [
+        "libbase_headers",
+        "jni_headers"
+    ],
     target: {
         // Targets supporting dlopen build the client library which loads
         // and binds the methods in the libartpalette-system library.
