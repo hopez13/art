@@ -102,7 +102,7 @@ class ImageWriter final {
    * image have been initialized and all native methods have been generated.  In
    * addition, no other thread should be modifying the heap.
    */
-  bool PrepareImageAddressSpace(bool preload_dex_caches, TimingLogger* timings);
+  bool PrepareImageAddressSpace(TimingLogger* timings);
 
   bool IsImageAddressSpaceReady() const {
     DCHECK(!image_infos_.empty());
@@ -229,7 +229,6 @@ class ImageWriter final {
     kRuntimeMethod,
     kIMTable,
     kIMTConflictTable,
-    kDexCacheArray,
   };
   friend std::ostream& operator<<(std::ostream& stream, NativeObjectRelocationType type);
 
@@ -409,7 +408,6 @@ class ImageWriter final {
   size_t GetImageOffset(mirror::Object* object, size_t oat_index) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PrepareDexCacheArraySlots() REQUIRES_SHARED(Locks::mutator_lock_);
   Bin AssignImageBinSlot(mirror::Object* object, size_t oat_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void RecordNativeRelocations(ObjPtr<mirror::Object> obj, size_t oat_index)
@@ -423,8 +421,6 @@ class ImageWriter final {
   void UpdateImageBinSlotOffset(mirror::Object* object, size_t oat_index, size_t new_offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddDexCacheArrayRelocation(void* array, size_t offset, size_t oat_index)
-      REQUIRES_SHARED(Locks::mutator_lock_);
   void AddMethodPointerArray(ObjPtr<mirror::PointerArray> arr)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -454,11 +450,6 @@ class ImageWriter final {
   // Remove everything from the DexCache.
   void ClearDexCache(ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
-
-  // Preload deterministic DexCache contents.
-  void PreloadDexCache(ObjPtr<mirror::DexCache> dex_cache, ObjPtr<mirror::ClassLoader> class_loader)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::classlinker_classes_lock_);
 
   // Find dex caches for pruning or preloading.
   std::vector<ObjPtr<mirror::DexCache>> FindDexCaches(Thread* self)
@@ -510,29 +501,6 @@ class ImageWriter final {
   void FixupClass(mirror::Class* orig, mirror::Class* copy)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void FixupObject(mirror::Object* orig, mirror::Object* copy)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  template <typename T>
-  void FixupDexCacheArrayEntry(std::atomic<mirror::DexCachePair<T>>* orig_array,
-                               std::atomic<mirror::DexCachePair<T>>* new_array,
-                               uint32_t array_index)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  template <typename T>
-  void FixupDexCacheArrayEntry(std::atomic<mirror::NativeDexCachePair<T>>* orig_array,
-                               std::atomic<mirror::NativeDexCachePair<T>>* new_array,
-                               uint32_t array_index)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  void FixupDexCacheArrayEntry(GcRoot<mirror::CallSite>* orig_array,
-                               GcRoot<mirror::CallSite>* new_array,
-                               uint32_t array_index)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  template <typename EntryType>
-  void FixupDexCacheArray(mirror::DexCache* orig_dex_cache,
-                          mirror::DexCache* copy_dex_cache,
-                          MemberOffset array_offset,
-                          uint32_t size)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  void FixupDexCache(mirror::DexCache* orig_dex_cache,
-                     mirror::DexCache* copy_dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void FixupPointerArray(mirror::Object* dst,
                          mirror::PointerArray* arr,

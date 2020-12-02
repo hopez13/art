@@ -1529,12 +1529,10 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
     ASSERT_TRUE(dex_cache != nullptr);
   }
   // Make a copy of the dex cache and change the name.
-  dex_cache.Assign(mirror::Object::Clone(dex_cache, soa.Self())->AsDexCache());
   const uint16_t data[] = { 0x20AC, 0x20A1 };
   Handle<mirror::String> location(hs.NewHandle(mirror::String::AllocFromUtf16(soa.Self(),
                                                                               arraysize(data),
                                                                               data)));
-  dex_cache->SetLocation(location.Get());
   const DexFile* old_dex_file = dex_cache->GetDexFile();
 
   std::unique_ptr<DexFile> dex_file(new StandardDexFile(old_dex_file->Begin(),
@@ -1543,6 +1541,9 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
                                                         0u,
                                                         nullptr,
                                                         nullptr));
+  LinearAlloc* alloc = Runtime::Current()->GetLinearAlloc();
+  dex_cache.Assign(class_linker->AllocAndInitializeDexCache(Thread::Current(), *dex_file, alloc));
+  dex_cache->SetLocation(location.Get());
   {
     WriterMutexLock mu(soa.Self(), *Locks::dex_lock_);
     // Check that inserting with a UTF16 name works.
