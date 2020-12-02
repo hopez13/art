@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29cb2eaf_98f9a8a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-02T17:57:35Z",
+      "side": 1,
+      "message": "A quick response now. Back on Friday for a more careful review.",
+      "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c7579b_0c739df9",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-02T17:57:35Z",
+      "side": 1,
+      "message": "I don\u0027t think this is correct. Roughly a release barrier has to order both loads and stores with respect to stores. dmb ishst orders only stores. (This is different from dmb ishld, which is an acquire fence, but which I think we don\u0027t always have here.) The problem is that reads preceding a release store should NOT see writes following the acquire load that reads the value. This is not an issue for constructor fences, since we\u0027re only protecting final fields.",
+      "range": {
+        "startLine": 2819,
+        "startChar": 54,
+        "endLine": 2819,
+        "endChar": 81
+      },
+      "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
