@@ -2595,8 +2595,9 @@ static void GenerateIntrinsicGet(HInvoke* invoke,
                                  Location maybe_temp,
                                  Location maybe_temp2,
                                  Location maybe_temp3) {
-  bool emit_barrier = (order == std::memory_order_acquire) || (order == std::memory_order_seq_cst);
-  DCHECK(emit_barrier || order == std::memory_order_relaxed);
+  bool acquire_barrier =
+      (order == std::memory_order_acquire) || (order == std::memory_order_seq_cst);
+  DCHECK(acquire_barrier || order == std::memory_order_relaxed);
   DCHECK(atomic || order == std::memory_order_relaxed);
 
   ArmVIXLAssembler* assembler = codegen->GetAssembler();
@@ -2675,8 +2676,8 @@ static void GenerateIntrinsicGet(HInvoke* invoke,
       LOG(FATAL) << "Unexpected type " << type;
       UNREACHABLE();
   }
-  if (emit_barrier) {
-    __ Dmb(vixl32::ISH);
+  if (acquire_barrier) {
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
   }
   if (type == DataType::Type::kReference && !(kEmitCompilerReadBarrier && kUseBakerReadBarrier)) {
     Location base_loc = LocationFrom(base);
@@ -2814,7 +2815,8 @@ static void GenerateIntrinsicSet(CodeGeneratorARMVIXL* codegen,
 
   ArmVIXLAssembler* assembler = codegen->GetAssembler();
   if (release_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(
+        seq_cst_barrier ? MemBarrierKind::kAnyStore : MemBarrierKind::kStoreStore);
   }
   MemOperand address(base, offset);
   UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
@@ -2883,7 +2885,7 @@ static void GenerateIntrinsicSet(CodeGeneratorARMVIXL* codegen,
       UNREACHABLE();
   }
   if (seq_cst_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
   }
 }
 
@@ -3436,7 +3438,8 @@ static void GenUnsafeCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMV
     cmp_failure = slow_path->GetEntryLabel();
   }
 
-  __ Dmb(vixl32::ISH);
+  // Unsafe CAS operations have std::memory_order_seq_cst semantics.
+  codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
   __ Add(tmp_ptr, base, offset);
   GenerateCompareAndSet(codegen,
                         type,
@@ -3453,7 +3456,7 @@ static void GenUnsafeCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMV
                         expected,
                         /*expected2=*/ vixl32::Register());
   __ Bind(exit_loop);
-  __ Dmb(vixl32::ISH);
+  codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
 
   if (type == DataType::Type::kReference) {
     codegen->MaybeGenerateMarkingRegisterCheck(/*code=*/ 128, /*temp_loc=*/ LocationFrom(tmp_ptr));
@@ -4173,6 +4176,7 @@ static void CreateVarHandleCompareAndSetOrExchangeLocations(HInvoke* invoke, boo
   if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
     // We need callee-save registers for both the class object and offset instead of
     // the temporaries reserved in CreateVarHandleFieldLocations().
+    static_assert(POPCOUNT(kArmCalleeSaveRefSpills) >= 2u);
     constexpr int first_callee_save = CTZ(kArmCalleeSaveRefSpills);
     constexpr int second_callee_save = CTZ(kArmCalleeSaveRefSpills ^ (1u << first_callee_save));
     if (GetExpectedVarHandleCoordinatesCount(invoke) == 0u) {  // For static fields.
@@ -4239,7 +4243,8 @@ static void GenerateVarHandleCompareAndSetOrExchange(HInvoke* invoke,
   DCHECK(release_barrier || acquire_barrier || order == std::memory_order_relaxed);
 
   if (release_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(
+        acquire_barrier ? MemBarrierKind::kAnyAny : MemBarrierKind::kStoreStore);
   }
 
   // Calculate the pointer to the value.
@@ -4343,7 +4348,8 @@ static void GenerateVarHandleCompareAndSetOrExchange(HInvoke* invoke,
   __ Bind(exit_loop);
 
   if (acquire_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(
+        release_barrier ? MemBarrierKind::kAnyAny : MemBarrierKind::kLoadAny);
   }
 
   if (!return_success && value_type == DataType::Type::kFloat64) {
@@ -4511,7 +4517,8 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
   DCHECK(release_barrier || acquire_barrier || order == std::memory_order_relaxed);
 
   if (release_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(
+        acquire_barrier ? MemBarrierKind::kAnyAny : MemBarrierKind::kStoreStore);
   }
 
   // Use the scratch register for the pointer to the field.
@@ -4591,7 +4598,8 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
                        maybe_vreg_temp);
 
   if (acquire_barrier) {
-    __ Dmb(vixl32::ISH);
+    codegen->GenerateMemoryBarrier(
+        release_barrier ? MemBarrierKind::kAnyAny : MemBarrierKind::kLoadAny);
   }
 
   if (get_and_update_op == GetAndUpdateOp::kSet && DataType::IsFloatingPointType(value_type)) {
