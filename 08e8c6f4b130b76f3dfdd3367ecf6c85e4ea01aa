@@ -16,6 +16,24 @@
       "message": "Why not use mktemp rather than silence the failure as it suggests?",
       "revId": "08e8c6f4b130b76f3dfdd3367ecf6c85e4ea01aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a335e945_1bcf40e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T11:09:21Z",
+      "side": 1,
+      "message": "I erroneously assumed that the underlying C call was deprecated but it seems it is indeed the command that\u0027s deprecated.\n\nBut I do not see any prefix option for `mktemp` similar to `tempfile -p`, so we would need to change the temp dir naming. I\u0027d rather not do that now as it\u0027s more risky.",
+      "parentUuid": "ea8ec719_a3d334fa",
+      "revId": "08e8c6f4b130b76f3dfdd3367ecf6c85e4ea01aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
