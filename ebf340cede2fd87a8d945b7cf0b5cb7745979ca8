@@ -39,6 +39,30 @@
       },
       "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ae127f_58ddad77",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T09:00:18Z",
+      "side": 1,
+      "message": "So, I should not weaken the emitted barrier, right?\n\n(This CL shall then become just a cleanup where we replace explicit `dmb ish` with calls to `GenerateMemoryBarrier()` which shall emit the same.)",
+      "parentUuid": "89c7579b_0c739df9",
+      "range": {
+        "startLine": 2819,
+        "startChar": 54,
+        "endLine": 2819,
+        "endChar": 81
+      },
+      "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
