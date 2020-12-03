@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02c1007a_c62f5f01",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T14:30:24Z",
+      "side": 1,
+      "message": "Why the change of ownership?",
+      "range": {
+        "startLine": 1904,
+        "startChar": 40,
+        "endLine": 1904,
+        "endChar": 49
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd8ae85_bab24adb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T14:30:24Z",
+      "side": 1,
+      "message": "Given you\u0027re checking this, you can avoid making DenyAccessBasedOnPublicSdk a virtual method and just down_cast the class linker.",
+      "range": {
+        "startLine": 3329,
+        "startChar": 0,
+        "endLine": 3329,
+        "endChar": 44
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91a30f37_2bdff358",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -88,6 +134,29 @@
         "startChar": 5,
         "endLine": 56,
         "endChar": 13
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee9ee3a_42395993",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T14:30:24Z",
+      "side": 1,
+      "message": "skd_dex_files_ ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 46,
+        "endLine": 61,
+        "endChar": 60
       },
       "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
