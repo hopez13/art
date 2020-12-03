@@ -146,6 +146,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3d376b_51d8253d",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2563,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T17:10:54Z",
+      "side": 1,
+      "message": "This method is missing many things.\nThe check was passing through pure luck.\nI will fix it by rewrite in separate CL.",
+      "parentUuid": "f9aef577_f13020ed",
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a321f0e3_412b880c",
@@ -207,6 +225,30 @@
       "side": 1,
       "message": "Maybe GetOrCreateAllocatorForClassLoader()?",
       "parentUuid": "090556a5_a6483a28",
+      "range": {
+        "startLine": 1992,
+        "startChar": 56,
+        "endLine": 1992,
+        "endChar": 92
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab71314a_43886b15",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T17:10:54Z",
+      "side": 1,
+      "message": "Do you know what is the difference between class_loader (the method argument) and image_class_loader (the root loaded from the image)?",
+      "parentUuid": "df7c7fe7_6a6fee1f",
       "range": {
         "startLine": 1992,
         "startChar": 56,
