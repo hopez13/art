@@ -131,6 +131,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9aef577_f13020ed",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T16:39:05Z",
+      "side": 1,
+      "message": "Keep the check and just remove the dex_cache_arrays_bytes?",
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a321f0e3_412b880c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -166,6 +183,30 @@
       "side": 1,
       "message": "So what should it be?\nI tried image_class_loader-\u003eGetAllocator(), but that is null.",
       "parentUuid": "a321f0e3_412b880c",
+      "range": {
+        "startLine": 1992,
+        "startChar": 56,
+        "endLine": 1992,
+        "endChar": 92
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df7c7fe7_6a6fee1f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T16:39:05Z",
+      "side": 1,
+      "message": "Maybe GetOrCreateAllocatorForClassLoader()?",
+      "parentUuid": "090556a5_a6483a28",
       "range": {
         "startLine": 1992,
         "startChar": 56,
@@ -389,6 +430,30 @@
       "side": 1,
       "message": "That is intentional as it would cause further large changes.\nI would like to remove it in the followup CL.",
       "parentUuid": "9c88f294_f0a2f61e",
+      "range": {
+        "startLine": 285,
+        "startChar": 53,
+        "endLine": 285,
+        "endChar": 90
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9d50f5_ded3029f",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T16:39:05Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "9c46ecbd_90a20d5c",
       "range": {
         "startLine": 285,
         "startChar": 53,
