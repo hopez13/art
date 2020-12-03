@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c6b8a63_6070030a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f79c849_da56a4c9",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "49e9e3df_c599361f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd63bfe_681af5be",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90b251c6_0fce2542",
+      "range": {
+        "startLine": 1989,
+        "startChar": 13,
+        "endLine": 1989,
+        "endChar": 32
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a321f0e3_412b880c",
@@ -94,6 +142,30 @@
       "writtenOn": "2020-12-03T11:17:44Z",
       "side": 1,
       "message": "Should this be a different linear alloc for app images?",
+      "range": {
+        "startLine": 1992,
+        "startChar": 56,
+        "endLine": 1992,
+        "endChar": 92
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "090556a5_a6483a28",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "So what should it be?\nI tried image_class_loader-\u003eGetAllocator(), but that is null.",
+      "parentUuid": "a321f0e3_412b880c",
       "range": {
         "startLine": 1992,
         "startChar": 56,
@@ -127,6 +199,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d71b34c_db0a9140",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3894,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e5ba19_bdd2be7a",
+      "range": {
+        "startLine": 3894,
+        "startChar": 2,
+        "endLine": 3894,
+        "endChar": 70
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "856727f1_a7399f41",
@@ -144,6 +240,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c524ead_361865c7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "856727f1_a7399f41",
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62f2c972_f6cb4c72",
@@ -157,6 +271,30 @@
       "writtenOn": "2020-12-03T14:23:08Z",
       "side": 1,
       "message": "Move to line 1543",
+      "range": {
+        "startLine": 1531,
+        "startChar": 0,
+        "endLine": 1531,
+        "endChar": 54
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d770452_3d9bab7c",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f2c972_f6cb4c72",
       "range": {
         "startLine": 1531,
         "startChar": 0,
@@ -190,6 +328,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c137e7_0753e3a7",
+        "filename": "runtime/image.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb67af6_7b14a77d",
+      "range": {
+        "startLine": 261,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 26
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c88f294_f0a2f61e",
@@ -203,6 +365,30 @@
       "writtenOn": "2020-12-03T11:17:44Z",
       "side": 1,
       "message": "Change the interface.",
+      "range": {
+        "startLine": 285,
+        "startChar": 53,
+        "endLine": 285,
+        "endChar": 90
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c46ecbd_90a20d5c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-03T16:30:35Z",
+      "side": 1,
+      "message": "That is intentional as it would cause further large changes.\nI would like to remove it in the followup CL.",
+      "parentUuid": "9c88f294_f0a2f61e",
       "range": {
         "startLine": 285,
         "startChar": 53,
