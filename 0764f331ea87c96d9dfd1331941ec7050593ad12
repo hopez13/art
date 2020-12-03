@@ -46,6 +46,30 @@
       },
       "revId": "0764f331ea87c96d9dfd1331941ec7050593ad12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442861fa_07fc44b3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-03T15:17:07Z",
+      "side": 1,
+      "message": "I think a list like the one on lines 75-81 should do it. Ideally it should come from the platform prebuilt, but that\u0027ll probably be fairly low priority.\n\nI think this can go into a follow-up in any case, to not block this topic.",
+      "parentUuid": "f8e430f4_f550a651",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 500
+      },
+      "revId": "0764f331ea87c96d9dfd1331941ec7050593ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
