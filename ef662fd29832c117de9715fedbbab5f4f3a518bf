@@ -41,6 +41,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab70dce4_72a02ac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T14:23:08Z",
+      "side": 1,
+      "message": "So much removed code, super nice!",
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90b251c6_0fce2542",
@@ -123,6 +140,29 @@
       "writtenOn": "2020-12-03T11:17:44Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f2c972_f6cb4c72",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T14:23:08Z",
+      "side": 1,
+      "message": "Move to line 1543",
+      "range": {
+        "startLine": 1531,
+        "startChar": 0,
+        "endLine": 1531,
+        "endChar": 54
+      },
       "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
