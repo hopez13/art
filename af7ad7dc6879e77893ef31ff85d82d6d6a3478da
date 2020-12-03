@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a840c63e_029403e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T13:59:55Z",
+      "side": 1,
+      "message": "Thanks for the updated CL!",
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67569cb0_5338fd1e",
+        "filename": "libartpalette/include/palette/palette_hooks.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T13:59:55Z",
+      "side": 1,
+      "message": "To simplify the API, I suggest we move this as an implementation detail, and do the check in the palette implementation.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39807f4_1cf335d2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T13:59:55Z",
+      "side": 1,
+      "message": "I suggest making this the palette API - you can then have your own implementation and change that without needing to do ART changes.",
+      "range": {
+        "startLine": 642,
+        "startChar": 0,
+        "endLine": 643,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0986a63_1c83793d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T13:59:55Z",
+      "side": 1,
+      "message": "This should be moved as implementation detail in your palette implementation.",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
