@@ -261,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3ec3429_9b9bbec6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T17:37:06Z",
+      "side": 1,
+      "message": "I think the `image_class_loader` is used for checking whether it has the same hierarchy and dex files as the `class_loader` but the latter shall be actually used. Look for class loader replacement in AppImageLoadingHelper::Update().",
+      "parentUuid": "ab71314a_43886b15",
+      "range": {
+        "startLine": 1992,
+        "startChar": 56,
+        "endLine": 1992,
+        "endChar": 92
+      },
+      "revId": "ef662fd29832c117de9715fedbbab5f4f3a518bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94e5ba19_bdd2be7a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
