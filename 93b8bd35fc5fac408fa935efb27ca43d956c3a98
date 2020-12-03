@@ -16,6 +16,23 @@
       "message": "There are known failures for aidl_integration_tests in the TH warnings here (and also https://r.android.com/1488906). These are tracked in:\n\nb/174694961 | P0 | comment | ASSIGNED | elsk | [VTS Request] aidl_integration_test is failing on aosp-master",
       "revId": "93b8bd35fc5fac408fa935efb27ca43d956c3a98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ebc6d8_d00d8f2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-12-03T16:08:59Z",
+      "side": 1,
+      "message": "Thanks Orion! Now I know that mktemp accepts a template.",
+      "revId": "93b8bd35fc5fac408fa935efb27ca43d956c3a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
