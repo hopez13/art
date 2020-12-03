@@ -22,6 +22,30 @@
       },
       "revId": "0764f331ea87c96d9dfd1331941ec7050593ad12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e430f4_f550a651",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-03T09:56:44Z",
+      "side": 1,
+      "message": "Can we put that list in a file instead?",
+      "parentUuid": "76b4d416_2b85a8a2",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 500
+      },
+      "revId": "0764f331ea87c96d9dfd1331941ec7050593ad12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
