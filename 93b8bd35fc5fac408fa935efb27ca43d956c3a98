@@ -33,6 +33,29 @@
       "message": "Thanks Orion! Now I know that mktemp accepts a template.",
       "revId": "93b8bd35fc5fac408fa935efb27ca43d956c3a98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f354c6_1fd7820f",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T16:09:18Z",
+      "side": 1,
+      "message": "Why append?",
+      "range": {
+        "startLine": 1252,
+        "startChar": 21,
+        "endLine": 1252,
+        "endChar": 22
+      },
+      "revId": "93b8bd35fc5fac408fa935efb27ca43d956c3a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
