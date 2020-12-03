@@ -87,6 +87,30 @@
       },
       "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9972101a_740cb32a",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-03T09:40:57Z",
+      "side": 1,
+      "message": "On the other hand, the MemBarrierKind expresses the required ordering more precisely even though they end up being the same instruction. And if we decided to use `dmb ld` based on instruction set features, it\u0027s easier to change it in one place.",
+      "parentUuid": "67538c0c_570309e7",
+      "range": {
+        "startLine": 2819,
+        "startChar": 54,
+        "endLine": 2819,
+        "endChar": 81
+      },
+      "revId": "ebf340cede2fd87a8d945b7cf0b5cb7745979ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
