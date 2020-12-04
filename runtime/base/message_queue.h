@@ -25,6 +25,9 @@
 #include "mutex.h"
 #include "thread.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic error "-Wconversion"
+
 namespace art {
 
 struct TimeoutExpiredMessage {};
@@ -134,7 +137,13 @@ class MessageQueue {
 
       // Otherwise, wait until we have a message or a timeout.
       if (deadline_milliseconds_.has_value()) {
-        uint64_t timeout = deadline_milliseconds_.value() - MilliTime();
+        int64_t timeout = static_cast<int64_t>(deadline_milliseconds_.value()) -
+                          static_cast<int64_t>(MilliTime());
+        if (timeout < 0) {
+          // The timeout may have already expired, meaning we have a timeout message waiting for us.
+          // Go ahead and continue to receive it.
+          continue;
+        }
         cv_.TimedWait(self, timeout, /*ns=*/0);
       } else {
         cv_.Wait(self);
@@ -161,5 +170,7 @@ class MessageQueue {
 };
 
 }  // namespace art
+
+#pragma clang diagnostic pop  // -Wconversion
 
 #endif  // ART_RUNTIME_BASE_MESSAGE_QUEUE_H_
