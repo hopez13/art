@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29efd390_d0ec4a22",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "Upon revisiting, we don\u0027t need to store the checker in dex2oat object. It can be created on the fly, so I updated the code to reflect that.",
+      "parentUuid": "02c1007a_c62f5f01",
+      "range": {
+        "startLine": 1904,
+        "startChar": 40,
+        "endLine": 1904,
+        "endChar": 49
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bd8ae85_bab24adb",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-03T14:30:24Z",
       "side": 1,
       "message": "Given you\u0027re checking this, you can avoid making DenyAccessBasedOnPublicSdk a virtual method and just down_cast the class linker.",
+      "range": {
+        "startLine": 3329,
+        "startChar": 0,
+        "endLine": 3329,
+        "endChar": 44
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "299a0228_0d7a6467",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "This is a bit at odds with Vladimir comments that I should actually create more virtual methods :). See the hidden_api comment.\n\nI\u0027m fine either way but after some experimentation I found that exposing a single GetSdkChecker is the cleanest.\n\nLemme know if it works for you.",
+      "parentUuid": "0bd8ae85_bab24adb",
       "range": {
         "startLine": 3329,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f31e72e_049165ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 10026,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91a30f37_2bdff358",
+      "range": {
+        "startLine": 10022,
+        "startChar": 0,
+        "endLine": 10026,
+        "endChar": 1
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f3873e4_da3116d0",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-12-02T09:31:56Z",
       "side": 1,
       "message": "You should introduce overloads of the `ClassLinker::DenyAccessBasedOnPublicSdk()` that can take any `member` here. Then the HiddenApi does not need to know the class AotClassLinker. (And the UseExplicitPublicSdk() check above can be removed as it shall be done in those overloads.)",
+      "range": {
+        "startLine": 419,
+        "startChar": 12,
+        "endLine": 419,
+        "endChar": 71
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb610816_2aa77910",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "I gave it a shot but I got to an overly cumbersome model with lots of extra methods and quite a bit of forwarding which didn\u0027t seem too good.\n\nI decided to expose GetSdkChecker in the linker as a virtual and that got me to a pretty clean solution.\n\nTake a look and let me know what you think.",
+      "parentUuid": "1f3873e4_da3116d0",
       "range": {
         "startLine": 419,
         "startChar": 12,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4808b9_287060a9",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b581c5ff_4e24254c",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 13
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91fe5cf6_44c54c82",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71ab0a35_8149f6da",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91fe5cf6_44c54c82",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ee9ee3a_42395993",
@@ -152,6 +296,30 @@
       "writtenOn": "2020-12-03T14:30:24Z",
       "side": 1,
       "message": "skd_dex_files_ ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 46,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a3b4c38_1084a668",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-04T04:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ee9ee3a_42395993",
       "range": {
         "startLine": 61,
         "startChar": 46,
