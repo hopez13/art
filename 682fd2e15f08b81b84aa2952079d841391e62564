@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c0ed6a_e4a8a647",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-04T18:52:32Z",
+      "side": 1,
+      "message": "This introduced test failures that we\u0027re hitting on the bots a bunch, so I think it makes sense to revert it until I can fix the failures locally.",
+      "revId": "682fd2e15f08b81b84aa2952079d841391e62564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
