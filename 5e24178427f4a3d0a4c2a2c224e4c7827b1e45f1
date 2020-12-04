@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "373a56ff_b96785c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-04T19:52:36Z",
+      "side": 1,
+      "message": "So it turns out the issue was a fairly simple logic error. This should fix the broken test.\n\nI have a revert in flight but it hasn\u0027t landed yet. Does it maybe make sense to go ahead and fix-forward instead, since we have a fix?\n\nI\u0027m running this test in a loop locally just to make sure there aren\u0027t any other issues going on.",
+      "revId": "5e24178427f4a3d0a4c2a2c224e4c7827b1e45f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
