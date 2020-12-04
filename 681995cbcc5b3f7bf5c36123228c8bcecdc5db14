@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006551889",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1517418?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "d162ec1e_aff2cc51",
+          "description": "Change to \"runtime/jit/jit.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/jit/jit.cc",
+              "range": {
+                "startLine": 1116,
+                "startChar": 32,
+                "endLine": 1116,
+                "endChar": 39
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1b02da1f_0540b57c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-04T09:59:05Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1116,
+        "startChar": 32,
+        "endLine": 1116,
+        "endChar": 39
+      },
+      "revId": "681995cbcc5b3f7bf5c36123228c8bcecdc5db14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
