@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25bcefb5_25366938",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-04T10:04:36Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 15,
+        "startChar": 45,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8caa9fb8_861576b2",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-04T10:04:36Z",
+      "side": 1,
+      "message": "Do you use a reformatting script that keeps removing the blank line?",
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

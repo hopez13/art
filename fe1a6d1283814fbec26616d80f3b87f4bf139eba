@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c63d173_17f93474",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3329,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-04T10:04:36Z",
+      "side": 1,
+      "message": "This requires the HiddenApi to know the class SdkChecker which is undesirable if we want to move it to art/dex2oat/. I have a strong preference for virtual call over letting runtime classes know dex2oat classes.",
+      "parentUuid": "299a0228_0d7a6467",
+      "range": {
+        "startLine": 3329,
+        "startChar": 0,
+        "endLine": 3329,
+        "endChar": 44
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91a30f37_2bdff358",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
