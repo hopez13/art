@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01fe6342_b1b204b4",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2020-12-04T11:07:02Z",
+      "side": 1,
+      "message": "Typo: .dex",
+      "range": {
+        "startLine": 814,
+        "startChar": 77,
+        "endLine": 814,
+        "endChar": 81
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8caa9fb8_861576b2",
         "filename": "runtime/sdk_checker.h",
         "patchSetId": 6
