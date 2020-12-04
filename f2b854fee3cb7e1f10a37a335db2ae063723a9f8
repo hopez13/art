@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9557382_ff9fe356",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-04T09:50:06Z",
+      "side": 1,
+      "message": "You can drop this test and only call GetOrCreateAllocatorForClassLoader.\n\nThen do a DCHECK that for an app_image, you\u0027re not getting the runtime LinearAlloc.",
+      "range": {
+        "startLine": 1989,
+        "startChar": 32,
+        "endLine": 1989,
+        "endChar": 43
+      },
+      "revId": "f2b854fee3cb7e1f10a37a335db2ae063723a9f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
