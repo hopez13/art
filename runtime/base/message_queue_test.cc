@@ -232,13 +232,15 @@ TEST_F(MessageQueueTest, ReceiveInOrder) {
   // Receive the messages. Make sure they came in order, except for the TimeoutExpiredMessage, which
   // can come at any time.
   bool received_timeout = false;
-  for (const auto& expected : messages) {
+  size_t i = 0;
+  while (i < messages.size()) {
     auto message = queue.ReceiveMessage();
     if (std::holds_alternative<TimeoutExpiredMessage>(message)) {
       ASSERT_FALSE(received_timeout);
       received_timeout = true;
     } else {
-      ASSERT_EQ(message.index(), expected.index());
+      ASSERT_EQ(message.index(), messages[i].index());
+      i++;
     }
   }
   if (!received_timeout) {
