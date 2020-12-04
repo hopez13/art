@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b47e86_0fcb9022",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-04T17:46:16Z",
+      "side": 1,
+      "message": "Was this intentional?",
+      "range": {
+        "startLine": 2819,
+        "startChar": 8,
+        "endLine": 2819,
+        "endChar": 80
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f2aefb1_70e28308",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-04T17:46:16Z",
+      "side": 1,
+      "message": "This is correct, but maybe a bit misleading. This really follows from the seq_cst semantics. If Java had the equivalent of memory_order_acq_rel, then we wouldn\u0027t need the stronger version. The same applies to the acquire case below. You can partially see this in https://www.cl.cam.ac.uk/~pes20/cpp/cpp0xmappings.html , though they use the isb version of an acquire fence, which I think is discouraged by ARM?",
+      "range": {
+        "startLine": 4247,
+        "startChar": 8,
+        "endLine": 4247,
+        "endChar": 23
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0c0e4a_b7e02d1c",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4521,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-04T17:46:16Z",
+      "side": 1,
+      "message": "Same comment here and below.",
+      "range": {
+        "startLine": 4521,
+        "startChar": 8,
+        "endLine": 4521,
+        "endChar": 25
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
