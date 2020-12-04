@@ -1466,6 +1466,11 @@ class Dex2Oat final {
       }
     }
 
+    // HACK: Disable compilation for testing.
+    if (!IsBootImage() && !IsBootImageExtension()) {
+        compiler_options_->SetCompilerFilter(CompilerFilter::kVerify);
+    }
+
     if (CompilerFilter::IsAnyCompilationEnabled(compiler_options_->GetCompilerFilter()) ||
         IsImage()) {
       // Only modes with compilation or image generation require verification results.
