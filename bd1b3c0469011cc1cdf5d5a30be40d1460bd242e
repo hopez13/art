@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9b25d67_30118b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-05T00:03:40Z",
+      "side": 1,
+      "message": "I folded the fix from https://r.android.com/1518361 into this CL. I\u0027ve been running the test in a loop on my machine for a couple of hours without any issues. Before, I would hit the bug within about 30 minutes, so things are looking pretty good now.",
+      "revId": "bd1b3c0469011cc1cdf5d5a30be40d1460bd242e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
