@@ -16,6 +16,29 @@
       "message": "I folded the fix from https://r.android.com/1518361 into this CL. I\u0027ve been running the test in a loop on my machine for a couple of hours without any issues. Before, I would hit the bug within about 30 minutes, so things are looking pretty good now.",
       "revId": "bd1b3c0469011cc1cdf5d5a30be40d1460bd242e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85377a13_863461cb",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-05T01:52:48Z",
+      "side": 1,
+      "message": "Why not just remember the MilliTime() result from above, so you don\u0027t have to recheck?",
+      "range": {
+        "startLine": 140,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 60
+      },
+      "revId": "bd1b3c0469011cc1cdf5d5a30be40d1460bd242e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
