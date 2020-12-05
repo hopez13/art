@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca2a776_b6525151",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-05T00:14:19Z",
+      "side": 1,
+      "message": "Ok. I changed to virtual calls.",
+      "parentUuid": "9e309f58_48b2d63d",
+      "range": {
+        "startLine": 3329,
+        "startChar": 0,
+        "endLine": 3329,
+        "endChar": 44
+      },
+      "revId": "fe1a6d1283814fbec26616d80f3b87f4bf139eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91a30f37_2bdff358",

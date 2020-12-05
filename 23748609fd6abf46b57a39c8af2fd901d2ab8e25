@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a4c6a3_713e1afe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-05T00:14:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25bcefb5_25366938",
+      "range": {
+        "startLine": 15,
+        "startChar": 45,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01fe6342_b1b204b4",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25263eda_778df33e",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-05T00:14:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01fe6342_b1b204b4",
+      "range": {
+        "startLine": 814,
+        "startChar": 77,
+        "endLine": 814,
+        "endChar": 81
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8caa9fb8_861576b2",
@@ -60,6 +108,24 @@
       "writtenOn": "2020-12-04T10:04:36Z",
       "side": 1,
       "message": "Do you use a reformatting script that keeps removing the blank line?",
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53137a84_40d12ab8",
+        "filename": "runtime/sdk_checker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-05T00:14:19Z",
+      "side": 1,
+      "message": "I think my ide keeps doing that.",
+      "parentUuid": "8caa9fb8_861576b2",
       "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
