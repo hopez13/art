@@ -39,6 +39,30 @@
       },
       "revId": "bd1b3c0469011cc1cdf5d5a30be40d1460bd242e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a47f35_5787cbc1",
+        "filename": "runtime/base/message_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-07T16:21:35Z",
+      "side": 1,
+      "message": "Yes, I like that better.\n\nOriginally there was a bug where the deadline would pass in between the two calls to `MilliTime()`, leading to us waiting with a negative timeout. Only getting the time once solves that in a much cleaner way.\n\nI was a little worried the deadline might change since the last check, but I don\u0027t think that can happen since the deadline is guarded by the mutex we are holding during this section of code. I added a GUARDED_BY annotation on the deadline field to make sure this is the case.",
+      "parentUuid": "85377a13_863461cb",
+      "range": {
+        "startLine": 140,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 60
+      },
+      "revId": "bd1b3c0469011cc1cdf5d5a30be40d1460bd242e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
