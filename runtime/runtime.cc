@@ -223,17 +223,6 @@ void CheckConstants() {
   CHECK_EQ(mirror::Array::kFirstElementOffset, mirror::Array::FirstElementOffset());
 }
 
-metrics::ReportingConfig ParseMetricsReportingConfig(const RuntimeArgumentMap& args) {
-  using M = RuntimeArgumentMap;
-  return {
-      .dump_to_logcat = args.Exists(M::WriteMetricsToLog),
-      .report_metrics_on_shutdown = !args.Exists(M::DisableFinalMetricsReport),
-      .periodic_report_seconds{args.Exists(M::MetricsReportingPeriod)
-                                   ? std::make_optional(args.GetOrDefault(M::MetricsReportingPeriod))
-                                   : std::nullopt},
-  };
-}
-
 }  // namespace
 
 Runtime::Runtime()
@@ -1828,7 +1817,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 }
 
 void Runtime::InitMetrics(const RuntimeArgumentMap& runtime_options) {
-  auto metrics_config = ParseMetricsReportingConfig(runtime_options);
+  auto metrics_config = metrics::ReportingConfig::FromRuntimeArguments(runtime_options);
   if (metrics_config.ReportingEnabled()) {
     metrics_reporter_ = metrics::MetricsReporter::Create(metrics_config, this);
   }

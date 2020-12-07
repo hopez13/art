@@ -63,6 +63,7 @@
 namespace art {
 
 class Runtime;
+struct RuntimeArgumentMap;
 
 namespace metrics {
 
@@ -347,8 +348,13 @@ std::string DatumName(DatumId datum);
 
 // Defines the set of options for how metrics reporting happens.
 struct ReportingConfig {
+  static ReportingConfig FromRuntimeArguments(const RuntimeArgumentMap& args);
+
   // Causes metrics to be written to the log, which makes them show up in logcat.
   bool dump_to_logcat{false};
+
+  // If set, provides a file name to enable metrics logging to a file.
+  std::optional<std::string> dump_to_file;
 
   // Indicates whether to report the final state of metrics on shutdown.
   //
@@ -359,7 +365,7 @@ struct ReportingConfig {
   std::optional<unsigned int> periodic_report_seconds;
 
   // Returns whether any options are set that enables metrics reporting.
-  constexpr bool ReportingEnabled() const { return dump_to_logcat; }
+  constexpr bool ReportingEnabled() const { return dump_to_logcat || dump_to_file.has_value(); }
 
   // Returns whether any options are set that requires a background reporting thread.
   constexpr bool BackgroundReportingEnabled() const {
