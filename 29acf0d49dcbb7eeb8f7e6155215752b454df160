@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b41744_e115c10d",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-07T19:07:59Z",
+      "side": 1,
+      "message": "Thanks for clarification. I amended the comment.",
+      "parentUuid": "d5c59a41_60c51660",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 22
+      },
+      "revId": "29acf0d49dcbb7eeb8f7e6155215752b454df160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e3173f0_d29c6098",
@@ -61,6 +85,30 @@
       "writtenOn": "2020-12-07T09:37:59Z",
       "side": 1,
       "message": "Indentation.",
+      "range": {
+        "startLine": 835,
+        "startChar": 2,
+        "endLine": 835,
+        "endChar": 6
+      },
+      "revId": "29acf0d49dcbb7eeb8f7e6155215752b454df160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd64a89_70cec07b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-07T19:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e3173f0_d29c6098",
       "range": {
         "startLine": 835,
         "startChar": 2,

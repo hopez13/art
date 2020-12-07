@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ddd20c_9bc9e069",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3331,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-07T19:07:59Z",
+      "side": 1,
+      "message": "Having the SdkChecker only part of dex2oat is one of the goals here.",
+      "parentUuid": "53ecbdda_bc32b474",
+      "range": {
+        "startLine": 3330,
+        "startChar": 0,
+        "endLine": 3331,
+        "endChar": 54
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8caa9fb8_861576b2",
