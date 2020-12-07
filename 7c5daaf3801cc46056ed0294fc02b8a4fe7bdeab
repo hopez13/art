@@ -16,6 +16,24 @@
       "message": "Can we not make the log stream for metrics a runtime argument?",
       "revId": "7c5daaf3801cc46056ed0294fc02b8a4fe7bdeab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a972203e_8cd9d362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-07T16:36:17Z",
+      "side": 1,
+      "message": "What did you have in mind for the runtime argument?\n\nI am planning to add another option to write to a file instead, and as you pointed out in chat, giving /dev/stdout would work to make that log to stdout. Was that what you had in mind here?",
+      "parentUuid": "2289c727_0dcba7c4",
+      "revId": "7c5daaf3801cc46056ed0294fc02b8a4fe7bdeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
