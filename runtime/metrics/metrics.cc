@@ -16,10 +16,14 @@
 
 #include "metrics.h"
 
+#include <sstream>
+
+#include "android-base/file.h"
 #include "android-base/logging.h"
 #include "base/macros.h"
+#include "base/scoped_flock.h"
 #include "runtime.h"
-#include "thread-current-inl.h"
+#include "runtime_options.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic error "-Wconversion"
@@ -192,6 +196,34 @@ void MetricsReporter::ReportMetrics() const {
     }(LOG_STREAM(INFO));
     LOG_STREAM(INFO) << "\n*** Done dumping ART internal metrics ***\n";
   }
+  if (config_.dump_to_file.has_value()) {
+    const auto& filename = config_.dump_to_file.value();
+    std::ostringstream stream;
+    StreamBackend backend{stream};
+    runtime_->GetMetrics()->ReportAllMetrics(&backend);
+
+    std::string error_message;
+    auto file{
+        LockedFile::Open(filename.c_str(), O_CREAT | O_WRONLY | O_APPEND, true, &error_message)};
+    if (file.get() == nullptr) {
+      LOG(WARNING) << "Could open metrics file '" << filename << "': " << error_message;
+    } else {
+      bool result = android::base::WriteStringToFd(stream.str(), file.get()->Fd());
+      if (!result) {
+        LOG(WARNING) << "Error writing metrics to file: " << strerror(errno);
+      }
+    }
+  }
+}
+
+ReportingConfig ReportingConfig::FromRuntimeArguments(const RuntimeArgumentMap& args) {
+  using M = RuntimeArgumentMap;
+  return {
+      .dump_to_logcat = args.Exists(M::WriteMetricsToLog),
+      .dump_to_file = args.GetOptional(M::WriteMetricsToFile),
+      .report_metrics_on_shutdown = !args.Exists(M::DisableFinalMetricsReport),
+      .periodic_report_seconds = args.GetOptional(M::MetricsReportingPeriod),
+  };
 }
 
 }  // namespace metrics
