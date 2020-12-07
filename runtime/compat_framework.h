@@ -19,6 +19,8 @@
 
 #include <set>
 
+#include "base/macros.h"
+#include "base/mutex.h"
 #include "base/string_view_cpp20.h"
 
 namespace art {
@@ -36,6 +38,9 @@ class CompatFramework {
     kDisabled,
     kLogged
   };
+
+  CompatFramework();
+  ~CompatFramework();
 
   void SetDisabledCompatChanges(const std::set<uint64_t>& disabled_changes) {
     disabled_compat_changes_ = disabled_changes;
@@ -65,7 +70,8 @@ class CompatFramework {
   std::set<uint64_t> disabled_compat_changes_;
 
   // A set of repoted compat changes for the running app.
-  std::set<uint64_t> reported_compat_changes_;
+  std::set<uint64_t> reported_compat_changes_ GUARDED_BY(reported_compat_changes_lock_);
+  ReaderWriterMutex reported_compat_changes_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
 };
 
 }  // namespace art
