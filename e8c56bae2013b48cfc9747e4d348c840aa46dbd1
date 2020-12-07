@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eda38000_fc1ecb60",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-12-07T23:51:29Z",
+      "side": 1,
+      "message": "1. I can confirm that DMB version is preferred over the ISB one.\nAs a side note: I personally find godbolt.org as an easy and useful way to check what code modern compilers emit for C++, e.g.:\n\n  std::atomic\u003cint\u003e g_a;\n  g_a.fetch_add(5, std::memory_order_acq_rel);\n\n2. I would also appreciate a lot if comments could be extended here. I am not sure what the best way would be: what do you think about maybe trying to map the implementation back to the semantics of getVolatile and setVolatile (from Java VarHandles API spec; also from comments near art::MemBarrierKind)?",
+      "parentUuid": "7f2aefb1_70e28308",
+      "range": {
+        "startLine": 4247,
+        "startChar": 8,
+        "endLine": 4247,
+        "endChar": 23
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c0c0e4a_b7e02d1c",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
@@ -65,6 +89,29 @@
         "startChar": 8,
         "endLine": 4521,
         "endChar": 25
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "602f5b83_79a34939",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4521,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2020-12-07T23:51:29Z",
+      "side": 1,
+      "message": "I think it should be kAnyStore.",
+      "range": {
+        "startLine": 4521,
+        "startChar": 68,
+        "endLine": 4521,
+        "endChar": 79
       },
       "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
