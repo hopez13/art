@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53ecbdda_bc32b474",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-07T09:37:59Z",
+      "side": 1,
+      "message": "The aim is to eventually move the SdkChecker class to dex2oat/ and a runtime class like HiddenApi should not know about the existence of such classes.",
+      "parentUuid": "5181d223_0a1f93b8",
+      "range": {
+        "startLine": 3330,
+        "startChar": 0,
+        "endLine": 3331,
+        "endChar": 54
+      },
+      "revId": "23748609fd6abf46b57a39c8af2fd901d2ab8e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8caa9fb8_861576b2",
         "filename": "runtime/sdk_checker.h",
         "patchSetId": 6
