@@ -20,6 +20,9 @@
 #include "android-base/unique_fd.h"
 #include "base/mutex.h"
 
+//Defined in reserved_signals.h
+#define SIGSAVEPRF 41
+
 namespace art {
 
 class Runtime;
@@ -45,6 +48,7 @@ class SignalCatcher {
   static void* Run(void* arg) NO_THREAD_SAFETY_ANALYSIS;
 
   void HandleSigUsr1();
+  void HandleSigSavePrf();
   void Output(const std::string& s);
   void SetHaltFlag(bool new_value) REQUIRES(!lock_);
   bool ShouldHalt() REQUIRES(!lock_);
