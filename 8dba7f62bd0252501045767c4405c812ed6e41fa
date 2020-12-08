@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e8458c4_746f87d8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T09:17:49Z",
+      "side": 1,
+      "message": "for (size_t i \u003d 0, len \u003d strlen(shorty); i !\u003d len; ++i)",
+      "range": {
+        "startLine": 977,
+        "startChar": 8,
+        "endLine": 977,
+        "endChar": 51
+      },
+      "revId": "8dba7f62bd0252501045767c4405c812ed6e41fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809ce9e5_84247117",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T09:17:49Z",
+      "side": 1,
+      "message": "or return type",
+      "range": {
+        "startLine": 980,
+        "startChar": 69,
+        "endLine": 980,
+        "endChar": 78
+      },
+      "revId": "8dba7f62bd0252501045767c4405c812ed6e41fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
