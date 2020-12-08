@@ -19,8 +19,12 @@
 
 #include <algorithm>
 #include <array>
+#include <functional>
+#include <ios>
+#include <ostream>
 #include <type_traits>
 
+#include "art_method.h"
 #include "base/arena_allocator.h"
 #include "base/arena_bit_vector.h"
 #include "base/arena_containers.h"
@@ -32,7 +36,6 @@
 #include "base/quasi_atomic.h"
 #include "base/stl_util.h"
 #include "base/transform_array_ref.h"
-#include "art_method.h"
 #include "class_root.h"
 #include "compilation_kind.h"
 #include "data_type.h"
@@ -368,6 +371,21 @@ class HandleCache {
   ReferenceTypeInfo::TypeHandle throwable_class_handle_;
 };
 
+struct BlockNamer {
+ public:
+  struct NameWrapper {
+    HBasicBlock* blk_;
+    const BlockNamer& namer_;
+  };
+  virtual ~BlockNamer() {}
+  virtual std::ostream& PrintName(std::ostream& os, HBasicBlock* blk) const;
+  NameWrapper GetName(HBasicBlock* blk) const {
+    return NameWrapper{blk, *this};
+  }
+};
+
+std::ostream& operator<<(std::ostream& os, const BlockNamer::NameWrapper& blk);
+
 // Control-flow graph of a method. Contains a list of basic blocks.
 class HGraph : public ArenaObject<kArenaAllocGraph> {
  public:
@@ -422,6 +440,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         cha_single_implementation_list_(allocator->Adapter(kArenaAllocCHA)) {
     blocks_.reserve(kDefaultNumberOfBlocks);
   }
+
+  std::ostream& Dump(
+      std::ostream& oss,
+      std::optional<std::reference_wrapper<const BlockNamer>> namer = std::nullopt) const;
 
   ArenaAllocator* GetAllocator() const { return allocator_; }
   ArenaStack* GetArenaStack() const { return arena_stack_; }
@@ -880,6 +902,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   ART_FRIEND_TEST(GraphTest, IfSuccessorSimpleJoinBlock1);
   DISALLOW_COPY_AND_ASSIGN(HGraph);
 };
+
+inline std::ostream& operator<<(std::ostream& oss, const HGraph& graph) {
+  return graph.Dump(oss);
+}
 
 class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
  public:
@@ -1701,6 +1727,9 @@ class HUseListNode : public ArenaObject<kArenaAllocUseListNode>,
 template <typename T>
 using HUseList = IntrusiveForwardList<HUseListNode<T>>;
 
+std::ostream& operator<<(std::ostream& oss, const HUseList<HInstruction*>& lst);
+std::ostream& operator<<(std::ostream& oss, const HUseList<HEnvironment*>& lst);
+
 // This class is used by HEnvironment and HInstruction classes to record the
 // instructions they use and pointers to the corresponding HUseListNodes kept
 // by the used instructions.
@@ -2198,6 +2227,11 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   virtual void Accept(HGraphVisitor* visitor) = 0;
   virtual const char* DebugName() const = 0;
 
+  std::ostream& Dump(std::ostream& os, std::optional<ArenaBitVector*> visited = std::nullopt) const;
+  // Prints arguments on the given ostream. 'visited' should be passed to
+  // recursive Dump calls to prevent infinite loops.
+  virtual std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* visited) const;
+
   DataType::Type GetType() const {
     return TypeField::Decode(GetPackedFields());
   }
@@ -2672,6 +2706,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   friend class HInstructionList;
 };
 std::ostream& operator<<(std::ostream& os, HInstruction::InstructionKind rhs);
+std::ostream& operator<<(std::ostream& os, const HInstruction& ins);
 
 // Iterates over the instructions, while preserving the next instruction
 // in case the current instruction gets removed from the list by the user
@@ -2989,6 +3024,14 @@ class HGoto final : public HExpression<0> {
     return GetBlock()->GetSingleSuccessor();
   }
 
+  std::ostream& DumpArguments(std::ostream& os,
+                              ArenaBitVector* visited ATTRIBUTE_UNUSED) const override {
+    if (GetBlock() != nullptr) {
+      os << "next block: " << GetBlock()->GetSingleSuccessor()->GetBlockId();
+    }
+    return os;
+  }
+
   DECLARE_INSTRUCTION(Goto);
 
  protected:
@@ -3013,6 +3056,13 @@ class HConstant : public HExpression<0> {
   virtual bool IsOne() const { return false; }
 
   virtual uint64_t GetValueAsUint64() const = 0;
+
+  std::ostream& DumpArguments(std::ostream& os,
+                              ArenaBitVector* visited ATTRIBUTE_UNUSED) const override {
+    os << std::dec << GetValueAsUint64() << ", [0x" << std::hex << GetValueAsUint64() << "]"
+       << std::dec;
+    return os;
+  }
 
   DECLARE_ABSTRACT_INSTRUCTION(Constant);
 
@@ -3263,6 +3313,8 @@ class HIf final : public HExpression<1> {
   HBasicBlock* IfFalseSuccessor() const {
     return GetBlock()->GetSuccessors()[1];
   }
+
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* visited) const override;
 
   DECLARE_INSTRUCTION(If);
 
@@ -5753,6 +5805,11 @@ class HParameterValue final : public HExpression<0> {
   bool CanBeNull() const override { return GetPackedFlag<kFlagCanBeNull>(); }
   void SetCanBeNull(bool can_be_null) { SetPackedFlag<kFlagCanBeNull>(can_be_null); }
 
+  std::ostream& DumpArguments(std::ostream& os,
+                              ArenaBitVector* visited ATTRIBUTE_UNUSED) const override {
+    return os << "idx: " << static_cast<uint32_t>(GetIndex()) << ", type: " << GetType();
+  }
+
   DECLARE_INSTRUCTION(ParameterValue);
 
  protected:
@@ -5971,6 +6028,8 @@ class HInstanceFieldGet final : public HExpression<1> {
     SetRawInputAt(0, value);
   }
 
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* bv) const override;
+
   bool IsClonable() const override { return true; }
   bool CanBeMoved() const override { return !IsVolatile(); }
 
@@ -6036,6 +6095,8 @@ class HInstanceFieldSet final : public HExpression<2> {
   }
 
   bool IsClonable() const override { return true; }
+
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* bv) const override;
 
   bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
     return (obj == InputAt(0)) && art::CanDoImplicitNullCheckOn(GetFieldOffset().Uint32Value());
@@ -6581,6 +6642,8 @@ class HLoadClass final : public HInstruction {
   Handle<mirror::Class> GetClass() const {
     return klass_;
   }
+
+  std::ostream& DumpArguments(std::ostream& os, ArenaBitVector* visited) const override;
 
   DECLARE_INSTRUCTION(LoadClass);
 
