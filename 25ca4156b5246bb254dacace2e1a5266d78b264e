@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4e860f0_87de3644",
+        "filename": "runtime/compat_framework.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-12-08T15:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "921b3d5a_e55f3d2b",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "25ca4156b5246bb254dacace2e1a5266d78b264e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "229fdcf6_2679ef36",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-08T09:35:36Z",
       "side": 1,
       "message": "I think this can be just a Mutex ?",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 19
+      },
+      "revId": "25ca4156b5246bb254dacace2e1a5266d78b264e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9baf9ea2_60f38787",
+        "filename": "runtime/compat_framework.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2020-12-08T15:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "229fdcf6_2679ef36",
       "range": {
         "startLine": 74,
         "startChar": 2,
