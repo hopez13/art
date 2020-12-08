@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbf6a6f8_a2646c23",
+        "filename": "runtime/jni/check_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a381804b_b4cb8dff",
+      "range": {
+        "startLine": 861,
+        "startChar": 4,
+        "endLine": 861,
+        "endChar": 33
+      },
+      "revId": "b0b9b8ce08a0582f69bef0db5d53072d7f758a64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31c3050c_20e5feea",
@@ -54,6 +78,24 @@
       "writtenOn": "2020-12-08T13:22:00Z",
       "side": 1,
       "message": "Is the abort message info useful for dcheck here?",
+      "revId": "b0b9b8ce08a0582f69bef0db5d53072d7f758a64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a5fea2_49f38664",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:58:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure but I added it back.",
+      "parentUuid": "31c3050c_20e5feea",
       "revId": "b0b9b8ce08a0582f69bef0db5d53072d7f758a64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
