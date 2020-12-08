@@ -606,6 +606,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fa8485b_6cea2c91",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3326,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-08T23:27:44Z",
+      "side": 1,
+      "message": "resolved",
+      "parentUuid": "edf93fda_08f6d618",
+      "range": {
+        "startLine": 3326,
+        "startChar": 8,
+        "endLine": 3326,
+        "endChar": 31
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "349af44b_355e4515",
@@ -737,6 +761,30 @@
       "side": 1,
       "message": "ditto: lemme know what you prefer.",
       "parentUuid": "ce664bdd_88bc800d",
+      "range": {
+        "startLine": 414,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 64
+      },
+      "revId": "98ca0700b5d880b5995b264835cc117d1632e37e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b8f3f3_5d1f8df8",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-08T23:27:44Z",
+      "side": 1,
+      "message": "resolved",
+      "parentUuid": "94011e0c_811e801f",
       "range": {
         "startLine": 414,
         "startChar": 8,
