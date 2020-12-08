@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f28ef2_7a7cfbbf",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T10:39:11Z",
+      "side": 1,
+      "message": "This needs to be done for all Phis before the first call to Accept(). Otherwise we can pick up the wrong starting value from one of the inputs.",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "2ec190434510ddc30883a9bad7f7f89a320210f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a64c24e9_e7cf3efc",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T10:39:11Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "2ec190434510ddc30883a9bad7f7f89a320210f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227cc6c8_aa4269ea",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T10:39:11Z",
+      "side": 1,
+      "message": "There are no loop Phis in this test, so you\u0027re not testing the most important case.",
+      "revId": "2ec190434510ddc30883a9bad7f7f89a320210f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
