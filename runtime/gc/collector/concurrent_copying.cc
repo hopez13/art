@@ -1051,7 +1051,22 @@ class ConcurrentCopying::ComputeLiveBytesAndMarkRefFieldsVisitor {
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
     DCHECK_EQ(collector_->RegionSpace()->RegionIdxForRef(obj), obj_region_idx_);
     DCHECK(kHandleInterRegionRefs || collector_->immune_spaces_.ContainsObject(obj));
-    CheckReference(obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset));
+    mirror::Object* ref =
+            obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
+    // TODO(lokeshgidra): Remove the following condition once b/173676071 is fixed.
+    if (UNLIKELY(ref == nullptr && offset == mirror::Object::ClassOffset())) {
+      sleep(1);
+      // It must be heap corruption. Remove memory protection and dump data.
+      collector_->region_space_->Unprotect();
+      mirror::Class* klass = obj->GetClass<kVerifyNone, kWithoutReadBarrier>();
+      LOG(FATAL_WITHOUT_ABORT) << "klass pointer for ref: " << obj
+                               << " found to be null. klass read again and found: " << klass;
+      collector_->heap_->GetVerification()->LogHeapCorruption(obj,
+                                                              offset,
+                                                              klass,
+                                                              /* fatal */ true);
+    }
+    CheckReference(ref);
   }
 
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref) const
