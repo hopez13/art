@@ -294,6 +294,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74679c0_811867d2",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-08T20:22:33Z",
+      "side": 1,
+      "message": "What about adding a call to std::srand() at the beginning to make the test deterministic? Would that lose too much testing coverage?\n\nAlternatively, maybe this is something that should be a fuzzer instead.",
+      "parentUuid": "81290f83_5ceb7776",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
