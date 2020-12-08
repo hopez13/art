@@ -35,6 +35,14 @@ inline void Object::VisitReferences(const Visitor& visitor,
                                     const JavaLangRefVisitor& ref_visitor) {
   visitor(this, ClassOffset(), /* is_static= */ false);
   ObjPtr<Class> klass = GetClass<kVerifyFlags, kReadBarrierOption>();
+  // TODO(lokeshgidra): Remove the following condition once b/173676071 is
+  // fixed.
+  if (UNLIKELY(klass == nullptr)) {
+    sleep(1);
+    ObjPtr<Class> klass_again = GetClass<kVerifyFlags, kReadBarrierOption>();
+    LOG(FATAL) << "klass pointer for ref: " << this
+               << " found to be null. klass read again and found: " << klass_again;
+  }
   const uint32_t class_flags = klass->GetClassFlags<kVerifyNone>();
   if (LIKELY(class_flags == kClassFlagNormal)) {
     DCHECK((!klass->IsVariableSize<kVerifyFlags>()));
