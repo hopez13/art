@@ -16,6 +16,23 @@
       "message": "PTAL. Little thing I found when doing partial LSE on run-tests. This needs to be fixed for that and is generally a good little improvement.",
       "revId": "068c668fa5eb8d6820c683304526f713b52cd0dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79e774a_fcb784ef",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T10:45:09Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "068c668fa5eb8d6820c683304526f713b52cd0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
