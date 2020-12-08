@@ -17,6 +17,7 @@
 
 #include <algorithm>
 #include <cfloat>
+#include <functional>
 
 #include "art_method-inl.h"
 #include "base/arena_allocator.h"
@@ -24,6 +25,8 @@
 #include "base/bit_utils.h"
 #include "base/bit_vector-inl.h"
 #include "base/bit_vector.h"
+#include "base/globals.h"
+#include "base/indenter.h"
 #include "base/iteration_range.h"
 #include "base/logging.h"
 #include "base/scoped_arena_allocator.h"
@@ -45,6 +48,35 @@ namespace art {
 // range and precision of the type used (i.e., 32-bit float, 64-bit
 // double).
 static constexpr bool kEnableFloatingPointStaticEvaluation = (FLT_EVAL_METHOD == 0);
+
+std::ostream& operator<<(std::ostream& os, const HUseList<HInstruction*>& lst) {
+  os << "Instructions[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      os << ", ";
+    }
+    first = false;
+    os << hi.GetUser()->DebugName() << "[id: " << hi.GetUser()->GetId()
+       << ", blk: " << hi.GetUser()->GetBlock()->GetBlockId() << "]@" << hi.GetIndex();
+  }
+  os << "]";
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const HUseList<HEnvironment*>& lst) {
+  os << "Environments[";
+  bool first = true;
+  for (const auto& hi : lst) {
+    if (!first) {
+      os << ", ";
+    }
+    first = false;
+    os << *hi.GetUser()->GetHolder() << "@" << hi.GetIndex();
+  }
+  os << "]";
+  return os;
+}
 
 ReferenceTypeInfo::TypeHandle HandleCache::CreateRootHandle(VariableSizedHandleScope* handles,
                                                             ClassRoot class_root) {
@@ -1076,7 +1108,9 @@ size_t HLoopInformation::GetLifetimeEnd() const {
 
 bool HLoopInformation::HasBackEdgeNotDominatedByHeader() const {
   for (HBasicBlock* back_edge : GetBackEdges()) {
-    DCHECK(back_edge->GetDominator() != nullptr);
+    DCHECK(back_edge->GetDominator() != nullptr)
+        << back_edge->GetBlockId() << " header: " << header_->GetBlockId() << " dom? "
+        << std::boolalpha << header_->Dominates(back_edge);
     if (!header_->Dominates(back_edge)) {
       return true;
     }
@@ -1869,6 +1903,154 @@ HInstruction* HBinaryOperation::GetLeastConstantLeft() const {
   } else {
     return GetLeft();
   }
+}
+
+std::ostream& HInstruction::Dump(std::ostream& os, std::optional<ArenaBitVector*> visited) const {
+  const HBasicBlock* blk = GetBlock();
+  os << DebugName() << "[id: " << GetId()
+     << ", blk: " << (blk == nullptr ? -1 : static_cast<int32_t>(blk->GetBlockId())) << "]";
+  if (!kIsDebugBuild || blk == nullptr) {
+    return os;
+  }
+  bool recur;
+  std::optional<ArenaBitVector> my_bv = std::nullopt;
+  if (visited) {
+    recur = !(*visited)->IsBitSet(GetId());
+  } else {
+    recur = true;
+    my_bv.emplace(
+        GetAllocator(), GetBlock()->GetGraph()->GetNextInstructionId(), false, kArenaAllocGraph);
+    visited = &(*my_bv);
+  }
+
+  if (recur) {
+    (*visited)->SetBit(GetId());
+    os << "(";
+    DumpArguments(os, *visited);
+    os << ")";
+    (*visited)->ClearBit(GetId());
+  }
+  return os;
+}
+
+std::ostream& HInstanceFieldGet::DumpArguments(std::ostream& os, ArenaBitVector* visited) const {
+  os << "Target: " << GetFieldType() << "("
+     << GetFieldInfo().GetDexFile().PrettyField(GetFieldInfo().GetFieldIndex()) << "), ";
+  return HExpression<1>::DumpArguments(os, visited);
+}
+
+std::ostream& HIf::DumpArguments(std::ostream& os, ArenaBitVector* visited) const {
+  return HExpression<1>::DumpArguments(os, visited)
+         << ", true block: " << IfTrueSuccessor()->GetBlockId()
+         << ", false block: " << IfFalseSuccessor()->GetBlockId();
+}
+
+std::ostream& HInstruction::DumpArguments(std::ostream& os, ArenaBitVector* visited) const {
+  for (auto i : Range(InputCount())) {
+    if (i != 0) {
+      os << ", ";
+    }
+    HInstruction* in = InputAt(i);
+    if (in != nullptr) {
+      in->Dump(os, visited);
+    } else {
+      os << "NULL";
+    }
+  }
+  return os;
+}
+
+std::ostream& HInstanceFieldSet::DumpArguments(std::ostream& os, ArenaBitVector* bv) const {
+  bool have_tags = false;
+  if (IsVolatile()) {
+    have_tags = true;
+    os << "[volatile";
+  }
+  if (GetType() == DataType::Type::kReference && !CanBeNull()) {
+    if (!have_tags) {
+      os << "[";
+    } else {
+      os << ", ";
+    }
+    have_tags = true;
+    os << "non-null";
+  }
+  if (have_tags) {
+    os << "], ";
+  }
+  return HExpression<2>::DumpArguments(os, bv);
+}
+
+std::ostream& BlockNamer::PrintName(std::ostream& os, HBasicBlock* blk) const {
+  return os << "B" << blk->GetBlockId();
+}
+
+std::ostream& operator<<(std::ostream& os, const BlockNamer::NameWrapper& nw) {
+  return nw.namer_.PrintName(os, nw.blk_);
+}
+
+std::ostream& HGraph::Dump(std::ostream& os,
+                           std::optional<std::reference_wrapper<const BlockNamer>> namer) const {
+  VariableIndentationOutputStream vios(&os);
+  struct DumpIns : public HGraphVisitor {
+   public:
+    explicit DumpIns(HGraph* graph, VariableIndentationOutputStream& os, const BlockNamer& namer)
+        : HGraphVisitor(graph), os_(os), namer_(namer) {}
+    void VisitInstruction(HInstruction* ins) override {
+      os_.Stream() << *ins << std::endl;
+    }
+    void VisitBasicBlock(HBasicBlock* blk) override {
+      PrintAdjLine(blk);
+      ScopedIndentation si(&os_);
+      HGraphVisitor::VisitBasicBlock(blk);
+    }
+
+   private:
+    void PrintAdjLine(HBasicBlock* blk) {
+      os_.Stream() << namer_.GetName(blk) << "(" << blk->GetBlockId() << ") -> [";
+      bool first = true;
+      for (HBasicBlock* succ : blk->GetSuccessors()) {
+        if (!first) {
+          os_.Stream() << ", ";
+        }
+        first = false;
+        os_.Stream() << namer_.GetName(succ) << "(" << std::dec << succ->GetBlockId() << ")";
+      }
+      os_.Stream() << "] (preds: [";
+      first = true;
+      for (HBasicBlock* pred : blk->GetPredecessors()) {
+        if (!first) {
+          os_.Stream() << ", ";
+        }
+        first = false;
+        os_.Stream() << namer_.GetName(pred) << "(" << std::dec << pred->GetBlockId() << ")";
+      }
+      os_.Stream() << "])" << std::endl;
+    }
+
+    VariableIndentationOutputStream& os_;
+    const BlockNamer& namer_;
+  };
+
+  vios.Stream() << "Blocks: " << std::endl;
+  {
+    ScopedIndentation si2(&vios);
+    BlockNamer default_namer;
+    DumpIns(const_cast<HGraph*>(this), vios, namer ? namer->get() : default_namer)
+        .VisitInsertionOrder();
+  }
+  return os;
+}
+
+std::ostream& HLoadClass::DumpArguments(std::ostream& os,
+                                        ArenaBitVector* visited ATTRIBUTE_UNUSED) const {
+  os << "class-id: " << GetTypeIndex().index_ << " '" << dex_file_.PrettyType(GetTypeIndex())
+     << "'";
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const HInstruction& ins) {
+  return ins.Dump(os);
 }
 
 std::ostream& operator<<(std::ostream& os, ComparisonBias rhs) {
