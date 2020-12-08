@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "814431d2_f0c90855",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:52:10Z",
+      "side": 1,
+      "message": "No, it was a result of replacing kStoreStore with kAnyStore without realizing both branches are now identical.",
+      "parentUuid": "05b47e86_0fcb9022",
+      "range": {
+        "startLine": 2819,
+        "startChar": 8,
+        "endLine": 2819,
+        "endChar": 80
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f2aefb1_70e28308",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "1. I can confirm that DMB version is preferred over the ISB one.\nAs a side note: I personally find godbolt.org as an easy and useful way to check what code modern compilers emit for C++, e.g.:\n\n  std::atomic\u003cint\u003e g_a;\n  g_a.fetch_add(5, std::memory_order_acq_rel);\n\n2. I would also appreciate a lot if comments could be extended here. I am not sure what the best way would be: what do you think about maybe trying to map the implementation back to the semantics of getVolatile and setVolatile (from Java VarHandles API spec; also from comments near art::MemBarrierKind)?",
       "parentUuid": "7f2aefb1_70e28308",
+      "range": {
+        "startLine": 4247,
+        "startChar": 8,
+        "endLine": 4247,
+        "endChar": 23
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3257fd_ca35c683",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:52:10Z",
+      "side": 1,
+      "message": "I introduced `seq_cst_barrier` to make this more explicit.\n\nGiven that VarHandle API is somewhat trying to mimic the C++ memory order, I\u0027m not keen on tying this back to getVolatile semantics.",
+      "parentUuid": "eda38000_fc1ecb60",
       "range": {
         "startLine": 4247,
         "startChar": 8,
@@ -112,6 +160,54 @@
         "startChar": 68,
         "endLine": 4521,
         "endChar": 79
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97371c63_d9feec2d",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "602f5b83_79a34939",
+      "range": {
+        "startLine": 4521,
+        "startChar": 68,
+        "endLine": 4521,
+        "endChar": 79
+      },
+      "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46e783a_4e0f7866",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-08T15:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c0c0e4a_b7e02d1c",
+      "range": {
+        "startLine": 4521,
+        "startChar": 8,
+        "endLine": 4521,
+        "endChar": 25
       },
       "revId": "e8c56bae2013b48cfc9747e4d348c840aa46dbd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
