@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ff60d18_2d8fd32c",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-08T23:24:22Z",
+      "side": 1,
+      "message": "How about we handle SIGUSR2 instead of WINCH?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
