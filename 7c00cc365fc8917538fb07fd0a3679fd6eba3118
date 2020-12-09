@@ -318,6 +318,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4590c65_d5a57806",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-09T16:36:48Z",
+      "side": 1,
+      "message": "I guess we could. I really don\u0027t think this is dangerous. I mostly added the test just because it\u0027s easy.\n\nIf you want I can remove it.",
+      "parentUuid": "e74679c0_811867d2",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
