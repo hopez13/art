@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e2fbfc_f31a6f99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-12-09T17:40:12Z",
+      "side": 1,
+      "message": "Adding new module types to the sdk will require adding new art specific module types for the prebuilts, I am thinking about if/when we support android_test modules.\n\nThe disadvantage of requiring a custom script to post process the snapshot before update is that we cannot use something like go/android-prebuilt that can help automate the process.\n\nI don\u0027t see why we cannot add some configuration to sdk/module_exports/apex that associates them with some common label (you mentioned something before about grouping them together) and then enabling/disabling via the label. The label could easily be propagated to the current prebuilt modules in the snapshot.\n\nThe label would be visible in the .bp file, and would be usable by any mainline module not just ART.",
+      "parentUuid": "cb05e129_e228ee8c",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8846c0a_08cc9c05",
