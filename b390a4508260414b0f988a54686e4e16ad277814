@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf30d14_aef20e18",
+        "filename": "runtime/mirror/object-refvisitor-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-12-09T02:05:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0aae7064_3121b713",
+      "range": {
+        "startLine": 42,
+        "startChar": 32,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "b390a4508260414b0f988a54686e4e16ad277814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0c2c612_570d44b3",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "I also wanted to do that, but couldn\u0027t think of a cleaner of doing that in object-refvisitor.h\n\nI\u0027ll move the whole logic in concurrent_copying.cc file and check for the nullptr at class-offset.",
       "parentUuid": "f0c2c612_570d44b3",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "b390a4508260414b0f988a54686e4e16ad277814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6942815d_a33aa82d",
+        "filename": "runtime/mirror/object-refvisitor-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-12-09T02:05:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f7df478_164ba07b",
       "range": {
         "startLine": 43,
         "startChar": 8,
