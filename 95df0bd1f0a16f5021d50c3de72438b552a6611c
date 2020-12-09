@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e73c8e3_b00dfe4e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-09T13:42:59Z",
+      "side": 1,
+      "message": "Why the sleep ? (add a comment)",
+      "range": {
+        "startLine": 1058,
+        "startChar": 0,
+        "endLine": 1058,
+        "endChar": 15
+      },
+      "revId": "95df0bd1f0a16f5021d50c3de72438b552a6611c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
