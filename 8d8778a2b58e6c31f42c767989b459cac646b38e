@@ -22,6 +22,30 @@
       },
       "revId": "8d8778a2b58e6c31f42c767989b459cac646b38e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5d3ade_9f7cccc8",
+        "filename": "test/1980-obsolete-object-cleared/expected-stdout.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-09T14:37:56Z",
+      "side": 1,
+      "message": "It\u0027s a golden file - looks like the test is tracing execution of a thread and asking to log every invocation. The test harness then checks the output of the test with this file to see if they match.",
+      "parentUuid": "f892ec6e_7b540ef9",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "8d8778a2b58e6c31f42c767989b459cac646b38e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
