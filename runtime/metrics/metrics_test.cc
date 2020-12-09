@@ -16,7 +16,15 @@
 
 #include "metrics.h"
 
-#include "gtest/gtest.h"
+#include <cstdint>
+#include <iosfwd>
+#include <sstream>
+#include <string>
+#include <vector>
+
+#include "gtest/gtest-message.h"
+#include "gtest/gtest-test-part.h"
+#include "gtest/gtest_pred_impl.h"
 #include "metrics_test.h"
 
 #pragma clang diagnostic push

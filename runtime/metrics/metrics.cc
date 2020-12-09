@@ -16,7 +16,19 @@
 
 #include "metrics.h"
 
+#include <errno.h>
+#include <fcntl.h>
+#include <string.h>
+
+#include <iosfwd>
+#include <memory>
+#include <new>
+#include <optional>
+#include <ostream>
 #include <sstream>
+#include <string>
+#include <type_traits>
+#include <vector>
 
 #include "android-base/file.h"
 #include "android-base/logging.h"

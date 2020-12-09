@@ -17,12 +17,15 @@
 #ifndef ART_RUNTIME_METRICS_METRICS_H_
 #define ART_RUNTIME_METRICS_METRICS_H_
 
+#include <stddef.h>
 #include <stdint.h>
 
 #include <array>
 #include <atomic>
+#include <iosfwd>
+#include <memory>
 #include <optional>
-#include <ostream>
+#include <string>
 #include <string_view>
 #include <thread>
 #include <vector>
