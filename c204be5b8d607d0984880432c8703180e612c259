@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fecd83e1_b8acb680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-09T21:41:59Z",
+      "side": 1,
+      "message": "LGTM, except for the issue below, were our simple barrier naming scheme kind of breaks down. I would just use kAnyAny in the seq_cst case. The alternative is a comment that explains this stuff.",
+      "revId": "c204be5b8d607d0984880432c8703180e612c259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "487762a4_aea0f5d5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-09T21:41:59Z",
+      "side": 1,
+      "message": "We\u0027re getting into really subtle issues, but this is arguably maybe not correct. It also needs to be kAnyAny in the seq_cst case, at least in the sense that kLoadAny would be insufficient on some architectures we don\u0027t support. The general rule on ARMv7 (and some other architectures weakly ordered architectures we don\u0027t support) is that you want any two seq_cst operations separated by a full fence, (See https://www.cl.cam.ac.uk/~pes20/cpp/cpp0xmappings.html). The standard counterexample for this implementation is the so-called IRIW example. On ARMv7, if two independent threads each write one of two different variables, two other threads can see the updates in inconsistent orders, even if the loads are somehow ordered. V7 is not \"multicopy atomic\".\n\nThis gets messy, because the issue is not apparent from the kLoadAny vs kAnyAny naming, ishld doesn\u0027t exist on ARMv7, and ARMv8 is (now) multicopy atomic. So for  supported architectures it doesn\u0027t matter. If we targeted Power or certain GPUs, it would.",
+      "range": {
+        "startLine": 2680,
+        "startChar": 4,
+        "endLine": 2680,
+        "endChar": 61
+      },
+      "revId": "c204be5b8d607d0984880432c8703180e612c259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
