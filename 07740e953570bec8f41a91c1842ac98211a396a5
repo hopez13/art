@@ -48,6 +48,47 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53f0141_c114992a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-12-09T16:51:54Z",
+      "side": 1,
+      "message": "\u003e Problem is they are - prebuilts interact with the property collections so the generated bp files get invalid export_include_dirs inside static/shared clauses.\n\nYeuch. The conditional replacement only affects direct dependencies of the sdk (and some special support for system modules). I suspect that problem is a result of static dependencies of a direct dependency using a prebuilt version of the static library which results in using prebuilt versions of the include dirs. That in turn causes a different set of include dirs to be created for static/shared which pushes the export_include_dirs inside the static/shared structure which fails because that does not support export_include_dirs.\n\nI\u0027ve long thought that the flattening of export include dirs from all the transitive dependencies onto a single list in the sdk member was a problem. It leads to duplicate entries across libraries (which we need special support to detect and ignore).\n\nI think that you\u0027re right that we can\u0027t afford to wait to fix these issues \u0027properly\u0027.",
+      "parentUuid": "0a324bb7_b40eba88",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa645f6_3ea2947c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-12-09T16:51:54Z",
+      "side": 1,
+      "message": "This solution is very specific to ART and cannot easily be generalized for use by other modules in a similar position. We need:\n* An ART specific script.\n* Define ART specific module types for use by source and prebuilt.\n* Use ART specific module types in the source and prebuilt.\n\nIs there no way to wire the setting of \u0027prefer\u0027 up to a specific environment variable in Soong itself that would avoid all this boilerplate?",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8846c0a_08cc9c05",
