@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb05e129_e228ee8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-09T17:23:50Z",
+      "side": 1,
+      "message": "go/module-sdk-prefer-prebuilts is that done properly. Doing some low-effort variant of it in Soong brings the problem of how to identify the modules we want act on. This way it\u0027s clunky but very obvious, and I much rather have it visible in the bp files than either hardcoded in Soong or in an environment variable. One benefit with the postprocessing approach in update-art-module-prebuilts.py is that it\u0027ll cover all the modules we add to the SDKs without duplicating that list.",
+      "parentUuid": "efa645f6_3ea2947c",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8846c0a_08cc9c05",
