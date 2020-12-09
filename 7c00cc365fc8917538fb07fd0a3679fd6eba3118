@@ -366,6 +366,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6845a85_cf62926f",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-09T23:43:07Z",
+      "side": 1,
+      "message": "Thanks. I created http://b/175248896 about fuzz testing ART and added this as an example where fuzzing would make sense, so maybe we can add the truly random version at some point too.",
+      "parentUuid": "845cd674_ff0c9dd8",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
