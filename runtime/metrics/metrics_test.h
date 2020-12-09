@@ -17,6 +17,11 @@
 #ifndef ART_RUNTIME_METRICS_METRICS_TEST_H_
 #define ART_RUNTIME_METRICS_METRICS_TEST_H_
 
+#include <stddef.h>
+
+#include <cstdint>
+#include <vector>
+
 #include "metrics.h"
 
 #pragma clang diagnostic push
