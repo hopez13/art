@@ -342,6 +342,30 @@
       },
       "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "845cd674_ff0c9dd8",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-09T22:38:51Z",
+      "side": 1,
+      "message": "Randomness removed.\n\nI honestly think this is a pretty clear case where we should allow it though.",
+      "parentUuid": "b4590c65_d5a57806",
+      "range": {
+        "startLine": 275,
+        "startChar": 31,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "7c00cc365fc8917538fb07fd0a3679fd6eba3118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
