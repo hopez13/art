@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aae7064_3121b713",
+        "filename": "runtime/mirror/object-refvisitor-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-09T01:05:57Z",
+      "side": 1,
+      "message": "For real production code, I\u0027d be with Mathieu here. But I think it\u0027s unlikely enough that I wouldn\u0027t worry about it. sleep() is a function call that results in a nanosleep() system call. None of these are annotated as special to the compiler. As far as the compiler is concerned. sleep() could change the class.",
+      "parentUuid": "9119ba67_9b3f3318",
+      "range": {
+        "startLine": 42,
+        "startChar": 32,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "b390a4508260414b0f988a54686e4e16ad277814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0c2c612_570d44b3",
         "filename": "runtime/mirror/object-refvisitor-inl.h",
         "patchSetId": 1
