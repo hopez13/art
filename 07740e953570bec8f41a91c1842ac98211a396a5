@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "146f6f74_ba349bfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-12-09T15:06:29Z",
+      "side": 1,
+      "message": "These should not be affected by the presence of prebuilts, preferred or otherwise. That is because the dependencies from sdk/module_exports to its source members are not replaced by the prebuilts when they are preferred. See:\nhttp://cs/aosp-master/build/soong/android/prebuilt.go?l\u003d276\n\nI know that we cannot do something similar with APEXes because at the time the dependencies on sources are replaced with dependencies on prebuilts we have no knowledge about APEX membership as those mutators run later. However, I did wonder yesterday whether we could fix the APEX issue by replacing those incorrect dependencies on prebuilts with dependencies on the sources. In effect reversing the effects of the source-\u003eprebuilt replacement for those APEX modules.",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8846c0a_08cc9c05",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2020-12-09T15:06:29Z",
+      "side": 1,
+      "message": "As mentioned above I don\u0027t think this is necessary.",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
