@@ -16,6 +16,24 @@
       "message": "For discussion, not ready to be submitted.",
       "revId": "10662d2e9ac7752f76a5af41ca50ce14a7a45fb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f4305f_6727551d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2020-12-09T02:18:56Z",
+      "side": 1,
+      "message": "The 2 second delay at the app startup will save us.\n\nBut will reducing the min_free be sufficient? If the bigger value at line 3475 is \u0027grow_bytes\u0027, then this cl will be a nop?\n\nHow about reducing grow_bytes itself? Also, we can avoid using the foreground multiplier for zygote.",
+      "parentUuid": "16d29755_416afdf6",
+      "revId": "10662d2e9ac7752f76a5af41ca50ce14a7a45fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
