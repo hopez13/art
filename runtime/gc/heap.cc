@@ -3468,7 +3468,11 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
     DCHECK_LE(delta, std::numeric_limits<size_t>::max()) << "bytes_allocated=" << bytes_allocated
         << " target_utilization_=" << target_utilization_;
     grow_bytes = std::min(delta, static_cast<uint64_t>(max_free_));
-    grow_bytes = std::max(grow_bytes, static_cast<uint64_t>(min_free_));
+    uint64_t min_free = static_cast<uint64_t>(min_free_);
+    if (Runtime::Current()->IsZygote()) {
+      min_free = min_free >> 3;  // Aim for tiny working Java heaps in a zygote.
+    }
+    grow_bytes = std::max(grow_bytes, min_free);
     target_size = bytes_allocated + static_cast<uint64_t>(grow_bytes * multiplier);
     next_gc_type_ = collector::kGcTypeSticky;
   } else {
