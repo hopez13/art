@@ -75,6 +75,16 @@ art_module_sdk {
         },
 
         android: {
+            java_boot_libs: [
+                "apache-xml",
+                "bouncycastle",
+                "core-oj",
+                // The following are boot libs that are provided as java_libs
+                // in art-module-test-exports.
+                // "core-libart",
+                // "okhttp",
+            ],
+
             java_header_libs: [
                 // Needed by any module that builds against any non-numeric
                 // sdk_version other than "none".
