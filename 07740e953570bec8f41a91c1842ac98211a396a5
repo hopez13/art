@@ -125,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a652ef8_30e3b386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-09T18:11:38Z",
+      "side": 1,
+      "message": "\u003e Adding new module types to the sdk will require adding new art specific module types for the prebuilts, I am thinking about if/when we support android_test modules.\n\nThat\u0027s right. The update script will rewrite all the module types, and there will be an obvious error that SoongConfig.bp boilerplate is missing. So it won\u0027t slip by unnoticed, and it\u0027s straightforward to add the missing module types.\n\n\u003e The disadvantage of requiring a custom script to post process the snapshot before update is that we cannot use something like go/android-prebuilt that can help automate the process.\n\nI think this will be replaced with go/module-sdk-prefer-prebuilts well before we get that far with prebuilt automation. Something like that is clearly needed to make it scalable, and I expect to work on it when the ART Module is in a passable shape.\n\n\u003e /.../ some common label /.../\n\nIt\u0027s not entirely straightforward how that should work, and I fear that an attempt to implement it in Soong will lead to design discussions that will push this off with at least a week.\n\nThe point with this is to get something in relatively quickly to unblock the prebuilt work, then we can iterate on better solutions.",
+      "parentUuid": "00e2fbfc_f31a6f99",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8846c0a_08cc9c05",
