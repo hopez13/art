@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6dd24ca_123761dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1793801
+      },
+      "writtenOn": "2020-12-09T00:27:42Z",
+      "side": 1,
+      "message": "SIGUSR2 is used internally for hprof (heap dump).\nI would like to avoid using that keyword because the mainline code upstream of the code that uses SIGUSR2 is scheduled.\n\nPlease let me know if you need to use a different signal name\n\nShould I delete the comment \"WINCH\"?",
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ff60d18_2d8fd32c",
         "filename": "runtime/signal_catcher.h",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2020-12-08T23:24:22Z",
       "side": 1,
       "message": "How about we handle SIGUSR2 instead of WINCH?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21336c68_3ab5bf57",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1793801
+      },
+      "writtenOn": "2020-12-09T00:27:42Z",
+      "side": 1,
+      "message": "SIGUSR2 is used internally for hprof (heap dump).\nI would like to avoid using that keyword because the mainline code upstream of the code that uses SIGUSR2 is scheduled.\n\nPlease let me know if you need to use a different signal name\n\nShould I delete the comment \"WINCH\"?",
+      "parentUuid": "8ff60d18_2d8fd32c",
       "range": {
         "startLine": 23,
         "startChar": 0,
