@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a324bb7_b40eba88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-09T15:37:43Z",
+      "side": 1,
+      "message": "\u003e However, I did wonder yesterday whether we could fix the APEX issue by replacing those incorrect dependencies on prebuilts with dependencies on the sources.\n\nI\u0027ve spent some effort trying to do that. It may still be worth pursuing, but at this time I think we need to get it off the blocking path, so this will have to do until it\u0027s addressed properly.\n\n\u003e These should not be affected by the presence of prebuilts, preferred or otherwise.\n\nProblem is they are - prebuilts interact with the property collections so the generated bp files get invalid export_include_dirs inside static/shared clauses. I have some tentative work to address that, but there were at least one other issue once it was resolved, and possibly more still.\n\nHence I opted to extend the prebuilt/source toggle to them too, to not block the switch to prebuilts longer. I\u0027d be more than happy to clean it up again when the Soong issues are sorted.",
+      "parentUuid": "146f6f74_ba349bfc",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8846c0a_08cc9c05",
@@ -37,6 +61,24 @@
       "writtenOn": "2020-12-09T15:06:29Z",
       "side": 1,
       "message": "As mentioned above I don\u0027t think this is necessary.",
+      "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6410b7f_3c7fe9f2",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2020-12-09T15:37:43Z",
+      "side": 1,
+      "message": "Let\u0027s discuss in the other thread.",
+      "parentUuid": "a8846c0a_08cc9c05",
       "revId": "07740e953570bec8f41a91c1842ac98211a396a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
