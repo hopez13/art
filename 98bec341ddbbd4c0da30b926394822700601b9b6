@@ -16,6 +16,24 @@
       "message": "Adding Orion - I said to Yi that palette is essentially a shim between ART and the platform, and I\u0027d be surprised if PGO makes any difference for it.\n\nYi, in our chat you mentioned a \"collected profile\", can we see that profile?",
       "revId": "98bec341ddbbd4c0da30b926394822700601b9b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d534620b_217c86de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2020-12-09T14:08:31Z",
+      "side": 1,
+      "message": "http://ag/13119800\n\nLooks like the compiler is already doing the correct inlining decisions without the profile, enabling PGO for this module shouldn\u0027t make any difference.",
+      "parentUuid": "118b972b_12b530c2",
+      "revId": "98bec341ddbbd4c0da30b926394822700601b9b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
