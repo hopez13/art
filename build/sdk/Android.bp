@@ -30,6 +30,9 @@ prebuilt_visibility = [
     // TODO(b/155921753): Restrict this when prebuilts are in their proper
     // locations.
     "//prebuilts:__subpackages__",
+
+    // The com.android.art prebuilt_apex references some of the prebuilt modules.
+    "//packages/modules/ArtPrebuilt/module",
 ]
 
 // The SDK for the art module apex.
@@ -78,6 +81,16 @@ art_module_sdk {
         },
 
         android: {
+            java_boot_libs: [
+                "apache-xml",
+                "bouncycastle",
+                "core-oj",
+                // The following are boot libs that are provided as java_libs
+                // in art-module-test-exports.
+                // "core-libart",
+                // "okhttp",
+            ],
+
             java_header_libs: [
                 // Needed by any module that builds against any non-numeric
                 // sdk_version other than "none".
