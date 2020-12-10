@@ -16,6 +16,24 @@
       "message": "Is there any reason you define 3 for right shift?",
       "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b5bdb3c_85a2a0e3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1083259
+      },
+      "writtenOn": "2020-12-10T08:52:33Z",
+      "side": 1,
+      "message": "This seems to be only targeting a minimum heap size of 24MB",
+      "parentUuid": "3594b12e_65cace67",
+      "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
