@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360ec392_6d53cb5c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2020-12-10T18:10:56Z",
+      "side": 1,
+      "message": "Should this happen after zygote fork instead? I zygote fork required all the threads to be detached.",
+      "range": {
+        "startLine": 926,
+        "startChar": 23,
+        "endLine": 926,
+        "endChar": 52
+      },
+      "revId": "0363f933d11ad38668be1e5d674ae15aff487b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
