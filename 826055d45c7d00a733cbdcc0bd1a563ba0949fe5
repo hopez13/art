@@ -16,6 +16,29 @@
       "message": "Looks good from my standpoint.",
       "revId": "826055d45c7d00a733cbdcc0bd1a563ba0949fe5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41a400a_208a106c",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-10T09:32:49Z",
+      "side": 1,
+      "message": "We could also record the seed in a member variable and print it for each assertion failure. But I think this is OK as it is.",
+      "range": {
+        "startLine": 445,
+        "startChar": 72,
+        "endLine": 445,
+        "endChar": 83
+      },
+      "revId": "826055d45c7d00a733cbdcc0bd1a563ba0949fe5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

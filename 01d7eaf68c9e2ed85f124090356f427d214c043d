@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38b7c5a1_447eb9ee",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-10T09:32:49Z",
+      "side": 1,
+      "message": "Not done in PS17.",
+      "parentUuid": "7e978efd_b15e2cba",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "01d7eaf68c9e2ed85f124090356f427d214c043d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de80984f_dd2c92a8",
         "filename": "compiler/common_compiler_test.cc",
         "patchSetId": 16
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "de80984f_dd2c92a8",
+      "range": {
+        "startLine": 160,
+        "startChar": 49,
+        "endLine": 160,
+        "endChar": 89
+      },
+      "revId": "01d7eaf68c9e2ed85f124090356f427d214c043d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfa3f23_322f3b0b",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-10T09:32:49Z",
+      "side": 1,
+      "message": "Maybe this should be SetUpCompilerOptions(), but it\u0027s OK to keep the name in PS18.",
+      "parentUuid": "a442a5db_d273624e",
       "range": {
         "startLine": 160,
         "startChar": 49,
