@@ -104,6 +104,30 @@
       },
       "revId": "9c648af315024a492576e29d53b2a01e74539987",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a2767f_1bcf3380",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1793801
+      },
+      "writtenOn": "2020-12-10T01:54:28Z",
+      "side": 1,
+      "message": "We have already tried before but it doesn\u0027t work for 32 bit apps due to the code below.\n\ntemplate \u003ctypename SigSetT\u003e\nint SigAddSet(SigSetT* set, int sig) {\n  int bit \u003d sig - 1; // Signal numbers start at 1, but bit positions start at 0.\n  unsigned long* local_set \u003d reinterpret_cast\u003cunsigned long*\u003e(set);\n  if (set \u003d\u003d nullptr || bit \u003c 0 || bit \u003e\u003d static_cast\u003cint\u003e(8*sizeof(*set))) {\n    errno \u003d EINVAL;\n    return -1;\n  }\n  local_set[bit / LONG_BIT] |\u003d 1UL \u003c\u003c (bit % LONG_BIT);\n  return 0;\n}\n\nin 32bit apps, typename SigSetT is int(32bit), so sizeof(*set) is 4\nadd a signal bigger than 32 for signalcatcher to catch in 32bit apps that is not allowed",
+      "parentUuid": "1925089e_feb91bdb",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
