@@ -39,6 +39,30 @@
       },
       "revId": "826055d45c7d00a733cbdcc0bd1a563ba0949fe5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d140bf0_775f27f9",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-10T16:37:12Z",
+      "side": 1,
+      "message": "no api for that without doing deep surgery on gtest.",
+      "parentUuid": "a41a400a_208a106c",
+      "range": {
+        "startLine": 445,
+        "startChar": 72,
+        "endLine": 445,
+        "endChar": 83
+      },
+      "revId": "826055d45c7d00a733cbdcc0bd1a563ba0949fe5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
