@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5689a6f_2b7c15b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-10T05:04:05Z",
+      "side": 1,
+      "message": "Hey Vladimir,\n\nExcept for the arm32 codegen probably having a bug in it somewhere (failing run-tests and some process crashes on a blueline) and needing to write a new section in the big what-is-LSE comment I think this is mostly done. PTAL.",
+      "revId": "93faeb7cb6bf7954a1c0c25bd11ce6b7b1eed024",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
