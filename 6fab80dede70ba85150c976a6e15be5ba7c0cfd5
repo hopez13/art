@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "731f5ab7_184e69f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "Could you add an example of what the output looks like to the commit message?",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245b7ed4_66f253d7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "I\u0027d add a blank line before this function.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e36de515_7f2d993b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "This if block could be `recur \u003d !(*visited)-\u003eIsBitSet(GetId())`, right?",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4526701_6ff7347b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "Is this the same as doing the following?\n\n    os \u003c\u003c \"Target: \" \u003c\u003c GetFieldType() \u003c\u003c \"(\"\n       \u003c\u003c GetFieldInfo().GetDexFile().PrettyField(GetFieldInfo().GetFieldIndex()) \u003c\u003c \"), \";\n    return HExpression\u003c1\u003e::DumpArguments(os, visited);\n\nIf so, I find that easier to read.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f98c696_f87e6c45",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "Is adding this function related to the \u003c\u003c operator? I didn\u0027t see it being called anywhere.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364255da_88851f36",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4366,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T18:06:44Z",
+      "side": 1,
+      "message": "The partial materialization stuff seems unrelated to this CL too.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
