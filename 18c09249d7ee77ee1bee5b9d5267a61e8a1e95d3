@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73450df1_8d508930",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T22:07:59Z",
+      "side": 1,
+      "message": "I haven\u0027t made it through the whole CL yet, but I wanted to go ahead and send a couple comments.",
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d444fa3_b0fdda86",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 3832,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T22:07:59Z",
+      "side": 1,
+      "message": "Why is this one cbnz but the arm32 version is cbz?\n\nAlso, do you have a sense of how often this branch will be taken? Apparently ARM\u0027s static branch predictor predicts forward conditional branches are not taken. (See http://b/148668976 for some more discussion about that)",
+      "range": {
+        "startLine": 3832,
+        "startChar": 5,
+        "endLine": 3832,
+        "endChar": 9
+      },
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a78b3d8_cbda044c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5749,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T22:07:59Z",
+      "side": 1,
+      "message": "Why is this line needed?",
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8681c83b_46e0af3e",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-10T22:07:59Z",
+      "side": 1,
+      "message": "Where is this used? I didn\u0027t find it after looking through a few files, but I haven\u0027t been through the whole CL yet.\n\nAlso, it looks like this is basically just a function. Does it need a whole class around it?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
