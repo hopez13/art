@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d31393_371bf2a7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 3832,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-10T23:12:50Z",
+      "side": 1,
+      "message": "I made a mistake in the arm32 one. Since the compiler was crashing I didn\u0027t notice.\n\nIt\u0027s hard to say. I\u0027ll change this so that the (obj !\u003d null) branch is predicted since that is a memory-read so would stall longer on a mispredict (AIUI).",
+      "parentUuid": "4d444fa3_b0fdda86",
+      "range": {
+        "startLine": 3832,
+        "startChar": 5,
+        "endLine": 3832,
+        "endChar": 9
+      },
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a78b3d8_cbda044c",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b189b7bb_d7b62be7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5749,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-10T23:12:50Z",
+      "side": 1,
+      "message": "because vixl gets mad if you have unbound labels even if they are never used.",
+      "parentUuid": "2a78b3d8_cbda044c",
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8681c83b_46e0af3e",
@@ -71,6 +113,30 @@
       "writtenOn": "2020-12-10T22:07:59Z",
       "side": 1,
       "message": "Where is this used? I didn\u0027t find it after looking through a few files, but I haven\u0027t been through the whole CL yet.\n\nAlso, it looks like this is basically just a function. Does it need a whole class around it?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "18c09249d7ee77ee1bee5b9d5267a61e8a1e95d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6327c242_e98b5c2a",
+        "filename": "compiler/optimizing/execution_subgraph.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-10T23:12:50Z",
+      "side": 1,
+      "message": "Used for EntryBlocksReversePostOrder below. We need to iterate through them in that order while creating materialization blocks in case one entry block preceeds another one.",
+      "parentUuid": "8681c83b_46e0af3e",
       "range": {
         "startLine": 40,
         "startChar": 6,
