@@ -52,6 +52,24 @@
       "parentUuid": "3b5bdb3c_85a2a0e3",
       "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25660ee9_57adb2a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1083259
+      },
+      "writtenOn": "2020-12-10T23:47:10Z",
+      "side": 1,
+      "message": "What kind of issue at system start-up?",
+      "parentUuid": "9fbc28a5_8ca70246",
+      "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
