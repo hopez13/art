@@ -39,6 +39,30 @@
       },
       "revId": "c204be5b8d607d0984880432c8703180e612c259",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179c0023_a9b22061",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-10T10:09:00Z",
+      "side": 1,
+      "message": "Done. I intend this to be a \"template\" for any new architectures, so I want to get this right.",
+      "parentUuid": "487762a4_aea0f5d5",
+      "range": {
+        "startLine": 2680,
+        "startChar": 4,
+        "endLine": 2680,
+        "endChar": 61
+      },
+      "revId": "c204be5b8d607d0984880432c8703180e612c259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
