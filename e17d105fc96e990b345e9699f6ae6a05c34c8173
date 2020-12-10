@@ -34,6 +34,24 @@
       "parentUuid": "3594b12e_65cace67",
       "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbc28a5_8ca70246",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-10T17:12:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the request. It\u0027s probably better to give it a name and divide instead of shift. I\u0027d rather not make this runtime configurable if we can avoid it. I would be surprised if the result here is very sensitive to the exact value we use.\n\nThis does not assume a heap size of 24MB, though it looks like that\u0027s the scenario in the bug. It simply scales down whatever min_free would be by a constant factor. I think that even if we set this to zero, we\u0027d only observe a minor problem at system start-up.",
+      "parentUuid": "3b5bdb3c_85a2a0e3",
+      "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
