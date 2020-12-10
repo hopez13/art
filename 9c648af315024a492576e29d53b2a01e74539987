@@ -152,6 +152,30 @@
       },
       "revId": "9c648af315024a492576e29d53b2a01e74539987",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18fe8710_49c2579b",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1793801
+      },
+      "writtenOn": "2020-12-10T06:21:46Z",
+      "side": 1,
+      "message": "Dear Google\n\nsorry we just call \"signals.Add(SIGSAVEPRF);\" in the runtime/runtime.cc\n//#define SIGSAVEPRF 28  //WINCH\n\nand it calls \"if (sigaddset(\u0026set_, signal) \u003d\u003d -1) {\" at the end. \n\nWe don\u0027t have a chance to use sigset64_t or sigaddset64, \nThe sigset_t value is decieded according to whether the platform is 32bit or 64bit.\n\nThis is why we would like to use the value 28",
+      "parentUuid": "a5bab400_0b4e00e7",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
