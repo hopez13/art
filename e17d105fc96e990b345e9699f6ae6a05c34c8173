@@ -70,6 +70,24 @@
       "parentUuid": "9fbc28a5_8ca70246",
       "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18fdd3db_648cd70a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-11T00:52:09Z",
+      "side": 1,
+      "message": "If it were zero, and we have a very small amount of live data in the heap, we may collect too frequently in the zygote, slowing things down early on.",
+      "parentUuid": "25660ee9_57adb2a3",
+      "revId": "e17d105fc96e990b345e9699f6ae6a05c34c8173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
