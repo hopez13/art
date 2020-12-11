@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ccbff48_5d8b5ffd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "Late nits from me. Feel free to address in a follow up.",
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27d35f8_7074152d",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "The not-enforced convention is to add name these sort of methods `MaybeFoo()` instead of IfNeeded. There\u0027s a couple of places where we have IfNeeded, but the Maybes are much more popular",
+      "range": {
+        "startLine": 128,
+        "startChar": 43,
+        "endLine": 128,
+        "endChar": 51
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b85bc3_65ff4c09",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "Document why the attach/detach",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c722fe_31e22102",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "inline?",
+      "range": {
+        "startLine": 153,
+        "startChar": 7,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c3c5f7_a25f1e7c",
+        "filename": "runtime/metrics/metrics.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "document what \"if needed\" means",
+      "range": {
+        "startLine": 390,
+        "startChar": 35,
+        "endLine": 390,
+        "endChar": 41
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0175ebcb_9e924d82",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 232,
+        "startChar": 100,
+        "endLine": 232,
+        "endChar": 101
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0e92246_fd8e36db",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "!\u003d nullptr.\n\nI know it\u0027s allowed not to, but it\u0027s much more readable if non-booleans have an explicit condition",
+      "range": {
+        "startLine": 1083,
+        "startChar": 6,
+        "endLine": 1083,
+        "endChar": 23
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ac6d43_b9142c37",
+        "filename": "test/2233-metrics-background-thread/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-11T20:47:57Z",
+      "side": 1,
+      "message": "can we do it in \u003c500ms? :D\n\nOr better, go to native, and wait till the report happened. We do the same with WaitForJitCompilations tests.",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
