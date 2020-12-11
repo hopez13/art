@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5275692_776885c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "731f5ab7_184e69f3",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245b7ed4_66f253d7",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-12-10T18:06:44Z",
       "side": 1,
       "message": "I\u0027d add a blank line before this function.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c49e263_80abc98f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "245b7ed4_66f253d7",
       "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "400d07dd_6d6fbc2e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36de515_7f2d993b",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4526701_6ff7347b",
@@ -65,6 +119,24 @@
       "writtenOn": "2020-12-10T18:06:44Z",
       "side": 1,
       "message": "Is this the same as doing the following?\n\n    os \u003c\u003c \"Target: \" \u003c\u003c GetFieldType() \u003c\u003c \"(\"\n       \u003c\u003c GetFieldInfo().GetDexFile().PrettyField(GetFieldInfo().GetFieldIndex()) \u003c\u003c \"), \";\n    return HExpression\u003c1\u003e::DumpArguments(os, visited);\n\nIf so, I find that easier to read.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa9d948_74950b90",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4526701_6ff7347b",
       "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +158,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "058e9050_1de39c5f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "nope. I guess I split this incorrectly.",
+      "parentUuid": "8f98c696_f87e6c45",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "364255da_88851f36",
@@ -99,6 +189,24 @@
       "writtenOn": "2020-12-10T18:06:44Z",
       "side": 1,
       "message": "The partial materialization stuff seems unrelated to this CL too.",
+      "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac25213f_f14a5655",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4366,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:25:58Z",
+      "side": 1,
+      "message": "splitting cls is hard 😞\nDone.",
+      "parentUuid": "364255da_88851f36",
       "revId": "6fab80dede70ba85150c976a6e15be5ba7c0cfd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
