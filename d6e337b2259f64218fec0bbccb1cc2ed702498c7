@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6af19c_120506ef",
+        "filename": "libartbase/base/variant_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:39:03Z",
+      "side": 1,
+      "message": "nit: std::nullopt?",
+      "range": {
+        "startLine": 237,
+        "startChar": 30,
+        "endLine": 237,
+        "endChar": 53
+      },
+      "revId": "d6e337b2259f64218fec0bbccb1cc2ed702498c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4830b01_bfb371c9",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T19:39:03Z",
+      "side": 1,
+      "message": "Add help text.\n\n.WithHelp(\"\u003cwhatever\u003e\")\n\nIdeally at some point we should do a little doc-fixit to add help to all of these.",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 34
+      },
+      "revId": "d6e337b2259f64218fec0bbccb1cc2ed702498c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
