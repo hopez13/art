@@ -70,6 +70,30 @@
       },
       "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71670c8d_764613aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-11T00:44:46Z",
+      "side": 1,
+      "message": "got rid of the Type.",
+      "parentUuid": "ce520ffc_30a8d670",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 71
+      },
+      "revId": "54bab1028e94b99a78532a3bc69a9c464e6c39db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
