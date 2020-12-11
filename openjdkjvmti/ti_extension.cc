@@ -509,6 +509,42 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
   if (error != ERR(NONE)) {
     return error;
   }
+  // GetHiddenApiEnforcementPolicy
+  error = add_extension(
+      reinterpret_cast<jvmtiExtensionFunction>(ClassUtil::GetHiddenApiEnforcementPolicy),
+      "com.android.art.misc.get_hidden_api_enforcement_policy",
+      "Gets the current hiddenapi enforcement policy. Policy values are described in"
+      " the description of com.android.art.misc.set_hidden_api_enforcement_policy. This"
+      " should be used with that API in order to restore the hidden-api state after"
+      " temporarily toggling it.",
+      {
+        { "policy", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
+      },
+      {
+         ERR(NULL_POINTER),
+      });
+  if (error != ERR(NONE)) {
+    return error;
+  }
+  // SetHiddenApiEnforcementPolicy
+  error = add_extension(
+      reinterpret_cast<jvmtiExtensionFunction>(ClassUtil::SetHiddenApiEnforcementPolicy),
+      "com.android.art.misc.set_hidden_api_enforcement_policy",
+      "Sets the hiddenapi enforcement policy to the given value. Allowed values are: '0' for"
+      " disabling hidden-api, '1' for allowing accesses but logging failures, '2' for fully"
+      " enabling hidden-api checks and preventing illegal accesses. This API should always be"
+      " used sparingly and in conjunction with"
+      " `com.android.art.misc.get_hidden_api_enforcement_policy` to temporarily toggle"
+      " hidden-api on and off as changes are required.",
+      {
+        { "policy", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+      },
+      {
+         ERR(ILLEGAL_ARGUMENT),
+      });
+  if (error != ERR(NONE)) {
+    return error;
+  }
 
   // Copy into output buffer.
 

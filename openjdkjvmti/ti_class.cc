@@ -56,6 +56,7 @@
 #include "gc/heap.h"
 #include "gc_root.h"
 #include "handle.h"
+#include "hidden_api.h"
 #include "jni/jni_env_ext-inl.h"
 #include "jni/jni_internal.h"
 #include "mirror/array-alloc-inl.h"
@@ -1134,6 +1135,69 @@ jvmtiError ClassUtil::GetSourceDebugExtension(jvmtiEnv* env,
     return ret;
   }
   *source_debug_extension_ptr = ext_copy.release();
+  return OK;
+}
+
+// JVMTI hidden-api policies. Kept separate from the art::hiddenapi ones to
+// enable separate evolution.
+static constexpr jint kHiddenApiPolicyDisabled = 0;
+static constexpr jint kHiddenApiPolicyDisabledWithLogs = 1;
+static constexpr jint kHiddenApiPolicyEnabled = 2;
+static constexpr jint kHiddenApiPolicyMax = kHiddenApiPolicyEnabled;
+
+jvmtiError ClassUtil::GetHiddenApiEnforcementPolicy(jvmtiEnv* env, jint* policy) {
+  if (env == nullptr) {
+    return ERR(INVALID_ENVIRONMENT);
+  } else if (art::Thread::Current() == nullptr) {
+    return ERR(UNATTACHED_THREAD);
+  } else if (policy == nullptr) {
+    return ERR(NULL_POINTER);
+  }
+  switch (art::Runtime::Current()->GetHiddenApiEnforcementPolicy()) {
+    case art::hiddenapi::EnforcementPolicy::kDisabled: {
+      *policy = kHiddenApiPolicyDisabled;
+      break;
+    }
+    case art::hiddenapi::EnforcementPolicy::kJustWarn: {
+      *policy = kHiddenApiPolicyDisabledWithLogs;
+      break;
+    }
+    case art::hiddenapi::EnforcementPolicy::kEnabled: {
+      *policy = kHiddenApiPolicyEnabled;
+      break;
+    }
+  }
+  return OK;
+}
+
+jvmtiError ClassUtil::SetHiddenApiEnforcementPolicy(jvmtiEnv* env, jint policy) {
+  if (env == nullptr) {
+    return ERR(INVALID_ENVIRONMENT);
+  } else if (art::Thread::Current() == nullptr) {
+    return ERR(UNATTACHED_THREAD);
+  }
+  art::hiddenapi::EnforcementPolicy enforcement;
+  switch (policy) {
+    case kHiddenApiPolicyDisabled: {
+      enforcement = art::hiddenapi::EnforcementPolicy::kDisabled;
+      break;
+    }
+    case kHiddenApiPolicyDisabledWithLogs: {
+      enforcement = art::hiddenapi::EnforcementPolicy::kJustWarn;
+      break;
+    }
+    case kHiddenApiPolicyEnabled: {
+      enforcement = art::hiddenapi::EnforcementPolicy::kEnabled;
+      break;
+    }
+    default: {
+      JVMTI_LOG(INFO, env) << "Bad policy: " << policy << ", must be between "
+                          << kHiddenApiPolicyDisabled
+                          << " and " << kHiddenApiPolicyMax;
+      return ERR(ILLEGAL_ARGUMENT);
+    }
+  }
+  art::Runtime::Current()->SetHiddenApiEnforcementPolicy(enforcement);
   return OK;
 }
 
