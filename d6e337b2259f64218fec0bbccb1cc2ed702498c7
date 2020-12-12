@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3761ae9a_42a7c945",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-12T00:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c9b1c39_64fbefa9",
+      "range": {
+        "startLine": 212,
+        "startChar": 11,
+        "endLine": 212,
+        "endChar": 17
+      },
+      "revId": "d6e337b2259f64218fec0bbccb1cc2ed702498c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e77d5f68_2430ca68",
@@ -60,6 +84,30 @@
       "writtenOn": "2020-12-11T20:52:37Z",
       "side": 1,
       "message": "`PLOG` instead of `LOG` will add errno for you",
+      "range": {
+        "startLine": 213,
+        "startChar": 58,
+        "endLine": 213,
+        "endChar": 77
+      },
+      "revId": "d6e337b2259f64218fec0bbccb1cc2ed702498c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2aae87a_e6f5a560",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-12T00:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e77d5f68_2430ca68",
       "range": {
         "startLine": 213,
         "startChar": 58,
@@ -106,6 +154,30 @@
       "writtenOn": "2020-12-11T20:52:37Z",
       "side": 1,
       "message": "FYI: I think on some configs this is directed to /dev/null. Not sure though :)",
+      "range": {
+        "startLine": 20,
+        "startChar": 76,
+        "endLine": 20,
+        "endChar": 87
+      },
+      "revId": "d6e337b2259f64218fec0bbccb1cc2ed702498c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0efcab9_4cc12cdf",
+        "filename": "test/2234-write-metrics-to-file/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-12T00:00:23Z",
+      "side": 1,
+      "message": "It sounds like the buildbot is meant to do the right thing here (we have other tests that test stdout), but I\u0027ll keep an eye out for failures.",
+      "parentUuid": "9558af49_66789040",
       "range": {
         "startLine": 20,
         "startChar": 76,
