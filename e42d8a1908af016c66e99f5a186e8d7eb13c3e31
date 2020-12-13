@@ -16,6 +16,24 @@
       "message": "Adding Mathew to the review, and marking -2 before this gets in - the consequences of this AFAIU is that we\u0027re making the HIDDEN_API_* values in Application more or less public, at least SystemApi, when they are today just internal to the framework.\n\nMaybe that\u0027s OK, and we\u0027re ready to promote those values to external users such as studion, but I\u0027m flagging it in case it\u0027s not clear for everyone.",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc112d18_b84511b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-13T16:55:04Z",
+      "side": 1,
+      "message": "This is limited to debuggable where you can mostly turn hiddenapi off in other ways. Also these extensions are not really a part of any api and are meant (and only really available) for tools that reach deep into the runtime and are expected to have far deeper knowledge of internals than real apps.\n\nIf you wish it would be pretty easy to change this to not rely on knowing the values (basically just give values in the description text and translated instead of cast) but this seemed easier given that studio would be able to easily check them for every release and the entire point of this is to quiet down some logspam so failure isn\u0027t disastrous.",
+      "parentUuid": "ad0747ea_6daf1e73",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
