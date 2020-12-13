@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0747ea_6daf1e73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-13T14:42:22Z",
+      "side": 1,
+      "message": "Adding Mathew to the review, and marking -2 before this gets in - the consequences of this AFAIU is that we\u0027re making the HIDDEN_API_* values in Application more or less public, at least SystemApi, when they are today just internal to the framework.\n\nMaybe that\u0027s OK, and we\u0027re ready to promote those values to external users such as studion, but I\u0027m flagging it in case it\u0027s not clear for everyone.",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
