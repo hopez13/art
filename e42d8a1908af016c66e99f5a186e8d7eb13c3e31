@@ -69,6 +69,24 @@
       "parentUuid": "238b4066_78006439",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "431d372c_7242e041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-12-14T16:37:19Z",
+      "side": 1,
+      "message": "Does the linker not know *which* class it is linking?\n\nIf the intent is to scope it like in well_known_classes, can that be reflected in the API, perhaps by exposing something like ScopedHiddenApiEnforcementPolicySetting ?\n\nIf the setting is reset once the class definition is complete that is much better, but that\u0027s not reflected in this CL in the API structure or even the docs.",
+      "parentUuid": "bc36a295_be72773b",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
