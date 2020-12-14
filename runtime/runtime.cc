@@ -685,6 +685,7 @@ void Runtime::Abort(const char* msg) {
 }
 
 void Runtime::PreZygoteFork() {
+  GetClassLinker()->ClearDexCaches();
   if (GetJit() != nullptr) {
     GetJit()->PreZygoteFork();
   }

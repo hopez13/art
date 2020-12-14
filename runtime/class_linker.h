@@ -93,9 +93,6 @@ class MethodHandlesLookup;
 class MethodType;
 template<class T> class ObjectArray;
 class StackTraceElement;
-template <typename T> struct NativeDexCachePair;
-using MethodDexCachePair = NativeDexCachePair<ArtMethod>;
-using MethodDexCacheType = std::atomic<MethodDexCachePair>;
 }  // namespace mirror
 
 class ClassVisitor {
@@ -494,6 +491,7 @@ class ClassLinker {
   ObjPtr<mirror::DexCache> FindDexCache(Thread* self, const DexFile& dex_file)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  void ClearDexCaches();
   ClassTable* FindClassTable(Thread* self, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -860,9 +858,19 @@ class ClassLinker {
   class VisiblyInitializedCallback;
 
   struct ClassLoaderData {
+    ClassLoaderData() = default;
+    ClassLoaderData(ClassLoaderData&&) = default;
+    ~ClassLoaderData() {
+      for (void* it : dex_cache_arrays) {
+        free(it);
+      }
+    }
+
     jweak weak_root;  // Weak root to enable class unloading.
     ClassTable* class_table;
     LinearAlloc* allocator;
+    // Track the allocated native arrays, so we can free them if the weak DexCache is GCed.
+    std::set<void*> dex_cache_arrays;
   };
 
   void VisiblyInitializedCallbackDone(Thread* self, VisiblyInitializedCallback* callback);
@@ -941,9 +949,7 @@ class ClassLinker {
       REQUIRES(!Roles::uninterruptible_);
 
   // Used for tests and AppendToBootClassPath.
-  ObjPtr<mirror::DexCache> AllocAndInitializeDexCache(Thread* self,
-                                                      const DexFile& dex_file,
-                                                      LinearAlloc* linear_alloc)
+  ObjPtr<mirror::DexCache> AllocAndInitializeDexCache(Thread* self, const DexFile& dex_file)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES(!Roles::uninterruptible_);
@@ -1085,6 +1091,9 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_);
   static ObjPtr<mirror::DexCache> DecodeDexCacheLocked(Thread* self, const DexCacheData* data)
       REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_);
+  ClassLoaderData* FindClassLoaderDataLocked(ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES_SHARED(Locks::classlinker_classes_lock_);
   bool IsSameClassLoader(ObjPtr<mirror::DexCache> dex_cache,
                          const DexCacheData* data,
                          ObjPtr<mirror::ClassLoader> class_loader)
@@ -1417,6 +1426,9 @@ class ClassLinker {
   std::list<ClassLoaderData> class_loaders_
       GUARDED_BY(Locks::classlinker_classes_lock_);
 
+  // Track the allocated native arrays for boot classpath (i.e. null ClassLoader).
+  std::set<void*> dex_cache_arrays_;
+
   // Boot class path table. Since the class loader for this is null.
   std::unique_ptr<ClassTable> boot_class_table_ GUARDED_BY(Locks::classlinker_classes_lock_);
 
@@ -1484,6 +1496,7 @@ class ClassLinker {
   friend class JniCompilerTest;  // for GetRuntimeQuickGenericJniStub
   friend class JniInternalTest;  // for GetRuntimeQuickGenericJniStub
   friend class VMClassLoader;  // for LookupClass and FindClassInBaseDexClassLoader.
+  friend class mirror::DexCache;  // for FindClassLoaderData.
   ART_FRIEND_TEST(ClassLinkerTest, RegisterDexFileName);  // for DexLock, and RegisterDexFileLocked
   ART_FRIEND_TEST(mirror::DexCacheMethodHandlesTest, Open);  // for AllocDexCache
   ART_FRIEND_TEST(mirror::DexCacheTest, Open);  // for AllocDexCache

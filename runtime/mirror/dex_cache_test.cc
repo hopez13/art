@@ -44,22 +44,8 @@ TEST_F(DexCacheTest, Open) {
   StackHandleScope<1> hs(soa.Self());
   ASSERT_TRUE(java_lang_dex_file_ != nullptr);
   Handle<DexCache> dex_cache(
-      hs.NewHandle(class_linker_->AllocAndInitializeDexCache(
-          soa.Self(),
-          *java_lang_dex_file_,
-          Runtime::Current()->GetLinearAlloc())));
+      hs.NewHandle(class_linker_->AllocAndInitializeDexCache(soa.Self(), *java_lang_dex_file_)));
   ASSERT_TRUE(dex_cache != nullptr);
-
-  EXPECT_TRUE(dex_cache->StaticStringSize() == dex_cache->NumStrings()
-      || java_lang_dex_file_->NumStringIds() == dex_cache->NumStrings());
-  EXPECT_TRUE(dex_cache->StaticTypeSize() == dex_cache->NumResolvedTypes()
-      || java_lang_dex_file_->NumTypeIds() == dex_cache->NumResolvedTypes());
-  EXPECT_TRUE(dex_cache->StaticMethodSize() == dex_cache->NumResolvedMethods()
-      || java_lang_dex_file_->NumMethodIds() == dex_cache->NumResolvedMethods());
-  EXPECT_TRUE(dex_cache->StaticArtFieldSize() == dex_cache->NumResolvedFields()
-      || java_lang_dex_file_->NumFieldIds() ==  dex_cache->NumResolvedFields());
-  EXPECT_TRUE(dex_cache->StaticMethodTypeSize() == dex_cache->NumResolvedMethodTypes()
-      || java_lang_dex_file_->NumProtoIds() == dex_cache->NumResolvedMethodTypes());
 }
 
 TEST_F(DexCacheMethodHandlesTest, Open) {
@@ -67,27 +53,8 @@ TEST_F(DexCacheMethodHandlesTest, Open) {
   StackHandleScope<1> hs(soa.Self());
   ASSERT_TRUE(java_lang_dex_file_ != nullptr);
   Handle<DexCache> dex_cache(
-      hs.NewHandle(class_linker_->AllocAndInitializeDexCache(
-          soa.Self(),
-          *java_lang_dex_file_,
-          Runtime::Current()->GetLinearAlloc())));
-
-  EXPECT_TRUE(dex_cache->StaticMethodTypeSize() == dex_cache->NumResolvedMethodTypes()
-      || java_lang_dex_file_->NumProtoIds() == dex_cache->NumResolvedMethodTypes());
-}
-
-TEST_F(DexCacheTest, LinearAlloc) {
-  ScopedObjectAccess soa(Thread::Current());
-  jobject jclass_loader(LoadDex("Main"));
-  ASSERT_TRUE(jclass_loader != nullptr);
-  StackHandleScope<1> hs(soa.Self());
-  Handle<mirror::ClassLoader> class_loader(hs.NewHandle(
-      soa.Decode<mirror::ClassLoader>(jclass_loader)));
-  ObjPtr<mirror::Class> klass = class_linker_->FindClass(soa.Self(), "LMain;", class_loader);
-  ASSERT_TRUE(klass != nullptr);
-  LinearAlloc* const linear_alloc = klass->GetClassLoader()->GetAllocator();
-  EXPECT_NE(linear_alloc, runtime_->GetLinearAlloc());
-  EXPECT_TRUE(linear_alloc->Contains(klass->GetDexCache()->GetResolvedMethods()));
+      hs.NewHandle(class_linker_->AllocAndInitializeDexCache(soa.Self(), *java_lang_dex_file_)));
+  ASSERT_TRUE(dex_cache != nullptr);
 }
 
 TEST_F(DexCacheTest, TestResolvedFieldAccess) {
@@ -164,19 +131,8 @@ TEST_F(DexCacheMethodHandlesTest, TestResolvedMethodTypes) {
   // The MethodTypes dex file contains a single interface with two abstract
   // methods. It must therefore contain precisely two method IDs.
   ASSERT_EQ(2u, dex_file.NumProtoIds());
-  ASSERT_EQ(dex_file.NumProtoIds(), dex_cache->NumResolvedMethodTypes());
-  MethodTypeDexCacheType* method_types_cache = dex_cache->GetResolvedMethodTypes();
-
-  for (size_t i = 0; i < dex_file.NumProtoIds(); ++i) {
-    const MethodTypeDexCachePair pair = method_types_cache[i].load(std::memory_order_relaxed);
-    if (dex::ProtoIndex(pair.index) == method1_id.proto_idx_) {
-      ASSERT_EQ(method1_type.Get(), pair.object.Read());
-    } else if (dex::ProtoIndex(pair.index) == method2_id.proto_idx_) {
-      ASSERT_EQ(method2_type.Get(), pair.object.Read());
-    } else {
-      ASSERT_TRUE(false);
-    }
-  }
+  ASSERT_EQ(dex_cache->GetResolvedMethodType(method1_id.proto_idx_), method1_type.Get());
+  ASSERT_EQ(dex_cache->GetResolvedMethodType(method2_id.proto_idx_), method2_type.Get());
 }
 
 }  // namespace mirror
