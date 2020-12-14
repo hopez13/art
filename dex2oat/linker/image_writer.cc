@@ -1132,49 +1132,6 @@ void ImageWriter::VisitClassLoaders(ClassLoaderVisitor* visitor) {
   Runtime::Current()->GetClassLinker()->VisitClassLoaders(visitor);
 }
 
-void ImageWriter::ClearDexCache(ObjPtr<mirror::DexCache> dex_cache) {
-  // Clear methods.
-  mirror::MethodDexCacheType* resolved_methods = dex_cache->GetResolvedMethods();
-  for (size_t slot_idx = 0, num = dex_cache->NumResolvedMethods(); slot_idx != num; ++slot_idx) {
-    mirror::MethodDexCachePair invalid(nullptr,
-                                       mirror::MethodDexCachePair::InvalidIndexForSlot(slot_idx));
-    mirror::DexCache::SetNativePairPtrSize(resolved_methods, slot_idx, invalid, target_ptr_size_);
-  }
-  // Clear fields.
-  mirror::FieldDexCacheType* resolved_fields = dex_cache->GetResolvedFields();
-  for (size_t slot_idx = 0, num = dex_cache->NumResolvedFields(); slot_idx != num; ++slot_idx) {
-    mirror::FieldDexCachePair invalid(nullptr,
-                                      mirror::FieldDexCachePair::InvalidIndexForSlot(slot_idx));
-    mirror::DexCache::SetNativePairPtrSize(resolved_fields, slot_idx, invalid, target_ptr_size_);
-  }
-  // Clear types.
-  mirror::TypeDexCacheType* resolved_types = dex_cache->GetResolvedTypes();
-  for (size_t slot_idx = 0, num = dex_cache->NumResolvedTypes(); slot_idx != num; ++slot_idx) {
-    mirror::TypeDexCachePair invalid(nullptr,
-                                     mirror::TypeDexCachePair::InvalidIndexForSlot(slot_idx));
-    resolved_types[slot_idx].store(invalid, std::memory_order_relaxed);
-  }
-  // Clear strings.
-  mirror::StringDexCacheType* resolved_strings = dex_cache->GetStrings();
-  for (size_t slot_idx = 0, num = dex_cache->NumStrings(); slot_idx != num; ++slot_idx) {
-    mirror::StringDexCachePair invalid(nullptr,
-                                       mirror::StringDexCachePair::InvalidIndexForSlot(slot_idx));
-    resolved_strings[slot_idx].store(invalid, std::memory_order_relaxed);
-  }
-  // Clear method types.
-  mirror::MethodTypeDexCacheType* resolved_method_types = dex_cache->GetResolvedMethodTypes();
-  size_t num_resolved_method_types = dex_cache->NumResolvedMethodTypes();
-  for (size_t slot_idx = 0; slot_idx != num_resolved_method_types; ++slot_idx) {
-    mirror::MethodTypeDexCachePair invalid(
-        nullptr, mirror::MethodTypeDexCachePair::InvalidIndexForSlot(slot_idx));
-    resolved_method_types[slot_idx].store(invalid, std::memory_order_relaxed);
-  }
-  // Clear call sites.
-  std::fill_n(dex_cache->GetResolvedCallSites(),
-              dex_cache->NumResolvedCallSites(),
-              GcRoot<mirror::CallSite>(nullptr));
-}
-
 void ImageWriter::PruneNonImageClasses() {
   Runtime* runtime = Runtime::Current();
   ClassLinker* class_linker = runtime->GetClassLinker();
@@ -1208,7 +1165,7 @@ void ImageWriter::PruneNonImageClasses() {
   // Completely clear DexCaches.
   std::vector<ObjPtr<mirror::DexCache>> dex_caches = FindDexCaches(self);
   for (ObjPtr<mirror::DexCache> dex_cache : dex_caches) {
-    ClearDexCache(dex_cache);
+    dex_cache->Clear();
   }
 
   // Drop the array class cache in the ClassLinker, as these are roots holding those classes live.

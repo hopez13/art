@@ -28,6 +28,8 @@ namespace art {
 
 namespace {
 
+#if 0 // TODO
+
 extern "C" JNIEXPORT jobject JNICALL Java_Main_cloneResolvedMethods(JNIEnv* env,
                                                                     jclass,
                                                                     jclass cls) {
@@ -91,6 +93,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_restoreResolvedMethods(
   }
 }
 
+#endif
 }  // namespace
 
 }  // namespace art
