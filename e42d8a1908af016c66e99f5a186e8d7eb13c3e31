@@ -249,6 +249,24 @@
       "parentUuid": "f8f37cd7_3cdb7fa5",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a966def6_a554f9fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T22:38:15Z",
+      "side": 1,
+      "message": "@Mathewi, I realized I never really answered your question. The messages are coming from the class being re-verified for class-redefinition. As far as hiddenapi knows this is just a random class being verified but it tries to access (its own) hiddenapis. Normal linking doesn\u0027t cause this because the class doesn\u0027t exist yet. Because of how verification works the hiddenapi denials aren\u0027t serious but sending the state needed to know to ignore the warnings down would require major surgery.",
+      "parentUuid": "05e802f9_f2c7c7c7",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
