@@ -2294,6 +2294,9 @@ ClassLinker::~ClassLinker() {
     // all the classloaders are deleted at the same time.
     DeleteClassLoader(self, data, /*cleanup_cha=*/ false);
   }
+  for (void* it : dex_cache_arrays_) {
+    free(it);
+  }
   class_loaders_.clear();
   while (!running_visibly_initialized_callbacks_.empty()) {
     std::unique_ptr<VisiblyInitializedCallback> callback(
@@ -4084,6 +4087,21 @@ ObjPtr<mirror::DexCache> ClassLinker::FindDexCache(Thread* self, const DexFile& 
   UNREACHABLE();
 }
 
+void ClassLinker::ClearDexCaches() {
+  // TODO
+  /*
+  Thread* self = Thread::Current();
+  ScopedObjectAccess soa(self);
+  ReaderMutexLock mu(self, *Locks::dex_lock_);
+  for (const DexCacheData& data : dex_caches_) {
+    ObjPtr<mirror::DexCache> dex_cache = DecodeDexCacheLocked(self, &data);
+    if (dex_cache != nullptr) {
+      dex_cache->Clear();
+    }
+  }
+  */
+}
+
 ClassTable* ClassLinker::FindClassTable(Thread* self, ObjPtr<mirror::DexCache> dex_cache) {
   const DexFile* dex_file = dex_cache->GetDexFile();
   DCHECK(dex_file != nullptr);
@@ -4107,6 +4125,23 @@ const ClassLinker::DexCacheData* ClassLinker::FindDexCacheDataLocked(const DexFi
   for (const DexCacheData& data : dex_caches_) {
     // Avoid decoding (and read barriers) other unrelated dex caches.
     if (data.dex_file == &dex_file) {
+      return &data;
+    }
+  }
+  return nullptr;
+}
+
+ClassLinker::ClassLoaderData* ClassLinker::FindClassLoaderDataLocked(
+    ObjPtr<mirror::ClassLoader> class_loader) {
+  if (class_loader == nullptr) {
+    return nullptr;
+  }
+  Thread* self = Thread::Current();
+  for (auto it = class_loaders_.begin(); it != class_loaders_.end(); ++it) {
+    ClassLoaderData& data = *it;
+    ObjPtr<mirror::ClassLoader> seen =
+        ObjPtr<mirror::ClassLoader>::DownCast(self->DecodeJObject(data.weak_root));
+    if (seen == class_loader) {
       return &data;
     }
   }
@@ -5854,7 +5889,7 @@ void ClassLinker::RegisterClassLoader(ObjPtr<mirror::ClassLoader> class_loader) 
   data.allocator = Runtime::Current()->CreateLinearAlloc();
   class_loader->SetAllocator(data.allocator);
   // Add to the list so that we know to free the data later.
-  class_loaders_.push_back(data);
+  class_loaders_.push_back(std::move(data));
 }
 
 ClassTable* ClassLinker::InsertClassTableForClassLoader(ObjPtr<mirror::ClassLoader> class_loader) {
@@ -7603,10 +7638,10 @@ class ClassLinker::LinkInterfaceMethodsHelper {
     if (kIsDebugBuild) {
       PointerSize pointer_size = class_linker_->GetImagePointerSize();
       // Check that there are no stale methods are in the dex cache array.
-      auto* resolved_methods = klass_->GetDexCache()->GetResolvedMethods();
-      for (size_t i = 0, count = klass_->GetDexCache()->NumResolvedMethods(); i < count; ++i) {
-        auto pair = mirror::DexCache::GetNativePair(resolved_methods, i);
-        ArtMethod* m = pair.object;
+      ObjPtr<mirror::DexCache> dex_cache = klass_->GetDexCache();
+      size_t num_methods = klass_->GetDexCache()->GetDexFile()->NumMethodIds();
+      for (size_t i = 0; i < num_methods; ++i) {
+        ArtMethod* m = dex_cache->GetResolvedMethod(i);
         CHECK(move_table_.find(m) == move_table_.end() ||
               // The original versions of copied methods will still be present so allow those too.
               // Note that if the first check passes this might fail to GetDeclaringClass().
@@ -10058,7 +10093,7 @@ void ClassLinker::CleanupClassLoaders() {
   {
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
     for (auto it = class_loaders_.begin(); it != class_loaders_.end(); ) {
-      const ClassLoaderData& data = *it;
+      ClassLoaderData& data = *it;
       // Need to use DecodeJObject so that we get null for cleared JNI weak globals.
       ObjPtr<mirror::ClassLoader> class_loader =
           ObjPtr<mirror::ClassLoader>::DownCast(self->DecodeJObject(data.weak_root));
@@ -10066,7 +10101,7 @@ void ClassLinker::CleanupClassLoaders() {
         ++it;
       } else {
         VLOG(class_linker) << "Freeing class loader";
-        to_delete.push_back(data);
+        to_delete.push_back(std::move(data));
         it = class_loaders_.erase(it);
       }
     }

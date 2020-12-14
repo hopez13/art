@@ -36,74 +36,110 @@ namespace art {
 namespace mirror {
 
 void DexCache::Initialize(const DexFile* dex_file, ObjPtr<ClassLoader> class_loader) {
-  DCHECK(GetDexFile() == nullptr);
-  DCHECK(GetStrings() == nullptr);
-  DCHECK(GetResolvedTypes() == nullptr);
-  DCHECK(GetResolvedMethods() == nullptr);
-  DCHECK(GetResolvedFields() == nullptr);
-  DCHECK(GetResolvedMethodTypes() == nullptr);
-  DCHECK(GetResolvedCallSites() == nullptr);
-
-  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  DCHECK_EQ(dex_file_, 0u);
+  DCHECK_EQ(resolved_call_sites_, 0u);
+  DCHECK_EQ(resolved_fields_, 0u);
+  DCHECK_EQ(resolved_method_types_, 0u);
+  DCHECK_EQ(resolved_methods_, 0u);
+  DCHECK_EQ(resolved_types_, 0u);
+  DCHECK_EQ(strings_, 0u);
 
   SetDexFile(dex_file);
   SetClassLoader(class_loader);
 }
 
-void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
-  bool wrote = false;
-  for (size_t i = 0; i < NumResolvedFields(); i++) {
-    auto pair(GetNativePair(GetResolvedFields(), i));
-    if (pair.index == FieldDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
-    }
-    ArtField* new_val = visitor->VisitField(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedField, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = FieldDexCachePair(nullptr, FieldDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(GetResolvedFields(), i, pair);
-      wrote = true;
-    }
-  }
-  for (size_t i = 0; i < NumResolvedMethods(); i++) {
-    auto pair(GetNativePair(GetResolvedMethods(), i));
-    if (pair.index == MethodDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
-    }
-    ArtMethod* new_val = visitor->VisitMethod(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedMethod, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = MethodDexCachePair(nullptr, MethodDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(GetResolvedMethods(), i, pair);
-      wrote = true;
-    }
-  }
-  if (wrote) {
-    WriteBarrier::ForEveryFieldWrite(this);
-  }
+void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor ATTRIBUTE_UNUSED) {
+  // Used by JVMTI, it is easiest to just clear the arrays.
+  ResolvedFields().Clear();
+  ResolvedMethods().Clear();
 }
 
-void DexCache::ResetNativeArrays() {
-  SetStrings(nullptr);
-  SetResolvedTypes(nullptr);
-  SetResolvedMethods(nullptr);
-  SetResolvedFields(nullptr);
-  SetResolvedMethodTypes(nullptr);
-  SetResolvedCallSites(nullptr);
-  SetField32<false>(NumStringsOffset(), 0);
-  SetField32<false>(NumResolvedTypesOffset(), 0);
-  SetField32<false>(NumResolvedMethodsOffset(), 0);
-  SetField32<false>(NumResolvedFieldsOffset(), 0);
-  SetField32<false>(NumResolvedMethodTypesOffset(), 0);
-  SetField32<false>(NumResolvedCallSitesOffset(), 0);
+void DexCache::Clear() {
+  DCHECK(GetDexFile() != nullptr);
+  std::fill_n(GetResolvedCallSites(), num_resolved_call_sites_, GcRoot<CallSite>());
+  ResolvedFields().Clear();
+  ResolvedMethods().Clear();
+  ResolvedMethodTypes().Clear();
+  ResolvedTypes().Clear();
+  ResolvedStrings().Clear();
+}
+
+void DexCache::ResetNativeFields() {
+  dex_file_ = 0;
+  preresolved_strings_ = 0;
+  resolved_call_sites_ = 0;
+  resolved_fields_ = 0;
+  resolved_method_types_ = 0;
+  resolved_methods_ = 0;
+  resolved_types_ = 0;
+  strings_ = 0;
+}
+
+// Allocate native memory, and track it in class linker so it can be freed.
+// (DexCache is weak heap objected which can be GCed at any point)
+void* DexCache::AllocArray(size_t alignment, size_t size) {
+  WriterMutexLock mu(Thread::Current(), *Locks::classlinker_classes_lock_);
+  return AllocArrayLocked(alignment, size);
+}
+
+
+void* DexCache::AllocArrayLocked(size_t alignment, size_t size) {
+  void* ptr = aligned_alloc(alignment, size);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  auto* data = class_linker->FindClassLoaderDataLocked(GetClassLoader());
+  if (data != nullptr) {
+    data->dex_cache_arrays.emplace(ptr);
+  } else {
+    class_linker->dex_cache_arrays_.emplace(ptr);
+  }
+  return ptr;
+}
+
+void DexCache::FreeArray(void* ptr) {
+  Thread* self = Thread::Current();
+  {
+    // Remove the reference from class linker to avoid later double free.
+    WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    auto* data = class_linker->FindClassLoaderDataLocked(GetClassLoader());
+    if (data != nullptr) {
+      size_t num_removed = data->dex_cache_arrays.erase(ptr);
+      DCHECK_EQ(num_removed, 1u);
+    } else {
+      size_t num_removed = class_linker->dex_cache_arrays_.erase(ptr);
+      DCHECK_EQ(num_removed, 1u);
+    }
+  }
+
+  // Closure to postpone the free until after all threads pass suspend point.
+  // This is needed as other threads might be still using the memory concurrently.
+  struct FreeDexCacheArrayClosure : Closure {
+    FreeDexCacheArrayClosure(void* ptr, int32_t count)
+        : ptr_(ptr), count_(count) {}
+    void Run(Thread* thread ATTRIBUTE_UNUSED) override {
+      int32_t count = count_.fetch_sub(1) - 1;
+      if (count == 0) {
+        free(ptr_);
+        delete this;
+      }
+    }
+    void* ptr_;
+    std::atomic_int32_t count_;
+  };
+
+  // Initialize to 1 to ensure we don't free the memory while threads are still being added.
+  FreeDexCacheArrayClosure* closure = new FreeDexCacheArrayClosure(ptr, 1);
+  MutexLock mu2(self, *Locks::thread_list_lock_);
+  MutexLock mu3(self, *Locks::thread_suspend_count_lock_);
+  for (Thread* thread : Runtime::Current()->GetThreadList()->GetList()) {
+    if (thread != self) {
+      closure->count_.fetch_add(1);
+      if (!thread->RequestCheckpoint(closure)) {
+        closure->Run(thread);
+      }
+    }
+  }
+  closure->Run(self);  // Decrement the initial 1.
 }
 
 void DexCache::SetLocation(ObjPtr<mirror::String> location) {
@@ -117,24 +153,6 @@ void DexCache::SetClassLoader(ObjPtr<ClassLoader> class_loader) {
 ObjPtr<ClassLoader> DexCache::GetClassLoader() {
   return GetFieldObject<ClassLoader>(OFFSET_OF_OBJECT_MEMBER(DexCache, class_loader_));
 }
-
-#if !defined(__aarch64__) && !defined(__x86_64__)
-static pthread_mutex_t dex_cache_slow_atomic_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-DexCache::ConversionPair64 DexCache::AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  DexCache::ConversionPair64 value = *reinterpret_cast<ConversionPair64*>(target);
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-  return value;
-}
-
-void DexCache::AtomicStoreRelease16B(std::atomic<ConversionPair64>* target,
-                                     ConversionPair64 value) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  *reinterpret_cast<ConversionPair64*>(target) = value;
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-}
-#endif
 
 }  // namespace mirror
 }  // namespace art

@@ -73,10 +73,6 @@ class Constructor;
 class DexCache;
 class IfTable;
 class Method;
-template <typename T> struct PACKED(8) DexCachePair;
-
-using StringDexCachePair = DexCachePair<String>;
-using StringDexCacheType = std::atomic<StringDexCachePair>;
 
 // C++ mirror of java.lang.Class
 class MANAGED Class final : public Object {

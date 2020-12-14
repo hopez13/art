@@ -1147,7 +1147,7 @@ void ImageWriter::PruneNonImageClasses() {
   // Completely clear DexCaches.
   std::vector<ObjPtr<mirror::DexCache>> dex_caches = FindDexCaches(self);
   for (ObjPtr<mirror::DexCache> dex_cache : dex_caches) {
-    dex_cache->ResetNativeArrays();
+    dex_cache->Clear();
   }
 
   // Drop the array class cache in the ClassLinker, as these are roots holding those classes live.
@@ -3132,7 +3132,7 @@ void ImageWriter::FixupObject(Object* orig, Object* copy) {
       CopyAndFixupPointer(dest, mirror::FieldVarHandle::ArtFieldOffset(), src_field);
     } else if (klass == GetClassRoot<mirror::DexCache>(class_roots)) {
       down_cast<mirror::DexCache*>(copy)->SetDexFile(nullptr);
-      down_cast<mirror::DexCache*>(copy)->ResetNativeArrays();
+      down_cast<mirror::DexCache*>(copy)->ResetNativeFields();
     } else if (klass->IsClassLoaderClass()) {
       mirror::ClassLoader* copy_loader = down_cast<mirror::ClassLoader*>(copy);
       // If src is a ClassLoader, set the class table to null so that it gets recreated by the
