@@ -757,11 +757,10 @@ art::mirror::DexCache* Redefiner::ClassRedefinition::CreateNewDexCache(
     driver_->self_->AssertPendingOOMException();
     return nullptr;
   }
+  art::LinearAlloc* linear_alloc = cl->GetOrCreateAllocatorForClassLoader(loader.Get());
   art::WriterMutexLock mu(driver_->self_, *art::Locks::dex_lock_);
   cache->SetLocation(location.Get());
-  cache->InitializeNativeFields(dex_file_.get(),
-                                loader.IsNull() ? driver_->runtime_->GetLinearAlloc()
-                                                : loader->GetAllocator());
+  cache->Initialize(dex_file_.get(), loader.Get(), linear_alloc);
   return cache.Get();
 }
 

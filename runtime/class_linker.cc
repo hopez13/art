@@ -1992,7 +1992,7 @@ bool ClassLinker::AddImageSpace(
     {
       // Native fields are all null.  Initialize them and allocate native memory.
       WriterMutexLock mu(self, *Locks::dex_lock_);
-      dex_cache->InitializeNativeFields(dex_file.get(), linear_alloc);
+      dex_cache->Initialize(dex_file.get(), class_loader.Get(), linear_alloc);
     }
     if (!app_image) {
       // Register dex files, keep track of existing ones that are conflicts.
@@ -2376,6 +2376,9 @@ ClassLinker::~ClassLinker() {
     // all the classloaders are deleted at the same time.
     DeleteClassLoader(self, data, /*cleanup_cha=*/ false);
   }
+  for (void* it : dex_cache_arrays_) {
+    free(it);
+  }
   class_loaders_.clear();
   while (!running_visibly_initialized_callbacks_.empty()) {
     std::unique_ptr<VisiblyInitializedCallback> callback(
@@ -2447,12 +2450,12 @@ ObjPtr<mirror::DexCache> ClassLinker::AllocDexCache(Thread* self, const DexFile&
 }
 
 ObjPtr<mirror::DexCache> ClassLinker::AllocAndInitializeDexCache(Thread* self,
-                                                                 const DexFile& dex_file,
-                                                                 LinearAlloc* linear_alloc) {
+                                                                 const DexFile& dex_file) {
   ObjPtr<mirror::DexCache> dex_cache = AllocDexCache(self, dex_file);
   if (dex_cache != nullptr) {
     WriterMutexLock mu(self, *Locks::dex_lock_);
-    dex_cache->InitializeNativeFields(&dex_file, linear_alloc);
+    LinearAlloc* linear_alloc = Runtime::Current()->GetLinearAlloc();
+    dex_cache->Initialize(&dex_file, /*class_loader=*/ nullptr, linear_alloc);
   }
   return dex_cache;
 }
@@ -3886,10 +3889,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
 }
 
 void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile* dex_file) {
-  ObjPtr<mirror::DexCache> dex_cache = AllocAndInitializeDexCache(
-      self,
-      *dex_file,
-      Runtime::Current()->GetLinearAlloc());
+  ObjPtr<mirror::DexCache> dex_cache = AllocAndInitializeDexCache(self, *dex_file);
   CHECK(dex_cache != nullptr) << "Failed to allocate dex cache for " << dex_file->GetLocation();
   AppendToBootClassPath(dex_file, dex_cache);
 }
@@ -4082,7 +4082,7 @@ ObjPtr<mirror::DexCache> ClassLinker::RegisterDexFile(const DexFile& dex_file,
       // Do InitializeNativeFields while holding dex lock to make sure two threads don't call it
       // at the same time with the same dex cache. Since the .bss is shared this can cause failing
       // DCHECK that the arrays are null.
-      h_dex_cache->InitializeNativeFields(&dex_file, linear_alloc);
+      h_dex_cache->Initialize(&dex_file, h_class_loader.Get(), linear_alloc);
       RegisterDexFileLocked(dex_file, h_dex_cache.Get(), h_class_loader.Get());
     }
     if (old_dex_cache != nullptr) {
@@ -4144,6 +4144,18 @@ ObjPtr<mirror::DexCache> ClassLinker::FindDexCache(Thread* self, const DexFile& 
   UNREACHABLE();
 }
 
+void ClassLinker::ClearDexCaches() {
+  Thread* self = Thread::Current();
+  Locks::mutator_lock_->AssertSharedHeld(self);
+  ReaderMutexLock mu(self, *Locks::dex_lock_);
+  for (const DexCacheData& data : dex_caches_) {
+    ObjPtr<mirror::DexCache> dex_cache = DecodeDexCacheLocked(self, &data);
+    if (dex_cache != nullptr) {
+      dex_cache->Clear();
+    }
+  }
+}
+
 ClassTable* ClassLinker::FindClassTable(Thread* self, ObjPtr<mirror::DexCache> dex_cache) {
   const DexFile* dex_file = dex_cache->GetDexFile();
   DCHECK(dex_file != nullptr);
@@ -4167,6 +4179,23 @@ const ClassLinker::DexCacheData* ClassLinker::FindDexCacheDataLocked(const DexFi
   for (const DexCacheData& data : dex_caches_) {
     // Avoid decoding (and read barriers) other unrelated dex caches.
     if (data.dex_file == &dex_file) {
+      return &data;
+    }
+  }
+  return nullptr;
+}
+
+ClassLinker::ClassLoaderData* ClassLinker::FindClassLoaderDataLocked(
+    ObjPtr<mirror::ClassLoader> class_loader) {
+  if (class_loader == nullptr) {
+    return nullptr;
+  }
+  Thread* self = Thread::Current();
+  for (auto it = class_loaders_.begin(); it != class_loaders_.end(); ++it) {
+    ClassLoaderData& data = *it;
+    ObjPtr<mirror::ClassLoader> seen =
+        ObjPtr<mirror::ClassLoader>::DownCast(self->DecodeJObject(data.weak_root));
+    if (seen == class_loader) {
       return &data;
     }
   }
@@ -5431,14 +5460,14 @@ bool ClassLinker::InitializeClass(Thread* self,
     for (size_t i = 0; i < num_static_fields; ++i) {
       ArtField* field = klass->GetStaticField(i);
       const uint32_t field_idx = field->GetDexFieldIndex();
-      ArtField* resolved_field = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+      ArtField* resolved_field = dex_cache->GetResolvedField(field_idx);
       if (resolved_field == nullptr) {
         // Populating cache of a dex file which defines `klass` should always be allowed.
         DCHECK(!hiddenapi::ShouldDenyAccessToMember(
             field,
             hiddenapi::AccessContext(class_loader.Get(), dex_cache.Get()),
             hiddenapi::AccessMethod::kNone));
-        dex_cache->SetResolvedField(field_idx, field, image_pointer_size_);
+        dex_cache->SetResolvedField(field_idx, field);
       } else {
         DCHECK_EQ(field, resolved_field);
       }
@@ -5909,7 +5938,7 @@ void ClassLinker::RegisterClassLoader(ObjPtr<mirror::ClassLoader> class_loader) 
   data.allocator = Runtime::Current()->CreateLinearAlloc();
   class_loader->SetAllocator(data.allocator);
   // Add to the list so that we know to free the data later.
-  class_loaders_.push_back(data);
+  class_loaders_.push_back(std::move(data));
 }
 
 ClassTable* ClassLinker::InsertClassTableForClassLoader(ObjPtr<mirror::ClassLoader> class_loader) {
@@ -7576,10 +7605,10 @@ class ClassLinker::LinkInterfaceMethodsHelper {
     if (kIsDebugBuild) {
       PointerSize pointer_size = class_linker_->GetImagePointerSize();
       // Check that there are no stale methods are in the dex cache array.
-      auto* resolved_methods = klass_->GetDexCache()->GetResolvedMethods();
-      for (size_t i = 0, count = klass_->GetDexCache()->NumResolvedMethods(); i < count; ++i) {
-        auto pair = mirror::DexCache::GetNativePairPtrSize(resolved_methods, i, pointer_size);
-        ArtMethod* m = pair.object;
+      ObjPtr<mirror::DexCache> dex_cache = klass_->GetDexCache();
+      size_t num_methods = klass_->GetDexCache()->GetDexFile()->NumMethodIds();
+      for (size_t i = 0; i < num_methods; ++i) {
+        ArtMethod* m = dex_cache->GetResolvedMethod(i);
         CHECK(move_table_.find(m) == move_table_.end() ||
               // The original versions of copied methods will still be present so allow those too.
               // Note that if the first check passes this might fail to GetDeclaringClass().
@@ -8664,7 +8693,7 @@ ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
         << "DexFile referrer: " << dex_file.GetLocation()
         << " ClassLoader: " << DescribeLoaders(class_loader, "");
     // Be a good citizen and update the dex cache to speed subsequent calls.
-    dex_cache->SetResolvedMethod(method_idx, resolved, image_pointer_size_);
+    dex_cache->SetResolvedMethod(method_idx, resolved);
     // Disable the following invariant check as the verifier breaks it. b/73760543
     // const DexFile::MethodId& method_id = dex_file.GetMethodId(method_idx);
     // DCHECK(LookupResolvedType(method_id.class_idx_, dex_cache, class_loader) != nullptr)
@@ -8717,8 +8746,7 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
   DCHECK(dex_cache != nullptr);
   DCHECK(referrer == nullptr || !referrer->IsProxyMethod());
   // Check for hit in the dex cache.
-  PointerSize pointer_size = image_pointer_size_;
-  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, pointer_size);
+  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx);
   Thread::PoisonObjectPointersIfDebug();
   DCHECK(resolved == nullptr || !resolved->IsRuntimeMethod());
   bool valid_dex_cache_method = resolved != nullptr;
@@ -8808,7 +8836,7 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
 ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(uint32_t method_idx,
                                                        Handle<mirror::DexCache> dex_cache,
                                                        Handle<mirror::ClassLoader> class_loader) {
-  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx, image_pointer_size_);
+  ArtMethod* resolved = dex_cache->GetResolvedMethod(method_idx);
   Thread::PoisonObjectPointersIfDebug();
   if (resolved != nullptr) {
     DCHECK(!resolved->IsRuntimeMethod());
@@ -8862,7 +8890,7 @@ ArtField* ClassLinker::ResolveField(uint32_t field_idx,
                                     bool is_static) {
   DCHECK(dex_cache != nullptr);
   DCHECK(!Thread::Current()->IsExceptionPending()) << Thread::Current()->GetException()->Dump();
-  ArtField* resolved = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  ArtField* resolved = dex_cache->GetResolvedField(field_idx);
   Thread::PoisonObjectPointersIfDebug();
   if (resolved != nullptr) {
     return resolved;
@@ -8888,7 +8916,7 @@ ArtField* ClassLinker::ResolveFieldJLS(uint32_t field_idx,
                                        Handle<mirror::DexCache> dex_cache,
                                        Handle<mirror::ClassLoader> class_loader) {
   DCHECK(dex_cache != nullptr);
-  ArtField* resolved = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  ArtField* resolved = dex_cache->GetResolvedField(field_idx);
   Thread::PoisonObjectPointersIfDebug();
   if (resolved != nullptr) {
     return resolved;
@@ -8938,7 +8966,7 @@ ArtField* ClassLinker::FindResolvedField(ObjPtr<mirror::Class> klass,
   }
 
   if (resolved != nullptr) {
-    dex_cache->SetResolvedField(field_idx, resolved, image_pointer_size_);
+    dex_cache->SetResolvedField(field_idx, resolved);
   }
 
   return resolved;
@@ -8965,7 +8993,7 @@ ArtField* ClassLinker::FindResolvedFieldJLS(ObjPtr<mirror::Class> klass,
   }
 
   if (resolved != nullptr) {
-    dex_cache->SetResolvedField(field_idx, resolved, image_pointer_size_);
+    dex_cache->SetResolvedField(field_idx, resolved);
   }
 
   return resolved;
@@ -9748,7 +9776,7 @@ void ClassLinker::CleanupClassLoaders() {
   {
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
     for (auto it = class_loaders_.begin(); it != class_loaders_.end(); ) {
-      const ClassLoaderData& data = *it;
+      ClassLoaderData& data = *it;
       // Need to use DecodeJObject so that we get null for cleared JNI weak globals.
       ObjPtr<mirror::ClassLoader> class_loader =
           ObjPtr<mirror::ClassLoader>::DownCast(self->DecodeJObject(data.weak_root));
@@ -9756,7 +9784,7 @@ void ClassLinker::CleanupClassLoaders() {
         ++it;
       } else {
         VLOG(class_linker) << "Freeing class loader";
-        to_delete.push_back(data);
+        to_delete.push_back(std::move(data));
         it = class_loaders_.erase(it);
       }
     }
