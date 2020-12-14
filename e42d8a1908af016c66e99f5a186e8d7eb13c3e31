@@ -213,6 +213,24 @@
       "parentUuid": "ffb9087b_3d206afe",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f37cd7_3cdb7fa5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2020-12-14T19:33:12Z",
+      "side": 1,
+      "message": "Alex / Nicolas:\n\nI am not sure I am knowledgeable enough to answer the question at hand.\n\nMy intuition would lead to to think that this should not be exposed outside of ART / JVMTI since agents implies privileged control on a debuggable app.",
+      "parentUuid": "b874e8f5_344e367c",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
