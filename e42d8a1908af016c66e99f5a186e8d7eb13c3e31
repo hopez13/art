@@ -159,6 +159,24 @@
       "parentUuid": "fd61ae60_6c7057d9",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b50f163e_927c10e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T17:33:23Z",
+      "side": 1,
+      "message": "JVMTI is entirely self-contained and baked into its design is having a large number of optional apis that agents need to check for and only use when availible.",
+      "parentUuid": "3cacacf1_ac10af31",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
