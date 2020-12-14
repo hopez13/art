@@ -34,6 +34,23 @@
       "parentUuid": "ad0747ea_6daf1e73",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "238b4066_78006439",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-12-14T10:07:14Z",
+      "side": 1,
+      "message": "As I said on the thread, I\u0027d rather not expose this. The problem with this approach is that is allows hidden API access to the whole app, meaning app developers will miss other usages in their app, so therefore miss bugs elsewhere.\n\nCan we instead create a parallel of VMDebug.allowHiddenApiReflectionFrom() which allows hidden API access from a *single class*? That can then be called before the debugger redefines any class, keeping the scope of the change to just what\u0027s needed.",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
