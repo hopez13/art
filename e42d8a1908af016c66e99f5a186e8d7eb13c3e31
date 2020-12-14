@@ -177,6 +177,24 @@
       "parentUuid": "3cacacf1_ac10af31",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb9087b_3d206afe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-14T17:36:13Z",
+      "side": 1,
+      "message": "Yes, I understand that. However, in this CL we\u0027re exposing a policy which is internal to the Android platform, and which the compat team owns. Not ART.",
+      "parentUuid": "b50f163e_927c10e1",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
