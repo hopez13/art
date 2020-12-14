@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fda6914_4e71aa83",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 2837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-14T17:07:42Z",
+      "side": 1,
+      "message": "These tests would be much shorter if we had some helper functions. This could be `CreateLoadClass(dex::TypeIndex(10))` and below we could have `CreateNewInstance(cls)` and `CreateInstanceFieldSet(new_inst, c12, MemberOffset(10))` if the helpers fill in all the other values. And maybe they should take a block argument and add the instruction to the block as well.",
+      "range": {
+        "startLine": 2831,
+        "startChar": 22,
+        "endLine": 2837,
+        "endChar": 61
+      },
+      "revId": "b90b843653891745f3542c35b08631fb9b2cf0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
