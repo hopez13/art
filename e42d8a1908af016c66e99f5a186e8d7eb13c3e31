@@ -51,6 +51,24 @@
       "message": "As I said on the thread, I\u0027d rather not expose this. The problem with this approach is that is allows hidden API access to the whole app, meaning app developers will miss other usages in their app, so therefore miss bugs elsewhere.\n\nCan we instead create a parallel of VMDebug.allowHiddenApiReflectionFrom() which allows hidden API access from a *single class*? That can then be called before the debugger redefines any class, keeping the scope of the change to just what\u0027s needed.",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc36a295_be72773b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T15:32:54Z",
+      "side": 1,
+      "message": "AIUI The accesses being warned are from relinking the class, there is no reflection and no similar way to know where we are coming from like with reflection. The idea for this then was to allow studio to quickly toggle this off and on as it does its setup. This is the same thing art itself does btw https://cs.android.com/android/platform/superproject/+/master:art/runtime/well_known_classes.cc;l\u003d331;bpv\u003d1;bpt\u003d1\n\nAs long as studio is relatively quick there shouldn\u0027t be much danger if missing major hiddenapi use.",
+      "parentUuid": "238b4066_78006439",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
