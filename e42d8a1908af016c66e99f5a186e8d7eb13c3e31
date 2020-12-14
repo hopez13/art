@@ -123,6 +123,24 @@
       "parentUuid": "82b0efd3_af79369b",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd61ae60_6c7057d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T17:03:39Z",
+      "side": 1,
+      "message": "That hasn\u0027t really been true so far with JVMTI related things. Given they are so deeply tied with the internals of the runtime and are available only for debugging tools AIUI we\u0027ve not really considered it a true public-api or even a system-api.",
+      "parentUuid": "301f0b32_08943b56",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
