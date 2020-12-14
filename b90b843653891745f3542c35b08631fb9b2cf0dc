@@ -22,6 +22,30 @@
       },
       "revId": "b90b843653891745f3542c35b08631fb9b2cf0dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "288eff03_8c015d6b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 2837,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T20:20:31Z",
+      "side": 1,
+      "message": "Since the exact order in the block is sometimes important (and it would be a difficult refactor to do automatically) I\u0027d like to keep that explicit (IMO a test should be able to be understood mostly in isolation ideally). I\u0027ll add helpers for creating the instructions though.",
+      "parentUuid": "7fda6914_4e71aa83",
+      "range": {
+        "startLine": 2831,
+        "startChar": 22,
+        "endLine": 2837,
+        "endChar": 61
+      },
+      "revId": "b90b843653891745f3542c35b08631fb9b2cf0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
