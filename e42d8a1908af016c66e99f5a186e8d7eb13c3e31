@@ -87,6 +87,24 @@
       "parentUuid": "bc36a295_be72773b",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82b0efd3_af79369b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-14T16:46:11Z",
+      "side": 1,
+      "message": "There is no good way to restore the hiddenapi state of a class. Permanently turning off all hiddenapi messages for several major classes such as Thread seems even worse TBH.\n\nJVMTI extension entry-points can be a single function pointer. There is nothing else (such as structs) that can be exposed. This prevents us from doing something like ScopedHidden\u003cetc\u003e unless we want to be passing around thunks. I\u0027d rather stick with this which is pretty similar to other JVMTI functions and (like with other places) rely on the agent authors to know what they are doing.\n\nAs I said the API structure is restricted by what can be used with the JVMTI extension API so get/set is pretty much the best we can do. I can add a recommendation to the description text if you want saying to do this. Honestly though this and all other JVMTI APIs require and assume that the user has pretty deep knowledge of internals and can be trusted to know what they are doing. This isn\u0027t something that some random library author will stumble across and try to use.",
+      "parentUuid": "431d372c_7242e041",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
