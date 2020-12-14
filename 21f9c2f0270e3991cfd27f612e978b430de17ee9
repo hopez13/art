@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006759297",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1454863?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "3a752cd4_147cafff",
+          "description": "Change to \"runtime/mirror/dex_cache-inl.h\"",
+          "replacements": [
+            {
+              "path": "runtime/mirror/dex_cache-inl.h",
+              "range": {
+                "startLine": 129,
+                "startChar": 41,
+                "endLine": 129,
+                "endChar": 47
+              },
+              "replacement": "target"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "53370fe8_b274574c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-14T22:07:30Z",
+      "side": 1,
+      "message": "Common typo found: \"traget\" -- should it be \"target\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 129,
+        "startChar": 41,
+        "endLine": 129,
+        "endChar": 47
+      },
+      "revId": "21f9c2f0270e3991cfd27f612e978b430de17ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006759297",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1454863?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "8b438bd1_5e406918",
+          "description": "Change to \"runtime/mirror/dex_cache-inl.h\"",
+          "replacements": [
+            {
+              "path": "runtime/mirror/dex_cache-inl.h",
+              "range": {
+                "startLine": 130,
+                "startChar": 9,
+                "endLine": 130,
+                "endChar": 15
+              },
+              "replacement": "target"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b57a19ee_0149ce3e",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-14T22:07:30Z",
+      "side": 1,
+      "message": "Common typo found: \"traget\" -- should it be \"target\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 15
+      },
+      "revId": "21f9c2f0270e3991cfd27f612e978b430de17ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
