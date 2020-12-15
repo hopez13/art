@@ -267,6 +267,24 @@
       "parentUuid": "05e802f9_f2c7c7c7",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b01fd474_7c5e8c2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-12-15T13:02:12Z",
+      "side": 1,
+      "message": "Ok, lots to think about here 😊\n\nIIUC, you\u0027re saying that ignoring hidden API accesses *from* a particular class (as per allowHiddenApiReflectionFrom) is not feasible during linking?\n\nre: \"Permanently turning off all hiddenapi messages for several major classes such as Thread seems even worse TBH.\"\n\nIt depends if you mean hiddenapi messages *from* Thread or *to* thread. I was thinking that when redefining a class, we\u0027d allow all hiddenapi access *from* that class, but hiddenapi access *to* it would be unaffected. I think that\u0027s how the existing allowHiddenApiReflectionFrom works. If we\u0027re only redefining platform classes, all hidden API access from them is ok anyway. (Does the debugger do the same for app classes too?)\n\nI\u0027d prefer the change to be as tightly scoped as possible. e.g. we could add some new runtime state to suppress only linking API accesses. Could something like that work?",
+      "parentUuid": "a966def6_a554f9fe",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
