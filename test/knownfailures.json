@@ -1352,6 +1352,7 @@
     },
     {
         "tests": ["2232-write-metrics-to-log",
+                  "2233-metrics-background-thread",
                   "2234-write-metrics-to-file"],
         "variant": "jvm",
         "description": ["RI does not support ART metrics."]
