@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd8ab7b_7a3c1075",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-15T19:33:06Z",
+      "side": 1,
+      "message": "I ran the tests twice more. Dividing zygote min_free by 10 doesn\u0027t show the system_server regression. Trying again with a division by 8 shows a significantly smaller regression; none of this seems really reproducible.\n\nI\u0027m leaning towards submitting this with a divisor of 10 if we can confirm that it solves the original problem, as I expect. But the main argument here is that enforcing a large heap size for zygotes seems a priori wrong, and if we can\u0027t demonstrate a consistent regression for the a priori correct version, we should probably go with that. But I\u0027m also OK with abandoning this effort. I don\u0027t plan to invest significantly more time. Opinions?",
+      "revId": "8ff3f86d8ad58d53c5649f8088ab4d04979c8c06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
