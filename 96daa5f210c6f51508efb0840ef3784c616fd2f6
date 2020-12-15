@@ -16,6 +16,24 @@
       "message": "Looks fine.\n\nWhat about cpu-set affinity or more jit threads? Affinity is an easy tweak, the latter maybe not since it\u0027s not done already.",
       "revId": "96daa5f210c6f51508efb0840ef3784c616fd2f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c888de2a_472a790b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-15T09:24:21Z",
+      "side": 1,
+      "message": "Yeah, we\u0027re thinking about adding those too - however, my concern is accumulating a number of options which in the end don\u0027t move the needle much. I do hope we can eventually remove / make no-op these options.",
+      "parentUuid": "ed431b51_6414c4bc",
+      "revId": "96daa5f210c6f51508efb0840ef3784c616fd2f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
