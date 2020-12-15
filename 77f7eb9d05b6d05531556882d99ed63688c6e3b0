@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443f2d96_a730f706",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "Since I have to reland this patch, I\u0027ll fold the changes Calin requested into the reland: https://r.android.com/1530838",
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b27d35f8_7074152d",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-12-11T20:47:57Z",
       "side": 1,
       "message": "The not-enforced convention is to add name these sort of methods `MaybeFoo()` instead of IfNeeded. There\u0027s a couple of places where we have IfNeeded, but the Maybes are much more popular",
+      "range": {
+        "startLine": 128,
+        "startChar": 43,
+        "endLine": 128,
+        "endChar": 51
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd962654_31603192",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "Done, although I find IfNeeded more precise since it gives a hint as to why the function would not start the background thread.",
+      "parentUuid": "b27d35f8_7074152d",
       "range": {
         "startLine": 128,
         "startChar": 43,
@@ -66,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "880ed737_9e8e9556",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "I cargo culted this from https://cs.android.com/android/platform/superproject/+/master:art/runtime/jit/profile_saver.cc;l\u003d662?q\u003dprofile_saver.cc\n\nThe attach/detach is not documented there either 😊. What is attach/detach used for? I assumed it had something to do with letting the runtime keep track of all the threads that are going.",
+      "parentUuid": "53b85bc3_65ff4c09",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14c722fe_31e22102",
         "filename": "runtime/metrics/metrics.cc",
         "patchSetId": 13
@@ -77,6 +142,30 @@
       "writtenOn": "2020-12-11T20:47:57Z",
       "side": 1,
       "message": "inline?",
+      "range": {
+        "startLine": 153,
+        "startChar": 7,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7989ba4b_be26e7d0",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "What do you mean?",
+      "parentUuid": "14c722fe_31e22102",
       "range": {
         "startLine": 153,
         "startChar": 7,
@@ -133,6 +222,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67bd40aa_740ecaec",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "Fixed in https://r.android.com/1519822, since I moved this function to metrics.cc and reformatted there.",
+      "parentUuid": "0175ebcb_9e924d82",
+      "range": {
+        "startLine": 232,
+        "startChar": 100,
+        "endLine": 232,
+        "endChar": 101
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0e92246_fd8e36db",
@@ -146,6 +259,30 @@
       "writtenOn": "2020-12-11T20:47:57Z",
       "side": 1,
       "message": "!\u003d nullptr.\n\nI know it\u0027s allowed not to, but it\u0027s much more readable if non-booleans have an explicit condition",
+      "range": {
+        "startLine": 1083,
+        "startChar": 6,
+        "endLine": 1083,
+        "endChar": 23
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b80ff92_e0f203b4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-15T21:16:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e92246_fd8e36db",
       "range": {
         "startLine": 1083,
         "startChar": 6,
