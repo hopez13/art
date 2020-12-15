@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed431b51_6414c4bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2020-12-15T09:14:14Z",
+      "side": 1,
+      "message": "Looks fine.\n\nWhat about cpu-set affinity or more jit threads? Affinity is an easy tweak, the latter maybe not since it\u0027s not done already.",
+      "revId": "96daa5f210c6f51508efb0840ef3784c616fd2f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
