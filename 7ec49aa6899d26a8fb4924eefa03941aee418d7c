@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c469b2f_c3e0d6b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2020-12-16T02:55:25Z",
+      "side": 1,
+      "message": "LGTM from a memory ordering / dmb perspective. It would take me a while to understand this enough to actually +2.\n\nI\u0027m assuming that op_iget() and friends don\u0027t deal with volatile accesses, but op_iget_slow_path() and friends usually, or always do? I didn\u0027t track down how the dispatching works.",
+      "revId": "7ec49aa6899d26a8fb4924eefa03941aee418d7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
