@@ -129,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5ce10e_193d95d7",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-16T20:36:51Z",
+      "side": 1,
+      "message": "It sounds like attach/detach is only used for threads that need to interact with JNI, etc., which doesn\u0027t apply here, so I\u0027ll remove it.",
+      "parentUuid": "880ed737_9e8e9556",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14c722fe_31e22102",
