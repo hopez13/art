@@ -285,6 +285,24 @@
       "parentUuid": "a966def6_a554f9fe",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe76af3_c6ddb516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2020-12-16T15:51:32Z",
+      "side": 1,
+      "message": "Ok, chatted with Alex just now.\n\nI feel that something that *just* suppressed the logging is better (since that\u0027s the main goal), but if that\u0027s not practical this solution is fine (with some API docs to make the intended usage pattern clear, i.e. reset the policy afterwards).\n\nThe logging comes from here:\nhttp://cs/android/art/runtime/hidden_api.cc?l\u003d527\u0026rcl\u003d02f8046aa13d614e2a385c6afd83a9219a8d04f3\n\nSo maybe a little extra state in the runtime could do the trick?\n\nI\u0027m OOO from now until next year so don\u0027t want for me if you want to get this in sooner.",
+      "parentUuid": "b01fd474_7c5e8c2f",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
