@@ -303,6 +303,24 @@
       "parentUuid": "b01fd474_7c5e8c2f",
       "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9d31e8_45552190",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-16T18:53:13Z",
+      "side": 1,
+      "message": "Ack. Changing logging like that is something I\u0027m not sure we\u0027ve ever really done and I\u0027m not sure it\u0027s a really good idea to start now (and it adds some additional complexity). In any event made the intent of toggling this explicit in the docs.\n\nNGeoffray@ PTAL",
+      "parentUuid": "dbe76af3_c6ddb516",
+      "revId": "e42d8a1908af016c66e99f5a186e8d7eb13c3e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
