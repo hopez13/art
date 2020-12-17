@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a65117a_ddb7c545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:02:52Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s a good use of time. The main goal of this is just to be able to have gtests print useful error messages about individual instructions (mostly about what the arguments to phis are etc). This is something that graph-visualizer is terrible at and would require significant work to bolt on. Fundamentally graph-visualizer is designed to produce machine-readable files that represent a whole graph and are processed and examined using tools like irhydra. This is more for a simple debugging and logging tool without any of the strict format requirements.",
+      "parentUuid": "5911492a_adfddf14",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d69e9a46_663965bb",
