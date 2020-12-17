@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba1caec_98213bb1",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T20:09:27Z",
+      "side": 1,
+      "message": "Mostly just because I was asked if studio could just hard-code in 0 for disabled.\n\nWith a dedicated \u0027disable\u0027 function this is less important though so done.",
+      "parentUuid": "b7476d50_c3d2f9e9",
+      "range": {
+        "startLine": 1141,
+        "startChar": 68,
+        "endLine": 1142,
+        "endChar": 29
+      },
+      "revId": "d49e5ef92d755d25eafec82db1c281e88c22378f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9343157f_3830ddb3",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-17T14:20:09Z",
       "side": 1,
       "message": "I think i\u0027d be more comfortable with an additional DisableHiddenApiEnforcementPolicy(jvmtiEnv* env) so the user never has to infer what those jints are about.",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 49
+      },
+      "revId": "d49e5ef92d755d25eafec82db1c281e88c22378f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3eda49_1aa39939",
+        "filename": "openjdkjvmti/ti_class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T20:09:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9343157f_3830ddb3",
       "range": {
         "startLine": 97,
         "startChar": 20,
