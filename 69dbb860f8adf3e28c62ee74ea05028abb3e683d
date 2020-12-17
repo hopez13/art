@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d500cb_9333ea02",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "range": {
+        "startLine": 532,
+        "startChar": 2,
+        "endLine": 532,
+        "endChar": 7
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4965284b_f9ab0038",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "CHECK_NE",
+      "range": {
+        "startLine": 941,
+        "startChar": 2,
+        "endLine": 941,
+        "endChar": 7
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580d2cf0_d87f82a4",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1406,
+        "startChar": 2,
+        "endLine": 1406,
+        "endChar": 8
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0369f58_5d376d53",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "superfluous",
+      "range": {
+        "startLine": 80,
+        "startChar": 24,
+        "endLine": 80,
+        "endChar": 30
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec92cd5_61762453",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "kDexFilesNotOpened?",
+      "range": {
+        "startLine": 355,
+        "startChar": 4,
+        "endLine": 355,
+        "endChar": 21
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd779985_ab29e5bd",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "kDexFilesChecksumsRead ?",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 357,
+        "endChar": 23
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fdf7464_804c4d32",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "kDexFilesOpened ?",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 360,
+        "endChar": 14
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7262789a_3fec66f1",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "kDexFilesOpenFailed ?",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 362,
+        "endChar": 18
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18c1d540_973f24b7",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T08:56:50Z",
+      "side": 1,
+      "message": "The opening state of the dex files?",
+      "range": {
+        "startLine": 375,
+        "startChar": 9,
+        "endLine": 375,
+        "endChar": 32
+      },
+      "revId": "69dbb860f8adf3e28c62ee74ea05028abb3e683d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
