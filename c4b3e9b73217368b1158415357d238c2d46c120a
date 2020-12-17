@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b5ac7ea_46959dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T18:29:56Z",
+      "side": 1,
+      "message": "The main thing this adds is recursive printing of arguments, which is useful for figuring out what the pass did quickly. The basic design of graph-visulaizer as a graph-visitor makes adding support for this very difficult.\n\nPre-change: \n\n2292    ../fast-out/target/product/blueline/apex/com.android.art/lib/libart-compiler.so\n3184    ../fast-out/target/product/blueline/apex/com.android.art/lib64/libart-compiler.so\n\nPost-change: \n\n2300    ../fast-out/target/product/blueline/apex/com.android.art/lib/libart-compiler.so\n3200    ../fast-out/target/product/blueline/apex/com.android.art/lib64/libart-compiler.so\n\nSo ~0.1mb (\u003c1%) difference",
+      "parentUuid": "60161689_48c0b937",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d69e9a46_663965bb",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
