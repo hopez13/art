@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7476d50_c3d2f9e9",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T14:20:09Z",
+      "side": 1,
+      "message": "Why would we want separate evolution? For the user of the API, it\u0027s just an obscure jint, isn\u0027t it? We just need to sanity check that the passed value to SetHiddenApiEnforcementPolicy still makes sense?",
+      "range": {
+        "startLine": 1141,
+        "startChar": 68,
+        "endLine": 1142,
+        "endChar": 29
+      },
+      "revId": "d49e5ef92d755d25eafec82db1c281e88c22378f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9343157f_3830ddb3",
+        "filename": "openjdkjvmti/ti_class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2020-12-17T14:20:09Z",
+      "side": 1,
+      "message": "I think i\u0027d be more comfortable with an additional DisableHiddenApiEnforcementPolicy(jvmtiEnv* env) so the user never has to infer what those jints are about.",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 49
+      },
+      "revId": "d49e5ef92d755d25eafec82db1c281e88c22378f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
