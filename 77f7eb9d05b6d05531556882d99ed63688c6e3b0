@@ -153,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1797b96c_56592714",
+        "filename": "runtime/metrics/metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2020-12-17T01:38:07Z",
+      "side": 1,
+      "message": "It looks like \"etc.\" includes using ART\u0027s Mutex and ConditionVariable classes, so I\u0027m going to leave the attach/detach.",
+      "parentUuid": "5d5ce10e_193d95d7",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 31
+      },
+      "revId": "77f7eb9d05b6d05531556882d99ed63688c6e3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14c722fe_31e22102",
