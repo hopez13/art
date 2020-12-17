@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa63998_7f32fef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "I think we should try to use the GraphVisualizer instead. (We can extend it with more attributes if we need to, or have an option to print a dense format for blocks, or collect all inputs of an instruction and print it together.)",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d69e9a46_663965bb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "What does the second \u0027s\u0027 stand for?",
+      "range": {
+        "startLine": 1988,
+        "startChar": 32,
+        "endLine": 1988,
+        "endChar": 35
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0432f85_804a0be1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "This is not a useful name. What about\n\n  virtual void PrintName(std::ostream\u0026 os, HBasicBlock* block) const {\n    os \u003c\u003c \"B\" \u003c\u003c block-\u003eGetBlockId();\n  }",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 3
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7218d6d_0536e5f1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "Every compilation unit that #includes nodes.h shall get its own variable with relocations and a destructor that would be invoked if we returned from main(). This is undesirable.",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 36
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ce448f_ce89534f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 4407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "Revert to `kFlagFinalizable`. These fields are deliberately chained.",
+      "range": {
+        "startLine": 4407,
+        "startChar": 59,
+        "endLine": 4407,
+        "endChar": 85
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a276486_d381281e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 6103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T14:51:35Z",
+      "side": 1,
+      "message": "Unrelated style change.",
+      "range": {
+        "startLine": 6101,
+        "startChar": 2,
+        "endLine": 6103,
+        "endChar": 3
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
