@@ -248,6 +248,30 @@
       },
       "revId": "9c648af315024a492576e29d53b2a01e74539987",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4794e956_c883f2e7",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1245820
+      },
+      "writtenOn": "2020-12-17T00:58:51Z",
+      "side": 1,
+      "message": "Can you see and talk to us at https://partnerissuetracker.corp.google.com/issues/172588429?\n\nWe\u0027re not sure where to use sigset64_t.",
+      "parentUuid": "19931798_a6cef647",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
