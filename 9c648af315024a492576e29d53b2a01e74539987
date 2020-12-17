@@ -200,6 +200,30 @@
       },
       "revId": "9c648af315024a492576e29d53b2a01e74539987",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df35feef_002cb505",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1245820
+      },
+      "writtenOn": "2020-12-17T00:48:29Z",
+      "side": 1,
+      "message": "We tried to add a new signal to reserved_signals.h. The problem that occurred in the 32bit system was described in the partnerissuetracker system. \nplease check.",
+      "parentUuid": "e6ca9654_26ce0c8b",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "9c648af315024a492576e29d53b2a01e74539987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
