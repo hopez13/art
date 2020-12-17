@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60161689_48c0b937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T16:52:49Z",
+      "side": 1,
+      "message": "The GraphVisualizer does show you all the information you need. We should just add a few helpers, so that you can simply call it to, for example, print a single instruction with or without attributes.\n\nI do care about the size of libart-compiler.so. How much does this CL add?",
+      "parentUuid": "a9d3b77c_c69ae2bf",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d69e9a46_663965bb",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
