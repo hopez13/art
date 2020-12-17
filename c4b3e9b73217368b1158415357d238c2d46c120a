@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e46c9f_6fa44d29",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:08Z",
+      "side": 1,
+      "message": "used to be ostringstream. removed.",
+      "parentUuid": "d69e9a46_663965bb",
+      "range": {
+        "startLine": 1988,
+        "startChar": 32,
+        "endLine": 1988,
+        "endChar": 35
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0432f85_804a0be1",
@@ -108,6 +132,30 @@
       "writtenOn": "2020-12-17T14:51:35Z",
       "side": 1,
       "message": "This is not a useful name. What about\n\n  virtual void PrintName(std::ostream\u0026 os, HBasicBlock* block) const {\n    os \u003c\u003c \"B\" \u003c\u003c block-\u003eGetBlockId();\n  }",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 3
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2d68087_ed82958c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0432f85_804a0be1",
       "range": {
         "startLine": 375,
         "startChar": 2,
@@ -141,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd745638_ea55914b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7218d6d_0536e5f1",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 36
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01ce448f_ce89534f",
@@ -164,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d96c4d8_3ae69a01",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 4407,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ce448f_ce89534f",
+      "range": {
+        "startLine": 4407,
+        "startChar": 59,
+        "endLine": 4407,
+        "endChar": 85
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a276486_d381281e",
@@ -177,6 +273,30 @@
       "writtenOn": "2020-12-17T14:51:35Z",
       "side": 1,
       "message": "Unrelated style change.",
+      "range": {
+        "startLine": 6101,
+        "startChar": 2,
+        "endLine": 6103,
+        "endChar": 3
+      },
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c405eef5_e11d38d2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 6103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a276486_d381281e",
       "range": {
         "startLine": 6101,
         "startChar": 2,
