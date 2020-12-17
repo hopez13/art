@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf01be0_313aade1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "We build with fnoexceptions so it\u0027s basically just a DCHECK AIUI",
+      "parentUuid": "454bd9f7_7dbe46cf",
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e82d122_7d46a905",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-17T10:02:13Z",
       "side": 1,
       "message": "Please change to `size_t` (fix my old mistake), otherwise the dchecked_integral_cast\u003c\u003e below is useless.",
+      "range": {
+        "startLine": 247,
+        "startChar": 48,
+        "endLine": 247,
+        "endChar": 56
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "143341f9_dd82d332",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e82d122_7d46a905",
       "range": {
         "startLine": 247,
         "startChar": 48,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e062ce80_559bf3c2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "This seemed easier.",
+      "parentUuid": "a956f993_a0c2bef9",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 6
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba5ecf5a_c3e06732",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-12-17T10:02:13Z",
       "side": 1,
       "message": "Not as densely packed as before. This may increase size of bit vectors and slow down the Floyd Warshall algorithm used when maerializing Phis. Note that the number of blocks can be substantially higher than the number of blocks with multiple predecessors.",
+      "range": {
+        "startLine": 450,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 42
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b16393_69cc26d0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "The memory savings from not pre-allocating an array of constant PhiPlaceholders is greater than the loss from bigger bitmaps as long as total blocks outnumber multi-predecessor ones by less than 64x.\n\nFWA time should generally be pretty similar since the loop is basically just { mask; cmp 0; ctz; shift }. I think the savings from how much faster it is to translate block+heap-id -\u003e placeholder should make up for the extra cmps.",
+      "parentUuid": "ba5ecf5a_c3e06732",
       "range": {
         "startLine": 450,
         "startChar": 8,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "667d6e81_f482513b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "All our compilers seem to be able to handle this fine but done. https://godbolt.org/z/3ovrrx",
+      "parentUuid": "2fc3bf95_16c8ebcc",
+      "range": {
+        "startLine": 479,
+        "startChar": 24,
+        "endLine": 479,
+        "endChar": 29
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63cbddd0_84760e95",
@@ -127,6 +241,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b640853_60e10609",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63cbddd0_84760e95",
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a727878_0c4fe50a",
@@ -140,6 +272,30 @@
       "writtenOn": "2020-12-17T10:02:13Z",
       "side": 1,
       "message": "Unnecessary. (Semantically, this adds extraction of the value followed by the construction of a new std::optional\u003c\u003e.)",
+      "range": {
+        "startLine": 1997,
+        "startChar": 11,
+        "endLine": 1997,
+        "endChar": 12
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4cd713d_76d5f70a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T16:41:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a727878_0c4fe50a",
       "range": {
         "startLine": 1997,
         "startChar": 11,
