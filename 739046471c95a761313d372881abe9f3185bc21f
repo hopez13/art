@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f953835e_02c77fea",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-17T07:23:38Z",
+      "side": 1,
+      "message": "Done. This is not multi-thread safe and I don\u0027t think it\u0027s worth doing it (we have no multi-thread use right now)",
+      "parentUuid": "5762f86e_c7398fd1",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 37
+      },
+      "revId": "739046471c95a761313d372881abe9f3185bc21f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "509a34d3_d738e283",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-12-16T14:00:40Z",
       "side": 1,
       "message": "The pattern already existing with dex_files_open_attempted_ and dex_files_open_result_ is a bit confusing... We essentially want three states right? Uninitialized / CheckSumDontMatch / ChecksumMatch ? Could we introduce an enum instead?",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 35
+      },
+      "revId": "739046471c95a761313d372881abe9f3185bc21f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad42126_ceaf4981",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2020-12-17T07:23:38Z",
+      "side": 1,
+      "message": "Good idea. Done.\n\nHowever the enum is about the state of dex file (opened/unopened/not tried) and not about the result. The same context can be checked against different classpaths.",
+      "parentUuid": "509a34d3_d738e283",
       "range": {
         "startLine": 364,
         "startChar": 0,
