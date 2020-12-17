@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "454bd9f7_7dbe46cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "I\u0027m not very fond of C++ constructs that can throw (std::bad_variant_access) but otherwise LGTM.",
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e82d122_7d46a905",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Please change to `size_t` (fix my old mistake), otherwise the dchecked_integral_cast\u003c\u003e below is useless.",
+      "range": {
+        "startLine": 247,
+        "startChar": 48,
+        "endLine": 247,
+        "endChar": 56
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a956f993_a0c2bef9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Or you could have `InvalidMarker`, `UnknownMarker` and `DefaultMarker`.",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 6
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5ecf5a_c3e06732",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Not as densely packed as before. This may increase size of bit vectors and slow down the Floyd Warshall algorithm used when maerializing Phis. Note that the number of blocks can be substantially higher than the number of blocks with multiple predecessors.",
+      "range": {
+        "startLine": 450,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 42
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc3bf95_16c8ebcc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Unnecessary. May prevent compiler optimizations (for / and % with the same operands, the compiler should emit just one div).",
+      "range": {
+        "startLine": 479,
+        "startChar": 24,
+        "endLine": 479,
+        "endChar": 29
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63cbddd0_84760e95",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a727878_0c4fe50a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-17T10:02:13Z",
+      "side": 1,
+      "message": "Unnecessary. (Semantically, this adds extraction of the value followed by the construction of a new std::optional\u003c\u003e.)",
+      "range": {
+        "startLine": 1997,
+        "startChar": 11,
+        "endLine": 1997,
+        "endChar": 12
+      },
+      "revId": "fe6ad26292419bd01b9f3c7dfb699a7832bd5944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
