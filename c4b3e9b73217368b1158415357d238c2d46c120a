@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d3b77c_c69ae2bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-17T15:29:43Z",
+      "side": 1,
+      "message": "GraphVisualizer is annoying since it is a whole separate system that needs to be setup independently from the nodes\u0026graph. Also there are dependencies on its output that I\u0027d like to avoid having to deal with.",
+      "parentUuid": "9fa63998_7f32fef8",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d69e9a46_663965bb",
