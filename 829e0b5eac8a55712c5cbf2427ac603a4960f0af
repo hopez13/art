@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cbc2656_6c0d27e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-21T17:59:31Z",
+      "side": 1,
+      "message": "I guess a regression test would be a bit difficult to write, so I\u0027m OK with not having one. (Though we could compile a dex file with a class that uses reflection in \u003cclinit\u003e as a boot image extension. And we already test boot image extension compilation, see TestExtension in dex2oat_image_test.cc .)",
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab48ced_29c90acd",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-21T17:59:31Z",
+      "side": 1,
+      "message": "Style: Missing indentation (4 spaces before \u0027?\u0027 and \u0027:\u0027) and line too long (max 100 characters). We could either have one argument per line, or\n\n  ScopedLocalRef\u003cjobject\u003e result_jobj(env,\n      (pointer_size \u003d\u003d PointerSize::k64)\n          ? InvokeMethod\u003cPointerSize::k64\u003e(\n                soa, java_method.get(), java_receiver.get(), java_args.get())\n          : InvokeMethod\u003cPointerSize::k32\u003e(\n                soa, java_method.get(), java_receiver.get(), java_args.get()));\n\n(start arguments 4 spaces to the right of the \u0027InvokeMethod\u0027).",
+      "range": {
+        "startLine": 1655,
+        "startChar": 6,
+        "endLine": 1656,
+        "endChar": 102
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb68b81f_0f084e49",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-21T17:59:31Z",
+      "side": 1,
+      "message": "Style: one argument per line, please. (See InvokeMethod declaration in reflection.h .)",
+      "range": {
+        "startLine": 770,
+        "startChar": 22,
+        "endLine": 771,
+        "endChar": 79
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195bec7e_ceaff0c2",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-21T17:59:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 774,
+        "startChar": 22,
+        "endLine": 775,
+        "endChar": 79
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
