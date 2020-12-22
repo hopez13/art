@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d58b4d7_5e435534",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092759
+      },
+      "writtenOn": "2020-12-22T01:19:01Z",
+      "side": 1,
+      "message": "Thanks very much for reply. Yes, I think this is just a typical corner case in Android R for we use the only dex2oatd to compile the boot image for both target arch 32 and 64.",
+      "parentUuid": "6cbc2656_6c0d27e8",
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fab48ced_29c90acd",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-21T17:59:31Z",
       "side": 1,
       "message": "Style: Missing indentation (4 spaces before \u0027?\u0027 and \u0027:\u0027) and line too long (max 100 characters). We could either have one argument per line, or\n\n  ScopedLocalRef\u003cjobject\u003e result_jobj(env,\n      (pointer_size \u003d\u003d PointerSize::k64)\n          ? InvokeMethod\u003cPointerSize::k64\u003e(\n                soa, java_method.get(), java_receiver.get(), java_args.get())\n          : InvokeMethod\u003cPointerSize::k32\u003e(\n                soa, java_method.get(), java_receiver.get(), java_args.get()));\n\n(start arguments 4 spaces to the right of the \u0027InvokeMethod\u0027).",
+      "range": {
+        "startLine": 1655,
+        "startChar": 6,
+        "endLine": 1656,
+        "endChar": 102
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4231547_d44da078",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1092759
+      },
+      "writtenOn": "2020-12-22T01:19:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab48ced_29c90acd",
       "range": {
         "startLine": 1655,
         "startChar": 6,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fd8328_b871cbe6",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1092759
+      },
+      "writtenOn": "2020-12-22T01:19:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb68b81f_0f084e49",
+      "range": {
+        "startLine": 770,
+        "startChar": 22,
+        "endLine": 771,
+        "endChar": 79
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195bec7e_ceaff0c2",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-12-21T17:59:31Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 774,
+        "startChar": 22,
+        "endLine": 775,
+        "endChar": 79
+      },
+      "revId": "829e0b5eac8a55712c5cbf2427ac603a4960f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad104be6_e2351004",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1092759
+      },
+      "writtenOn": "2020-12-22T01:19:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "195bec7e_ceaff0c2",
       "range": {
         "startLine": 774,
         "startChar": 22,
