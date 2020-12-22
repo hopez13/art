@@ -833,6 +833,12 @@ class Heap {
   uint64_t GetBlockingGcTime() const;
   void DumpGcCountRateHistogram(std::ostream& os) const REQUIRES(!*gc_complete_lock_);
   void DumpBlockingGcCountRateHistogram(std::ostream& os) const REQUIRES(!*gc_complete_lock_);
+  uint64_t GetTotalTimeWaitingForGC() const {
+    return total_wait_time_;
+  }
+
+  uint64_t GetFullGcWithSoftRefCount() const;
+  uint64_t GetGcLongWaitTimeCount() const;
 
   // Allocation tracking support
   // Callers to this function use double-checked locking to ensure safety on allocation_records_
@@ -1594,6 +1600,12 @@ class Heap {
   // Boot image address range. Includes images and oat files.
   uint32_t boot_images_start_address_;
   uint32_t boot_images_size_;
+
+  // The number of full GC runs.
+  uint64_t full_gc_with_softref_count_;
+
+  // The number of GC completion takes long time.
+  uint64_t gc_long_wait_time_count_;
 
   // An installed allocation listener.
   Atomic<AllocationListener*> alloc_listener_;

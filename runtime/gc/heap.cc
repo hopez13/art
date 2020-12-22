@@ -151,6 +151,9 @@ static constexpr bool kLogAllGCs = false;
 // allocate with relaxed ergonomics for that long.
 static constexpr size_t kPostForkMaxHeapDurationMS = 2000;
 
+// Use as sluggish indicator, this is to count WaitForGcToComplete takes at least over 100ms.
+static constexpr size_t kGcLongWaitTimeDurationNS = MsToNs(100);
+
 #if defined(__LP64__) || !defined(ADDRESS_SANITIZER)
 // 300 MB (0x12c00000) - (default non-moving space capacity).
 uint8_t* const Heap::kPreferredAllocSpaceBegin =
@@ -356,7 +359,9 @@ Heap::Heap(size_t initial_size,
       dump_region_info_after_gc_(dump_region_info_after_gc),
       boot_image_spaces_(),
       boot_images_start_address_(0u),
-      boot_images_size_(0u) {
+      boot_images_size_(0u),
+      full_gc_with_softref_count_(0u),
+      gc_long_wait_time_count_(0u) {
   if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
     LOG(INFO) << "Heap() entering";
   }
@@ -1178,6 +1183,8 @@ void Heap::DumpGcPerformanceInfo(std::ostream& os) {
   os << "Total GC time: " << PrettyDuration(GetGcTime()) << "\n";
   os << "Total blocking GC count: " << GetBlockingGcCount() << "\n";
   os << "Total blocking GC time: " << PrettyDuration(GetBlockingGcTime()) << "\n";
+  os << "Total full gc with SoftReferences count: " << GetFullGcWithSoftRefCount() << "\n";
+  os << "Total count waiting for GC to complete for long time: " << GetGcLongWaitTimeCount() << "\n";
 
   {
     MutexLock mu(Thread::Current(), *gc_complete_lock_);
@@ -1234,6 +1241,8 @@ void Heap::ResetGcPerformanceInfo() {
     gc_count_rate_histogram_.Reset();
     blocking_gc_count_rate_histogram_.Reset();
   }
+  full_gc_with_softref_count_ = 0;
+  gc_long_wait_time_count_ = 0;
 }
 
 uint64_t Heap::GetGcCount() const {
@@ -1272,6 +1281,14 @@ void Heap::DumpBlockingGcCountRateHistogram(std::ostream& os) const {
   if (blocking_gc_count_rate_histogram_.SampleSize() > 0U) {
     blocking_gc_count_rate_histogram_.DumpBins(os);
   }
+}
+
+uint64_t Heap::GetFullGcWithSoftRefCount() const {
+  return full_gc_with_softref_count_;
+}
+
+uint64_t Heap::GetGcLongWaitTimeCount() const {
+  return gc_long_wait_time_count_;
 }
 
 ALWAYS_INLINE
@@ -2613,6 +2630,9 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   CHECK(collector != nullptr)
       << "Could not find garbage collector with collector_type="
       << static_cast<size_t>(collector_type_) << " and gc_type=" << gc_type;
+  if (clear_soft_references) {
+    ++full_gc_with_softref_count_;
+  }
   collector->Run(gc_cause, clear_soft_references || runtime->IsZygote());
   IncrementFreedEver();
   RequestTrim(self);
@@ -3390,6 +3410,9 @@ collector::GcType Heap::WaitForGcToCompleteLocked(GcCause cause, Thread* self) {
   if (wait_time > long_pause_log_threshold_) {
     LOG(INFO) << "WaitForGcToComplete blocked " << cause << " on " << last_gc_cause << " for "
               << PrettyDuration(wait_time);
+    if (wait_time > kGcLongWaitTimeDurationNS) {
+      ++gc_long_wait_time_count_;
+    }
   }
   if (self != task_processor_->GetRunningThread()) {
     // The current thread is about to run a collection. If the thread

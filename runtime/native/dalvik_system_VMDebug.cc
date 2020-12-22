@@ -313,6 +313,10 @@ enum class VMDebugRuntimeStatId {
   kArtGcBlockingGcTime,
   kArtGcGcCountRateHistogram,
   kArtGcBlockingGcCountRateHistogram,
+  kArtGcObjectsAllocated,
+  kArtGcTotalTimeWaitingForGc,
+  kArtGcFullGcWithSoftRefCount,
+  kArtGcLongWaitTimeCount,
   kNumRuntimeStats,
 };
 
@@ -352,6 +356,22 @@ static jstring VMDebug_getRuntimeStatInternal(JNIEnv* env, jclass, jint statId) 
       std::ostringstream output;
       heap->DumpBlockingGcCountRateHistogram(output);
       return env->NewStringUTF(output.str().c_str());
+    }
+    case VMDebugRuntimeStatId::kArtGcObjectsAllocated: {
+      std::string output = std::to_string(heap->GetObjectsAllocated());
+      return env->NewStringUTF(output.c_str());
+    }
+    case VMDebugRuntimeStatId::kArtGcTotalTimeWaitingForGc: {
+      std::string output = std::to_string(heap->GetTotalTimeWaitingForGC());
+      return env->NewStringUTF(output.c_str());
+    }
+    case VMDebugRuntimeStatId::kArtGcFullGcWithSoftRefCount: {
+      std::string output = std::to_string(heap->GetFullGcWithSoftRefCount());
+      return env->NewStringUTF(output.c_str());
+    }
+    case VMDebugRuntimeStatId::kArtGcLongWaitTimeCount: {
+      std::string output = std::to_string(heap->GetGcLongWaitTimeCount());
+      return env->NewStringUTF(output.c_str());
     }
     default:
       return nullptr;
