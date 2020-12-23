@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f21457f_5817be47",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2546,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-12-23T13:56:25Z",
+      "side": 0,
+      "message": "Add this case with a DCHECK(false), or whatever we use for __builtin_unreachable()?",
+      "range": {
+        "startLine": 2546,
+        "startChar": 6,
+        "endLine": 2546,
+        "endChar": 50
+      },
+      "revId": "20cadbf2a204a029b595cd44f9298f6570b5c812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08bd8b65_ab8fcafa",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2676,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-12-23T13:56:25Z",
+      "side": 0,
+      "message": "Add a DCHECK for this?",
+      "range": {
+        "startLine": 2676,
+        "startChar": 12,
+        "endLine": 2676,
+        "endChar": 46
+      },
+      "revId": "20cadbf2a204a029b595cd44f9298f6570b5c812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
