@@ -16,6 +16,24 @@
       "message": "Did you measure performance impact of this change?",
       "revId": "61ebac523070769d7484a99f4b5a74c7600fff6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3599e949_ddfb4ac3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2020-12-23T15:20:07Z",
+      "side": 1,
+      "message": "See the referenced bug for links to pprof data showing significant improvement.",
+      "parentUuid": "1aee7a9a_c12abc04",
+      "revId": "61ebac523070769d7484a99f4b5a74c7600fff6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
