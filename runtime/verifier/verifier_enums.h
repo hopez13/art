@@ -79,7 +79,6 @@ enum VerifyError : uint32_t {
                                              // runtime.
 
   VERIFY_ERROR_NO_CLASS =          1 << 2,   // NoClassDefFoundError.
-  VERIFY_ERROR_NO_FIELD =          1 << 3,   // NoSuchFieldError.
   VERIFY_ERROR_NO_METHOD =         1 << 4,   // NoSuchMethodError.
   VERIFY_ERROR_ACCESS_CLASS =      1 << 5,   // IllegalAccessError.
   VERIFY_ERROR_ACCESS_FIELD =      1 << 6,   // IllegalAccessError.
