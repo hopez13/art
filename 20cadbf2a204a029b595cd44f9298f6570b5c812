@@ -93,6 +93,30 @@
       },
       "revId": "20cadbf2a204a029b595cd44f9298f6570b5c812",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceda1553_a7392288",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2676,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2020-12-23T15:30:36Z",
+      "side": 0,
+      "message": "Ah right, I thought it was checking for the elem type.",
+      "parentUuid": "1dd7cf42_7f91f47a",
+      "range": {
+        "startLine": 2676,
+        "startChar": 12,
+        "endLine": 2676,
+        "endChar": 46
+      },
+      "revId": "20cadbf2a204a029b595cd44f9298f6570b5c812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
