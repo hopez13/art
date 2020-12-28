@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f70dbdbe_d38fa625",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2020-12-28T15:29:36Z",
+      "side": 1,
+      "message": "Ok I\u0027ve looked a lot more into this than I really wanted to. In order to add the recursive printing of arguments (which is really the entire point of this CL) to the graph-visualizer would require a fairly substantial rewrite of the core graph-visualizer code. The main issue is that a lot of the logic involves creating std::ostringstreams that are formatted for each of the various attribtues that are then put onto a big instruction line. This is fine but whether a particular print is put on the main instruction line or an attribute list is hardcoded pretty much everywhere. This means that adding recursive printing would need to change all of these. I predict this will take a few days to do and be at least 2x the size of this CL. \n\nSpecifically the basic loop for the graph-visualizer is as a graph-visitor which on each block does [PrintInstructions](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/graph_visualizer.cc;drc\u003dmaster;l\u003d742?q\u003dGraphVisualizer\u0026ss\u003dandroid%2Fplatform%2Fsuperproject). This calls into PrintInstruction where we would want to put the recursive prints somewhere around here: https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/graph_visualizer.cc;l\u003d617;drc\u003dmaster?q\u003dGraphVisualizer\u0026ss\u003dandroid%2Fplatform%2Fsuperproject but for those we need to (1) pass through the new StringList stream to all the visit functions or (2) re-implement all the visit functions. This is something where a small mistake could easily leave the graph-visualizer broken for some inputs.\n\nFurthermore, the fact that the output format for the GraphVisualizer has to conform to the C1Visualizer format and we have no tests to validate that we meet this spec makes performing such invasive changes to the visualizer a risky proposition.",
+      "parentUuid": "4b5ac7ea_46959dac",
+      "revId": "c4b3e9b73217368b1158415357d238c2d46c120a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d69e9a46_663965bb",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
