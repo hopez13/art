@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007006573",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1538303?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "2e9e91d9_00b9bffe",
+        "filename": "tools/bisect_profile.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-30T22:40:15Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 157,
+        "startChar": 27,
+        "endLine": 157,
+        "endChar": 33
+      },
+      "revId": "8ca4ee1539fc8cfcd83b59cfc17b43cee7651857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
