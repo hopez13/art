@@ -1066,6 +1066,25 @@ END_FUNCTION \name
    jne 1b
 .endm
 
+
+// Uses rax as temporary.
+.macro LOAD_GPR_NON_RANGE gpr_reg32, inst, arg_index, arg_size, finished
+   movq REG_VAR(inst), %rax
+   andq MACRO_LITERAL(0xf), %rax
+   shrq MACRO_LITERAL(4), REG_VAR(inst)
+   addq MACRO_LITERAL(1), REG_VAR(arg_index)
+   GET_VREG REG_VAR(gpr_reg32), %rax
+   cmpq REG_VAR(arg_size), REG_VAR(arg_index)
+   je \finished
+.endm
+
+// Uses rax as temporary.
+.macro LOAD_GPR_NON_RANGE_LAST_ARGUMENT gpr_reg32
+   movzbl 1(rPC), %eax
+   andq MACRO_LITERAL(0xf), %rax
+   GET_VREG REG_VAR(gpr_reg32), %rax
+.endm
+
 .macro COMMON_INVOKE_NON_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -1084,6 +1103,49 @@ END_FUNCTION \name
    .endif
 
 .Lcall_compiled_code_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   testl $$ART_METHOD_SHORTY_FAST_PATH, ART_METHOD_ACCESS_FLAGS_OFFSET(%rdi)
+   je .Lcall_with_shorty_\suffix
+   movzwl 4(rPC), %r11d // arguments
+   movzbl 1(rPC), %r9d
+   shrl $$4, %r9d  // Number of arguments
+   .if \is_string_init
+   cmp $$1, %r9d
+   je .Linvoke_fast_path_\suffix
+   shrq MACRO_LITERAL(4), %r11
+   movq $$1, %r10       // ignore first argument
+   LOAD_GPR_NON_RANGE esi, r11, r10, r9, .Linvoke_fast_path_\suffix
+   .elseif \is_static
+   jz .Linvoke_fast_path_\suffix  // shl sets the Z flag
+   movq $$0, %r10       // arg_index
+   LOAD_GPR_NON_RANGE esi, r11, r10, r9, .Linvoke_fast_path_\suffix
+   .else
+   cmp $$1, %r9d
+   je .Linvoke_fast_path_\suffix
+   shrq MACRO_LITERAL(4), %r11
+   movq $$1, %r10       // arg_index
+   .endif
+   LOAD_GPR_NON_RANGE edx, r11, r10, r9, .Linvoke_fast_path_\suffix
+   LOAD_GPR_NON_RANGE ecx, r11, r10, r9, .Linvoke_fast_path_\suffix
+   .if \is_string_init
+   LOAD_GPR_NON_RANGE_LAST_ARGUMENT r8d
+   .else
+   LOAD_GPR_NON_RANGE r8d, r11, r10, r9, .Linvoke_fast_path_\suffix
+   LOAD_GPR_NON_RANGE_LAST_ARGUMENT r9d
+   .endif
+.Linvoke_fast_path_\suffix:
+   .if \is_interface
+      // Setup hidden argument. As we don't have access to the interface method,
+      // just pass the method from the IMT. If the method is the conflict trampoline,
+      // this will make the stub go to runtime, otherwise the hidden argument is unused.
+      movq %rdi, %rax
+   .endif
+   call *ART_METHOD_QUICK_CODE_OFFSET_64(%rdi) // Call the method.
+   jmp .Ldone_return_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_\suffix:
    GET_SHORTY rINSTq, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - rISNTq contains shorty (in callee-save to switch over return value after call).
@@ -1162,6 +1224,27 @@ END_FUNCTION \name
    .endif
 .endm
 
+.macro LOAD_GPR_RANGE gpr_reg32, arg_end, arg_index, stack_index, finished
+  cmp  REG_VAR(arg_end), REG_VAR(arg_index)
+  je   \finished
+  movl (rFP, REG_VAR(arg_index), 4), REG_VAR(gpr_reg32)
+  addq MACRO_LITERAL(1), REG_VAR(arg_index)
+  addq MACRO_LITERAL(1), REG_VAR(stack_index)
+.endm
+
+.macro LOOP_RANGE_FAST_PATH arg_end, arg_index, stack_index
+  cmp  REG_VAR(arg_end), REG_VAR(arg_index)
+  je 2f
+1:
+  movl (rFP, REG_VAR(arg_index), 4), %eax
+  movl %eax, 8(%rsp, REG_VAR(stack_index), 4)
+  addq MACRO_LITERAL(1), REG_VAR(arg_index)
+  addq MACRO_LITERAL(1), REG_VAR(stack_index)
+  cmp  REG_VAR(arg_end), REG_VAR(arg_index)
+  jne 1b
+2:
+.endm
+
 .macro COMMON_INVOKE_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -1180,6 +1263,41 @@ END_FUNCTION \name
    .endif
 
 .Lcall_compiled_code_range_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   testl $$ART_METHOD_SHORTY_FAST_PATH, ART_METHOD_ACCESS_FLAGS_OFFSET(%rdi)
+   je .Lcall_with_shorty_range_\suffix
+   movzwl 4(rPC), %r10d // arg start index
+   movzbl 1(rPC), %r11d // number of arguments
+   addl %r10d, %r11d    // end of argument
+   .if \is_string_init
+   addq $$1, %r10 // arg start index
+   movq $$1, %rbp // index in stack
+   LOAD_GPR_RANGE esi, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   .elseif \is_static
+   movq $$0, %rbp // index in stack
+   LOAD_GPR_RANGE esi, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   .else
+   addq $$1, %r10 // arg start index
+   movq $$1, %rbp // index in stack
+   .endif
+   LOAD_GPR_RANGE edx, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE ecx, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE r8d, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE r9d, r11, r10, rbp, .Linvoke_fast_path_range_\suffix
+   LOOP_RANGE_FAST_PATH r11, r10, rbp
+.Linvoke_fast_path_range_\suffix:
+   .if \is_interface
+      // Setup hidden argument. As we don't have access to the interface method,
+      // just pass the method from the IMT. If the method is the conflict trampoline,
+      // this will make the stub go to runtime, otherwise the hidden argument is unused.
+      movq %rdi, %rax
+   .endif
+   call *ART_METHOD_QUICK_CODE_OFFSET_64(%rdi) // Call the method.
+   jmp .Ldone_return_range_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_range_\suffix:
    GET_SHORTY rINSTq, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - rINSTq contains shorty (in callee-save to switch over return value after call).
@@ -1426,6 +1544,25 @@ END_FUNCTION \name
    jmp 1b
 .endm
 
+.macro SETUP_REFERENCE_PARAMETER_IN_GPR gpr32, regs, refs, ins, arg_offset, finished
+    movl REG_VAR(gpr32), (REG_VAR(regs), REG_VAR(arg_offset))
+    movl REG_VAR(gpr32), (REG_VAR(refs), REG_VAR(arg_offset))
+    addq MACRO_LITERAL(4), REG_VAR(arg_offset)
+    subl MACRO_LITERAL(1), REG_VAR(ins)
+    je \finished
+.endm
+
+// Uses eax as temporary
+.macro SETUP_REFERENCE_PARAMETER_IN_STACK regs, refs, ins, stack_ptr, arg_offset
+1:
+    movl OFFSET_TO_FIRST_ARGUMENT_IN_STACK(REG_VAR(stack_ptr), REG_VAR(arg_offset)), %eax
+    movl %eax, (REG_VAR(regs), REG_VAR(arg_offset))
+    movl %eax, (REG_VAR(refs), REG_VAR(arg_offset))
+    addq MACRO_LITERAL(4), REG_VAR(arg_offset)
+    subl MACRO_LITERAL(1), REG_VAR(ins)
+    jne 1b
+.endm
+
 %def entry():
 /*
  * ArtMethod entry point.
@@ -1442,17 +1579,43 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     /* Spill callee save regs */
     SPILL_ALL_CALLEE_SAVES
 
+    movq ART_METHOD_DATA_OFFSET_64(%rdi), rPC
+
+    // Setup the stack for executing the method.
+    SETUP_STACK_FRAME rPC, rREFS, rREFS32, rFP, CFI_REFS, load_ins=1
+
+    // Setup the parameters
+    testl %r14d, %r14d
+    je .Lxmm_setup_finished
+
+    subq %r14, %rbx
+    salq $$2, %rbx // rbx is now the offset for inputs into the registers array.
+
+    testl $$ART_METHOD_PARAMETERS_ARE_ONLY_REFERENCE, ART_METHOD_ACCESS_FLAGS_OFFSET(%rdi)
+    je .Lsetup_with_shorty
+    leaq (rFP, %rbx, 1), %rdi
+    leaq (rREFS, %rbx, 1), %rbx
+    movq $$0, %r10
+
+    SETUP_REFERENCE_PARAMETER_IN_GPR esi, rdi, rbx, r14d, r10, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR edx, rdi, rbx, r14d, r10, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR ecx, rdi, rbx, r14d, r10, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR r8d, rdi, rbx, r14d, r10, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR r9d, rdi, rbx, r14d, r10, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_STACK rdi, rbx, r14d, r11, r10
+    jmp .Lxmm_setup_finished
+
+.Lsetup_with_shorty:
     // TODO: Get shorty in a better way and remove below
-    PUSH rdi
-    PUSH rsi
-    PUSH rdx
-    PUSH rcx
-    PUSH r8
-    PUSH r9
+    push %rdi
+    push %rsi
+    push %rdx
+    push %rcx
+    push %r8
+    push %r9
 
     // Save xmm registers + alignment.
     subq MACRO_LITERAL(8 * 8 + 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(8 * 8 + 8)
     movq %xmm0, 0(%rsp)
     movq %xmm1, 8(%rsp)
     movq %xmm2, 16(%rsp)
@@ -1476,31 +1639,21 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     movq 48(%rsp), %xmm6
     movq 56(%rsp), %xmm7
     addq MACRO_LITERAL(8 * 8 + 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(-8 * 8 - 8)
 
-    POP r9
-    POP r8
-    POP rcx
-    POP rdx
-    POP rsi
-    POP rdi
+    pop %r9
+    pop %r8
+    pop %rcx
+    pop %rdx
+    pop %rsi
+    pop %rdi
+    // Reload the old stack pointer, which used to be stored in %r11, which is not callee-saved.
+    movq -8(rREFS), %r11
     // TODO: Get shorty in a better way and remove above
 
-    movq ART_METHOD_DATA_OFFSET_64(%rdi), rPC
-
-    // Setup the stack for executing the method.
-    SETUP_STACK_FRAME rPC, rREFS, rREFS32, rFP, CFI_REFS, load_ins=1
-
-    // Setup the parameters
-    testl %r14d, %r14d
-    je .Lxmm_setup_finished
-
-    subq %r14, %rbx
-    salq $$2, %rbx // rbx is now the offset for inputs into the registers array.
-
+    movq $$0, %r14
     testl $$ART_METHOD_IS_STATIC_FLAG, ART_METHOD_ACCESS_FLAGS_OFFSET(%rdi)
 
-    // Available: rdi, r10, r14
+    // Available: rdi, r10
     // Note the leaq below don't change the flags.
     leaq 1(%rbp), %r10  // shorty + 1  ; ie skip return arg character
     leaq (rFP, %rbx, 1), %rdi
@@ -1511,10 +1664,8 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     addq $$4, %rdi
     addq $$4, %rbx
     addq $$4, %r11
-    movq $$0, %r14
     jmp .Lcontinue_setup_gprs
 .Lhandle_static_method:
-    movq $$0, %r14
     LOOP_OVER_SHORTY_STORING_GPRS rsi, esi, r10, r14, rdi, rbx, .Lgpr_setup_finished
 .Lcontinue_setup_gprs:
     LOOP_OVER_SHORTY_STORING_GPRS rdx, edx, r10, r14, rdi, rbx, .Lgpr_setup_finished

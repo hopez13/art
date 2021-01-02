@@ -253,6 +253,14 @@ class ArtMethod final {
     AddAccessFlags(kAccCompileDontBother);
   }
 
+  void SetShortyFastPath() REQUIRES_SHARED(Locks::mutator_lock_) {
+    AddAccessFlags(kAccShortyFastPath);
+  }
+
+  void SetParametersAreOnlyReference() REQUIRES_SHARED(Locks::mutator_lock_) {
+    AddAccessFlags(kAccParametersAreOnlyReference);
+  }
+
   // A default conflict method is a special sentinel method that stands for a conflict between
   // multiple default methods. It cannot be invoked, throwing an IncompatibleClassChangeError if one
   // attempts to do so.

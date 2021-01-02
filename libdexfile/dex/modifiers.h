@@ -42,7 +42,7 @@ static constexpr uint32_t kAccSynthetic =    0x1000;  // class, field, method, i
 static constexpr uint32_t kAccAnnotation =   0x2000;  // class, ic (1.5)
 static constexpr uint32_t kAccEnum =         0x4000;  // class, field, ic (1.5)
 
-static constexpr uint32_t kAccJavaFlagsMask = 0xffff;  // bits set from Java sources (low 16)
+static constexpr uint32_t kAccJavaFlagsMask = 0x7fff;  // bits set from Java sources (low 16)
 
 static constexpr uint32_t kAccConstructor =           0x00010000;  // method (dex only) <(cl)init>
 static constexpr uint32_t kAccDeclaredSynchronized =  0x00020000;  // method (dex only)
@@ -50,6 +50,8 @@ static constexpr uint32_t kAccClassIsProxy =          0x00040000;  // class  (de
 // Set to indicate that the ArtMethod is obsolete and has a different DexCache + DexFile from its
 // declaring class. This flag may only be applied to native methods.
 static constexpr uint32_t kAccObsoleteNativeMethod = 0x00040000;  // method (runtime; native only)
+static constexpr uint32_t kAccParametersAreOnlyReference = 0x00040000;  // method (runtime; native only)
+static constexpr uint32_t kAccShortyFastPath =  0x00008000;  // method (runtime; native only)
 // Used by a method to denote that its execution does not need to go through slow path interpreter.
 static constexpr uint32_t kAccSkipAccessChecks =      0x00080000;  // method (runtime, not native)
 // Used by a class to denote that the verifier has attempted to check it at least once.

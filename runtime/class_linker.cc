@@ -3883,6 +3883,31 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     dst->SetDataPtrSize(nullptr, image_pointer_size_);
     DCHECK_EQ(method.GetCodeItemOffset(), 0u);
   }
+
+  bool is_fast_path = true;
+  bool has_all_references = true;
+  const char* shorty = dst->GetShorty();
+  for (size_t i = 0, e = strlen(shorty); i < e; ++i) {
+    if (i == 0) {
+      if (shorty[i] == 'F' || shorty[i] == 'D') {
+        is_fast_path = false;
+      }
+    } else {
+      if (shorty[i] != 'L') {
+        has_all_references = false;
+        if (shorty[i] != 'I') {
+          is_fast_path = false;
+          break;
+        }
+      }
+    }
+  }
+  if (is_fast_path) {
+    dst->SetShortyFastPath();
+  }
+  if (!dst->IsNative() && has_all_references) {
+    dst->SetParametersAreOnlyReference();
+  }
 }
 
 void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile* dex_file) {

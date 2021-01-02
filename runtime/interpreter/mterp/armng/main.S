@@ -508,26 +508,12 @@ END \name
 .macro SPILL_ALL_ARGUMENTS
     // We spill r4 for stack alignment.
     push {r0-r4}
-    .cfi_adjust_cfa_offset 20
-    .cfi_rel_offset r0, 0
-    .cfi_rel_offset r1, 4
-    .cfi_rel_offset r2, 8
-    .cfi_rel_offset r3, 12
-    .cfi_rel_offset r4, 16
     vpush {s0-s15}
-    .cfi_adjust_cfa_offset 64
 .endm
 
 .macro RESTORE_ALL_ARGUMENTS
     vpop {s0-s15}
-    .cfi_adjust_cfa_offset -64
     pop {r0-r4}
-    .cfi_restore r0
-    .cfi_restore r1
-    .cfi_restore r2
-    .cfi_restore r3
-    .cfi_restore r4
-    .cfi_adjust_cfa_offset -20
 .endm
 
 // Helper to setup the stack after doing a nterp to nterp call. This will setup:
@@ -940,6 +926,32 @@ END \name
     b 1b
 .endm
 
+// Uses ip as temporary.
+.macro LOAD_GPR_NON_RANGE gpr_reg32, inst, arg_index, arg_size, finished
+   and ip, \inst, #0xf
+   lsr \inst, \inst, #4
+   GET_VREG \gpr_reg32, ip
+   add \arg_index, \arg_index, #1
+   cmp \arg_size, \arg_index
+   beq \finished
+.endm
+
+.macro LOAD_STACK_NON_RANGE inst, arg_index, arg_size, finished
+   and ip, \inst, #0xf
+   lsr \inst, \inst, #4
+   GET_VREG ip, ip
+   str ip, [sp, \arg_index, lsl #2]
+   beq \finished
+.endm
+
+// Uses ip as temporary.
+.macro LOAD_STACK_NON_RANGE_LAST_ARGUMENT inst, arg_index
+   FETCH_B ip, 0, 1
+   and ip, ip, #0xf
+   GET_VREG ip, ip
+   str ip, [sp, \arg_index, lsl #2]
+.endm
+
 .macro COMMON_INVOKE_NON_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -961,6 +973,55 @@ END \name
    .endif
 
 .Lcall_compiled_code_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+   tst ip, #ART_METHOD_SHORTY_FAST_PATH
+   beq .Lcall_with_shorty_\suffix
+   FETCH rINST, 2 // arguments
+   FETCH_B r4, 0, 1
+   .if \is_string_init
+   asr r4, r4, #4
+   cmp r4, #1
+   beq .Linvoke_fast_path_\suffix
+   lsr rINST, rINST, #4
+   mov lr, #1       // ignore first argument
+   LOAD_GPR_NON_RANGE r1, rINST, lr, r4, .Linvoke_fast_path_\suffix
+   .elseif \is_static
+   asrs r4, r4, #4
+   beq .Linvoke_fast_path_\suffix
+   mov lr, #0      // arg_index
+   LOAD_GPR_NON_RANGE r1, rINST, lr, r4, .Linvoke_fast_path_\suffix
+   .else
+   asr r4, r4, #4
+   cmp r4, #1
+   beq .Linvoke_fast_path_\suffix
+   lsr rINST, rINST, #4
+   mov lr, #1       // ignore first argument
+   .endif
+   LOAD_GPR_NON_RANGE r2, rINST, lr, r4, .Linvoke_fast_path_\suffix
+   LOAD_GPR_NON_RANGE r3, rINST, lr, r4, .Linvoke_fast_path_\suffix
+   .if \is_string_init
+   LOAD_STACK_NON_RANGE_LAST_ARGUMENT rINST, lr
+   .else
+   // Increment arg_index before storing in stack to store above the ArtMethod.
+   add lr, lr, #1
+   LOAD_STACK_NON_RANGE rINST, lr, r4, .Linvoke_fast_path_\suffix
+   cmp r4, lr
+   beq .Linvoke_fast_path_\suffix
+   add lr, lr, #1
+   LOAD_STACK_NON_RANGE_LAST_ARGUMENT rINST, lr
+   .endif
+.Linvoke_fast_path_\suffix:
+   .if \is_interface
+   mov ip, r0
+   .endif
+   ldr lr, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]
+   blx lr
+   b .Ldone_return_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_\suffix:
    GET_SHORTY rINST, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - rINST contains shorty (in callee-save to switch over return value after call).
@@ -1139,6 +1200,28 @@ END \name
     b 1b
 .endm
 
+.macro LOAD_GPR_RANGE gpr_reg32, arg_end, arg_index, stack_index, finished
+  cmp \arg_end, \arg_index
+  beq \finished
+  GET_VREG \gpr_reg32, \arg_index
+  add \arg_index, \arg_index, #1
+  add \stack_index, \stack_index, #1
+.endm
+
+.macro LOOP_RANGE_FAST_PATH arg_end, arg_index, stack_index
+  cmp  \arg_end, \arg_index
+  beq 2f
+  add \stack_index, \stack_index, #1 // Add one word for the ArtMethod stored before the outs.
+1:
+  GET_VREG ip, \arg_index
+  str ip, [sp, \stack_index, lsl #2]
+  add \arg_index, \arg_index, #1
+  add \stack_index, \stack_index, #1
+  cmp \arg_end, \arg_index
+  bne 1b
+2:
+.endm
+
 .macro COMMON_INVOKE_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -1160,6 +1243,38 @@ END \name
    .endif
 
 .Lcall_compiled_code_range_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+   tst ip, #ART_METHOD_SHORTY_FAST_PATH
+   beq .Lcall_with_shorty_range_\suffix
+   FETCH lr, 2 // arguments
+   FETCH_B rINST, 0, 1
+   add rINST, rINST, lr    // end of argument
+   .if \is_string_init
+   add lr, lr, #1 // arg start index
+   mov r4, #0 // index in stack
+   LOAD_GPR_RANGE r1, rINST, lr, r4, .Linvoke_fast_path_range_\suffix
+   .elseif \is_static
+   mov r4, #0 // index in stack
+   LOAD_GPR_RANGE r1, rINST, lr, r4, .Linvoke_fast_path_range_\suffix
+   .else
+   add lr, lr, #1  // arg start index
+   mov r4, #1       // index in stack
+   .endif
+   LOAD_GPR_RANGE r2, rINST, lr, r4, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE r3, rINST, lr, r4, .Linvoke_fast_path_range_\suffix
+   LOOP_RANGE_FAST_PATH rINST, lr, r4
+.Linvoke_fast_path_range_\suffix:
+   .if \is_interface
+   mov ip, r0
+   .endif
+   ldr lr, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]
+   blx lr
+   b .Ldone_return_range_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_range_\suffix:
    GET_SHORTY rINST, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - rINST contains shorty (in callee-save to switch over return value after call).
@@ -1376,6 +1491,25 @@ END \name
     b 1b
 .endm
 
+.macro SETUP_REFERENCE_PARAMETER_IN_GPR gpr32, regs, refs, ins, arg_offset, finished
+    str \gpr32, [\regs, \arg_offset]
+    str \gpr32, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    subs \ins, \ins, #1
+    beq \finished
+.endm
+
+.macro SETUP_REFERENCE_PARAMETER_IN_STACK regs, refs, ins, stack_ptr, arg_offset
+1:
+    add ip, \stack_ptr, \arg_offset
+    ldr ip, [ip,  #OFFSET_TO_FIRST_ARGUMENT_IN_STACK]
+    str ip, [\regs, \arg_offset]
+    str ip, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    subs \ins, \ins, #1
+    bne 1b
+.endm
+
 %def entry():
 /*
  * ArtMethod entry point.
@@ -1392,15 +1526,6 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     /* Spill callee save regs */
     SPILL_ALL_CALLEE_SAVES
 
-    // TODO: Get shorty in a better way and remove below
-    SPILL_ALL_ARGUMENTS
-
-    bl NterpGetShorty
-    // Save shorty in callee-save rIBASE.
-    mov rIBASE, r0
-
-    RESTORE_ALL_ARGUMENTS
-
     ldr rPC, [r0, #ART_METHOD_DATA_OFFSET_32]
 
     // Setup the stack for executing the method.
@@ -1410,36 +1535,51 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     cmp r4, #0
     beq .Lxmm_setup_finished
 
-    sub r4, rINST, r4
-    lsl r4, r4, #2 // r4 is now the offset for inputs into the registers array.
+    sub lr, rINST, r4
+    lsl lr, lr, #2 // lr is now the offset for inputs into the registers array.
+    add r7, rFP, lr
+    add r8, rREFS, lr
+    mov rIBASE, ip // rIBASE contains the old stack pointer
+    ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+    tst ip, #ART_METHOD_PARAMETERS_ARE_ONLY_REFERENCE
+    beq .Lsetup_with_shorty
 
-    mov lr, ip // lr contains the old stack pointer
+    mov r0, #0
+    SETUP_REFERENCE_PARAMETER_IN_GPR r1, r7, r8, r4, r0, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR r2, r7, r8, r4, r0, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR r3, r7, r8, r4, r0, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_STACK r7, r8, r4, rIBASE, r0
+    b .Lxmm_setup_finished
 
+.Lsetup_with_shorty:
+    // TODO: Get shorty in a better way and remove below
+    SPILL_ALL_ARGUMENTS
+    bl NterpGetShorty
+    mov lr, r0
+    RESTORE_ALL_ARGUMENTS
+
+    mov r4, #0
     ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
     // r0 is now available.
     // Setup shorty, pointer to inputs in FP and pointer to inputs in REFS
-    add r0, rIBASE, #1  // shorty + 1  ; ie skip return arg character
-    add r7, rFP, r4
-    add r8, rREFS, r4
+    add r0, lr, #1  // shorty + 1  ; ie skip return arg character
     tst ip, #ART_METHOD_IS_STATIC_FLAG
     bne .Lhandle_static_method
     str r1, [r7], #4
     str r1, [r8], #4
-    add lr, lr, #4
-    mov r4, #0
+    add rIBASE, rIBASE, #4
     b .Lcontinue_setup_gprs
 .Lhandle_static_method:
-    mov r4, #0
     LOOP_OVER_SHORTY_STORING_GPRS r1, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=0
 .Lcontinue_setup_gprs:
     LOOP_OVER_SHORTY_STORING_GPRS r2, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=0
     LOOP_OVER_SHORTY_STORING_GPRS r3, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=1
 .Lif_long:
-    LOOP_OVER_INTs r0, r4, r7, r8, lr, ip, r1, .Lgpr_setup_finished
+    LOOP_OVER_INTs r0, r4, r7, r8, rIBASE, ip, r1, .Lgpr_setup_finished
 .Lgpr_setup_finished:
-    add r0, rIBASE, #1  // shorty + 1  ; ie skip return arg character
+    add r0, lr, #1  // shorty + 1  ; ie skip return arg character
     mov r1, r7
-    add r2, lr, #OFFSET_TO_FIRST_ARGUMENT_IN_STACK
+    add r2, rIBASE, #OFFSET_TO_FIRST_ARGUMENT_IN_STACK
     vpush {s0-s15}
     mov r3, sp
     bl NterpStoreArm32Fprs

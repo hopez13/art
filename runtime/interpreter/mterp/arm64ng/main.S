@@ -383,7 +383,7 @@ END \name
 //
 // Outputs
 // - ip contains the dex registers size
-// - x13 contains the old stack pointer.
+// - x28 contains the old stack pointer.
 // - \code_item is replaced with a pointer to the instructions
 // - if load_ins is 1, w15 contains the ins
 //
@@ -410,10 +410,10 @@ END \name
     add \fp, \refs, ip, lsl #2
 
     // Now setup the stack pointer.
-    mov x13, sp
-    .cfi_def_cfa_register x13
+    mov x28, sp
+    .cfi_def_cfa_register x28
     mov sp, x14
-    str x13, [\refs, #-8]
+    str x28, [\refs, #-8]
     CFI_DEF_CFA_BREG_PLUS_UCONST \cfi_refs, -8, CALLEE_SAVES_SIZE
 
     // Put nulls in reference frame.
@@ -483,7 +483,7 @@ END \name
 .endm
 
 .macro SPILL_ALL_ARGUMENTS
-    INCREASE_FRAME 128
+    sub sp, sp, #128
     // GP arguments.
     SAVE_TWO_REGS x0, x1, 0
     SAVE_TWO_REGS x2, x3, 16
@@ -509,7 +509,7 @@ END \name
     ldp d2, d3, [sp, #80]
     ldp d4, d5, [sp, #96]
     ldp d6, d7, [sp, #112]
-    DECREASE_FRAME 128
+    add sp, sp, #128
 .endm
 
 // Helper to setup the stack after doing a nterp to nterp call. This will setup:
@@ -838,6 +838,23 @@ END \name
 5:
 .endm
 
+// Uses ip as temporary.
+.macro LOAD_GPR_NON_RANGE gpr_reg32, inst, arg_index, arg_size, finished
+   and ip, \inst, #0xf
+   lsr \inst, \inst, #4
+   GET_VREG \gpr_reg32, wip
+   add \arg_index, \arg_index, #1
+   cmp \arg_size, \arg_index
+   b.eq \finished
+.endm
+
+// Uses ip as temporary.
+.macro LOAD_GPR_NON_RANGE_LAST_ARGUMENT gpr_reg32
+   FETCH_B wip, 0, 1
+   and wip, wip, #0xf
+   GET_VREG \gpr_reg32, wip
+.endm
+
 .macro COMMON_INVOKE_NON_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -857,6 +874,48 @@ END \name
    .endif
 
 .Lcall_compiled_code_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   ldr wip, [x0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+   tst wip, #ART_METHOD_SHORTY_FAST_PATH
+   b.eq .Lcall_with_shorty_\suffix
+   FETCH w11, 2 // arguments
+   FETCH_B w9, 0, 1
+   asr w9, w9, #4
+   .if \is_string_init
+   cmp w9, #1
+   b.eq .Linvoke_fast_path_\suffix
+   lsr x11, x11, #4
+   mov x10, #1       // ignore first argument
+   LOAD_GPR_NON_RANGE w1, x11, x10, x9, .Linvoke_fast_path_\suffix
+   .elseif \is_static
+   cbz w9, .Linvoke_fast_path_\suffix
+   mov x10, xzr      // arg_index
+   LOAD_GPR_NON_RANGE w1, x11, x10, x9, .Linvoke_fast_path_\suffix
+   .else
+   cmp w9, #1
+   b.eq .Linvoke_fast_path_\suffix
+   lsr x11, x11, #4
+   mov x10, #1       // ignore first argument
+   .endif
+   LOAD_GPR_NON_RANGE w2, x11, x10, x9, .Linvoke_fast_path_\suffix
+   LOAD_GPR_NON_RANGE w3, x11, x10, x9, .Linvoke_fast_path_\suffix
+   .if \is_string_init
+   LOAD_GPR_NON_RANGE_LAST_ARGUMENT w4
+   .else
+   LOAD_GPR_NON_RANGE w4, x11, x10, x9, .Linvoke_fast_path_\suffix
+   LOAD_GPR_NON_RANGE_LAST_ARGUMENT w5
+   .endif
+.Linvoke_fast_path_\suffix:
+   .if \is_interface
+   mov ip2, x0
+   .endif
+   ldr lr, [x0, #ART_METHOD_QUICK_CODE_OFFSET_64]
+   blr lr
+   b .Ldone_return_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_\suffix:
    GET_SHORTY xINST, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - xINST contains shorty (in callee-save to switch over return value after call).
@@ -1078,6 +1137,28 @@ END \name
     b 1b
 .endm
 
+.macro LOAD_GPR_RANGE gpr_reg32, arg_end, arg_index, stack_index, finished
+  cmp \arg_end, \arg_index
+  b.eq \finished
+  GET_VREG \gpr_reg32, \arg_index
+  add \arg_index, \arg_index, #1
+  add \stack_index, \stack_index, #1
+.endm
+
+.macro LOOP_RANGE_FAST_PATH arg_end, arg_index, stack_index
+  cmp \arg_end, \arg_index
+  b.eq 2f
+  add \stack_index, \stack_index, #2 // Add two words for the ArtMethod stored before the outs.
+1:
+  GET_VREG wip, \arg_index
+  str wip, [sp, \stack_index, uxtw #2]
+  add \arg_index, \arg_index, #1
+  add \stack_index, \stack_index, #1
+  cmp \arg_end, \arg_index
+  b.ne 1b
+2:
+.endm
+
 .macro COMMON_INVOKE_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
    .if \is_polymorphic
    // We always go to compiled code for polymorphic calls.
@@ -1097,6 +1178,42 @@ END \name
    .endif
 
 .Lcall_compiled_code_range_\suffix:
+   .if !\is_polymorphic
+   .if !\is_custom
+   ldr wip, [x0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+   tst wip, #ART_METHOD_SHORTY_FAST_PATH
+   b.eq .Lcall_with_shorty_range_\suffix
+   FETCH w10, 2 // arguments
+   FETCH_B w11, 0, 1
+   add w11, w11, w10    // end of argument
+   .if \is_string_init
+   add w10, w10, #1 // arg start index
+   mov w9, #1 // index in stack
+   LOAD_GPR_RANGE w1, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   .elseif \is_static
+   mov w9, wzr // index in stack
+   LOAD_GPR_RANGE w1, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   .else
+   add w10, w10, #1  // arg start index
+   mov w9, #1       // index in stack
+   .endif
+   LOAD_GPR_RANGE w2, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE w3, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE w4, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE w5, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE w6, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOAD_GPR_RANGE w7, w11, w10, w9, .Linvoke_fast_path_range_\suffix
+   LOOP_RANGE_FAST_PATH w11, w10, w9
+.Linvoke_fast_path_range_\suffix:
+   .if \is_interface
+   mov ip2, x0
+   .endif
+   ldr lr, [x0, #ART_METHOD_QUICK_CODE_OFFSET_64]
+   blr lr
+   b .Ldone_return_range_\suffix
+   .endif
+   .endif
+.Lcall_with_shorty_range_\suffix:
    GET_SHORTY xINST, \is_interface, \is_polymorphic, \is_custom
    // From this point:
    // - xINST contains shorty (in callee-save to switch over return value after call).
@@ -1342,6 +1459,25 @@ END \name
     b 1b
 .endm
 
+.macro SETUP_REFERENCE_PARAMETER_IN_GPR gpr32, regs, refs, ins, arg_offset, finished
+    str \gpr32, [\regs, \arg_offset]
+    str \gpr32, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    sub \ins, \ins, #1
+    cbz \ins, \finished
+.endm
+
+.macro SETUP_REFERENCE_PARAMETER_IN_STACK regs, refs, ins, stack_ptr, arg_offset
+1:
+    add ip2, \stack_ptr, \arg_offset
+    ldr wip2, [ip2,  #OFFSET_TO_FIRST_ARGUMENT_IN_STACK]
+    str wip2, [\regs, \arg_offset]
+    str wip2, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    sub \ins, \ins, #1
+    cbnz \ins, 1b
+.endm
+
 %def entry():
 /*
  * ArtMethod entry point.
@@ -1358,41 +1494,55 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     /* Spill callee save regs */
     SPILL_ALL_CALLEE_SAVES
 
+    ldr xPC, [x0, #ART_METHOD_DATA_OFFSET_64]
+    // Setup the stack for executing the method.
+    SETUP_STACK_FRAME xPC, xREFS, xFP, CFI_REFS, load_ins=1
+    cbz w15, .Lxmm_setup_finished
+
+    // Setup the parameters
+    sub ip2, ip, x15
+    lsl x21, ip2, #2 // x21 is now the offset for inputs into the registers array.
+    ldr wip, [x0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+    tst wip, #ART_METHOD_PARAMETERS_ARE_ONLY_REFERENCE
+    b.eq .Lsetup_with_shorty
+
+    // Setup pointer to inputs in FP and pointer to inputs in REFS
+    add x10, xFP, x21
+    add x11, xREFS, x21
+    mov x12, #0
+    SETUP_REFERENCE_PARAMETER_IN_GPR w1, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w2, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w3, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w4, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w5, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w6, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w7, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_STACK x10, x11, w15, x28, x12
+    b .Lxmm_setup_finished
+
+.Lsetup_with_shorty:
     // TODO: Get shorty in a better way and remove below
     SPILL_ALL_ARGUMENTS
-
     bl NterpGetShorty
     // Save shorty in callee-save xIBASE.
     mov xIBASE, x0
-
     RESTORE_ALL_ARGUMENTS
-    ldr xPC, [x0, #ART_METHOD_DATA_OFFSET_64]
 
-    // Setup the stack for executing the method.
-    SETUP_STACK_FRAME xPC, xREFS, xFP, CFI_REFS, load_ins=1
+    // Setup pointer to inputs in FP and pointer to inputs in REFS
+    add x10, xFP, x21
+    add x11, xREFS, x21
+    mov x12, #0
 
-    // Setup the parameters
-    cbz w15, .Lxmm_setup_finished
-
-    sub ip2, ip, x15
-    lsl x8, ip2, #2 // x8 is now the offset for inputs into the registers array.
-
-    // Setup shorty, pointer to inputs in FP and pointer to inputs in REFS
     add x9, xIBASE, #1  // shorty + 1  ; ie skip return arg character
-    add x10, xFP, x8
-    add x11, xREFS, x8
-
     ldr wip, [x0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
     // TODO: could be TBNZ but we'd need a constant for log2(ART_METHOD_IS_STATIC_FLAG).
     tst wip, #ART_METHOD_IS_STATIC_FLAG
     b.ne .Lhandle_static_method
     str w1, [x10], #4
     str w1, [x11], #4
-    add x13, x13, #4
-    mov x12, #0
+    add x28, x28, #4
     b .Lcontinue_setup_gprs
 .Lhandle_static_method:
-    mov x12, #0
     LOOP_OVER_SHORTY_STORING_GPRS x1, w1, x9, x12, x10, x11, .Lgpr_setup_finished
 .Lcontinue_setup_gprs:
     LOOP_OVER_SHORTY_STORING_GPRS x2, w2, x9, x12, x10, x11, .Lgpr_setup_finished
@@ -1401,7 +1551,7 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     LOOP_OVER_SHORTY_STORING_GPRS x5, w5, x9, x12, x10, x11, .Lgpr_setup_finished
     LOOP_OVER_SHORTY_STORING_GPRS x6, w6, x9, x12, x10, x11, .Lgpr_setup_finished
     LOOP_OVER_SHORTY_STORING_GPRS x7, w7, x9, x12, x10, x11, .Lgpr_setup_finished
-    LOOP_OVER_INTs x9, x12, x10, x11, x13, .Lgpr_setup_finished
+    LOOP_OVER_INTs x9, x12, x10, x11, x28, .Lgpr_setup_finished
 .Lgpr_setup_finished:
     add x9, xIBASE, #1  // shorty + 1  ; ie skip return arg character
     mov x12, #0  // reset counter
@@ -1413,7 +1563,7 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     LOOP_OVER_SHORTY_STORING_FPS d5, s5, x9, x12, x10, .Lxmm_setup_finished
     LOOP_OVER_SHORTY_STORING_FPS d6, s6, x9, x12, x10, .Lxmm_setup_finished
     LOOP_OVER_SHORTY_STORING_FPS d7, s7, x9, x12, x10, .Lxmm_setup_finished
-    LOOP_OVER_FPs x9, x12, x10, x13, .Lxmm_setup_finished
+    LOOP_OVER_FPs x9, x12, x10, x28, .Lxmm_setup_finished
 .Lxmm_setup_finished:
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)
 
