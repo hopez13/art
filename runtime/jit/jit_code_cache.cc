@@ -1716,9 +1716,7 @@ void JitCodeCache::InvalidateAllCompiledCode() {
     ArtMethod* meth = it.second;
     // We were compiled, so we must be warm.
     ClearMethodCounter(meth, /*was_warm=*/true);
-    if (meth->IsObsolete()) {
-      linker->SetEntryPointsForObsoleteMethod(meth);
-    } else {
+    if (!meth->IsObsolete()) {
       linker->SetEntryPointsToInterpreter(meth);
     }
   }
