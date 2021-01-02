@@ -208,6 +208,9 @@ void Instrumentation::InstallStubsForClass(ObjPtr<mirror::Class> klass) {
 
 static void UpdateEntrypoints(ArtMethod* method, const void* quick_code)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (method->IsObsolete()) {
+    return;
+  }
   if (kIsDebugBuild) {
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr && jit->GetCodeCache()->ContainsPc(quick_code)) {
@@ -232,7 +235,7 @@ bool Instrumentation::NeedDebugVersionFor(ArtMethod* method) const
 }
 
 void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
-  if (!method->IsInvokable() || method->IsProxyMethod()) {
+  if (!method->IsInvokable() || method->IsProxyMethod() || method->IsObsolete()) {
     // Do not change stubs for these methods.
     return;
   }

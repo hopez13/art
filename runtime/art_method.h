@@ -270,13 +270,9 @@ class ArtMethod final {
     return (GetAccessFlags() & kAccDefault) != 0;
   }
 
-  bool IsObsolete() const {
-    return (GetAccessFlags() & kAccObsoleteMethod) != 0;
-  }
+  bool IsObsolete() const;
 
-  void SetIsObsolete() REQUIRES_SHARED(Locks::mutator_lock_) {
-    AddAccessFlags(kAccObsoleteMethod);
-  }
+  void SetIsObsolete() REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsNative() const {
     return (GetAccessFlags() & kAccNative) != 0;
