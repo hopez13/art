@@ -67,6 +67,22 @@ extern "C" void art_quick_invoke_static_stub(ArtMethod*, uint32_t*, uint32_t, Th
 static_assert(ArtMethod::kRuntimeMethodDexMethodIndex == dex::kDexNoIndex,
               "Wrong runtime-method dex method index");
 
+bool ArtMethod::IsObsolete() const {
+  if (IsNative()) {
+    return (GetAccessFlags() & kAccObsoleteNativeMethod) != 0;
+  }
+  PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  return GetEntryPointFromQuickCompiledCodePtrSize(pointer_size) == GetInvokeObsoleteMethodStub();
+}
+
+void ArtMethod::SetIsObsolete() REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (IsNative()) {
+    AddAccessFlags(kAccObsoleteNativeMethod);
+  } else {
+    SetEntryPointFromQuickCompiledCode(GetInvokeObsoleteMethodStub());
+  }
+}
+
 ArtMethod* ArtMethod::GetCanonicalMethod(PointerSize pointer_size) {
   if (LIKELY(!IsCopied())) {
     return this;
