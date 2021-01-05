@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d0fd97_be2cb69a",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-05T15:58:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this also be in DisableHiddenApiEnforcementPolicy? (looks like a helper/macro will help with the boilerplate).",
+      "range": {
+        "startLine": 1147,
+        "startChar": 0,
+        "endLine": 1150,
+        "endChar": 34
+      },
+      "revId": "cf0a3ceb7479b85a0b780efb906bd378f2ddb395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4807b6_932636fc",
+        "filename": "test/2038-hiddenapi-jvmti-ext/hiddenapi_ext.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-05T15:58:30Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "cf0a3ceb7479b85a0b780efb906bd378f2ddb395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
