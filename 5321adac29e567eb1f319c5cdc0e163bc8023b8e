@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "595ba325_c9aa3c02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-05T20:17:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc527d9_8c6cf43b",
+      "revId": "5321adac29e567eb1f319c5cdc0e163bc8023b8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56f3cb4c_ef3793db",
@@ -37,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6b8ce4f6_aa230a42",
+        "filename": "tools/bisect_profile.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-05T20:17:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56f3cb4c_ef3793db",
+      "revId": "5321adac29e567eb1f319c5cdc0e163bc8023b8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "63de19c1_251d8a6a",
         "filename": "tools/bisect_profile.py",
         "patchSetId": 7
@@ -48,6 +84,24 @@
       "writtenOn": "2021-01-05T20:05:17Z",
       "side": 1,
       "message": "Is there every going to be a chance that the bug only shows up with a combination of methods in the profile? I\u0027m guessing not, since I believe we compile each method in the profile completely independently.",
+      "revId": "5321adac29e567eb1f319c5cdc0e163bc8023b8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6d407bd_52810462",
+        "filename": "tools/bisect_profile.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-05T20:17:49Z",
+      "side": 1,
+      "message": "AIUI that is correct (at least as long as you\u0027re not dealing with inline-caches which this tool doesn\u0027t touch). This does have the problem that if there are multiple failing/interesting profile lines this will only find one of them. IMO though that is usually fine and recognizing and handling that case in an efficient way would be tricky.",
+      "parentUuid": "63de19c1_251d8a6a",
       "revId": "5321adac29e567eb1f319c5cdc0e163bc8023b8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
