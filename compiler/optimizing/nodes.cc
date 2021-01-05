@@ -1312,6 +1312,44 @@ void HEnvironment::ReplaceInput(HInstruction* replacement, size_t index) {
   orig_instr->FixUpUserRecordsAfterEnvUseRemoval(before_use_node);
 }
 
+std::ostream& HInstruction::Dump(std::ostream& os, bool dump_args) {
+  HGraph* graph = GetBlock()->GetGraph();
+  HGraphVisualizer::DumpInstruction(&os, graph, this);
+  if (dump_args) {
+    // Allocate memory from local ScopedArenaAllocator.
+    ScopedArenaAllocator allocator(graph->GetArenaStack());
+    // Instructions that we already visited. We print each instruction only once.
+    ArenaBitVector visited(
+        &allocator, graph->GetCurrentInstructionId(), /* expandable= */ false, kArenaAllocMisc);
+    visited.ClearAllBits();
+    visited.SetBit(GetId());
+    // Keep a queue of instructions with their indentations.
+    ScopedArenaDeque<std::pair<HInstruction*, size_t>> deque(allocator.Adapter(kArenaAllocMisc));
+    auto add_args = [&deque](HInstruction* instruction, size_t indentation) {
+      for (HInstruction* arg : ReverseRange(instruction->GetInputs())) {
+        deque.emplace_front(arg, indentation);
+      }
+    };
+    add_args(this, /*indentation=*/ 1u);
+    while (!deque.empty()) {
+      HInstruction* instruction;
+      size_t indentation;
+      std::tie(instruction, indentation) = deque.front();
+      deque.pop_front();
+      if (!visited.IsBitSet(instruction->GetId())) {
+        visited.SetBit(instruction->GetId());
+        add_args(instruction, indentation + 1u);
+        os << '\n';
+        for (size_t i = 0; i != indentation; ++i) {
+          os << "  ";
+        }
+        HGraphVisualizer::DumpInstruction(&os, graph, instruction);
+      }
+    }
+  }
+  return os;
+}
+
 HInstruction* HInstruction::GetNextDisregardingMoves() const {
   HInstruction* next = GetNext();
   while (next != nullptr && next->IsParallelMove()) {
