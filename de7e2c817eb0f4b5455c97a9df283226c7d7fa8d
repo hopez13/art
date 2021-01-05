@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a290d2_093741d3",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2058,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-05T16:21:00Z",
+      "side": 1,
+      "message": "This comments is a bit odd now that we\u0027re not actually passing `is_static` to the lookup function. Maybe we should just remove it.",
+      "range": {
+        "startLine": 2057,
+        "startChar": 28,
+        "endLine": 2058,
+        "endChar": 54
+      },
+      "revId": "de7e2c817eb0f4b5455c97a9df283226c7d7fa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
