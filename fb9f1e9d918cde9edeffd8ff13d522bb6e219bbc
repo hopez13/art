@@ -118,6 +118,30 @@
       },
       "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d1f2fab_94dd85e1",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-06T13:39:04Z",
+      "side": 1,
+      "message": "That\u0027s right, which translates into the index in the IFtable.",
+      "parentUuid": "3ccaec44_b5111c77",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 79
+      },
+      "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
