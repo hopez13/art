@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9189775f_3cdb2963",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-06T10:33:29Z",
+      "side": 1,
+      "message": "This could have unintended consequences. For example, adding or removing completely unrelated methods could cause unexpected performance regressions that would be extremely difficult to diagnose, costing a lot of developer time.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 79
+      },
+      "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
