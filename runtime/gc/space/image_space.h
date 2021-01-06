@@ -189,6 +189,11 @@ class ImageSpace : public MemMapSpace {
     return &live_bitmap_;
   }
 
+  // Compute the number of components in the image (contributing jar files).
+  size_t GetComponentCount() const {
+    return GetImageHeader().GetComponentCount();
+  }
+
   void Dump(std::ostream& os) const override;
 
   // Sweeping image spaces is a NOP.
