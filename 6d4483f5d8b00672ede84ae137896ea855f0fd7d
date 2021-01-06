@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0336844_9948f66f",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-06T16:46:59Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 52,
+        "startChar": 52,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "6d4483f5d8b00672ede84ae137896ea855f0fd7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a7a90d_22317f8f",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-06T16:46:59Z",
+      "side": 1,
+      "message": "Making this non-inline can slow down all the callers such as GetDexCache() and GetDexFile(). Have you measured the impact?",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 28
+      },
+      "revId": "6d4483f5d8b00672ede84ae137896ea855f0fd7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
