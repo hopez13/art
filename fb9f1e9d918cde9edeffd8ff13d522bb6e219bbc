@@ -46,6 +46,30 @@
       },
       "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cac2ade_4ba2e78f",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-06T11:04:37Z",
+      "side": 1,
+      "message": "There shall still be a significant difference for small methods between going through the conflict table and going directly to the target method.",
+      "parentUuid": "f4260dbb_c705c698",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 79
+      },
+      "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
