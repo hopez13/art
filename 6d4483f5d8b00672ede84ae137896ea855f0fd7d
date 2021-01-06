@@ -45,6 +45,30 @@
       },
       "revId": "6d4483f5d8b00672ede84ae137896ea855f0fd7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "928d95f4_0a1c5ba3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-06T16:58:47Z",
+      "side": 1,
+      "message": "Indeed, I\u0027ve moved it to art_method-inl.h",
+      "parentUuid": "c1a7a90d_22317f8f",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 28
+      },
+      "revId": "6d4483f5d8b00672ede84ae137896ea855f0fd7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
