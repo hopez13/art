@@ -16,6 +16,24 @@
       "message": "What does miscompiled mean here?",
       "revId": "1038312353b43c415341930c1178a76a6a41c626",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cee966d_1a80888d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-06T00:44:47Z",
+      "side": 1,
+      "message": "the compiler didn\u0027t crash but the transforms were incorrect. (e.g. constant propogating add[2,2] -\u003e const[5] would be an example.)",
+      "parentUuid": "d1fa6a05_25b13b65",
+      "revId": "1038312353b43c415341930c1178a76a6a41c626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
