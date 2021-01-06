@@ -518,6 +518,7 @@ class Dex2Oat final {
       dm_fd_(-1),
       zip_fd_(-1),
       zip_dup_fd_(-1),
+      image_dup_fd_(-1),
       image_fd_(-1),
       have_multi_image_arg_(false),
       multi_image_(false),
@@ -1402,9 +1403,22 @@ class Dex2Oat final {
       // We dup the zip file descriptor, as the oat writer will close it in
       // OatWriter::CloseSources (we still want to close it there for
       // consistency with other kinds of inputs).
-      zip_dup_fd_ = DupCloexec(zip_fd_);
+      if (zip_fd_ != -1) {
+        zip_dup_fd_ = DupCloexec(zip_fd_);
+        if (zip_dup_fd_ == -1) {
+          return dex2oat::ReturnCode::kOther;
+        }
+      }
+      // We dup the image file descriptor, as the image writer will close it in ImageWriter::Write.
+      int image_fd = IsAppImage() ? app_image_fd_ : image_fd_;
+      if (image_fd != -1) {
+        image_dup_fd_ = DupCloexec(image_fd)
+        if (image_dup_fd_ == -1) {
+          return dex2oat::ReturnCode::kOther;
+        }
+      }
       hooks->NotifyStartDex2oatCompilation(zip_dup_fd_,
-                                           IsAppImage() ? app_image_fd_ : image_fd_,
+                                           image_dup_fd_,
                                            oat_fd_,
                                            output_vdex_fd_);
     }
@@ -2152,17 +2166,6 @@ class Dex2Oat final {
       }
     }
 
-    // Now that the files have been written to, report that we've ended the
-    // compilation.
-    PaletteHooks* hooks = nullptr;
-    if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
-      hooks->NotifyEndDex2oatCompilation(zip_dup_fd_,
-                                         IsAppImage() ? app_image_fd_ : image_fd_,
-                                         oat_fd_,
-                                         output_vdex_fd_);
-      close(zip_dup_fd_);
-    }
-
     return true;
   }
 
@@ -2176,6 +2179,20 @@ class Dex2Oat final {
       VLOG(compiler) << "Images written successfully";
     }
     return true;
+  }
+
+  void ReportEndOfCompilation() {
+    // Now that all the files have been written to, report that we've ended the
+    // compilation.
+    PaletteHooks* hooks = nullptr;
+    if (PaletteGetHooks(&hooks) == PaletteStatus::kOkay) {
+      hooks->NotifyEndDex2oatCompilation(zip_dup_fd_,
+                                         image_dup_fd_,
+                                         oat_fd_,
+                                         output_vdex_fd_);
+      close(zip_dup_fd_);
+      close(image_dup_fd_);
+    }
   }
 
   // Copy the full oat files to symbols directory and then strip the originals.
@@ -2787,7 +2804,8 @@ class Dex2Oat final {
   std::vector<std::string> dex_filenames_;
   std::vector<std::string> dex_locations_;
   int zip_fd_;
-  int zip_dup_fd_;  // A dup of the zip fd in case we report it to Palette.
+  int zip_dup_fd_;    // A dup of the zip fd in case we report it to Palette.
+  int image_dup_fd_;  // A dup of the image fd in case we report it to Palette.
   std::string zip_location_;
   std::string boot_image_filename_;
   std::vector<const char*> runtime_args_;
@@ -2899,7 +2917,7 @@ class ScopedGlobalRef {
   jobject obj_;
 };
 
-static dex2oat::ReturnCode CompileImage(Dex2Oat& dex2oat) {
+static dex2oat::ReturnCode DoCompilation(Dex2Oat& dex2oat) {
   dex2oat.LoadClassProfileDescriptors();
   jobject class_loader = dex2oat.Compile();
   // Keep the class loader that was used for compilation live for the rest of the compilation
@@ -2911,7 +2929,7 @@ static dex2oat::ReturnCode CompileImage(Dex2Oat& dex2oat) {
     return dex2oat::ReturnCode::kOther;
   }
 
-  // Flush boot.oat.  Keep it open as we might still modify it later (strip it).
+  // Flush output files.  Keep them open as we might still modify them later (strip them).
   if (!dex2oat.FlushOutputFiles()) {
     dex2oat.EraseOutputFiles();
     return dex2oat::ReturnCode::kOther;
@@ -2922,49 +2940,13 @@ static dex2oat::ReturnCode CompileImage(Dex2Oat& dex2oat) {
     return dex2oat::ReturnCode::kOther;
   }
 
-  // When given --host, finish early without stripping.
-  if (dex2oat.IsHost()) {
-    if (!dex2oat.FlushCloseOutputFiles()) {
-      return dex2oat::ReturnCode::kOther;
-    }
-    dex2oat.DumpTiming();
-    return dex2oat::ReturnCode::kNoFailure;
-  }
-
-  // Copy stripped to unstripped location, if necessary.
-  if (!dex2oat.CopyOatFilesToSymbolsDirectoryAndStrip()) {
-    return dex2oat::ReturnCode::kOther;
-  }
-
-  // FlushClose again, as stripping might have re-opened the oat files.
-  if (!dex2oat.FlushCloseOutputFiles()) {
-    return dex2oat::ReturnCode::kOther;
-  }
-
-  dex2oat.DumpTiming();
-  return dex2oat::ReturnCode::kNoFailure;
-}
-
-static dex2oat::ReturnCode CompileApp(Dex2Oat& dex2oat) {
-  jobject class_loader = dex2oat.Compile();
-  // Keep the class loader that was used for compilation live for the rest of the compilation
-  // process.
-  ScopedGlobalRef global_ref(class_loader);
-
-  if (!dex2oat.WriteOutputFiles(class_loader)) {
-    dex2oat.EraseOutputFiles();
-    return dex2oat::ReturnCode::kOther;
-  }
-
-  // Do not close the oat files here. We might have gotten the output file by file descriptor,
-  // which we would lose.
+  dex2oat.ReportEndOfCompilation();
 
   // When given --host, finish early without stripping.
   if (dex2oat.IsHost()) {
     if (!dex2oat.FlushCloseOutputFiles()) {
       return dex2oat::ReturnCode::kOther;
     }
-
     dex2oat.DumpTiming();
     return dex2oat::ReturnCode::kNoFailure;
   }
@@ -2975,7 +2957,7 @@ static dex2oat::ReturnCode CompileApp(Dex2Oat& dex2oat) {
     return dex2oat::ReturnCode::kOther;
   }
 
-  // Flush and close the files.
+  // FlushClose again, as stripping might have re-opened the oat files.
   if (!dex2oat.FlushCloseOutputFiles()) {
     return dex2oat::ReturnCode::kOther;
   }
@@ -3055,12 +3037,7 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   // instance. Used by tools/bisection_search/bisection_search.py.
   VLOG(compiler) << "Running dex2oat (parent PID = " << getppid() << ")";
 
-  dex2oat::ReturnCode result;
-  if (dex2oat->IsImage()) {
-    result = CompileImage(*dex2oat);
-  } else {
-    result = CompileApp(*dex2oat);
-  }
+  dex2oat::ReturnCode result = DoCompilation(*dex2oat);
 
   return result;
 }
