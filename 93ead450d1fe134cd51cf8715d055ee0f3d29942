@@ -22,6 +22,46 @@
       },
       "revId": "93ead450d1fe134cd51cf8715d055ee0f3d29942",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f43c86e_37e75801",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-06T11:00:28Z",
+      "side": 1,
+      "message": "LGTM in terms of the code and on the basis of Alex\u0027s PS10 comment (https://r.android.com/1521034).",
+      "revId": "93ead450d1fe134cd51cf8715d055ee0f3d29942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e07adc7_62e2815e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-06T11:00:28Z",
+      "side": 1,
+      "message": "Just noting that outside the compiler we have some use of structured binding, though the types of instruction and argument are then masked by auto. Not an issue for an editor using clangd, but that\u0027s not always the case.",
+      "range": {
+        "startLine": 1337,
+        "startChar": 6,
+        "endLine": 1337,
+        "endChar": 40
+      },
+      "revId": "93ead450d1fe134cd51cf8715d055ee0f3d29942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
