@@ -22,6 +22,30 @@
       },
       "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4260dbb_c705c698",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-06T10:45:09Z",
+      "side": 1,
+      "message": "This used to be, but with the conflict table we won\u0027t see the same performance gaps that we used to have.",
+      "parentUuid": "9189775f_3cdb2963",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 79
+      },
+      "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
