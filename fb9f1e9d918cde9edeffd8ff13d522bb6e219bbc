@@ -94,6 +94,30 @@
       },
       "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ccaec44_b5111c77",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-06T11:51:34Z",
+      "side": 1,
+      "message": "That sounds OK. Default methods are interface methods and therefore this would be the index in the interface\u0027s \"declared virtual methods\", right?",
+      "parentUuid": "5a7933ba_b6d4d6d9",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 79
+      },
+      "revId": "fb9f1e9d918cde9edeffd8ff13d522bb6e219bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
