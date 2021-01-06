@@ -1594,10 +1594,17 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
         GetInternTable()->AddImageStringsToTable(image_space, VoidFunctor());
       }
     }
-    if (heap_->GetBootImageSpaces().size() != GetBootClassPath().size()) {
+
+    // Compute the number of boot class path components (jar files).
+    size_t total_components = 0;
+    for (auto is : heap_->GetBootImageSpaces()) {
+      total_components += is->GetComponentCount();
+    }
+
+    if (total_components != GetBootClassPath().size()) {
       // The boot image did not contain all boot class path components. Load the rest.
-      DCHECK_LT(heap_->GetBootImageSpaces().size(), GetBootClassPath().size());
-      size_t start = heap_->GetBootImageSpaces().size();
+      CHECK_LT(total_components, GetBootClassPath().size());
+      size_t start = total_components;
       DCHECK_LT(start, GetBootClassPath().size());
       std::vector<std::unique_ptr<const DexFile>> extra_boot_class_path;
       if (runtime_options.Exists(Opt::BootClassPathDexList)) {
