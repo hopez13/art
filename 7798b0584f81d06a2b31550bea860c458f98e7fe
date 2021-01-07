@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1727465_e2c308c1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "One per line? (I\u0027m not sure if we settled the question of the recommended style here.)",
+      "range": {
+        "startLine": 303,
+        "startChar": 26,
+        "endLine": 303,
+        "endChar": 78
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40576b8a_b8c30e0f",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "You could use `PrintProperty(\"name\", oss.str().c_str());` which would leave `StreamProperty` with a single caller, so you can explicitly inline it and get rid of the helper function.",
+      "range": {
+        "startLine": 863,
+        "startChar": 4,
+        "endLine": 863,
+        "endChar": 38
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32151344_e3786fda",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270c02d8_d0046cc1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "Add parameter names as comments.",
+      "range": {
+        "startLine": 991,
+        "startChar": 33,
+        "endLine": 991,
+        "endChar": 44
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9420e304_0325a8c4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "/*dump_args\u003d*/",
+      "range": {
+        "startLine": 1962,
+        "startChar": 53,
+        "endLine": 1962,
+        "endChar": 54
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0dd418_1f2fd743",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T11:21:42Z",
+      "side": 1,
+      "message": "/*dump_args\u003d*/",
+      "range": {
+        "startLine": 1968,
+        "startChar": 53,
+        "endLine": 1968,
+        "endChar": 54
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
