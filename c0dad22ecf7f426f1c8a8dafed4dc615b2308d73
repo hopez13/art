@@ -1,0 +1,474 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98a1f597_6a1adae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 55
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afedb983_f5714cad",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 5731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "I think we should just check `instruction-\u003eIsInstanceFieldSet() \u0026\u0026 instruction-\u003eAsInstanceFieldSet()-\u003eGetIsPredicatedSet()` here instead of passing it as a parameter.",
+      "range": {
+        "startLine": 5731,
+        "startChar": 58,
+        "endLine": 5731,
+        "endChar": 71
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7feb3d45_c5a7fb42",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 5865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 5865,
+        "startChar": 9,
+        "endLine": 5865,
+        "endChar": 80
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45328686_91d7eadd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 6004,
+        "startChar": 9,
+        "endLine": 6004,
+        "endChar": 80
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "965b0faa_aef1025b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "You can avoid this branch (and the move below) if you reorder the inputs and use SameAsFirstInput. You already asked for the default value in a register anyway.",
+      "range": {
+        "startLine": 6140,
+        "startChar": 2,
+        "endLine": 6140,
+        "endChar": 16
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd957d1_0dcb0019",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "This should have `/* is_predicated\u003d */`. (Or implement my suggestion above of not passing this as an argument.)",
+      "range": {
+        "startLine": 6163,
+        "startChar": 93,
+        "endLine": 6163,
+        "endChar": 98
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c169c1c3_44e5dd61",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6002,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "__ test(base, base);",
+      "range": {
+        "startLine": 6002,
+        "startChar": 4,
+        "endLine": 6002,
+        "endChar": 32
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0b2662_906fdc37",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6049,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc487c56_c6f283b4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6059,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "__ test(object, object);",
+      "range": {
+        "startLine": 6059,
+        "startChar": 2,
+        "endLine": 6059,
+        "endChar": 67
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150975b5_538256fb",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "If you take my codegen suggestion about SameAsFirstInput, this shall be just `cmp + cond-jump + IFieldGet` and the value shall be lower. (And my other suggestion was to replace `cmp` with `test`.)",
+      "range": {
+        "startLine": 218,
+        "startChar": 11,
+        "endLine": 218,
+        "endChar": 51
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57834ebe_b959d738",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "I always wanted to rewrite these instruction iterators to be more compatible with the standard library but I never found the time. It is a massive rewrite. Now you\u0027re creating this inferior workaround. I hope this shall eventually make the refactoring easier.",
+      "range": {
+        "startLine": 2790,
+        "startChar": 7,
+        "endLine": 2790,
+        "endChar": 30
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475fa5fa_e68cc61d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 2831,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "You\u0027re returning something that looks like an iterator to a container that is about to cease to exist. You should instead provide an accessible constructor to create an \"end iterator\".",
+      "range": {
+        "startLine": 2831,
+        "startChar": 63,
+        "endLine": 2831,
+        "endChar": 79
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722a68e9_a2458470",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 4430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "OOME is an \"async exception\"?",
+      "range": {
+        "startLine": 4428,
+        "startChar": 2,
+        "endLine": 4430,
+        "endChar": 3
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f6405a_2e8fcdb7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 6043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "Nit: We\u0027ve got a lot more \"Equals\" than \"Equal\".",
+      "range": {
+        "startLine": 6043,
+        "startChar": 7,
+        "endLine": 6043,
+        "endChar": 12
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf54814_46dd9491",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 6045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 6044,
+        "startChar": 11,
+        "endLine": 6045,
+        "endChar": 84
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ebb56cb_ca2a89f9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 6192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "What about checking packed fields? This includes the `GetType()` which can differ for field gets from the same field. See TryReplaceFieldOrArrayGetType() in instruction_simplifier.cc .",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c2147c2_2d4b78c2",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc04259_9c01685d",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 55
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "This is not obviously sufficient. It relies on splitting critical edges which we do.",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97672a8e_374269d6",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 109,
+        "startChar": 9,
+        "endLine": 111,
+        "endChar": 99
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161fb18e_4a9f4def",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 90
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8fca227_27fa986a",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c827db8_bf351fcf",
+        "filename": "compiler/optimizing/scheduler_arm.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T17:25:36Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 921,
+        "startChar": 9,
+        "endLine": 921,
+        "endChar": 80
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
