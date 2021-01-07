@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "665d3bfc_4aa10df5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "This is in verifier_deps.cc: we used to clear if the class was not fully verified - but now we clear only if the class is hard/soft fail: other failures (like access checks) we keep the assignability checks.",
+      "parentUuid": "ac8a3356_115f41f9",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9cf7cb9_98f49926",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-07T11:14:28Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 11,
+        "startChar": 67,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42b7e501_4d3c8eef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cf7cb9_98f49926",
       "range": {
         "startLine": 11,
         "startChar": 67,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c3a1c3_4f01a19a",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ce0c736_0a4d633a",
+      "range": {
+        "startLine": 181,
+        "startChar": 75,
+        "endLine": 181,
+        "endChar": 79
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d97b576_f6612c29",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-01-07T11:14:28Z",
       "side": 1,
       "message": "I think we no longer need to distinguish the field test below from the method tests above.",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 190,
+        "endChar": 60
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67d113a_0ae00757",
+        "filename": "dex2oat/dex2oat_vdex_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d97b576_f6612c29",
       "range": {
         "startLine": 188,
         "startChar": 2,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5dfcf09_26c666da",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2043,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92935c1b_b906615d",
+      "range": {
+        "startLine": 2043,
+        "startChar": 49,
+        "endLine": 2043,
+        "endChar": 51
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db7d2f9b_d756ab57",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-01-07T11:14:28Z",
       "side": 1,
       "message": "This is not what the next line tests. You would need to assert `HasVerifiedClass()` but you\u0027d first need to write such helper function.",
+      "range": {
+        "startLine": 531,
+        "startChar": 45,
+        "endLine": 531,
+        "endChar": 56
+      },
+      "revId": "f6c8fd888500f63010664eff6bfa10ce851d2dc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9793db0b_0c310bf8",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-07T13:46:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db7d2f9b_d756ab57",
       "range": {
         "startLine": 531,
         "startChar": 45,
