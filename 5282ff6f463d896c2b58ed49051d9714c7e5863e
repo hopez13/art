@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d7f2e19_7ab550a4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T10:42:22Z",
+      "side": 1,
+      "message": "Either explicit `const ImageSpace*` or `auto\u0026\u0026`. (The `auto` would go very wrong if the type was std::unique_ptr\u003cImageSpace\u003e but `auto\u0026\u0026` should always work fine.)",
+      "range": {
+        "startLine": 1600,
+        "startChar": 9,
+        "endLine": 1600,
+        "endChar": 13
+      },
+      "revId": "5282ff6f463d896c2b58ed49051d9714c7e5863e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9b40dd_0462ec43",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-07T10:42:22Z",
+      "side": 1,
+      "message": "I though you would have a static helper function in ImageSpace for this whole calculation. But if this is the only place where we need it, it\u0027s fine to keep the calculation here. (OTOH, this function is very long and moving the code elsewhere would help a bit.)",
+      "revId": "5282ff6f463d896c2b58ed49051d9714c7e5863e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
