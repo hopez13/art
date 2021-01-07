@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b22391_7892e040",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Sure. This is what clang-format does though, it can\u0027t do that 1 per line.",
+      "parentUuid": "e1727465_e2c308c1",
+      "range": {
+        "startLine": 303,
+        "startChar": 26,
+        "endLine": 303,
+        "endChar": 78
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40576b8a_b8c30e0f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-07T11:21:42Z",
       "side": 1,
       "message": "You could use `PrintProperty(\"name\", oss.str().c_str());` which would leave `StreamProperty` with a single caller, so you can explicitly inline it and get rid of the helper function.",
+      "range": {
+        "startLine": 863,
+        "startChar": 4,
+        "endLine": 863,
+        "endChar": 38
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c865a909_4c188b1c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40576b8a_b8c30e0f",
       "range": {
         "startLine": 863,
         "startChar": 4,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8b7286_08496f07",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32151344_e3786fda",
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "270c02d8_d0046cc1",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-01-07T11:21:42Z",
       "side": 1,
       "message": "Add parameter names as comments.",
+      "range": {
+        "startLine": 991,
+        "startChar": 33,
+        "endLine": 991,
+        "endChar": 44
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffef285c_a690483d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "270c02d8_d0046cc1",
       "range": {
         "startLine": 991,
         "startChar": 33,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbddf48_f12bedda",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1962,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9420e304_0325a8c4",
+      "range": {
+        "startLine": 1962,
+        "startChar": 53,
+        "endLine": 1962,
+        "endChar": 54
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f0dd418_1f2fd743",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-01-07T11:21:42Z",
       "side": 1,
       "message": "/*dump_args\u003d*/",
+      "range": {
+        "startLine": 1968,
+        "startChar": 53,
+        "endLine": 1968,
+        "endChar": 54
+      },
+      "revId": "7798b0584f81d06a2b31550bea860c458f98e7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70cfbc43_e4ec967f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-07T14:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f0dd418_1f2fd743",
       "range": {
         "startLine": 1968,
         "startChar": 53,
