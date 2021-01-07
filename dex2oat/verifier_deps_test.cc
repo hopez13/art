@@ -526,10 +526,10 @@ TEST_F(VerifierDepsTest, UnverifiedClasses) {
   ASSERT_TRUE(HasUnverifiedClass("LMain;"));
   // Test that a class with hard failure is recorded.
   ASSERT_TRUE(HasUnverifiedClass("LMyVerificationFailure;"));
-  // Test that a class with unresolved super is recorded.
-  ASSERT_TRUE(HasUnverifiedClass("LMyClassWithNoSuper;"));
   // Test that a class with unresolved super and hard failure is recorded.
   ASSERT_TRUE(HasUnverifiedClass("LMyClassWithNoSuperButFailures;"));
+  // Test that a class with unresolved super is recorded.
+  ASSERT_TRUE(!HasUnverifiedClass("LMyClassWithNoSuper;"));
 }
 
 TEST_F(VerifierDepsTest, UnverifiedOrder) {

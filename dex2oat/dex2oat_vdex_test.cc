@@ -178,11 +178,12 @@ TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubs) {
   ASSERT_TRUE(HasVerifiedClass(deps, "LAccessPublicStaticMethod;", *dex_file));
   ASSERT_TRUE(HasVerifiedClass(deps, "LAccessPublicStaticField;", *dex_file));
 
-  // Verify NON public API usage. The classes should not ve verified.
-  ASSERT_FALSE(HasVerifiedClass(deps, "LAccessNonPublicCtor;", *dex_file));
-  ASSERT_FALSE(HasVerifiedClass(deps, "LAccessNonPublicMethod;", *dex_file));
-  ASSERT_FALSE(HasVerifiedClass(deps, "LAccessNonPublicMethodFromParent;", *dex_file));
-  ASSERT_FALSE(HasVerifiedClass(deps, "LAccessNonPublicStaticMethod;", *dex_file));
+  // Verify NON public API usage. The classes should be verified, but will wrun
+  // with access checks.
+  ASSERT_TRUE(HasVerifiedClass(deps, "LAccessNonPublicCtor;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps, "LAccessNonPublicMethod;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps, "LAccessNonPublicMethodFromParent;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps, "LAccessNonPublicStaticMethod;", *dex_file));
 
   // Accessing unresolved static fields do not lead to class verification
   // failures.
@@ -208,10 +209,10 @@ TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubs) {
   ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessPublicStaticMethod;", *dex_file));
   ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessPublicStaticField;", *dex_file));
 
-  ASSERT_FALSE(HasVerifiedClass(deps2, "LAccessNonPublicCtor;", *dex_file)) << output_;
-  ASSERT_FALSE(HasVerifiedClass(deps2, "LAccessNonPublicMethod;", *dex_file));
-  ASSERT_FALSE(HasVerifiedClass(deps2, "LAccessNonPublicMethodFromParent;", *dex_file));
-  ASSERT_FALSE(HasVerifiedClass(deps2, "LAccessNonPublicStaticMethod;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessNonPublicCtor;", *dex_file)) << output_;
+  ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessNonPublicMethod;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessNonPublicMethodFromParent;", *dex_file));
+  ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessNonPublicStaticMethod;", *dex_file));
   ASSERT_TRUE(HasVerifiedClass(deps2, "LAccessNonPublicStaticField;", *dex_file));
 }
 
