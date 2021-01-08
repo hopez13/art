@@ -508,26 +508,12 @@ END \name
 .macro SPILL_ALL_ARGUMENTS
     // We spill r4 for stack alignment.
     push {r0-r4}
-    .cfi_adjust_cfa_offset 20
-    .cfi_rel_offset r0, 0
-    .cfi_rel_offset r1, 4
-    .cfi_rel_offset r2, 8
-    .cfi_rel_offset r3, 12
-    .cfi_rel_offset r4, 16
     vpush {s0-s15}
-    .cfi_adjust_cfa_offset 64
 .endm
 
 .macro RESTORE_ALL_ARGUMENTS
     vpop {s0-s15}
-    .cfi_adjust_cfa_offset -64
     pop {r0-r4}
-    .cfi_restore r0
-    .cfi_restore r1
-    .cfi_restore r2
-    .cfi_restore r3
-    .cfi_restore r4
-    .cfi_adjust_cfa_offset -20
 .endm
 
 // Helper to setup the stack after doing a nterp to nterp call. This will setup:
@@ -938,6 +924,16 @@ END \name
     lsr \inst, \inst, #8
     add \arg_index, \arg_index, #2
     b 1b
+.endm
+
+// Uses ip as temporary.
+.macro LOAD_GPR_NON_RANGE gpr_reg32, inst, arg_index, arg_size, finished
+   and ip, \inst, #0xf
+   lsr \inst, \inst, #4
+   GET_VREG \gpr_reg32, ip
+   add \arg_index, \arg_index, #1
+   cmp \arg_size, \arg_index
+   beq \finished
 .endm
 
 .macro COMMON_INVOKE_NON_RANGE is_static=0, is_interface=0, suffix="", is_string_init=0, is_polymorphic=0, is_custom=0
@@ -1392,15 +1388,6 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     /* Spill callee save regs */
     SPILL_ALL_CALLEE_SAVES
 
-    // TODO: Get shorty in a better way and remove below
-    SPILL_ALL_ARGUMENTS
-
-    bl NterpGetShorty
-    // Save shorty in callee-save rIBASE.
-    mov rIBASE, r0
-
-    RESTORE_ALL_ARGUMENTS
-
     ldr rPC, [r0, #ART_METHOD_DATA_OFFSET_32]
 
     // Setup the stack for executing the method.
@@ -1410,36 +1397,52 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     cmp r4, #0
     beq .Lxmm_setup_finished
 
-    sub r4, rINST, r4
-    lsl r4, r4, #2 // r4 is now the offset for inputs into the registers array.
+    sub lr, rINST, r4
+    lsl lr, lr, #2 // lr is now the offset for inputs into the registers array.
+    add r7, rFP, lr
+    add r8, rREFS, lr
+    mov rIBASE, ip // rIBASE contains the old stack pointer
 
-    mov lr, ip // lr contains the old stack pointer
+    // If the method is not static and there is one argument ('this'), we don't need to fetch the
+    // shorty.
+    ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+    tst ip, #ART_METHOD_IS_STATIC_FLAG
+    bne .Lsetup_with_shorty
+    cmp r4, #1
+    bne .Lsetup_with_shorty
+    str r1, [r7], #4
+    str r1, [r8], #4
+    b .Lxmm_setup_finished
 
+.Lsetup_with_shorty:
+    // TODO: Get shorty in a better way and remove below
+    SPILL_ALL_ARGUMENTS
+    bl NterpGetShorty
+    mov lr, r0
+    RESTORE_ALL_ARGUMENTS
+
+    mov r4, #0
     ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
     // r0 is now available.
     // Setup shorty, pointer to inputs in FP and pointer to inputs in REFS
-    add r0, rIBASE, #1  // shorty + 1  ; ie skip return arg character
-    add r7, rFP, r4
-    add r8, rREFS, r4
+    add r0, lr, #1  // shorty + 1  ; ie skip return arg character
     tst ip, #ART_METHOD_IS_STATIC_FLAG
     bne .Lhandle_static_method
     str r1, [r7], #4
     str r1, [r8], #4
-    add lr, lr, #4
-    mov r4, #0
+    add rIBASE, rIBASE, #4
     b .Lcontinue_setup_gprs
 .Lhandle_static_method:
-    mov r4, #0
     LOOP_OVER_SHORTY_STORING_GPRS r1, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=0
 .Lcontinue_setup_gprs:
     LOOP_OVER_SHORTY_STORING_GPRS r2, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=0
     LOOP_OVER_SHORTY_STORING_GPRS r3, r0, r4, r7, r8, .Lgpr_setup_finished, .Lif_long, is_r3=1
 .Lif_long:
-    LOOP_OVER_INTs r0, r4, r7, r8, lr, ip, r1, .Lgpr_setup_finished
+    LOOP_OVER_INTs r0, r4, r7, r8, rIBASE, ip, r1, .Lgpr_setup_finished
 .Lgpr_setup_finished:
-    add r0, rIBASE, #1  // shorty + 1  ; ie skip return arg character
+    add r0, lr, #1  // shorty + 1  ; ie skip return arg character
     mov r1, r7
-    add r2, lr, #OFFSET_TO_FIRST_ARGUMENT_IN_STACK
+    add r2, rIBASE, #OFFSET_TO_FIRST_ARGUMENT_IN_STACK
     vpush {s0-s15}
     mov r3, sp
     bl NterpStoreArm32Fprs
