@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b29c40_ee668726",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T12:44:00Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "7504ad847af4f09e25e2d83fec419f29ef656566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8cba23b_7fb07cb6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T12:44:00Z",
+      "side": 1,
+      "message": "Only 1. You no longer create a handle for the class.",
+      "range": {
+        "startLine": 2399,
+        "startChar": 21,
+        "endLine": 2399,
+        "endChar": 22
+      },
+      "revId": "7504ad847af4f09e25e2d83fec419f29ef656566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ea61af_ac1a2fb3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T12:44:00Z",
+      "side": 1,
+      "message": "You\u0027re duplicating code. Maybe we could restructure:\n\n  bool resolve_method \u003d\n      UNLIKELY(interface_method \u003d\u003d nullptr) || interface_method-\u003eIsRuntimeMethod();\n  if (resolve_method) {\n    ...\n    MaybeUpdateBssMethodEntry(interface_method, MethodReference(\u0026dex_file, dex_method_idx));\n    raw_this_object \u003d this_object.Get();\n  }\n\n  // The compiler and interpreter make sure the conflict trampoline is never\n  // called on a method that resolves to j.l.Object.\n  DCHECK(!interface_method-\u003eGetDeclaringClass()-\u003eIsObjectClass());\n  DCHECK(interface_method-\u003eGetDeclaringClass()-\u003eIsInterface());\n  DCHECK(!interface_method-\u003eIsRuntimeMethod());\n\n  uint32_t imt_index \u003d interface_method-\u003eGetImtIndex();\n  ImTable* imt \u003d this_object-\u003eGetClass()-\u003eGetImt(kRuntimePointerSize);\n  ArtMethod* conflict_method \u003d imt-\u003eGet(imt_index, kRuntimePointerSize);\n  DCHECK(conflict_method-\u003eIsRuntimeMethod());\n\n  if (resolve_method) {\n    // Now that we know the interface method, look it up in the conflict table.\n    ...\n  }",
+      "range": {
+        "startLine": 2443,
+        "startChar": 4,
+        "endLine": 2445,
+        "endChar": 74
+      },
+      "revId": "7504ad847af4f09e25e2d83fec419f29ef656566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8296be63_bfd7fb72",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2487,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T12:44:00Z",
+      "side": 1,
+      "message": "Since you\u0027re cleaning this up, can you add a local variable `runtime` and reuse it across this function? (First use at line 2427 above.)",
+      "range": {
+        "startLine": 2487,
+        "startChar": 9,
+        "endLine": 2487,
+        "endChar": 27
+      },
+      "revId": "7504ad847af4f09e25e2d83fec419f29ef656566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
