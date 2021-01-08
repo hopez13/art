@@ -182,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f16855_e74bd57b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 6140,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-08T17:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "965b0faa_aef1025b",
+      "range": {
+        "startLine": 6140,
+        "startChar": 2,
+        "endLine": 6140,
+        "endChar": 16
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccd957d1_0dcb0019",
@@ -371,6 +395,30 @@
       "writtenOn": "2021-01-07T17:25:36Z",
       "side": 1,
       "message": "If you take my codegen suggestion about SameAsFirstInput, this shall be just `cmp + cond-jump + IFieldGet` and the value shall be lower. (And my other suggestion was to replace `cmp` with `test`.)",
+      "range": {
+        "startLine": 218,
+        "startChar": 11,
+        "endLine": 218,
+        "endChar": 51
+      },
+      "revId": "c0dad22ecf7f426f1c8a8dafed4dc615b2308d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f8818b4_fb14731e",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 55
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-08T17:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150975b5_538256fb",
       "range": {
         "startLine": 218,
         "startChar": 11,
