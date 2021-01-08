@@ -63,6 +63,30 @@
       },
       "revId": "3e7a0565e9703c6601da1523d94ba63771cf912e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e3d6a4_07bb9f64",
+        "filename": "dex2oat/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T10:58:05Z",
+      "side": 1,
+      "message": "Also caught by TH.",
+      "parentUuid": "766e6fde_82d61381",
+      "range": {
+        "startLine": 255,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 25
+      },
+      "revId": "3e7a0565e9703c6601da1523d94ba63771cf912e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
