@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007144680",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1496642?revision\u003d57",
+      "fixSuggestions": [
+        {
+          "fixId": "d30c872e_614ec750",
+          "description": "Change to \"compiler/optimizing/code_generator_arm_vixl.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/code_generator_arm_vixl.cc",
+              "range": {
+                "startLine": 5878,
+                "startChar": 22,
+                "endLine": 5878,
+                "endChar": 30
+              },
+              "replacement": "receiver"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "4f55c9f6_5f546762",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 57
+      },
+      "lineNbr": 5878,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-08T17:06:49Z",
+      "side": 1,
+      "message": "Common typo found: \"reciever\" -- should it be \"receiver\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 5878,
+        "startChar": 22,
+        "endLine": 5878,
+        "endChar": 30
+      },
+      "revId": "d423949fc884086bf7537e7292f3b29bca249ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
