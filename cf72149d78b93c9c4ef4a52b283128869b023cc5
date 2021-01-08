@@ -16,6 +16,993 @@
       "message": "I\u0027m still looking at changing the order of arguments to allow shorter compiled code. I\u0027m putting this up for all the other comments.",
       "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e868cec_c46ebd7e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "One per line.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa46bde_caaabbf7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 5056,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "__ test(base, base);",
+      "range": {
+        "startLine": 5056,
+        "startChar": 4,
+        "endLine": 5056,
+        "endChar": 32
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f6fb6e_56d568ce",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 5194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "__ test(recv, recv);",
+      "range": {
+        "startLine": 5194,
+        "startChar": 2,
+        "endLine": 5194,
+        "endChar": 70
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265adb67_cf531717",
+        "filename": "compiler/optimizing/execution_subgraph_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Why are there 2 arrows from l1loop_merge to l1?",
+      "range": {
+        "startLine": 460,
+        "startChar": 34,
+        "endLine": 460,
+        "endChar": 61
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92d742da_6930a1a8",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "keep? (`obj.f2 \u003d 0` is kept)",
+      "range": {
+        "startLine": 1165,
+        "startChar": 45,
+        "endLine": 1165,
+        "endChar": 51
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa5e67e_fc89935d",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "keep?",
+      "range": {
+        "startLine": 1276,
+        "startChar": 45,
+        "endLine": 1276,
+        "endChar": 51
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4d4cd8_f1dc8f1f",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Do we need this block? If we remove it, `left` shall have a single predecessor, so there will not be a critical edge.",
+      "range": {
+        "startLine": 1779,
+        "startChar": 61,
+        "endLine": 1779,
+        "endChar": 76
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b75cf2_6b2105c1",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Similarly, this has a single successor.",
+      "range": {
+        "startLine": 1786,
+        "startChar": 66,
+        "endLine": 1786,
+        "endChar": 87
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2be11ac_4f53cf76",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1880,
+        "startChar": 5,
+        "endLine": 1880,
+        "endChar": 46
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61318534_a2f08d9d",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "This is an odd comment when the next two lines reconstruct the dominator tree.",
+      "range": {
+        "startLine": 1914,
+        "startChar": 2,
+        "endLine": 1914,
+        "endChar": 41
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6d3d06_5f4e300c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "missing verb",
+      "range": {
+        "startLine": 300,
+        "startChar": 27,
+        "endLine": 300,
+        "endChar": 28
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc41a3a_e0a54c9d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add parameter names. (I didn\u0027t want to nag you when you had the explicit constructor call everywhere but it\u0027s not such a burden to add parameter names to a few helpers functions.)",
+      "range": {
+        "startLine": 309,
+        "startChar": 43,
+        "endLine": 311,
+        "endChar": 48
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076ee9b0_57268c68",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add parameter name.",
+      "range": {
+        "startLine": 320,
+        "startChar": 45,
+        "endLine": 320,
+        "endChar": 46
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4451f183_c891e84f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "It looks like `load-\u003eGetTypeIndex()` is always correct, so the `ti ? *ti : ` can be dropped.",
+      "range": {
+        "startLine": 321,
+        "startChar": 45,
+        "endLine": 321,
+        "endChar": 76
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47ca2b8b_9e516ebf",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add parameter name.",
+      "range": {
+        "startLine": 323,
+        "startChar": 45,
+        "endLine": 323,
+        "endChar": 50
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e09aa5f_cce23461",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add parameter names for `nullptr`, `false` and `0`s.",
+      "range": {
+        "startLine": 329,
+        "startChar": 20,
+        "endLine": 329,
+        "endChar": 87
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec7ec754_904065f2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 334,
+        "startChar": 14,
+        "endLine": 334,
+        "endChar": 70
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4be258da_ec371bc5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 343,
+        "startChar": 30,
+        "endLine": 348,
+        "endChar": 43
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37d62a2b_18836882",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "For IntConstant, we enter the if-block at line 485 and take the early exit at line 500. So if we get to this line, the EXPECT_TRUE() shall fail.",
+      "range": {
+        "startLine": 504,
+        "startChar": 18,
+        "endLine": 504,
+        "endChar": 38
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af2cf9f_f9431ea8",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ASSERT; we do not want to reach the `ins-\u003eInputAt(1)` with a different instruction.",
+      "range": {
+        "startLine": 532,
+        "startChar": 8,
+        "endLine": 532,
+        "endChar": 14
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb4f2ac4_4e59ea6f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 536,
+        "startChar": 8,
+        "endLine": 536,
+        "endChar": 14
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f73c94_3e5ef024",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ASSERT; we do not want to reach `(ins-\u003eInputAt(0)-\u003eInputAt({0,1})` with a different instruction.",
+      "range": {
+        "startLine": 540,
+        "startChar": 6,
+        "endLine": 540,
+        "endChar": 12
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1157b584_84ced1b4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 547,
+        "startChar": 6,
+        "endLine": 547,
+        "endChar": 56
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2db2fb5_0b24963e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "589f2ab4_c19a0fd7",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895c85dc_9eead8bb",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Why do you need ScopedObjectAccess? Why not just\n\n  VariableSizedHandleScope vshs(Thread::Current());\n\nAnd why do you need the VariableSizedHandleScope?",
+      "range": {
+        "startLine": 1315,
+        "startChar": 2,
+        "endLine": 1315,
+        "endChar": 44
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e90ca65_a9263387",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Does not look disabled.",
+      "range": {
+        "startLine": 2018,
+        "startChar": 16,
+        "endLine": 2018,
+        "endChar": 54
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c4ab03_111b198f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Use `std::is_invocable_v` here and below.",
+      "range": {
+        "startLine": 2305,
+        "startChar": 47,
+        "endLine": 2305,
+        "endChar": 54
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5833b110_85caf7f3",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "2 more spaces indentation.",
+      "range": {
+        "startLine": 2305,
+        "startChar": 2,
+        "endLine": 2307,
+        "endChar": 3
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17b7016_1dc004cc",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add space before `!`.",
+      "range": {
+        "startLine": 2311,
+        "startChar": 41,
+        "endLine": 2311,
+        "endChar": 42
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc08d9d_91a23f2e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Split into three separate assertions:\n\n  static_assert(!std::is_invocable_v\u003cFunc, HInstruction*\u003e);\n  static_assert(true FOR_EACH_ABSTRACT_INSTRUCTION(STATIC_ASSERT_ABST));\n  static_assert(false FOR_EACH_CONCRETE_INSTRUCTION(STATIC_ASSERT_INST));",
+      "range": {
+        "startLine": 2312,
+        "startChar": 4,
+        "endLine": 2314,
+        "endChar": 79
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041c731a_b892caff",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "#undef STATIC_ASSERT_ABST",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c6e82f0_3f7a268b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Implement using FindSimpleInstructions() and extract the result from the one-element tuple.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fc8eaf0_de05aa80",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Add comment with block name (ESCAPE_ROUTE).",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13932047_8b88b843",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "None of the \"crit_break\" blocks are necessary here.",
+      "range": {
+        "startLine": 2445,
+        "startChar": 61,
+        "endLine": 2445,
+        "endChar": 84
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd08cde_2246976a",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2529,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "With a MakePhi() helper, these would be merged with the HPhi creation.",
+      "range": {
+        "startLine": 2528,
+        "startChar": 2,
+        "endLine": 2529,
+        "endChar": 39
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c72af8_05b6ad14",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 2530,
+        "startChar": 2,
+        "endLine": 2530,
+        "endChar": 46
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2555127a_b326c8a4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10614e60_3df93d93",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Dereference without assertion that this actually found something.",
+      "range": {
+        "startLine": 2584,
+        "startChar": 6,
+        "endLine": 2584,
+        "endChar": 7
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d50d076a_6cecd69d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2587,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2587,
+        "startChar": 20,
+        "endLine": 2587,
+        "endChar": 21
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a6daf65_028eadcd",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "This is repeated at line 2600.",
+      "range": {
+        "startLine": 2593,
+        "startChar": 2,
+        "endLine": 2593,
+        "endChar": 69
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac9d1ba_ec397c6f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Why would the `new_inst.foo` be 0 when coming from `escape_end`? The path through `right` should yield 12 and the path through `left_merge` should yield unknown value.",
+      "range": {
+        "startLine": 2601,
+        "startChar": 39,
+        "endLine": 2601,
+        "endChar": 64
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "988f8176_1f2b1a2f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 4180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 4180,
+        "startChar": 2,
+        "endLine": 4180,
+        "endChar": 52
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1390751_4b8a7f91",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "This again uses a temporary that immediately goes out of scope. And I\u0027d prefer to avoid the macro and do this explicitly:\n\n private:\n  HInstructionIterator() : instruction_(nullptr), next_(nullptr) {}\n\n  HInstruction* instruction_;\n  HInstruction* next_;\n\n  friend struct HSTLInstructionIterator\u003cHInstructionIterator\u003e;\n\nand similar for the other two.",
+      "range": {
+        "startLine": 2732,
+        "startChar": 18,
+        "endLine": 2732,
+        "endChar": 36
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0120508c_1dcddd79",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T17:11:53Z",
+      "side": 1,
+      "message": "This is used exclusively with the `BlockIdWrapperThunk` and vice versa. I think you should remove this class and rewrite `BlockIdWrapperThunk` as a non-template class, calling `IsBitSet()` directly.",
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
