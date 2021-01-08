@@ -16,6 +16,52 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "bb1c82bf27d29c6a8a47aec4be49758da8500989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb386cf_f9ca71d8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T14:21:26Z",
+      "side": 1,
+      "message": "The UNLIKELY() was previously applied to a subexpression of `resolve_method`. I assume that this change is deliberate.",
+      "range": {
+        "startLine": 2400,
+        "startChar": 6,
+        "endLine": 2400,
+        "endChar": 14
+      },
+      "revId": "bb1c82bf27d29c6a8a47aec4be49758da8500989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4ae44e_6dcfd88d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T14:21:26Z",
+      "side": 1,
+      "message": "cls",
+      "range": {
+        "startLine": 2454,
+        "startChar": 17,
+        "endLine": 2454,
+        "endChar": 37
+      },
+      "revId": "bb1c82bf27d29c6a8a47aec4be49758da8500989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
