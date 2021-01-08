@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f99785f2_7b5f0c6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-08T09:57:56Z",
+      "side": 1,
+      "message": "Thanks, LGTM with minor comments. Impressed at how well this has slotted in.",
+      "revId": "f45cfdeb7f8a894c55d348ce4ec4e587726b659f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140146a0_1be1d77c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-08T09:57:56Z",
+      "side": 1,
+      "message": "This could be in a separate CL which also updates intrinsics_arm_vixl.cc. This could also include the change to the EmitStoreExclusive below and the change to GetVarHandleExpectedValueType(). Or add those here if you have a strong preference that way.",
+      "range": {
+        "startLine": 974,
+        "startChar": 9,
+        "endLine": 974,
+        "endChar": 32
+      },
+      "revId": "f45cfdeb7f8a894c55d348ce4ec4e587726b659f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764ae986_2c19773b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4013,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-08T09:57:56Z",
+      "side": 1,
+      "message": "Update in intrinsics_arm_vixl.cc too.",
+      "range": {
+        "startLine": 4013,
+        "startChar": 11,
+        "endLine": 4013,
+        "endChar": 67
+      },
+      "revId": "f45cfdeb7f8a894c55d348ce4ec4e587726b659f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
