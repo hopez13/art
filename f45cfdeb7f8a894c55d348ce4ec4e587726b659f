@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef39315_518e0ef4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T10:55:36Z",
+      "side": 1,
+      "message": "I don\u0027t think arm shall have this particular change because we\u0027re using barriers there and there is no reason to prefer unsigned load over a signed one. We do it for arm64 because the LD(A|)X(B|H) instructions do not have signed versions at all.\n\nI\u0027m not too keen on splitting this CL now.",
+      "parentUuid": "140146a0_1be1d77c",
+      "range": {
+        "startLine": 974,
+        "startChar": 9,
+        "endLine": 974,
+        "endChar": 32
+      },
+      "revId": "f45cfdeb7f8a894c55d348ce4ec4e587726b659f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "764ae986_2c19773b",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-08T09:57:56Z",
       "side": 1,
       "message": "Update in intrinsics_arm_vixl.cc too.",
+      "range": {
+        "startLine": 4013,
+        "startChar": 11,
+        "endLine": 4013,
+        "endChar": 67
+      },
+      "revId": "f45cfdeb7f8a894c55d348ce4ec4e587726b659f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce50a4b1_96e97f20",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-08T10:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764ae986_2c19773b",
       "range": {
         "startLine": 4013,
         "startChar": 11,
