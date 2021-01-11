@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4461e9d5_14fdf586",
+        "filename": "runtime/interpreter/mterp/armng/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T14:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f56c09c1_478896b3",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 13
+      },
+      "revId": "39d6f869563af188f67fa1a627a54be9d7ce4844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbc923f2_81d28341",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-11T14:05:00Z",
       "side": 1,
       "message": "Copy comment from arm64.",
+      "range": {
+        "startLine": 87,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 18
+      },
+      "revId": "39d6f869563af188f67fa1a627a54be9d7ce4844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac45367_877db3bf",
+        "filename": "runtime/interpreter/mterp/x86_64ng/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T14:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbc923f2_81d28341",
       "range": {
         "startLine": 87,
         "startChar": 3,
