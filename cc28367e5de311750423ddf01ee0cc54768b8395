@@ -16,6 +16,98 @@
       "message": "PTAL.",
       "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27a9b51_2f129eca",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T12:22:10Z",
+      "side": 1,
+      "message": "Add comments about these bits.",
+      "range": {
+        "startLine": 85,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1d0035f_823969ff",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T12:22:10Z",
+      "side": 1,
+      "message": "I\u0027d prefer `uxtw`.",
+      "range": {
+        "startLine": 105,
+        "startChar": 21,
+        "endLine": 105,
+        "endChar": 25
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04304f23_49d0c719",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T12:22:10Z",
+      "side": 1,
+      "message": "x15 is scratch register, clobbered by the GET_SHORTY above. Maybe reuse the xNEW_FP? (Maybe with a different name.)",
+      "range": {
+        "startLine": 865,
+        "startChar": 29,
+        "endLine": 865,
+        "endChar": 32
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dcfd741_9212f2c2",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T12:22:10Z",
+      "side": 1,
+      "message": "XMM8? I can see it saved in a \"SaveEverything\" frame but nterp is not saving it, so should not clobber it.",
+      "range": {
+        "startLine": 1090,
+        "startChar": 14,
+        "endLine": 1090,
+        "endChar": 19
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
