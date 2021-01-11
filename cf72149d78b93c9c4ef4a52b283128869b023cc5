@@ -1932,6 +1932,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81f52b9_bf0772f6",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 56
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-11T23:06:07Z",
+      "side": 1,
+      "message": "Done. TODO Added in appropriate place in lse.cc\n\nThe basic problem is that I want to be able to use the normal Materialize.*Phis functions to generate these which I do by changing the computed value at the end of exclusions to the default (load_store_elimination.cc:3622). This makes everything easy. Getting this behavior probably wouldn\u0027t be too hard but it\u0027s the sort of minor improvement I think can wait.\n\nAdded a basic version of this to instruction-simplifier to get the simple cases at least.",
+      "parentUuid": "7527d6fa_0f65226b",
+      "range": {
+        "startLine": 2601,
+        "startChar": 39,
+        "endLine": 2601,
+        "endChar": 64
+      },
+      "revId": "cf72149d78b93c9c4ef4a52b283128869b023cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "988f8176_1f2b1a2f",
