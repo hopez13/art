@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "729d5857_7bb2b15c",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T13:31:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c27a9b51_2f129eca",
+      "range": {
+        "startLine": 85,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1d0035f_823969ff",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-11T12:22:10Z",
       "side": 1,
       "message": "I\u0027d prefer `uxtw`.",
+      "range": {
+        "startLine": 105,
+        "startChar": 21,
+        "endLine": 105,
+        "endChar": 25
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04c3ab07_64f581ef",
+        "filename": "runtime/interpreter/mterp/arm64ng/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T13:31:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1d0035f_823969ff",
       "range": {
         "startLine": 105,
         "startChar": 21,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "762963be_95fa74ba",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T13:31:40Z",
+      "side": 1,
+      "message": "Doh, not sure why I\u0027ve used x15, I was looking for a callee-save. Done.",
+      "parentUuid": "04304f23_49d0c719",
+      "range": {
+        "startLine": 865,
+        "startChar": 29,
+        "endLine": 865,
+        "endChar": 32
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dcfd741_9212f2c2",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-11T12:22:10Z",
       "side": 1,
       "message": "XMM8? I can see it saved in a \"SaveEverything\" frame but nterp is not saving it, so should not clobber it.",
+      "range": {
+        "startLine": 1090,
+        "startChar": 14,
+        "endLine": 1090,
+        "endChar": 19
+      },
+      "revId": "cc28367e5de311750423ddf01ee0cc54768b8395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b159417a_87a0b1c4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-11T13:31:40Z",
+      "side": 1,
+      "message": "Right, using xmm12 instead.",
+      "parentUuid": "8dcfd741_9212f2c2",
       "range": {
         "startLine": 1090,
         "startChar": 14,
