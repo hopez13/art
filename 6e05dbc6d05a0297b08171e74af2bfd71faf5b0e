@@ -1,0 +1,399 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66c3d7c_4612eb8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Another partial review.",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa8560b_38b7ea20",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 6015,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Fits on one line.",
+      "range": {
+        "startLine": 6014,
+        "startChar": 2,
+        "endLine": 6015,
+        "endChar": 51
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba3e150_a99c8e6b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "RTP usually makes a transition to Runnable when it needs to. So, this should really be unnecessary.",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 35
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f57089_4fe38a96",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "This is actually storing a dangling reference in the allocated HLoadClass because the ScopedNullHandle\u003c\u003e::null_ref_ shall be destroyed at the end of this statement. The ScopedNullHandle\u003c\u003e is suitable only for calls that do not store the Handle\u003c\u003e.\n\nEither add a member variable `null_klass_` or create a null handle in `graph_-\u003eGetHandleCache()-\u003eGetHandles()`.",
+      "range": {
+        "startLine": 315,
+        "startChar": 56,
+        "endLine": 315,
+        "endChar": 89
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe3f353_50ac546b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "is_invocable_v",
+      "range": {
+        "startLine": 2330,
+        "startChar": 57,
+        "endLine": 2330,
+        "endChar": 64
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "973cf1d0_db4aebe8",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 2627,
+        "startChar": 61,
+        "endLine": 2627,
+        "endChar": 76
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c58c8b82_674c80ee",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "It does not matter for this test but field gets usually yield an inexact type (unless the reference type is final - j.l.Object is not).",
+      "range": {
+        "startLine": 2706,
+        "startChar": 91,
+        "endLine": 2706,
+        "endChar": 95
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b971233_8881e68f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "What about adding checks for the replacement instructions? (Predicated gets, Phis and replacement allocations.)",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "343f1c4f_b5577ab7",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2759,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 2759,
+        "startChar": 61,
+        "endLine": 2759,
+        "endChar": 76
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278bfed9_0fbfe7f2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "What about checking inputs of the new instructions?",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7132e3a3_1bb1bc38",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 2987,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Check that write_entry{1,2} have been removed?",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f6fc61_43e69d2d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 3009,
+        "startChar": 2,
+        "endLine": 3014,
+        "endChar": 99
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35f5127_d20ba35e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3016,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "You are looking for mat_alloc1, right? You should ASSERT that `mat_alloc1 !\u003d nullptr` above and explicitly compare to `mat_alloc1` here. (And you do not need the EXPECT at line 3032.)",
+      "range": {
+        "startLine": 3016,
+        "startChar": 70,
+        "endLine": 3016,
+        "endChar": 90
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1898600c_adc42877",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Ditto (with `mat_alloc2`).",
+      "range": {
+        "startLine": 3019,
+        "startChar": 70,
+        "endLine": 3019,
+        "endChar": 90
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82defc36_ac26d16d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3023,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "You should move the `merge_alloc1 !\u003d nullptr` assertion from line 3031 above this.",
+      "range": {
+        "startLine": 3023,
+        "startChar": 34,
+        "endLine": 3023,
+        "endChar": 46
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b546c73_8cb85d3f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Ditto for the assertion from line 3034.",
+      "range": {
+        "startLine": 3027,
+        "startChar": 34,
+        "endLine": 3027,
+        "endChar": 46
+      },
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82e2dc9_a2eb12ff",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3039,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31fc1b4f_e9d18c84",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab71e39_d5913980",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 59
+      },
+      "lineNbr": 3052,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-11T17:47:18Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "6e05dbc6d05a0297b08171e74af2bfd71faf5b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
