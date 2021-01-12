@@ -61,7 +61,19 @@ void HiddenApiFinder::CollectAccesses(VeridexResolver* resolver,
   for (ClassAccessor accessor : dex_file.GetClasses()) {
     if (class_filter.Matches(accessor.GetDescriptor())) {
       for (const ClassAccessor::Method& method : accessor.GetMethods()) {
-        for (const DexInstructionPcPair& inst : method.GetInstructions()) {
+        CodeItemInstructionAccessor codes = method.GetInstructions();
+        const uint32_t maxPc = codes.InsnsSizeInCodeUnits();
+        for (const DexInstructionPcPair& inst : codes) {
+          const uint32_t dexPc = inst.DexPc();
+          if (dexPc >= maxPc) {
+            break;
+          }
+
+          const Instruction* instruction = &inst.Inst();
+          const uint32_t insnWidth = instruction->SizeInCodeUnits();
+          if (insnWidth == 0) {
+            break;
+          }
           switch (inst->Opcode()) {
             case Instruction::CONST_STRING: {
               dex::StringIndex string_index(inst->VRegB_21c());
