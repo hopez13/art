@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3665bc66_d9a5b254",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-12T13:34:38Z",
+      "side": 1,
+      "message": "I couldn\u0027t find a place where we would return 0 - which instruction would return a 0 value here?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 31
+      },
+      "revId": "c6d34794720d9d9ed2bf3e44f7c8fb5c9c44268d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
