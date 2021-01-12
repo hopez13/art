@@ -16,6 +16,24 @@
       "message": "For reverts^2, could you mention in the commit message what was the issue and what\u0027s the fix?",
       "revId": "5cb386e635a32532ab19eae06d418ff683285a3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7971aa_303a1799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-12T23:38:58Z",
+      "side": 1,
+      "message": "I will once I figure it out.\n\nIt looks like the problem is that sometimes the metrics thread gets started too early. I see a lot of error messages like this:\n\n    ti_thread.cc:135] Unexpected thread before start: Metrics Background Reporting Thread id: 6\n\nIt should be pretty easy to figure out.",
+      "parentUuid": "4893b8d9_bb450a3b",
+      "revId": "5cb386e635a32532ab19eae06d418ff683285a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
