@@ -1,0 +1,1202 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb88cac_ef8f69d9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Why not `input-\u003eIsNullConstant()`? And maybe an `else DCHECK(!input-\u003eCanBeNull());`.",
+      "range": {
+        "startLine": 940,
+        "startChar": 8,
+        "endLine": 940,
+        "endChar": 26
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ee5e3c_6470d719",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "This can be removed now.",
+      "range": {
+        "startLine": 327,
+        "startChar": 45,
+        "endLine": 327,
+        "endChar": 59
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5430e052_8248d26d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 347,
+        "startChar": 50,
+        "endLine": 347,
+        "endChar": 64
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca498d66_57132132",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 362,
+        "startChar": 50,
+        "endLine": 362,
+        "endChar": 64
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee52fb86_79a96c2a",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Move before the `sel_return-\u003eInputAt(.)` checks above.",
+      "range": {
+        "startLine": 2757,
+        "startChar": 2,
+        "endLine": 2758,
+        "endChar": 28
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95fc7376_dcf6ce01",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 2767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Define local variable `mat2`?",
+      "range": {
+        "startLine": 2767,
+        "startChar": 16,
+        "endLine": 2767,
+        "endChar": 94
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9d67c4_45abd1a2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 2777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Add check for `pred2-\u003eGetDefaultValue()-\u003eInputAt(1)`?",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a86088_a1d708d4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "This is a critical edge that you did not split.",
+      "range": {
+        "startLine": 3235,
+        "startChar": 26,
+        "endLine": 3235,
+        "endChar": 46
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e60b582_4e661ae0",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ASSERT",
+      "range": {
+        "startLine": 3411,
+        "startChar": 2,
+        "endLine": 3411,
+        "endChar": 8
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beda4728_731f4b40",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3412,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ASSERT",
+      "range": {
+        "startLine": 3412,
+        "startChar": 2,
+        "endLine": 3412,
+        "endChar": 8
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d62743_55f34b66",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "c_noescape?",
+      "range": {
+        "startLine": 3539,
+        "startChar": 33,
+        "endLine": 3539,
+        "endChar": 36
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b4840a_7752612b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ASSERT",
+      "range": {
+        "startLine": 3585,
+        "startChar": 2,
+        "endLine": 3585,
+        "endChar": 8
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd6a82b8_2dd1a12d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ASSERT",
+      "range": {
+        "startLine": 3586,
+        "startChar": 2,
+        "endLine": 3586,
+        "endChar": 8
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142b499e_17a68aa4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Critical edge.",
+      "range": {
+        "startLine": 3645,
+        "startChar": 50,
+        "endLine": 3645,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d557418f_6f554c9f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3707,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Isn\u0027t the `alloc_phi` dead? Why does LSE construct it?",
+      "range": {
+        "startLine": 3707,
+        "startChar": 8,
+        "endLine": 3707,
+        "endChar": 17
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57dd5f40_f5e530ae",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Why not use `FindSingleInstructions\u003c\u003e()` above? (Otherwise, ASSERT to avoid UB for `moved_*[0]` below.)",
+      "range": {
+        "startLine": 3708,
+        "startChar": 2,
+        "endLine": 3709,
+        "endChar": 35
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb26182_f3af1783",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "You could be more specific if you add `EnsurePredecessorOrder(merge, ...)` at the start.",
+      "range": {
+        "startLine": 3720,
+        "startChar": 2,
+        "endLine": 3722,
+        "endChar": 88
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe7b85a_313c0c87",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3738,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "You\u0027re describing the \"early_return\" as a \"default\" case in the next test. Should we also do that here for consistency?",
+      "range": {
+        "startLine": 3738,
+        "startChar": 5,
+        "endLine": 3738,
+        "endChar": 11
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb621e6_d379f50e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3823,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "I would expect that there is only one escaping block, namely \"escape\". Why do we insert blocks before the switch cases \"set_one\" and \"set_two\"? Why are we materializing twice? Those stores should not be treated as an escape point for the reference, we could store a Phi{c4,c5} into a single materialization.\n\nI guess this is because the excluded cohort has \"set_one\" and \"set_two\" as entry block, right?",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9905d8b3_e1ead260",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Point out the fall-through here.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853bf392_1301d784",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c47654_5c8b37ba",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ASSERT\n\nAnd I\u0027d prefer ASSERT on the previous two lines as well. If one of those fails, the code below shall not crash but there is no reason to spam the output anyway.",
+      "range": {
+        "startLine": 3966,
+        "startChar": 2,
+        "endLine": 3966,
+        "endChar": 8
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76911a4a_1f1f2fad",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 4878,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Critical edge.",
+      "range": {
+        "startLine": 4878,
+        "startChar": 50,
+        "endLine": 4878,
+        "endChar": 72
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d53bd1_271e1de8",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 4957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Unnecessary (only two Phis and the other one is a reference).",
+      "range": {
+        "startLine": 4957,
+        "startChar": 49,
+        "endLine": 4957,
+        "endChar": 77
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d278f0e5_679ee581",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 4966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "We\u0027re materializing too  early based on the excluded cohort entry blocks, right? It would be better to materialize before the escape and replace the `write_partial` and `init_set` with a single write of a Phi{c3,c4}.",
+      "range": {
+        "startLine": 4966,
+        "startChar": 51,
+        "endLine": 4966,
+        "endChar": 81
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b896d3_df27bbf4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 5005,
+        "startChar": 52,
+        "endLine": 5005,
+        "endChar": 66
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d85ce45c_a285bfcf",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Critical edge.",
+      "range": {
+        "startLine": 5007,
+        "startChar": 50,
+        "endLine": 5007,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e4552d6_aaeb7c7f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5094,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Change the type of `write_partial` to avoid this. (MakeIFieldSet() returns `HInstanceFieldSet*`.)",
+      "range": {
+        "startLine": 5094,
+        "startChar": 29,
+        "endLine": 5094,
+        "endChar": 49
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b20258_ca5f2771",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5098,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "First ASSERT that this is a Phi.",
+      "range": {
+        "startLine": 5098,
+        "startChar": 16,
+        "endLine": 5098,
+        "endChar": 50
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52fb93d6_298354da",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Critical edge.",
+      "range": {
+        "startLine": 5135,
+        "startChar": 50,
+        "endLine": 5135,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d78c74f_5133f1e8",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "There is only one HInstanceFieldSet in `sets`, so just get that and ASSERT_EQ the successor of its block.",
+      "range": {
+        "startLine": 5212,
+        "startChar": 32,
+        "endLine": 5214,
+        "endChar": 5
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d9fa93_4f2ec133",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5226,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "EXPECT_INS_EQ(write_partial, init_set);",
+      "range": {
+        "startLine": 5225,
+        "startChar": 4,
+        "endLine": 5226,
+        "endChar": 82
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88c91201_1998e121",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Missing {Equals, Self, Right}. Is that deliberate?",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdea91f_176c170e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Missing {NotEquals, Self, Right}.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6cfeb4f_ab7da075",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Critical edge.",
+      "range": {
+        "startLine": 5380,
+        "startChar": 50,
+        "endLine": 5380,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67ae809_3c192de2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Before this, you should do `\u0026\u0026 p-\u003eInputAt(0)-\u003eIsNewInstance()`. Then you should drop the check from line 5688.",
+      "range": {
+        "startLine": 5674,
+        "startChar": 57,
+        "endLine": 5674,
+        "endChar": 82
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3a5c71_b3ccd201",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Ditto for `merge_alloc2`.",
+      "range": {
+        "startLine": 5677,
+        "startChar": 57,
+        "endLine": 5677,
+        "endChar": 82
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abbadf8e_d6cdce26",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5686,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Move after the merge_alloc{1,2} assertions.",
+      "range": {
+        "startLine": 5679,
+        "startChar": 2,
+        "endLine": 5686,
+        "endChar": 9
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6c3e8c_6ad8e9eb",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1aa257a_bff2168e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9672a55c_e9ffc2e5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b1922c_16c50497",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "-\u003eIsNullConstant()",
+      "range": {
+        "startLine": 5821,
+        "startChar": 70,
+        "endLine": 5821,
+        "endChar": 99
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede3a2bc_c9e683ed",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5824,
+        "startChar": 70,
+        "endLine": 5824,
+        "endChar": 99
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31dceff_8a2338eb",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5833,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Move after merge_alloc{1,2} assertions.",
+      "range": {
+        "startLine": 5826,
+        "startChar": 2,
+        "endLine": 5833,
+        "endChar": 9
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a7991ee_7aceff1b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Unnecessary based on how `merge_alloc1` was found. (But feel free to keep.)",
+      "range": {
+        "startLine": 5837,
+        "startChar": 2,
+        "endLine": 5837,
+        "endChar": 69
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3396656c_6c1eb5af",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5841,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5841,
+        "startChar": 2,
+        "endLine": 5841,
+        "endChar": 69
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1146ac87_5b0978d4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de1e68f7_f2b62a5f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5850,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Line too long. You can find all new long lines with\n\n  git log -n1 -p | grep -E \u0027^\\+.{101}\u0027",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726c07d3_fde78b4e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5867,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "missing `obj1.foo`",
+      "range": {
+        "startLine": 5867,
+        "startChar": 13,
+        "endLine": 5867,
+        "endChar": 14
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26838dd2_3e47aa60",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5874,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "missing `obj2.foo`",
+      "range": {
+        "startLine": 5874,
+        "startChar": 13,
+        "endLine": 5874,
+        "endChar": 14
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb65117_df0511b7",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5884,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Completely independent from Partial LSE, we should replace iget on a Phi when we know the values of the field in individual Phi inputs.\n\nIn this particular test, that would make both allocations true singletons and removable.",
+      "range": {
+        "startLine": 5884,
+        "startChar": 10,
+        "endLine": 5884,
+        "endChar": 17
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cfd9aa_9c66a32b",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5891,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Rename to \"left_end\"? The code above suggests that there is a block with the code `obj \u003d obj1`, so maybe it should have a proper name instead of \"..._crit_break\".\n\n(Alternatively, rewrite the code without `obj1` and `obj2` and use `obj` directly. But that makes the description of `obj \u003d PHI[???]` rather odd.)",
+      "range": {
+        "startLine": 5891,
+        "startChar": 60,
+        "endLine": 5891,
+        "endChar": 75
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b9587b_264c45e9",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ed4e529_b5dd8974",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5944,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "836155d6_d8cb2bcf",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5969,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c00ca94_26e3c9c5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:20:19Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
