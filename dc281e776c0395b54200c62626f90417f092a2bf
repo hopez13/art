@@ -16,6 +16,24 @@
       "message": "Do we want to keep this check and guard it by whether the reference is null?",
       "revId": "dc281e776c0395b54200c62626f90417f092a2bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daed27bf_78f27b3d",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-12T21:57:15Z",
+      "side": 0,
+      "message": "no. The destructor is always safe since we don\u0027t actually touch the scope.",
+      "parentUuid": "dd665d72_67a40ae5",
+      "revId": "dc281e776c0395b54200c62626f90417f092a2bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
