@@ -85,9 +85,14 @@ void VeriFlowAnalysis::FindBranches() {
   }
 
   // Iterate over all instructions and find branching instructions.
+  const uint32_t max_pc = code_item_accessor_.InsnsSizeInCodeUnits();
   for (const DexInstructionPcPair& pair : code_item_accessor_) {
     const uint32_t dex_pc = pair.DexPc();
     const Instruction& instruction = pair.Inst();
+    if (dex_pc >= max_pc) {
+      // We need to prevent abnormal access for outside of code
+      break;
+    }
 
     if (instruction.IsBranch()) {
       SetAsBranchTarget(dex_pc + instruction.GetTargetOffset());
@@ -107,22 +112,32 @@ void VeriFlowAnalysis::UpdateRegister(uint32_t dex_register,
                                       RegisterSource kind,
                                       VeriClass* cls,
                                       uint32_t source_id) {
-  current_registers_[dex_register] = RegisterValue(
-      kind, DexFileReference(&resolver_->GetDexFile(), source_id), cls);
+  // veridex doesn't do any code verification, so it can be that there are bogus dex
+  // instructions that update a non-existent register.
+  if (dex_register < current_registers_.size()) {
+    current_registers_[dex_register] = RegisterValue(
+        kind, DexFileReference(&resolver_->GetDexFile(), source_id), cls);
+  }
 }
 
 void VeriFlowAnalysis::UpdateRegister(uint32_t dex_register, const RegisterValue& value) {
-  current_registers_[dex_register] = value;
+  if (dex_register < current_registers_.size()) {
+    current_registers_[dex_register] = value;
+  }
 }
 
 void VeriFlowAnalysis::UpdateRegister(uint32_t dex_register, const VeriClass* cls) {
-  current_registers_[dex_register] =
-      RegisterValue(RegisterSource::kNone, DexFileReference(nullptr, 0), cls);
+  if (dex_register < current_registers_.size()) {
+    current_registers_[dex_register] =
+        RegisterValue(RegisterSource::kNone, DexFileReference(nullptr, 0), cls);
+  }
 }
 
 void VeriFlowAnalysis::UpdateRegister(uint32_t dex_register, int32_t value, const VeriClass* cls) {
-  current_registers_[dex_register] =
-      RegisterValue(RegisterSource::kConstant, value, DexFileReference(nullptr, 0), cls);
+  if (dex_register < current_registers_.size()) {
+    current_registers_[dex_register] =
+        RegisterValue(RegisterSource::kConstant, value, DexFileReference(nullptr, 0), cls);
+  }
 }
 
 const RegisterValue& VeriFlowAnalysis::GetRegister(uint32_t dex_register) const {
@@ -199,7 +214,12 @@ void VeriFlowAnalysis::AnalyzeCode() {
     work_list.pop_back();
     CHECK(IsBranchTarget(dex_pc));
     current_registers_ = *dex_registers_[dex_pc].get();
+    const uint32_t max_pc = code_item_accessor_.InsnsSizeInCodeUnits();
     while (true) {
+      if (dex_pc >= max_pc) {
+        // We need to prevent abnormal access for outside of code
+        break;
+      }
       const uint16_t* insns = code_item_accessor_.Insns() + dex_pc;
       const Instruction& inst = *Instruction::At(insns);
       ProcessDexInstruction(inst);
@@ -210,8 +230,10 @@ void VeriFlowAnalysis::AnalyzeCode() {
       if ((branch_flags & Instruction::kContinue) != 0) {
         if ((branch_flags & Instruction::kBranch) != 0) {
           uint32_t branch_dex_pc = dex_pc + inst.GetTargetOffset();
-          if (MergeRegisterValues(branch_dex_pc)) {
-            work_list.push_back(branch_dex_pc);
+          if (branch_dex_pc < max_pc) {
+            if (MergeRegisterValues(branch_dex_pc)) {
+              work_list.push_back(branch_dex_pc);
+            }
           }
         }
         dex_pc += inst.SizeInCodeUnits();
