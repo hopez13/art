@@ -22,6 +22,30 @@
       },
       "revId": "c6d34794720d9d9ed2bf3e44f7c8fb5c9c44268d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1a881a_af4b3f0b",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1061696
+      },
+      "writtenOn": "2021-01-12T14:18:48Z",
+      "side": 1,
+      "message": "I think it is unnecessary condition,\nI have updated a CL with additional point that can cause a SIGSEGV.\n\nActually, there a GTS test fail using veridex, \nI will file a bug with failure apk.",
+      "parentUuid": "3665bc66_d9a5b254",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 31
+      },
+      "revId": "c6d34794720d9d9ed2bf3e44f7c8fb5c9c44268d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
