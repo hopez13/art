@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeadba42_b13bdc68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-12T00:23:38Z",
+      "side": 1,
+      "message": "Please take a look. This got reverted before the break because it was missing an Android.bp file. I ran regen-test-files to generate one, so the issue should be fixed.",
+      "revId": "2240e9afb3806731c90a501cadc2cdb6c9bfad98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
