@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16dc0f55_563fa50c",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:52:47Z",
+      "side": 1,
+      "message": "Use `r1`, so that we can reuse the value from `r4` if !$is_wide.",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 13
+      },
+      "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "040070f8_005ac6c6",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-12T16:52:47Z",
+      "side": 1,
+      "message": "You erroneously removed null check.",
+      "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
