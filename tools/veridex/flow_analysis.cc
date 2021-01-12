@@ -85,9 +85,14 @@ void VeriFlowAnalysis::FindBranches() {
   }
 
   // Iterate over all instructions and find branching instructions.
+  const uint32_t max_pc = code_item_accessor_.InsnsSizeInCodeUnits();
   for (const DexInstructionPcPair& pair : code_item_accessor_) {
     const uint32_t dex_pc = pair.DexPc();
     const Instruction& instruction = pair.Inst();
+    if (dex_pc >= max_pc) {
+      // We need to prevent abnormal access for outside of code
+      break;
+    }
 
     if (instruction.IsBranch()) {
       SetAsBranchTarget(dex_pc + instruction.GetTargetOffset());
@@ -199,7 +204,12 @@ void VeriFlowAnalysis::AnalyzeCode() {
     work_list.pop_back();
     CHECK(IsBranchTarget(dex_pc));
     current_registers_ = *dex_registers_[dex_pc].get();
+    const uint32_t max_pc = code_item_accessor_.InsnsSizeInCodeUnits();
     while (true) {
+      if (dex_pc >= max_pc) {
+        // We need to prevent abnormal access for outside of code
+        break;
+      }
       const uint16_t* insns = code_item_accessor_.Insns() + dex_pc;
       const Instruction& inst = *Instruction::At(insns);
       ProcessDexInstruction(inst);
