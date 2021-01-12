@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "001f5f5a_669fc46e",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-12T21:19:06Z",
+      "side": 1,
+      "message": "Maybe we can make the constructor for storage_ be constexpr, and then this could be a static_assert? I guess GetReferences() also needs to be constexpr.",
+      "range": {
+        "startLine": 50,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 92
+      },
+      "revId": "1a88adc1c6c344e6766f593307c346e790c64535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
