@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "007830a2_8df4b50b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-12T15:46:20Z",
+      "side": 1,
+      "message": "yeah the redefine-stress failure is because redefine-stress turns off all hidden-api manually due to the way class-loading works. This test (like the other hiddenapi ones) needs to be disabled on that config.",
+      "revId": "501f7d38606fac05f5fdc97501c18438b49acadc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
