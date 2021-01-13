@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec6278d5_7ffe82be",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-13T14:15:46Z",
+      "side": 1,
+      "message": "Unfortunately, the ATOMIC_STORE64 requires vA to be r1.",
+      "parentUuid": "16dc0f55_563fa50c",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 13
+      },
+      "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "040070f8_005ac6c6",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-01-12T16:52:47Z",
       "side": 1,
       "message": "You erroneously removed null check.",
+      "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b85be07_0f106da4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-13T14:15:46Z",
+      "side": 1,
+      "message": "Great catch. And I noticed we didn\u0027t have a test catching this, so I\u0027ve added one in the latest patchset.",
+      "parentUuid": "040070f8_005ac6c6",
       "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
