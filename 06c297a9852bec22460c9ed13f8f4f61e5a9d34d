@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc5d44b5_418e9583",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:21:33Z",
+      "side": 1,
+      "message": "Then duplicate the whole sequence in lines 265-269 to the .if and .else blocks and simplify the .else block:\n\n   .if $wide\n   lsr     r4, rINST, #12              // r4\u003c- B\n   ubfx    r1, rINST, #8, #4           // r1\u003c- A\n   GET_VREG r4, r4                     // vB (object we\u0027re operating on)\n   cmp     r4, #0\n   beq     common_errNullObject\n   VREG_INDEX_TO_ADDR r1, r1\n   GET_VREG_WIDE_BY_ADDR r2, r3, r1\n   add     ip, r4, r0\n   dmb     ish\n   ATOMIC_STORE64 ip, r2, r3, r0, r1, .L${opcode}_slow_path_atomic_store\n   dmb     ish\n   .else\n   lsr     r1, rINST, #12              // r1\u003c- B\n   GET_VREG r1, r1                     // vB (object we\u0027re operating on)\n   cmp     r1, #0\n   beq     common_errNullObject\n   dmb     ish\n   $store  r4, [r1, r0]\n   dmb     ish\n   WRITE_BARRIER_IF_OBJECT $is_object, r4, r1, .L${opcode}_slow_path_skip_write_barrier, r0\n   .endif",
+      "parentUuid": "ec6278d5_7ffe82be",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 13
+      },
+      "revId": "06c297a9852bec22460c9ed13f8f4f61e5a9d34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "040070f8_005ac6c6",
         "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
         "patchSetId": 4
