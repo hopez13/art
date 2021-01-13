@@ -22,6 +22,30 @@
       },
       "revId": "786f201515620bf422be339bb41dced038d1b1cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04ec9da_b7ae5bec",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-13T20:36:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure of the origin, we\u0027ve had use in ART for a while:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/jni/check_jni.cc;drc\u003d17491ac89fffc79452c4a88b39a9b74f342508d3;l\u003d1450\n\nand it\u0027s also used elsewhere in Android. But, but, but it\u0027s one of many styles we have:\n\n* \u0027ticks\u0027\n* `backticks`\n* `quotes`\n* |pipe|\n* plain.\n\n`backticks` are the official Google C++ style https://google.github.io/styleguide/cppguide.html#Function_Comments. The ART C++ style guide has incidental plain and \"quotes\" in examples.\n\nNo surprise then that within this file we have both ticks and quotes already. I was just making it a party :-)",
+      "parentUuid": "540b180f_a0467e9b",
+      "range": {
+        "startLine": 137,
+        "startChar": 19,
+        "endLine": 137,
+        "endChar": 23
+      },
+      "revId": "786f201515620bf422be339bb41dced038d1b1cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
