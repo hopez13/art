@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "b74bd116654f4f796464196cc5a32b286eea5299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f71d23c_ce483ec9",
+        "filename": "test/814-large-field-offsets/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:11:14Z",
+      "side": 1,
+      "message": "To lower chances of accidental eviction reducing test coverage, you should have this test immediately after the identical one above, i.e. test intField twice, then test wideField twice, etc.",
+      "range": {
+        "startLine": 229,
+        "startChar": 6,
+        "endLine": 229,
+        "endChar": 58
+      },
+      "revId": "b74bd116654f4f796464196cc5a32b286eea5299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
