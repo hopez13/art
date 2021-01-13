@@ -1461,17 +1461,6 @@ class ImageSpace::BootImageLayout {
     return LoadOrValidateFromSystem(image_isa, oat_checksums, error_msg);
   }
 
-  bool LoadFromDalvikCache(const std::string& dalvik_cache, /*out*/std::string* error_msg) {
-    return LoadOrValidateFromDalvikCache(dalvik_cache, /*oat_checksums=*/ nullptr, error_msg);
-  }
-
-  bool ValidateFromDalvikCache(const std::string& dalvik_cache,
-                               /*inout*/std::string_view* oat_checksums,
-                               /*out*/std::string* error_msg) {
-    DCHECK(oat_checksums != nullptr);
-    return LoadOrValidateFromDalvikCache(dalvik_cache, oat_checksums, error_msg);
-  }
-
   ArrayRef<const ImageChunk> GetChunks() const {
     return ArrayRef<const ImageChunk>(chunks_);
   }
@@ -1567,10 +1556,6 @@ class ImageSpace::BootImageLayout {
   bool LoadOrValidateFromSystem(InstructionSet image_isa,
                                 /*inout*/std::string_view* oat_checksums,
                                 /*out*/std::string* error_msg);
-
-  bool LoadOrValidateFromDalvikCache(const std::string& dalvik_cache,
-                                     /*inout*/std::string_view* oat_checksums,
-                                     /*out*/std::string* error_msg);
 
   const std::string& image_location_;
   ArrayRef<const std::string> boot_class_path_;
@@ -2270,18 +2255,6 @@ bool ImageSpace::BootImageLayout::LoadOrValidateFromSystem(InstructionSet image_
   return LoadOrValidate(filename_fn, oat_checksums, error_msg);
 }
 
-bool ImageSpace::BootImageLayout::LoadOrValidateFromDalvikCache(
-    const std::string& dalvik_cache,
-    /*inout*/std::string_view* oat_checksums,
-    /*out*/std::string* error_msg) {
-  auto filename_fn = [&dalvik_cache](const std::string& location,
-                                     /*out*/std::string* filename,
-                                     /*out*/std::string* err_msg) {
-    return GetDalvikCacheFilename(location.c_str(), dalvik_cache.c_str(), filename, err_msg);
-  };
-  return LoadOrValidate(filename_fn, oat_checksums, error_msg);
-}
-
 class ImageSpace::BootImageLoader {
  public:
   BootImageLoader(const std::vector<std::string>& boot_class_path,
@@ -2343,11 +2316,6 @@ class ImageSpace::BootImageLoader {
                       /*out*/std::vector<std::unique_ptr<ImageSpace>>* boot_image_spaces,
                       /*out*/MemMap* extra_reservation,
                       /*out*/std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_);
-
-  bool LoadFromDalvikCache(size_t extra_reservation_size,
-                           /*out*/std::vector<std::unique_ptr<ImageSpace>>* boot_image_spaces,
-                           /*out*/MemMap* extra_reservation,
-                           /*out*/std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
   bool LoadImage(
@@ -3240,36 +3208,6 @@ bool ImageSpace::BootImageLoader::LoadFromSystem(
   return true;
 }
 
-bool ImageSpace::BootImageLoader::LoadFromDalvikCache(
-    size_t extra_reservation_size,
-    /*out*/std::vector<std::unique_ptr<ImageSpace>>* boot_image_spaces,
-    /*out*/MemMap* extra_reservation,
-    /*out*/std::string* error_msg) {
-  TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
-  DCHECK(DalvikCacheExists());
-
-  BootImageLayout layout(image_location_, boot_class_path_, boot_class_path_locations_);
-  if (!layout.LoadFromDalvikCache(dalvik_cache_, error_msg)) {
-    return false;
-  }
-  if (!LoadImage(layout,
-                 /*validate_oat_file=*/ true,
-                 extra_reservation_size,
-                 &logger,
-                 boot_image_spaces,
-                 extra_reservation,
-                 error_msg)) {
-    return false;
-  }
-
-  if (VLOG_IS_ON(image)) {
-    LOG(INFO) << "ImageSpace::BootImageLoader::LoadFromDalvikCache exiting "
-        << *boot_image_spaces->front();
-    logger.Dump(LOG_STREAM(INFO));
-  }
-  return true;
-}
-
 bool ImageSpace::IsBootClassPathOnDisk(InstructionSet image_isa) {
   Runtime* runtime = Runtime::Current();
   BootImageLayout layout(runtime->GetImageLocation(),
@@ -3342,16 +3280,6 @@ bool ImageSpace::LoadBootImage(
                               boot_image_spaces,
                               extra_reservation,
                               &error_msg)) {
-      return true;
-    }
-    error_msgs.push_back(error_msg);
-  }
-
-  if (loader.HasCache()) {
-    if (loader.LoadFromDalvikCache(extra_reservation_size,
-                                   boot_image_spaces,
-                                   extra_reservation,
-                                   &error_msg)) {
       return true;
     }
     error_msgs.push_back(error_msg);
@@ -3623,11 +3551,7 @@ bool ImageSpace::VerifyBootClassPathChecksums(std::string_view oat_checksums,
       return false;
     }
 
-    DCHECK(has_system || has_cache);
-    bool image_checksums_ok = has_system
-        ? layout.ValidateFromSystem(image_isa, &oat_checksums, error_msg)
-        : layout.ValidateFromDalvikCache(cache_filename, &oat_checksums, error_msg);
-    if (!image_checksums_ok) {
+    if (has_system && !layout.ValidateFromSystem(image_isa, &oat_checksums, error_msg)) {
       return false;
     }
     bcp_pos = layout.GetNextBcpIndex();
