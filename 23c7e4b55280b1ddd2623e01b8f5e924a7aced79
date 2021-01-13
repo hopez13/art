@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcd1aa58_dfb62d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "Partial review: arm and arm64.",
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3413d430_54b52ec3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "I find it better to have one pre-index (post-index for RESTORE_) instruction rather than a series like this.",
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22522684_ff06f457",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "We could replace these 3 ADDs with 2 ADDs just before .Lsetup_with_shorty (adjust x21 instead of both x10 and x11). Then we could replace the TBNZ+B with TBZ.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 4,
+        "endLine": 1387,
+        "endChar": 20
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f99460bd_e6feb293",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "We\u0027re now using this macro at a point where SP is 16B aligned (8B is needed) and we should not spill r4 anymore. Then again, the new context does not need to preserve r0, so maybe spilling {r1-r4} is better as we can then avoid a MOV.\n\n(Maybe drop the SPILL/RESTORE macros and expand it in the context so that these things are more obvious.)",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51167d40_3ea64174",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "Use r7 (rINST) so that it\u0027s preserved across NterpGetShorty. Delay initialization of input pointers r7, r8 until after getting shorty (just like arm64).",
+      "range": {
+        "startLine": 1394,
+        "startChar": 8,
+        "endLine": 1394,
+        "endChar": 10
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a921d94_30802bfa",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "Load to r8 (callee-save), move before the LSL above. (You may need to have a MOV instead of the LDR below but maybe you can somehow avoid that.)",
+      "range": {
+        "startLine": 1402,
+        "startChar": 4,
+        "endLine": 1402,
+        "endChar": 49
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c13056f_40c494a4",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T16:40:12Z",
+      "side": 1,
+      "message": "Use indexed stores as on arm64, reorder before the CMP+BNE, replace loads below with ADD, move ADDs here.",
+      "range": {
+        "startLine": 1407,
+        "startChar": 4,
+        "endLine": 1408,
+        "endChar": 20
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
