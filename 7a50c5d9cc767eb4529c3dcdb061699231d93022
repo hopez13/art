@@ -16,6 +16,138 @@
       "message": "Hi Vladimir, friendly ping on this CL.",
       "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc502f40_f4263842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "Partial review, arm64 only.",
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b67c300_c5fad3cd",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "Replace with explicit STP instructions. The old CFI directives may not have been very useful, so I\u0027m not sorry to see them go. But keeping them would be wrong as the CFA is no longer tied to SP.\n\n(And merge the SUB above into the first STP with pre-index instruction.)",
+      "range": {
+        "startLine": 488,
+        "startChar": 4,
+        "endLine": 491,
+        "endChar": 28
+      },
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e3fb1a4_adcc6e0f",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "Explicit LDPs. (Maybe merge the first one with the ADD below to a post-index LDP, loading x0, x1 last.)",
+      "range": {
+        "startLine": 502,
+        "startChar": 4,
+        "endLine": 505,
+        "endChar": 31
+      },
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef764c1e_846103f0",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "You should load this to a callee-save register to avoid reloading it below (x26 \u003d xNEW_FP is available here).\n\nAnd move this before the LSL above for better scheduling on in-order CPUs.",
+      "range": {
+        "startLine": 1371,
+        "startChar": 4,
+        "endLine": 1371,
+        "endChar": 50
+      },
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dec13f5_46704a2e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "Define an ART_METHOD_IS_STATIC_FLAG_BIT so that we can use TBNZ.",
+      "range": {
+        "startLine": 1372,
+        "startChar": 4,
+        "endLine": 1372,
+        "endChar": 39
+      },
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee82dcd1_8ebd4bc4",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T13:54:56Z",
+      "side": 1,
+      "message": "You can move this before the CMP above. Then you can replace the post-increment stores in lines 1398-1399 with simple ADDs.",
+      "range": {
+        "startLine": 1376,
+        "startChar": 4,
+        "endLine": 1377,
+        "endChar": 24
+      },
+      "revId": "7a50c5d9cc767eb4529c3dcdb061699231d93022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
