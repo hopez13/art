@@ -16,6 +16,46 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "078774b2a140035a3efd907078cde3e1e23a1b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "833d6f6b_d146af7e",
+        "filename": "test/814-large-field-offsets/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T14:36:38Z",
+      "side": 1,
+      "message": "Maybe these should be `$noinline$getNullMain()` to hide them from the compiler, just in case we optimize NullCheck(NullConstant) in future.",
+      "range": {
+        "startLine": 179,
+        "startChar": 26,
+        "endLine": 179,
+        "endChar": 37
+      },
+      "revId": "078774b2a140035a3efd907078cde3e1e23a1b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f949f008_2a8414d1",
+        "filename": "test/814-large-field-offsets/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T14:36:38Z",
+      "side": 1,
+      "message": "Note that the above code should use the slow path in nterp but from now on we\u0027re using fields that should be in the interpreter cache.\n\nMaybe we should have different fields for writes. And maybe each individual NPE test should be repeated twice to test both paths.",
+      "revId": "078774b2a140035a3efd907078cde3e1e23a1b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
