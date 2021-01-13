@@ -907,6 +907,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b53fc83_8083b04f",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "A comment `// fall-through` would be better than the new block name. (You have `// nb passthrough` in MovePredicatedAlloc5.)",
+      "parentUuid": "791cbb85_be7f4133",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "853bf392_1301d784",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 60
@@ -1130,6 +1148,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a67f458_4f269e6e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 4966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "If we were materializing at the actual escape point rather than at the excluded cohort entry edges, the `if` would be `BeforeEscape` rather than `InEscape`. You would have to write a more complicated test for `InEscape`.",
+      "parentUuid": "dce9fe12_aaf29fbf",
+      "range": {
+        "startLine": 4966,
+        "startChar": 51,
+        "endLine": 4966,
+        "endChar": 81
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96b896d3_df27bbf4",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 60
@@ -1177,6 +1219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "392cbfeb_56b2fb38",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "Critical edges are _edges_, not blocks. There are no critical edges in\n\n  entry -\u003e left  -\u003e merge\n       \\-\u003e right -/",
+      "parentUuid": "ae0fa4b9_61f382de",
+      "range": {
+        "startLine": 5005,
+        "startChar": 52,
+        "endLine": 5005,
+        "endChar": 66
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d85ce45c_a285bfcf",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 60
@@ -1212,6 +1278,30 @@
       "side": 1,
       "message": "See above",
       "parentUuid": "d85ce45c_a285bfcf",
+      "range": {
+        "startLine": 5007,
+        "startChar": 50,
+        "endLine": 5007,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "232b54ea_c2d97bce",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "Sorry, I selected the wrong edge for this comment. In the subgraph\n\n  merge -\u003e partial -\\\n       \\------------\u003e breturn\n\nthe edge `{\"merge\", \"breturn\"}` is critical because `merge` has 2 successors and `breturn` has 2 predecessors.",
+      "parentUuid": "da963884_49f68775",
       "range": {
         "startLine": 5007,
         "startChar": 50,
@@ -1410,6 +1500,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9d4d7d_1cf09c67",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "Ack. I misread ASSERT_GE as ASSERT_EQ.",
+      "parentUuid": "168f685d_ee200f1e",
+      "range": {
+        "startLine": 5212,
+        "startChar": 32,
+        "endLine": 5214,
+        "endChar": 5
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31d9fa93_4f2ec133",
@@ -1447,6 +1561,30 @@
       "side": 1,
       "message": "See above. One is in partial.",
       "parentUuid": "31d9fa93_4f2ec133",
+      "range": {
+        "startLine": 5225,
+        "startChar": 4,
+        "endLine": 5226,
+        "endChar": 82
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b6117a_d80fc140",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5226,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-13T15:04:47Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "4590f2e6_c8dfbc2b",
       "range": {
         "startLine": 5225,
         "startChar": 4,
