@@ -923,6 +923,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784896eb_150ffd9e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-13T16:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b53fc83_8083b04f",
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "853bf392_1301d784",
@@ -1170,6 +1188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de87838_cb855b29",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 4966,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-13T16:08:53Z",
+      "side": 1,
+      "message": "Ack. For more complicated graphs than this we need the excluded cohort to avoid having to add a predicated-new-instance construct.",
+      "parentUuid": "5a67f458_4f269e6e",
+      "range": {
+        "startLine": 4966,
+        "startChar": 51,
+        "endLine": 4966,
+        "endChar": 81
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96b896d3_df27bbf4",
@@ -1241,6 +1283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96c1069f_07ae3ab2",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5005,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-13T16:08:53Z",
+      "side": 1,
+      "message": "Sorry I was confused by what you meant here. Done.",
+      "parentUuid": "392cbfeb_56b2fb38",
+      "range": {
+        "startLine": 5005,
+        "startChar": 52,
+        "endLine": 5005,
+        "endChar": 66
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d85ce45c_a285bfcf",
@@ -1302,6 +1368,30 @@
       "side": 1,
       "message": "Sorry, I selected the wrong edge for this comment. In the subgraph\n\n  merge -\u003e partial -\\\n       \\------------\u003e breturn\n\nthe edge `{\"merge\", \"breturn\"}` is critical because `merge` has 2 successors and `breturn` has 2 predecessors.",
       "parentUuid": "da963884_49f68775",
+      "range": {
+        "startLine": 5007,
+        "startChar": 50,
+        "endLine": 5007,
+        "endChar": 70
+      },
+      "revId": "852d3ae330a0a80c52811fda84a6e3d59c53a065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "535e1d58_9f5bc1ca",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 60
+      },
+      "lineNbr": 5007,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-13T16:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "232b54ea_c2d97bce",
       "range": {
         "startLine": 5007,
         "startChar": 50,
