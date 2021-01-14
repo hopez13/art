@@ -1,0 +1,475 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89000e16_7047f715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 62
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Another partial review.",
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc87713b_72b4ceed",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "This rename should be done in its own small CL together with s/kUnknown/kPureUnknown/ and fixing some s/IsUnknown/IsPureUnknown/ that you missed in the CL that introduced the pure unknown (see comment in MaterializeLoopPhi).",
+      "range": {
+        "startLine": 443,
+        "startChar": 27,
+        "endLine": 443,
+        "endChar": 40
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2fcacb_88e213ad",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "The further growth of `sizeof(Value)` was predictable the moment you changed the implementation to std::variant\u003c\u003e. (You could avoid that here by adding another value-less enumerator and two wrapper classes but that would sort of defeat the purpose of the std::variant\u003c\u003e.)",
+      "range": {
+        "startLine": 583,
+        "startChar": 55,
+        "endLine": 584,
+        "endChar": 53
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e39b7d_578f3d09",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "The code can be restructured for readability:\n\n  Value ReplacementOrValue(Value value) const {\n    if (current_phase_ \u003d\u003d Phase::kPartialElimination) {\n      if (value.IsPartialUnknown()) {\n        value \u003d value.GetPriorValue().ToValue();\n      }\n      if (value.IsMergedUnknown()) {\n        return phi_placeholder_replacements_[PhiPlaceholderIndex(value)].IsValid()\n            ? Replacement(value)\n            : Value::ForLoopPhiPlaceholder(value.GetPhiPlaceholder());\n      }\n    }\n    ... // unmodified old code\n  }",
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d659a69_73179ad2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 763,
+        "startChar": 11,
+        "endLine": 764,
+        "endChar": 99
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f13d25_7f09a4bb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "`RecordFieldInfo` (singular)",
+      "range": {
+        "startLine": 907,
+        "startChar": 7,
+        "endLine": 907,
+        "endChar": 23
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885a3336_ce27411c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Indentation wrong since PhiPlaceholder rewrite.",
+      "range": {
+        "startLine": 927,
+        "startChar": 43,
+        "endLine": 927,
+        "endChar": 44
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae0776e_9ad66af8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Why not unreachable? Do you support two LSE passes?",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 38
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0536f008_d1e17cb1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "This is the default value. You should use `GetTarget()` if you want to support this.",
+      "range": {
+        "startLine": 958,
+        "startChar": 40,
+        "endLine": 958,
+        "endChar": 50
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408d5f5f_2c424ae0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "You\u0027re setting PartialUnknown even for non-singleton objects?",
+      "range": {
+        "startLine": 1099,
+        "startChar": 40,
+        "endLine": 1099,
+        "endChar": 54
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "518922ff_8041b963",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "If you want to have the phase in a member variable, you should split that style change to its own small CL.",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 23
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba78f20_5e2c72a0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "ForLoopPhiPlaceholder",
+      "range": {
+        "startLine": 1351,
+        "startChar": 18,
+        "endLine": 1351,
+        "endChar": 62
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bee3336_2859d5fc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Style rewrites in a separate CL, perhaps together with phase in member variable.",
+      "range": {
+        "startLine": 1423,
+        "startChar": 6,
+        "endLine": 1440,
+        "endChar": 49
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e98bfa_8d3e63cd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Irreducible loops are used for OSR and the value is really unknown when entering the method through OSR. This really should be a pure unknown.",
+      "range": {
+        "startLine": 1513,
+        "startChar": 6,
+        "endLine": 1513,
+        "endChar": 97
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01bb1ede_4c755640",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "This is essentially `!record.value.IsPureUnknown()`. You\u0027re asserting that we never see a pure unknown for a partial singleton.",
+      "range": {
+        "startLine": 1708,
+        "startChar": 9,
+        "endLine": 1709,
+        "endChar": 40
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c19bdf7_40834d44",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "Why did you rewrite this? Pure unknown can still be used as a conflict marker, so simply updating for the rename would have been enough. (The CL where you introduced the pure unknown should have updated the code here with s/IsUnknown/IsPureUnknown/ and you would not need to touch it.)",
+      "range": {
+        "startLine": 2051,
+        "startChar": 2,
+        "endLine": 2051,
+        "endChar": 50
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e955fbe7_aa6c080f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "These DCHECK()s are not directly related to the Partial LSE, so they can be added in one of the two small CLs I suggested above (pure unknown follow-up; phase in member variable).",
+      "range": {
+        "startLine": 2141,
+        "startChar": 4,
+        "endLine": 2142,
+        "endChar": 64
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b42d6858_c284314a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "/*can_use_default_or_phi\u003d*/",
+      "range": {
+        "startLine": 2291,
+        "startChar": 67,
+        "endLine": 2291,
+        "endChar": 68
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baacc081_5d32e216",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "const auto\u0026",
+      "range": {
+        "startLine": 2693,
+        "startChar": 9,
+        "endLine": 2693,
+        "endChar": 13
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6d39ce_f51a394a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 2700,
+        "startChar": 9,
+        "endLine": 2700,
+        "endChar": 13
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b603a7_dc2c9355",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T15:57:17Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 2701,
+        "startChar": 11,
+        "endLine": 2701,
+        "endChar": 15
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
