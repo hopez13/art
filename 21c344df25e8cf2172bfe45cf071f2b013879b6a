@@ -33,6 +33,29 @@
       "message": "What if this fails?",
       "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b60bee_1b4d7e10",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2797,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-14T15:46:10Z",
+      "side": 1,
+      "message": "These could be File instances local to Dex2oat::DoCompilation (or Dex2oat::Dex2oat) which would keep clean-up super simple and avoid tainting the core state here. Just flagging as an option as I\u0027m quite wary of the bare fd use in our code base.",
+      "range": {
+        "startLine": 2796,
+        "startChar": 0,
+        "endLine": 2797,
+        "endChar": 79
+      },
+      "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
