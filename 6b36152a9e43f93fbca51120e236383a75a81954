@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fba9cb8_8d899bf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 62
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "none of the cl separation is done yet. This is the rest of the stuff.",
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc87713b_72b4ceed",
@@ -64,6 +81,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b629eafc_3fab18a0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e2fcacb_88e213ad",
+      "range": {
+        "startLine": 583,
+        "startChar": 55,
+        "endLine": 584,
+        "endChar": 53
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3e39b7d_578f3d09",
@@ -77,6 +118,24 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "The code can be restructured for readability:\n\n  Value ReplacementOrValue(Value value) const {\n    if (current_phase_ \u003d\u003d Phase::kPartialElimination) {\n      if (value.IsPartialUnknown()) {\n        value \u003d value.GetPriorValue().ToValue();\n      }\n      if (value.IsMergedUnknown()) {\n        return phi_placeholder_replacements_[PhiPlaceholderIndex(value)].IsValid()\n            ? Replacement(value)\n            : Value::ForLoopPhiPlaceholder(value.GetPhiPlaceholder());\n      }\n    }\n    ... // unmodified old code\n  }",
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c120ab_bc24536b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3e39b7d_578f3d09",
       "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -104,6 +163,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44c4d660_613880bf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d659a69_73179ad2",
+      "range": {
+        "startLine": 763,
+        "startChar": 11,
+        "endLine": 764,
+        "endChar": 99
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1f13d25_7f09a4bb",
@@ -117,6 +200,30 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "`RecordFieldInfo` (singular)",
+      "range": {
+        "startLine": 907,
+        "startChar": 7,
+        "endLine": 907,
+        "endChar": 23
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9d74e4_e1611caf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f13d25_7f09a4bb",
       "range": {
         "startLine": 907,
         "startChar": 7,
@@ -173,6 +280,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8881688_089dc67f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Not really seemed prudent though. Instead just made a CHECK failure.",
+      "parentUuid": "2ae0776e_9ad66af8",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 38
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0536f008_d1e17cb1",
@@ -196,6 +327,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39934e8c_07944a7b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0536f008_d1e17cb1",
+      "range": {
+        "startLine": 958,
+        "startChar": 40,
+        "endLine": 958,
+        "endChar": 50
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "408d5f5f_2c424ae0",
@@ -209,6 +364,30 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "You\u0027re setting PartialUnknown even for non-singleton objects?",
+      "range": {
+        "startLine": 1099,
+        "startChar": 40,
+        "endLine": 1099,
+        "endChar": 54
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b66e42_77c4ce48",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "it simplifies this code.",
+      "parentUuid": "408d5f5f_2c424ae0",
       "range": {
         "startLine": 1099,
         "startChar": 40,
@@ -265,6 +444,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "244e5210_fbef1560",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba78f20_5e2c72a0",
+      "range": {
+        "startLine": 1351,
+        "startChar": 18,
+        "endLine": 1351,
+        "endChar": 62
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bee3336_2859d5fc",
@@ -311,6 +514,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd8345a_f4119738",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Good point. That also means we just can\u0027t really do partial LSE when we are OSR.",
+      "parentUuid": "47e98bfa_8d3e63cd",
+      "range": {
+        "startLine": 1513,
+        "startChar": 6,
+        "endLine": 1513,
+        "endChar": 97
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01bb1ede_4c755640",
@@ -324,6 +551,30 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "This is essentially `!record.value.IsPureUnknown()`. You\u0027re asserting that we never see a pure unknown for a partial singleton.",
+      "range": {
+        "startLine": 1708,
+        "startChar": 9,
+        "endLine": 1709,
+        "endChar": 40
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7f8861_35c83ae3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01bb1ede_4c755640",
       "range": {
         "startLine": 1708,
         "startChar": 9,
@@ -403,6 +654,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "068b5d25_14b669f7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2291,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b42d6858_c284314a",
+      "range": {
+        "startLine": 2291,
+        "startChar": 67,
+        "endLine": 2291,
+        "endChar": 68
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baacc081_5d32e216",
@@ -416,6 +691,30 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "const auto\u0026",
+      "range": {
+        "startLine": 2693,
+        "startChar": 9,
+        "endLine": 2693,
+        "endChar": 13
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d05628a9_4ed0bf53",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2693,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baacc081_5d32e216",
       "range": {
         "startLine": 2693,
         "startChar": 9,
@@ -449,6 +748,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa51534_82a0404c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd6d39ce_f51a394a",
+      "range": {
+        "startLine": 2700,
+        "startChar": 9,
+        "endLine": 2700,
+        "endChar": 13
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05b603a7_dc2c9355",
@@ -462,6 +785,30 @@
       "writtenOn": "2021-01-14T15:57:17Z",
       "side": 1,
       "message": "size_t",
+      "range": {
+        "startLine": 2701,
+        "startChar": 11,
+        "endLine": 2701,
+        "endChar": 15
+      },
+      "revId": "6b36152a9e43f93fbca51120e236383a75a81954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac3e672_baa993da",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 62
+      },
+      "lineNbr": 2701,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-14T20:29:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05b603a7_dc2c9355",
       "range": {
         "startLine": 2701,
         "startChar": 11,
