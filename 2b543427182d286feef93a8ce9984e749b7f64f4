@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53edca31_f0d6008d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-14T21:24:32Z",
+      "side": 1,
+      "message": "This seems like an odd bit of code now, but the cache directory created is used in tests.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 35
+      },
+      "revId": "2b543427182d286feef93a8ce9984e749b7f64f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
