@@ -5169,7 +5169,9 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
 }
 
 // Return whether the runtime knows how to execute a method without needing to
-// re-verify it at runtime (and therefore save on first use of the class).
+// re-verify it at runtime (and therefore save on first use of the class). We
+// currently only support it for access checks, where the runtime will mark the
+// methods as needing access checks and have the interpreter execute with them.
 // The AOT/JIT compiled code is not affected.
 static inline bool CanRuntimeHandleVerificationFailure(uint32_t encountered_failure_types) {
   constexpr uint32_t unresolved_mask =
@@ -5177,7 +5179,6 @@ static inline bool CanRuntimeHandleVerificationFailure(uint32_t encountered_fail
       verifier::VerifyError::VERIFY_ERROR_INSTANTIATION |
       verifier::VerifyError::VERIFY_ERROR_ACCESS_CLASS |
       verifier::VerifyError::VERIFY_ERROR_ACCESS_FIELD |
-      verifier::VerifyError::VERIFY_ERROR_NO_METHOD |
       verifier::VerifyError::VERIFY_ERROR_ACCESS_METHOD;
   return (encountered_failure_types & (~unresolved_mask)) == 0;
 }
@@ -5538,7 +5539,6 @@ std::ostream& MethodVerifier::Fail(VerifyError error, bool pending_exc) {
         if (IsAotMode() || !can_load_classes_) {
           if (error != VERIFY_ERROR_ACCESS_CLASS &&
               error != VERIFY_ERROR_ACCESS_FIELD &&
-              error != VERIFY_ERROR_NO_METHOD &&
               error != VERIFY_ERROR_ACCESS_METHOD) {
             // If we're optimistically running verification at compile time, turn NO_xxx,
             // class change and instantiation errors into soft verification errors so that we
