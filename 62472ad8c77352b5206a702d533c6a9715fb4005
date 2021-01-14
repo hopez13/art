@@ -16,6 +16,29 @@
       "message": "There some additional clean-up that should go here too that I\u0027d like to defer to a follow-on CL.",
       "revId": "62472ad8c77352b5206a702d533c6a9715fb4005",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4205eaa5_5d43752a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-14T17:43:36Z",
+      "side": 1,
+      "message": "Remove this.",
+      "range": {
+        "startLine": 121,
+        "startChar": 62,
+        "endLine": 126,
+        "endChar": 61
+      },
+      "revId": "62472ad8c77352b5206a702d533c6a9715fb4005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
