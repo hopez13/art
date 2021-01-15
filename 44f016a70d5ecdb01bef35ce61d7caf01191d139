@@ -16,6 +16,24 @@
       "message": "I don\u0027t understand the changes that happened in PS6, why do you need them?",
       "revId": "44f016a70d5ecdb01bef35ce61d7caf01191d139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9040f232_d86db932",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061696
+      },
+      "writtenOn": "2021-01-15T11:38:08Z",
+      "side": 1,
+      "message": "Actually, I have tested the changes with linux host(#5).\nAnd it works fine, but there was a crash with arm target.\nSo, I updated the patch #6.\nCurrently, It works fine linux host and target arm.",
+      "parentUuid": "f96a2b13_c18a1a51",
+      "revId": "44f016a70d5ecdb01bef35ce61d7caf01191d139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
