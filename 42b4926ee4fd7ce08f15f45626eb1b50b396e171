@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e5b5cc9_7f4c91dc",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-15T10:37:01Z",
+      "side": 1,
+      "message": "Do we need to keep this? Are we still using the dalvik cache for something? (Maybe pre-installed apps from /system/?)",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 35
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f495614d_56574c69",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 3
@@ -19,6 +42,53 @@
         "startChar": 25,
         "endLine": 2793,
         "endChar": 36
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07277c5b_5db979ac",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-15T10:37:01Z",
+      "side": 1,
+      "message": "I don\u0027t think we need the locking at all (primary boot image being in apex and extensions being either in /system/ or in a protected location for on-device compilation). But I\u0027d just keep it in this CL and reconsider later.",
+      "parentUuid": "f495614d_56574c69",
+      "range": {
+        "startLine": 2793,
+        "startChar": 25,
+        "endLine": 2793,
+        "endChar": 36
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c807326_e70bbe0a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-15T10:37:01Z",
+      "side": 1,
+      "message": "Always true here.",
+      "range": {
+        "startLine": 3479,
+        "startChar": 8,
+        "endLine": 3479,
+        "endChar": 18
       },
       "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
