@@ -94,6 +94,30 @@
       },
       "revId": "d052ea04f46bdcc59663eb0a50379ada6c63f0c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1880c2e_d533767c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-15T15:03:22Z",
+      "side": 1,
+      "message": "You mean, when the app generates the boot image? I don\u0027t think we support this today.",
+      "parentUuid": "a24ca7cf_96c98f4a",
+      "range": {
+        "startLine": 2779,
+        "startChar": 4,
+        "endLine": 2781,
+        "endChar": 73
+      },
+      "revId": "d052ea04f46bdcc59663eb0a50379ada6c63f0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
