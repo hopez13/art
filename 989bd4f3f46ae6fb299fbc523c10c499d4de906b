@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "538223a0_4f995252",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 2831,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e4849f8_d15bfa93",
+      "range": {
+        "startLine": 2826,
+        "startChar": 2,
+        "endLine": 2831,
+        "endChar": 9
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8607d4e_c20a8789",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "parameter name",
+      "range": {
+        "startLine": 2897,
+        "startChar": 20,
+        "endLine": 2897,
+        "endChar": 21
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d977442_9ac0ca08",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 2897,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8607d4e_c20a8789",
       "range": {
         "startLine": 2897,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e17ab522_f07cf575",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "019208dc_062f7638",
+      "range": {
+        "startLine": 2984,
+        "startChar": 6,
+        "endLine": 2986,
+        "endChar": 19
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72031fa1_45094dd6",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Why? Can there be any uses?",
+      "range": {
+        "startLine": 3095,
+        "startChar": 50,
+        "endLine": 3095,
+        "endChar": 73
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "861bbd44_6dafaa68",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Removed. Relic from early prototype version I forgot to remove.",
+      "parentUuid": "72031fa1_45094dd6",
       "range": {
         "startLine": 3095,
         "startChar": 50,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4a49fa_c97a5950",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb8f998b_3948ec13",
+      "range": {
+        "startLine": 3111,
+        "startChar": 50,
+        "endLine": 3111,
+        "endChar": 73
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3722d9d9_b782a5ee",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Can we actually get here?",
+      "range": {
+        "startLine": 3147,
+        "startChar": 10,
+        "endLine": 3147,
+        "endChar": 47
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f832bec4_abb17442",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3147,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "yeah if for some reason you put \n\n```\nobj a \u003d new Object();\nif (a \u003d\u003d a) {\n  // do something;\n}\n```\n\nWe\u0027ll see it twice since we\u0027ll replace the HEquals on the first go around but we\u0027ll see the use again since it will be in to_predicate twice (once for each arg).",
+      "parentUuid": "3722d9d9_b782a5ee",
       "range": {
         "startLine": 3147,
         "startChar": 10,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e982cbb7_eb08fe3a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3180,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f0be38d_09697026",
+      "range": {
+        "startLine": 3180,
+        "startChar": 56,
+        "endLine": 3180,
+        "endChar": 70
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4698dacd_fddc3fc6",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "is_escaped (not null means the partial singleton actually escaped)",
+      "range": {
+        "startLine": 3184,
+        "startChar": 26,
+        "endLine": 3184,
+        "endChar": 40
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b315f67_179faa59",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3184,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4698dacd_fddc3fc6",
       "range": {
         "startLine": 3184,
         "startChar": 26,
@@ -202,6 +394,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf597967_e2c65024",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d21ae1bd_daab5c60",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d2d08ab_dde61114",
@@ -215,6 +425,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "We usually use just `use` for use nodes, reserving `user` for `HInstruction* user \u003d use.GetUser()`. That would shorten many expressions below.",
+      "range": {
+        "startLine": 3214,
+        "startChar": 17,
+        "endLine": 3214,
+        "endChar": 21
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88eb666a_5edc157a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3214,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d2d08ab_dde61114",
       "range": {
         "startLine": 3214,
         "startChar": 17,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89fb6e3a_59f4bce9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3218,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65d73fbf_e9bd6164",
+      "range": {
+        "startLine": 3218,
+        "startChar": 24,
+        "endLine": 3218,
+        "endChar": 35
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8851bf17_c370e326",
@@ -261,6 +519,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "One per line.",
+      "range": {
+        "startLine": 3227,
+        "startChar": 68,
+        "endLine": 3227,
+        "endChar": 96
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b74abfe8_89ed994c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3227,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8851bf17_c370e326",
       "range": {
         "startLine": 3227,
         "startChar": 68,
@@ -294,6 +576,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "554b9aa8_d40155c3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0930ae54_c64992f2",
+      "range": {
+        "startLine": 3229,
+        "startChar": 10,
+        "endLine": 3229,
+        "endChar": 60
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00278231_26fbaacc",
@@ -307,6 +613,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "You don\u0027t need this. The `HEnvironment::ReplaceInput()` is moving nodes from the old NewInstance\u0027s env uses to the replacement NewInstances\u0027 env uses, so you can simply iterate until the container is empty:\n\n  const auto\u0026 env_uses \u003d ref_data.OriginalNewInstance()-\u003eGetEnvUses();\n  while (!env_uses.empty()) {\n    const HUseListNode\u0026 use \u003d *env_uses.begin();\n    HInstruction* user \u003d use.GetUser();\n    size_t index \u003d use.GetIndex();\n    HInstruction* merged_inst \u003d ref_data.GetMaterialization(user-\u003eGetHolder()-\u003eGetBlock());\n    LSE_VLOG \u003c\u003c \"Replacing env use of \" \u003c\u003c *user-\u003eGetHolder() \u003c\u003c \"@\" \u003c\u003c idx \u003c\u003c \" with \"\n            \u003c\u003c *merged_inst;\n    user-\u003eReplaceInput(merged_inst, idx);  // Moves the `use` node to user\u0027s env uses.\n  }\n\n(That shall make the CHECK() at line 3387 useless.)",
+      "range": {
+        "startLine": 3377,
+        "startChar": 6,
+        "endLine": 3377,
+        "endChar": 98
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a26003b_43745fd8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3377,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00278231_26fbaacc",
       "range": {
         "startLine": 3377,
         "startChar": 6,
@@ -340,6 +670,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "264e158f_121e2a46",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3393,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6532a6ef_9b7904cf",
+      "range": {
+        "startLine": 3390,
+        "startChar": 6,
+        "endLine": 3393,
+        "endChar": 60
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6358aca3_64a54652",
@@ -353,6 +707,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "The comparison for `std::sort()` must be a strict weak ordering. It\u0027s trivial to construct environments in gtest where the below comparison is not. (It may not be possible to construct such environments from _bytecode_ as a new-instance would need to be in a vreg to be live and therefore in environments of all subsequent new-instance instructions and that would translate to the materialized instructions as well. But if we wanted to re-run LSE a second time, we could hit such issues for partial singletons that were hidden in fields rather than vregs and the first LSE eliminated those loads and stores.)\n\n`std::sort` is not \"stable\" and the result is therefore implementation-defined for equivalent elements. However, we want to have the same results whether compiling on host or on target.",
+      "range": {
+        "startLine": 3411,
+        "startChar": 6,
+        "endLine": 3411,
+        "endChar": 15
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f429b4_f10a9157",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3411,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "changed to std::stable_sort. the original order depends on the order of heap_references which depends on the instruction order (RPO then instruction order adding whenever an unknown field-ref is found, so stable) so will be stable on all platforms.",
+      "parentUuid": "6358aca3_64a54652",
       "range": {
         "startLine": 3411,
         "startChar": 6,
@@ -386,6 +764,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7697d560_8dff1d4e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3437,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Yeah if we actually managed to remove it with LSE.",
+      "parentUuid": "be7e8216_c9256451",
+      "range": {
+        "startLine": 3437,
+        "startChar": 38,
+        "endLine": 3437,
+        "endChar": 79
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cbc8df4_7e0f5b41",
@@ -399,6 +801,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Or you could have both PartialLoadStoreEliminationHelper and HeapReferenceData declared as nested classes of LSEVisitor instead of nesting one in the other (but do not move the full definition inside LSEVisitor). You would have to define some member functions outside the class definitions as they seem to call each other.",
+      "range": {
+        "startLine": 3496,
+        "startChar": 0,
+        "endLine": 3498,
+        "endChar": 93
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbfa2e8_ea7827fb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3498,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Ack. That seems like a pretty major refactor and I think this is fine TBH.",
+      "parentUuid": "8cbc8df4_7e0f5b41",
       "range": {
         "startLine": 3496,
         "startChar": 0,
@@ -432,6 +858,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8021a0d5_772aa7e1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "this can happen and be valid if the escape is a phi. See test MuliPredicatedLoad3",
+      "parentUuid": "ad53098d_2092a345",
+      "range": {
+        "startLine": 3507,
+        "startChar": 6,
+        "endLine": 3507,
+        "endChar": 55
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "022b1dfa_86b38f99",
@@ -445,6 +895,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "This should not happen.",
+      "range": {
+        "startLine": 3529,
+        "startChar": 77,
+        "endLine": 3529,
+        "endChar": 93
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a06dec06_d67e04aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3529,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "022b1dfa_86b38f99",
       "range": {
         "startLine": 3529,
         "startChar": 77,
@@ -478,6 +952,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b4c355_bd828e27",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3539,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab895756_22c13db1",
+      "range": {
+        "startLine": 3539,
+        "startChar": 77,
+        "endLine": 3539,
+        "endChar": 96
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d235da4_9302f6b2",
@@ -491,6 +989,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "HInstruction*",
+      "range": {
+        "startLine": 3582,
+        "startChar": 4,
+        "endLine": 3582,
+        "endChar": 8
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c305c19d_dcaf6386",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3582,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d235da4_9302f6b2",
       "range": {
         "startLine": 3582,
         "startChar": 4,
@@ -524,6 +1046,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c759fe_4d09dcdd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3587,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67eea677_04a6296e",
+      "range": {
+        "startLine": 3587,
+        "startChar": 2,
+        "endLine": 3587,
+        "endChar": 17
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dc58772_7d859275",
@@ -537,6 +1083,30 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Every entry block has a single predecessor. And it\u0027s obviously outside the excluded cohort.\n\nLet\u0027s assume that there exists an entry block `B` of an excluded cohort `C` with multiple predecessors. Due to breaking critical edges, each of its predecessors has a single successor, namely `B`. Then there is no path from such a predecessor to the exit block without going through `B` and therefore through `C`, so it has to be a part of `C`. Thus `B` has no predecessors outside `C` and it\u0027s therefore not an entry block of `C`. That contradicts the original assumption.",
+      "range": {
+        "startLine": 3610,
+        "startChar": 16,
+        "endLine": 3610,
+        "endChar": 66
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c729f5_21cb7887",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3610,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Good catch.",
+      "parentUuid": "2dc58772_7d859275",
       "range": {
         "startLine": 3610,
         "startChar": 16,
@@ -570,6 +1140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f8c510_1b11fc64",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3642,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59a2aa06_67ae7ba2",
+      "range": {
+        "startLine": 3642,
+        "startChar": 10,
+        "endLine": 3642,
+        "endChar": 80
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d69af580_4623edae",
@@ -583,6 +1177,24 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Add blank line.",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff4eb0b_3c396597",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d69af580_4623edae",
       "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -604,6 +1216,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1d4459_ac764ed5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39ad89f_bc632232",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa57e75e_126b345e",
@@ -617,6 +1247,24 @@
       "writtenOn": "2021-01-15T16:59:09Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2195b25_12914824",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 7880,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-15T21:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa57e75e_126b345e",
       "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
