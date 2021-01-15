@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f495614d_56574c69",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2793,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-15T07:57:42Z",
+      "side": 1,
+      "message": "!is_global_cache \u003d\u003d app directory cache? If so this should always be true now, not just follow is_zygote_",
+      "range": {
+        "startLine": 2793,
+        "startChar": 25,
+        "endLine": 2793,
+        "endChar": 36
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
