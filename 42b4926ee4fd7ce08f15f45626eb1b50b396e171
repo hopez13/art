@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc97c7cd_85552f39",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-15T11:49:07Z",
+      "side": 1,
+      "message": "This is the crux of why the opening comment was can \"we clean up later?\", there are test failures removing this.\n\nThe code here (even before) seems like an odd side effect for a method responsible for finding a filename.\n\nPS4 removes this and updates OatFileAssistant::DexLocationToOatFilename() which is where the test failures originate from due to non-existence of cache directory.",
+      "parentUuid": "5e5b5cc9_7f4c91dc",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 35
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f495614d_56574c69",
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6393c1d6_c99a6b30",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2793,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-15T11:49:07Z",
+      "side": 1,
+      "message": "Ack, will do. Thanks.",
+      "parentUuid": "07277c5b_5db979ac",
+      "range": {
+        "startLine": 2793,
+        "startChar": 25,
+        "endLine": 2793,
+        "endChar": 36
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c807326_e70bbe0a",
@@ -84,6 +132,30 @@
       "writtenOn": "2021-01-15T10:37:01Z",
       "side": 1,
       "message": "Always true here.",
+      "range": {
+        "startLine": 3479,
+        "startChar": 8,
+        "endLine": 3479,
+        "endChar": 18
+      },
+      "revId": "42b4926ee4fd7ce08f15f45626eb1b50b396e171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01085f5d_4100711d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-15T11:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c807326_e70bbe0a",
       "range": {
         "startLine": 3479,
         "startChar": 8,
