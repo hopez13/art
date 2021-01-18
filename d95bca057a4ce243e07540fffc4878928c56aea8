@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3df863e_07599bc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T17:54:13Z",
+      "side": 1,
+      "message": "Ah yes, done.",
+      "parentUuid": "7f687113_7e95503b",
+      "revId": "d95bca057a4ce243e07540fffc4878928c56aea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "682e5c21_a30aa323",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-01-18T17:05:44Z",
       "side": 1,
       "message": "Move before the CMP above, drop the stores from lines 1527-1528.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 4,
+        "endLine": 1470,
+        "endChar": 28
+      },
+      "revId": "d95bca057a4ce243e07540fffc4878928c56aea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa904eef_8c6ccc75",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T17:54:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682e5c21_a30aa323",
       "range": {
         "startLine": 1469,
         "startChar": 4,
