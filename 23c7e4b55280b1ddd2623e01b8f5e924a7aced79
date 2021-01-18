@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "705ef926_e204f540",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T14:18:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3413d430_54b52ec3",
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22522684_ff06f457",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-01-13T16:40:12Z",
       "side": 1,
       "message": "We could replace these 3 ADDs with 2 ADDs just before .Lsetup_with_shorty (adjust x21 instead of both x10 and x11). Then we could replace the TBNZ+B with TBZ.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 4,
+        "endLine": 1387,
+        "endChar": 20
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "735adce0_9ad1fea5",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T14:18:38Z",
+      "side": 1,
+      "message": "Good point - I\u0027m going to refactor this code when using a bit in the access flags that the shorty doesn\u0027t contain floating point, so it\u0027s likely I\u0027ll have to refactor it back to how it was. If that\u0027s OK with you, I\u0027ll keep the code as is.",
+      "parentUuid": "22522684_ff06f457",
       "range": {
         "startLine": 1385,
         "startChar": 4,
@@ -106,6 +148,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b43e775e_e2c71afe",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T14:18:38Z",
+      "side": 1,
+      "message": "Not sure I follow your suggestion: r7 and r8 need to be initialized before lines 1407-1408, not after the shorty (if you\u0027re suggesting to optimize based on knowing there\u0027s only one argument, as I mention in the arm64 variant, I\u0027m going to refactor this code once I use a bit in the access flags which will have to work with arbitrary number of arguments.)",
+      "parentUuid": "51167d40_3ea64174",
+      "range": {
+        "startLine": 1394,
+        "startChar": 8,
+        "endLine": 1394,
+        "endChar": 10
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a921d94_30802bfa",
         "filename": "runtime/interpreter/mterp/armng/main.S",
         "patchSetId": 4
@@ -129,6 +195,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce4feaf1_5e443c8e",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T14:18:38Z",
+      "side": 1,
+      "message": "ditto (I think)",
+      "parentUuid": "9a921d94_30802bfa",
+      "range": {
+        "startLine": 1402,
+        "startChar": 4,
+        "endLine": 1402,
+        "endChar": 49
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c13056f_40c494a4",
         "filename": "runtime/interpreter/mterp/armng/main.S",
         "patchSetId": 4
@@ -140,6 +230,30 @@
       "writtenOn": "2021-01-13T16:40:12Z",
       "side": 1,
       "message": "Use indexed stores as on arm64, reorder before the CMP+BNE, replace loads below with ADD, move ADDs here.",
+      "range": {
+        "startLine": 1407,
+        "startChar": 4,
+        "endLine": 1408,
+        "endChar": 20
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7da7dbb3_00cc3d05",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-18T14:18:38Z",
+      "side": 1,
+      "message": "ditto (I think)",
+      "parentUuid": "8c13056f_40c494a4",
       "range": {
         "startLine": 1407,
         "startChar": 4,
