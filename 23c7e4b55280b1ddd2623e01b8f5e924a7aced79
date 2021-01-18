@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b611d77_281d7df0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:26:20Z",
+      "side": 1,
+      "message": "We could look at the next opcode and do the optimization when it\u0027s not move-result or move-result-wide, i.e. `(next_opcode \u0026 0xfe) !\u003d 0x0a)`. This would cover non-wide setters (no move-result for void methods), reference getters (move-result-object is OK, we know the result register) and a lot of other methods with up to one non-wide parameter other than `this`.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bcd1aa58_dfb62d79",
