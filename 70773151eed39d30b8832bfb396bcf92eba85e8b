@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae5ad31_4cf77bb6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 66
+      },
+      "lineNbr": 3382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Two lines too long.",
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6b275c4_0172db83",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 66
+      },
+      "lineNbr": 6027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 6027,
+        "startChar": 18,
+        "endLine": 6027,
+        "endChar": 26
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb8f70f_1160d080",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 69
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ec18fe_010b0ecd",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Why should we care here?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 68
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada066f9_e6039720",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "I don\u0027t know what you mean. Maybe just remove? I don\u0027t think this class needs any comments.",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12e992c3_6201aaf4",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3823,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "One more?",
+      "range": {
+        "startLine": 3823,
+        "startChar": 21,
+        "endLine": 3823,
+        "endChar": 41
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8dc286_291293d0",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3833,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "As I said on the previous Partial LSE CL, this check is too weak. To check the number of instructions of a specific kind, use a separate checker block (one for each kind; just like you do for \"load_store_elimination (after)\" below).\n\nBut maybe we do not care to check the exact numbers the \"before\" phase? (In that case, remove.)",
+      "range": {
+        "startLine": 3830,
+        "startChar": 2,
+        "endLine": 3833,
+        "endChar": 37
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce47f9e_b73086cd",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Should we check that one of them is predicated? (Needs a new attribute in graph visualizer.)",
+      "range": {
+        "startLine": 3848,
+        "startChar": 21,
+        "endLine": 3849,
+        "endChar": 37
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a2d086a_1ae5fa02",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3864,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Unused. Remove and rename `res2` below to `res`.",
+      "range": {
+        "startLine": 3864,
+        "startChar": 4,
+        "endLine": 3864,
+        "endChar": 12
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61ec5aa1_bf84c6d2",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3889,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "One block for counting Phis, another for counting predicated gets.",
+      "range": {
+        "startLine": 3883,
+        "startChar": 2,
+        "endLine": 3889,
+        "endChar": 47
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac1b6ce_2fe9d8c9",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3900,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Also check for predicated set?",
+      "range": {
+        "startLine": 3900,
+        "startChar": 4,
+        "endLine": 3900,
+        "endChar": 24
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e280e0a_2f237030",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 66
+      },
+      "lineNbr": 3916,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "I don\u0027t see much value in duplicating the test for different types. If you want to keep these, the two comments from the float test apply to all the other tests.",
+      "range": {
+        "startLine": 3916,
+        "startChar": 53,
+        "endLine": 3916,
+        "endChar": 59
+      },
+      "revId": "70773151eed39d30b8832bfb396bcf92eba85e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

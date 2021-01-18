@@ -743,6 +743,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "825c46b7_ee32781d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "You did not address the first part, i.e. the comparison potentially not being a strict weak ordereing (not transitive).",
+      "parentUuid": "38f429b4_f10a9157",
+      "range": {
+        "startLine": 3411,
+        "startChar": 6,
+        "endLine": 3411,
+        "endChar": 15
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be7e8216_c9256451",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 63
@@ -835,6 +859,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf9a999c_1c73861c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a major refactoring but OK to keep as is.",
+      "parentUuid": "7cbfa2e8_ea7827fb",
+      "range": {
+        "startLine": 3496,
+        "startChar": 0,
+        "endLine": 3498,
+        "endChar": 93
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad53098d_2092a345",
@@ -872,6 +920,30 @@
       "side": 1,
       "message": "this can happen and be valid if the escape is a phi. See test MuliPredicatedLoad3",
       "parentUuid": "ad53098d_2092a345",
+      "range": {
+        "startLine": 3507,
+        "startChar": 6,
+        "endLine": 3507,
+        "endChar": 55
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa05d73b_a9b8359c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "But the entry blocks there are the \"left_end\" and \"right_end\", rather than the \"breturn\".",
+      "parentUuid": "8021a0d5_772aa7e1",
       "range": {
         "startLine": 3507,
         "startChar": 6,
@@ -1195,6 +1267,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "d69af580_4623edae",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdcb7e3a_b1615b73",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-18T15:11:07Z",
+      "side": 1,
+      "message": "Not done in PS66. (Though you added a blank like above.)",
+      "parentUuid": "5ff4eb0b_3c396597",
       "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
