@@ -62,7 +62,7 @@ def install_apex_entries(apex_name):
   res = []
   for arch in ARCHES:
     res.append(InstallEntry(
-        os.path.join(arch, apex_name + ".apex"),
+        os.path.join("art_module_" + arch, apex_name + ".apex"),
         os.path.join(PACKAGE_PATH, apex_name + "-" + arch + ".apex"),
         install_unzipped=False))
   return res
