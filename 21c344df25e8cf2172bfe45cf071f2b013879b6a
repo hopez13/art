@@ -91,6 +91,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8af6180e_83b3dba4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-19T16:11:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a17604d2_71aac5e0",
+      "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d0b60bee_1b4d7e10",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -150,6 +168,30 @@
       "side": 1,
       "message": "class state.",
       "parentUuid": "892fc8d4_ae5d38ad",
+      "range": {
+        "startLine": 2796,
+        "startChar": 0,
+        "endLine": 2797,
+        "endChar": 79
+      },
+      "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a505208_1a2b3bd5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2797,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-19T16:11:39Z",
+      "side": 1,
+      "message": "Ah I see - Given the files are closed (for consistency reasons with other inputs), won\u0027t we need to taint the class state always?",
+      "parentUuid": "bd43ec73_c8fb1724",
       "range": {
         "startLine": 2796,
         "startChar": 0,
