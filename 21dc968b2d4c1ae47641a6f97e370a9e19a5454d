@@ -18,6 +18,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1dd516_ee46de93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-01-19T19:42:21Z",
+      "side": 1,
+      "message": "Putting this CL on hold to land aosp/1551376 instead.",
+      "revId": "21dc968b2d4c1ae47641a6f97e370a9e19a5454d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ea13309_51b92bca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-01-19T19:42:21Z",
+      "side": 1,
+      "message": "Right, trying to fix the test seems a better approach to me too. We should try to land aosp/1551376, check the results on TradeFed, then if there\u0027s no failure, enable it on other ART Testing infrastructures by removing it from `test/knownfailures.json`.",
+      "parentUuid": "eda9cf83_11126203",
+      "revId": "21dc968b2d4c1ae47641a6f97e370a9e19a5454d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b92f4e2_3108f4dd",
