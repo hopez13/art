@@ -765,6 +765,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a98c28_509618be",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3411,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-19T21:34:43Z",
+      "side": 1,
+      "message": "Replaced with an insertion-sort which is able to deal with not having strict weak ordering. Instead just puting in front any instructions without dependencies and repeating.",
+      "parentUuid": "825c46b7_ee32781d",
+      "range": {
+        "startLine": 3411,
+        "startChar": 6,
+        "endLine": 3411,
+        "endChar": 15
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be7e8216_c9256451",
@@ -944,6 +968,30 @@
       "side": 1,
       "message": "But the entry blocks there are the \"left_end\" and \"right_end\", rather than the \"breturn\".",
       "parentUuid": "8021a0d5_772aa7e1",
+      "range": {
+        "startLine": 3507,
+        "startChar": 6,
+        "endLine": 3507,
+        "endChar": 55
+      },
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37106926_25ae5da7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-19T21:34:43Z",
+      "side": 1,
+      "message": "Yeah but the allocation only dominates one of them.\n\nObj obj;\nif (param1) {\n  // needs to be moved after param2 check\n  obj1 \u003d new Obj1();\n  obj1.foo \u003d 33;\n  if (param2) {\n    return obj1.foo;\n  } else {}\n  obj \u003d obj1;\n} else {\n  obj2 \u003d new Obj2();\n  obj2.foo \u003d 44;\n  if (param2) {\n    return obj2.foo;\n  } else {}\n}\nEXIT\n// Escape \\/\n// obj \u003d PHI[obj1, null]\nreturn obj.foo;\n\nEG here obj1 escapes at the PHI.\n\nThe partial lsa doesn\u0027t take into account lifetime so as far as that is concerned the \u0027else\u0027 branch of the \u0027if (param2)\u0027 is an excluded cohort entry point for both (since there is no path without hitting the phi. (NB this is a limitation I\u0027d like to correct since it also prevents optimizing some loops etc).\n\nOn the obj2 path though we never allocate the object so we don\u0027t need to materialize it.",
+      "parentUuid": "aa05d73b_a9b8359c",
       "range": {
         "startLine": 3507,
         "startChar": 6,
@@ -1285,6 +1333,24 @@
       "side": 1,
       "message": "Not done in PS66. (Though you added a blank like above.)",
       "parentUuid": "5ff4eb0b_3c396597",
+      "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25301db_9e34dd75",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 63
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-19T21:34:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdcb7e3a_b1615b73",
       "revId": "989bd4f3f46ae6fb299fbc523c10c499d4de906b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
