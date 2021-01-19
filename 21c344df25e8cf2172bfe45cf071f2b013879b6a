@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a17604d2_71aac5e0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-19T15:11:48Z",
+      "side": 1,
+      "message": "Yes, we should return `dex2oat::ReturnCode::kOther` if this fails. (We should not run out of descriptors under normal circumastances.)",
+      "parentUuid": "991aab31_1e879fbc",
+      "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0b60bee_1b4d7e10",
