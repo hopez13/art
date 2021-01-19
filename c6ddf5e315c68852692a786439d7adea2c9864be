@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e86fa088_6528de29",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-19T20:10:42Z",
+      "side": 1,
+      "message": "Leaks zip_dup_fd_ if created. For single shot use, maybe not a big deal, but generally preferable not to.",
+      "range": {
+        "startLine": 1417,
+        "startChar": 10,
+        "endLine": 1417,
+        "endChar": 45
+      },
+      "revId": "c6ddf5e315c68852692a786439d7adea2c9864be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8351d165_5fd195a4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-19T20:10:42Z",
+      "side": 1,
+      "message": "Potentially leaks both fd\u0027s and so on for all bails here (again not a big deal, but preferable not to).",
+      "range": {
+        "startLine": 1427,
+        "startChar": 6,
+        "endLine": 1427,
+        "endChar": 41
+      },
+      "revId": "c6ddf5e315c68852692a786439d7adea2c9864be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e596eec0_409db4e4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2943,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-19T20:10:42Z",
+      "side": 1,
+      "message": "Should this always be called if NotifyStartDex2oatCompilation() has been called?\n\nProbably good to clarify in palette_hooks.h so there is clear understanding. An implementer may allocate state when NotifyStart...() is called that is released after a corresponding NotifyEnd...().\n\nScopedCompilationNotification?",
+      "range": {
+        "startLine": 2943,
+        "startChar": 2,
+        "endLine": 2943,
+        "endChar": 35
+      },
+      "revId": "c6ddf5e315c68852692a786439d7adea2c9864be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
