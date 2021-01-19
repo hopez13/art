@@ -22,6 +22,30 @@
       },
       "revId": "808c556b1f4b936b8e9010ed1a6d8313dd862983",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e08e85_812ef3d2",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-01-19T16:34:52Z",
+      "side": 0,
+      "message": "\u003e We still don\u0027t have chroot running on Golem, right?\n\nI haven\u0027t followed this closely recently, but I don\u0027t thinks we use a chroot environment on Golem yet. However, it seems we are using APEXes there (which we didn\u0027t originally).\n\n\u003e I\u0027m not sure exactly what here the TODO pertains to. Is it that build-art-target-golem should go away altogether? +rpl\n\n\"Golem fully supports the Time Zone Data APEX\" meant that we could use the TZ Data APEX by \"activating\" it, either by:\na. extracting its contents (like we do on the ART Buildbot (LUCI)); or\nb. by mounting it (à la `apexd`).\n\nThe targets removed by this CL were installing artifacts so that we did not have to support any of that for simplicity (that was 2 years ago when we had to have a solution as things were moving fast). These targets have been replaced by the TZ Data APEX extraction strategy (a.).\n\nI think this TODO has been resolved now, as we are actually using APEXes instead of special work-around targets.",
+      "parentUuid": "0ff91676_d5441312",
+      "range": {
+        "startLine": 722,
+        "startChar": 7,
+        "endLine": 722,
+        "endChar": 18
+      },
+      "revId": "808c556b1f4b936b8e9010ed1a6d8313dd862983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
