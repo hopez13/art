@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "12d47b8d_66af3728",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-19T09:38:33Z",
+      "side": 1,
+      "message": "Thanks, that\u0027ll do. (I would not want that done as part of this CL anyway.)",
+      "parentUuid": "2d925e84_c16710d5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bcd1aa58_dfb62d79",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -147,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f97001c_6d7c8b7d",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-19T09:38:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "735adce0_9ad1fea5",
+      "range": {
+        "startLine": 1385,
+        "startChar": 4,
+        "endLine": 1387,
+        "endChar": 20
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f99460bd_e6feb293",
@@ -207,6 +255,30 @@
       "side": 1,
       "message": "Not sure I follow your suggestion: r7 and r8 need to be initialized before lines 1407-1408, not after the shorty (if you\u0027re suggesting to optimize based on knowing there\u0027s only one argument, as I mention in the arm64 variant, I\u0027m going to refactor this code once I use a bit in the access flags which will have to work with arbitrary number of arguments.)",
       "parentUuid": "51167d40_3ea64174",
+      "range": {
+        "startLine": 1394,
+        "startChar": 8,
+        "endLine": 1394,
+        "endChar": 10
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f66369_7bd98c4e",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-19T09:38:33Z",
+      "side": 1,
+      "message": "I\u0027m suggesting to rewrite this to be similar to the arm64 version. Here, you would do\n\n  sub r7, rINST, r4\n\nand replace lines 1407-1408 with\n\n  str r1, [rFP, r7]\n  str r1, [rREFS, r7]\n\nwhile moving them before the `cmp r4, #1`. Then initialize r7, r8 after the NterpGetShorty and replace post-index STRs in lines 1425-1426 with ADDs.",
+      "parentUuid": "b43e775e_e2c71afe",
       "range": {
         "startLine": 1394,
         "startChar": 8,
