@@ -22,6 +22,30 @@
       },
       "revId": "018cfdb8b69284b0dc58569eb266203695d873fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8290ec_ddf89cde",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-19T09:11:45Z",
+      "side": 1,
+      "message": "Avoiding unnecessary loads in loops. (Not relying on clang++ inlining all the LayoutHelper\u0027s functions and seeing that reloading can be avoided with LSE.)",
+      "parentUuid": "91117a15_db376fd4",
+      "range": {
+        "startLine": 1602,
+        "startChar": 0,
+        "endLine": 1602,
+        "endChar": 46
+      },
+      "revId": "018cfdb8b69284b0dc58569eb266203695d873fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
