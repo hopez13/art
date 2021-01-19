@@ -22,6 +22,30 @@
       },
       "revId": "21dc968b2d4c1ae47641a6f97e370a9e19a5454d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd05771_d893e525",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-01-19T18:45:41Z",
+      "side": 1,
+      "message": "Yes: the script that generates this file put 25% of them in the `presubmit` group, and the rest in the `postsubmit` group (see https://cs.android.com/android/platform/superproject/+/master:art/test/utils/regen-test-files;l\u003d281-285;drc\u003d73556f3fcb65a9adc81ddfce076b8e658161ea4d); this is part of a progressive roll-out of ART run-tests in presubmits via Test Mapping.",
+      "parentUuid": "3b92f4e2_3108f4dd",
+      "range": {
+        "startLine": 202,
+        "startChar": 6,
+        "endLine": 202,
+        "endChar": 39
+      },
+      "revId": "21dc968b2d4c1ae47641a6f97e370a9e19a5454d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
