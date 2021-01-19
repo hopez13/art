@@ -200,6 +200,30 @@
       },
       "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fb0b01_e39dd48a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2797,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-19T16:30:56Z",
+      "side": 1,
+      "message": "The code could just declare ownership wrappers (std::unique_ptr\u003cFile\u003e, android::base::unique_fd) at a common point in the call tree and pass those as arguments to the methods that signal the start and end compilation.\n\nUsing ownership wrappers avoid issues like the potential leak of zip_dup_fd_ in the bailout path for image_dup_fd_ (not likely an issue for dex2oat, but generally something to avoid).",
+      "parentUuid": "9a505208_1a2b3bd5",
+      "range": {
+        "startLine": 2796,
+        "startChar": 0,
+        "endLine": 2797,
+        "endChar": 79
+      },
+      "revId": "21c344df25e8cf2172bfe45cf071f2b013879b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
