@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff91676_d5441312",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-19T16:23:18Z",
+      "side": 0,
+      "message": "We still don\u0027t have chroot running on Golem, right?\n\nI\u0027m not sure exactly what here the TODO pertains to. Is it that build-art-target-golem should go away altogether? +rpl",
+      "range": {
+        "startLine": 722,
+        "startChar": 7,
+        "endLine": 722,
+        "endChar": 18
+      },
+      "revId": "808c556b1f4b936b8e9010ed1a6d8313dd862983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
