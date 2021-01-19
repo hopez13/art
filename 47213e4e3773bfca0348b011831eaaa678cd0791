@@ -22,6 +22,30 @@
       },
       "revId": "47213e4e3773bfca0348b011831eaaa678cd0791",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c280d8_a657db95",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-19T14:46:19Z",
+      "side": 0,
+      "message": "It was duplicated between the two methods - I\u0027ve refactored into one with the intent to not change the logic. For the code you comment on, see lines 2935-2947. Did you find something I missed?",
+      "parentUuid": "2cda0fb3_4f49cdea",
+      "range": {
+        "startLine": 2933,
+        "startChar": 0,
+        "endLine": 2937,
+        "endChar": 3
+      },
+      "revId": "47213e4e3773bfca0348b011831eaaa678cd0791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
