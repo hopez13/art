@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda9cf83_11126203",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-01-19T18:53:06Z",
+      "side": 1,
+      "message": "Now that we know why it was being run, should we disable it again or try to fix it?\n\naosp/1551376 tries to fix it by relaxing the upper time bounds (and tightening the lower ones, which should not be violated). It might need some further relaxation to fully deflake it, but I think the test would still be useful with that relaxation.",
+      "revId": "21dc968b2d4c1ae47641a6f97e370a9e19a5454d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b92f4e2_3108f4dd",
