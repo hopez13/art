@@ -50,6 +50,10 @@ known_failing_tests=(
   art-run-test-038-inner-null
   art-run-test-044-proxy
   art-run-test-051-thread
+  # ART run-test 053-wait-some is flaky and is currently disabled when run with `testrunner.py`
+  # in `test/knownfailures.json`; disable it here too until we have a proper test exclusion
+  # mechanism (see b/175435088).
+  art-run-test-053-wait-some
   art-run-test-054-uncaught
   art-run-test-086-null-super
   art-run-test-087-gc-after-link
