@@ -16,6 +16,29 @@
       "message": "One of the additional changes you need.",
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0daa09f_9a243a31",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-19T23:55:59Z",
+      "side": 1,
+      "message": "Does it work to extract the dex files from the APEX for these?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
