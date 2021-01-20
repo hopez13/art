@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007439386",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1555075?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7fd97131_cdef8fc5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4004,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-20T13:16:45Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 4004,
+        "startChar": 16,
+        "endLine": 4004,
+        "endChar": 18
+      },
+      "revId": "977c1ee34edd7fbe6fcae32945cfb4a838a0840c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007439390",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1555075?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "da735edf_2d8c2336",
+          "description": "Change to \"compiler/optimizing/intrinsics_arm_vixl.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/intrinsics_arm_vixl.cc",
+              "range": {
+                "startLine": 5141,
+                "startChar": 18,
+                "endLine": 5141,
+                "endChar": 25
+              },
+              "replacement": "Assembly"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "48e19eae_36871ddc",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-20T13:16:45Z",
+      "side": 1,
+      "message": "Common typo found: \"Asembly\" -- should it be \"Assembly\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 5141,
+        "startChar": 18,
+        "endLine": 5141,
+        "endChar": 25
+      },
+      "revId": "977c1ee34edd7fbe6fcae32945cfb4a838a0840c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
