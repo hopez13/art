@@ -159,6 +159,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac387c42_44a64c58",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-01-20T16:21:27Z",
+      "side": 1,
+      "message": "I did mention that in my previous comment but yes that check which is performed when we build the system image does also require the dex files. However, if we can move/split that check so it is only performed on the ART dex files when building from ART source then that would remove the only other known (to me at least) use of the dex implementation jars.",
+      "parentUuid": "b65378fd_8dd17443",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
