@@ -30,7 +30,7 @@ namespace art {
 
 const uint8_t ImageHeader::kImageMagic[] = { 'a', 'r', 't', '\n' };
 // Last change: IMT index for default methods.
-const uint8_t ImageHeader::kImageVersion[] = { '0', '8', '9', '\0' };
+const uint8_t ImageHeader::kImageVersion[] = { '0', '9', '0', '\0' };  // Math.multiplyHigh
 
 ImageHeader::ImageHeader(uint32_t image_reservation_size,
                          uint32_t component_count,
