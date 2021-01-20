@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6317c36e_a02eadf6",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:11:21Z",
+      "side": 1,
+      "message": "It looks like it actually clears the other bytes of rINSTq, but I may have been too quick in inferring this. I\u0027ve removed the code anyway.",
+      "parentUuid": "fe4ab37e_c5589d63",
+      "range": {
+        "startLine": 1670,
+        "startChar": 3,
+        "endLine": 1670,
+        "endChar": 26
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1006776_8e983589",
@@ -82,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b9bcc5_03b7ad9c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1006776_8e983589",
+      "range": {
+        "startLine": 1671,
+        "startChar": 3,
+        "endLine": 1671,
+        "endChar": 24
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "948bfac6_21d6118e",
@@ -95,6 +143,30 @@
       "writtenOn": "2021-01-20T14:52:06Z",
       "side": 1,
       "message": "I\u0027d prefer operating on a 32-bit register (`andl`) instead of just the low 8 bits.",
+      "range": {
+        "startLine": 1672,
+        "startChar": 3,
+        "endLine": 1672,
+        "endChar": 7
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc5bd49_19052a8a",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948bfac6_21d6118e",
       "range": {
         "startLine": 1672,
         "startChar": 3,
@@ -151,6 +223,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b4f18d_f3f6f7b6",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1fc2cff_4d2808d4",
+      "range": {
+        "startLine": 1677,
+        "startChar": 3,
+        "endLine": 1677,
+        "endChar": 55
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cca2d28f_51bbd34d",
@@ -164,6 +260,30 @@
       "writtenOn": "2021-01-20T14:52:06Z",
       "side": 1,
       "message": "Unnecessary, those bits were already zero.",
+      "range": {
+        "startLine": 1703,
+        "startChar": 3,
+        "endLine": 1703,
+        "endChar": 25
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f01f97d1_770b3634",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cca2d28f_51bbd34d",
       "range": {
         "startLine": 1703,
         "startChar": 3,
