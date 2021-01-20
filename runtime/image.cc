@@ -30,7 +30,7 @@ namespace art {
 
 const uint8_t ImageHeader::kImageMagic[] = { 'a', 'r', 't', '\n' };
 // Last change: nterp trampoline.
-const uint8_t ImageHeader::kImageVersion[] = { '0', '9', '1', '\0' };
+const uint8_t ImageHeader::kImageVersion[] = { '0', '9', '2', '\0' };
 
 ImageHeader::ImageHeader(uint32_t image_reservation_size,
                          uint32_t component_count,

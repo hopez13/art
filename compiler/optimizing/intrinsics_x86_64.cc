@@ -2775,6 +2775,24 @@ void IntrinsicCodeGeneratorX86_64::VisitIntegerDivideUnsigned(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+void IntrinsicLocationsBuilderX86_64::VisitMathMultiplyHigh(HInvoke* invoke) {
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+  locations->SetInAt(0, Location::RegisterLocation(RAX));
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetOut(Location::RegisterLocation(RDX));
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitMathMultiplyHigh(HInvoke* invoke) {
+  X86_64Assembler* assembler = GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+
+  CpuRegister rax = locations->InAt(0).AsRegister<CpuRegister>();
+  CpuRegister y = locations->InAt(1).AsRegister<CpuRegister>();
+
+  __ imull(rax, y);
+}
+
 
 UNIMPLEMENTED_INTRINSIC(X86_64, FloatIsInfinite)
 UNIMPLEMENTED_INTRINSIC(X86_64, DoubleIsInfinite)
