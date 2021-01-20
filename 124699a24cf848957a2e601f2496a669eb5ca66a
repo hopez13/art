@@ -87,6 +87,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885e4243_304839a9",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-01-20T14:08:37Z",
+      "side": 1,
+      "message": "Yes, it would complicate the auto generation of prebuilt_apex Android.bp\u0027s. I am not sure that it will be an issue longer term though. The dex implementation jars are, AFAIK, only used for boot package check and building the boot image\u0027s .art file that is used by dexpreopt. If the boot package check is done when we create the ART apex (or maybe even as part of creating the ART boot image) rather than when we build the system image and we can export the boot image\u0027s .art file for use by dexpreopt then we may not need to export the dex implementation jars at all. In which case this would be removed and replaced by a boot_images property instead.\n\nUpdated the comment as requested.",
+      "parentUuid": "0645f863_4c756726",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
