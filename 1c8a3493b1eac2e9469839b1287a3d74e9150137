@@ -16,6 +16,75 @@
       "message": "PTAL.",
       "revId": "1c8a3493b1eac2e9469839b1287a3d74e9150137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8ba01c_f073119e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T15:37:53Z",
+      "side": 1,
+      "message": "We usually specify the size with `andl`.",
+      "range": {
+        "startLine": 1671,
+        "startChar": 3,
+        "endLine": 1671,
+        "endChar": 6
+      },
+      "revId": "1c8a3493b1eac2e9469839b1287a3d74e9150137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ff47f4_e55518a5",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T15:37:53Z",
+      "side": 1,
+      "message": "Unnecessary. (But only because of the zero-extension hidden in GOTO_NEXT.)",
+      "range": {
+        "startLine": 1674,
+        "startChar": 3,
+        "endLine": 1674,
+        "endChar": 23
+      },
+      "revId": "1c8a3493b1eac2e9469839b1287a3d74e9150137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bdbea1c_bf683342",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T15:37:53Z",
+      "side": 1,
+      "message": "Now that the value is in ECX, we could use JECXZ here and below, but I don\u0027t think it matters.",
+      "range": {
+        "startLine": 1682,
+        "startChar": 3,
+        "endLine": 1683,
+        "endChar": 8
+      },
+      "revId": "1c8a3493b1eac2e9469839b1287a3d74e9150137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
