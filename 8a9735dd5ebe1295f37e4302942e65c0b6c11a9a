@@ -34,6 +34,144 @@
       "parentUuid": "cc7f1cf0_90b99b84",
       "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe4ab37e_c5589d63",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "Is this is a no-op? (Doing `\u0026 0xff` on an 8-bit register.)",
+      "range": {
+        "startLine": 1670,
+        "startChar": 3,
+        "endLine": 1670,
+        "endChar": 26
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1006776_8e983589",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "Simple `movl` would be enough. (First, GOTO_NEXT already zero-extended the BA into rINST. Second, the higher bits are masked out by the following instruction.)",
+      "range": {
+        "startLine": 1671,
+        "startChar": 3,
+        "endLine": 1671,
+        "endChar": 24
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "948bfac6_21d6118e",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "I\u0027d prefer operating on a 32-bit register (`andl`) instead of just the low 8 bits.",
+      "range": {
+        "startLine": 1672,
+        "startChar": 3,
+        "endLine": 1672,
+        "endChar": 7
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccff93c2_ca5a7809",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "You could load to ECX and drop the lines 1694, 1697-1698.",
+      "range": {
+        "startLine": 1673,
+        "startChar": 12,
+        "endLine": 1673,
+        "endChar": 16
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fc2cff_4d2808d4",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "If you load v[A] to ECX (suggestion above), you can move this before the `FETCH_FROM_THREAD_CACHE` and drop the line 1702.",
+      "range": {
+        "startLine": 1677,
+        "startChar": 3,
+        "endLine": 1677,
+        "endChar": 55
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cca2d28f_51bbd34d",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-20T14:52:06Z",
+      "side": 1,
+      "message": "Unnecessary, those bits were already zero.",
+      "range": {
+        "startLine": 1703,
+        "startChar": 3,
+        "endLine": 1703,
+        "endChar": 25
+      },
+      "revId": "8a9735dd5ebe1295f37e4302942e65c0b6c11a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
