@@ -22,6 +22,7 @@
 #include <sstream>
 #include <string>
 
+#include "android-base/unique_fd.h"
 #include "arch/instruction_set.h"
 #include "base/os.h"
 #include "base/scoped_flock.h"
@@ -117,9 +118,9 @@ class OatFileAssistant {
                    const InstructionSet isa,
                    bool load_executable,
                    bool only_load_system_executable,
-                   int vdex_fd,
-                   int oat_fd,
-                   int zip_fd);
+                   android::base::unique_fd&& vdex_fd,
+                   android::base::unique_fd&& oat_fd,
+                   android::base::unique_fd&& zip_fd);
 
   // Returns true if the dex location refers to an element of the boot class
   // path.
@@ -308,13 +309,13 @@ class OatFileAssistant {
     // file with the given filename.
     void Reset(const std::string& filename,
                bool use_fd,
-               int zip_fd = -1,
-               int vdex_fd = -1,
-               int oat_fd = -1);
+               android::base::unique_fd zip_fd = {},
+               android::base::unique_fd vdex_fd = {},
+               android::base::unique_fd oat_fd = {});
 
     // Release the loaded oat file for runtime use.
     // Returns null if the oat file hasn't been loaded or is out of date.
-    // Ensures the returned file is not loaded executable if it has unuseable
+    // Ensures the returned file is not loaded executable if it has unusable
     // compiled code.
     //
     // After this call, no other methods of the OatFileInfo should be
@@ -347,9 +348,9 @@ class OatFileAssistant {
     bool filename_provided_ = false;
     std::string filename_;
 
-    int zip_fd_ = -1;
-    int oat_fd_ = -1;
-    int vdex_fd_ = -1;
+    android::base::unique_fd zip_fd_;
+    android::base::unique_fd oat_fd_;
+    android::base::unique_fd vdex_fd_;
     bool use_fd_ = false;
 
     bool load_attempted_ = false;
@@ -427,7 +428,7 @@ class OatFileAssistant {
   OatFileInfo oat_;
 
   // File descriptor corresponding to apk, dex file, or zip.
-  int zip_fd_;
+  android::base::unique_fd zip_fd_;
 
   std::string cached_boot_class_path_;
   std::string cached_boot_class_path_checksums_;
