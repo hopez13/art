@@ -91,6 +91,8 @@ class ZipArchive {
  public:
   // return new ZipArchive instance on success, null on error.
   static ZipArchive* Open(const char* filename, std::string* error_msg);
+  // return new ZipArchive instance on success, null on error.
+  // NB This method assumes ownership of `fd` and will close it.
   static ZipArchive* OpenFromFd(int fd, const char* filename, std::string* error_msg);
 
   ZipEntry* Find(const char* name, std::string* error_msg) const;

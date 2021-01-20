@@ -16,9 +16,11 @@
 
 #include "oat_file_assistant.h"
 
+#include <sys/stat.h>
+#include <unistd.h>
+
 #include <sstream>
 
-#include <sys/stat.h>
 #include "zlib.h"
 
 #include "android-base/stringprintf.h"
@@ -82,31 +84,31 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
                        isa,
                        load_executable,
                        only_load_system_executable,
-                       /*vdex_fd=*/ -1,
-                       /*oat_fd=*/ -1,
-                       /*zip_fd=*/ -1) {}
+                       /*vdex_fd=*/ android::base::unique_fd{},
+                       /*oat_fd=*/ android::base::unique_fd{},
+                       /*zip_fd=*/ android::base::unique_fd{}) {}
 
 
 OatFileAssistant::OatFileAssistant(const char* dex_location,
                                    const InstructionSet isa,
                                    bool load_executable,
                                    bool only_load_system_executable,
-                                   int vdex_fd,
-                                   int oat_fd,
-                                   int zip_fd)
+                                   android::base::unique_fd&& vdex_fd,
+                                   android::base::unique_fd&& oat_fd,
+                                   android::base::unique_fd&& zip_fd)
     : isa_(isa),
       load_executable_(load_executable),
       only_load_system_executable_(only_load_system_executable),
       odex_(this, /*is_oat_location=*/ false),
       oat_(this, /*is_oat_location=*/ true),
-      zip_fd_(zip_fd) {
+      zip_fd_(std::move(zip_fd)) {
   CHECK(dex_location != nullptr) << "OatFileAssistant: null dex location";
 
-  if (zip_fd < 0) {
-    CHECK_LE(oat_fd, 0) << "zip_fd must be provided with valid oat_fd. zip_fd=" << zip_fd
-      << " oat_fd=" << oat_fd;
-    CHECK_LE(vdex_fd, 0) << "zip_fd must be provided with valid vdex_fd. zip_fd=" << zip_fd
-      << " vdex_fd=" << vdex_fd;;
+  if (!zip_fd_.ok()) {
+    CHECK(!oat_fd.ok()) << "zip_fd must be provided with valid oat_fd. zip_fd=" << zip_fd_.get()
+      << " oat_fd=" << oat_fd.get();
+    CHECK(!vdex_fd.ok()) << "zip_fd must be provided with valid vdex_fd. zip_fd=" << zip_fd_.get()
+      << " vdex_fd=" << vdex_fd.get();;
   }
 
   dex_location_.assign(dex_location);
@@ -121,7 +123,15 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
   std::string error_msg;
   std::string odex_file_name;
   if (DexLocationToOdexFilename(dex_location_, isa_, &odex_file_name, &error_msg)) {
-    odex_.Reset(odex_file_name, UseFdToReadFiles(), zip_fd, vdex_fd, oat_fd);
+    android::base::unique_fd zip_dup_fd;
+    if (zip_fd_ != -1) {
+      zip_fd_.reset(DupCloexec(zip_fd_.get()));
+    }
+    odex_.Reset(odex_file_name,
+                UseFdToReadFiles(),
+                std::move(zip_dup_fd),
+                std::move(vdex_fd),
+                std::move(oat_fd));
   } else {
     LOG(WARNING) << "Failed to determine odex file name: " << error_msg;
   }
@@ -157,7 +167,7 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
 }
 
 bool OatFileAssistant::UseFdToReadFiles() {
-  return zip_fd_ >= 0;
+  return zip_fd_.ok();
 }
 
 bool OatFileAssistant::IsInBootClassPath() {
@@ -578,7 +588,7 @@ const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {
                                              &cached_required_dex_checksums_,
                                              &dex_locations_ignored,
                                              &error_msg,
-                                             zip_fd_,
+                                             zip_fd_.get(),
                                              &zip_file_only_contains_uncompressed_dex_)) {
       required_dex_checksums_found_ = true;
       has_original_dex_files_ = true;
@@ -914,15 +924,15 @@ void OatFileAssistant::OatFileInfo::Reset() {
 
 void OatFileAssistant::OatFileInfo::Reset(const std::string& filename,
                                           bool use_fd,
-                                          int zip_fd,
-                                          int vdex_fd,
-                                          int oat_fd) {
+                                          android::base::unique_fd zip_fd,
+                                          android::base::unique_fd vdex_fd,
+                                          android::base::unique_fd oat_fd) {
   filename_provided_ = true;
   filename_ = filename;
   use_fd_ = use_fd;
-  zip_fd_ = zip_fd;
-  vdex_fd_ = vdex_fd;
-  oat_fd_ = oat_fd;
+  zip_fd_ = std::move(zip_fd);
+  vdex_fd_ = std::move(vdex_fd);
+  oat_fd_ = std::move(oat_fd);
   Reset();
 }
 

@@ -414,9 +414,9 @@ TEST_F(OatFileAssistantTest, GetDexOptNeededWithFd) {
                                       kRuntimeISA,
                                       false,
                                       false,
-                                      vdex_fd.get(),
-                                      odex_fd.get(),
-                                      zip_fd.get());
+                                      std::move(vdex_fd),
+                                      std::move(odex_fd),
+                                      std::move(zip_fd));
   EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
       GetDexOptNeeded(&oat_file_assistant, CompilerFilter::kSpeed));
   EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
@@ -452,9 +452,9 @@ TEST_F(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexFd) {
                                       kRuntimeISA,
                                       false,
                                       false,
-                                      vdex_fd.get(),
-                                      /* oat_fd= */ -1,
-                                      zip_fd.get());
+                                      std::move(vdex_fd),
+                                      /* oat_fd= */ android::base::unique_fd{},
+                                      std::move(zip_fd));
   EXPECT_EQ(-OatFileAssistant::kDex2OatForBootImage,
       GetDexOptNeeded(&oat_file_assistant, CompilerFilter::kSpeed));
   EXPECT_EQ(-OatFileAssistant::kDex2OatForBootImage,
@@ -485,9 +485,9 @@ TEST_F(OatFileAssistantTest, GetDexOptNeededWithInvalidVdexFd) {
                                       kRuntimeISA,
                                       false,
                                       false,
-                                      /* vdex_fd= */ -1,
-                                      odex_fd.get(),
-                                      zip_fd.get());
+                                      /* vdex_fd= */ android::base::unique_fd{},
+                                      std::move(odex_fd),
+                                      std::move(zip_fd));
 
   EXPECT_EQ(OatFileAssistant::kDex2OatFromScratch,
       GetDexOptNeeded(&oat_file_assistant, CompilerFilter::kSpeed));
@@ -509,9 +509,9 @@ TEST_F(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexVdexFd) {
                                       kRuntimeISA,
                                       false,
                                       false,
-                                      /* vdex_fd= */ -1,
-                                      /* oat_fd= */ -1,
-                                      zip_fd);
+                                      /* vdex_fd= */ android::base::unique_fd{},
+                                      /* oat_fd= */ android::base::unique_fd{},
+                                      std::move(zip_fd));
   EXPECT_EQ(OatFileAssistant::kDex2OatFromScratch,
       GetDexOptNeeded(&oat_file_assistant, CompilerFilter::kSpeed));
   EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OdexFileStatus());
