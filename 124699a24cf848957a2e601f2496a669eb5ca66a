@@ -39,6 +39,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55467c4f_0bbdff00",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-01-20T10:06:59Z",
+      "side": 1,
+      "message": "Yes. The dex files are made available through the java_import and it doesn\u0027t matter whether that java_import is created for a module listed here or elsewhere.\n\nWhat matters is that they are listed in the prebuilt_apex as added in https://r.android.com/1531910.",
+      "parentUuid": "c0daa09f_9a243a31",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
