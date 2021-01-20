@@ -111,6 +111,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4d9b78f_9c8ac0ca",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-20T14:50:40Z",
+      "side": 1,
+      "message": "\u003e then we may not need to export the dex implementation jars at all\n\nInteresting. I didn\u0027t know that the .art files in the boot images was the only reason for getting the .dex\u0027es out of the APEXes.",
+      "parentUuid": "885e4243_304839a9",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
