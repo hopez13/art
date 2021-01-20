@@ -63,6 +63,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0645f863_4c756726",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-20T10:57:25Z",
+      "side": 1,
+      "message": "I see. So that\u0027s something that would complicate matters if we decide to autogenerate the prebuilt_apex Android.bp\u0027s.\n\nCould you add to the comment that they still need to be mentioned in exported_java_libs for the prebuilt_apex modules?",
+      "parentUuid": "55467c4f_0bbdff00",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
