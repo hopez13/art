@@ -19,6 +19,7 @@
 #include <sys/stat.h>
 
 #include "android-base/stringprintf.h"
+#include "android-base/unique_fd.h"
 
 #include "base/file_magic.h"
 #include "base/file_utils.h"
@@ -273,8 +274,11 @@ bool ArtDexFileLoader::OpenWithMagic(uint32_t magic,
                                      std::vector<std::unique_ptr<const DexFile>>* dex_files) const {
   ScopedTrace trace(std::string("Open dex file ") + std::string(location));
   DCHECK(dex_files != nullptr) << "DexFile::Open: out-param is nullptr";
+  android::base::unique_fd fd_holder{fd};
   if (IsZipMagic(magic)) {
-    return OpenZip(fd, location, verify, verify_checksum, error_msg, dex_files);
+    // OpenZip assumes ownership of `fd` and closes it.
+    int zip_fd = DupCloexec(fd_holder.get());
+    return OpenZip(zip_fd, location, verify, verify_checksum, error_msg, dex_files);
   }
   if (IsMagicValid(magic)) {
     std::unique_ptr<const DexFile> dex_file(OpenFile(fd,

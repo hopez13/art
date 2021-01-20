@@ -29,6 +29,18 @@ namespace art {
 
 using android::base::StringPrintf;
 
+namespace {
+
+bool SeekStartOfFile(int fd, std::string* error_msg) {
+  if (lseek(fd, 0, SEEK_SET) != 0) {
+    *error_msg = StringPrintf("Failed to seek to beginning of file : %s", strerror(errno));
+    return false;
+  }
+  return true;
+}
+
+}  // namespace
+
 File OpenAndReadMagic(const char* filename, uint32_t* magic, std::string* error_msg) {
   CHECK(magic != nullptr);
   File fd(filename, O_RDONLY, /* check_usage= */ false);
@@ -44,13 +56,15 @@ File OpenAndReadMagic(const char* filename, uint32_t* magic, std::string* error_
 }
 
 bool ReadMagicAndReset(int fd, uint32_t* magic, std::string* error_msg) {
+  if (!SeekStartOfFile(fd, error_msg)) {
+    return false;
+  }
   int n = TEMP_FAILURE_RETRY(read(fd, magic, sizeof(*magic)));
   if (n != sizeof(*magic)) {
     *error_msg = StringPrintf("Failed to find magic");
     return false;
   }
-  if (lseek(fd, 0, SEEK_SET) != 0) {
-    *error_msg = StringPrintf("Failed to seek to beginning of file : %s", strerror(errno));
+  if (!SeekStartOfFile(fd, error_msg)) {
     return false;
   }
   return true;
