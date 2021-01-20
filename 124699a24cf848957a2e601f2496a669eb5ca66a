@@ -135,6 +135,30 @@
       },
       "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65378fd_8dd17443",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-20T15:06:08Z",
+      "side": 1,
+      "message": "What about the BOOT_JARS_CHECK ?",
+      "parentUuid": "f4d9b78f_9c8ac0ca",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 28
+      },
+      "revId": "124699a24cf848957a2e601f2496a669eb5ca66a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
