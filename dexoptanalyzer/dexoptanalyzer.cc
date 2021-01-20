@@ -22,6 +22,7 @@
 
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
+#include "android-base/unique_fd.h"
 #include "base/file_utils.h"
 #include "base/logging.h"  // For InitLogging.
 #include "base/mutex.h"
@@ -137,6 +138,33 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   exit(static_cast<int>(ReturnCode::kErrorInvalidArguments));
 }
 
+static android::base::unique_fd ParseParentFdToLocalFd(const char* option,
+                                                       const char* prefix,
+                                                       std::string* error_msg) {
+  // Parse file descriptor from parent process. `parent_fd` is closed when it goes out of scope
+  // within this function.
+  const std::string fd_string{option + strlen(prefix)};
+  android::base::unique_fd parent_fd(std::stoi(fd_string, nullptr, 0));
+  if (!File::IsOpenFd(parent_fd)) {
+    *error_msg = android::base::StringPrintf("Invalid argument %s (descriptor is not open)",
+                                             option);
+    return android::base::unique_fd{};
+  }
+
+  // Make a local non-inheritable dup of file descriptor.
+  int local_fd = DupCloexec(parent_fd);
+  if (local_fd == -1) {
+    *error_msg = android::base::StringPrintf("Failed to make local file descriptor for %s : %s",
+                                             option,
+                                             strerror(errno));
+    return android::base::unique_fd{};
+  }
+
+  // Seek to start of file.
+  lseek(local_fd, 0, SEEK_SET);
+  return android::base::unique_fd{local_fd};
+}
+
 class DexoptAnalyzer final {
  public:
   DexoptAnalyzer() :
@@ -192,19 +220,22 @@ class DexoptAnalyzer final {
       } else if (option == "--downgrade") {
         downgrade_ = true;
       } else if (StartsWith(option, "--oat-fd=")) {
-        oat_fd_ = std::stoi(std::string(option.substr(strlen("--oat-fd="))), nullptr, 0);
-        if (oat_fd_ < 0) {
-          Usage("Invalid --oat-fd %d", oat_fd_);
+        std::string error_msg;
+        oat_fd_ = ParseParentFdToLocalFd(raw_option, "--oat-fd=", &error_msg);
+        if (!oat_fd_.ok()) {
+          Usage(error_msg.c_str());
         }
       } else if (StartsWith(option, "--vdex-fd=")) {
-        vdex_fd_ = std::stoi(std::string(option.substr(strlen("--vdex-fd="))), nullptr, 0);
-        if (vdex_fd_ < 0) {
-          Usage("Invalid --vdex-fd %d", vdex_fd_);
+        std::string error_msg;
+        vdex_fd_ = ParseParentFdToLocalFd(raw_option, "--vdex-fd=", &error_msg);
+        if (!oat_fd_.ok()) {
+          Usage(error_msg.c_str());
         }
       } else if (StartsWith(option, "--zip-fd=")) {
-        zip_fd_ = std::stoi(std::string(option.substr(strlen("--zip-fd="))), nullptr, 0);
-        if (zip_fd_ < 0) {
-          Usage("Invalid --zip-fd %d", zip_fd_);
+        std::string error_msg;
+        zip_fd_ = ParseParentFdToLocalFd(raw_option, "--zip-fd=", &error_msg);
+        if (!oat_fd_.ok()) {
+          Usage(error_msg.c_str());
         }
       } else if (StartsWith(option, "--class-loader-context=")) {
         context_str_ = std::string(option.substr(strlen("--class-loader-context=")));
@@ -271,7 +302,7 @@ class DexoptAnalyzer final {
     return true;
   }
 
-  ReturnCode GetDexOptNeeded() const {
+  ReturnCode GetDexOptNeeded() {
     if (!CreateRuntime()) {
       return ReturnCode::kErrorCannotCreateRuntime;
     }
@@ -293,9 +324,9 @@ class DexoptAnalyzer final {
                                                             isa_,
                                                             /*load_executable=*/ false,
                                                             /*only_load_system_executable=*/ false,
-                                                            vdex_fd_,
-                                                            oat_fd_,
-                                                            zip_fd_);
+                                                            std::move(vdex_fd_),
+                                                            std::move(oat_fd_),
+                                                            std::move(zip_fd_));
     // Always treat elements of the bootclasspath as up-to-date.
     // TODO(calin): this check should be in OatFileAssistant.
     if (oat_file_assistant->IsInBootClassPath()) {
@@ -308,7 +339,7 @@ class DexoptAnalyzer final {
                                                            assume_profile_changed_,
                                                            downgrade_);
 
-    // Convert OatFileAssitant codes to dexoptanalyzer codes.
+    // Convert OatFileAssistant codes to dexoptanalyzer codes.
     switch (dexoptNeeded) {
       case OatFileAssistant::kNoDexOptNeeded: return ReturnCode::kNoDexOptNeeded;
       case OatFileAssistant::kDex2OatFromScratch: return ReturnCode::kDex2OatFromScratch;
@@ -338,7 +369,7 @@ class DexoptAnalyzer final {
     return ReturnCode::kFlattenClassLoaderContextSuccess;
   }
 
-  ReturnCode Run() const {
+  ReturnCode Run() {
     if (only_flatten_context_) {
       return FlattenClassLoaderContext();
     } else {
@@ -356,10 +387,10 @@ class DexoptAnalyzer final {
   bool downgrade_;
   std::string image_;
   std::vector<const char*> runtime_args_;
-  int oat_fd_ = -1;
-  int vdex_fd_ = -1;
+  android::base::unique_fd oat_fd_;
+  android::base::unique_fd vdex_fd_;
   // File descriptor corresponding to apk, dex_file, or zip.
-  int zip_fd_ = -1;
+  android::base::unique_fd zip_fd_;
   std::vector<int> context_fds_;
 };
 
