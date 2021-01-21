@@ -16,6 +16,69 @@
       "message": "Hi Vladimir,\n\nAs hboehm@ suggested in https://r.android.com/1525807, I drafted the intrinsic in this CL. I haven\u0027t figured out yet how to properly test and benchmark this (tried D8\u0027ing simple test class but it emits a backport rather than reference from libcore; also unit test coverage from libcore) and make it work. Could you review and guide me on next step please?",
       "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331327ed_9118ff8c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-21T13:49:55Z",
+      "side": 1,
+      "message": "No need for a \"Generate\" helper function if it\u0027s used just once.",
+      "range": {
+        "startLine": 3803,
+        "startChar": 12,
+        "endLine": 3803,
+        "endChar": 32
+      },
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5acda13_67bcb4fa",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3817,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-21T13:49:55Z",
+      "side": 1,
+      "message": "There is no slow path call, so you should use CreateIntIntToIntLocations().",
+      "range": {
+        "startLine": 3817,
+        "startChar": 19,
+        "endLine": 3817,
+        "endChar": 31
+      },
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e94ced_8fac6d42",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-21T13:49:55Z",
+      "side": 1,
+      "message": "You could use the IMUL instruction that uses RDX:RAX as the result.",
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
