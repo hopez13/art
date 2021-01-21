@@ -15,6 +15,10 @@
 //
 
 // TODO: this header library depends on libart. Find a way to express that.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_library_headers {
     name: "art_cmdlineparser_headers",
     host_supported: true,

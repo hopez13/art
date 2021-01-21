@@ -3,6 +3,10 @@
 // Build rules for ART run-test `1930-monitor-info`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-1930-monitor-info",
     defaults: ["art-run-test-defaults"],

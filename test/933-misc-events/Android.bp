@@ -3,6 +3,10 @@
 // Build rules for ART run-test `933-misc-events`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-933-misc-events",
     defaults: ["art-run-test-defaults"],

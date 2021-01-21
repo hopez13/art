@@ -3,6 +3,10 @@
 // Build rules for ART run-test `641-iterations`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-641-iterations",
     defaults: ["art-run-test-defaults"],

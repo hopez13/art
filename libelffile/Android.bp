@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 art_cc_defaults {
     name: "libelffile-defaults",
     host_supported: true,

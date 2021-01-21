@@ -3,6 +3,10 @@
 // Build rules for ART run-test `674-HelloWorld-Dm`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-674-HelloWorld-Dm",
     defaults: ["art-run-test-defaults"],

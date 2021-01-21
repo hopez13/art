@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_library {
     name: "libfoo.oem1",
     srcs: ["test.cpp"],

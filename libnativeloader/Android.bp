@@ -1,5 +1,9 @@
 // Shared library for target
 // ========================================================
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_defaults {
     name: "libnativeloader-defaults",
     defaults: ["art_defaults"],

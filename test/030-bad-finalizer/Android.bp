@@ -3,6 +3,10 @@
 // Build rules for ART run-test `030-bad-finalizer`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-030-bad-finalizer",
     defaults: ["art-run-test-defaults"],

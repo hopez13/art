@@ -3,6 +3,10 @@
 // Build rules for ART run-test `530-checker-loops5`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-530-checker-loops5",
     defaults: ["art-run-test-defaults"],

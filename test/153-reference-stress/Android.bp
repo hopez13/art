@@ -3,6 +3,10 @@
 // Build rules for ART run-test `153-reference-stress`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-153-reference-stress",
     defaults: ["art-run-test-defaults"],

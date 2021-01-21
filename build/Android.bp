@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 bootstrap_go_package {
     name: "soong-art",
     pkgPath: "android/soong/art",

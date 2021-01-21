@@ -3,6 +3,10 @@
 // Build rules for ART run-test `1910-transform-with-default`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-1910-transform-with-default",
     defaults: ["art-run-test-defaults"],

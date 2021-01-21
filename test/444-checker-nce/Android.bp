@@ -3,6 +3,10 @@
 // Build rules for ART run-test `444-checker-nce`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-444-checker-nce",
     defaults: ["art-run-test-defaults"],

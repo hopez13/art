@@ -3,6 +3,10 @@
 // Build rules for ART run-test `647-jni-get-field-id`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-647-jni-get-field-id",
     defaults: ["art-run-test-defaults"],

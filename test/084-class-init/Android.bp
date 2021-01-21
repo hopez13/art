@@ -3,6 +3,10 @@
 // Build rules for ART run-test `084-class-init`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-084-class-init",
     defaults: ["art-run-test-defaults"],

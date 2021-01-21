@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_defaults {
     name: "dexdump_defaults",
     defaults: ["art_defaults"],

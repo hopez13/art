@@ -3,6 +3,10 @@
 // Build rules for ART run-test `409-materialized-condition`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-409-materialized-condition",
     defaults: ["art-run-test-defaults"],

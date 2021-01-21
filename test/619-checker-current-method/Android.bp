@@ -3,6 +3,10 @@
 // Build rules for ART run-test `619-checker-current-method`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-619-checker-current-method",
     defaults: ["art-run-test-defaults"],

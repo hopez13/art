@@ -15,6 +15,10 @@
 //
 
 // Build variants {target,host} x {debug,ndebug} x {32,64}
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_defaults {
     name: "enablevlog-base-defaults",
     srcs: ["enablevlog.cc"],

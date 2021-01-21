@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 soong_config_module_type_import {
     from: "art/build/SoongConfig.bp",
     module_types: [

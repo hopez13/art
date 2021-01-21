@@ -15,6 +15,10 @@
 //
 
 // Build variants {target,host} x {debug,ndebug} x {32,64}
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_defaults {
     name: "tifast-base-defaults",
     srcs: ["tifast.cc"],

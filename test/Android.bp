@@ -16,6 +16,10 @@
 
 // ART gtests.
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 art_cc_defaults {
     name: "art_test_defaults",
     host_supported: true,

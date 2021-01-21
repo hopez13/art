@@ -3,6 +3,10 @@
 // Build rules for ART run-test `597-deopt-invoke-stub`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-597-deopt-invoke-stub",
     defaults: ["art-run-test-defaults"],

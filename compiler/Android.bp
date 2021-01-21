@@ -19,6 +19,10 @@
 // 64bit variant. It also might be good to allow one to compile only the 64bit variant without the
 // 32bit one.
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 art_cc_defaults {
     name: "libart-compiler-defaults",
     defaults: ["art_defaults"],

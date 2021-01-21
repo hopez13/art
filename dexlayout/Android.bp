@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 art_cc_defaults {
     name: "libart-dexlayout-defaults",
     defaults: ["art_defaults"],

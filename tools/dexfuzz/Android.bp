@@ -15,6 +15,10 @@
 //
 
 // --- dexfuzz.jar ----------------
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_library_host {
     name: "dexfuzz",
     srcs: ["src/**/*.java"],

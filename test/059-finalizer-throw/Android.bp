@@ -3,6 +3,10 @@
 // Build rules for ART run-test `059-finalizer-throw`.
 
 // Test's Dex code.
+package {
+    default_applicable_licenses: ["art_license"],
+}
+
 java_test {
     name: "art-run-test-059-finalizer-throw",
     defaults: ["art-run-test-defaults"],
