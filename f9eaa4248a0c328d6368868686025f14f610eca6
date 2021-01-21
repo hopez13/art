@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "216705d2_c24ecf3d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-21T14:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00916f53_fafe039a",
+      "range": {
+        "startLine": 1152,
+        "startChar": 8,
+        "endLine": 1152,
+        "endChar": 12
+      },
+      "revId": "f9eaa4248a0c328d6368868686025f14f610eca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "22249a51_9ed61979",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-21T14:04:13Z",
       "side": 1,
       "message": "Note: This is implied by the declaring class being an interface, DCHECKED() above.",
+      "range": {
+        "startLine": 394,
+        "startChar": 6,
+        "endLine": 394,
+        "endChar": 43
+      },
+      "revId": "f9eaa4248a0c328d6368868686025f14f610eca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4a813e_e3564235",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-21T14:08:31Z",
+      "side": 1,
+      "message": "I believe a copied method has its declaring class the interface, not the concrete class in which it is in its vtable.",
+      "parentUuid": "22249a51_9ed61979",
       "range": {
         "startLine": 394,
         "startChar": 6,
