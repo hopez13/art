@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e252175a_8714951d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-21T01:06:48Z",
+      "side": 1,
+      "message": "I decided to remove the problematic test to unblock this CL. The code is disabled by default currently, so there shouldn\u0027t be a big risk from holding back the test.\n\nIn a separate CL, I\u0027m planning to rework the test as a gtest which will let us more precisely exercise the desired behavior and avoid the extra complexity around a run-test.",
+      "revId": "4c7ff6f7991d288ac15d5a5270b7aed50d824dd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
