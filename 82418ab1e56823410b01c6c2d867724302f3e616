@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d22cba5e_11ddb9fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-01-21T13:16:58Z",
+      "side": 1,
+      "message": "Hi Vladimir,\n\nAs hboehm@ suggested in https://r.android.com/1525807, I drafted the intrinsic in this CL. I haven\u0027t figured out yet how to properly test and benchmark this (tried D8\u0027ing simple test class but it emits a backport rather than reference from libcore; also unit test coverage from libcore) and make it work. Could you review and guide me on next step please?",
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
