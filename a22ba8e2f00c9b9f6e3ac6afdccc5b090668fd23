@@ -24,6 +24,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f94ef1d_ac96a221",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-01-21T19:11:59Z",
+      "side": 1,
+      "message": "Maybe leave a comment here with pointers to what to do, if people codesearch with the error message. Or perhaps worth updating javadoc for VMRuntime.Allow_test_api_ACCESS with pointers?\n\nP.S. I think it\u0027s okay to leave a go/ link here; or if you don\u0027t want to leave internal go/ links, leave a b/ that acts as a documentation.\n\nP.S.S. Ideally moma search would also show a sponsored answer when people search for VMRuntime.ALLOW_TEST_API_ACCESS.",
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9035a4c4_9a87c99e",
@@ -42,6 +59,52 @@
         "startChar": 42,
         "endLine": 251,
         "endChar": 43
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65c810e2_0ef2489f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-01-21T19:11:59Z",
+      "side": 1,
+      "message": "can we put this conditionally into the above LOG cout? This would make it easier to spot the message when reading logs, and avoid an issue if logcat is spammed and two messages appear at different places.",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c796c9_1719d51b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-01-21T19:11:59Z",
+      "side": 1,
+      "message": "VMRuntime.** change-id",
+      "range": {
+        "startLine": 252,
+        "startChar": 21,
+        "endLine": 252,
+        "endChar": 53
       },
       "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
