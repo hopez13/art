@@ -36,7 +36,7 @@ namespace hiddenapi {
 
 // Should be the same as dalvik.system.VMRuntime.HIDE_MAXTARGETSDK_P_HIDDEN_APIS,
 // dalvik.system.VMRuntime.HIDE_MAXTARGETSDK_Q_HIDDEN_APIS, and
-// dalvik.system.VMRuntime.EXEMPT_TEST_API_ACCESS_VERIFICATION.
+// dalvik.system.VMRuntime.ALLOW_TEST_API_ACCESS.
 // Corresponds to bug ids.
 static constexpr uint64_t kHideMaxtargetsdkPHiddenApis = 149997251;
 static constexpr uint64_t kHideMaxtargetsdkQHiddenApis = 149994052;
@@ -247,6 +247,10 @@ void MemberSignature::WarnAboutAccess(AccessMethod access_method,
   LOG(WARNING) << "Accessing hidden " << (type_ == kField ? "field " : "method ")
                << Dumpable<MemberSignature>(*this) << " (" << list << ", " << access_method
                << (access_denied ? ", denied)" : ", allowed)");
+  if (access_denied && list.IsTestApi()) {
+    LOG(WARNING) << "If this is a platform test consider enabling "
+                 << "VMRuntime.ALLOW_TEST_API_ACCESS change id for this package.";
+  }
 }
 
 bool MemberSignature::Equals(const MemberSignature& other) {
