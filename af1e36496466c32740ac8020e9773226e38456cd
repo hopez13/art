@@ -22,6 +22,30 @@
       },
       "revId": "af1e36496466c32740ac8020e9773226e38456cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf7c6245_f5fb9335",
+        "filename": "build/build-art-module.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-22T18:30:49Z",
+      "side": 1,
+      "message": "It actually doesn\u0027t apply for this one either, i.e. it can be passed on the command line if we so choose. Thanks for bringing it up.",
+      "parentUuid": "eb0b34c5_1b3d26c0",
+      "range": {
+        "startLine": 77,
+        "startChar": 64,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "af1e36496466c32740ac8020e9773226e38456cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
