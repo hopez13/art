@@ -16,6 +16,52 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "2b29978c3682553fbb305e1f305e4b0eb15267ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7873bea5_a8ad1b7a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T08:45:45Z",
+      "side": 1,
+      "message": "We\u0027re now using this macro at a point where SP is 16B aligned (8B is needed) and we should not spill r4 anymore. Then again, the new context does not need to preserve r0, so maybe spilling {r1-r4} is better as we can then avoid a MOV.\n\n(Maybe drop the SPILL/RESTORE macros and expand it in the context so that these things are more obvious.)",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "2b29978c3682553fbb305e1f305e4b0eb15267ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6890bae0_fe7206b3",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T08:45:45Z",
+      "side": 1,
+      "message": "Load to r7 or r8 (callee-save), move before the LSL above (just like arm64). Replace the LDR in line 1418 with a MOV before you clobber that register.\n\nOr, address the comment in SPILL_ALL_ARGUMENTS in a way that does not touch r4 (say, push/pop {r1-r3,r5}), and load access flags to r4 and avoid the MOV.",
+      "range": {
+        "startLine": 1400,
+        "startChar": 4,
+        "endLine": 1400,
+        "endChar": 49
+      },
+      "revId": "2b29978c3682553fbb305e1f305e4b0eb15267ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

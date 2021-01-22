@@ -218,6 +218,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "332e01b4_60264e3d",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T08:45:45Z",
+      "side": 1,
+      "message": "Moving the comment to PS8 to make it more visible.",
+      "parentUuid": "f99460bd_e6feb293",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51167d40_3ea64174",
@@ -374,6 +398,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ce4feaf1_5e443c8e",
+      "range": {
+        "startLine": 1402,
+        "startChar": 4,
+        "endLine": 1402,
+        "endChar": 49
+      },
+      "revId": "23c7e4b55280b1ddd2623e01b8f5e924a7aced79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c33589_f5c3c9c7",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T08:45:45Z",
+      "side": 1,
+      "message": "Not done in PS8. Moving the comment to PS8 with additional suggestion.",
+      "parentUuid": "51d3cbac_dbecd584",
       "range": {
         "startLine": 1402,
         "startChar": 4,
