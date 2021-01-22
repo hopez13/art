@@ -753,8 +753,12 @@ ImageWriter::Bin ImageWriter::AssignImageBinSlot(mirror::Object* object, size_t 
   }
 
   // Assign the oat index too.
-  DCHECK(oat_index_map_.find(object) == oat_index_map_.end());
-  oat_index_map_.insert(std::make_pair(object, oat_index));
+  if (IsMultiImage()) {
+    DCHECK(oat_index_map_.find(object) == oat_index_map_.end());
+    oat_index_map_.insert(std::make_pair(object, oat_index));
+  } else {
+    DCHECK(oat_index_map_.empty());
+  }
 
   ImageInfo& image_info = GetImageInfo(oat_index);
 
@@ -3313,6 +3317,7 @@ ImageWriter::Bin ImageWriter::BinTypeForNativeRelocationType(NativeObjectRelocat
 
 size_t ImageWriter::GetOatIndex(mirror::Object* obj) const {
   if (!IsMultiImage()) {
+    DCHECK(oat_index_map_.empty());
     return GetDefaultOatIndex();
   }
   auto it = oat_index_map_.find(obj);
