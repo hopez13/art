@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "234afd98_ff8f8c29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:36:20Z",
+      "side": 1,
+      "message": "Sorry for the late response. Please find my comments here.",
+      "revId": "8c5d086c0401ca244b3aff69453d91b2b1c2cd1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372c5489_07964e3e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:36:20Z",
+      "side": 1,
+      "message": "Is there any reason why you chose specifically 100ms? I mean why did you choose 100ms and not, say, 80ms, to be the threshold for long pause? I\u0027d prefer keeping this segregation up in the framework (or in the user code), rather than here in the runtime.",
+      "range": {
+        "startLine": 155,
+        "startChar": 24,
+        "endLine": 155,
+        "endChar": 64
+      },
+      "revId": "8c5d086c0401ca244b3aff69453d91b2b1c2cd1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f56d01b_87422283",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:36:20Z",
+      "side": 1,
+      "message": "I don\u0027t think counting GCs with softref separately will serve any purpose because soft references aren\u0027t used in Android. They are discouraged as per developers.android.com.",
+      "range": {
+        "startLine": 2633,
+        "startChar": 1,
+        "endLine": 2635,
+        "endChar": 3
+      },
+      "revId": "8c5d086c0401ca244b3aff69453d91b2b1c2cd1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ac93f5_d17b8ea6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:36:20Z",
+      "side": 1,
+      "message": "Please note that this function is called by every thread which has to wait for GC to finish. So  with this code, if lets say 5 Java threads had to wait for more 100ms in a single GC cycle, you will end up incrementing this counter 5 times. I doubt you want that.",
+      "range": {
+        "startLine": 3413,
+        "startChar": 2,
+        "endLine": 3415,
+        "endChar": 5
+      },
+      "revId": "8c5d086c0401ca244b3aff69453d91b2b1c2cd1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
