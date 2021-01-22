@@ -41,6 +41,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "de76fa6e_52311747",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2021-01-22T11:39:31Z",
+      "side": 1,
+      "message": "We had discussed the moma idea and that sounds like a good idea.\n\nI was thinking of either writing a new page in our team pages with information about this and putting a sponsored result in moma (or maybe add a new section to the change ids docs - please let me know which option you think is best)\n\nRegarding a comment in code, that might also be a good idea... but I\u0027m not even sure if the best place would be here or in VMRuntime. I feel inclined for the latter though.",
+      "parentUuid": "8f94ef1d_ac96a221",
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9035a4c4_9a87c99e",
@@ -89,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e7b5a7e_0fce4475",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2021-01-22T11:39:31Z",
+      "side": 1,
+      "message": "I was going to do that after your comment, but then I noticed I would do a couple of things I don\u0027t like:\n1. It would break the consistency (the format) of the original warning for all other change ids\n2. I would need to add a \\n to the string so this would be a logcat message with new lines inside which is not very common. (I guess I could just append after the original warning without a new line.)\n\nNeither issue is a blocker but I\u0027d like to see what other people think.",
+      "parentUuid": "65c810e2_0ef2489f",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0c796c9_1719d51b",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -100,6 +142,30 @@
       "writtenOn": "2021-01-21T19:11:59Z",
       "side": 1,
       "message": "VMRuntime.** change-id",
+      "range": {
+        "startLine": 252,
+        "startChar": 21,
+        "endLine": 252,
+        "endChar": 53
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d87875_f110c24c",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2021-01-22T11:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0c796c9_1719d51b",
       "range": {
         "startLine": 252,
         "startChar": 21,
