@@ -16,6 +16,70 @@
       "message": "Hey Lokesh, does this output look like it\u0027d work for you? If so, would you mind reviewing the CL?\n\nThanks!",
       "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c181389e_134da424",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:22:50Z",
+      "side": 1,
+      "message": "The confidence interval function in the histogram class that is currently being used also prints sum, max, avg in addition to CI. \nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/histogram-inl.h;drc\u003dmaster;l\u003d193\n\nBut maybe they can added as a separate counter in metrics, rather than making histogram more complicated. Is it possible that you can add a \u0027MetricsBasicStats\u0027, which inherits MetricsCounter, and maintains Max, Min, Avg, in addition to Sum (already done by MetricsCounter)?",
+      "parentUuid": "1d6ad84e_2fda9c16",
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec22b07a_f56b77a4",
+        "filename": "runtime/metrics/metrics_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:22:50Z",
+      "side": 1,
+      "message": "Line\u0027s too long",
+      "range": {
+        "startLine": 244,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 109
+      },
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55ec28b2_b64f4d50",
+        "filename": "runtime/metrics/metrics_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-22T03:22:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 249,
+        "startChar": 5,
+        "endLine": 249,
+        "endChar": 112
+      },
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
