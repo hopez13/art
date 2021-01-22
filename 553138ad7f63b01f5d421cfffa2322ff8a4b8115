@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "115a5326_5734ca97",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3716,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T10:34:40Z",
+      "side": 1,
+      "message": "I don\u0027t think these fields need any more comments, they are just for passing parameters back to GenerateVarHandleCompareAndSetOrExchange().\n\nIf we want to improve comments in SetCompareAndSetOrExchangeArgs(), I\u0027d rather not do it in this CL.",
+      "parentUuid": "3fbca0f3_451ad9f7",
+      "range": {
+        "startLine": 3715,
+        "startChar": 0,
+        "endLine": 3716,
+        "endChar": 15
+      },
+      "revId": "553138ad7f63b01f5d421cfffa2322ff8a4b8115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29553b37_6431034b",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-22T10:06:46Z",
       "side": 1,
       "message": "nit: nor",
+      "range": {
+        "startLine": 3933,
+        "startChar": 5,
+        "endLine": 3933,
+        "endChar": 7
+      },
+      "revId": "553138ad7f63b01f5d421cfffa2322ff8a4b8115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5561be3_2badad73",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-22T10:34:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29553b37_6431034b",
       "range": {
         "startLine": 3933,
         "startChar": 5,
