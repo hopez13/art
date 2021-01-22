@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10dbf002_1d821799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T10:06:46Z",
+      "side": 1,
+      "message": "Excellent.",
+      "revId": "553138ad7f63b01f5d421cfffa2322ff8a4b8115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbca0f3_451ad9f7",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3716,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T10:06:46Z",
+      "side": 1,
+      "message": "Consider a comment for these to explain what these do for anyone looking afresh at this, here or in SetCompareAndSetOrExchangeArgs.",
+      "range": {
+        "startLine": 3715,
+        "startChar": 0,
+        "endLine": 3716,
+        "endChar": 15
+      },
+      "revId": "553138ad7f63b01f5d421cfffa2322ff8a4b8115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29553b37_6431034b",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T10:06:46Z",
+      "side": 1,
+      "message": "nit: nor",
+      "range": {
+        "startLine": 3933,
+        "startChar": 5,
+        "endLine": 3933,
+        "endChar": 7
+      },
+      "revId": "553138ad7f63b01f5d421cfffa2322ff8a4b8115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
