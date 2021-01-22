@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "385d9f52_6fca279f",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-22T09:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7873bea5_a8ad1b7a",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "2b29978c3682553fbb305e1f305e4b0eb15267ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6890bae0_fe7206b3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-22T08:45:45Z",
       "side": 1,
       "message": "Load to r7 or r8 (callee-save), move before the LSL above (just like arm64). Replace the LDR in line 1418 with a MOV before you clobber that register.\n\nOr, address the comment in SPILL_ALL_ARGUMENTS in a way that does not touch r4 (say, push/pop {r1-r3,r5}), and load access flags to r4 and avoid the MOV.",
+      "range": {
+        "startLine": 1400,
+        "startChar": 4,
+        "endLine": 1400,
+        "endChar": 49
+      },
+      "revId": "2b29978c3682553fbb305e1f305e4b0eb15267ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd11245_d16b49a4",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-22T09:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6890bae0_fe7206b3",
       "range": {
         "startLine": 1400,
         "startChar": 4,
