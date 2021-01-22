@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2622e2df_4b7de73d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T11:12:40Z",
+      "side": 1,
+      "message": "Thanks",
+      "revId": "e1645ebe04f21a06d9b47e796c1ddad2df69e91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3399e7ab_d227ca21",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "yes. __builtin_available(macOS 10.12, *)) expands to 1 when\n\n1) targeting macos 10.12+ or\n2) targeting any version of any non-mac OS(including Android)\n\nIf we want to be specific about the Android version, this should be something like ..\n\n__builtin_available(macOS 10.12, android 17, *)\n\nThe last * can\u0027t be omitted.",
       "parentUuid": "3399e7ab_d227ca21",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 41
+      },
+      "revId": "e1645ebe04f21a06d9b47e796c1ddad2df69e91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb448239_4c16550f",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T11:12:40Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "parentUuid": "e4dc8db8_3fa2f3cc",
       "range": {
         "startLine": 141,
         "startChar": 6,
