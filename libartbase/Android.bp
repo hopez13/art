@@ -106,6 +106,9 @@ cc_defaults {
         },
         darwin: {
             enabled: true, // for libdexfile.
+            cflags: [
+                "-Wno-unguarded-availability",
+            ],
         },
     },
     generated_sources: ["art_libartbase_operator_srcs"],
