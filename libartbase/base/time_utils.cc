@@ -139,10 +139,18 @@ std::string GetIsoDate() {
   tm* ptm = &tmbuf;
   ns = 0;
 #else
-  timespec now;
-  clock_gettime(CLOCK_REALTIME, &now);
-  tm* ptm = localtime_r(&now.tv_sec, &tmbuf);
-  ns = now.tv_nsec;
+  tm* ptm;
+  if (__builtin_available(macOS 10.12, *)) {
+    timespec now;
+    clock_gettime(CLOCK_REALTIME, &now);
+    tm* ptm = localtime_r(&now.tv_sec, &tmbuf);
+    ns = now.tv_nsec;
+  } else {
+    time_t now = time(nullptr);
+    localtime_s(&tmbuf, &now);
+    tm* ptm = &tmbuf;
+    ns = 0;
+  }
 #endif
   char zone[16] = {};
   strftime(zone, sizeof(zone), "%z", ptm);
