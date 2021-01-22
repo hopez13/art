@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937ecadf_a77b3908",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-22T21:23:38Z",
+      "side": 1,
+      "message": "Can you expand the comment on what we do with those?",
+      "range": {
+        "startLine": 1563,
+        "startChar": 0,
+        "endLine": 1563,
+        "endChar": 85
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3576992_528eafe8",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-22T21:23:38Z",
+      "side": 1,
+      "message": "Why do you call this \"NonBootImage\" ? Are we processing strings that were created during initialization of classes ?",
+      "range": {
+        "startLine": 1880,
+        "startChar": 2,
+        "endLine": 1880,
+        "endChar": 28
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
