@@ -59,6 +59,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb97691_6197f868",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-01-22T15:48:29Z",
+      "side": 1,
+      "message": "Yeah, either sounds good! (slight preference for a new short doc, just to keep it focused)\n\nre: comments, I think both are fine:\n- putting a comment next to the error message allows people searching for that error message now where to look further. It doesn\u0027t add any cost / complexity.\n- putting a comment in VMRuntime on the change id is appropriate as well. See how other change-ids in the framework write user-facing docs for their changes.",
+      "parentUuid": "de76fa6e_52311747",
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9035a4c4_9a87c99e",
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "I was going to do that after your comment, but then I noticed I would do a couple of things I don\u0027t like:\n1. It would break the consistency (the format) of the original warning for all other change ids\n2. I would need to add a \\n to the string so this would be a logcat message with new lines inside which is not very common. (I guess I could just append after the original warning without a new line.)\n\nNeither issue is a blocker but I\u0027d like to see what other people think.",
       "parentUuid": "65c810e2_0ef2489f",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce24f16_da41cf81",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-01-22T15:48:29Z",
+      "side": 1,
+      "message": "Agreed.\n\nmy 2cents, consistency of the format is not that important in this case, you are just appending extra info really. (Note this is not about change id warnings, this is about denying access to hidden apis; there is only one warning of this type.)\n\nI think adding or not \\n is fine either way; up to you. There are definitely multiple logs, though as you said it\u0027s not common.",
+      "parentUuid": "4e7b5a7e_0fce4475",
       "range": {
         "startLine": 251,
         "startChar": 4,
