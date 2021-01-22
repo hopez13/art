@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3399e7ab_d227ca21",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-22T10:20:25Z",
+      "side": 1,
+      "message": "Naive question: the check here permits macOS \u003e\u003d 10.12 and anything that is not macOS due to the \", *\" part?\n\n[ The document on __builtin_available documentation is a bit barren : https://clang.llvm.org/docs/LanguageExtensions.html ]",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 41
+      },
+      "revId": "e1645ebe04f21a06d9b47e796c1ddad2df69e91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
