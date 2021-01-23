@@ -16,6 +16,23 @@
       "message": "Follow-up to https://android-review.googlesource.com/c/platform/art/+/1556431",
       "revId": "99f7e3c818582d396d26711afacfbee8536dbced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "652fd596_b1ed56c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-01-23T20:47:38Z",
+      "side": 1,
+      "message": "Obviously, this CL is wrong:\n\n  In file included from art/compiler/optimizing/optimization.h:21:\n  art/compiler/optimizing/nodes.h:8260:42: error: incompatible operand types (\u0027art::HInstruction\u0027 and \u0027const char [10]\u0027)\n            \u003c\u003c ((instruction !\u003d nullptr) ? *instruction : \"[nullptr]\");\n\nSo I don\u0027t know the best approach here.  Sorry, was just trying to save some time.",
+      "revId": "99f7e3c818582d396d26711afacfbee8536dbced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
