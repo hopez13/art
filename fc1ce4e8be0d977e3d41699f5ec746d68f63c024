@@ -16,6 +16,40 @@
       "message": "Going to let the 2 parents go in first since they are much safer and that will avoid (hopefully) having all three reverted if this bounces again.",
       "revId": "fc1ce4e8be0d977e3d41699f5ec746d68f63c024",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb95fd1_bd0f4baa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 8238,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-01-23T20:02:44Z",
+      "side": 1,
+      "message": "Here we have a check if \u0027instruction\u0027 is nullptr, presumably because this is a possibility...",
+      "revId": "fc1ce4e8be0d977e3d41699f5ec746d68f63c024",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04b3db73_3b9c26e9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 8259,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-01-23T20:02:44Z",
+      "side": 1,
+      "message": "...but with this new line, we\u0027re dereferencing \u0027instruction\u0027 outside of this nullptr check.  It seems like we could end up dereferencing a nullptr.\n\nI\u0027ve put up https://android-review.googlesource.com/c/platform/art/+/1559216 as a potential fix, although I don\u0027t know if something else is more appropriate.",
+      "revId": "fc1ce4e8be0d977e3d41699f5ec746d68f63c024",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
