@@ -70,6 +70,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c80960_99985aaf",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1983,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T13:40:29Z",
+      "side": 1,
+      "message": "Renamed to `retained_end`.",
+      "parentUuid": "176bd51a_f8e44b22",
+      "range": {
+        "startLine": 1983,
+        "startChar": 7,
+        "endLine": 1983,
+        "endChar": 14
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff6dba22_abb43ed4",
@@ -83,6 +107,30 @@
       "writtenOn": "2021-01-25T12:58:53Z",
       "side": 1,
       "message": "Did you intentionally change DCHECK to CHECK? What\u0027s the point in doing so since the code is under kIsDebugBuild?",
+      "range": {
+        "startLine": 2794,
+        "startChar": 6,
+        "endLine": 2794,
+        "endChar": 11
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be64509f_7052a6c3",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T13:40:29Z",
+      "side": 1,
+      "message": "Yes, this is intentional. I find it odd when code checks the same condition as a dominating `if`, therefore I prefer CHECK() instead of DCHECK() inside `if (kIsDebugBuild)`.",
+      "parentUuid": "ff6dba22_abb43ed4",
       "range": {
         "startLine": 2794,
         "startChar": 6,
