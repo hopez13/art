@@ -16,6 +16,75 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c51e60dc_102aea08",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T11:06:21Z",
+      "side": 1,
+      "message": "Should this be \"\u003c\u003d\"?",
+      "range": {
+        "startLine": 59,
+        "startChar": 46,
+        "endLine": 59,
+        "endChar": 47
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbbba5a_50abc314",
+        "filename": "runtime/interpreter/mterp/nterp_stub.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T11:06:21Z",
+      "side": 1,
+      "message": "This should not be stubbed-out anymore. We need it in case we\u0027re cross-compiling on nterp-lacking host for nterp-supporting target.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 1
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a86c4f5_c3937e84",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T11:06:21Z",
+      "side": 1,
+      "message": "This depends on the instruction set, so we need to pass the target instruction set here as well.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 30
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
