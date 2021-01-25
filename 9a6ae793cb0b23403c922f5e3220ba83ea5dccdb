@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0a0370_587e434f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5185,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-01-25T15:01:49Z",
+      "side": 1,
+      "message": "This is the same as CanCompilerHandleVerificationFailure without VERIFY_ERROR_UNRESOLVED_TYPE_CHECK, maybe worth factoring out the common part?",
+      "range": {
+        "startLine": 5179,
+        "startChar": 0,
+        "endLine": 5185,
+        "endChar": 56
+      },
+      "revId": "9a6ae793cb0b23403c922f5e3220ba83ea5dccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3035e4b5_e5ab6c17",
+        "filename": "runtime/verifier/verifier_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-01-25T15:01:49Z",
+      "side": 1,
+      "message": "Nit: alignment is different from other enum elements.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 88
+      },
+      "revId": "9a6ae793cb0b23403c922f5e3220ba83ea5dccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
