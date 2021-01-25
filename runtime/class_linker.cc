@@ -702,6 +702,7 @@ ClassLinker::ClassLinker(InternTable* intern_table, bool fast_class_not_found_ex
       quick_imt_conflict_trampoline_(nullptr),
       quick_generic_jni_trampoline_(nullptr),
       quick_to_interpreter_bridge_trampoline_(nullptr),
+      nterp_trampoline_(nullptr),
       image_pointer_size_(kRuntimePointerSize),
       visibly_initialized_callback_lock_("visibly initialized callback lock"),
       visibly_initialized_callback_(nullptr),
@@ -929,6 +930,7 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
     quick_imt_conflict_trampoline_ = GetQuickImtConflictStub();
     quick_generic_jni_trampoline_ = GetQuickGenericJniStub();
     quick_to_interpreter_bridge_trampoline_ = GetQuickToInterpreterBridge();
+    nterp_trampoline_ = interpreter::GetNterpEntryPoint();
   }
 
   // Object, String, ClassExt and DexCache need to be rerun through FindSystemClass to finish init
@@ -1216,6 +1218,7 @@ struct TrampolineCheckData {
   const void* quick_imt_conflict_trampoline;
   const void* quick_generic_jni_trampoline;
   const void* quick_to_interpreter_bridge_trampoline;
+  const void* nterp_trampoline;
   PointerSize pointer_size;
   ArtMethod* m;
   bool error;
@@ -1282,6 +1285,7 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   quick_imt_conflict_trampoline_ = default_oat_header.GetQuickImtConflictTrampoline();
   quick_generic_jni_trampoline_ = default_oat_header.GetQuickGenericJniTrampoline();
   quick_to_interpreter_bridge_trampoline_ = default_oat_header.GetQuickToInterpreterBridge();
+  nterp_trampoline_ = default_oat_header.GetNterpTrampoline();
   if (kIsDebugBuild) {
     // Check that the other images use the same trampoline.
     for (size_t i = 1; i < oat_files.size(); ++i) {
@@ -1298,12 +1302,15 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
           ith_oat_header.GetQuickGenericJniTrampoline();
       const void* ith_quick_to_interpreter_bridge_trampoline =
           ith_oat_header.GetQuickToInterpreterBridge();
+      const void* ith_nterp_trampoline =
+          ith_oat_header.GetNterpTrampoline();
       if (ith_jni_dlsym_lookup_trampoline_ != jni_dlsym_lookup_trampoline_ ||
           ith_jni_dlsym_lookup_critical_trampoline_ != jni_dlsym_lookup_critical_trampoline_ ||
           ith_quick_resolution_trampoline != quick_resolution_trampoline_ ||
           ith_quick_imt_conflict_trampoline != quick_imt_conflict_trampoline_ ||
           ith_quick_generic_jni_trampoline != quick_generic_jni_trampoline_ ||
-          ith_quick_to_interpreter_bridge_trampoline != quick_to_interpreter_bridge_trampoline_) {
+          ith_quick_to_interpreter_bridge_trampoline != quick_to_interpreter_bridge_trampoline_ ||
+          ith_nterp_trampoline != nterp_trampoline_) {
         // Make sure that all methods in this image do not contain those trampolines as
         // entrypoints. Otherwise the class-linker won't be able to work with a single set.
         TrampolineCheckData data;
@@ -1313,6 +1320,7 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
         data.quick_imt_conflict_trampoline = ith_quick_imt_conflict_trampoline;
         data.quick_generic_jni_trampoline = ith_quick_generic_jni_trampoline;
         data.quick_to_interpreter_bridge_trampoline = ith_quick_to_interpreter_bridge_trampoline;
+        data.nterp_trampoline = ith_nterp_trampoline;
         ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
         auto visitor = [&](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
           if (obj->IsClass()) {
@@ -2048,8 +2056,12 @@ bool ClassLinker::AddImageSpace(
       }
       // Set image methods' entry point that point to the interpreter bridge to the
       // nterp entry point.
-      if (can_use_nterp) {
-        ChangeInterpreterBridgeToNterp(&method, this);
+      if (method.GetEntryPointFromQuickCompiledCode() == nterp_trampoline_) {
+        if (can_use_nterp) {
+          method.SetEntryPointFromQuickCompiledCode(interpreter::GetNterpEntryPoint());
+        } else {
+          method.SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
+        }
       }
     }, space->Begin(), image_pointer_size_);
   }
