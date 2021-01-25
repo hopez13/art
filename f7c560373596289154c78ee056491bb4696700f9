@@ -45,6 +45,52 @@
       },
       "revId": "f7c560373596289154c78ee056491bb4696700f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "176bd51a_f8e44b22",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1983,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-01-25T12:58:53Z",
+      "side": 1,
+      "message": "Nit: the name is a bit confusing, as if it were a boolean. `last` would be better IMO.",
+      "range": {
+        "startLine": 1983,
+        "startChar": 7,
+        "endLine": 1983,
+        "endChar": 14
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6dba22_abb43ed4",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-01-25T12:58:53Z",
+      "side": 1,
+      "message": "Did you intentionally change DCHECK to CHECK? What\u0027s the point in doing so since the code is under kIsDebugBuild?",
+      "range": {
+        "startLine": 2794,
+        "startChar": 6,
+        "endLine": 2794,
+        "endChar": 11
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
