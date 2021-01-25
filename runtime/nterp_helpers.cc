@@ -94,7 +94,7 @@ static constexpr size_t NterpGetFrameEntrySize() {
   return (POPCOUNT(core_spills) + POPCOUNT(fp_spills)) * kPointerSize;
 }
 
-size_t NterpGetFrameSize(ArtMethod* method) {
+size_t NterpGetFrameSize(ArtMethod* method, PointerSize pointer_size) {
   CodeItemDataAccessor accessor(method->DexInstructionData());
   const uint16_t num_regs = accessor.RegistersSize();
   const uint16_t out_regs = accessor.OutsSize();
@@ -104,13 +104,14 @@ size_t NterpGetFrameSize(ArtMethod* method) {
   static_assert(IsAligned<kPointerSize>(kStackAlignment));
   static_assert(IsAligned<kPointerSize>(NterpGetFrameEntrySize()));
   static_assert(IsAligned<kPointerSize>(kVRegSize * 2));
+  size_t passed_pointer_size = static_cast<size_t>(pointer_size);
   size_t frame_size =
       NterpGetFrameEntrySize() +
       (num_regs * kVRegSize) * 2 +  // dex registers and reference registers
-      kPointerSize +  // previous frame
-      kPointerSize +  // saved dex pc
+      passed_pointer_size +  // previous frame
+      passed_pointer_size +  // saved dex pc
       (out_regs * kVRegSize) +  // out arguments
-      kPointerSize;  // method
+      passed_pointer_size;  // method
   return RoundUp(frame_size, kStackAlignment);
 }
 

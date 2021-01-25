@@ -26,7 +26,7 @@ class ArtMethod;
 /**
  * The frame size nterp will use for the given method.
  */
-size_t NterpGetFrameSize(ArtMethod* method)
+size_t NterpGetFrameSize(ArtMethod* method, PointerSize pointer_size = kRuntimePointerSize)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 /**

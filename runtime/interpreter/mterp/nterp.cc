@@ -46,7 +46,8 @@ bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {
   return IsNterpSupported() && CanUseMterp() && !instr->InterpretOnly();
 }
 
-bool CanMethodUseNterp(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+bool CanMethodUseNterp(ArtMethod* method, PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   return !method->IsNative() &&
       method->IsInvokable() &&
       // Nterp supports the same methods the compiler supports.
@@ -55,7 +56,7 @@ bool CanMethodUseNterp(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) 
       // Proxy methods do not go through the JIT like other methods, so we don't
       // run them with nterp.
       !method->IsProxyMethod() &&
-      NterpGetFrameSize(method) < kNterpMaxFrame;
+      NterpGetFrameSize(method, pointer_size) < kNterpMaxFrame;
 }
 
 const void* GetNterpEntryPoint() {

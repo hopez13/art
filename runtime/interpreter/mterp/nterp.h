@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 #define ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 
+#include "base/enums.h"
 #include "base/globals.h"
 
 extern "C" void* artNterpAsmInstructionStart[];
@@ -31,7 +32,7 @@ namespace interpreter {
 void CheckNterpAsmConstants();
 bool IsNterpSupported();
 bool CanRuntimeUseNterp();
-bool CanMethodUseNterp(ArtMethod* method);
+bool CanMethodUseNterp(ArtMethod* method, PointerSize pointer_size);
 const void* GetNterpEntryPoint();
 
 // The hotness threshold where we trigger JIT compilation or OSR.
