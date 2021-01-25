@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aaae27b_4564c5ef",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T14:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937ecadf_a77b3908",
+      "range": {
+        "startLine": 1563,
+        "startChar": 0,
+        "endLine": 1563,
+        "endChar": 85
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3576992_528eafe8",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-22T21:23:38Z",
       "side": 1,
       "message": "Why do you call this \"NonBootImage\" ? Are we processing strings that were created during initialization of classes ?",
+      "range": {
+        "startLine": 1880,
+        "startChar": 2,
+        "endLine": 1880,
+        "endChar": 28
+      },
+      "revId": "f7c560373596289154c78ee056491bb4696700f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8aabf63_6733edc7",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-25T14:35:04Z",
+      "side": 1,
+      "message": "Dropped \"NonBootImage\". We\u0027re not stressing it anywhere else that stuff already present in boot images against which we compile is not going to be included in the current image.",
+      "parentUuid": "d3576992_528eafe8",
       "range": {
         "startLine": 1880,
         "startChar": 2,
