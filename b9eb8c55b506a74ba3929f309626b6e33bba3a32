@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ce5140_86490e7d",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-25T10:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee2f1d91_11ac829c",
+      "revId": "b9eb8c55b506a74ba3929f309626b6e33bba3a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "739d61bc_e950514f",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-01-25T09:47:29Z",
       "side": 1,
       "message": "Depends on pointer size, so you need to pass `target_ptr_size_` all the way down to NterpGetFrameSize() for cross-compilation.",
+      "range": {
+        "startLine": 3040,
+        "startChar": 15,
+        "endLine": 3040,
+        "endChar": 53
+      },
+      "revId": "b9eb8c55b506a74ba3929f309626b6e33bba3a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc7d78e_e1016d00",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-25T10:56:57Z",
+      "side": 1,
+      "message": "Good point! Done.",
+      "parentUuid": "739d61bc_e950514f",
       "range": {
         "startLine": 3040,
         "startChar": 15,
