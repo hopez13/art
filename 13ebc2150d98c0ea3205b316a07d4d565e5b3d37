@@ -286,6 +286,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b466d88_c662f4ca",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-25T21:37:23Z",
+      "side": 1,
+      "message": "Recent CLs check for validity of /system artifacts as well as /data. The is_factory_apex knowledge is still used to limit how much checking is done.",
+      "parentUuid": "6e761336_9cc2d61c",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "13ebc2150d98c0ea3205b316a07d4d565e5b3d37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "288d672d_d2a57ab4",
