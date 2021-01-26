@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed82db1e_569aaa20",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-26T11:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0151375d_9a2cabd8",
+      "range": {
+        "startLine": 88,
+        "startChar": 65,
+        "endLine": 88,
+        "endChar": 79
+      },
+      "revId": "f35c1c11f6d19c93b1488dbe92169812d9e3758e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90ebce98_a7ba6d8c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-26T10:41:23Z",
       "side": 1,
       "message": "Maybe replace with DCHECK()s using the `isa` and `pointer_size`?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 56
+      },
+      "revId": "f35c1c11f6d19c93b1488dbe92169812d9e3758e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9570faa5_4ecb34d6",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-26T11:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ebce98_a7ba6d8c",
       "range": {
         "startLine": 126,
         "startChar": 2,
