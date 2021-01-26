@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed90c41_91d59dba",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-26T10:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51e60dc_102aea08",
+      "range": {
+        "startLine": 59,
+        "startChar": 46,
+        "endLine": 59,
+        "endChar": 47
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fbbba5a_50abc314",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec8ad4a_52ad524a",
+        "filename": "runtime/interpreter/mterp/nterp_stub.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-26T10:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fbbba5a_50abc314",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 1
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a86c4f5_c3937e84",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-01-25T11:06:21Z",
       "side": 1,
       "message": "This depends on the instruction set, so we need to pass the target instruction set here as well.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 30
+      },
+      "revId": "26c5d377eca63b277c2d417197ed064abbf70c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e246a5d6_5f3ad0ba",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-26T10:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a86c4f5_c3937e84",
       "range": {
         "startLine": 109,
         "startChar": 6,
