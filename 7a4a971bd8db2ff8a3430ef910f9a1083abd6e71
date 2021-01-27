@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "866240ce_d15e5bf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-27T20:04:43Z",
+      "side": 1,
+      "message": "To me it seems like having a separate metric which inherits (or not) MetricsCounter as a more straightforward approach, unless there are any concerns with this?\n\nOtherwise, accumulator should work too. The average computation in the current implementation isn\u0027t perfect either:\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/histogram-inl.h;drc\u003dmaster;l\u003d146\n\nBTW, I don\u0027t get why you say that three/four counters will have to be updated?",
+      "parentUuid": "f3b41fbe_33587d6f",
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec22b07a_f56b77a4",
         "filename": "runtime/metrics/metrics_test.cc",
         "patchSetId": 2
