@@ -107,7 +107,6 @@ static bool IsInterestingInstruction(HInstruction* instruction) {
   // hard to test, as LSE removes them.
   if (instruction->IsStaticFieldGet() ||
       instruction->IsInstanceFieldGet() ||
-      instruction->IsPredicatedInstanceFieldGet() ||
       instruction->IsArrayGet()) {
     return false;
   }
