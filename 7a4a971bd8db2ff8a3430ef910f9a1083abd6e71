@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3b41fbe_33587d6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-27T18:02:31Z",
+      "side": 1,
+      "message": "Another option to consider is having MetricsCounter have an accumulator parameter, which could maintain Max or Min automatically. This is probably less ergonomic though, since you\u0027d have to update three or four counters instead of one.\n\nAverage wouldn\u0027t work as well with this accumulator option, since it isn\u0027t monotonic, but we could track a sum and a count and compute the average when needed.",
+      "parentUuid": "c181389e_134da424",
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec22b07a_f56b77a4",
