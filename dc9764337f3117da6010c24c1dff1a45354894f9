@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c8aa61_cb9ec508",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-01-27T09:53:54Z",
+      "side": 1,
+      "message": "LGTM, but needs to be reviewed by ART team too.",
+      "revId": "dc9764337f3117da6010c24c1dff1a45354894f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fbbc338_2b9758d7",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-01-27T09:53:54Z",
+      "side": 1,
+      "message": "better to do this after the \u003e check? (lower overhead in the logcat spamming case)",
+      "range": {
+        "startLine": 251,
+        "startChar": 2,
+        "endLine": 251,
+        "endChar": 23
+      },
+      "revId": "dc9764337f3117da6010c24c1dff1a45354894f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
