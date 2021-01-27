@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e068433c_002ff492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-01-27T22:21:24Z",
+      "side": 1,
+      "message": "\u003e For the three/four counters being updated, I was describing a situation where you\u0027d define your metrics like this:\n\u003e \n\u003e     COUNTER(MetricTotal, Sum)\n\u003e     COUNTER(MetricMin, Min)\n\u003e     COUNTER(MetricMax, Max)\n\u003e     COUNTER(MetricCount, Add1)\n\u003e \n\u003e Then when you go update metrics, you\u0027d have to do:\n\u003e \n\u003e     GetMetrics()-\u003eMetricTotal()-\u003eAdd(value);\n\u003e     GetMetrics()-\u003eMetricMin()-\u003eAdd(value);\n\u003e     GetMetrics()-\u003eMetricMax()-\u003eAdd(value);\n\u003e     GetMetrics()-\u003eMetricCount()-\u003eAdd(value);\n\u003e \n\u003e This is obviously terrible. It might make sense to have things implemented this way under the covers, since that wouldn\u0027t require any changes to how we report things to StatsD, but I think we should hide all of this from the person adding metrics.\n\nYeah without hiding it would be a terrible idea 😊\n\u003e \n\u003e The subclass (or class that has a common interface, which is how Counters and Histograms currently work) should be fine. The part I\u0027m hesitating on is the fact that we have the ART_COUNTERS macro and the ART_HISTOGRAMS macro already and if possible I\u0027d like to do this without having to add something like an ART_SUPERCOUNTERS. I think some magic around varargs or default values could work though.\n\nYou understand the issues involved and how best to take care of them. But I think we both agree that in the interest of keeping the metrics\u0027 efficient as well as uncomplicated, it would be best to have a separate metric which maintains min, max, avg, sum etc. I believe this metric which has all these basic stats would be quite useful for others too.\n\u003e \n\u003e I kind of want to rework the grand metrics list anyway though, since in some cases we\u0027ll want to be able to have different sets or groups of metrics. For example, regular app processes don\u0027t need have boot time metrics taking up space in the process.",
+      "parentUuid": "035f57f2_a2a5f18b",
+      "revId": "7a4a971bd8db2ff8a3430ef910f9a1083abd6e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec22b07a_f56b77a4",
         "filename": "runtime/metrics/metrics_test.cc",
         "patchSetId": 2
