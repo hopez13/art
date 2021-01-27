@@ -33,6 +33,23 @@
       "message": "Obviously, this CL is wrong:\n\n  In file included from art/compiler/optimizing/optimization.h:21:\n  art/compiler/optimizing/nodes.h:8260:42: error: incompatible operand types (\u0027art::HInstruction\u0027 and \u0027const char [10]\u0027)\n            \u003c\u003c ((instruction !\u003d nullptr) ? *instruction : \"[nullptr]\");\n\nSo I don\u0027t know the best approach here.  Sorry, was just trying to save some time.",
       "revId": "99f7e3c818582d396d26711afacfbee8536dbced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232c6715_cf4fe81d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-01-27T19:06:27Z",
+      "side": 1,
+      "message": "I\u0027ll do this soon. Don\u0027t want merge-conflicts with reverts.",
+      "revId": "99f7e3c818582d396d26711afacfbee8536dbced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
