@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d15091_02f692f8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2783,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-27T17:30:18Z",
+      "side": 1,
+      "message": "You should also add RAX to the temporaries because it is clobbered by the multiplication. Otherwise the register allocator could pass the register to another instruction that takes the same input.",
+      "revId": "2a17f60118301507b7c3fac79e70a9c756e01430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc581f2_702d6634",
+        "filename": "runtime/image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-27T17:30:18Z",
+      "side": 1,
+      "message": "Update the tag.",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "2a17f60118301507b7c3fac79e70a9c756e01430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
