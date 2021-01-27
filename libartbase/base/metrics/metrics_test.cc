@@ -214,8 +214,7 @@ TEST_F(MetricsTest, StreamBackendDumpAllMetrics) {
   metrics.ReportAllMetrics(&backend);
 
   // Make sure the resulting string lists all the counters.
-#define COUNTER(name) \
-  EXPECT_NE(os.str().find(DatumName(DatumId::k##name)), std::string::npos)
+#define COUNTER(name) EXPECT_NE(os.str().find(DatumName(DatumId::k##name)), std::string::npos)
   ART_COUNTERS(COUNTER);
 #undef COUNTER
 

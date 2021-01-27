@@ -36,6 +36,7 @@ cc_defaults {
         "base/memory_region.cc",
         "base/mem_map.cc",
         // "base/mem_map_fuchsia.cc", put in target when fuchsia supported by soong
+        "base/metrics/metrics_common.cc",
         "base/os_linux.cc",
         "base/runtime_debug.cc",
         "base/safe_copy.cc",
@@ -209,6 +210,7 @@ art_cc_library {
     defaults: ["libart-gtest-defaults"],
     srcs: [
         "base/common_art_test.cc",
+        "base/metrics/metrics_test.cc",
     ],
     shared_libs: [
         "libartbased",
