@@ -39,6 +39,30 @@
       },
       "revId": "dc9764337f3117da6010c24c1dff1a45354894f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b151c5a5_85e6d86f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-01-27T13:02:55Z",
+      "side": 1,
+      "message": "Good point. Moved it to the end of the method.",
+      "parentUuid": "0fbbc338_2b9758d7",
+      "range": {
+        "startLine": 251,
+        "startChar": 2,
+        "endLine": 251,
+        "endChar": 23
+      },
+      "revId": "dc9764337f3117da6010c24c1dff1a45354894f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
