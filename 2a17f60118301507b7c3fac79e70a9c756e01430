@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd29d88e_33a8849a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-27T17:48:18Z",
+      "side": 1,
+      "message": "imulq",
+      "range": {
+        "startLine": 2793,
+        "startChar": 5,
+        "endLine": 2793,
+        "endChar": 10
+      },
+      "revId": "2a17f60118301507b7c3fac79e70a9c756e01430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acc581f2_702d6634",
         "filename": "runtime/image.cc",
         "patchSetId": 2
