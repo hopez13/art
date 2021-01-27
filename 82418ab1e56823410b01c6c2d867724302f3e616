@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a245c8d_b6b3f3fa",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-01-27T16:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "331327ed_9118ff8c",
+      "range": {
+        "startLine": 3803,
+        "startChar": 12,
+        "endLine": 3803,
+        "endChar": 32
+      },
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5acda13_67bcb4fa",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "079231f2_e90fcd08",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3817,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-01-27T16:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5acda13_67bcb4fa",
+      "range": {
+        "startLine": 3817,
+        "startChar": 19,
+        "endLine": 3817,
+        "endChar": 31
+      },
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68e94ced_8fac6d42",
@@ -77,6 +125,24 @@
       "writtenOn": "2021-01-21T13:49:55Z",
       "side": 1,
       "message": "You could use the IMUL instruction that uses RDX:RAX as the result.",
+      "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a23ca3_b7ccc115",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-01-27T16:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68e94ced_8fac6d42",
       "revId": "82418ab1e56823410b01c6c2d867724302f3e616",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
