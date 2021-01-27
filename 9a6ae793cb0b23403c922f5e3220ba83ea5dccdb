@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22aa9bde_817d4f28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-27T08:36:29Z",
+      "side": 1,
+      "message": "Thanks Ulya.",
+      "revId": "9a6ae793cb0b23403c922f5e3220ba83ea5dccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e0a0370_587e434f",
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60a7304f_a0764aad",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-27T08:36:29Z",
+      "side": 1,
+      "message": "There\u0027s some historic reason for having compiler logic outside of the verifier. I think factoring things out with a common method may not help readability given some logic still needs to reside in the compiler code.",
+      "parentUuid": "3e0a0370_587e434f",
+      "range": {
+        "startLine": 5179,
+        "startChar": 0,
+        "endLine": 5185,
+        "endChar": 56
+      },
+      "revId": "9a6ae793cb0b23403c922f5e3220ba83ea5dccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3035e4b5_e5ab6c17",
         "filename": "runtime/verifier/verifier_enums.h",
         "patchSetId": 1
@@ -37,6 +78,30 @@
       "writtenOn": "2021-01-25T15:01:49Z",
       "side": 1,
       "message": "Nit: alignment is different from other enum elements.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 88
+      },
+      "revId": "9a6ae793cb0b23403c922f5e3220ba83ea5dccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b94ef9_c744e7fc",
+        "filename": "runtime/verifier/verifier_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-27T08:36:29Z",
+      "side": 1,
+      "message": "Yes, but that would mean moving comments around to fit the 100col limit. I could rename it to a shorter name, like VERIFY_ERROR_UNRESOLVED_CHECK, but I feel this doesn\u0027t properly describe the error case.\n\nDo you have ideas for a better, shorter name?",
+      "parentUuid": "3035e4b5_e5ab6c17",
       "range": {
         "startLine": 82,
         "startChar": 0,
