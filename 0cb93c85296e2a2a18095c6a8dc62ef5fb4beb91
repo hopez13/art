@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f820563_a2d2905f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-27T13:42:57Z",
+      "side": 1,
+      "message": "A few comments :) As discussed, I suggest splitting this CL into multiples. For example:\n- One for palette\n- One for utility functions (which you already have tests for)\n- One for oat_file_assistant changes\n- One for dexoptanalyzer\n- One for odrefresh",
+      "revId": "0cb93c85296e2a2a18095c6a8dc62ef5fb4beb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
