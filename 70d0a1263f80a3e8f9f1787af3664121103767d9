@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a73fec_dd186fdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-27T23:52:19Z",
+      "side": 1,
+      "message": "This splits up the metrics code so we can use the core of it in contexts where we don\u0027t have the runtime (for example, during odrefresh).\n\nWe\u0027ll probably need to refine the boundary over time, but let\u0027s start with this and adjust as needed.",
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
