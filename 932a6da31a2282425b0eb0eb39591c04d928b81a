@@ -39,6 +39,30 @@
       },
       "revId": "932a6da31a2282425b0eb0eb39591c04d928b81a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472323cd_badf8f91",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-01-27T13:17:20Z",
+      "side": 1,
+      "message": "It guarantees that the warning is printed at least once, instead of at most once. I\u0027ll go with \u003e\u003d.",
+      "parentUuid": "756622b8_b70379e4",
+      "range": {
+        "startLine": 257,
+        "startChar": 25,
+        "endLine": 257,
+        "endChar": 27
+      },
+      "revId": "932a6da31a2282425b0eb0eb39591c04d928b81a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
