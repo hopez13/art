@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6013f43c_7237212f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T09:51:55Z",
+      "side": 1,
+      "message": "Remove. We actually need the one-parameter version, otherwise we\u0027ll generate the wrong IMUL. You don\u0027t need the `rax` variable anymore but we could\n\n  DCHECK_EQ(locations-\u003eInAt(0).AsRegister\u003cCpuRegister\u003e(), RAX);\n  DCHECK_EQ(locations-\u003eOut().AsRegister\u003cCpuRegister\u003e(), RDX);\n\nCan you run the tests, please? (And add a `Test: [...] --host [...]` to the commit message.)",
+      "range": {
+        "startLine": 2794,
+        "startChar": 11,
+        "endLine": 2794,
+        "endChar": 16
+      },
+      "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
