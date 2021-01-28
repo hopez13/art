@@ -16,6 +16,69 @@
       "message": "This splits up the metrics code so we can use the core of it in contexts where we don\u0027t have the runtime (for example, during odrefresh).\n\nWe\u0027ll probably need to refine the boundary over time, but let\u0027s start with this and adjust as needed.",
       "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a133bf0f_91e37d1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T13:24:36Z",
+      "side": 1,
+      "message": "LGTM, looks like test config may need tweaking along with this.\n\n[Feel free to ignore the 2 mega-nits, one pre-existing.]",
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e035e87_30e878a7",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T13:24:36Z",
+      "side": 1,
+      "message": "mega-nit: 4 space indent.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "466e85b6_3167a1cd",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T13:24:36Z",
+      "side": 1,
+      "message": "mega-nit: drop space.",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
