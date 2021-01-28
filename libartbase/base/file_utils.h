@@ -91,6 +91,12 @@ std::string GetSystemImageFilename(const char* location, InstructionSet isa);
 // Returns the vdex filename for the given oat filename.
 std::string GetVdexFilename(const std::string& oat_filename);
 
+// Return basename in `path` and strip specified extension (if any).
+std::string_view Basename(std::string_view path, std::string_view extension = "");
+
+// Return directory name in path according to rules of dirname(3) without affecting the input.
+std::string_view Dirname(std::string_view path);
+
 // Returns `filename` with the text after the last occurrence of '.' replaced with
 // `extension`. If `filename` does not contain a period, returns a string containing `filename`,
 // a period, and `new_extension`.
