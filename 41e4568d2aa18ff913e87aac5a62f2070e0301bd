@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f362603_89cfecdc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T14:18:27Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4be9a4a_0ca4c006",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T14:18:27Z",
+      "side": 1,
+      "message": "This comment could be clearer: these are the 8 fields from B.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5b7e59d_1cd3a125",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -43,6 +89,75 @@
         "startChar": 0,
         "endLine": 8321,
         "endChar": 40
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d93055b_84c6cd8c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8526,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T14:18:27Z",
+      "side": 1,
+      "message": "Clarifying comment: by dex field index?",
+      "range": {
+        "startLine": 8526,
+        "startChar": 34,
+        "endLine": 8526,
+        "endChar": 41
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a3301c1_ce6518da",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8546,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T14:18:27Z",
+      "side": 1,
+      "message": "(\u003d\u003d field size order)",
+      "range": {
+        "startLine": 8546,
+        "startChar": 38,
+        "endLine": 8546,
+        "endChar": 54
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995befac_0165c99b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8576,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-28T14:18:27Z",
+      "side": 1,
+      "message": "Would it be better to put this after the 64-bit fields? At least for 32-bit architectures.",
+      "range": {
+        "startLine": 8576,
+        "startChar": 2,
+        "endLine": 8576,
+        "endChar": 30
       },
       "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
