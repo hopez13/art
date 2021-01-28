@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5abf1b86_a10cc5e7",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-28T09:09:23Z",
+      "side": 1,
+      "message": "Do we expect users of jvmti to understand this?",
+      "range": {
+        "startLine": 1445,
+        "startChar": 68,
+        "endLine": 1446,
+        "endChar": 64
+      },
+      "revId": "c90a0e3124eccb62a1e8dac54392004e417d83e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
