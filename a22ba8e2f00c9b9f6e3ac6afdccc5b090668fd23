@@ -79,6 +79,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "59f1e2b4_e0e88710",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2021-01-28T18:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb97691_6197f868",
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9035a4c4_9a87c99e",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "Agreed.\n\nmy 2cents, consistency of the format is not that important in this case, you are just appending extra info really. (Note this is not about change id warnings, this is about denying access to hidden apis; there is only one warning of this type.)\n\nI think adding or not \\n is fine either way; up to you. There are definitely multiple logs, though as you said it\u0027s not common.",
       "parentUuid": "4e7b5a7e_0fce4475",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7322e972_5c940f2a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1787007
+      },
+      "writtenOn": "2021-01-28T18:15:03Z",
+      "side": 1,
+      "message": "OK, when I was trying it out in a read device, I think it makes more sense to have the message in the same log line so I have modified my approach. Please re-review!",
+      "parentUuid": "1ce24f16_da41cf81",
       "range": {
         "startLine": 251,
         "startChar": 4,
