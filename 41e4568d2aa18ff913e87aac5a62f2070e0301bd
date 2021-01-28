@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb33112_4864fa24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "Unfortunately too late after submitting.",
+      "parentUuid": "3f362603_89cfecdc",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4be9a4a_0ca4c006",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-28T14:18:27Z",
       "side": 1,
       "message": "This comment could be clearer: these are the 8 fields from B.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21873925_376eefa3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b4be9a4a_0ca4c006",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7760004a_d6b10365",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1563692 PS2.",
+      "parentUuid": "1059c899_afa52feb",
+      "range": {
+        "startLine": 8319,
+        "startChar": 0,
+        "endLine": 8321,
+        "endChar": 40
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d93055b_84c6cd8c",
@@ -107,6 +179,30 @@
       "writtenOn": "2021-01-28T14:18:27Z",
       "side": 1,
       "message": "Clarifying comment: by dex field index?",
+      "range": {
+        "startLine": 8526,
+        "startChar": 34,
+        "endLine": 8526,
+        "endChar": 41
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "644704b8_2b296681",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1563692 .",
+      "parentUuid": "1d93055b_84c6cd8c",
       "range": {
         "startLine": 8526,
         "startChar": 34,
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3734b18a_0cbf3cb8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "Not really, references are before long/float.",
+      "parentUuid": "1a3301c1_ce6518da",
+      "range": {
+        "startLine": 8546,
+        "startChar": 38,
+        "endLine": 8546,
+        "endChar": 54
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "995befac_0165c99b",
@@ -153,6 +273,30 @@
       "writtenOn": "2021-01-28T14:18:27Z",
       "side": 1,
       "message": "Would it be better to put this after the 64-bit fields? At least for 32-bit architectures.",
+      "range": {
+        "startLine": 8576,
+        "startChar": 2,
+        "endLine": 8576,
+        "endChar": 30
+      },
+      "revId": "41e4568d2aa18ff913e87aac5a62f2070e0301bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd70649_65c83705",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-01-28T15:14:56Z",
+      "side": 1,
+      "message": "We are putting references first to have a better chance of exploiting a fast-path for reference visiting. Search for `reference_instance_offsets_` to find the details.",
+      "parentUuid": "995befac_0165c99b",
       "range": {
         "startLine": 8576,
         "startChar": 2,
