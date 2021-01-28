@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ae543be_076c22ba",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 58
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-28T10:55:42Z",
+      "side": 1,
+      "message": "Thanks for the explanation - I think we could expand the comment to explain why artifacts are valid, yet the compilation was reported as failing.",
+      "parentUuid": "c130a044_25e793cb",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2531a99d_cb78029a",
@@ -461,6 +485,30 @@
       "side": 1,
       "message": "Do you have a preference for something else?",
       "parentUuid": "f53991bf_ebe71d2f",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 83
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3598e0a5_1fabbbff",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-28T10:55:42Z",
+      "side": 1,
+      "message": "I mean, is it a contract with the runtime or something else? I\u0027d comment it here.",
+      "parentUuid": "732dc854_bfe75143",
       "range": {
         "startLine": 332,
         "startChar": 0,
@@ -966,6 +1014,30 @@
       "side": 1,
       "message": "This is a C callback for nftw().",
       "parentUuid": "eccec547_a30b38d8",
+      "range": {
+        "startLine": 648,
+        "startChar": 47,
+        "endLine": 648,
+        "endChar": 65
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943102e4_172fe610",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-28T10:55:42Z",
+      "side": 1,
+      "message": "Ah :) Can you add ATTRIBUTE_UNUSED on the parameter and put at comment just before the definition of the method?",
+      "parentUuid": "16cc2a4f_c3086f4f",
       "range": {
         "startLine": 648,
         "startChar": 47,
