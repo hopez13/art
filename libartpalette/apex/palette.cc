@@ -169,4 +169,10 @@ enum PaletteStatus PaletteGetHooks(PaletteHooks** hooks) {
   return m(hooks);
 }
 
+enum PaletteStatus PaletteCreateOdrefreshStagingDirectory(const char** staging_dir) {
+  PaletteCreateOdrefreshStagingDirectoryMethod m =
+      PaletteLoader::Instance().GetPaletteCreateOdrefreshStagingDirectoryMethod();
+  return m(staging_dir);
+}
+
 }  // extern "C"
