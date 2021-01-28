@@ -378,6 +378,29 @@ std::string GetSystemImageFilename(const char* location, const InstructionSet is
   return filename;
 }
 
+std::string_view Basename(std::string_view path, std::string_view extension) {
+  static_assert(std::string_view::npos == -1);
+  size_t start =
+      path.rfind('/') + 1;  // start is 0 if '/' is not found, otherwise one past the last '/'.
+  size_t length = path.size() - start;
+  // Remove `extension` from view, if last characters of path match.
+  if (length >= extension.size() && path.substr(path.size() - extension.size()) == extension) {
+    length -= extension.size();
+  }
+  return path.substr(start, length);
+}
+
+std::string_view Dirname(std::string_view path) {
+  size_t last = path.rfind('/');
+  if (last == 0) {
+    return path.substr(0, 1);  // A root directory item, return leading '/'.
+  }
+  if (last != std::string::npos) {
+    return path.substr(0, last);  // A non-root directory item, return everything up to last '/'.
+  }
+  return std::string_view(".", 1);  // No directory present, return '.'.
+}
+
 std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension) {
   const size_t last_ext = filename.find_last_of("./");
   if (last_ext == std::string::npos || filename[last_ext] != '.') {
