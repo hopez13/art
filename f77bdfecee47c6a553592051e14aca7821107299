@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba46dc7e_163329e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-28T23:43:07Z",
+      "side": 1,
+      "message": "I\u0027ve checked the diffs in the SDK zipballs, and they are due to the incomplete soong.variables in build-aml-prebuilts.sh. If I add\n\n    \"ArtUseReadBarrier\": true,\n    \"Debuggable\": true,\n\nto it I get bit identical art-module-sdk-current.zip, art-module-test-exports-current.zip, and art-module-host-exports-current.zip.\n\nSo I think it\u0027s clear it\u0027s more correct with this change.",
+      "range": {
+        "startLine": 20,
+        "startChar": 37,
+        "endLine": 20,
+        "endChar": 47
+      },
+      "revId": "f77bdfecee47c6a553592051e14aca7821107299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
