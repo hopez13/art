@@ -951,34 +951,47 @@ void OatFileAssistant::GetOptimizationStatus(
   // It may not be possible to load an oat file executable (e.g., selinux restrictions). Load
   // non-executable and check the status manually.
   OatFileAssistant oat_file_assistant(filename.c_str(), isa, /*load_executable=*/ false);
-  std::unique_ptr<OatFile> oat_file = oat_file_assistant.GetBestOatFile();
+  std::string out_odex_status;  // unused
+  oat_file_assistant.GetOptimizationStatus(
+      out_compilation_filter, out_compilation_reason, &out_odex_status);
+}
+
+void OatFileAssistant::GetOptimizationStatus(
+    std::string* out_compilation_filter,
+    std::string* out_compilation_reason,
+    std::string* out_odex_status) {
+  const OatFile* oat_file = GetBestInfo().GetFile();
 
   if (oat_file == nullptr) {
     *out_compilation_filter = "run-from-apk";
     *out_compilation_reason = "unknown";
+    *out_odex_status = "out-of-date";
     return;
   }
 
-  OatStatus status = oat_file_assistant.GivenOatFileStatus(*oat_file);
+  OatStatus status = GivenOatFileStatus(*oat_file);
   const char* reason = oat_file->GetCompilationReason();
   *out_compilation_reason = reason == nullptr ? "unknown" : reason;
   switch (status) {
-    case OatStatus::kOatUpToDate:
+    case kOatUpToDate:
       *out_compilation_filter = CompilerFilter::NameOfFilter(oat_file->GetCompilerFilter());
+      *out_odex_status = "up-to-date";
       return;
 
     case kOatCannotOpen:  // This should never happen, but be robust.
       *out_compilation_filter = "error";
       *out_compilation_reason = "error";
+      *out_odex_status = "out-of-date-io";
       return;
 
-    // kOatBootImageOutOfDate - The oat file is up to date with respect to the
-    // dex file, but is out of date with respect to the boot image.
     case kOatBootImageOutOfDate:
-      FALLTHROUGH_INTENDED;
-    case kOatDexOutOfDate:
-      DCHECK(oat_file_assistant.HasDexFiles());
       *out_compilation_filter = "run-from-apk-fallback";
+      *out_odex_status = "out-of-date-boot";
+      return;
+
+    case kOatDexOutOfDate:
+      *out_compilation_filter = "run-from-apk-fallback";
+      *out_odex_status = "out-of-date-app";
       return;
   }
   LOG(FATAL) << "Unreachable";
