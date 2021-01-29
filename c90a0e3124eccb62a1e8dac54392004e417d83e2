@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db15f9af_0ff0e999",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-29T00:12:12Z",
+      "side": 1,
+      "message": "Does it still make sense to have the printf here with the new logging?",
+      "revId": "c90a0e3124eccb62a1e8dac54392004e417d83e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5abf1b86_a10cc5e7",
         "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 1
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "This is more just to get people to look in the right place for errors. Everyone should hopefully understand at least one of apk-debuggable and runtime flags.",
       "parentUuid": "5abf1b86_a10cc5e7",
+      "range": {
+        "startLine": 1445,
+        "startChar": 68,
+        "endLine": 1446,
+        "endChar": 64
+      },
+      "revId": "c90a0e3124eccb62a1e8dac54392004e417d83e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4144db7_70c8655a",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-29T00:12:12Z",
+      "side": 1,
+      "message": "It looks like this is something that most people won\u0027t see, since it sounds like it only does anything on userdebug and eng builds, right? Those people are mostly at Google, so it seems like this error message is basically saying \"come talk to Alex.\"",
+      "parentUuid": "8b0d8e3e_ce99ee2a",
       "range": {
         "startLine": 1445,
         "startChar": 68,
