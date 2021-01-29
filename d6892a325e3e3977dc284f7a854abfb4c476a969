@@ -519,6 +519,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52d07120_73aa5a05",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-29T13:40:10Z",
+      "side": 1,
+      "message": "Done.\n\nI was mostly asking as maco@ had asked whether there might be a more obvious looking name for artifacts here, but this was just copying relative to / for more-or-less arbitrary reasons. It could also be just frameworks/ or anything else.",
+      "parentUuid": "3598e0a5_1fabbbff",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 83
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3990164d_d2c2cc40",
@@ -556,6 +580,30 @@
       "side": 1,
       "message": "Same question.",
       "parentUuid": "3990164d_d2c2cc40",
+      "range": {
+        "startLine": 339,
+        "startChar": 59,
+        "endLine": 339,
+        "endChar": 81
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c157dd0d_4868ac94",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-29T13:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08b0e59_f49d477b",
       "range": {
         "startLine": 339,
         "startChar": 59,
@@ -1038,6 +1086,30 @@
       "side": 1,
       "message": "Ah :) Can you add ATTRIBUTE_UNUSED on the parameter and put at comment just before the definition of the method?",
       "parentUuid": "16cc2a4f_c3086f4f",
+      "range": {
+        "startLine": 648,
+        "startChar": 47,
+        "endLine": 648,
+        "endChar": 65
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40cf1bb6_a4e822be",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-01-29T13:40:10Z",
+      "side": 1,
+      "message": "Done, but what are the advantage in C++ where there are cleaner and easier-to-type alternatives?\n\nI understand for C and know the ART C++ code is littered with it. There is no guidance to follow this practice in either the Google or ART C++ style guides (go/cstyle#Function_Declarations_and_Definitions).\n\nFor cases where there is macro or template magic that might trigger an unused warning, C++17 introduces maybe_unused (https://en.cppreference.com/w/cpp/language/attributes/maybe_unused).",
+      "parentUuid": "943102e4_172fe610",
       "range": {
         "startLine": 648,
         "startChar": 47,
