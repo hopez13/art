@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b34a239d_1136eaf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "Nitpicking, but given these will be on systraces for everyone to see, I think we should be really clear what the messages mean.",
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49bd255_c990cb77",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "happens",
+      "range": {
+        "startLine": 974,
+        "startChar": 19,
+        "endLine": 974,
+        "endChar": 25
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b47e229b_602d9599",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "why do you want to keep out of date? I suggest dropping it.",
+      "range": {
+        "startLine": 977,
+        "startChar": 24,
+        "endLine": 977,
+        "endChar": 36
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b94256c6_9dcd956b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "happens",
+      "range": {
+        "startLine": 994,
+        "startChar": 21,
+        "endLine": 994,
+        "endChar": 27
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b212c472_ed4de923",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "ditto, drop?",
+      "range": {
+        "startLine": 996,
+        "startChar": 26,
+        "endLine": 996,
+        "endChar": 38
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920b5e28_04d66e6c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "how about \"boot-image-more-recent\" ?",
+      "range": {
+        "startLine": 1001,
+        "startChar": 26,
+        "endLine": 1001,
+        "endChar": 53
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcfac2b_be184fd9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "\"apk-more-recent\" ?",
+      "range": {
+        "startLine": 1006,
+        "startChar": 26,
+        "endLine": 1006,
+        "endChar": 46
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bfba218_98f53825",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T10:51:27Z",
+      "side": 1,
+      "message": "Expand the comment above to include a description of this parameter.",
+      "range": {
+        "startLine": 177,
+        "startChar": 42,
+        "endLine": 177,
+        "endChar": 59
+      },
+      "revId": "5cd220845fda5855d7757a8587653f0d8a6ffcb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
