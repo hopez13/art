@@ -1122,6 +1122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6e66cb9_9fed5ced",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-01-29T14:12:27Z",
+      "side": 1,
+      "message": "I\u0027m suggesting using ATTRIBUTE_UNUSED only for consistency with other parts of the ART code base. Not sure where/when it started being required/asked.",
+      "parentUuid": "40cf1bb6_a4e822be",
+      "range": {
+        "startLine": 648,
+        "startChar": 47,
+        "endLine": 648,
+        "endChar": 65
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01c53307_184872a5",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 58
