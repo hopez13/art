@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b0a174_9e773990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-29T10:40:25Z",
+      "side": 1,
+      "message": "I think static_libs is the right property here. I think I missed this part when I reviewed the CL. \n\nIt originally was static_libs, but the patchset 5 changed it to whole_static_libs. And there is no reason shown in the comment. \n\nhttps://android-review.googlesource.com/c/platform/art/+/1189831/4..5",
+      "revId": "2892462ecd643accb50864d1939d2b50cf91a591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
