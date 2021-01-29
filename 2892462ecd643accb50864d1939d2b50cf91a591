@@ -16,6 +16,24 @@
       "message": "I think static_libs is the right property here. I think I missed this part when I reviewed the CL. \n\nIt originally was static_libs, but the patchset 5 changed it to whole_static_libs. And there is no reason shown in the comment. \n\nhttps://android-review.googlesource.com/c/platform/art/+/1189831/4..5",
       "revId": "2892462ecd643accb50864d1939d2b50cf91a591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cebe92b_196bf02c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2021-01-29T11:06:11Z",
+      "side": 1,
+      "message": "I don\u0027t recall why I updated the PS5 with whole_static_libs. No presubmit fails for PS4 of the CL. Hmm.",
+      "parentUuid": "98b0a174_9e773990",
+      "revId": "2892462ecd643accb50864d1939d2b50cf91a591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
