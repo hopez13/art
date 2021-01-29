@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27d2ad2_0561ca69",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-01-29T09:39:47Z",
+      "side": 0,
+      "message": "This was used in https://r.android.com/1189831 but it doesn\u0027t seem necessary. Please let me know if I\u0027ve missed something.",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 29
+      },
+      "revId": "ee7bfb2a2931b5db36511146df7865c16287b2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
