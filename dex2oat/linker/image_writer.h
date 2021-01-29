@@ -553,12 +553,6 @@ class ImageWriter final {
     size_t oat_index;
     uintptr_t offset;
     NativeObjectRelocationType type;
-
-    bool IsArtMethodRelocation() const {
-      return type == NativeObjectRelocationType::kArtMethodClean ||
-          type == NativeObjectRelocationType::kArtMethodDirty ||
-          type == NativeObjectRelocationType::kRuntimeMethod;
-    }
   };
 
   NativeObjectRelocation GetNativeRelocation(void* obj) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -598,12 +592,12 @@ class ImageWriter final {
   // Return true if there already exists a native allocation for an object.
   bool NativeRelocationAssigned(void* ptr) const;
 
-  // Copy a reference and record image relocation.
+  // Copy a reference, translating source pointer to the target pointer.
   template <typename DestType>
   void CopyAndFixupReference(DestType* dest, ObjPtr<mirror::Object> src)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Copy a native pointer and record image relocation.
+  // Copy a native pointer, translating source pointer to the target pointer.
   void CopyAndFixupPointer(void** target, void* value, PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CopyAndFixupPointer(void** target, void* value)

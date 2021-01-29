@@ -1438,7 +1438,7 @@ bool ImageWriter::TryAssignImTableOffset(ImTable* imt, size_t oat_index) {
   const size_t size = ImTable::SizeInBytes(target_ptr_size_);
   native_object_relocations_.insert(std::make_pair(
       imt,
-      NativeObjectRelocation {
+      NativeObjectRelocation{
           oat_index,
           image_info.GetBinSlotSize(Bin::kImTable),
           NativeObjectRelocationType::kIMTable
@@ -1458,7 +1458,7 @@ void ImageWriter::TryAssignConflictTableOffset(ImtConflictTable* table, size_t o
   const size_t size = table->ComputeSize(target_ptr_size_);
   native_object_relocations_.insert(std::make_pair(
       table,
-      NativeObjectRelocation {
+      NativeObjectRelocation{
           oat_index,
           image_info.GetBinSlotSize(Bin::kIMTConflictTable),
           NativeObjectRelocationType::kIMTConflictTable
@@ -1479,7 +1479,7 @@ void ImageWriter::AssignMethodOffset(ArtMethod* method,
   Bin bin_type = BinTypeForNativeRelocationType(type);
   size_t offset = image_info.GetBinSlotSize(bin_type);
   native_object_relocations_.insert(
-      std::make_pair(method, NativeObjectRelocation { oat_index, offset, type }));
+      std::make_pair(method, NativeObjectRelocation{oat_index, offset, type}));
   image_info.IncrementBinSlotSize(bin_type, ArtMethod::Size(target_ptr_size_));
 }
 
@@ -2749,7 +2749,7 @@ void ImageWriter::CopyAndFixupNativeData(size_t oat_index) {
         for (size_t i = 0; i != size; ++i) {
           CopyAndFixupReference(
               dest_array->At(i).GetDeclaringClassAddressWithoutBarrier(),
-              src_array->At(i).GetDeclaringClass());
+              src_array->At(i).GetDeclaringClass<kWithoutReadBarrier>());
         }
         break;
       }
