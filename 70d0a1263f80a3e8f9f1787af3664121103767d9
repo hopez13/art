@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "06e2ec0f_098a24c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-29T00:22:25Z",
+      "side": 1,
+      "message": "I tried running regen-test-files but it only made unrelated changes. Do you know what configuration changes I need to make?",
+      "parentUuid": "a133bf0f_91e37d1c",
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6e035e87_30e878a7",
@@ -60,6 +78,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6eda09a0_3f0b3f66",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-29T00:22:25Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6e035e87_30e878a7",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "466e85b6_3167a1cd",
         "filename": "libartbase/base/metrics/metrics_common.cc",
         "patchSetId": 1
@@ -71,6 +113,30 @@
       "writtenOn": "2021-01-28T13:24:36Z",
       "side": 1,
       "message": "mega-nit: drop space.",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "70d0a1263f80a3e8f9f1787af3664121103767d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d27d9dfb_c5ef85ee",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-01-29T00:22:25Z",
+      "side": 1,
+      "message": "Cpplint disagrees, so I\u0027ll leave this as is.",
+      "parentUuid": "466e85b6_3167a1cd",
       "range": {
         "startLine": 49,
         "startChar": 34,
