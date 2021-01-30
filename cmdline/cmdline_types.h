@@ -21,6 +21,7 @@
 #include <list>
 #include <ostream>
 
+#include "android-base/parsebool.h"
 #include "android-base/stringprintf.h"
 #include "cmdline_type_parser.h"
 #include "detail/cmdline_debug_detail.h"
@@ -63,6 +64,20 @@ struct CmdlineType<Unit> : CmdlineTypeParser<Unit> {
       return Result::Success(Unit{});
     }
     return Result::Failure("Unexpected extra characters " + args);
+  }
+};
+
+template <>
+struct CmdlineType<bool> : CmdlineTypeParser<bool> {
+  Result Parse(const std::string& args) {
+    switch (::android::base::ParseBool(args)) {
+      case ::android::base::ParseBoolResult::kError:
+        return Result::Failure("Could not parse '" + args + "' as boolean");
+      case ::android::base::ParseBoolResult::kTrue:
+        return Result::Success(true);
+      case ::android::base::ParseBoolResult::kFalse:
+        return Result::Success(false);
+    }
   }
 };
 
