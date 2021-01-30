@@ -27,6 +27,7 @@ cc_defaults {
         "base/enums.cc",
         "base/file_magic.cc",
         "base/file_utils.cc",
+        "base/flags.cc",
         "base/hex_dump.cc",
         "base/hiddenapi_flags.cc",
         "base/logging.cc",
@@ -66,6 +67,8 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                // phenotype flags support
+                "server_configurable_flags",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -85,6 +88,8 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                // phenotype flags support
+                "server_configurable_flags",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },

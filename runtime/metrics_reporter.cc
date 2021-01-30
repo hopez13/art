@@ -17,6 +17,7 @@
 #include "metrics_reporter.h"
 
 #include "android-base/file.h"
+#include "base/flags.h"
 #include "base/scoped_flock.h"
 #include "runtime.h"
 #include "runtime_options.h"
@@ -24,6 +25,11 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic error "-Wconversion"
+
+namespace {
+art::Flag<bool> fWriteMetricsToLog{
+    false, "-Xwrite-metrics-to-log", "write-metrics-to-log", "metrics.write-to-log"};
+}
 
 namespace art {
 namespace metrics {
@@ -132,7 +138,7 @@ void MetricsReporter::ReportMetrics() const {
 ReportingConfig ReportingConfig::FromRuntimeArguments(const RuntimeArgumentMap& args) {
   using M = RuntimeArgumentMap;
   return {
-      .dump_to_logcat = args.Exists(M::WriteMetricsToLog),
+      .dump_to_logcat = args.Exists(M::WriteMetricsToLog),  // fWriteMetricsToLog(),
       .dump_to_file = args.GetOptional(M::WriteMetricsToFile),
       .report_metrics_on_shutdown = !args.Exists(M::DisableFinalMetricsReport),
       .periodic_report_seconds = args.GetOptional(M::MetricsReportingPeriod),
