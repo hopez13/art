@@ -16,6 +16,7 @@
 
 #include "metrics_reporter.h"
 
+#include "base/flags.h"
 #include "runtime.h"
 #include "runtime_options.h"
 #include "thread-current-inl.h"
@@ -132,7 +133,7 @@ void MetricsReporter::ReportMetrics() const {
 ReportingConfig ReportingConfig::FromRuntimeArguments(const RuntimeArgumentMap& args) {
   using M = RuntimeArgumentMap;
   return {
-      .dump_to_logcat = args.Exists(M::WriteMetricsToLog),
+      .dump_to_logcat = gFlags.WriteMetricsToLog(),
       .dump_to_file = args.GetOptional(M::WriteMetricsToFile),
       .report_metrics_on_shutdown = !args.Exists(M::DisableFinalMetricsReport),
       .periodic_report_seconds = args.GetOptional(M::MetricsReportingPeriod),
