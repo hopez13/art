@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b54c08f_86acb17e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-01T10:02:56Z",
+      "side": 1,
+      "message": "error code should be removed ?",
+      "range": {
+        "startLine": 976,
+        "startChar": 17,
+        "endLine": 976,
+        "endChar": 55
+      },
+      "revId": "ca011e9e8768dec810b79c6074030838dc5c333d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01db3bc0_5540917a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-01T10:02:56Z",
+      "side": 1,
+      "message": "or-corruption ?",
+      "range": {
+        "startLine": 996,
+        "startChar": 35,
+        "endLine": 996,
+        "endChar": 42
+      },
+      "revId": "ca011e9e8768dec810b79c6074030838dc5c333d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2631788e_4146e18e",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-01T10:02:56Z",
+      "side": 1,
+      "message": "a human readable form of the status, eg \"up-to-date\"\n\n(your other examples are already outdated 😊)",
+      "range": {
+        "startLine": 173,
+        "startChar": 25,
+        "endLine": 174,
+        "endChar": 63
+      },
+      "revId": "ca011e9e8768dec810b79c6074030838dc5c333d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
