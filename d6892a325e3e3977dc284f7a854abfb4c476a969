@@ -1144,6 +1144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf626ac_5d27c9d3",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-01T15:08:38Z",
+      "side": 1,
+      "message": "Done. It comes from https://r.android.com/112740: and here we are 1600+ awkward things to type later... :-)",
+      "parentUuid": "c6e66cb9_9fed5ced",
+      "range": {
+        "startLine": 648,
+        "startChar": 47,
+        "endLine": 648,
+        "endChar": 65
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01c53307_184872a5",
@@ -1732,6 +1756,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c7f95d_51834847",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-01T15:08:38Z",
+      "side": 1,
+      "message": "Added helper functions in file_utils.cc.",
+      "parentUuid": "da227c59_9ca6c02a",
+      "range": {
+        "startLine": 515,
+        "startChar": 14,
+        "endLine": 515,
+        "endChar": 25
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3399977_3fc95bec",
@@ -1797,6 +1845,30 @@
         "startChar": 0,
         "endLine": 564,
         "endChar": 4
+      },
+      "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc045bd6_8f79366d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 58
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-01T15:08:38Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a3399977_3fc95bec",
+      "range": {
+        "startLine": 564,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 98
       },
       "revId": "d6892a325e3e3977dc284f7a854abfb4c476a969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
