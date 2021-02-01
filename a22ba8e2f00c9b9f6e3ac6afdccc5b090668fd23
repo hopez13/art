@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bfac51d6_88d98cd6",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-01T10:03:18Z",
+      "side": 1,
+      "message": "Sorry to weigh in late...\n\nSee my comment on cl/354338268 - I feel that making the line very long makes the new message easier to miss, depending what folks use to view the logs. The android bug tool web app does *not* wrap long lines.",
+      "parentUuid": "7322e972_5c940f2a",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 20
+      },
+      "revId": "a22ba8e2f00c9b9f6e3ac6afdccc5b090668fd23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0c796c9_1719d51b",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
