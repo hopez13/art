@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41e6598_f5d39279",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0349025e_237c72d4",
+      "range": {
+        "startLine": 1610,
+        "startChar": 25,
+        "endLine": 1610,
+        "endChar": 30
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "823c8dbd_90b5b06c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-02T02:46:42Z",
       "side": 1,
       "message": "(/*for_boot_image\u003d*/true);",
+      "range": {
+        "startLine": 1611,
+        "startChar": 25,
+        "endLine": 1611,
+        "endChar": 30
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a6e823_ccb00d84",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "823c8dbd_90b5b06c",
       "range": {
         "startLine": 1611,
         "startChar": 25,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd9cd39_996e3234",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Our inline cache comparison (l1675 in this PS) can\u0027t handle that as-is since (AIUI) the annotation changes how we recognize dex-files.",
+      "parentUuid": "1ace1f69_3eb708c0",
+      "range": {
+        "startLine": 1638,
+        "startChar": 16,
+        "endLine": 1638,
+        "endChar": 25
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a49f007_e12e39bd",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-02-02T02:46:42Z",
       "side": 1,
       "message": "(/*for_boot_image\u003d*/true);",
+      "range": {
+        "startLine": 1646,
+        "startChar": 25,
+        "endLine": 1646,
+        "endChar": 32
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea47e7e7_47b8cf15",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a49f007_e12e39bd",
       "range": {
         "startLine": 1646,
         "startChar": 25,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef777a9a_abbb1c50",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b9d3d4_fd00d72c",
+      "range": {
+        "startLine": 1667,
+        "startChar": 36,
+        "endLine": 1667,
+        "endChar": 39
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80a56271_b01068ab",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-02-02T02:46:42Z",
       "side": 1,
       "message": "weird alignment",
+      "range": {
+        "startLine": 1671,
+        "startChar": 50,
+        "endLine": 1671,
+        "endChar": 68
+      },
+      "revId": "ddda4f308fc6e9988d786a069c971e176d5b7b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa6a5a0_eb1d2ab8",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T22:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80a56271_b01068ab",
       "range": {
         "startLine": 1671,
         "startChar": 50,
