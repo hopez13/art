@@ -22,6 +22,7 @@
 #include <vector>
 #include <limits>
 
+
 #include "android-base/unique_fd.h"
 #include "adbconnection/client.h"
 
@@ -163,7 +164,7 @@ class AdbConnectionState {
 
   std::atomic<bool> sent_agent_fds_;
 
-  bool performed_handshake_;
+  std::atomic<bool> performed_handshake_;
 
   bool notified_ddm_active_;
 
