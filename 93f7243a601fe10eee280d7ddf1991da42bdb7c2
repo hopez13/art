@@ -16,6 +16,24 @@
       "message": "What happens if you get the handshake but the agent doesn\u0027t have a socket yet? Does that mean the agent is being disconnected, or that the connection hasn\u0027t started yet? If the connection hasn\u0027t started yet, will it eventually send the handshake message again since this one is being dropped?",
       "revId": "93f7243a601fe10eee280d7ddf1991da42bdb7c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da6225e_ba274cd2",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-02T17:56:51Z",
+      "side": 1,
+      "message": "It means we raced with the agent disconnecting and lost. Once a new connection is established this will get sent again.",
+      "parentUuid": "6476d005_39bf66e2",
+      "revId": "93f7243a601fe10eee280d7ddf1991da42bdb7c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
