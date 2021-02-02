@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ba618c3_c84a8b7b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-02T14:09:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ad8ca0e_8d59d777",
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5c32c3b_79b08291",
@@ -58,6 +76,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "171de817_901e44c8",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-02T14:09:48Z",
+      "side": 1,
+      "message": "Done (copied from codegen).",
+      "parentUuid": "9c2238de_1ccbbb04",
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c461de1b_6bed40d2",
@@ -94,6 +130,54 @@
       "writtenOn": "2021-02-02T13:43:26Z",
       "side": 1,
       "message": "Should this only be kReadSideEffects?",
+      "range": {
+        "startLine": 234,
+        "startChar": 52,
+        "endLine": 234,
+        "endChar": 67
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba78dfe_cdcc46af",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-02T14:09:48Z",
+      "side": 1,
+      "message": "I think so.",
+      "parentUuid": "c461de1b_6bed40d2",
+      "range": {
+        "startLine": 234,
+        "startChar": 33,
+        "endLine": 234,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94ee0bb_b58985fb",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-02T14:09:48Z",
+      "side": 1,
+      "message": "We\u0027re reading a volatile field here and\n\n  static SideEffects FieldReadOfType(DataType::Type type, bool is_volatile) {\n    return is_volatile\n        ? AllWritesAndReads()\n        : SideEffects(TypeFlag(type, kFieldReadOffset));\n  }",
+      "parentUuid": "87412032_cb4d9076",
       "range": {
         "startLine": 234,
         "startChar": 52,
