@@ -254,6 +254,7 @@ class ExecutionSubgraph : public ArenaObject<kArenaAllocLSA> {
     Prune();
     RemoveConcavity();
     finalized_ = true;
+    valid_ = false;
   }
 
   BitVecBlockRange UnreachableBlocks() const {
