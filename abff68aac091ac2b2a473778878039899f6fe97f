@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8294240e_c8e47ee8",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 71
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T11:04:33Z",
+      "side": 1,
+      "message": "this scares me, as i18n may not be updatable in today, but could be later. ART will have to run with both situations.",
+      "range": {
+        "startLine": 93,
+        "startChar": 55,
+        "endLine": 93,
+        "endChar": 87
+      },
+      "revId": "abff68aac091ac2b2a473778878039899f6fe97f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709ef0f2_253b831d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 71
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T11:04:33Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 803,
+        "startChar": 59,
+        "endLine": 803,
+        "endChar": 97
+      },
+      "revId": "abff68aac091ac2b2a473778878039899f6fe97f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
