@@ -1400,8 +1400,16 @@ static bool CanGenerateGetAndUpdateLSEVersion(CodeGeneratorARM64* codegen,
       load_store_type == DataType::Type::kReference) {
     return false;
   }
-
-  return get_and_update_op == GetAndUpdateOp::kAdd;
+  switch (get_and_update_op) {
+    case GetAndUpdateOp::kAdd:
+    case GetAndUpdateOp::kXor:
+    case GetAndUpdateOp::kOr:
+    case GetAndUpdateOp::kSet:
+    case GetAndUpdateOp::kAnd:
+      return true;
+    default:
+      return false;
+  }
 }
 
 static void GenerateGetAndUpdateLSEImplByte(CodeGeneratorARM64* codegen,
@@ -1427,10 +1435,92 @@ static void GenerateGetAndUpdateLSEImplByte(CodeGeneratorARM64* codegen,
           __ Ldaddalb(arg_reg, old_value_reg, MemOperand(ptr));
           break;
         default:
-          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
           UNREACHABLE();
       }
       break;
+    case GetAndUpdateOp::kXor:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldeorb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldeorab(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldeorlb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldeoralb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kOr:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldsetb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldsetab(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldsetlb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldsetalb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kSet:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Swpb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Swpab(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Swplb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Swpalb(arg_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kAnd: {
+      // Ldclr performs bitwise And using complement of mask;
+      // perform expected bitwise And by inverting mask before.
+      UseScratchRegisterScope temps(masm);
+      Register inverted_mask_reg = temps.AcquireW();
+      __ Mvn(inverted_mask_reg, arg_reg);
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldclrb(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldclrab(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldclrlb(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldclralb(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    }
     default:
       LOG(FATAL) << "Unexpected op for LSE implementation";
       UNREACHABLE();
@@ -1465,6 +1555,88 @@ static void GenerateGetAndUpdateLSEImplHalfword(CodeGeneratorARM64* codegen,
           UNREACHABLE();
       }
       break;
+    case GetAndUpdateOp::kXor:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldeorh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldeorah(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldeorlh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldeoralh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kOr:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldseth(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldsetah(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldsetlh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldsetalh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kSet:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Swph(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Swpah(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Swplh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Swpalh(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kAnd: {
+      // Ldclr performs bitwise And using complement of mask;
+      // perform expected bitwise And by inverting mask before.
+      UseScratchRegisterScope temps(masm);
+      Register inverted_mask_reg = temps.AcquireW();
+      __ Mvn(inverted_mask_reg, arg_value);
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldclrh(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldclrah(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldclrlh(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldclralh(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    }
     default:
       LOG(FATAL) << "Unexpected op for LSE implementation";
       UNREACHABLE();
@@ -1498,6 +1670,88 @@ static void GenerateGetAndUpdateLSEImplWordOrDoubleword(CodeGeneratorARM64* code
           UNREACHABLE();
       }
       break;
+    case GetAndUpdateOp::kXor:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldeor(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldeora(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldeorl(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldeoral(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kOr:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldset(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldseta(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldsetl(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldsetal(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory orderfor LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kSet:
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Swp(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Swpa(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Swpl(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Swpal(arg_value, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    case GetAndUpdateOp::kAnd:{
+      // Ldclr performs bitwise And using complement of mask;
+      // perform expected bitwise And by inverting mask before.
+      UseScratchRegisterScope temps(masm);
+      Register inverted_mask_reg = temps.AcquireSameSizeAs(arg_value);
+      __ Mvn(inverted_mask_reg, arg_value);
+      switch (order) {
+        case std::memory_order::memory_order_relaxed:
+          __ Ldclr(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_acquire:
+          __ Ldclra(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_release:
+          __ Ldclrl(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        case std::memory_order::memory_order_seq_cst:
+          __ Ldclral(inverted_mask_reg, old_value_reg, MemOperand(ptr));
+          break;
+        default:
+          LOG(FATAL) << "Unexpected memory order for LSE implementation" << order;
+          UNREACHABLE();
+      }
+      break;
+    }
     default:
       LOG(FATAL) << "Unexpected op for LSE implementation";
       UNREACHABLE();
