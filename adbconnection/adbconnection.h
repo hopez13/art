@@ -18,9 +18,12 @@
 #define ART_ADBCONNECTION_ADBCONNECTION_H_
 
 #include <stdint.h>
-#include <memory>
-#include <vector>
+#include <condition_variable>
 #include <limits>
+#include <memory>
+#include <mutex>
+#include <vector>
+
 
 #include "android-base/unique_fd.h"
 #include "adbconnection/client.h"
@@ -122,6 +125,8 @@ class AdbConnectionState {
                      uint32_t ddm_type,
                      art::ArrayRef<const uint8_t> data);
 
+  void SetHandshakeComplete(bool value);
+
   std::string agent_name_;
 
   AdbConnectionDebuggerController controller_;
@@ -163,7 +168,7 @@ class AdbConnectionState {
 
   std::atomic<bool> sent_agent_fds_;
 
-  bool performed_handshake_;
+  std::atomic<bool> performed_handshake_;
 
   bool notified_ddm_active_;
 

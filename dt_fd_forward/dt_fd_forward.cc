@@ -34,6 +34,7 @@
 
 #include <string>
 #include <vector>
+#include "fd_transport.h"
 
 #include <android-base/endian.h>
 #include <android-base/logging.h>
@@ -287,6 +288,11 @@ static void SendAcceptMessage(int fd) {
   TEMP_FAILURE_RETRY(send(fd, kAcceptMessage, sizeof(kAcceptMessage), MSG_EOR));
 }
 
+static void SendHandshakeCompleteMessage(int fd) {
+  TEMP_FAILURE_RETRY(
+      send(fd, kHandshakeCompleteMessage, sizeof(kHandshakeCompleteMessage), MSG_EOR));
+}
+
 IOResult FdForwardTransport::ReceiveFdsFromSocket(bool* do_handshake) {
   union {
     cmsghdr cm;
@@ -402,6 +408,8 @@ jdwpTransportError FdForwardTransport::Accept() {
         continue;
       }
     }
+    // Tell everyone we have finished the handshake.
+    SendHandshakeCompleteMessage(close_notify_fd_);
     break;
   }
   CHECK(ChangeState(TransportState::kOpening, TransportState::kOpen));
