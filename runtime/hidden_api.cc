@@ -501,8 +501,8 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
   bool deny_access = false;
   if (hiddenApiPolicy == EnforcementPolicy::kEnabled) {
     if (api_list.IsTestApi() &&
-      (testApiPolicy == EnforcementPolicy::kDisabled ||
-        compatFramework.IsChangeEnabled(kAllowTestApiAccess))) {
+        (testApiPolicy == EnforcementPolicy::kDisabled ||
+         compatFramework.IsChangeEnabled(kAllowTestApiAccess))) {
       deny_access = false;
     } else {
       switch (api_list.GetMaxAllowedSdkVersion()) {
@@ -514,7 +514,7 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
           break;
         default:
           deny_access = IsSdkVersionSetAndMoreThan(runtime->GetTargetSdkVersion(),
-                                                         api_list.GetMaxAllowedSdkVersion());
+                                                   api_list.GetMaxAllowedSdkVersion());
       }
     }
   }
