@@ -748,7 +748,8 @@ TEST_F(HiddenApiTest, InterfaceMethodImplementedInParent) {
   ScratchFile flags_csv;
   ASSERT_TRUE(RunHiddenapiList(flags_csv));
   auto flags = ReadFlagsCsvFile(flags_csv);
-  ASSERT_EQ(SafeMapGet("LAbstractPackageClass;->publicMethod2()V", flags), "public-api");
+  // The method should not be marked public-api.
+  ASSERT_EQ(SafeMapGet("LAbstractPackageClass;->publicMethod2()V", flags), "");
 }
 
 }  // namespace art
