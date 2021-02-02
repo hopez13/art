@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ad8ca0e_8d59d777",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T13:43:26Z",
+      "side": 1,
+      "message": "ditto on comment.",
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5c32c3b_79b08291",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -19,6 +36,69 @@
         "startChar": 4,
         "endLine": 3333,
         "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c2238de_1ccbbb04",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T13:43:26Z",
+      "side": 1,
+      "message": "Add a comment that the ExactAsemblyScope is there to ensure the recoding of the implicit null check is at the right location?",
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c461de1b_6bed40d2",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T13:43:26Z",
+      "side": 1,
+      "message": "I suppose kCanThrow always implies kNeedsEnvironment?",
+      "range": {
+        "startLine": 234,
+        "startChar": 33,
+        "endLine": 234,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87412032_cb4d9076",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-02T13:43:26Z",
+      "side": 1,
+      "message": "Should this only be kReadSideEffects?",
+      "range": {
+        "startLine": 234,
+        "startChar": 52,
+        "endLine": 234,
+        "endChar": 67
       },
       "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
