@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c32c3b_79b08291",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-02T13:27:20Z",
+      "side": 1,
+      "message": "Should we check if the GC is marking before loading the lockword? (Otherwise we\u0027re unnecessarily touching this memory.) Note that we do not check that in the native implementation.",
+      "range": {
+        "startLine": 3333,
+        "startChar": 4,
+        "endLine": 3333,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
