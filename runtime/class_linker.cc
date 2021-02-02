@@ -8942,10 +8942,29 @@ ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
   }
   DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
   if (resolved != nullptr &&
+      // We pass AccessMethod::kNone instead of kLinking to not warn yet on the
+      // access, as we'll be looking if the method can be accessed through an
+      // interface.
       hiddenapi::ShouldDenyAccessToMember(resolved,
                                           hiddenapi::AccessContext(class_loader, dex_cache),
-                                          hiddenapi::AccessMethod::kLinking)) {
-    resolved = nullptr;
+                                          hiddenapi::AccessMethod::kNone)) {
+    ArtMethod* itf_method = klass->FindInterfaceMethod(dex_cache, method_idx, image_pointer_size_);
+    if (itf_method == nullptr ) {
+      // No interface method. Call ShouldDenyAccessToMember again but this time
+      // with AccessMethod::kLinking.
+      hiddenapi::ShouldDenyAccessToMember(resolved,
+                                          hiddenapi::AccessContext(class_loader, dex_cache),
+                                          hiddenapi::AccessMethod::kLinking);
+      resolved = nullptr;
+    } else if (hiddenapi::ShouldDenyAccessToMember(
+                   itf_method,
+                   hiddenapi::AccessContext(class_loader, dex_cache),
+                   hiddenapi::AccessMethod::kLinking)) {
+      // Interface method is also not accessible.
+      resolved = nullptr;
+    } else {
+      // Interface method is accessible, continue with the resolved method.
+    }
   }
   if (resolved != nullptr) {
     // In case of jmvti, the dex file gets verified before being registered, so first
