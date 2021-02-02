@@ -46,7 +46,7 @@ art_cc_library {
             required: ["libartpalette-system"],
             srcs: ["apex/palette.cc"],
             shared_libs: ["liblog"],
-            version_script: "libartpalette.map.txt",
+            version_script: "libartpalette.version-script.txt",
         },
         linux_bionic: {
             header_libs: ["libbase_headers"],
@@ -57,7 +57,7 @@ art_cc_library {
                     "liblog",
                 ],
             },
-            version_script: "libartpalette.map.txt",
+            version_script: "libartpalette.version-script.txt",
         },
         linux_glibc: {
             header_libs: ["libbase_headers"],
@@ -68,7 +68,7 @@ art_cc_library {
                     "liblog",
                 ],
             },
-            version_script: "libartpalette.map.txt",
+            version_script: "libartpalette.version-script.txt",
         },
         // Targets without support for dlopen just use the sources for
         // the system library which actually implements functionality.
