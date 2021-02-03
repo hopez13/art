@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24d5d89e_f677b397",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-03T16:09:41Z",
+      "side": 1,
+      "message": "I don\u0027t think that we should be removing the code from the build tool at all. If we can modularize the generation of the files (so we only use ART build files when building ART) then the code in the build tool is fine as is.\n\nUnderstood about the noop. I think it makes sense for you to remove the code from the hiddenapi build tool when testing locally at least until it is modularized. Just not to upload it.\n\nHave you used any of the CtsHiddenApiBlocklistApi... tests (built on a full platform build without your modifications) to test your changes?",
+      "parentUuid": "1a785998_8d2d37a0",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c20fcd_2685c9b7",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
