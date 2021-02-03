@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73130a81_2f3473a2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-03T11:39:35Z",
+      "side": 1,
+      "message": "Sounds good for arm/x86/x86-64. What about arm64 where checking the marking register would skip the extra fence when not marking?",
+      "parentUuid": "a6747656_58577fb5",
+      "range": {
+        "startLine": 3333,
+        "startChar": 4,
+        "endLine": 3333,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c2238de_1ccbbb04",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
