@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06345e87_87fb18e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-03T23:50:56Z",
+      "side": 1,
+      "message": "I had to remove the extra check which verifies the log line. Turns out that it doesn\u0027t work on the bots.",
+      "revId": "8dd6df4b2e21afe99170475c3905d3b0b21bff7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
