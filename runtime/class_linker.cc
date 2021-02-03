@@ -609,7 +609,6 @@ static void WrapExceptionInInitializer(Handle<mirror::Class> klass)
 
 ClassLinker::ClassLinker(InternTable* intern_table, bool fast_class_not_found_exceptions)
     : boot_class_table_(new ClassTable()),
-      failed_dex_cache_class_lookups_(0),
       class_roots_(nullptr),
       find_array_class_cache_next_victim_(0),
       init_done_(false),
@@ -1145,17 +1144,6 @@ static void InitializeObjectVirtualMethodHashes(ObjPtr<mirror::Class> java_lang_
   }
 }
 
-struct TrampolineCheckData {
-  const void* quick_resolution_trampoline;
-  const void* quick_imt_conflict_trampoline;
-  const void* quick_generic_jni_trampoline;
-  const void* quick_to_interpreter_bridge_trampoline;
-  const void* nterp_trampoline;
-  PointerSize pointer_size;
-  ArtMethod* m;
-  bool error;
-};
-
 bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   VLOG(startup) << __FUNCTION__ << " entering";
   CHECK(!init_done_);
@@ -1222,63 +1210,15 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
     // Check that the other images use the same trampoline.
     for (size_t i = 1; i < oat_files.size(); ++i) {
       const OatHeader& ith_oat_header = oat_files[i]->GetOatHeader();
-      const void* ith_jni_dlsym_lookup_trampoline_ =
-          ith_oat_header.GetJniDlsymLookupTrampoline();
-      const void* ith_jni_dlsym_lookup_critical_trampoline_ =
-          ith_oat_header.GetJniDlsymLookupCriticalTrampoline();
-      const void* ith_quick_resolution_trampoline =
-          ith_oat_header.GetQuickResolutionTrampoline();
-      const void* ith_quick_imt_conflict_trampoline =
-          ith_oat_header.GetQuickImtConflictTrampoline();
-      const void* ith_quick_generic_jni_trampoline =
-          ith_oat_header.GetQuickGenericJniTrampoline();
-      const void* ith_quick_to_interpreter_bridge_trampoline =
-          ith_oat_header.GetQuickToInterpreterBridge();
-      const void* ith_nterp_trampoline =
-          ith_oat_header.GetNterpTrampoline();
-      if (ith_jni_dlsym_lookup_trampoline_ != jni_dlsym_lookup_trampoline_ ||
-          ith_jni_dlsym_lookup_critical_trampoline_ != jni_dlsym_lookup_critical_trampoline_ ||
-          ith_quick_resolution_trampoline != quick_resolution_trampoline_ ||
-          ith_quick_imt_conflict_trampoline != quick_imt_conflict_trampoline_ ||
-          ith_quick_generic_jni_trampoline != quick_generic_jni_trampoline_ ||
-          ith_quick_to_interpreter_bridge_trampoline != quick_to_interpreter_bridge_trampoline_ ||
-          ith_nterp_trampoline != nterp_trampoline_) {
-        // Make sure that all methods in this image do not contain those trampolines as
-        // entrypoints. Otherwise the class-linker won't be able to work with a single set.
-        TrampolineCheckData data;
-        data.error = false;
-        data.pointer_size = GetImagePointerSize();
-        data.quick_resolution_trampoline = ith_quick_resolution_trampoline;
-        data.quick_imt_conflict_trampoline = ith_quick_imt_conflict_trampoline;
-        data.quick_generic_jni_trampoline = ith_quick_generic_jni_trampoline;
-        data.quick_to_interpreter_bridge_trampoline = ith_quick_to_interpreter_bridge_trampoline;
-        data.nterp_trampoline = ith_nterp_trampoline;
-        ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-        auto visitor = [&](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
-          if (obj->IsClass()) {
-            ObjPtr<mirror::Class> klass = obj->AsClass();
-            for (ArtMethod& m : klass->GetMethods(data.pointer_size)) {
-              const void* entrypoint =
-                  m.GetEntryPointFromQuickCompiledCodePtrSize(data.pointer_size);
-              if (entrypoint == data.quick_resolution_trampoline ||
-                  entrypoint == data.quick_imt_conflict_trampoline ||
-                  entrypoint == data.quick_generic_jni_trampoline ||
-                  entrypoint == data.quick_to_interpreter_bridge_trampoline) {
-                data.m = &m;
-                data.error = true;
-                return;
-              }
-            }
-          }
-        };
-        spaces[i]->GetLiveBitmap()->Walk(visitor);
-        if (data.error) {
-          ArtMethod* m = data.m;
-          LOG(ERROR) << "Found a broken ArtMethod: " << ArtMethod::PrettyMethod(m);
-          *error_msg = "Found an ArtMethod with a bad entrypoint";
-          return false;
-        }
-      }
+      CHECK_EQ(ith_oat_header.GetJniDlsymLookupTrampoline(), jni_dlsym_lookup_trampoline_);
+      CHECK_EQ(ith_oat_header.GetJniDlsymLookupCriticalTrampoline(),
+               jni_dlsym_lookup_critical_trampoline_);
+      CHECK_EQ(ith_oat_header.GetQuickResolutionTrampoline(), quick_resolution_trampoline_);
+      CHECK_EQ(ith_oat_header.GetQuickImtConflictTrampoline(), quick_imt_conflict_trampoline_);
+      CHECK_EQ(ith_oat_header.GetQuickGenericJniTrampoline(), quick_generic_jni_trampoline_);
+      CHECK_EQ(ith_oat_header.GetQuickToInterpreterBridge(),
+               quick_to_interpreter_bridge_trampoline_);
+      CHECK_EQ(ith_oat_header.GetNterpTrampoline(), nterp_trampoline_);
     }
   }
 
