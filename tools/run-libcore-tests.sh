@@ -107,6 +107,7 @@ working_packages=("libcore.android.system"
                   "libcore.javax.security"
                   "libcore.javax.sql"
                   "libcore.javax.xml"
+                  "libcore.libcore.icu"
                   "libcore.libcore.internal"
                   "libcore.libcore.io"
                   "libcore.libcore.net"
@@ -314,8 +315,8 @@ if [ $execution_mode = "device" -o $execution_mode = "host" ]; then
   else
     # We only run this package when user has not specified packages
     # to run and not under gcstress as it can cause timeouts. See
-    # b/78228743.
-    working_packages+=("libcore.libcore.icu")
+    # b/78228743 and b/178351808.
+    working_packages+=("libcore.highmemorytest")
   fi
 
   if $getrandom; then :; else
