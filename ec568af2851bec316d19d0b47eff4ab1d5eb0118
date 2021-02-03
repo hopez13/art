@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9463b017_edc77b71",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3333,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-03T19:22:11Z",
+      "side": 1,
+      "message": "Good point. I think you\u0027re right that it would be worthwhile.",
+      "parentUuid": "73130a81_2f3473a2",
+      "range": {
+        "startLine": 3333,
+        "startChar": 4,
+        "endLine": 3333,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c2238de_1ccbbb04",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
