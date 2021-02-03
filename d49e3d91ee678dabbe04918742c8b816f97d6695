@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a01732b1_0a4eeedf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3318,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-02-03T10:31:45Z",
+      "side": 1,
+      "message": "I can confirm that LoadAcquire for a \u0027referent\u0027 load (to satisfy the volatile access orderings) and a LoadLoad barrier (to satisfy the GC forward pointer requirement - as I understand \u0027refersTo0\u0027) should work.\n\nLoadAcquire is needed to satisfy the memory model requirement for the following case:\n\n\u003csome volatile store\u003e\n         |\n         V\n\u003cload of \u0027referent\u0027\u003e",
+      "parentUuid": "ed4006f6_7773e726",
+      "range": {
+        "startLine": 3318,
+        "startChar": 62,
+        "endLine": 3318,
+        "endChar": 88
+      },
+      "revId": "d49e3d91ee678dabbe04918742c8b816f97d6695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "defdb73b_aebd18aa",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
