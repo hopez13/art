@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a785998_8d2d37a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-03T15:46:12Z",
+      "side": 1,
+      "message": "Are you asking for two separate CLs: one for the runtime, and one for the hiddenapi tool?\n\nNote that the runtime change will essentially be a no-op without the hiddenapi change, and the hiddenapi change is needed to test the runtime behavior. So I\u0027m not sure we\u0027re gaining anything from splitting into different Cls.",
+      "parentUuid": "a27f27a2_55e9e25f",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c20fcd_2685c9b7",
