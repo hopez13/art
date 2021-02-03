@@ -1361,10 +1361,6 @@ class ClassLinker {
   std::vector<const OatFile*> new_bss_roots_boot_oat_files_
       GUARDED_BY(Locks::classlinker_classes_lock_);
 
-  // Number of times we've searched dex caches for a class. After a certain number of misses we move
-  // the classes into the class_table_ to avoid dex cache based searches.
-  Atomic<uint32_t> failed_dex_cache_class_lookups_;
-
   // Well known mirror::Class roots.
   GcRoot<mirror::ObjectArray<mirror::Class>> class_roots_;
 
