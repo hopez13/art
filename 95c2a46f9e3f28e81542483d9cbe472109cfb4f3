@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d328c3e_9ef4dc58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-03T18:28:07Z",
+      "side": 1,
+      "message": "The difference in behavior isn\u0027t between prebuilt and source but between whether we build with just ART files or ART plus framework files. So, prebuilts from a restricted ART only build will differ from prebuilts from a full platform build.\n\nThe difference in behavior you are concerned about already exists. Leaving the hiddenapi build tool as it is does not make that worse. I just think that the correct solution is to complete the modularization work.\n\nThat difference in behavior will disappear once we modularize the hiddenapi generation so it is done on a per apex basis. As then the ART boot jars will only be encoded using information collated from ART files. The framework boot jars will only be encoded using publicly visible information from ART plus information collated from framework files. That will be true even in a full platform build.\n\nThe current hiddenapi build tool will be perfectly safe to use in that situation as it will not be propagating information from private framework implementation classes to otherwise private ART implementation classes or vice versa.\n\nPropagating that information within the boundaries of an APEX at build time will save work. Which reminds me have you done any performance testing to see what the impact of your runtime changes are.",
+      "parentUuid": "94d19685_dae22852",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c20fcd_2685c9b7",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
