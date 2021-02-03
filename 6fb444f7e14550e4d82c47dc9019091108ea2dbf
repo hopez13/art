@@ -46,6 +46,30 @@
       },
       "revId": "6fb444f7e14550e4d82c47dc9019091108ea2dbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80cda088_d08ae5eb",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-03T13:23:08Z",
+      "side": 1,
+      "message": "I\u0027d also say that I don\u0027t think there\u0027s much value in having in configurable.\n\nWe already limit the log line to at most 1 per signature per process, so an app would need to access \u003e100 distinct APIs for this to trigger. No normal app is going to hit that limit, so in most cases this change will have no impact.",
+      "parentUuid": "e9b16379_2370565a",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "6fb444f7e14550e4d82c47dc9019091108ea2dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
