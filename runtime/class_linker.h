@@ -1367,6 +1367,11 @@ class ClassLinker {
   // Well known mirror::Class roots.
   GcRoot<mirror::ObjectArray<mirror::Class>> class_roots_;
 
+  // Method hashes for virtual methods from java.lang.Object used
+  // to avoid recalculating them for each class we link.
+  static constexpr size_t kObjectVTableLength = 11;
+  uint32_t object_virtual_method_hashes_[kObjectVTableLength];
+
   // A cache of the last FindArrayClass results. The cache serves to avoid creating array class
   // descriptors for the sake of performing FindClass.
   static constexpr size_t kFindArrayCacheSize = 16;
