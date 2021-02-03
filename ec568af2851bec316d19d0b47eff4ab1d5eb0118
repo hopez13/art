@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6747656_58577fb5",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3333,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-03T02:03:51Z",
+      "side": 1,
+      "message": "I would be surprised if this gets hot enough for that kind of questionable micro-optimization to matter. Since the branch is probably not 100% correctly predictable, I\u0027m not sure either alternative is consistently faster. I\u0027d stick with the simpler version.",
+      "parentUuid": "e5c32c3b_79b08291",
+      "range": {
+        "startLine": 3333,
+        "startChar": 4,
+        "endLine": 3333,
+        "endChar": 50
+      },
+      "revId": "ec568af2851bec316d19d0b47eff4ab1d5eb0118",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c2238de_1ccbbb04",
