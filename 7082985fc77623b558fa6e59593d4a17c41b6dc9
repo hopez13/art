@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360aa83f_9e36d0be",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-03T17:14:48Z",
+      "side": 1,
+      "message": "We actually also have heap poisoning timeouts, but I don\u0027t think we can filter on an env variable at this point. \n\nWould it be ok to only run the package in non-debug mode?",
+      "revId": "7082985fc77623b558fa6e59593d4a17c41b6dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
