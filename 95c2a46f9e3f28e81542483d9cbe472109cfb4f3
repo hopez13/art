@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab79111_404211fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-03T14:44:47Z",
+      "side": 1,
+      "message": "Well I can\u0027t say I understand all of this, but what I do understand looks good :)\n\nCan we give compat-team@ a heads up, to let them know this is happening?",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c20fcd_2685c9b7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8955,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-03T14:44:47Z",
+      "side": 1,
+      "message": "IIUC it\u0027s possible for a method to implement more than one interface method. Is that a corner case we should worry about?",
+      "range": {
+        "startLine": 8955,
+        "startChar": 35,
+        "endLine": 8955,
+        "endChar": 54
+      },
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
