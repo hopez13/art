@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1efd2f91_330973dd",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 71
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-03T16:31:05Z",
+      "side": 1,
+      "message": "Maybe we shouldn\u0027t check the path here at all and just munge it anyway.\n\nHowever, ICU APEX jars are in the DEX2OATBOOTCLASSPATH, if we don\u0027t supply it, things grind to a halt:\n\n\"Missing dex file for boot class component /apex/com.android.i18n/javalib/core-icu4j.jar\"\n\nI don\u0027t have a good feel for what the right resolution is here, with it removed in the latest CL odrefresh does nothing useful.",
+      "parentUuid": "8294240e_c8e47ee8",
+      "range": {
+        "startLine": 93,
+        "startChar": 55,
+        "endLine": 93,
+        "endChar": 87
+      },
+      "revId": "abff68aac091ac2b2a473778878039899f6fe97f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "709ef0f2_253b831d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 71
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-02T11:04:33Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 803,
+        "startChar": 59,
+        "endLine": 803,
+        "endChar": 97
+      },
+      "revId": "abff68aac091ac2b2a473778878039899f6fe97f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e000a5cb_a41e18be",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 71
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-03T16:31:05Z",
+      "side": 1,
+      "message": "Gone, debugging leftovers.",
+      "parentUuid": "709ef0f2_253b831d",
       "range": {
         "startLine": 803,
         "startChar": 59,
