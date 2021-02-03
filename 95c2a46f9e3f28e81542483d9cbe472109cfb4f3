@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27f27a2_55e9e25f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-03T15:41:03Z",
+      "side": 1,
+      "message": "tl;dr; Don\u0027t change the behavior of the hiddenapi build tool as part of this change.\n\nThere are a couple of reasons for this:\n\nFirstly, the logic is useful and will save time at runtime. It only causes problems when information is propagated across an APEX boundary, e.g. when private framework implementation code affects the accessibility of otherwise private ART implementation code. Within an APEX it is fine and in fact the bug that originally caused that code to be added to hiddenapi build tool was an issue within what is now the ART APEX.\n\nSecondly, we need it for testing.\n\nI don\u0027t understand the runtime well enough to know whether the changes there will replicate the behavior of the existing build/runtime mechanism. In fact I think it would be really hard to say for certain one way or another simply by inspecting the code. So, I think we need to test this change very well as the last thing we want is a spate of avoidable app compat issues.\n\nAt the moment the hiddenapi runtime behavior is comprehensively tested by various tests in cts/tests/signature/api-check/hidden-api-blocklist*. AIUI they check that every entry in the hiddenapi-flags.csv is accessible or not.\n\nWe need to maintain that level of testing, definitely while changing the runtime behavior and ideally for the future too. Exactly how we go about that in the long term is a discussion for a later date.\n\nIn the short term I think we could split the hiddenapi-flags.csv into two files:\n1) The flags that have to be encoded into the dex file and which should exclude the ones added by the hiddenapi build tool logic that is being reverted here.\n2) The flags that are used at runtime and which should include the ones added by the hiddenapi build tool logic that is being reverted here.\n\nThat way we can use the CTS tests to ensure that this change which switches from build time to runtime checks do not break anything.\n\nRestructuring the build to create the two files is complicated because the changes to the hiddenapi build tool here affect the generation of the hiddenapi-stub-flags.csv file which in turn affects the generation of the per module hiddenapi/flags.csv files and they in turn affect the generation of the hiddenapi-flags.csv. We would either need a parallel and almost duplicate set of build rules (YUCK) or we would need to change the way we generated the per module files to remove dependency on the hiddenapi-stub-flags.csv file (the right way to go but complicated). A lot of work either way.\n\nWhichever approach we take we will still need the logic in the build tool.",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c20fcd_2685c9b7",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-02-03T14:44:47Z",
       "side": 1,
       "message": "IIUC it\u0027s possible for a method to implement more than one interface method. Is that a corner case we should worry about?",
+      "range": {
+        "startLine": 8955,
+        "startChar": 35,
+        "endLine": 8955,
+        "endChar": 54
+      },
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe3c95b_a4fbd337",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8955,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-03T15:41:03Z",
+      "side": 1,
+      "message": "Your understanding is correct and we probably should worry about it. The build code appears as though it may have but I don\u0027t understand it well enough to know.",
+      "parentUuid": "56c20fcd_2685c9b7",
       "range": {
         "startLine": 8955,
         "startChar": 35,
