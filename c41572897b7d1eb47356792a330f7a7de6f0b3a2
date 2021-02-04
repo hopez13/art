@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edbeeb8a_11d970ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 73
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-04T17:49:46Z",
+      "side": 1,
+      "message": "Orion, ",
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bdd3c7e_c5796e8f",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 73
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-04T17:49:46Z",
+      "side": 1,
+      "message": "didn\u0027t know this worked, does it return the same as \"\" ?",
+      "range": {
+        "startLine": 401,
+        "startChar": 11,
+        "endLine": 401,
+        "endChar": 13
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c43e323_d60ebe1f",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 73
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-04T17:49:46Z",
+      "side": 1,
+      "message": "updatable?",
+      "range": {
+        "startLine": 93,
+        "startChar": 87,
+        "endLine": 93,
+        "endChar": 93
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c40bd0_764ee320",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 73
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-04T17:49:46Z",
+      "side": 1,
+      "message": "I think this still needs to be !LocationIsOnApex(jar_path.c_str());\nSYSTEMSERVERCLASSPATH is full of udpatable modules and we currently don\u0027t plan to recompile system server for every module update. (though we could change this strategy)",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 61
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
