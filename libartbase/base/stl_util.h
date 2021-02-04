@@ -304,6 +304,50 @@ static inline IterationRange<FilterNull<InnerIter>> FilterOutNull(IterationRange
   return Filter(inner, NonNullFilter<typename InnerIter::value_type>());
 }
 
+struct SplitStringIter : public std::iterator<std::forward_iterator_tag, std::string_view> {
+ public:
+  SplitStringIter(size_t loc, char split, std::string_view sv)
+      : cur_loc_(loc), split_on_(split), sv_(sv) {}
+  SplitStringIter(const SplitStringIter&) = default;
+  SplitStringIter(SplitStringIter&&) = default;
+  SplitStringIter& operator=(SplitStringIter&&) = default;
+  SplitStringIter& operator=(const SplitStringIter&) = default;
+
+  SplitStringIter& operator++() {
+    size_t nxt = sv_.find(split_on_, cur_loc_);
+    if (nxt == std::string_view::npos) {
+      cur_loc_ = std::string_view::npos;
+    } else {
+      cur_loc_ = nxt + 1;
+    }
+    return *this;
+  }
+  SplitStringIter operator++(int) {
+    SplitStringIter ret(cur_loc_, split_on_, sv_);
+    ++(*this);
+    return ret;
+  }
+  bool operator==(const SplitStringIter& other) const {
+    return sv_ == other.sv_ && split_on_ == other.split_on_ && cur_loc_ == other.cur_loc_;
+  }
+  bool operator!=(const SplitStringIter& other) const {
+    return !(*this == other);
+  }
+  typename std::string_view operator*() const {
+    return sv_.substr(cur_loc_, sv_.substr(cur_loc_).find(split_on_));
+  }
+
+ private:
+  size_t cur_loc_;
+  char split_on_;
+  std::string_view sv_;
+};
+
+inline IterationRange<SplitStringIter> SplitString(std::string_view sv, char target) {
+  return MakeIterationRange(SplitStringIter(0, target, sv),
+                            SplitStringIter(std::string_view::npos, target, sv));
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_STL_UTIL_H_

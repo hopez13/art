@@ -25,6 +25,7 @@
 
 #include <fstream>
 #include <memory>
+#include <string>
 
 #include "android-base/file.h"
 #include "android-base/stringprintf.h"
@@ -230,10 +231,11 @@ std::string PrettySize(uint64_t byte_count) {
                       byte_count / kBytesPerUnit[i], kUnitStrings[i]);
 }
 
-void Split(const std::string& s, char separator, std::vector<std::string>* result) {
+template <typename Str, typename Append, typename End>
+void BaseSplit(const Str& s, char separator, Append append, End at_end) {
   const char* p = s.data();
   const char* end = p + s.size();
-  while (p != end) {
+  while (p != end && !at_end()) {
     if (*p == separator) {
       ++p;
     } else {
@@ -241,10 +243,42 @@ void Split(const std::string& s, char separator, std::vector<std::string>* resul
       while (++p != end && *p != separator) {
         // Skip to the next occurrence of the separator.
       }
-      result->push_back(std::string(start, p - start));
+      append(Str(start, p - start));
     }
   }
 }
+
+template <typename StrIn, typename Str>
+void Split(const StrIn& s, char separator, std::vector<Str>* result) {
+  BaseSplit(
+      Str(s),
+      separator,
+      [&result](Str&& nxt) { result->emplace_back(nxt); },
+      []() { return false; });
+}
+
+template void Split(const char *const& s, char separator, std::vector<std::string>* result);
+template void Split(const std::string& s, char separator, std::vector<std::string>* result);
+template void Split(const char *const& s, char separator, std::vector<std::string_view>* result);
+template void Split(const std::string_view& s,
+                    char separator,
+                    std::vector<std::string_view>* result);
+
+template <typename Str>
+void Split(const Str& s, char separator, size_t len, Str* result) {
+  Str* last = result + len;
+  BaseSplit(
+      Str(s),
+      separator,
+      [&result](Str&& nxt) { *result++ = nxt; },
+      [&result, &last]() { return result == last; });
+}
+
+template void Split(const std::string& s, char separator, size_t len, std::string* result);
+template void Split(const std::string_view& s,
+                    char separator,
+                    size_t len,
+                    std::string_view* result);
 
 void SetThreadName(const char* thread_name) {
   bool hasAt = false;
