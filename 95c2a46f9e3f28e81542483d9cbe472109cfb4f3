@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3d1dd54_0403dc4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-04T08:58:12Z",
+      "side": 1,
+      "message": "That code is cold, so performance is not an issue.\n\nLet\u0027s discuss offline - I have real concerns on having and \"blessing\" a tool that behaves differently whether you pass all files or just a subset.",
+      "parentUuid": "9d328c3e_9ef4dc58",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c20fcd_2685c9b7",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
