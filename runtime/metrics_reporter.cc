@@ -59,6 +59,12 @@ void MetricsReporter::MaybeStopBackgroundThread() {
   }
 }
 
+void MetricsReporter::NotifyStartupCompleted() {
+  if (thread_.has_value()) {
+    messages_.SendMessage(StartupCompletedMessage{});
+  }
+}
+
 void MetricsReporter::BackgroundThreadRun() {
   LOG_STREAM(DEBUG) << "Metrics reporting thread started";
 
@@ -84,6 +90,10 @@ void MetricsReporter::BackgroundThreadRun() {
           ReportMetrics();
 
           MaybeResetTimeout();
+        },
+        [&]([[maybe_unused]] StartupCompletedMessage message) {
+          LOG_STREAM(DEBUG) << "App startup completed, reporting metrics";
+          ReportMetrics();
         });
   }
 
