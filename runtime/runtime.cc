@@ -3030,6 +3030,10 @@ void Runtime::NotifyStartupCompleted() {
 
   // Notify the profiler saver that startup is now completed.
   ProfileSaver::NotifyStartupCompleted();
+
+  if (metrics_reporter_ != nullptr) {
+    metrics_reporter_->NotifyStartupCompleted();
+  }
 }
 
 bool Runtime::GetStartupCompleted() const {
