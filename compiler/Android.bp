@@ -19,6 +19,14 @@
 // 64bit variant. It also might be good to allow one to compile only the 64bit variant without the
 // 32bit one.
 
+package {
+// http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // the below license kinds from "art_license":
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["art_license"],
+}
+
 art_cc_defaults {
     name: "libart-compiler-defaults",
     defaults: ["art_defaults"],
