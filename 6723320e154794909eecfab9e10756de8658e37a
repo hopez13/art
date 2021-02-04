@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f52653_2a0ebfdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-04T17:06:52Z",
+      "side": 1,
+      "message": "Presubmit found a race condition with attaching/detaching the background thread. The fix was simple, so I went ahead and included it in this CL.",
+      "revId": "6723320e154794909eecfab9e10756de8658e37a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
