@@ -23,6 +23,7 @@
 #include "base/utils.h"
 #include "common_runtime_test.h"
 #include "dex/descriptors_names.h"
+#include "dex/dex_instruction_iterator.h"
 #include "dex/type_reference.h"
 #include "exec_utils.h"
 #include "linear_alloc.h"
@@ -328,7 +329,45 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     return TypeReference(&klass->GetDexFile(), klass->GetDexTypeIndex());
   }
 
-  // Verify that given method has the expected inline caches and nothing else.
+  uint16_t GetDexPcOfCallTo(ArtMethod* meth, Handle<mirror::Class> klass, int32_t start_pc = -1)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    const DexFile* dex_file = meth->GetDexFile();
+    for (const DexInstructionPcPair& inst :
+         CodeItemInstructionAccessor(*dex_file, meth->GetCodeItem())) {
+      if (static_cast<int32_t>(inst.DexPc()) <= start_pc) {
+        continue;
+      } else if (inst->IsInvoke()) {
+        const dex::MethodId& meth_id = dex_file->GetMethodId(inst->VRegB());
+        std::string_view desc(dex_file->GetTypeDescriptor(dex_file->GetTypeId(meth_id.class_idx_)));
+        std::string scratch;
+        if (desc == klass->GetDescriptor(&scratch)) {
+          return inst.DexPc();
+        }
+      }
+    }
+    EXPECT_TRUE(false) << "Unable to find dex-pc in " << meth->PrettyMethod() << " for call to "
+                       << klass->PrettyClass() << " after dexpc: " << start_pc;
+    return -1;
+  }
+
+  void AssertInlineCaches(ArtMethod* method,
+                          uint16_t dex_pc,
+                          const TypeReferenceSet& expected_clases,
+                          const ProfileCompilationInfo& info,
+                          bool is_megamorphic,
+                          bool is_missing_types)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    std::unique_ptr<ProfileCompilationInfo::OfflineProfileMethodInfo> pmi =
+        info.GetHotMethodInfo(MethodReference(
+            method->GetDexFile(), method->GetDexMethodIndex()));
+    ASSERT_TRUE(pmi != nullptr);
+    ASSERT_TRUE(pmi->inline_caches->find(dex_pc) != pmi->inline_caches->end());
+    AssertInlineCaches(expected_clases,
+                       pmi.get(),
+                       pmi->inline_caches->find(dex_pc)->second,
+                       is_megamorphic,
+                       is_missing_types);
+  }
   void AssertInlineCaches(ArtMethod* method,
                           const TypeReferenceSet& expected_clases,
                           const ProfileCompilationInfo& info,
@@ -340,8 +379,19 @@ class ProfileAssistantTest : public CommonRuntimeTest {
             method->GetDexFile(), method->GetDexMethodIndex()));
     ASSERT_TRUE(pmi != nullptr);
     ASSERT_EQ(pmi->inline_caches->size(), 1u);
-    const ProfileCompilationInfo::DexPcData& dex_pc_data = pmi->inline_caches->begin()->second;
+    AssertInlineCaches(expected_clases,
+                       pmi.get(),
+                       pmi->inline_caches->begin()->second,
+                       is_megamorphic,
+                       is_missing_types);
+  }
 
+  void AssertInlineCaches(const TypeReferenceSet& expected_clases,
+                          ProfileCompilationInfo::OfflineProfileMethodInfo* pmi,
+                          const ProfileCompilationInfo::DexPcData& dex_pc_data,
+                          bool is_megamorphic,
+                          bool is_missing_types)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     ASSERT_EQ(dex_pc_data.is_megamorphic, is_megamorphic);
     ASSERT_EQ(dex_pc_data.is_missing_types, is_missing_types);
     ASSERT_EQ(expected_clases.size(), dex_pc_data.classes.size());
@@ -1032,21 +1082,27 @@ TEST_F(ProfileAssistantTest, TestProfileCreationNoneMatched) {
 
 TEST_F(ProfileAssistantTest, TestProfileCreateInlineCache) {
   // Create the profile content.
-  std::vector<std::string> methods = {
+  std::vector<std::string_view> methods = {
     "HLTestInline;->inlineMonomorphic(LSuper;)I+LSubA;",
     "HLTestInline;->inlinePolymorphic(LSuper;)I+LSubA;,LSubB;,LSubC;",
     "HLTestInline;->inlineMegamorphic(LSuper;)I+LSubA;,LSubB;,LSubC;,LSubD;,LSubE;",
     "HLTestInline;->inlineMissingTypes(LSuper;)I+missing_types",
-    "HLTestInline;->noInlineCache(LSuper;)I"
+    "HLTestInline;->noInlineCache(LSuper;)I",
+    "HLTestInline;->inlineMultiMonomorphic(LSuper;LSecret;)I+[LSuper;LSubA;[LSecret;LSubB;",
+    "HLTestInline;->inlineMultiPolymorphic(LSuper;LSecret;)I+[LSuper;LSubA;,LSubB;,LSubC;[LSecret;LSubB;,LSubC;",
+    "HLTestInline;->inlineMultiMegamorphic(LSuper;LSecret;)I+[LSuper;LSubA;,LSubB;,LSubC;,LSubD;,LSubE;[LSecret;LSubA;,LSubB;,LSubC;,LSubD;,LSubE;",
+    "HLTestInline;->inlineMultiMissingTypes(LSuper;LSecret;)I+[LSuper;missing_types[LSecret;missing_types",
+    "HLTestInline;->inlineTriplePolymorphic(LSuper;LSecret;LSecret;)I+[LSuper;LSubA;,LSubB;,LSubC;[LSecret;LSubB;,LSubC;",
+    "HLTestInline;->noInlineCacheMulti(LSuper;LSecret;)I",
   };
-  std::string input_file_contents;
-  for (std::string& m : methods) {
-    input_file_contents += m + std::string("\n");
+  std::ostringstream input_file_contents;
+  for (const std::string_view& m : methods) {
+    input_file_contents << m << "\n";
   }
 
   // Create the profile and save it to disk.
   ScratchFile profile_file;
-  ASSERT_TRUE(CreateProfile(input_file_contents,
+  ASSERT_TRUE(CreateProfile(input_file_contents.str(),
                             profile_file.GetFilename(),
                             GetTestDexFileName("ProfileTestMultiDex")));
 
@@ -1060,11 +1116,15 @@ TEST_F(ProfileAssistantTest, TestProfileCreateInlineCache) {
   jobject class_loader = LoadDex("ProfileTestMultiDex");
   ASSERT_NE(class_loader, nullptr);
 
-  StackHandleScope<3> hs(soa.Self());
+  StackHandleScope<5> hs(soa.Self());
+  Handle<mirror::Class> super_klass = hs.NewHandle(GetClass(soa, class_loader, "LSuper;"));
+  Handle<mirror::Class> secret_klass = hs.NewHandle(GetClass(soa, class_loader, "LSecret;"));
   Handle<mirror::Class> sub_a = hs.NewHandle(GetClass(soa, class_loader, "LSubA;"));
   Handle<mirror::Class> sub_b = hs.NewHandle(GetClass(soa, class_loader, "LSubB;"));
   Handle<mirror::Class> sub_c = hs.NewHandle(GetClass(soa, class_loader, "LSubC;"));
 
+  ASSERT_TRUE(super_klass != nullptr);
+  ASSERT_TRUE(secret_klass != nullptr);
   ASSERT_TRUE(sub_a != nullptr);
   ASSERT_TRUE(sub_b != nullptr);
   ASSERT_TRUE(sub_c != nullptr);
@@ -1136,6 +1196,147 @@ TEST_F(ProfileAssistantTest, TestProfileCreateInlineCache) {
     std::unique_ptr<ProfileCompilationInfo::OfflineProfileMethodInfo> pmi_no_inline_cache =
         info.GetHotMethodInfo(MethodReference(
             no_inline_cache->GetDexFile(), no_inline_cache->GetDexMethodIndex()));
+    ASSERT_TRUE(pmi_no_inline_cache != nullptr);
+    ASSERT_TRUE(pmi_no_inline_cache->inline_caches->empty());
+  }
+
+  {
+    // Verify that method inlineMonomorphic has the expected inline caches and nothing else.
+    ArtMethod* inline_monomorphic = GetVirtualMethod(class_loader,
+                                                     "LTestInline;",
+                                                     "inlineMultiMonomorphic");
+    ASSERT_TRUE(inline_monomorphic != nullptr);
+    TypeReferenceSet expected_monomorphic_super;
+    TypeReferenceSet expected_monomorphic_secret;
+    expected_monomorphic_super.insert(MakeTypeReference(sub_a.Get()));
+    expected_monomorphic_secret.insert(MakeTypeReference(sub_b.Get()));
+    AssertInlineCaches(inline_monomorphic,
+                       GetDexPcOfCallTo(inline_monomorphic, super_klass),
+                       expected_monomorphic_super,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+    AssertInlineCaches(inline_monomorphic,
+                       GetDexPcOfCallTo(inline_monomorphic, secret_klass),
+                       expected_monomorphic_secret,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+  }
+
+  {
+    // Verify that method inlinePolymorphic has the expected inline caches and nothing else.
+    ArtMethod* inline_polymorhic = GetVirtualMethod(class_loader,
+                                                    "LTestInline;",
+                                                    "inlineMultiPolymorphic");
+    ASSERT_TRUE(inline_polymorhic != nullptr);
+    TypeReferenceSet expected_polymorphic_super;
+    expected_polymorphic_super.insert(MakeTypeReference(sub_a.Get()));
+    expected_polymorphic_super.insert(MakeTypeReference(sub_b.Get()));
+    expected_polymorphic_super.insert(MakeTypeReference(sub_c.Get()));
+    TypeReferenceSet expected_polymorphic_secret;
+    expected_polymorphic_secret.insert(MakeTypeReference(sub_b.Get()));
+    expected_polymorphic_secret.insert(MakeTypeReference(sub_c.Get()));
+    AssertInlineCaches(inline_polymorhic,
+                       GetDexPcOfCallTo(inline_polymorhic, super_klass),
+                       expected_polymorphic_super,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+    AssertInlineCaches(inline_polymorhic,
+                       GetDexPcOfCallTo(inline_polymorhic, secret_klass),
+                       expected_polymorphic_secret,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+  }
+
+  {
+    // Verify that method inlinePolymorphic has the expected inline caches and nothing else.
+    ArtMethod* inline_polymorhic = GetVirtualMethod(class_loader,
+                                                    "LTestInline;",
+                                                    "inlineTriplePolymorphic");
+    ASSERT_TRUE(inline_polymorhic != nullptr);
+    TypeReferenceSet expected_polymorphic_super;
+    expected_polymorphic_super.insert(MakeTypeReference(sub_a.Get()));
+    expected_polymorphic_super.insert(MakeTypeReference(sub_b.Get()));
+    expected_polymorphic_super.insert(MakeTypeReference(sub_c.Get()));
+    TypeReferenceSet expected_polymorphic_secret;
+    expected_polymorphic_secret.insert(MakeTypeReference(sub_b.Get()));
+    expected_polymorphic_secret.insert(MakeTypeReference(sub_c.Get()));
+    AssertInlineCaches(inline_polymorhic,
+                       GetDexPcOfCallTo(inline_polymorhic, super_klass),
+                       expected_polymorphic_super,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+    uint16_t first_call = GetDexPcOfCallTo(inline_polymorhic, secret_klass);
+    AssertInlineCaches(inline_polymorhic,
+                       first_call,
+                       expected_polymorphic_secret,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+    uint16_t second_call = GetDexPcOfCallTo(inline_polymorhic, secret_klass, first_call);
+    ASSERT_LT(first_call, second_call);
+    AssertInlineCaches(inline_polymorhic,
+                       second_call,
+                       expected_polymorphic_secret,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/false);
+  }
+
+  {
+    // Verify that method inlineMegamorphic has the expected inline caches and nothing else.
+    ArtMethod* inline_megamorphic = GetVirtualMethod(class_loader,
+                                                     "LTestInline;",
+                                                     "inlineMultiMegamorphic");
+    ASSERT_TRUE(inline_megamorphic != nullptr);
+    TypeReferenceSet expected_megamorphic;
+    AssertInlineCaches(inline_megamorphic,
+                       GetDexPcOfCallTo(inline_megamorphic, super_klass),
+                       expected_megamorphic,
+                       info,
+                       /*is_megamorphic=*/true,
+                       /*is_missing_types=*/false);
+    AssertInlineCaches(inline_megamorphic,
+                       GetDexPcOfCallTo(inline_megamorphic, secret_klass),
+                       expected_megamorphic,
+                       info,
+                       /*is_megamorphic=*/true,
+                       /*is_missing_types=*/false);
+  }
+
+  {
+    // Verify that method inlineMegamorphic has the expected inline caches and nothing else.
+    ArtMethod* inline_missing_types = GetVirtualMethod(class_loader,
+                                                       "LTestInline;",
+                                                       "inlineMultiMissingTypes");
+    ASSERT_TRUE(inline_missing_types != nullptr);
+    TypeReferenceSet expected_missing_Types;
+    AssertInlineCaches(inline_missing_types,
+                       GetDexPcOfCallTo(inline_missing_types, super_klass),
+                       expected_missing_Types,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/true);
+    AssertInlineCaches(inline_missing_types,
+                       GetDexPcOfCallTo(inline_missing_types, secret_klass),
+                       expected_missing_Types,
+                       info,
+                       /*is_megamorphic=*/false,
+                       /*is_missing_types=*/true);
+  }
+
+  {
+    // Verify that method noInlineCacheMulti has no inline caches in the profile.
+    ArtMethod* no_inline_cache =
+        GetVirtualMethod(class_loader, "LTestInline;", "noInlineCacheMulti");
+    ASSERT_TRUE(no_inline_cache != nullptr);
+    std::unique_ptr<ProfileCompilationInfo::OfflineProfileMethodInfo> pmi_no_inline_cache =
+        info.GetHotMethodInfo(
+            MethodReference(no_inline_cache->GetDexFile(), no_inline_cache->GetDexMethodIndex()));
     ASSERT_TRUE(pmi_no_inline_cache != nullptr);
     ASSERT_TRUE(pmi_no_inline_cache->inline_caches->empty());
   }
