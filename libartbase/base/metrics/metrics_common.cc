@@ -16,8 +16,10 @@
 
 #include <sstream>
 
+#include "android-base/file.h"
 #include "android-base/logging.h"
 #include "base/macros.h"
+#include "base/scoped_flock.h"
 #include "metrics.h"
 
 #pragma clang diagnostic push
@@ -46,6 +48,15 @@ std::string DatumName(DatumId datum) {
   }
 }
 
+SessionData SessionData::CreateDefault() {
+  return SessionData{
+    .compilation_reason = CompilationReason::kUnknown,
+    .compiler_filter = std::nullopt,
+    .session_id = kInvalidSessionId,
+    .uid = static_cast<int32_t>(getuid()),
+  };
+}
+
 ArtMetrics::ArtMetrics() : unused_ {}
 #define ART_COUNTER(name) \
   , name##_ {}
@@ -59,6 +70,8 @@ ART_HISTOGRAMS(ART_HISTOGRAM)
 }
 
 void ArtMetrics::ReportAllMetrics(MetricsBackend* backend) const {
+  backend->BeginReport(MilliTime());
+
 // Dump counters
 #define ART_COUNTER(name) name()->Report(backend);
   ART_COUNTERS(ART_COUNTER)
@@ -68,30 +81,41 @@ void ArtMetrics::ReportAllMetrics(MetricsBackend* backend) const {
 #define ART_HISTOGRAM(name, num_buckets, low_value, high_value) name()->Report(backend);
   ART_HISTOGRAMS(ART_HISTOGRAM)
 #undef ART_HISTOGRAM
+
+  backend->EndReport();
 }
 
 void ArtMetrics::DumpForSigQuit(std::ostream& os) const {
-  os << "\n*** ART internal metrics ***\n\n";
-  StreamBackend backend{os};
+  StringBackend backend;
   ReportAllMetrics(&backend);
-  os << "\n*** Done dumping ART internal metrics ***\n";
+  os << backend.GetAndResetBuffer();
 }
 
-StreamBackend::StreamBackend(std::ostream& os) : os_{os} {}
+StringBackend::StringBackend() {}
 
-void StreamBackend::BeginSession([[maybe_unused]] const SessionData& session_data) {
+std::string StringBackend::GetAndResetBuffer() {
+  std::string result = os_.str();
+  os_.clear();
+  os_.str("");
+  return result;
+}
+
+void StringBackend::BeginSession([[maybe_unused]] const SessionData& session_data) {
   // Not needed for now.
 }
 
-void StreamBackend::EndSession() {
-  // Not needed for now.
+void StringBackend::BeginReport(uint64_t timestamp_millis) {
+  os_ << "\n*** ART internal metrics ***\n\n";
+  os_ << "timestamp: " << timestamp_millis << "\n";
 }
 
-void StreamBackend::ReportCounter(DatumId counter_type, uint64_t value) {
+void StringBackend::EndReport() { os_ << "\n*** Done dumping ART internal metrics ***\n"; }
+
+void StringBackend::ReportCounter(DatumId counter_type, uint64_t value) {
   os_ << DatumName(counter_type) << ": count = " << value << "\n";
 }
 
-void StreamBackend::ReportHistogram(DatumId histogram_type,
+void StringBackend::ReportHistogram(DatumId histogram_type,
                                     int64_t minimum_value_,
                                     int64_t maximum_value_,
                                     const std::vector<uint32_t>& buckets) {
@@ -109,6 +133,39 @@ void StreamBackend::ReportHistogram(DatumId histogram_type,
     os_ << "\n";
   } else {
     os_ << ", no buckets\n";
+  }
+}
+
+LogBackend::LogBackend(android::base::LogSeverity level) : level_{level} {}
+
+void LogBackend::BeginReport(uint64_t timestamp_millis) {
+  GetAndResetBuffer();
+  StringBackend::BeginReport(timestamp_millis);
+}
+
+void LogBackend::EndReport() {
+  StringBackend::EndReport();
+  LOG_STREAM(level_) << GetAndResetBuffer();
+}
+
+FileBackend::FileBackend(std::string filename) : filename_{filename} {}
+
+void FileBackend::BeginReport(uint64_t timestamp_millis) {
+  GetAndResetBuffer();
+  StringBackend::BeginReport(timestamp_millis);
+}
+
+void FileBackend::EndReport() {
+  StringBackend::EndReport();
+  std::string error_message;
+  auto file{
+      LockedFile::Open(filename_.c_str(), O_CREAT | O_WRONLY | O_APPEND, true, &error_message)};
+  if (file.get() == nullptr) {
+    LOG(WARNING) << "Could open metrics file '" << filename_ << "': " << error_message;
+  } else {
+    if (!android::base::WriteStringToFd(GetAndResetBuffer(), file.get()->Fd())) {
+      PLOG(WARNING) << "Error writing metrics to file";
+    }
   }
 }
 

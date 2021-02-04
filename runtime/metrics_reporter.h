@@ -62,7 +62,7 @@ class MetricsReporter {
   ~MetricsReporter();
 
   // Creates and runs the background reporting thread.
-  void MaybeStartBackgroundThread();
+  void MaybeStartBackgroundThread(SessionData session_data);
 
   // Sends a request to the background thread to shutdown.
   void MaybeStopBackgroundThread();
@@ -83,13 +83,15 @@ class MetricsReporter {
 
   const ReportingConfig config_;
   Runtime* runtime_;
-
+  std::vector<std::unique_ptr<MetricsBackend>> backends_;
   std::optional<std::thread> thread_;
 
   // A message indicating that the reporting thread should shut down.
   struct ShutdownRequestedMessage {};
 
-  MessageQueue<ShutdownRequestedMessage> messages_;
+  struct BeginSessionMessage{ SessionData session_data; };
+
+  MessageQueue<ShutdownRequestedMessage, BeginSessionMessage> messages_;
 };
 
 }  // namespace metrics
