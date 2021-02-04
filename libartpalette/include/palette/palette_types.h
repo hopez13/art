@@ -24,7 +24,7 @@ extern "C" {
 #endif  // __cplusplus
 
 // Return values for palette functions.
-enum PaletteStatus {
+enum PaletteStatus : int32_t {
   kOkay = 0,
   kCheckErrno = 1,
   kInvalidArgument = 2,
