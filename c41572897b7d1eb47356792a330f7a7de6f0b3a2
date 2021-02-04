@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e8b392_2b2c7d78",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 73
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-04T20:57:05Z",
+      "side": 1,
+      "message": "Yes, it means default constructor here: https://isocpp.org/wiki/faq/cpp11-language#uniform-init",
+      "parentUuid": "2bdd3c7e_c5796e8f",
+      "range": {
+        "startLine": 401,
+        "startChar": 11,
+        "endLine": 401,
+        "endChar": 13
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c43e323_d60ebe1f",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8c5e74_d95e0fec",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 73
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-04T20:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c43e323_d60ebe1f",
+      "range": {
+        "startLine": 93,
+        "startChar": 87,
+        "endLine": 93,
+        "endChar": 93
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3c40bd0_764ee320",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-02-04T17:49:46Z",
       "side": 1,
       "message": "I think this still needs to be !LocationIsOnApex(jar_path.c_str());\nSYSTEMSERVERCLASSPATH is full of udpatable modules and we currently don\u0027t plan to recompile system server for every module update. (though we could change this strategy)",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 61
+      },
+      "revId": "c41572897b7d1eb47356792a330f7a7de6f0b3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "930621af_b956ccb7",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 73
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-04T20:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c40bd0_764ee320",
       "range": {
         "startLine": 773,
         "startChar": 0,

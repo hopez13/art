@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30fe2d3e_47d6ad8e",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 71
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-04T20:57:05Z",
+      "side": 1,
+      "message": "Removed the logic here that checks for I18n. As we discussed today: when I18N is updatable, it will be removed from the boot class path.",
+      "parentUuid": "1efd2f91_330973dd",
+      "range": {
+        "startLine": 93,
+        "startChar": 55,
+        "endLine": 93,
+        "endChar": 87
+      },
+      "revId": "abff68aac091ac2b2a473778878039899f6fe97f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "709ef0f2_253b831d",
