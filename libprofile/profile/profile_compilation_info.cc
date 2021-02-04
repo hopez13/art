@@ -735,13 +735,17 @@ bool ProfileCompilationInfo::AddMethod(const ProfileMethodInfo& pmi,
       FindOrAddDexPc(inline_cache, cache.dex_pc)->SetIsMissingTypes();
       continue;
     }
+    if  (cache.is_megamorphic) {
+      FindOrAddDexPc(inline_cache, cache.dex_pc)->SetIsMegamorphic();
+      continue;
+    }
     for (const TypeReference& class_ref : cache.classes) {
       DexFileData* class_dex_data = GetOrAddDexFileData(class_ref.dex_file, annotation);
       if (class_dex_data == nullptr) {  // checksum mismatch
         return false;
       }
       DexPcData* dex_pc_data = FindOrAddDexPc(inline_cache, cache.dex_pc);
-      if (dex_pc_data->is_missing_types) {
+      if (dex_pc_data->is_missing_types || dex_pc_data->is_megamorphic) {
         // Don't bother adding classes if we are missing types.
         break;
       }

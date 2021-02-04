@@ -323,6 +323,54 @@ SafePrinter<Val> SafePrint(const Val* v) {
   return SafePrinter<Val>{v};
 }
 
+struct SplitStringIter : public std::iterator<std::forward_iterator_tag, std::string_view> {
+ public:
+  SplitStringIter(size_t index, char split, std::string_view sv)
+      : cur_index_(index), split_on_(split), sv_(sv) {}
+  SplitStringIter(const SplitStringIter&) = default;
+  SplitStringIter(SplitStringIter&&) = default;
+  SplitStringIter& operator=(SplitStringIter&&) = default;
+  SplitStringIter& operator=(const SplitStringIter&) = default;
+
+  SplitStringIter& operator++() {
+    size_t nxt = sv_.find(split_on_, cur_index_);
+    if (nxt == std::string_view::npos) {
+      cur_index_ = std::string_view::npos;
+    } else {
+      cur_index_ = nxt + 1;
+    }
+    return *this;
+  }
+
+  SplitStringIter operator++(int) {
+    SplitStringIter ret(cur_index_, split_on_, sv_);
+    ++(*this);
+    return ret;
+  }
+
+  bool operator==(const SplitStringIter& other) const {
+    return sv_ == other.sv_ && split_on_ == other.split_on_ && cur_index_== other.cur_index_;
+  }
+
+  bool operator!=(const SplitStringIter& other) const {
+    return !(*this == other);
+  }
+
+  typename std::string_view operator*() const {
+    return sv_.substr(cur_index_, sv_.substr(cur_index_).find(split_on_));
+  }
+
+ private:
+  size_t cur_index_;
+  char split_on_;
+  std::string_view sv_;
+};
+
+inline IterationRange<SplitStringIter> SplitString(std::string_view sv, char target) {
+  return MakeIterationRange(SplitStringIter(0, target, sv),
+                            SplitStringIter(std::string_view::npos, target, sv));
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_STL_UTIL_H_
