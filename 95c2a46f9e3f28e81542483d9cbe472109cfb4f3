@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae9ff877_47fd763e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-04T09:40:34Z",
+      "side": 1,
+      "message": "I am surprised you could upload this given that there\u0027s no Test description. Does art not require one?\n\nWould you mind adding one?\n\nIf you didn\u0027t run them could you run CtsHiddenApiBlocklist... tests from a build that does not include the changes to the hiddenapi build tool. That way you will ensure that your runtime has the same behavior as the build tool.\n\ne.g. You could build and flash a device with a build including this. Then revert this change and run atest on each of these:\n\nCtsHiddenApiBlocklistCurrentApiTestCases\nCtsHiddenApiBlocklistApi27TestCases\nCtsHiddenApiBlocklistApi28TestCases\nCtsHiddenApiBlocklistDebugClassTestCases\n\nOr you could download CTS from a continuous build and run them from there.",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cab79111_404211fb",
