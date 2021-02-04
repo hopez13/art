@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6b627c6_254707f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-02-04T21:59:21Z",
+      "side": 1,
+      "message": "Wait, this is a C++ API? I don\u0027t think those are allowed as stable ABI boundaries at all.",
+      "revId": "5ea649939c36b50271b31253d77bbab5c943a87b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e8ff538_362a76b3",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-02-04T21:59:21Z",
+      "side": 1,
+      "message": "This is a C++ feature: go/android-ndk-api-guidelines#headers",
+      "revId": "5ea649939c36b50271b31253d77bbab5c943a87b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
