@@ -22,6 +22,30 @@
       },
       "revId": "2bd552eed56d39893c17796f789eee1f48169eaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f299431_3b5512cc",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T11:15:52Z",
+      "side": 1,
+      "message": "Done. I didn\u0027t want to #include object.h but we\u0027re #including class.h, so it does not matter.",
+      "parentUuid": "5030723d_a7b92543",
+      "range": {
+        "startLine": 1373,
+        "startChar": 41,
+        "endLine": 1373,
+        "endChar": 60
+      },
+      "revId": "2bd552eed56d39893c17796f789eee1f48169eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
