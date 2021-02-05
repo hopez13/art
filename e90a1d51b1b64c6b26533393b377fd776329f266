@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a875717_29051640",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-05T01:42:02Z",
+      "side": 1,
+      "message": "I think it\u0027s nominally needed to prevent automerger from attempting to merge this into internal master again. But it may be that it\u0027s really only needed if the two CLs are not entirely identical; I\u0027ve never understood why that wouldn\u0027t be handled automatically. I\u0027ve been told to add it. And Wessam can just do the edit in gerrit, without rerunning anything. I\u0027ll remove the -1, since I think an unresolved comment also stops autosubmit.",
+      "parentUuid": "aa4e3eaf_082d51a6",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 52
+      },
+      "revId": "e90a1d51b1b64c6b26533393b377fd776329f266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d733a81b_e294d057",
