@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e3d196_72e89629",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T15:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09591d32_3543b6bc",
+      "range": {
+        "startLine": 2807,
+        "startChar": 0,
+        "endLine": 2807,
+        "endChar": 65
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56d303ff_27b50734",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-05T13:34:50Z",
       "side": 1,
       "message": "Can you add a comment why we pass true here?",
+      "range": {
+        "startLine": 2835,
+        "startChar": 37,
+        "endLine": 2835,
+        "endChar": 49
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1b34e6_0b4a24a9",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2835,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T15:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56d303ff_27b50734",
       "range": {
         "startLine": 2835,
         "startChar": 37,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1be1ad8f_d9844c36",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2954,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T15:23:17Z",
+      "side": 1,
+      "message": "Because I want to reuse the `VisitNewMethodPointerArrays` also for something else in a follow-up CL.",
+      "parentUuid": "7c519701_0a06f892",
+      "range": {
+        "startLine": 2954,
+        "startChar": 8,
+        "endLine": 2954,
+        "endChar": 38
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b132cb27_6f747aad",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c075404_9302d448",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2963,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T15:23:17Z",
+      "side": 1,
+      "message": "No, this relates to the word \"New\" in `VisitNewMethodPointerArrays`, see checks in lines 2925 and 2939.\n\n(The line 2962 is needed for app images where the new class table contains boot image class references.)",
+      "parentUuid": "b132cb27_6f747aad",
+      "range": {
+        "startLine": 2963,
+        "startChar": 0,
+        "endLine": 2963,
+        "endChar": 74
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d85e7f6_ab24f5df",
@@ -106,6 +202,24 @@
       "writtenOn": "2021-02-05T13:34:50Z",
       "side": 1,
       "message": "Either here or in the definition, can you add a comment of what kCheckIfDone is for (also why do you template it instead of passing it as argument)?",
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a889e4e1_0d5f4c65",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-05T15:23:17Z",
+      "side": 1,
+      "message": "Added comment in the definition.\n\n(This is an optimization for callers that know that the object was not copied yet and therefore they can avoid the check. Passing it as an argument would be a pessimization and it would be better to not pass it at all.)",
+      "parentUuid": "0d85e7f6_ab24f5df",
       "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
