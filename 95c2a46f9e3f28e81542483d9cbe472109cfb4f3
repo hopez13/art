@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2076d02_12c3975c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-05T12:04:03Z",
+      "side": 1,
+      "message": "In order to determine whether your runtime changes replicate the behavior of the build tool you need to test:\n* A system image built with your runtime changes and your hiddenapi build tool changes.\n* Tests built without any of the changes.\n\nAn example might help. Let\u0027s say that the current hiddenapi-flags.csv (the file that is encoded in the dex files) generated without any of your changes includes the following entries:\n* Foo,public\n* Bar,public\n\nLet\u0027s say that the file that is generated with your hiddenapi build changes is different because the tool no longer propagates the public flag to Bar, so we have:\n* Foo,public\n* Bar,blocked\n\nAs that file is used both to encode the information in the dex and in the CTS test that verify that those entries are accessible then as long as the dex and tests use a consistent file the tests will pass. However, your runtime changes break the assumption that the encoded information and runtime accessibility are identical.\n\nA system image built with your hiddenapi build changes and with your runtime changes will have the dex files encoded as follows:\n* Foo,public\n* Bar,blocked\n\nHowever, your runtime changes will treat Bar as being public so the effective accessibility would be:\n* Foo,public\n* Bar,public\n\nIf you try and run the CTS tests from a build that includes both your runtime changes and the revert to the hiddenapi tool then the tests will fail because it will expect Bar to be blocked but it will be accessible.\n\nSo, we need separate files for encoding the dex and testing the effective accessibility.",
+      "parentUuid": "da08f02c_2ddcce83",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cab79111_404211fb",
