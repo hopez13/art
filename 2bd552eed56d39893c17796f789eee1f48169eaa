@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5030723d_a7b92543",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T10:08:17Z",
+      "side": 1,
+      "message": "could you use the mirror::Object::kVtableLength here instead?",
+      "range": {
+        "startLine": 1373,
+        "startChar": 41,
+        "endLine": 1373,
+        "endChar": 60
+      },
+      "revId": "2bd552eed56d39893c17796f789eee1f48169eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
