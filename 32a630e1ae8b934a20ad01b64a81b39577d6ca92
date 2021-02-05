@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a305f7_bc2359bc",
+        "filename": "test/README.arm_fvp.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-02-05T11:44:24Z",
+      "side": 1,
+      "message": "Done! https://android-review.googlesource.com/c/device/generic/goldfish/+/1577489",
+      "parentUuid": "0044532f_15cff38b",
+      "revId": "32a630e1ae8b934a20ad01b64a81b39577d6ca92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9077c77_00f62e10",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-02-04T21:32:26Z",
       "side": 1,
       "message": "Can you reference the other doc instead of copying the contents here? Otherwise they may get out of date.",
+      "revId": "32a630e1ae8b934a20ad01b64a81b39577d6ca92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2814cd0_a50cdca4",
+        "filename": "test/README.arm_fvp.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-02-05T11:44:24Z",
+      "side": 1,
+      "message": "That\u0027s a good point; I have actually included a reference to that doc on line #9. As for pasted instructions here - I think I was requested to actually inline all the steps needed into one doc for convenience - instructions on how to run ART tests with chroot are also included for the same reason.",
+      "parentUuid": "d9077c77_00f62e10",
       "revId": "32a630e1ae8b934a20ad01b64a81b39577d6ca92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
