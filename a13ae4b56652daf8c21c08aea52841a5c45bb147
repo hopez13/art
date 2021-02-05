@@ -22,6 +22,30 @@
       },
       "revId": "a13ae4b56652daf8c21c08aea52841a5c45bb147",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd563fbc_d8a17ebb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T10:47:56Z",
+      "side": 1,
+      "message": "wdym? the hiddenapi changes (which I will move to a different CL) are reverting the logic of that CL. Are you saying it\u0027s a full revert?",
+      "parentUuid": "943b18cf_e696bb2e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "a13ae4b56652daf8c21c08aea52841a5c45bb147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
