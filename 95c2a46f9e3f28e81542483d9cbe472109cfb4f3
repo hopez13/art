@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "88b9cd8d_08d30f80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:24:09Z",
+      "side": 1,
+      "message": "\u003e However, your runtime changes will treat Bar as being public so the effective accessibility would be:\n\nThis isn\u0027t quite right - Bar won\u0027t become public with my runtime change. The app will never see Bar, but instead the public Foo equivalent.",
+      "parentUuid": "b2076d02_12c3975c",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cab79111_404211fb",
@@ -329,6 +347,30 @@
       "side": 1,
       "message": "Yes indeed, we need to look over all interfaces. Done.",
       "parentUuid": "8fe3c95b_a4fbd337",
+      "range": {
+        "startLine": 8955,
+        "startChar": 35,
+        "endLine": 8955,
+        "endChar": 54
+      },
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1172a627_3eddc04d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8955,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "413fadc0_ba61b2c1",
       "range": {
         "startLine": 8955,
         "startChar": 35,
