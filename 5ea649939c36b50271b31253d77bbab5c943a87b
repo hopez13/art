@@ -33,6 +33,24 @@
       "message": "This is a C++ feature: go/android-ndk-api-guidelines#headers",
       "revId": "5ea649939c36b50271b31253d77bbab5c943a87b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77cc8f72_d961f474",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-05T10:56:41Z",
+      "side": 1,
+      "message": "It\u0027s fine to fix, but a couple of things for the popcorn gallery. \n\n1. The documentation says:\n\n\"For APEX APIs, this requirement can be relaxed. The ABI exposed must still be C (the header must be contained in an extern \"C\" block), but the header can make use of the following C++ features:\n\nSized-enums which can then also be used as parameters \u0026 return values safely.\"\n\nThis is a reverse APEX API so an easy mistake to make. Why it would be different in the other direction, I don\u0027t know, but will re-work today.\n\n2. There are places in the NDK that have issues, e.g. assuming the size of an int, such as EGL_Boolean. These have been left as-is for whatever reason, but means the NDK is sensitive to tooling too.",
+      "parentUuid": "7e8ff538_362a76b3",
+      "revId": "5ea649939c36b50271b31253d77bbab5c943a87b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
