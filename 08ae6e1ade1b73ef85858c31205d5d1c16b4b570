@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09591d32_3543b6bc",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:34:50Z",
+      "side": 1,
+      "message": "ditto on comment why we pass false here.",
+      "range": {
+        "startLine": 2807,
+        "startChar": 0,
+        "endLine": 2807,
+        "endChar": 65
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d303ff_27b50734",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2835,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:34:50Z",
+      "side": 1,
+      "message": "Can you add a comment why we pass true here?",
+      "range": {
+        "startLine": 2835,
+        "startChar": 37,
+        "endLine": 2835,
+        "endChar": 49
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c519701_0a06f892",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2954,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:34:50Z",
+      "side": 1,
+      "message": "Why do you not inline this line 2945 and 2926?",
+      "range": {
+        "startLine": 2954,
+        "startChar": 8,
+        "endLine": 2954,
+        "endChar": 38
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b132cb27_6f747aad",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2963,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:34:50Z",
+      "side": 1,
+      "message": "This relates to the check line 2962, right? What\u0027s the relation between this comment and the fact it\u0027s a boot image?",
+      "range": {
+        "startLine": 2963,
+        "startChar": 0,
+        "endLine": 2963,
+        "endChar": 74
+      },
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d85e7f6_ab24f5df",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T13:34:50Z",
+      "side": 1,
+      "message": "Either here or in the definition, can you add a comment of what kCheckIfDone is for (also why do you template it instead of passing it as argument)?",
+      "revId": "08ae6e1ade1b73ef85858c31205d5d1c16b4b570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
