@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d07c49_75366c63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-05T01:22:13Z",
+      "side": 1,
+      "message": "I believe this also needs a line\nMerged-In: I2be4c4e715ce8c3c8ac545e3e14332198b9c2295\n\nsee https://g3doc.corp.google.com/company/teams/android-build-team/automerger.md?cl\u003dhead",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 52
+      },
+      "revId": "e90a1d51b1b64c6b26533393b377fd776329f266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d733a81b_e294d057",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-02-04T21:49:53Z",
       "side": 1,
       "message": "Hi All, This is the Cherrypick from master into AOSP.",
+      "revId": "e90a1d51b1b64c6b26533393b377fd776329f266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dbf61b6_2e6b4182",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-05T01:22:13Z",
+      "side": 1,
+      "message": "-1 to discourage autosubmit.",
       "revId": "e90a1d51b1b64c6b26533393b377fd776329f266",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
