@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "54a4114b_5486730f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-05T10:27:00Z",
+      "side": 1,
+      "message": "They are atest modules. I don\u0027t think that you can do a remote forrest run that uses tests from a different build to the one you are currently testing. You might be able to do it locally.\n\nIf you don\u0027t have a device handy you could try the emulator. I think Victor has used that a lot.",
+      "parentUuid": "d077c4ac_1a6fff62",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cab79111_404211fb",
@@ -192,6 +210,24 @@
       "side": 1,
       "message": "I still think for consistency we\u0027ll want that new behavior from the tool - I would even say that the behavior we currently have is broken, in the sense that at method that was denylisted in eg R, can suddenly be in the allowlist just because a subclass ends up inheriting an interface which is part of the SDK.",
       "parentUuid": "c92f009e_240bf4b3",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "664025d8_dcf7ef35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-05T10:27:00Z",
+      "side": 1,
+      "message": "Rather than go into detail here I will create a document that we can put in some examples of code and see what the expected behavior should be and what the actual behavior is. I will share with you and mathewi@ and we can discuss it on there and maybe between us we can come up with a comprehensive set of use cases that cover all the edge cases.",
+      "parentUuid": "49272fe0_7d7d61ee",
       "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
