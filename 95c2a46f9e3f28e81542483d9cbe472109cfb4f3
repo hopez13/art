@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49272fe0_7d7d61ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T10:15:58Z",
+      "side": 1,
+      "message": "I still think for consistency we\u0027ll want that new behavior from the tool - I would even say that the behavior we currently have is broken, in the sense that at method that was denylisted in eg R, can suddenly be in the allowlist just because a subclass ends up inheriting an interface which is part of the SDK.",
+      "parentUuid": "c92f009e_240bf4b3",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c20fcd_2685c9b7",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -197,6 +215,30 @@
       "side": 1,
       "message": "Your understanding is correct and we probably should worry about it. The build code appears as though it may have but I don\u0027t understand it well enough to know.",
       "parentUuid": "56c20fcd_2685c9b7",
+      "range": {
+        "startLine": 8955,
+        "startChar": 35,
+        "endLine": 8955,
+        "endChar": 54
+      },
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "413fadc0_ba61b2c1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8955,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-05T10:15:58Z",
+      "side": 1,
+      "message": "Yes indeed, we need to look over all interfaces. Done.",
+      "parentUuid": "8fe3c95b_a4fbd337",
       "range": {
         "startLine": 8955,
         "startChar": 35,
