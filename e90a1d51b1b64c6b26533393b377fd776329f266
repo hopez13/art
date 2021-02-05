@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4e3eaf_082d51a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-05T01:30:30Z",
+      "side": 1,
+      "message": "I think that\u0027s only needed if you end up with conflicts? Under normal cases it should work / be fine without.\n\nThat said, it\u0027s a good practice to add it, even if you don\u0027t expect conflicts.",
+      "parentUuid": "94d07c49_75366c63",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 52
+      },
+      "revId": "e90a1d51b1b64c6b26533393b377fd776329f266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d733a81b_e294d057",
