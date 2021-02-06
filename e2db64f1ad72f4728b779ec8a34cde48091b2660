@@ -16,6 +16,23 @@
       "message": "+David who I believe at some point was playing with the no_isolate.",
       "revId": "e2db64f1ad72f4728b779ec8a34cde48091b2660",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ee9be9e_51331c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-02-06T00:36:46Z",
+      "side": 1,
+      "message": "no-isolate just means that tests will run sequentially in one process, as opposed to \"isolated\" in separate processes per test (in parallel).\n\nit definitely seems reasonable to aim to be able to run the tests in one process (single threaded)",
+      "revId": "e2db64f1ad72f4728b779ec8a34cde48091b2660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
