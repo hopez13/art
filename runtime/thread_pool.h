@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_THREAD_POOL_H_
 #define ART_RUNTIME_THREAD_POOL_H_
 
+#include <array>
 #include <deque>
 #include <functional>
 #include <vector>
@@ -110,6 +111,15 @@ class ThreadPoolWorker {
 // Note that thread pool workers will set Thread#setCanCallIntoJava to false.
 class ThreadPool {
  public:
+  enum Priority {
+    Lowest,
+    Low,
+    Normal,
+    High,
+    Highest,
+    Count = Highest,
+  };
+
   // Returns the number of threads in the thread pool.
   size_t GetThreadCount() const {
     return threads_.size();
@@ -125,7 +135,8 @@ class ThreadPool {
 
   // Add a new task, the first available started worker will process it. Does not delete the task
   // after running it, it is the caller's responsibility.
-  void AddTask(Thread* self, Task* task) REQUIRES(!task_queue_lock_);
+  void AddTask(Thread* self, Task* task, Priority priority = Priority::Normal)
+      REQUIRES(!task_queue_lock_);
 
   // Remove all tasks in the queue.
   void RemoveAllTasks(Thread* self) REQUIRES(!task_queue_lock_);
@@ -187,7 +198,14 @@ class ThreadPool {
   }
 
   bool HasOutstandingTasks() const REQUIRES(task_queue_lock_) {
-    return started_ && !tasks_.empty();
+    if (started_)  {
+      for (auto& it : tasks_) {
+        if (!it.empty()) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   const std::string name_;
@@ -198,7 +216,7 @@ class ThreadPool {
   volatile bool shutting_down_ GUARDED_BY(task_queue_lock_);
   // How many worker threads are waiting on the condition.
   volatile size_t waiting_count_ GUARDED_BY(task_queue_lock_);
-  std::deque<Task*> tasks_ GUARDED_BY(task_queue_lock_);
+  std::array<std::deque<Task*>, Priority::Count> tasks_ GUARDED_BY(task_queue_lock_);
   std::vector<ThreadPoolWorker*> threads_;
   // Work balance detection.
   uint64_t start_time_ GUARDED_BY(task_queue_lock_);

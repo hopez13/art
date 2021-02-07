@@ -137,9 +137,10 @@ void* ThreadPoolWorker::Callback(void* arg) {
   return nullptr;
 }
 
-void ThreadPool::AddTask(Thread* self, Task* task) {
+void ThreadPool::AddTask(Thread* self, Task* task, Priority priority) {
   MutexLock mu(self, task_queue_lock_);
-  tasks_.push_back(task);
+  DCHECK_LT(priority, tasks_.size());
+  tasks_[priority].push_back(task);
   // If we have any waiters, signal one.
   if (started_ && waiting_count_ != 0) {
     task_queue_condition_.Signal(self);
@@ -154,7 +155,9 @@ void ThreadPool::RemoveAllTasks(Thread* self) {
     task->Finalize();
   }
   MutexLock mu(self, task_queue_lock_);
-  tasks_.clear();
+  for (auto& it : tasks_) {
+    it.clear();
+  }
 }
 
 ThreadPool::ThreadPool(const char* name,
@@ -282,10 +285,14 @@ Task* ThreadPool::TryGetTask(Thread* self) {
 }
 
 Task* ThreadPool::TryGetTaskLocked() {
-  if (HasOutstandingTasks()) {
-    Task* task = tasks_.front();
-    tasks_.pop_front();
-    return task;
+  if (started_) {
+    for (auto it = tasks_.rbegin(); it != tasks_.rend(); it++) {
+      if (!it->empty()) {
+        Task* task = it->front();
+        it->pop_front();
+        return task;
+      }
+    }
   }
   return nullptr;
 }
@@ -312,7 +319,11 @@ void ThreadPool::Wait(Thread* self, bool do_work, bool may_hold_locks) {
 
 size_t ThreadPool::GetTaskCount(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
-  return tasks_.size();
+  size_t count = 0;
+  for (auto& it : tasks_) {
+    count += it.size();
+  }
+  return count;
 }
 
 void ThreadPool::SetPthreadPriority(int priority) {
