@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "415bae08_66d57283",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-07T20:40:02Z",
+      "side": 1,
+      "message": "Thanks, but partially :) I feel SplitStringIter could also be removed and we would still save on code.",
+      "parentUuid": "f4a6cc65_00693ab6",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 46
+      },
+      "revId": "85eed990797dbbedf3fb94b7a1452b9bad7bf186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afad764e_eb922e44",
