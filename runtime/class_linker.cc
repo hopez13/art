@@ -8931,6 +8931,38 @@ ObjPtr<mirror::Class> ClassLinker::DoResolveType(dex::TypeIndex type_idx,
   return resolved;
 }
 
+// Return the first accessible method from the list of interfaces implemented by
+// `klass`. For knowing if a methid is accessible, we call through
+// `hiddenapi::ShouldDenyAccessToMember`.
+static ArtMethod* FindAccessibleInterfaceMethod(ObjPtr<mirror::Class> klass,
+                                                ObjPtr<mirror::DexCache> dex_cache,
+                                                ObjPtr<mirror::ClassLoader> class_loader,
+                                                uint32_t method_idx,
+                                                PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+  const DexFile& dex_file = *dex_cache->GetDexFile();
+  const dex::MethodId& method_id = dex_file.GetMethodId(method_idx);
+  std::string_view name = dex_file.StringViewByIdx(method_id.name_idx_);
+  const Signature signature = dex_file.GetMethodSignature(method_id);
+
+  ObjPtr<mirror::IfTable> iftable = klass->GetIfTable();
+  for (int32_t i = 0, iftable_count = iftable->Count(); i < iftable_count; ++i) {
+    ObjPtr<mirror::Class> iface = iftable->GetInterface(i);
+    for (ArtMethod& method : iface->GetVirtualMethodsSlice(pointer_size)) {
+      if (method.GetNameView() == name && method.GetSignature() == signature) {
+        // Pass AccessMethod::kNone instead of kLinking to not warn on the
+        // access. We'll only warn later if we could not find a visible method.
+        if (!hiddenapi::ShouldDenyAccessToMember(&method,
+                                                 hiddenapi::AccessContext(class_loader, dex_cache),
+                                                 hiddenapi::AccessMethod::kNone)) {
+          return &method;
+        }
+      }
+    }
+  }
+  return nullptr;
+}
+
 ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
                                            ObjPtr<mirror::DexCache> dex_cache,
                                            ObjPtr<mirror::ClassLoader> class_loader,
@@ -8946,10 +8978,32 @@ ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
   }
   DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
   if (resolved != nullptr &&
+      // We pass AccessMethod::kNone instead of kLinking to not warn yet on the
+      // access, as we'll be looking if the method can be accessed through an
+      // interface.
       hiddenapi::ShouldDenyAccessToMember(resolved,
                                           hiddenapi::AccessContext(class_loader, dex_cache),
-                                          hiddenapi::AccessMethod::kLinking)) {
-    resolved = nullptr;
+                                          hiddenapi::AccessMethod::kNone)) {
+    // The resolved method that we have found cannot be accessed due to
+    // hiddenapi (typically it is declared up the hierarchy and is not an SDK
+    // method). Try to find an interface method from the implemented interfaces which is
+    // accessible.
+    ArtMethod* itf_method = FindAccessibleInterfaceMethod(klass,
+                                                          dex_cache,
+                                                          class_loader,
+                                                          method_idx,
+                                                          image_pointer_size_);
+    if (itf_method == nullptr) {
+      // No interface method. Call ShouldDenyAccessToMember again but this time
+      // with AccessMethod::kLinking to ensure that an appropriate warning is
+      // logged.
+      hiddenapi::ShouldDenyAccessToMember(resolved,
+                                          hiddenapi::AccessContext(class_loader, dex_cache),
+                                          hiddenapi::AccessMethod::kLinking);
+      resolved = nullptr;
+    } else {
+      // We found an interface method that is accessible, continue with the resolved method.
+    }
   }
   if (resolved != nullptr) {
     // In case of jmvti, the dex file gets verified before being registered, so first
