@@ -123,6 +123,24 @@
       "parentUuid": "e537f9a5_fc0e7727",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9200dbb_1cad7438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-08T14:50:56Z",
+      "side": 1,
+      "message": "For Q we have:\ncom.android.conscrypt:conscrypt\ncom.android.media:updatable-media\n\nFor R we have additionally:\ncom.android.mediaprovider:framework-mediaprovider\ncom.android.os.statsd:framework-statsd\ncom.android.permission:framework-permission\ncom.android.sdkext:framework-sdkextensions\ncom.android.wifi:framework-wifi\ncom.android.tethering:framework-tethering",
+      "parentUuid": "8bde839a_08137388",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
