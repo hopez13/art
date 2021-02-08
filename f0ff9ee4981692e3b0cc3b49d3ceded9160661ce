@@ -16,6 +16,24 @@
       "message": "I just realised that we have a bigger problem here.\n\nIf we update the build, the the dex files generated will have stricter API flags that currently. Mainline will then ship those dex files to devices running Q and R (where we don\u0027t have, and cannot have, the updated runtime). This will lead to severe app compat issues.\n\nI\u0027m not sure how to proceed from here. I don\u0027t think we can make the build modularization changes we need without breaking Q and R devices (the runtime changes are ok though). Unless I\u0027m missing something? (I really hope I am!)",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b62c42_a9ff9768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-08T13:17:37Z",
+      "side": 1,
+      "message": "Good point. The next steps could be to check whether Q and R modules actually affect hiddenapi bits of other parts of the system, and vice-versa, right?",
+      "parentUuid": "a4425bf9_f9da6715",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
