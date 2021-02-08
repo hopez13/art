@@ -21,6 +21,7 @@
 
 #include "art_method-inl.h"
 #include "base/bit_utils.h"
+#include "base/casts.h"
 #include "base/mem_map.h"
 #include "class_linker.h"
 #include "common_compiler_test.h"
@@ -28,6 +29,7 @@
 #include "dex/dex_file.h"
 #include "gtest/gtest.h"
 #include "indirect_reference_table.h"
+#include "java_frame_root_info.h"
 #include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
@@ -152,19 +154,6 @@ struct jni_type_traits {
   static constexpr const bool is_ref =
       is_any_of<T, jclass, jobject, jstring, jobjectArray, jintArray,
                 jcharArray, jfloatArray, jshortArray, jdoubleArray, jlongArray>::value;
-};
-
-template <typename ... Args>
-struct count_refs_helper {
-  using value_type = size_t;
-  static constexpr const size_t value = 0;
-};
-
-template <typename Arg, typename ... Args>
-struct count_refs_helper<Arg, Args ...> {
-  using value_type = size_t;
-  static constexpr size_t value =
-      (jni_type_traits<Arg>::is_ref ? 1 : 0) + count_refs_helper<Args ...>::value;
 };
 
 // Base case: No parameters = 0 refs.
@@ -545,42 +534,56 @@ struct ScopedCheckHandleScope {
   BaseHandleScope* const handle_scope_;
 };
 
-// Number of references allocated in JNI ShadowFrames on the given thread.
-static size_t NumJniShadowFrameReferences(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return self->GetManagedStack()->NumJniShadowFrameReferences();
-}
-
-// Number of references in handle scope on the given thread.
-static size_t NumHandleReferences(Thread* self) {
-  size_t count = 0;
-  for (BaseHandleScope* cur = self->GetTopHandleScope(); cur != nullptr; cur = cur->GetLink()) {
-    count += cur->NumberOfReferences();
+class CountReferencesVisitor : public RootVisitor {
+ public:
+  void VisitRoots(mirror::Object*** roots ATTRIBUTE_UNUSED,
+                  size_t count,
+                  const RootInfo& info) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (info.GetType() == art::RootType::kRootJavaFrame) {
+      const JavaFrameRootInfo& jrfi = static_cast<const JavaFrameRootInfo&>(info);
+      if (jrfi.GetVReg() == JavaFrameRootInfo::kNativeReferenceArgument) {
+        DCHECK_EQ(count, 1u);
+        num_references_ += count;
+      }
+    }
   }
-  return count;
-}
+
+  void VisitRoots(mirror::CompressedReference<mirror::Object>** roots ATTRIBUTE_UNUSED,
+                  size_t count ATTRIBUTE_UNUSED,
+                  const RootInfo& info) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    CHECK_NE(info.GetType(), art::RootType::kRootJavaFrame);
+  }
+
+  size_t NumReferences() const {
+    return num_references_;
+  }
+
+ private:
+  size_t num_references_ = 0u;
+};
 
 // Number of references allocated in handle scopes & JNI shadow frames on this thread.
 static size_t NumStackReferences(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return NumHandleReferences(self) + NumJniShadowFrameReferences(self);
+  CountReferencesVisitor visitor;
+  self->VisitRoots(&visitor, kVisitRootFlagAllRoots);
+  return visitor.NumReferences();
 }
 
-static void expectNumStackReferences(size_t val1, size_t val2) {
+static void expectNumStackReferences(size_t expected) {
   // In rare cases when JNI functions call themselves recursively,
   // disable this test because it will have a false negative.
   if (!IsCurrentJniCritical() && ScopedDisableCheckNumStackReferences::sCheckNumStackReferences) {
     /* @CriticalNative doesn't build a HandleScope, so this test is meaningless then. */
     ScopedObjectAccess soa(Thread::Current());
 
-    size_t actual_num = NumStackReferences(Thread::Current());
-    // XX: Not too sure what's going on.
-    // Sometimes null references get placed and sometimes they don't?
-    EXPECT_TRUE(val1 == actual_num || val2 == actual_num)
-      << "expected either " << val1 << " or " << val2
-      << " number of stack references, but got: " << actual_num;
+    size_t num_references = NumStackReferences(Thread::Current());
+    EXPECT_EQ(expected, num_references);
   }
 }
 
-#define EXPECT_NUM_STACK_REFERENCES(val1, val2) expectNumStackReferences(val1, val2)
+#define EXPECT_NUM_STACK_REFERENCES(expected) expectNumStackReferences(expected)
 
 template <typename T, T* fn>
 struct make_jni_test_decorator;
@@ -592,9 +595,9 @@ struct make_jni_test_decorator<R(JNIEnv*, jclass kls, Args...), fn> {
     EXPECT_THREAD_STATE_FOR_CURRENT_JNI();
     EXPECT_MUTATOR_LOCK_FOR_CURRENT_JNI();
     EXPECT_JNI_ENV_AND_CLASS_FOR_CURRENT_JNI(env, kls);
-    // All incoming parameters + the jclass get put into the transition's StackHandleScope.
-    EXPECT_NUM_STACK_REFERENCES(count_nonnull_refs(kls, args...),
-                                (count_refs_helper<jclass, Args...>::value));
+    // All incoming parameters get spilled into the JNI transition frame.
+    // The `jclass` is just a reference to the method's declaring class field.
+    EXPECT_NUM_STACK_REFERENCES(count_nonnull_refs(args...));
 
     return fn(env, kls, args...);
   }
@@ -607,9 +610,8 @@ struct make_jni_test_decorator<R(JNIEnv*, jobject, Args...), fn> {
     EXPECT_THREAD_STATE_FOR_CURRENT_JNI();
     EXPECT_MUTATOR_LOCK_FOR_CURRENT_JNI();
     EXPECT_JNI_ENV_AND_OBJECT_FOR_CURRENT_JNI(env, thisObj);
-    // All incoming parameters + the implicit 'this' get put into the transition's StackHandleScope.
-    EXPECT_NUM_STACK_REFERENCES(count_nonnull_refs(thisObj, args...),
-                                (count_refs_helper<jobject, Args...>::value));
+    // All incoming parameters + the implicit 'this' get spilled into the JNI transition frame.
+    EXPECT_NUM_STACK_REFERENCES(count_nonnull_refs(thisObj, args...));
 
     return fn(env, thisObj, args...);
   }
