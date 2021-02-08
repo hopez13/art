@@ -87,6 +87,24 @@
       "message": "FYI - I created https://paste.googleplex.com/5614549299363840 which shows the effect of the hiddenapi build tool part of this change on the hiddenapi-stub-flags.csv file.",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e537f9a5_fc0e7727",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-08T13:35:59Z",
+      "side": 1,
+      "message": "Thanks Paul, this really helps!!\n\nSo it shows that most methods affected are in libcore/, and that there are no APIs from Q and R mainline modules that are affected. This should clear your concerns, Mathew?",
+      "parentUuid": "b0525524_effa59b1",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
