@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d9559a_64547dd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T21:48:39Z",
+      "side": 1,
+      "message": "minor nits",
+      "revId": "34c2ac4c123cd789cee03420d0629d46aa5887e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f486a07_2f4c58d8",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T21:48:39Z",
+      "side": 1,
+      "message": "timestamp_since_start_ms",
+      "range": {
+        "startLine": 116,
+        "startChar": 14,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "34c2ac4c123cd789cee03420d0629d46aa5887e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1de733e_a7454879",
+        "filename": "libartbase/base/metrics/metrics_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T21:48:39Z",
+      "side": 1,
+      "message": "timestamp_since_start_ms",
+      "range": {
+        "startLine": 38,
+        "startChar": 45,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "34c2ac4c123cd789cee03420d0629d46aa5887e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
