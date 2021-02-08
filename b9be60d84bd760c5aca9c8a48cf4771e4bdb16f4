@@ -22,6 +22,30 @@
       },
       "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6b2250_eac9b1f2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-02-08T16:29:09Z",
+      "side": 1,
+      "message": "Done. As for tests -- they\u0027re passing for both host and target. Is there a way to check that intrinsic is actually used and not the libcore implementation?",
+      "parentUuid": "6013f43c_7237212f",
+      "range": {
+        "startLine": 2794,
+        "startChar": 11,
+        "endLine": 2794,
+        "endChar": 16
+      },
+      "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
