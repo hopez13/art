@@ -34,6 +34,24 @@
       "parentUuid": "a4425bf9_f9da6715",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab52eb7_6934a27f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-08T13:22:05Z",
+      "side": 1,
+      "message": "Yes, that seems sensible. I\u0027m not familiar with which BCP code is in mainline in Q and R. Anything in mainline that affects the core shouldn\u0027t be a problem, just the other way round.",
+      "parentUuid": "58b62c42_a9ff9768",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
