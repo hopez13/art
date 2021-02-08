@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae0e3cc_726c8c3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "Partial review on the profile code:\n\n- Split the split. The split-string functionality big enough for it\u0027s own CL. It distracts from the main goal of this CL.",
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5800e8f_31e8584c",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "add docs on the class and main ctor.",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 326,
+        "endChar": 22
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c0ce12_f1d1599c",
+        "filename": "libdexfile/dex/dex_file_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "docs.",
+      "range": {
+        "startLine": 59,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f70bb09_778faf26",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "as FYI, in case you run into troubles: we zip the data in the binary format, and sometimes the zip algorithm generates some trailing characters.",
+      "range": {
+        "startLine": 1133,
+        "startChar": 0,
+        "endLine": 1134,
+        "endChar": 48
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6879556_0268d31a",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "could you read the files and just compare the resulting bytes?\n\nRelying on external tools is not ideal.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 51,
+        "endLine": 1139,
+        "endChar": 86
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cbc222_b422147d",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "add docs",
+      "range": {
+        "startLine": 761,
+        "startChar": 14,
+        "endLine": 761,
+        "endChar": 32
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "355de6e1_f0d2e463",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "method. meth reads \"funny\" :-)",
+      "range": {
+        "startLine": 766,
+        "startChar": 9,
+        "endLine": 766,
+        "endChar": 13
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cabbb3a_d284b680",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "the entire body is in this if. Consider early-return to limit the indentation.",
+      "range": {
+        "startLine": 767,
+        "startChar": 4,
+        "endLine": 767,
+        "endChar": 69
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09fc07ab_d47f7c6d",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "data or ic_data or pc_data",
+      "range": {
+        "startLine": 779,
+        "startChar": 28,
+        "endLine": 779,
+        "endChar": 31
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ffab27_326609c7",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-08T23:28:40Z",
+      "side": 1,
+      "message": "INFO?",
+      "range": {
+        "startLine": 952,
+        "startChar": 10,
+        "endLine": 952,
+        "endChar": 15
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
