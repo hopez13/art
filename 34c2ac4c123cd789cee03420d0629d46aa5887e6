@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "411b0b82_e3ed9c90",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-08T22:24:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f486a07_2f4c58d8",
+      "range": {
+        "startLine": 116,
+        "startChar": 14,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "34c2ac4c123cd789cee03420d0629d46aa5887e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1de733e_a7454879",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-08T21:48:39Z",
       "side": 1,
       "message": "timestamp_since_start_ms",
+      "range": {
+        "startLine": 38,
+        "startChar": 45,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "34c2ac4c123cd789cee03420d0629d46aa5887e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7620a72_2ad92e5c",
+        "filename": "libartbase/base/metrics/metrics_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-08T22:24:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1de733e_a7454879",
       "range": {
         "startLine": 38,
         "startChar": 45,
