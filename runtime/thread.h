@@ -902,8 +902,8 @@ class Thread {
         ManagedStack::TopShadowFrameOffset());
   }
 
-  // Is the given obj in this thread's stack indirect reference table?
-  bool HandleScopeContains(jobject obj) const;
+  // Is the given obj in one of this thread's JNI transition frames?
+  bool IsJniTransitionReference(jobject obj) const REQUIRES_SHARED(Locks::mutator_lock_);
 
   void HandleScopeVisitRoots(RootVisitor* visitor, uint32_t thread_id)
       REQUIRES_SHARED(Locks::mutator_lock_);
