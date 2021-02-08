@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c71c764_b5395e2a",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-08T18:10:22Z",
+      "side": 1,
+      "message": "Ack. Honestly though iterating through a text list of things without needing to allocate is useful and something that\u0027s re-implemented a few places. Having a single implementation is helpful.",
+      "parentUuid": "415bae08_66d57283",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 46
+      },
+      "revId": "85eed990797dbbedf3fb94b7a1452b9bad7bf186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afad764e_eb922e44",
