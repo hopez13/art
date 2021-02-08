@@ -52,6 +52,41 @@
       "parentUuid": "58b62c42_a9ff9768",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b2075e2_850c7cf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-08T13:29:17Z",
+      "side": 1,
+      "message": "Given that the runtime checks are done by the ART runtime any changes to flags in the ART dex files that require runtime changes should be fine in Q and R because the runtime will be updated at the same time as the flags.\n\nThere would be a problem if another APEX, say conscrypt was updated in Q or R without also updating ART and the dex files contained within that APEX relied on the ART runtime changes to compensate for the stricter dex flags.\n\nI\u0027m not sure which of these scenarios is possible but it is certainly something to consider.",
+      "parentUuid": "a4425bf9_f9da6715",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0525524_effa59b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-08T13:29:17Z",
+      "side": 1,
+      "message": "FYI - I created https://paste.googleplex.com/5614549299363840 which shows the effect of the hiddenapi build tool part of this change on the hiddenapi-stub-flags.csv file.",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -110,6 +110,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "300a2ec3_37d940e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-08T13:29:17Z",
+      "side": 1,
+      "message": "Ah ok. So, if Foo inherited the public method baz() from the private super class Bar then you would treat \"Foo.baz()\" as being public (even though it doesn\u0027t actually exist in the dex) but the actual method call would be to \"\"Bar.baz()\".\n\nThat sounds great.",
+      "parentUuid": "88b9cd8d_08d30f80",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cab79111_404211fb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -282,6 +300,24 @@
       "side": 1,
       "message": "Rather than go into detail here I will create a document that we can put in some examples of code and see what the expected behavior should be and what the actual behavior is. I will share with you and mathewi@ and we can discuss it on there and maybe between us we can come up with a comprehensive set of use cases that cover all the edge cases.",
       "parentUuid": "49272fe0_7d7d61ee",
+      "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f9125cc_394e5422",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-08T13:29:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664025d8_dcf7ef35",
       "revId": "95c2a46f9e3f28e81542483d9cbe472109cfb4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
