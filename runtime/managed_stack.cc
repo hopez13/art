@@ -24,6 +24,7 @@
 
 namespace art {
 
+// TODO: Remove (obsolete, unused).
 size_t ManagedStack::NumJniShadowFrameReferences() const {
   size_t count = 0;
   for (const ManagedStack* current_fragment = this; current_fragment != nullptr;
@@ -40,6 +41,7 @@ size_t ManagedStack::NumJniShadowFrameReferences() const {
   return count;
 }
 
+// TODO: Remove (obsolete, unused).
 bool ManagedStack::ShadowFramesContain(StackReference<mirror::Object>* shadow_frame_entry) const {
   for (const ManagedStack* current_fragment = this; current_fragment != nullptr;
        current_fragment = current_fragment->GetLink()) {
