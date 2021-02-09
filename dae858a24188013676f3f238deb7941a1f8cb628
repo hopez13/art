@@ -34,6 +34,74 @@
       "parentUuid": "f1b69a40_1d240a24",
       "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37345eec_ddbd208f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T10:20:42Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand the testing framework but the test looks good so I assume the code is fine.\n\nI have had some misunderstandings on how this worked so a few more comments would be really helpful.",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02d2379_832ddae9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8934,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T10:20:42Z",
+      "side": 1,
+      "message": "Would it be possible to add some documentation to this method explaining what it does? An example that shows how it works would also be great.",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3cb4aa0_d412b8ec",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8984,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T10:20:42Z",
+      "side": 1,
+      "message": "A comment explaining why, with an example would be great. If the example is the same as the method then don\u0027t repeat it here.",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "931a866f_6f3a9424",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8991,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T10:20:42Z",
+      "side": 1,
+      "message": "Could you explain that this is to ensure that an appropriate warning is logged.",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
