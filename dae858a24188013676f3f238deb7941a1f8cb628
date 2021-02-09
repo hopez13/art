@@ -16,6 +16,24 @@
       "message": "Is this a replacement for https://r.android.com/c/platform/art/+/1570642?",
       "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e08860_22c5192c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T09:58:12Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the runtime-only CL, and I\u0027ll make the other CL hiddenapi tool only.",
+      "parentUuid": "f1b69a40_1d240a24",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
