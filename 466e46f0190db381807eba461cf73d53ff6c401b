@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e88a7001_daee28f8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8935,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T15:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97e08c58_d86a8bba",
+      "range": {
+        "startLine": 8935,
+        "startChar": 29,
+        "endLine": 8935,
+        "endChar": 35
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "369fdb94_82647565",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-09T14:40:25Z",
       "side": 1,
       "message": "is there some equivalent functionality for when such APIs are accessed via reflection? Do we need to make the equivalent change there too?",
+      "range": {
+        "startLine": 9002,
+        "startChar": 67,
+        "endLine": 9002,
+        "endChar": 75
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4756d4e7_a2aa836c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9002,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T15:39:53Z",
+      "side": 1,
+      "message": "For reflection, the method will now be absent if you call HiddenClass.getDeclaredMethods. For SubClassOfHiddenClass which implements an interface with that public method, then only the method from the interface will be listed.\n\nSo I think we don\u0027t need to change the behavior of reflection.\n\nOn the other hand, JNI code seems to be affected - I think I need to change the behavior the same way, see https://source.corp.google.com/android/art/runtime/jni/jni_internal.cc;l\u003d409?q\u003dShouldDenyAccessToMe\u0026sq\u003dpackage:%5Eandroid$.\n\nDo you agree?",
+      "parentUuid": "369fdb94_82647565",
       "range": {
         "startLine": 9002,
         "startChar": 67,
