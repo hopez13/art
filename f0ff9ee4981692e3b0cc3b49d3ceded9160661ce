@@ -249,6 +249,24 @@
       "parentUuid": "78028861_ea400832",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a0f50f7_258f1da8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T16:05:23Z",
+      "side": 1,
+      "message": "For mainline modules not platform.\n\n\u003e With the hiddenapi change in this CL, this will remain the case: methods in mainline modules will remain in the list we expect.\n\nI don\u0027t think that is true. I have added another use case to the document to cover this.",
+      "parentUuid": "b2e4182a_857da052",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
