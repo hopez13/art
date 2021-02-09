@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266b0fd5_cdc39a2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-02-09T22:56:40Z",
+      "side": 1,
+      "message": "Hi All,\n\nPTAL. Thanks.\n\nPlease note that I have removed all usage of Perfetto API from javaheapsampler.h. Otherwise, I would need to add \"#if !defined(ASM_DEFINE_INCLUDE_DEPENDENCIES)\" to avoid build errors as well as change the Android.bp to export shared libraries. \n\nAlso we cannot currently use heapprofd_api_noop as it seems to be missing \"host_supported: true\" and results in ART build errors. So we are concentrating on the Target build which is where Perfetto exists and is our main usage anyway.",
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
