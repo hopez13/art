@@ -127,6 +127,30 @@
       },
       "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46203dd6_c172fe81",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9002,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T18:36:55Z",
+      "side": 1,
+      "message": "The reflection seems ok, JNI looks like it needs a similar change although I don\u0027t know any more about this code than mathew.",
+      "parentUuid": "4756d4e7_a2aa836c",
+      "range": {
+        "startLine": 9002,
+        "startChar": 67,
+        "endLine": 9002,
+        "endChar": 75
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
