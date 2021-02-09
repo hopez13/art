@@ -195,6 +195,24 @@
       "parentUuid": "06a62a68_5e162c7b",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ad48c93_526f21d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T09:57:26Z",
+      "side": 1,
+      "message": "Given the old behavior was to promote a hidden method to be accessible, if a change tomorrow were to trigger that flip, then we\u0027re OK as we\u0027ve already shipped with the methods being hidden in old releases.",
+      "parentUuid": "822d305f_53b3377b",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
