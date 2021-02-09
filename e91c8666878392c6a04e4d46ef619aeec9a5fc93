@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "362200d1_54432730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ae0e3cc_726c8c3f",
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5800e8f_31e8584c",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-02-08T23:28:40Z",
       "side": 1,
       "message": "add docs on the class and main ctor.",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 326,
+        "endChar": 22
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00a563e_6b859e4f",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5800e8f_31e8584c",
       "range": {
         "startLine": 326,
         "startChar": 7,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b65ce9d_293d36e3",
+        "filename": "libdexfile/dex/dex_file_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c0ce12_f1d1599c",
+      "range": {
+        "startLine": 59,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f70bb09_778faf26",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-02-08T23:28:40Z",
       "side": 1,
       "message": "as FYI, in case you run into troubles: we zip the data in the binary format, and sometimes the zip algorithm generates some trailing characters.",
+      "range": {
+        "startLine": 1133,
+        "startChar": 0,
+        "endLine": 1134,
+        "endChar": 48
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fab053b_23e72f89",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f70bb09_778faf26",
       "range": {
         "startLine": 1133,
         "startChar": 0,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a29aec7_af9b38bd",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "I could but this is much easier since I don\u0027t need to deal with actually reading files. I can do this if you want but cmp is a pretty core bit of unix that is availible on android.",
+      "parentUuid": "f6879556_0268d31a",
+      "range": {
+        "startLine": 1139,
+        "startChar": 51,
+        "endLine": 1139,
+        "endChar": 86
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58cbc222_b422147d",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-02-08T23:28:40Z",
       "side": 1,
       "message": "add docs",
+      "range": {
+        "startLine": 761,
+        "startChar": 14,
+        "endLine": 761,
+        "endChar": 32
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a6446a_c12be4ee",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58cbc222_b422147d",
       "range": {
         "startLine": 761,
         "startChar": 14,
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04ec17f_76460651",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "355de6e1_f0d2e463",
+      "range": {
+        "startLine": 766,
+        "startChar": 9,
+        "endLine": 766,
+        "endChar": 13
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cabbb3a_d284b680",
@@ -169,6 +331,30 @@
       "writtenOn": "2021-02-08T23:28:40Z",
       "side": 1,
       "message": "the entire body is in this if. Consider early-return to limit the indentation.",
+      "range": {
+        "startLine": 767,
+        "startChar": 4,
+        "endLine": 767,
+        "endChar": 69
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3af11b1_2c274880",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cabbb3a_d284b680",
       "range": {
         "startLine": 767,
         "startChar": 4,
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "039bcf37_e36f3767",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fc07ab_d47f7c6d",
+      "range": {
+        "startLine": 779,
+        "startChar": 28,
+        "endLine": 779,
+        "endChar": 31
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86ffab27_326609c7",
@@ -215,6 +425,30 @@
       "writtenOn": "2021-02-08T23:28:40Z",
       "side": 1,
       "message": "INFO?",
+      "range": {
+        "startLine": 952,
+        "startChar": 10,
+        "endLine": 952,
+        "endChar": 15
+      },
+      "revId": "e91c8666878392c6a04e4d46ef619aeec9a5fc93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5786fd4_41dff53c",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-09T02:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86ffab27_326609c7",
       "range": {
         "startLine": 952,
         "startChar": 10,
