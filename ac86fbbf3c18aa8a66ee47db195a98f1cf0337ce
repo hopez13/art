@@ -16,6 +16,98 @@
       "message": "Hi All,\n\nPTAL. Thanks.\n\nPlease note that I have removed all usage of Perfetto API from javaheapsampler.h. Otherwise, I would need to add \"#if !defined(ASM_DEFINE_INCLUDE_DEPENDENCIES)\" to avoid build errors as well as change the Android.bp to export shared libraries. \n\nAlso we cannot currently use heapprofd_api_noop as it seems to be missing \"host_supported: true\" and results in ART build errors. So we are concentrating on the Target build which is where Perfetto exists and is our main usage anyway.",
       "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a45485_083cf91f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-09T23:54:08Z",
+      "side": 1,
+      "message": "Lines should be smaller than 100 chars. I highly recommend shortening your parameter names. For instance, the function is about disabling sampler, then why have \u0027disable\u0027 in both the parameters?",
+      "range": {
+        "startLine": 130,
+        "startChar": 32,
+        "endLine": 130,
+        "endChar": 107
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d15ec82a_ff9e6ef9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-09T23:54:08Z",
+      "side": 1,
+      "message": "Is there a specific reason why this code has to be here? Why not as lambdas inside InitPerfettoJavaHeapProf() below? Otherwise, why not in the heap sampler class? You can define them as statics there.\n\nIt would be better to contain the spread of sampler code as much as possible.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 6
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e35c26b_003e966a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4085,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-09T23:54:08Z",
+      "side": 1,
+      "message": "Preprocessors are never indented. They all start at the beginning of the line.",
+      "range": {
+        "startLine": 4085,
+        "startChar": 2,
+        "endLine": 4085,
+        "endChar": 8
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7510c2fc_43f106da",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4101,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-09T23:54:08Z",
+      "side": 1,
+      "message": "It seems to me that we don\u0027t need to maintain heap_id in the heap object. Can we remove this function and the corresponding field in Heap class?",
+      "range": {
+        "startLine": 4101,
+        "startChar": 2,
+        "endLine": 4101,
+        "endChar": 31
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
