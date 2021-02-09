@@ -213,6 +213,24 @@
       "parentUuid": "822d305f_53b3377b",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78028861_ea400832",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T11:33:12Z",
+      "side": 1,
+      "message": "The change in accessibility from one release to another doesn\u0027t matter. What matters is whether the information encoded in the dex file relies on your runtime change or not.\n\nLet\u0027s say the the old release marked the internal method Foo.bar() as being public because it directly implemented a method of a public interface PublicFoo. We currently still mark Foo.bar() public. A future refactoring of the code causes Foo.bar() to no longer directly implement the public interface and so is renamed to NotAFoo but it still implements the bar() method which is inherited into a NewFoo class that does implement PublicFoo.\n\nWithout the hiddenapi build tool changes NotAFoo.bar() will be marked as being public and so will work in both old and new releases.\n\nWith the hiddenapi build tool changes NotAFoo.bar() will be marked as being blocked instead of public which will break the old release.\n\ne.g.\n\nAPI: does not change from one release to the next.\n  public interface PublicFoo {\n    void foo();\n  }\n\n  public interface PublicFooCallback {\n    void callback(PublicFoo foo);\n  }\n\nApp: runs unchanged on both releases.\n  public class CallbackHandler implements PublicFooCallback {\n    void callback(PublicFoo foo) {\n      foo.foo();\n    }\n  }\n\nOld release internals:\n  /* Passed to PublicFooCallback */\n  public class Foo implements PublicFoo {\n    // Marked as public.\n    public void foo() {}\n  }\n\nNew release:\n  public class NotAFoo {\n    // Marked as blocked, relies on new runtime to check interfaces.\n    public void foo() {}\n  }\n\n  /* Passed to PublicFooCallback */\n  public class NewFoo extends NotAFoo implements PublicFoo {\n  }\n\nAs mentioned before we can detect at build time if this is an issue and we can work around it by either requiring the class that inherits the implementation of a public interface method to create a delegating method, or we could allow developers to supply an allow list of additional methods to make public. The former is probably better as it is less open to abuse.",
+      "parentUuid": "3ad48c93_526f21d7",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
