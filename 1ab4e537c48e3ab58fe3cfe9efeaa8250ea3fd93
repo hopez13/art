@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8051a48_6b065eac",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-09T12:08:03Z",
+      "side": 1,
+      "message": "What about `can_load_classes_`? (JIT threads cannot.)",
+      "range": {
+        "startLine": 5546,
+        "startChar": 12,
+        "endLine": 5546,
+        "endChar": 24
+      },
+      "revId": "1ab4e537c48e3ab58fe3cfe9efeaa8250ea3fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d212508_adc62f93",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-09T12:08:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5577,
+        "startChar": 12,
+        "endLine": 5577,
+        "endChar": 24
+      },
+      "revId": "1ab4e537c48e3ab58fe3cfe9efeaa8250ea3fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
