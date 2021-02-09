@@ -159,6 +159,24 @@
       "parentUuid": "e9200dbb_1cad7438",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a62a68_5e162c7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T08:37:15Z",
+      "side": 1,
+      "message": "I could but even if I don\u0027t find anything it doesn\u0027t mean that we are safe. e.g. Someone could make a change tomorrow that would work with the new runtime and fail in the old runtime. So, if we want to prevent that from happening we would need to have build time checks. Working around an individual case should be as simple as adding a method that delegates to super in the derived class.",
+      "parentUuid": "aa7853fd_958b3177",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
