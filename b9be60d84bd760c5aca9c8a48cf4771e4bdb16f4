@@ -118,6 +118,30 @@
       },
       "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d0722c_42343cb2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-02-09T16:50:18Z",
+      "side": 1,
+      "message": "Wrote benchmark which demonstrated that intrinsic became faster (104ms) vs without it (140ms) on taimen:\n\n```\nlong start \u003d System.currentTimeMillis();\nlong sum \u003d 0;\nfor (long i \u003d 0; i \u003c 10_000_000L; i++) {\n    sum +\u003d Math.multiplyHigh(i, i*i*i);\n}\nlong time \u003d System.currentTimeMillis() - start;\nSystem.out.println(String.format(\"res:%d time_delta:%d ms\", sum, time));\n```",
+      "parentUuid": "2fea16b2_7323ca8e",
+      "range": {
+        "startLine": 2794,
+        "startChar": 11,
+        "endLine": 2794,
+        "endChar": 16
+      },
+      "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
