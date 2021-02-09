@@ -371,6 +371,7 @@ libart_cc_defaults {
                 "libdl_android",
                 "libicu",
                 "libz", // For adler32.
+                "heapprofd_client_api",
             ],
         },
         android_arm: {
