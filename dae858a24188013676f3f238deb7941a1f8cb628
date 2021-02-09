@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa248646_ce98c548",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:27:25Z",
+      "side": 1,
+      "message": "Done. Note this is standard lookup logic, with one added hiddenapi check.",
+      "parentUuid": "e02d2379_832ddae9",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3cb4aa0_d412b8ec",
@@ -87,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3445e57e_e2ff8be7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8984,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3cb4aa0_d412b8ec",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "931a866f_6f3a9424",
@@ -100,6 +136,24 @@
       "writtenOn": "2021-02-09T10:20:42Z",
       "side": 1,
       "message": "Could you explain that this is to ensure that an appropriate warning is logged.",
+      "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc1c25a5_f486c74d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8991,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931a866f_6f3a9424",
       "revId": "dae858a24188013676f3f238deb7941a1f8cb628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
