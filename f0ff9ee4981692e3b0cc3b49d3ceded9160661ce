@@ -231,6 +231,24 @@
       "parentUuid": "3ad48c93_526f21d7",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2e4182a_857da052",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:38:50Z",
+      "side": 1,
+      "message": "\u003e The change in accessibility from one release to another doesn\u0027t matter. What matters is whether the information encoded in the dex file relies on your runtime change or not.\n\nWhich configuration were you thinking of in your example? Hiddenapi bits in the non-updatable platform, or hiddenapi bits in the mainline modules?\n\nThe platform bits cannot be changed for old releases, so it\u0027s OK if the dex files hiddenapi bits aren\u0027t the same between a today\u0027s build and the old releases.\n\nFor mainline modules for Q and R it indeed matters. Given the list of methods that were changed do not belong to any module, it means that mainline modules for Q and R were not exposed to the issue. Therefore, methods are in the list we expect. With the hiddenapi change in this CL, this will remain the case: methods in mainline modules will remain in the list we expect.",
+      "parentUuid": "78028861_ea400832",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
