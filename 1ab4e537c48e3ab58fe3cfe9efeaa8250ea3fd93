@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8042b95b_709c58c2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:21:07Z",
+      "side": 1,
+      "message": "I think in this context, can_load_classes was for knowing quickening information, and is now only used lock information. So that check isn\u0027t needed anymore.",
+      "parentUuid": "f8051a48_6b065eac",
+      "range": {
+        "startLine": 5546,
+        "startChar": 12,
+        "endLine": 5546,
+        "endChar": 24
+      },
+      "revId": "1ab4e537c48e3ab58fe3cfe9efeaa8250ea3fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d212508_adc62f93",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-09T12:08:03Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 5577,
+        "startChar": 12,
+        "endLine": 5577,
+        "endChar": 24
+      },
+      "revId": "1ab4e537c48e3ab58fe3cfe9efeaa8250ea3fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e37a666_752a9c95",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-09T14:21:07Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "5d212508_adc62f93",
       "range": {
         "startLine": 5577,
         "startChar": 12,
