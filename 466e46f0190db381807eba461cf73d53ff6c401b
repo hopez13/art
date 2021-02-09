@@ -16,6 +16,69 @@
       "message": "Thanks Paul.",
       "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "799abe92_f5a604d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-09T14:40:25Z",
+      "side": 1,
+      "message": "With the usual caveat that I really don\u0027t know art code well :)",
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e08c58_d86a8bba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8935,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-09T14:40:25Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 8935,
+        "startChar": 29,
+        "endLine": 8935,
+        "endChar": 35
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "369fdb94_82647565",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9002,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-02-09T14:40:25Z",
+      "side": 1,
+      "message": "is there some equivalent functionality for when such APIs are accessed via reflection? Do we need to make the equivalent change there too?",
+      "range": {
+        "startLine": 9002,
+        "startChar": 67,
+        "endLine": 9002,
+        "endChar": 75
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
