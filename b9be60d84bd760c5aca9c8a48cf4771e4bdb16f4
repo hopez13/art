@@ -94,6 +94,30 @@
       },
       "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fea16b2_7323ca8e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-09T16:09:22Z",
+      "side": 1,
+      "message": "Try running the 082-inline-execute test with `D8_FLAGS\u003d--no-desugaring`.",
+      "parentUuid": "64cb9307_99f9d4bb",
+      "range": {
+        "startLine": 2794,
+        "startChar": 11,
+        "endLine": 2794,
+        "endChar": 16
+      },
+      "revId": "b9be60d84bd760c5aca9c8a48cf4771e4bdb16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
