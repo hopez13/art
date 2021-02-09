@@ -177,6 +177,24 @@
       "parentUuid": "aa7853fd_958b3177",
       "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822d305f_53b3377b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-09T08:39:00Z",
+      "side": 1,
+      "message": "One way to create a build time check is to basically do what I did to create the diff which is to generate a list with and without these hiddenapi build tool changes and compare the two. That would require the build tool behavior to be configurable.",
+      "parentUuid": "06a62a68_5e162c7b",
+      "revId": "f0ff9ee4981692e3b0cc3b49d3ceded9160661ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
