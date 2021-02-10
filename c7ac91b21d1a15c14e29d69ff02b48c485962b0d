@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40160d02_418efab2",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-02-10T14:47:31Z",
+      "side": 1,
+      "message": "I think we can avoid a string copy here by passing \u0027filename\u0027 by const reference.  I\u0027ve put up a follow-up CL: https://android-review.googlesource.com/c/platform/art/+/1582657",
+      "revId": "c7ac91b21d1a15c14e29d69ff02b48c485962b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
