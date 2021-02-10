@@ -28,7 +28,7 @@ java_test {
 
     static_libs: [
         "junit",
-        "artservice",
+        "artservice.impl",
     ],
 
     platform_apis: true,
