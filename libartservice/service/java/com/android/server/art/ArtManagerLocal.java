@@ -20,11 +20,11 @@ package com.android.server.art;
  * This class provides a system API for functionality provided by the ART
  * module.
  */
-@libcore.api.CorePlatformApi
-public final class ArtService {
+@libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+public final class ArtManagerLocal {
     static final String LOG_TAG = "ArtService";
 
-    ArtService() {}
+    public ArtManagerLocal() {}
 
     public String getMsg() {
         return "Hello world!";
