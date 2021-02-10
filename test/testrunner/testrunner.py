@@ -90,7 +90,7 @@ from device_config import device_config
 #        +   gcstress extra: 20m
 #        -----------------------
 #                            47m
-timeout = 3600 # 60 minutes
+timeout = 36000 if env.ART_TEST_RUN_ON_ARM_FVP else 3600 # 600 or 60 minutes
 
 # DISABLED_TEST_CONTAINER holds information about the disabled tests. It is a map
 # that has key as the test name (like 001-HelloWorld), and value as set of
@@ -306,8 +306,9 @@ def get_device_name():
                           stderr=subprocess.STDOUT,
                           stdout = subprocess.PIPE,
                           universal_newlines=True)
-  # only wait 2 seconds.
-  output = proc.communicate(timeout = 2)[0]
+  # only wait 2/200 seconds.
+  timeout_val = 200 if env.ART_TEST_RUN_ON_ARM_FVP else 2
+  output = proc.communicate(timeout = timeout_val)[0]
   success = not proc.wait()
   if success:
     return output.strip()
