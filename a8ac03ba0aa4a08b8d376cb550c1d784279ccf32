@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64767283_51d53261",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074438
+      },
+      "writtenOn": "2021-02-10T06:30:44Z",
+      "side": 1,
+      "message": "This is to enable migration of native bridge implementations from /system/lib(64)/arm(64)/cpuinfo to /system/etc/cpuinfo.arm(64).txt.\n\n/system/lib(64)/arm(64)/cpuinfo is the only non-library file under /system/lib(64), the goal is to avoid that.",
+      "revId": "a8ac03ba0aa4a08b8d376cb550c1d784279ccf32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
