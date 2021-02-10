@@ -34,6 +34,24 @@
       "parentUuid": "ea6cc33f_c8531eba",
       "revId": "f6eb16b1bc9edcdffb004cedd78c2b26be84e559",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1491490b_2be5a288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-10T17:44:32Z",
+      "side": 1,
+      "message": "I see, thanks. So it sounds like I could add gtest:false to that test and cut out a lot of lame gtest faking silliness in https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/external/dex_file_ext_c_test.c. I think I added it because I couldn\u0027t figure out any other way to make it pass atest, didn\u0027t know about gtest:false.",
+      "parentUuid": "5b36602d_bf195db0",
+      "revId": "f6eb16b1bc9edcdffb004cedd78c2b26be84e559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
