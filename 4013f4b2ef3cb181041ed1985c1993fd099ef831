@@ -63,6 +63,30 @@
       },
       "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8590d525_038c3469",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-10T18:30:10Z",
+      "side": 1,
+      "message": "oat/odex in this file isn\u0027t what you think it is :)\n- oat means something on /system or /data/dalvik-cache (IIRC) (which applies to system server)\n- odex means something in the app data dir (again IIRC)",
+      "parentUuid": "84e1f7e1_146ca6f8",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 3
+      },
+      "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
