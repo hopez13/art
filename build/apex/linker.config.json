@@ -9,6 +9,7 @@
     // /apex/com.android.art/javalib, and the ART APEX primary boot image is in
     // the latter location.
     "/system/framework",
-    "/apex/com.android.art/javalib"
+    "/apex/com.android.art/javalib",
+    "/data/misc/apexdata/com.android.art/system/framework"
   ]
 }
