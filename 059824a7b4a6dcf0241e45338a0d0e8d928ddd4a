@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "205eed63_20ee38f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-10T16:07:27Z",
+      "side": 1,
+      "message": "In general it\u0027s useful to build and adb install the module. Currently:\n\nlunch art_module_\u003carch\u003e\nexport TARGET_BUILD_APPS\u003dcom.android.art\nm\nadb install \\\nout/target/product/module_\u003carch\u003e/system/apex/com.android.art.apex\nadb reboot\n\nIn this case it seems reasonable to test with od-refreshed files too, and I\u0027m not entirely sure a plain install like above will trigger that.",
+      "parentUuid": "c8464eaf_14792801",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "059824a7b4a6dcf0241e45338a0d0e8d928ddd4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "491fb624_65df70e5",
