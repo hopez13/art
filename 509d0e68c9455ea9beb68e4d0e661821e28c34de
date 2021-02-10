@@ -16,6 +16,23 @@
       "message": "Added hansson@ as I believe he has been looking at similar problems to this.",
       "revId": "509d0e68c9455ea9beb68e4d0e661821e28c34de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdde6d1c_89ec1086",
+        "filename": "libartservice/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-10T10:46:03Z",
+      "side": 1,
+      "message": "This looks wrong. This will cause a platform variant of the artservice module to be created which is probably not what you want.",
+      "revId": "509d0e68c9455ea9beb68e4d0e661821e28c34de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
