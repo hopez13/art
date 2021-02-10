@@ -40,11 +40,13 @@ java_library {
     name: "artservice",
     visibility: [
         "//art:__subpackages__",
+        "//frameworks/base/services/core",
     ],
 
     apex_available: [
         "com.android.art",
         "com.android.art.debug",
+        "//apex_available:platform",
     ],
 
     sdk_version: "core_platform",
