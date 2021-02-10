@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f519ffc_f226af5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-02-10T22:39:57Z",
+      "side": 1,
+      "message": "Thanks for the CL, this helps a lot.  It appears to solve the issue with the `apex_available` property, but the build system still wants services.core.unboosted to have visibility into the artservice target.  Do you know how to fix that?",
+      "revId": "0de401aabf7ae51aff73bb76b8d5782ece31ec96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
