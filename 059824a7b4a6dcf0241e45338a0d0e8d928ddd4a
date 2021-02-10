@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "67b81ffd_a9d43d85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-10T16:49:20Z",
+      "side": 1,
+      "message": "This was \"Test: m\" because the actual test depends on the CLs in the stack, installing a new APEX, triggers on device recompilation, rebooting. This has been done many many of times.\n\nAs commented in the opening comment, this change is moot for now: it\u0027s just to avoid future problems should that bug ever get addressed.",
+      "parentUuid": "9f792928_091074a1",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "059824a7b4a6dcf0241e45338a0d0e8d928ddd4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "491fb624_65df70e5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -85,6 +109,23 @@
       "writtenOn": "2021-02-10T14:27:17Z",
       "side": 1,
       "message": "PTAL, this is strictly unnecessary today, but the existing comment about b/171732668 could cause issues later if enacted.",
+      "revId": "059824a7b4a6dcf0241e45338a0d0e8d928ddd4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5e01ae_b81b6789",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-10T16:49:20Z",
+      "side": 1,
+      "message": "Thanks both",
       "revId": "059824a7b4a6dcf0241e45338a0d0e8d928ddd4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
