@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "448d6945_0519e7c3",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-10T15:44:41Z",
+      "side": 1,
+      "message": "Isn\u0027t this already going to try to load the image? If yes, maybe it\u0027s just a matter of checking if it has successfully loaded it?",
+      "range": {
+        "startLine": 338,
+        "startChar": 9,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
