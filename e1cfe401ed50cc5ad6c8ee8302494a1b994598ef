@@ -45,6 +45,190 @@
       },
       "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7be4f85_435d5ff1",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Now that this literal appears twice in this function, maybe create a constant for it?",
+      "range": {
+        "startLine": 308,
+        "startChar": 26,
+        "endLine": 308,
+        "endChar": 42
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07b627be_808ec7d0",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 308,
+        "startChar": 78,
+        "endLine": 308,
+        "endChar": 97
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93245a8_b153443a",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Maybe add a similar comment in the definition of `GetApexDataBootImage` below?",
+      "range": {
+        "startLine": 391,
+        "startChar": 2,
+        "endLine": 391,
+        "endChar": 91
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3f9071_f914d712",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Maybe add a similar comment in the definition of `GetApexDataImage` below?",
+      "range": {
+        "startLine": 403,
+        "startChar": 2,
+        "endLine": 403,
+        "endChar": 96
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be526d5_010428f7",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Style:\n\n  const char* location",
+      "range": {
+        "startLine": 469,
+        "startChar": 29,
+        "endLine": 469,
+        "endChar": 49
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6cdf3ae_8f0964b4",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Style: Indent by two more spaces.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 4
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0031722_7c72a00f",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "Should this member be made private?",
+      "range": {
+        "startLine": 48,
+        "startChar": 36,
+        "endLine": 48,
+        "endChar": 47
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2f09bf_efe07352",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-10T15:44:51Z",
+      "side": 1,
+      "message": "I did not realize at first that subdirectories where ignored in this case. What if we had both these JARs on a device:\n\n  /system/framework/foo.jar\n  /system/framework/bar/foo.jar\n\n? AIUI, `GetApexDataImage` would return the same image file (`/system/framework/oat/foo.art`), which might be a problem and/or silently ignored? (Same issue with `GetApexDataBootImage`.)",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 72
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
