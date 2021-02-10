@@ -46,6 +46,30 @@
       },
       "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d1f138_839ec63c",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-10T18:32:16Z",
+      "side": 1,
+      "message": "\u003e Yes, but we\u0027re not loading it again here (?).\n\nRight, but the checks below are not required if the runtime has successfully loaded the boot image.\n\nThere\u0027s also the question about bitness. Do we need dexoptanalyzer32 and dexoptanalyzer64?",
+      "parentUuid": "793d3784_ca7c2479",
+      "range": {
+        "startLine": 338,
+        "startChar": 9,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
