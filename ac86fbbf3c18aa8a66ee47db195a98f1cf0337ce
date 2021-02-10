@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "effc2710_21fb063a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "Lambdas sound good.",
+      "parentUuid": "d15ec82a_ff9e6ef9",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 6
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e35c26b_003e966a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1

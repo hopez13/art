@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd3a389_343e7ca0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4088,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good name for the heap.\n\nMaybe com.android.art? Someone from ART to comment.\nFor reference, the malloc heap is libc.malloc.",
+      "range": {
+        "startLine": 4088,
+        "startChar": 38,
+        "endLine": 4088,
+        "endChar": 54
+      },
+      "revId": "25db67c3b9e12be786f734c65e5ff14efa462236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9397d559_27f42bbf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4090,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "This needs to be \u0026prof_heap_sampler now.",
+      "range": {
+        "startLine": 4090,
+        "startChar": 65,
+        "endLine": 4090,
+        "endChar": 69
+      },
+      "revId": "25db67c3b9e12be786f734c65e5ff14efa462236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a281603_a6ebfe63",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4092,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "as above.",
+      "range": {
+        "startLine": 4092,
+        "startChar": 67,
+        "endLine": 4092,
+        "endChar": 71
+      },
+      "revId": "25db67c3b9e12be786f734c65e5ff14efa462236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c9ad5b0_487bfbf4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4093,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "This is wrong. You cannot keep info around after you called registerHeap.\n\nYou do not seem to use it for anything anyway. Remove SetSessionInfo / GetSessionInfo from the HeapSampler.",
+      "range": {
+        "startLine": 4093,
+        "startChar": 0,
+        "endLine": 4093,
+        "endChar": 41
+      },
+      "revId": "25db67c3b9e12be786f734c65e5ff14efa462236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf95299_49373956",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4098,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-10T17:32:07Z",
+      "side": 1,
+      "message": "This comment does not add anything. Also not sure it is correct?",
+      "range": {
+        "startLine": 4098,
+        "startChar": 0,
+        "endLine": 4098,
+        "endChar": 35
+      },
+      "revId": "25db67c3b9e12be786f734c65e5ff14efa462236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
