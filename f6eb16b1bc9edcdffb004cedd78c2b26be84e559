@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6cc33f_c8531eba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-10T17:00:33Z",
+      "side": 1,
+      "message": "FYI we also have https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/Android.bp;l\u003d364;drc\u003d7b55065f9fd05e9610871e1598972fc8fd45e9ea which isn\u0027t a gtest but still goes to some length to look like one. If that can be solved better it\u0027d be nice.",
+      "revId": "f6eb16b1bc9edcdffb004cedd78c2b26be84e559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
