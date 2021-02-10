@@ -16,6 +16,52 @@
       "message": "This is hitting the wembley unavailable issue, but otherwise pass TH",
       "revId": "fca4c0b7a72c0de99819814414f2837a2e7d1b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682942d9_0d8ab1d4",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-10T14:55:52Z",
+      "side": 1,
+      "message": "You\u0027re relying on the checksum being unique in the vdex file?",
+      "range": {
+        "startLine": 546,
+        "startChar": 8,
+        "endLine": 546,
+        "endChar": 68
+      },
+      "revId": "fca4c0b7a72c0de99819814414f2837a2e7d1b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6a2e726_e1d231fc",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-10T14:55:52Z",
+      "side": 1,
+      "message": "Here and below you\u0027re just walking over raw data. We should encapsulate the knowledge of the vdex data structures in some helper functions.",
+      "range": {
+        "startLine": 553,
+        "startChar": 2,
+        "endLine": 553,
+        "endChar": 85
+      },
+      "revId": "fca4c0b7a72c0de99819814414f2837a2e7d1b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
