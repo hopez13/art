@@ -16,6 +16,46 @@
       "message": "Vladimir, Nicolas: I still need to clear caches on GC, but if you have a minute, can you give it quick look?",
       "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97bbf76a_cad4cb1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-10T13:53:09Z",
+      "side": 1,
+      "message": "That\u0027s a pretty big CL to review :( it looks to me it will be a lot simpler if you have:\n1) A CL that removes the creation at dex2oat of dex caches\n2) A CL that rewrites the dex cache to dynamically allocated arrays (without growing or freeing)\n3) A CL that adds the dynamic growing and freeing logic.",
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab61006_5a163261",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-10T13:53:09Z",
+      "side": 1,
+      "message": "can you use unique_ptr of a data structure?",
+      "range": {
+        "startLine": 880,
+        "startChar": 13,
+        "endLine": 880,
+        "endChar": 18
+      },
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
