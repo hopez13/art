@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0eeacec1_3e663707",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-11T08:53:56Z",
+      "side": 1,
+      "message": "\u003e I think CreateRuntime might succeed even if some checks before fail.\n\nYes, but what I\u0027m saying is we could check at the runtime to see if it was successful in loading the image.",
+      "parentUuid": "410f3095_f12f2c4b",
+      "range": {
+        "startLine": 338,
+        "startChar": 9,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfc94c9_6a745e73",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
