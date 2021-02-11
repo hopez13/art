@@ -16,6 +16,24 @@
       "message": "Thanks for the CL, this helps a lot.  It appears to solve the issue with the `apex_available` property, but the build system still wants services.core.unboosted to have visibility into the artservice target.  Do you know how to fix that?",
       "revId": "0de401aabf7ae51aff73bb76b8d5782ece31ec96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e286232c_36f330b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-02-11T11:43:26Z",
+      "side": 1,
+      "message": "I presume that the visibility requirement is caused by the changes in https://r.android.com/1582868.\n\nThat change won\u0027t work as is because you intentionally are prohibited from statically include a java_sdk_library. You could statically include \"apiservice.impl\" instead for the same effect as you had before.\n\nYou can use impl_visibility property on java_sdk_library to control the visibility of the \"apiservice.impl\" separately to the \"apiservice\" itself.\n\nWhy do you think adding services.core.unboosted to the visibility rules is a problem?",
+      "parentUuid": "0f519ffc_f226af5d",
+      "revId": "0de401aabf7ae51aff73bb76b8d5782ece31ec96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
