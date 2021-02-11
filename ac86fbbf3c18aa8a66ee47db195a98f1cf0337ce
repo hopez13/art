@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5afb0ad3_fdd8d798",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-02-11T00:59:12Z",
+      "side": 1,
+      "message": "This was actually the first case I tried. The problem with adding them as static member functions in the heap sampler is that we have to add them to the javaheapsampler.h which leads to the build issue that I described in the first email with the cl. There are asm dependencies that fail and that\u0027s why I would need to use \"#if !defined(ASM_DEFINE_INCLUDE_DEPENDENCIES)\".",
+      "parentUuid": "af49aca0_1e9aa818",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 6
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e35c26b_003e966a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -268,6 +292,30 @@
       "side": 1,
       "message": "Usually this approach ends up leaving such functions unremoved as people end up forgetting about them in subsequent CLs. The ideal thing is always add function in the CL where they are needed. So yes, please remove it here and add it later if needed. Anyways, IIUC, you can always access the heap_id from the heap sampler object, which is part of the Heap object.",
       "parentUuid": "95abb569_1d5d0a98",
+      "range": {
+        "startLine": 4101,
+        "startChar": 2,
+        "endLine": 4101,
+        "endChar": 31
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6936634c_5b4dfdc6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4101,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-02-11T00:59:12Z",
+      "side": 1,
+      "message": "People only forget when they\u0027re not actively developing, but that\u0027s fine, I will remove them in the next patch.",
+      "parentUuid": "27281dc0_3f5b2312",
       "range": {
         "startLine": 4101,
         "startChar": 2,
