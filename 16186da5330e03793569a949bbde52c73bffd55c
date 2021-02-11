@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "617e714b_a1d8f9b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-11T10:14:32Z",
+      "side": 1,
+      "message": "Thanks Martin, good to have this documented.",
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "333be62a_0e3345e7",
@@ -66,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed0aecb8_63dcb943",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-11T10:14:32Z",
+      "side": 1,
+      "message": "Unless it\u0027s been fixed, it may be worth commenting that apexd will fail boot if switching between APEX targets, e.g. can\u0027t have com.android.art.apex and com.android.art.debug.apex.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 74
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "293b7f7f_6f0d8836",
         "filename": "build/README.md",
         "patchSetId": 3
@@ -82,6 +122,29 @@
         "startChar": 31,
         "endLine": 24,
         "endChar": 47
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb28c9cf_7d53b593",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-11T10:14:32Z",
+      "side": 1,
+      "message": "Suggest: \"Regardless of the device architecture, the build also includes\"",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 61
       },
       "revId": "16186da5330e03793569a949bbde52c73bffd55c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
