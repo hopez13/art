@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d77b34_b1b37af6",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-11T18:46:42Z",
+      "side": 1,
+      "message": "bare std::string_view is idiomatic:\n\nhttps://abseil.io/tips/1\nhttps://www.modernescpp.com/index.php/c-17-avoid-copying-with-std-string-view\nhttps://www.bfilipek.com/2018/07/string-view-perf.html\nhttps://www.nextptr.com/tutorial/ta1217154594/cplusplus-stdstring_view-for-better-performance-an-example-use-case",
+      "parentUuid": "c59e47c4_bf40376b",
+      "range": {
+        "startLine": 274,
+        "startChar": 37,
+        "endLine": 274,
+        "endChar": 48
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b66c3d29_3dc85687",
