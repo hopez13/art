@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c061604_e7b8d2f3",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "333be62a_0e3345e7",
+      "range": {
+        "startLine": 4,
+        "startChar": 69,
+        "endLine": 4,
+        "endChar": 70
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "825e66fc_dab936c7",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-11T09:40:17Z",
       "side": 1,
       "message": "Currently",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f942eba1_c90cc425",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "825e66fc_dab936c7",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "668be04b_96238095",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Done. I\u0027m not sure what happens if the non-debug apex is in the system image and one tries to install the debug one, so I\u0027m deliberately vague about that. I also don\u0027t intend to go into too much detail about the debug APEX here.",
+      "parentUuid": "ed0aecb8_63dcb943",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 74
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "293b7f7f_6f0d8836",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-02-11T09:40:17Z",
       "side": 1,
       "message": "Should we provide an example of repository URL (at least the AOSP one)?",
+      "range": {
+        "startLine": 24,
+        "startChar": 31,
+        "endLine": 24,
+        "endChar": 47
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b040bd3_55b42b2e",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "We don\u0027t know here which repo the reader should be using, and there\u0027s also a risk it gets stale. I only want to point out the -b argument here.",
+      "parentUuid": "293b7f7f_6f0d8836",
       "range": {
         "startLine": 24,
         "startChar": 31,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "891216ed_e3e99617",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb28c9cf_7d53b593",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aefba45_d0e019cc",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-02-11T09:40:17Z",
       "side": 1,
       "message": "Nit: the ART Module",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 14
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfba2607_5f8808f9",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aefba45_d0e019cc",
       "range": {
         "startLine": 66,
         "startChar": 11,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "247e8f68_b096b7ee",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Not sure about the grammar rules regarding period before colon. Rephrased instead.",
+      "parentUuid": "80d4b539_a96b78f9",
+      "range": {
+        "startLine": 75,
+        "startChar": 43,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4359180_8ec16956",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-02-11T09:40:17Z",
       "side": 1,
       "message": "Suggestion: its",
+      "range": {
+        "startLine": 84,
+        "startChar": 33,
+        "endLine": 84,
+        "endChar": 36
+      },
+      "revId": "16186da5330e03793569a949bbde52c73bffd55c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9187a00f_0a8c3478",
+        "filename": "build/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-11T13:09:51Z",
+      "side": 1,
+      "message": "Rephrased.",
+      "parentUuid": "c4359180_8ec16956",
       "range": {
         "startLine": 84,
         "startChar": 33,
