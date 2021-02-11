@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dda3b3c_9b94574c",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-11T01:28:20Z",
+      "side": 1,
+      "message": "Not really needed since string_view is a (small) POD but done.",
+      "parentUuid": "79e2bd9f_bf15e01b",
+      "range": {
+        "startLine": 274,
+        "startChar": 37,
+        "endLine": 274,
+        "endChar": 48
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b66c3d29_3dc85687",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-11T00:37:05Z",
       "side": 1,
       "message": "remind me, will this create a copy?",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714da3cd_c6fa99fc",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-11T01:28:20Z",
+      "side": 1,
+      "message": "At this point yes. We need it since our ComputeMUTF8Hash function needs the null-byte which string_view doesn\u0027t have.",
+      "parentUuid": "b66c3d29_3dc85687",
       "range": {
         "startLine": 275,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "204858d7_35828287",
+        "filename": "profman/profman.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-11T01:28:20Z",
+      "side": 1,
+      "message": "they are identical, in this case.\n\nAnyway done.",
+      "parentUuid": "f42d0c52_06ecae91",
+      "range": {
+        "startLine": 881,
+        "startChar": 62,
+        "endLine": 881,
+        "endChar": 64
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c9ef368_02c38efa",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-02-11T00:37:05Z",
       "side": 1,
       "message": "neww line",
+      "range": {
+        "startLine": 1106,
+        "startChar": 2,
+        "endLine": 1106,
+        "endChar": 3
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f470bb_c1aa835f",
+        "filename": "profman/profman.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-11T01:28:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9ef368_02c38efa",
       "range": {
         "startLine": 1106,
         "startChar": 2,
