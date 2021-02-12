@@ -541,6 +541,30 @@
       },
       "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f6bf17_66a8b54f",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-12T16:41:10Z",
+      "side": 1,
+      "message": "I see. I was initially thinking about the build system and the pre-opted boot image, and also the on-device background Dex opting job (`bg-dexopt`), but IIUC these cases are covered.",
+      "parentUuid": "5e405857_a7f0d9c4",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 72
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
