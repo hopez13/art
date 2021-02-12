@@ -16,6 +16,29 @@
       "message": "Let\u0027s have a separate change for JNI. Vladimir, are you OK with this change?",
       "revId": "d7ac4f694eb89a26a464a316aab272755f674b14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df8b7f1d_e7a99c5c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8952,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:14:02Z",
+      "side": 1,
+      "message": "This looks quite slow. If you pass the `resolved` method here, you can just check for pointer equality with `iftable-\u003eGetMethodArray(i)-\u003eGetElementPtrSize\u003cArtMethod*\u003e(j, pointer_size)` which is the \"implementing method\". The index `j` is the same as the index into the `iface-\u003eGetVirtualMethodsSlice(pointer_size)`.\n\nAnd I think this would also handle correctly this edge case:\n\n  interface Iface {\n    void foo();\n  }\n  class pkg1.A {\n    /*package-private*/ void foo() {}\n  }\n  class pkg2.B extends pkg1.A {\n    public void foo() {}  // Does not override pkg1.A.foo().\n  }\n  class pkg2.C extends pkg2.B implements Iface {\n    // Iface.foo() is implemented by pkg2.B.foo().\n  }\n  class pkg1.User {\n    public void bar() {\n      pkg1.A a \u003d new pkg2.C();\n      a.foo();  // Calls pkg1.A.foo(), never overriden.\n                // But the name and signature match Iface.foo().\n    }\n  }\n\n(Though this may not be a real problem since `A` and `User` need to be in the same package which includes a class loader match that\u0027s not possible if `A` is in BCP and `User` is not.)",
+      "range": {
+        "startLine": 8952,
+        "startChar": 9,
+        "endLine": 8952,
+        "endChar": 77
+      },
+      "revId": "d7ac4f694eb89a26a464a316aab272755f674b14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
