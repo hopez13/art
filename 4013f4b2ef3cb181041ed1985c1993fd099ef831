@@ -87,6 +87,30 @@
       },
       "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f5e328c_21ac12f9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-12T23:41:33Z",
+      "side": 1,
+      "message": "Do the odex files in the apex have a different location than the standard one described at L499?\n\nIf they don\u0027t can\u0027t we update the apex layout?",
+      "parentUuid": "8590d525_038c3469",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 3
+      },
+      "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
