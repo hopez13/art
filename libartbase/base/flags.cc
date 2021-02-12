@@ -19,6 +19,7 @@
 #include <algorithm>
 
 #include "android-base/parsebool.h"
+#include "android-base/parseint.h"
 #include "android-base/properties.h"
 #ifndef _WIN32
 #include "server_configurable_flags/get_flags.h"
@@ -47,6 +48,20 @@ bool ParseValue(const std::string_view value, std::optional<bool>* destination) 
   }
 }
 
+bool ParseValue(const std::string_view value, std::optional<int>* destination) {
+  int parsed_value = 0;
+  if (::android::base::ParseInt(std::string{value}, &parsed_value)) {
+    *destination = parsed_value;
+    return true;
+  }
+  return false;
+}
+
+bool ParseValue(const std::string_view value, std::optional<std::string>* destination) {
+  *destination = value;
+  return true;
+}
+
 }  // namespace
 
 namespace art {
@@ -71,11 +86,22 @@ Flag<Value>::Flag(const std::string& name, Value default_value) : default_{defau
 
 template <typename Value>
 Value Flag<Value>::operator()() {
-  if (!initialized_) {
-    Reload();
+  std::optional<Value> value{GetOptional()};
+  if (value.has_value()) {
+    return value.value();
   }
+  return default_;
+}
+
+template <typename Value>
+std::optional<Value> Flag<Value>::GetOptional() {
   if (from_command_line_.has_value()) {
     return from_command_line_.value();
+  }
+  // If the value comes from the command line, there's no point in checking system properties or the
+  // server settings.
+  if (!initialized_) {
+    Reload();
   }
   if (from_server_setting_.has_value()) {
     return from_server_setting_.value();
@@ -83,17 +109,13 @@ Value Flag<Value>::operator()() {
   if (from_system_property_.has_value()) {
     return from_system_property_.value();
   }
-  return default_;
+  return std::nullopt;
 }
 
 template <typename Value>
 void Flag<Value>::Reload() {
-  // Check system properties and server configured value.
-  from_system_property_ = std::nullopt;
-  const std::string sysprop = ::android::base::GetProperty(system_property_name_, kUndefinedValue);
-  if (sysprop != kUndefinedValue) {
-    ParseValue(sysprop, &from_system_property_);
-  }
+  initialized_ = true;
+  // Command line argument cannot be reloaded. It must be set during initial command line parsing.
 
 #ifndef _WIN32
   // Check the server-side configuration
@@ -102,15 +124,23 @@ void Flag<Value>::Reload() {
       kPhenotypeNamespace, server_setting_name_, kUndefinedValue);
   if (server_config != kUndefinedValue) {
     ParseValue(server_config, &from_server_setting_);
+    // Don't bother checking system properties if we have a server-configured value.
+    return;
   }
 #endif
 
-  // Command line argument cannot be reloaded. It must be set during initial command line parsing.
-
-  initialized_ = true;
+  // Check system properties
+  from_system_property_ = std::nullopt;
+  const std::string sysprop = ::android::base::GetProperty(system_property_name_, kUndefinedValue);
+  if (sysprop != kUndefinedValue) {
+    ParseValue(sysprop, &from_system_property_);
+    return;
+  }
 }
 
 template class Flag<bool>;
+template class Flag<int>;
+template class Flag<std::string>;
 
 }  // namespace art
 
