@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "350c31e9_72989545",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T10:03:55Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether a multidex apk could have two dex files with the same checksum (and therefore matching by checksum is wrong for the second one). But I guess the code here is not the only one relying those checksums to be unique.",
+      "parentUuid": "ae26ab0c_070c937f",
+      "range": {
+        "startLine": 546,
+        "startChar": 8,
+        "endLine": 546,
+        "endChar": 68
+      },
+      "revId": "fca4c0b7a72c0de99819814414f2837a2e7d1b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6a2e726_e1d231fc",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 3
