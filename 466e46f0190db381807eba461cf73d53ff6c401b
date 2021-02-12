@@ -151,6 +151,30 @@
       },
       "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc464dc_7105b741",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9002,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T17:21:41Z",
+      "side": 1,
+      "message": "I\u0027ll follow-up with another change for JNI.",
+      "parentUuid": "46203dd6_c172fe81",
+      "range": {
+        "startLine": 9002,
+        "startChar": 67,
+        "endLine": 9002,
+        "endChar": 75
+      },
+      "revId": "466e46f0190db381807eba461cf73d53ff6c401b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
