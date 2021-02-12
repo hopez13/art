@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3645f36_872cf21c",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-12T23:11:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2d46bc8_22798dbf",
+      "range": {
+        "startLine": 274,
+        "startChar": 37,
+        "endLine": 274,
+        "endChar": 48
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b66c3d29_3dc85687",
@@ -205,6 +229,30 @@
       "side": 1,
       "message": "What the value of having this then? I\u0027d expect any method with a string_view input to not perform copying, and this seems to defy the purpose.",
       "parentUuid": "714da3cd_c6fa99fc",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff53fbc_fddf1be7",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-12T23:11:50Z",
+      "side": 1,
+      "message": "because other parts don\u0027t need to copy it. It\u0027s a good way to incrementally move to a future where we don\u0027t need to do this. Finally IIRC clang can and will use an alloca to avoid doing a full allocation if it\u0027s able to inline down far enough so it\u0027s still better.",
+      "parentUuid": "fbc1e003_555e856a",
       "range": {
         "startLine": 275,
         "startChar": 27,
