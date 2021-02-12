@@ -35,6 +35,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e68a64_ed5442df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T17:11:59Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d66b94c5_45efe5af",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4023,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T17:11:59Z",
+      "side": 1,
+      "message": "update",
+      "range": {
+        "startLine": 4023,
+        "startChar": 12,
+        "endLine": 4023,
+        "endChar": 34
+      },
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dab61006_5a163261",
@@ -54,6 +94,46 @@
         "endLine": 880,
         "endChar": 18
       },
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c938ddbc_6f7b4666",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T17:11:59Z",
+      "side": 1,
+      "message": "I think this should be kWithoutReadBarrier and the same below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dac918b_defcde2e",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T17:11:59Z",
+      "side": 1,
+      "message": "You should use `Runtime::Current()-\u003eGetThreadList()-\u003eRunCheckpoint(this);` as we do with the `ClassLinker::VisiblyInitializedCallback`.",
       "revId": "c2c2a8f84515b816078875418c2ebf1206610555",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
