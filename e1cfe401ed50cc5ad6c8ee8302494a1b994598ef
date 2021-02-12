@@ -517,6 +517,30 @@
       },
       "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e405857_a7f0d9c4",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-12T11:01:36Z",
+      "side": 1,
+      "message": "Do you have any specific places outside of ART in mind?\n\nGenerating and then locating these artifacts is internal to ART. odrefresh stages and then installs them, zygote and system_server pick up the artifacts with this stack of CLs. The only other tool that I\u0027m aware of that cares specifically about the output locations here is odsign so it can sign the generated files from odrefresh.\n\nThere is a WIP change to this CL that puts all the artifacts from odrefresh into a dalvik-cache directory - system_server jars have the transformed location. Boot class path extensions don\u0027t because (a) we compile the boot class path extensions with --single-image so there\u0027s only one set of artifacts irrespective of the number of jars and (b) it breaks other of places where ART has hard coded assumptions about boot image file naming and those seem reasonable for safety/integrity purposes.",
+      "parentUuid": "2732221c_87912309",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 72
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
