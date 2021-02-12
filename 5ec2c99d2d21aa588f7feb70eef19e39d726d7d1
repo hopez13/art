@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ca77b88_1fc06a6c",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "The old name was misleading as it was creating a _pointer_ to a HandleScope entry and only if the value was non-null. The new name is appropriate for both old and new code and drops any reference to the abolished HandleScope.",
+      "parentUuid": "f69f8edf_07857b89",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "510b8595_c6b0fbe6",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43e5b94d_4944e3aa",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "510b8595_c6b0fbe6",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19a74e39_eb3e8a03",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-02-12T13:43:13Z",
       "side": 1,
       "message": "Can you add a comment what this points to?",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da411f4f_37cc3c9a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a74e39_eb3e8a03",
       "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +146,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d41d1b6_4375e204",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "I\u0027m reusing the existing code here. We could change `JniMethod*Synchronized*` to receive raw `mirror::Object*` but that should be a standalone change.",
+      "parentUuid": "f6ad84ea_1a371a39",
+      "range": {
+        "startLine": 2124,
+        "startChar": 42,
+        "endLine": 2124,
+        "endChar": 46
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd1ecab4_7184f115",
@@ -105,6 +183,24 @@
       "writtenOn": "2021-02-12T13:43:13Z",
       "side": 1,
       "message": "worth making this a standalone change?",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d9302f9_5c90b884",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "That would require a regression test. Such test is this CL with\n\n  testrunner.py --host --gcstress -t 928-jni-table\n\nwhich flaked often enough for 64-bit runs with `interpreter`, `jit` and `speed-profile` configs. Also `--jit-on-first-use` but that config is not included by default.",
+      "parentUuid": "dd1ecab4_7184f115",
       "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -134,6 +230,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff94376f_7c822e1c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "You can enable CheckJNI in release mode, right? Is it not enabled by default for debuggable?",
+      "parentUuid": "c19ab41d_bbcd0543",
+      "range": {
+        "startLine": 2544,
+        "startChar": 0,
+        "endLine": 2545,
+        "endChar": 36
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1084c02e_ff941749",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -151,6 +271,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efceae1f_c3a2dbc7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "I would consider the code self-documenting, considering the \"/*kPointsToStack\u003d*/ true/false\" template arguments below. Or should I introduce a local variable `bool points_to_stack`?",
+      "parentUuid": "1084c02e_ff941749",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2059bd22_744a36fd",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -162,6 +300,30 @@
       "writtenOn": "2021-02-12T13:43:13Z",
       "side": 1,
       "message": "As discussed, it\u0027d be nice to keep that complexity in the compiler.",
+      "range": {
+        "startLine": 3880,
+        "startChar": 0,
+        "endLine": 3893,
+        "endChar": 7
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3c357e_4fad414a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:48:26Z",
+      "side": 1,
+      "message": "Added a TODO as discussed.",
+      "parentUuid": "2059bd22_744a36fd",
       "range": {
         "startLine": 3880,
         "startChar": 0,
