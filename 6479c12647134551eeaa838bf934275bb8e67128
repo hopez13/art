@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2d46bc8_22798dbf",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-12T21:45:05Z",
+      "side": 1,
+      "message": "thanks Orion, I was not aware of it :).\n\nLet\u0027s use the idiomatic way then",
+      "parentUuid": "00d77b34_b1b37af6",
+      "range": {
+        "startLine": 274,
+        "startChar": 37,
+        "endLine": 274,
+        "endChar": 48
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b66c3d29_3dc85687",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 9
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "At this point yes. We need it since our ComputeMUTF8Hash function needs the null-byte which string_view doesn\u0027t have.",
       "parentUuid": "b66c3d29_3dc85687",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "6479c12647134551eeaa838bf934275bb8e67128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc1e003_555e856a",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-12T21:45:05Z",
+      "side": 1,
+      "message": "What the value of having this then? I\u0027d expect any method with a string_view input to not perform copying, and this seems to defy the purpose.",
+      "parentUuid": "714da3cd_c6fa99fc",
       "range": {
         "startLine": 275,
         "startChar": 27,
