@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b9e4296_d1266d5f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-12T10:48:27Z",
+      "side": 1,
+      "message": "I do agree that moving this to a static class method does not add anything, except polluting the header file unnecessarily.\n\nFor me a lambda or a namespace {} function are both okay.",
+      "parentUuid": "5afb0ad3_fdd8d798",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 6
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e35c26b_003e966a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
