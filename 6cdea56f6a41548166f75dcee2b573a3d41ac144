@@ -16,6 +16,29 @@
       "message": "Thanks! PTAL.",
       "revId": "6cdea56f6a41548166f75dcee2b573a3d41ac144",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f111a831_fe585d90",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-12T15:55:14Z",
+      "side": 1,
+      "message": "I would pull that out of the condition into a local variable:\n\n  for (size_t j \u003d 0, count \u003d iftable-\u003eGetMethodArrayCount(i); j \u003c count; ++j)",
+      "range": {
+        "startLine": 8949,
+        "startChar": 27,
+        "endLine": 8949,
+        "endChar": 58
+      },
+      "revId": "6cdea56f6a41548166f75dcee2b573a3d41ac144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
