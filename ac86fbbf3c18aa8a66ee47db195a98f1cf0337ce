@@ -324,6 +324,30 @@
       },
       "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e92397bf_883c1e45",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4101,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-12T06:51:43Z",
+      "side": 1,
+      "message": "Please remove this function. If you ever need to access heap_id in a future CL then you can introduce a getter in heap sampler and then invoke GetHeapSampler().GetHeapID()",
+      "parentUuid": "6936634c_5b4dfdc6",
+      "range": {
+        "startLine": 4101,
+        "startChar": 2,
+        "endLine": 4101,
+        "endChar": 31
+      },
+      "revId": "ac86fbbf3c18aa8a66ee47db195a98f1cf0337ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

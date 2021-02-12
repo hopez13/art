@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "023af8af_f7decc33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-12T06:51:43Z",
+      "side": 1,
+      "message": "Hi Wessam,\n\nFor now I\u0027m only +1 the CL because I want others to also have a look, especially the Android.bp file changes. Once you get (at least one) +1 from others and fix few minor changes as suggested, I\u0027ll convert mine to +2.",
+      "revId": "5c4608bd307f7b1dd672d84ce3e682fe7968ff9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48dce14a_9ef3bb53",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4084,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-12T06:51:43Z",
+      "side": 1,
+      "message": "heap sampler is a member field of Heap class, then why create a reference to it? Also, if I\u0027m not wrong we don\u0027t use C++ references in ART. Please use \u0027heap_sampler_\u0027 directly in this function.",
+      "range": {
+        "startLine": 4084,
+        "startChar": 2,
+        "endLine": 4084,
+        "endChar": 52
+      },
+      "revId": "5c4608bd307f7b1dd672d84ce3e682fe7968ff9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
