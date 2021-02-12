@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9692ff_1e028577",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Nice.",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f69f8edf_07857b89",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Why do we create jobject here (and before handle scope entries)? Aren\u0027t we passing this to the synchronization helper, which could take a raw mirror::Object?",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "510b8595_c6b0fbe6",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Add high-level.",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a74e39_eb3e8a03",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Can you add a comment what this points to?",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6ad84ea_1a371a39",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "ditto about we could pass a mirror::Object here?",
+      "range": {
+        "startLine": 2124,
+        "startChar": 42,
+        "endLine": 2124,
+        "endChar": 46
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1ecab4_7184f115",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "worth making this a standalone change?",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19ab41d_bbcd0543",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Given this is only used for a kIsDebugBuild (right?), drop the template and pass argument?",
+      "range": {
+        "startLine": 2544,
+        "startChar": 0,
+        "endLine": 2545,
+        "endChar": 36
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1084c02e_ff941749",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "Add a comment what\u0027s this check for.",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2059bd22_744a36fd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3893,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-12T13:43:13Z",
+      "side": 1,
+      "message": "As discussed, it\u0027d be nice to keep that complexity in the compiler.",
+      "range": {
+        "startLine": 3880,
+        "startChar": 0,
+        "endLine": 3893,
+        "endChar": 7
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
