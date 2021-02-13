@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0013eb7_d2fbd4a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-02-13T10:07:33Z",
+      "side": 1,
+      "message": "This hardening isn\u0027t enough.\nAn app can still bypass this check by doing reflection from jni and then returning the methods in java land.\nThis library implements it https://github.com/ChickenHook/RestrictionBypass",
+      "revId": "6442eaf8b21c85d60648f7a7498a6aeb299af861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
