@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed8c1ae_f4644462",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-15T16:07:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure to completely understand (but I haven\u0027t closely followed the the logic / expectations around `DEX2OATBOOTCLASSPATH` lately): is the first non-null component of an updated bootclasspath special? Can there be more than one? If this is documented elsewhere, it might be useful to add a reference to this documentation here.",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 60
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "204211e0_880b5896",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-15T16:07:50Z",
+      "side": 1,
+      "message": "Note: Someday it would be nice to refactor the code here to use `std::filesystem::path`. :-)",
+      "range": {
+        "startLine": 345,
+        "startChar": 19,
+        "endLine": 345,
+        "endChar": 42
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c098b65_bdf06f61",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-15T16:07:50Z",
+      "side": 1,
+      "message": "\"Args\" (to match line 434)?",
+      "range": {
+        "startLine": 424,
+        "startChar": 7,
+        "endLine": 424,
+        "endChar": 12
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ac72b0_bf5f9958",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-15T16:07:50Z",
+      "side": 1,
+      "message": "Style: Looking at the examples in https://google.github.io/styleguide/cppguide.html#Braced_Initializer_List_Format, it looks like there should be no space between the type and the braced initializer (here in below).",
+      "range": {
+        "startLine": 206,
+        "startChar": 23,
+        "endLine": 206,
+        "endChar": 24
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aabda536_897ae5f6",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-15T16:07:50Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 101
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
