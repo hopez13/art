@@ -565,6 +565,30 @@
       },
       "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "313fba2c_1d06366b",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-15T13:47:55Z",
+      "side": 1,
+      "message": "Thinking about `bg-dexopt` in particular deserves closer examination because if it conses up command-lines using the system installed artifacts it\u0027ll generate unusable artifacts. I\u0027ve filed http://b/180312451 as a blocking bug to look into this.\n\nThe recent CLs put the artifacts in /data/misc/apexdata/com.android/art/dalvik-cache and apply the dalvik cache name mangling to app related artifacts (e.g. system server jars). The name mangling is not applied to the boot class path related artifacts since we haven\u0027t done that traditionally.",
+      "parentUuid": "67f6bf17_66a8b54f",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 72
+      },
+      "revId": "e1cfe401ed50cc5ad6c8ee8302494a1b994598ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
