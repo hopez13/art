@@ -111,6 +111,30 @@
       },
       "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0827d341_0535779b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-15T13:55:24Z",
+      "side": 1,
+      "message": "Nicolas :- the logic here has moved into DexLocationToOatFilename.\n\nCalin :- the generated files go into `/data/misc/apexdata/com.android.art/dalvik-cache/\u003carch\u003e/`. The system_server jars have the `dalvik-cache` style name mangling applied. The destination directory is managed by odrefresh and requires specific restricted SELinux permissions to update.",
+      "parentUuid": "8f5e328c_21ac12f9",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 3
+      },
+      "revId": "4013f4b2ef3cb181041ed1985c1993fd099ef831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
