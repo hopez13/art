@@ -22,6 +22,30 @@
       },
       "revId": "565fe844a99f9e2050216b0126e0dd81245a0ae3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a749b8fb_6b8ba828",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-16T18:11:01Z",
+      "side": 0,
+      "message": "Yes, this still works on host. The argument has just changed to -Xmetrics-write-to-file\u003d_. See AddFlagsToCmdlineParser in flags.h.",
+      "parentUuid": "48e240e6_8dea827e",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 42
+      },
+      "revId": "565fe844a99f9e2050216b0126e0dd81245a0ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

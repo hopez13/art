@@ -70,6 +70,24 @@
       "parentUuid": "2177c28b_b37e9559",
       "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dee9703_1565302f",
+        "filename": "libartbase/base/flags.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-16T18:11:01Z",
+      "side": 1,
+      "message": "These are called by Flag\u003cT\u003e::Reload, which needs to parse the string into a T. Since we don\u0027t know what T is ahead of time, we don\u0027t know which function to call so instead we use overloading and let the compiler figure it out.",
+      "parentUuid": "96ebbb3e_2a389513",
+      "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
