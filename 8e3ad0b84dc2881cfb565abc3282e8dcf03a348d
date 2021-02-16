@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58deb331_b796ff7f",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-16T12:04:01Z",
+      "side": 1,
+      "message": "We\u0027re using GetBootImageSpaces() here in the checks here to gather inputs. VerifyBootClassPathChecksums not only checks the checksums, but also deals with awkwards cases like single-image as we have from odrefresh. The code here could recreate the logic for single-image counting checks here, but not having checksums verified seems more fragile.\n\nFor 32/64 for system_server: the ISA is passed as an argument on the command-line appropriate to what is being validated and CreateRuntime() already uses this. Given we\u0027re just opening files and reading headers, we might expect this to be fine.\n\nWe do this elsewhere already since 2017:\n\n https://cs.android.com/android/platform/superproject/+/master:frameworks/native/cmds/installd/dexopt.cpp;drc\u003dbf00bf32a70aedca874f6f8b0f78e2260b95ec3b;l\u003d1159\n\nwhich was introduced here:\n\nhttp://ag/c/platform/frameworks/native/+/1786897/15/cmds/installd/dexopt.cpp#1213",
+      "parentUuid": "57bf9146_c1185e3b",
+      "range": {
+        "startLine": 338,
+        "startChar": 9,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfc94c9_6a745e73",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
