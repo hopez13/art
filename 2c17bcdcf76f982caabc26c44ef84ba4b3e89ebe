@@ -33,6 +33,24 @@
       "message": "Wondering if we still need to this revert or not. Thanks.",
       "revId": "2c17bcdcf76f982caabc26c44ef84ba4b3e89ebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95ce0ea8_2fe6283b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-16T09:15:34Z",
+      "side": 1,
+      "message": "Sorry about the late reply.\n\nYes, we eventually want to land this revert (which now requires a bit of rewriting), in order to re-enable the currently disabled tests, but other Checker-related changes need to land first.",
+      "parentUuid": "84efc5a9_3f308fea",
+      "revId": "2c17bcdcf76f982caabc26c44ef84ba4b3e89ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
