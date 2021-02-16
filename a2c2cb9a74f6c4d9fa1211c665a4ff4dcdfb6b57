@@ -22,6 +22,30 @@
       },
       "revId": "a2c2cb9a74f6c4d9fa1211c665a4ff4dcdfb6b57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d5d6d77_af61daf9",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-16T22:22:09Z",
+      "side": 1,
+      "message": "In source builds the compiler is fed duplicate paths -I..._headers/gen/external/perfetto and -I..._headers/gen/external/perfetto/protos, for some reason. I had the impression that didn\u0027t work the same for prebuilts, but now I see prebuilts are just entirely broken for the include paths to the generated headers: b/180427921\n\nSo we can dispense with this for now, but maybe we\u0027d want to avoid those duplicate paths to the same headers. Could be there\u0027s something in generated proto headers that require them, though.",
+      "parentUuid": "873e0e34_b2d29a71",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "a2c2cb9a74f6c4d9fa1211c665a4ff4dcdfb6b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
