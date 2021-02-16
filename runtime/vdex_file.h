@@ -384,6 +384,10 @@ class VdexFile {
   ClassStatus ComputeClassStatus(Thread* self, Handle<mirror::Class> cls) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  const std::string& GetName() const {
+    return mmap_.GetName();
+  }
+
  private:
   uint32_t GetQuickeningInfoTableOffset(const uint8_t* source_dex_begin) const;
 
