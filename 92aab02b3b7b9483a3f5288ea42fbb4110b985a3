@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d139c320_04ae9096",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-16T08:47:54Z",
+      "side": 1,
+      "message": "Thanks for documenting this! This is clearer for me now.",
+      "parentUuid": "9a1276f7_e15b5acc",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 60
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "204211e0_880b5896",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 5
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Yes, there\u0027s a bit of friction between Google C++ style (and it\u0027s implementation in`clang-format`) and `cpplint` on this which is why I\u0027ve added spaces here. It was written with no spaces.\n\nThe problem is that `cpplint` in our repohook prefers non-empty initializers to have a space between the type and the braces:\n\nstd::string {\"foo\"} rather than std::string{\"foo\"}\n[ libartbase/base/file_utils_test.cc:203:  Missing space before {  [whitespace/braces] [5] ]\n\nHence, I\u0027d gone all in on one style, but for the empty initializer list that is highlighted by your comment, cpplint is okay with no space. My clang-format isn\u0027t able to exactly repro ART C++ style, but is only a small delta from the Google C++ config there.\n\nSo now the empty brace initializers have no space, the non-empty ones have a space for cpplint.\n\n---\n\nOur CPPLINT.cfg should probably be revisited to be \u003e\u003d C++11 friendly since this is really a question of C++11 style. We could also enable long-line checking which would save RTTs in reviews too.\n\nOr we could even adopt clang-format and just use the standard Google formatting it provides (or something that can be expressed in config, unfortunately that\u0027s not ART style AFAICT). Wait, is that a rumbling convoy of paint trucks heading towards the ART bikeshed? It\u0027s not going to be pretty :-)",
       "parentUuid": "51ac72b0_bf5f9958",
+      "range": {
+        "startLine": 206,
+        "startChar": 23,
+        "endLine": 206,
+        "endChar": 24
+      },
+      "revId": "92aab02b3b7b9483a3f5288ea42fbb4110b985a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52fd645a_3c25db84",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-16T08:47:54Z",
+      "side": 1,
+      "message": "\u003e Yes, there\u0027s a bit of friction between Google C++ style (and it\u0027s implementation in`clang-format`) and `cpplint` on this which is why I\u0027ve added spaces here. It was written with no spaces.\n\u003e \n\u003e The problem is that `cpplint` in our repohook prefers non-empty initializers to have a space between the type and the braces:\n\u003e \n\u003e std::string {\"foo\"} rather than std::string{\"foo\"}\n\u003e [ libartbase/base/file_utils_test.cc:203:  Missing space before {  [whitespace/braces] [5] ]\n\u003e \n\u003e Hence, I\u0027d gone all in on one style, but for the empty initializer list that is highlighted by your comment, cpplint is okay with no space. My clang-format isn\u0027t able to exactly repro ART C++ style, but is only a small delta from the Google C++ config there.\n\u003e \n\u003e So now the empty brace initializers have no space, the non-empty ones have a space for cpplint.\n\nI did not know about that; thanks for educating me. :-)\n\n\u003e Our CPPLINT.cfg should probably be revisited to be \u003e\u003d C++11 friendly since this is really a question of C++11 style. We could also enable long-line checking which would save RTTs in reviews too.\n\u003e \n\u003e Or we could even adopt clang-format and just use the standard Google formatting it provides (or something that can be expressed in config, unfortunately that\u0027s not ART style AFAICT).\n\nAgreed! We should check what other Android projects do too.\n\n\u003e Wait, is that a rumbling convoy of paint trucks heading towards the ART bikeshed? It\u0027s not going to be pretty :-)\n\n😂",
+      "parentUuid": "4fb3af6c_36cbfd07",
       "range": {
         "startLine": 206,
         "startChar": 23,

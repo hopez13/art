@@ -16,6 +16,29 @@
       "message": "Thanks Roland, incorporated.",
       "revId": "cea66fdfa0221ebd8324ea877b24b61f44e322e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca36677_b7fc1b8e",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-16T08:47:54Z",
+      "side": 1,
+      "message": "Nit: Extra parenthesis.",
+      "range": {
+        "startLine": 299,
+        "startChar": 66,
+        "endLine": 299,
+        "endChar": 67
+      },
+      "revId": "cea66fdfa0221ebd8324ea877b24b61f44e322e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
