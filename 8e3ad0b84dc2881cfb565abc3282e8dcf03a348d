@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57bf9146_c1185e3b",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-16T10:14:39Z",
+      "side": 1,
+      "message": "Heap::GetBootImageSpaces could look like the closest thing? but I guess it\u0027s ok to skip for now, and your code can go.\n\nI do worry about the 32/64 - how do we already make that happen for system server (which is executing on arm64, but fulfils requests of up-to-date oat files for 32 bit oat files).",
+      "parentUuid": "5627cef5_3109cd7a",
+      "range": {
+        "startLine": 338,
+        "startChar": 9,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "8e3ad0b84dc2881cfb565abc3282e8dcf03a348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfc94c9_6a745e73",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
