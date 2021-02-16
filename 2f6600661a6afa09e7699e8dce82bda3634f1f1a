@@ -34,6 +34,24 @@
       "parentUuid": "bfb9a65a_c084d3eb",
       "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2177c28b_b37e9559",
+        "filename": "libartbase/base/flags.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-02-16T17:54:17Z",
+      "side": 1,
+      "message": "Good point with the return-type overloading.  I think returning void would be better because the same information is already contained in the optional value.",
+      "parentUuid": "dcf20ce2_f5ca204f",
+      "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
