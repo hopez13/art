@@ -141,7 +141,7 @@ class Flag : public FlagBase {
 //     setprop dalvik.vm.metrics.write-to-log true
 struct Flags {
   Flag<bool> WriteMetricsToLog{"metrics.write-to-log", false};
-  Flag<bool> WriteMetricsToStatsd{"metrics.write-to-statsd", false};
+  Flag<bool> WriteMetricsToStatsd{"metrics.write-to-statsd", true};
   Flag<bool> ReportMetricsOnShutdown{"metrics.report-on-shutdown", true};
   Flag<int> MetricsReportingPeriod{"metrics.reporting-period"};
   Flag<std::string> WriteMetricsToFile{"metrics.write-to-file"};
