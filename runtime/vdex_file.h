@@ -365,10 +365,10 @@ class VdexFile {
                           const std::string& class_loader_context,
                           std::string* error_msg);
 
-  // Returns true if the dex file checksums stored in the vdex header match
-  // the checksums in `dex_headers`. Both the number of dex files and their
+  // Returns true if the checksums stored in the vdex header match
+  // the location checksums in `dex_files`. Both the number of dex files and their
   // order must match too.
-  bool MatchesDexFileChecksums(const std::vector<const DexFile::Header*>& dex_headers) const;
+  bool MatchesDexFileChecksums(const std::vector<const DexFile*>& dex_files) const;
 
   // Returns true if the boot class path checksum stored in the vdex matches
   // the checksum of boot class path in the current runtime.
@@ -383,6 +383,10 @@ class VdexFile {
 
   ClassStatus ComputeClassStatus(Thread* self, Handle<mirror::Class> cls) const
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  const std::string& GetName() const {
+    return mmap_.GetName();
+  }
 
  private:
   uint32_t GetQuickeningInfoTableOffset(const uint8_t* source_dex_begin) const;

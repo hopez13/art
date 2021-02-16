@@ -163,6 +163,13 @@ class OatFile {
                                std::unique_ptr<VdexFile>&& vdex_file,
                                const std::string& location);
 
+  static OatFile* OpenFromVdex(int zip_fd,
+                               std::unique_ptr<VdexFile>&& vdex_file,
+                               const std::string& location,
+                               std::string* error_msg);
+
+  bool IsBackedByVdexOnly() const;
+
   virtual ~OatFile();
 
   bool IsExecutable() const {
@@ -467,6 +474,7 @@ class OatFile {
   friend class OatClass;
   friend class art::OatDexFile;
   friend class OatDumper;  // For GetBase and GetLimit
+  friend class OatFileBackedByVdex;
   friend class OatFileBase;
   DISALLOW_COPY_AND_ASSIGN(OatFile);
 };
@@ -582,7 +590,8 @@ class OatDexFile final {
   // Create an OatDexFile wrapping an existing DexFile. Will set the OatDexFile
   // pointer in the DexFile.
   OatDexFile(const OatFile* oat_file,
-             const DexFile* dex_file,
+             const uint8_t* dex_file_pointer,
+             uint32_t dex_file_checksum,
              const std::string& dex_file_location,
              const std::string& canonical_dex_file_location);
 
@@ -607,6 +616,7 @@ class OatDexFile final {
 
   friend class OatFile;
   friend class OatFileBase;
+  friend class OatFileBackedByVdex;
   DISALLOW_COPY_AND_ASSIGN(OatDexFile);
 };
 
