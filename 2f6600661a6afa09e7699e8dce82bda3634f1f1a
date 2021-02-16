@@ -52,6 +52,24 @@
       "parentUuid": "dcf20ce2_f5ca204f",
       "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ebbb3e_2a389513",
+        "filename": "libartbase/base/flags.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-02-16T18:09:11Z",
+      "side": 1,
+      "message": "NIT: This seems a case where it would probably be better to just give each of these different names.",
+      "parentUuid": "2177c28b_b37e9559",
+      "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
