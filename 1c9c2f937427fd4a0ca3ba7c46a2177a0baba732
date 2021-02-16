@@ -22,6 +22,30 @@
       },
       "revId": "1c9c2f937427fd4a0ca3ba7c46a2177a0baba732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6508f49d_034dc840",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-16T22:37:40Z",
+      "side": 1,
+      "message": "It looks like server_configurable_flags is just a thing wrapper around GetProperty, and there is precedent already for reading the properties directly[1] so I decided to remove the dependency. The code\u0027s actually cleaner without it in my opinion.\n\n[1]: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java;l\u003d2606?q\u003dpersist%5C.device_config",
+      "parentUuid": "cb6ebb19_998b47a8",
+      "range": {
+        "startLine": 93,
+        "startChar": 17,
+        "endLine": 93,
+        "endChar": 42
+      },
+      "revId": "1c9c2f937427fd4a0ca3ba7c46a2177a0baba732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
