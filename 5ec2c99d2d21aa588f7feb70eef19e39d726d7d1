@@ -254,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92a7d46a_b4501b4c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-16T10:55:25Z",
+      "side": 1,
+      "message": "Isn\u0027t it called only in debug builds (line 2647) ?",
+      "parentUuid": "ff94376f_7c822e1c",
+      "range": {
+        "startLine": 2544,
+        "startChar": 0,
+        "endLine": 2545,
+        "endChar": 36
+      },
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1084c02e_ff941749",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -283,6 +307,24 @@
       "side": 1,
       "message": "I would consider the code self-documenting, considering the \"/*kPointsToStack\u003d*/ true/false\" template arguments below. Or should I introduce a local variable `bool points_to_stack`?",
       "parentUuid": "1084c02e_ff941749",
+      "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5098103f_00ac8772",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-16T10:55:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efceae1f_c3a2dbc7",
       "revId": "5ec2c99d2d21aa588f7feb70eef19e39d726d7d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
