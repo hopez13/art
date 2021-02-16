@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873e0e34_b2d29a71",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-16T11:15:26Z",
+      "side": 1,
+      "message": "I do not understand why you are changing some proto include paths, and not others?\n\nWhy is this change necessary?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "a2c2cb9a74f6c4d9fa1211c665a4ff4dcdfb6b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
