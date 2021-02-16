@@ -16,6 +16,24 @@
       "message": "Could you return the optional instead of take it as an output argument?  I don\u0027t believe that you use the return result for ParseValue below.",
       "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf20ce2_f5ca204f",
+        "filename": "libartbase/base/flags.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-16T17:41:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer that, but I don\u0027t think C++ lets you overload based on only the return value. Would returning void be better?",
+      "parentUuid": "bfb9a65a_c084d3eb",
+      "revId": "2f6600661a6afa09e7699e8dce82bda3634f1f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
