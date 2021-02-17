@@ -17,6 +17,8 @@
 # Build rules are excluded from Mac, since we can not run ART tests there in the first place.
 ifneq ($(HOST_OS),darwin)
 
+ifeq (false,$(art_prebuilt_skip))
+
 ###################################################################################################
 # Create module in testcases to hold all common data and tools needed for ART host tests.
 
@@ -84,6 +86,8 @@ $(LOCAL_BUILT_MODULE):
 
 include $(CLEAR_VARS)
 ###################################################################################################
+
+endif # ifeq (false,$(art_prebuilt_skip))
 
 # The path for which all the dex files are relative, not actually the current directory.
 LOCAL_PATH := art/test
@@ -348,13 +352,15 @@ ifeq ($(ART_BUILD_TARGET),true)
     com.android.art.testing \
     com.android.conscrypt
 endif
-ifeq ($(ART_BUILD_HOST),true)
-  $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),)))
-  ifneq ($(HOST_PREFER_32_BIT),true)
-    $(foreach file,$(2ND_ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),2ND_)))
+ifeq (false,$(art_prebuilt_skip))
+  ifeq ($(ART_BUILD_HOST),true)
+    $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),)))
+    ifneq ($(HOST_PREFER_32_BIT),true)
+      $(foreach file,$(2ND_ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host,$(file),2ND_)))
+    endif
+    # Rules to run the different architecture versions of the gtest.
+    $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host-both,$$(notdir $$(basename $$(file))))))
   endif
-  # Rules to run the different architecture versions of the gtest.
-  $(foreach file,$(ART_HOST_GTEST_FILES), $(eval $(call define-art-gtest-host-both,$$(notdir $$(basename $$(file))))))
 endif
 
 # Define all the combinations of host/target and suffix such as:
