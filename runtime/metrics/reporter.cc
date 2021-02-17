@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-#include "metrics_reporter.h"
+#include "reporter.h"
 
 #include "runtime.h"
 #include "runtime_options.h"
+#include "statsd.h"
 #include "thread-current-inl.h"
 
 #pragma clang diagnostic push
@@ -74,6 +75,9 @@ void MetricsReporter::BackgroundThreadRun() {
   }
   if (config_.dump_to_file.has_value()) {
     backends_.emplace_back(new FileBackend(config_.dump_to_file.value()));
+  }
+  if (config_.dump_to_statsd) {
+    backends_.emplace_back(CreateStatsdBackend());
   }
 
   MaybeResetTimeout();

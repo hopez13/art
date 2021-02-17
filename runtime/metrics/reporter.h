@@ -33,6 +33,9 @@ struct ReportingConfig {
   // Causes metrics to be written to the log, which makes them show up in logcat.
   bool dump_to_logcat{false};
 
+  // Causes metrics to be written to statsd, which causes them to be uploaded to Westworld.
+  bool dump_to_statsd{true};
+
   // If set, provides a file name to enable metrics logging to a file.
   std::optional<std::string> dump_to_file;
 
