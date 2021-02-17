@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3b332f_71d906df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-17T05:08:41Z",
+      "side": 1,
+      "message": "Only a partial review.",
+      "revId": "5793db034579665e22ac43f68c671787eef6e716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a10349e3_8c317740",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-17T05:08:41Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1606,
+        "startChar": 0,
+        "endLine": 1606,
+        "endChar": 110
+      },
+      "revId": "5793db034579665e22ac43f68c671787eef6e716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f3efb3b_54ee7473",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-17T05:08:41Z",
+      "side": 1,
+      "message": "hmm, why? isn\u0027t the vdex being here enough to mark the class verified?",
+      "range": {
+        "startLine": 2011,
+        "startChar": 4,
+        "endLine": 2014,
+        "endChar": 0
+      },
+      "revId": "5793db034579665e22ac43f68c671787eef6e716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e89445_61597166",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-17T05:08:41Z",
+      "side": 1,
+      "message": "I think there are some subtleties here: this is ok only for vdex verified against boot class path. From a generic point of view, we may have a split apk which expects a certain context (like the primary apk be in the class path) for proper verification. And according to the current logic, if there\u0027s an I/O error when reading the odex file, we will try to load only the vdex.\n\nNot sure how much we want to cover this corner cases though...",
+      "range": {
+        "startLine": 895,
+        "startChar": 4,
+        "endLine": 895,
+        "endChar": 69
+      },
+      "revId": "5793db034579665e22ac43f68c671787eef6e716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
