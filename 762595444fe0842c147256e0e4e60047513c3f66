@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ce74a9_a04c67c6",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-17T16:38:31Z",
+      "side": 1,
+      "message": "Remove in next CL so okay as-is.",
+      "parentUuid": "77853a52_b5092cee",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 37
+      },
+      "revId": "762595444fe0842c147256e0e4e60047513c3f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4d49378_1fa9cd80",
@@ -88,6 +112,29 @@
         "startChar": 79,
         "endLine": 521,
         "endChar": 82
+      },
+      "revId": "762595444fe0842c147256e0e4e60047513c3f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f605ba6_4251513a",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-17T16:38:31Z",
+      "side": 1,
+      "message": "Could you add a comment about the scaling applied here? Why isn\u0027t this just len(expected_succeeding_tests)?",
+      "range": {
+        "startLine": 530,
+        "startChar": 60,
+        "endLine": 530,
+        "endChar": 83
       },
       "revId": "762595444fe0842c147256e0e4e60047513c3f66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
