@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fedf023_45eb1fb0",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-02-17T09:59:41Z",
+      "side": 1,
+      "message": "Nit: I find it slightly easier to read when the common case comes first, and the special case is isolated and commented, like this (it also makes it easier to remove the special case, or add more special cases):\n\n  timeout \u003d 3600 # 60 minutes\n\n  if env.ART_TEST_RUN_ON_ARM_FVP:\n    # Increase timeout to 600 minutes due to the emulation overhead on FVP\n    timeout \u003d 3600",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 76
+      },
+      "revId": "ee0e820b49ff121e0f4bcf811da2d07a25230abd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a83578e_d4c50e8a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-02-17T09:59:41Z",
+      "side": 1,
+      "message": "This is a bit confusing, as it looks like 0.01. Can you rewrite timeout_val in the same verbose way as suggested in my previous comment, and comment why it has to be increased for FVP?",
+      "range": {
+        "startLine": 309,
+        "startChar": 14,
+        "endLine": 309,
+        "endChar": 19
+      },
+      "revId": "ee0e820b49ff121e0f4bcf811da2d07a25230abd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
