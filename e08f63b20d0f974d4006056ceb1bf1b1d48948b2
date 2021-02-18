@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dcdd0f5_c0cf047c",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-18T15:08:13Z",
+      "side": 1,
+      "message": "Can we avoid having this a global lock? Could this be a bottom lock defined in eg ClassLinker ?",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 58
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6663d179_10b29d79",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-18T15:08:13Z",
+      "side": 1,
+      "message": "Add a comment: how do you know this is the bootstrap class loader?",
+      "range": {
+        "startLine": 2407,
+        "startChar": 37,
+        "endLine": 2407,
+        "endChar": 62
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc6cd9fb_b6557bd6",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-18T15:08:13Z",
+      "side": 1,
+      "message": "Aren\u0027t those methods dead code now?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 1
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
