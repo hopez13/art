@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9b2600_33132efa",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-02-18T21:42:13Z",
+      "side": 1,
+      "message": "Hmmm.... Actually the linear alloc lock needs to be taken under this lock.\nSo I guess it is not possible.",
+      "parentUuid": "91ac4fba_d7df9e14",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 58
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6663d179_10b29d79",
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f9c543_57b4501e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2407,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-02-18T21:42:13Z",
+      "side": 1,
+      "message": "I have added an explicit parameter, and passed null in the callers.",
+      "parentUuid": "6663d179_10b29d79",
+      "range": {
+        "startLine": 2407,
+        "startChar": 37,
+        "endLine": 2407,
+        "endChar": 62
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc6cd9fb_b6557bd6",
@@ -84,6 +132,30 @@
       "writtenOn": "2021-02-18T15:08:13Z",
       "side": 1,
       "message": "Aren\u0027t those methods dead code now?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 1
+      },
+      "revId": "e08f63b20d0f974d4006056ceb1bf1b1d48948b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3291f63e_d2fa28fa",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-02-18T21:42:13Z",
+      "side": 1,
+      "message": "Right! Thanks",
+      "parentUuid": "fc6cd9fb_b6557bd6",
       "range": {
         "startLine": 413,
         "startChar": 0,
