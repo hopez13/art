@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59c2b7d_6e93db99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-19T12:34:16Z",
+      "side": 1,
+      "message": "Hi Eric\n\nIs there an permission change that goes with this CL?\n\nRunning dexoptanalyzer now gives errors for those properties.\n\nThanks\n\n02-19 12:30:32.076  1993  1993 I odrefresh: Checking /system/framework/services.jar: /apex/com.android.art/bin/dexoptanalyzer --dex-file\u003d/system/framework/services.jar --oat-fd\u003d4 --vdex-fd\u003d5 --zip-fd\u003d6 --compiler-filter\u003dspeed-profile --image\u003d/apex/com.android.art/javalib/boot.art:/system/framework/boot\n-framework.art --isa\u003dx86 --runtime-arg -Xbootclasspath:/apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework\n.jar:/system/framework/ext.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/framework-atb-backward-compatibility.jar --class-loader-context\u003dPCL[/system/framework/com.android.loca\ntion.provider.jar]\n02-19 12:30:32.084  1997  1997 I dexoptanalyzer: setting boot class path to /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/syste\nm/framework/framework.jar:/system/framework/ext.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/framework-atb-backward-compatibility.jar\n02-19 12:30:32.101  1997  1997 E libc    : Access denied finding property \"persist.device_config.runtime_native_boot.metrics_write_to_log\"\n02-19 12:30:32.101  1997  1997 E libc    : Access denied finding property \"persist.device_config.runtime_native_boot.metrics_write_to_file\"\n02-19 12:30:32.101  1997  1997 E libc    : Access denied finding property \"persist.device_config.runtime_native_boot.metrics_write_to_statsd\"\n02-19 12:30:32.101  1997  1997 E libc    : Access denied finding property \"persist.device_config.runtime_native_boot.metrics_report_on_shutdown\"\n02-19 12:30:32.101  1997  1997 E libc    : Access denied finding property \"persist.device_config.runtime_native_boot.metrics_reporting_period\"\n",
+      "revId": "0a6e9e56f7f3ac7750b38eaba83639ad47a2692f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
