@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e0175e_b585fe7d",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-02-19T15:53:27Z",
+      "side": 1,
+      "message": "We added this field, but we leave it uninitialized by default, and only set it to a consistent value if this flag is set.  I\u0027ve added a follow-up CL to keep up from using this uninitialized: https://android-review.googlesource.com/c/platform/art/+/1596691",
+      "revId": "1da77269775bada682a922edb5a7ef76c11c77ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
