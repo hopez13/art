@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dd02482_3e13d858",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T12:32:13Z",
+      "side": 1,
+      "message": "What\u0027s the plan to add gtests here?",
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba88186b_6b8cefa3",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T12:32:13Z",
+      "side": 1,
+      "message": "A list comprehension is more pythonic. (I see the same a couple lines up too, btw.)",
+      "range": {
+        "startLine": 424,
+        "startChar": 6,
+        "endLine": 425,
+        "endChar": 74
+      },
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244f2775_c64edeae",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T12:32:13Z",
+      "side": 1,
+      "message": "Style: Use an extra paren pair and put the open paren on this line instead. Backslashes should be avoided: http://go/pystyle#line-length",
+      "range": {
+        "startLine": 499,
+        "startChar": 39,
+        "endLine": 499,
+        "endChar": 40
+      },
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
