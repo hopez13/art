@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7fe57e_11176672",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-19T14:03:50Z",
+      "side": 1,
+      "message": "Once https://r.android.com/1594251 is merged this will be perfetto/heap_profile.h",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
