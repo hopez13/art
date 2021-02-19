@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed144f71_e24ac500",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T16:00:27Z",
+      "side": 1,
+      "message": "Thanks for the info. Those tickets are for device gtests - can we do something for host gtests earlier? From what I can tell on atp.googleplex.com, art-host-gtests run on git_master and will get essentially disabled (cf. https://r.android.com/1592872) when we switch to prebuilts.",
+      "parentUuid": "aaecade7_d599952f",
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba88186b_6b8cefa3",
