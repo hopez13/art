@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9285bd4_a3d49bfd",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T12:21:17Z",
+      "side": 1,
+      "message": "You\u0027re right. Done.",
+      "parentUuid": "633e6596_29fd8b67",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "f681d143f5af77222cc6580d928c4b5a7df3ca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "631659d0_c713a168",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-19T12:08:55Z",
       "side": 1,
       "message": "I think this is broken: this should be a tab character (same thing next line).",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "f681d143f5af77222cc6580d928c4b5a7df3ca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6934ed7_9e075f6d",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-19T12:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631659d0_c713a168",
       "range": {
         "startLine": 99,
         "startChar": 0,
