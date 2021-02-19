@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d156a088_4b47d131",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-19T09:48:39Z",
+      "side": 1,
+      "message": "The commit message includes this. It looks like using flags has been rolled into this revert.\n\nIs this necessary? If not, I\u0027m not asking to remove per se, but in general I have a strong preference as a reviewer PS1 to be the revert, PS2+ to be changes strictly necessary to reland it. I don\u0027t recall seeing reverts/relands in the Google code review guides though.",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 45
+      },
+      "revId": "e1be2e0bb90f6e83bd34e9d5610e61ca781709d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
