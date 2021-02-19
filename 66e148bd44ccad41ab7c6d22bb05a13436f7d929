@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "387feac7_8c1befb3",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-19T16:13:36Z",
+      "side": 1,
+      "message": "Right; will work on adding ART host gtests here too. There might be a bit of work involved, as I\u0027m not sure they can run via Test Mapping out of the box; I started to look at that some time ago but did not manage to finish this work. I\u0027ll let you know when this is ready ASAP.\n\n(IIUC all tests will continue to run (as postsubmit of course) on the ART Buildbot (LUCI), which means we won\u0027t lose coverage overnight when we switch to prebuilts.)",
+      "parentUuid": "ed144f71_e24ac500",
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba88186b_6b8cefa3",
