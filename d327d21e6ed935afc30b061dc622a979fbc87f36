@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2bc05b_71deea50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 91
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "A few comments, but nothing blocking.",
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "984ed585_2e769899",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 91
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Add a comment: \"for odsign\" ?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a54181_fc61c3bf",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 91
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 35
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd44e9ca_ae3888f5",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 91
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Isn\u0027t it a problem to have libartd here and libart in the list of defaults?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 6
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1568d47d_d5003932",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 91
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "I.take it this is additive with defaults? Any way we could say odrefreshd should not be available to com.android.art?\n\n(no need to address if this is the pattern we use for debug binaries)",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 6
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf9a01c_cfecd017",
+        "filename": "odrefresh/TODO.md",
+        "patchSetId": 91
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Isn\u0027t this done?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 73
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86ec8bf_a2aa13c3",
+        "filename": "odrefresh/TODO.md",
+        "patchSetId": 91
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "What\u0027s with all the \u00271\u0027 ? 😊",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4941e023_779b73fe",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 91
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 28,
+        "startChar": 44,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd2b833_a01d2332",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 91
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "move after \u0027any\u0027",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4db9942a_2d088104",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "nit: new line (I think only for getters/setters do we avoid a new line)",
+      "range": {
+        "startLine": 110,
+        "startChar": 53,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5337f4f5_8867e45a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "add \u0027return false\u0027 ?",
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a8979a_f8357f8e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Can you add a comment for this method? Should it be \"GetSupportedInstructionSets\" ? Why does arm return {arm, arm64} ?",
+      "range": {
+        "startLine": 314,
+        "startChar": 44,
+        "endLine": 314,
+        "endChar": 62
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38c3f850_249315d5",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Why does that make it the factory apex?",
+      "range": {
+        "startLine": 387,
+        "startChar": 6,
+        "endLine": 387,
+        "endChar": 76
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5909d1_872e149b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Add a comment that if any instruction set or any artifact is not up to date, we will recompile all?",
+      "range": {
+        "startLine": 699,
+        "startChar": 2,
+        "endLine": 706,
+        "endChar": 5
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44bd71a_cc55bda4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "At first glance this comment doesn\u0027t seem to apply to the line below?",
+      "range": {
+        "startLine": 772,
+        "startChar": 4,
+        "endLine": 774,
+        "endChar": 54
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f8b1f6_bdb4343b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "Does that mean conscrypt and ICU (and other jars in the boot classpath located in /apex) are compilable boot extensions?",
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8c8981_ca5070d2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-19T10:03:04Z",
+      "side": 1,
+      "message": "ditto about not applying",
+      "range": {
+        "startLine": 779,
+        "startChar": 0,
+        "endLine": 780,
+        "endChar": 92
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
