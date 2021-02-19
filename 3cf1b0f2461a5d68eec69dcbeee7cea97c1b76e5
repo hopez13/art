@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c27614_bd00f849",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-19T12:18:41Z",
+      "side": 1,
+      "message": "Ignore, it was already approved in the original.",
+      "parentUuid": "42cce638_9866bf66",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 25
+      },
+      "revId": "3cf1b0f2461a5d68eec69dcbeee7cea97c1b76e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c148e089_cff368ea",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-19T12:14:20Z",
       "side": 1,
       "message": "nit: sort order",
+      "range": {
+        "startLine": 110,
+        "startChar": 25,
+        "endLine": 110,
+        "endChar": 35
+      },
+      "revId": "3cf1b0f2461a5d68eec69dcbeee7cea97c1b76e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5743ff9c_cd47d65c",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-19T12:18:41Z",
+      "side": 1,
+      "message": "Ignore, it was already approved in the original.",
+      "parentUuid": "c148e089_cff368ea",
       "range": {
         "startLine": 110,
         "startChar": 25,
