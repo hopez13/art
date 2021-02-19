@@ -46,6 +46,30 @@
       },
       "revId": "e1be2e0bb90f6e83bd34e9d5610e61ca781709d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c910586_a2e0205a",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-19T19:00:42Z",
+      "side": 1,
+      "message": "I generally try to follow the same hygiene with reverts too so it\u0027s easy to see the changes that were needed to fix things. This one was a little messy because I had some conflicting changes land in the meantime.",
+      "parentUuid": "327858af_e626b5b7",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 45
+      },
+      "revId": "e1be2e0bb90f6e83bd34e9d5610e61ca781709d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
