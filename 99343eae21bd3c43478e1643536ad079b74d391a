@@ -34,6 +34,23 @@
       "parentUuid": "a077cb98_211fb609",
       "revId": "99343eae21bd3c43478e1643536ad079b74d391a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb6ab84_09d80fde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-19T09:18:37Z",
+      "side": 1,
+      "message": "PTAL, this CL has lost +2 from rebase and is blocking the next CL in the series.\n\nThanks",
+      "revId": "99343eae21bd3c43478e1643536ad079b74d391a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
