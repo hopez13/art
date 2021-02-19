@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaecade7_d599952f",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-19T15:02:58Z",
+      "side": 1,
+      "message": "I plan to add ART gtests eventually, by they don\u0027t work well with the Mainline testing setup at the moment (this is being worked on in b/162834439 and b/162734417).",
+      "parentUuid": "5dd02482_3e13d858",
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba88186b_6b8cefa3",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2533054e_c6d6f7bf",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-19T15:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba88186b_6b8cefa3",
+      "range": {
+        "startLine": 424,
+        "startChar": 6,
+        "endLine": 425,
+        "endChar": 74
+      },
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "244f2775_c64edeae",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-02-19T12:32:13Z",
       "side": 1,
       "message": "Style: Use an extra paren pair and put the open paren on this line instead. Backslashes should be avoided: http://go/pystyle#line-length",
+      "range": {
+        "startLine": 499,
+        "startChar": 39,
+        "endLine": 499,
+        "endChar": 40
+      },
+      "revId": "66e148bd44ccad41ab7c6d22bb05a13436f7d929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd5bc9b_7cd0f176",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-19T15:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "244f2775_c64edeae",
       "range": {
         "startLine": 499,
         "startChar": 39,
