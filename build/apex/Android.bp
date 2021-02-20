@@ -531,3 +531,13 @@ linker_config {
     src: "linker.config.json",
     installable: false,
 }
+
+// We should be able to use the statsd-module-sdk entry from the StatsD repo,
+// but unfortunately that conflicts with internal builds. We keep our own copy
+// here for the time being.
+sdk {
+    name: "statsd-module-sdk-for-art",
+    native_shared_libs: [
+        "libstatssocket",
+    ],
+}
