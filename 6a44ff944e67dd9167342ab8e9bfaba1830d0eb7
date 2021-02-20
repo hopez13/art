@@ -16,6 +16,41 @@
       "message": "I chose to put this in the ART repo since it is an SDK that is specifically for ART\u0027s use.",
       "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec28e735_206baac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-20T10:29:41Z",
+      "side": 1,
+      "message": "Unfortunately it doesn\u0027t work since this is on master-art where libstatssocket sources aren\u0027t available - even though the prebuilt isn\u0027t built on master-art Soong still complains about it.\n\nIt needs to be in a git project in platform, and then I think the best place is next to statsd-module-sdk in packages/modules/StatsD/apex.",
+      "parentUuid": "6a238546_2c90bfbf",
+      "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92946634_bb6e5de2",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-02-20T10:29:41Z",
+      "side": 1,
+      "message": "I filed b/180769414 for this. Please make sure there\u0027s a TODO pointing to that ticket for this module.",
+      "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
