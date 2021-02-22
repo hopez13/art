@@ -276,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f460eb_2ac14b10",
+        "filename": "odrefresh/TODO.md",
+        "patchSetId": 91
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-22T22:30:26Z",
+      "side": 1,
+      "message": "Markdown :-) Done",
+      "parentUuid": "a86ec8bf_a2aa13c3",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4941e023_779b73fe",
@@ -465,6 +489,30 @@
       "writtenOn": "2021-02-19T10:03:04Z",
       "side": 1,
       "message": "Can you add a comment for this method? Should it be \"GetSupportedInstructionSets\" ? Why does arm return {arm, arm64} ?",
+      "range": {
+        "startLine": 314,
+        "startChar": 44,
+        "endLine": 314,
+        "endChar": 62
+      },
+      "revId": "d327d21e6ed935afc30b061dc622a979fbc87f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d914e768_04955672",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 91
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-22T22:30:26Z",
+      "side": 1,
+      "message": "Done.\n\n\u003e Why does arm return {arm, arm64} ?\n\nIt makes the logic simpler in GetBootExtensionIsas() and GetSystemServerIsa() trivial, ie we don\u0027t need to care if there are one or two architectures. We also don\u0027t care if odrefresh is compiled 32-bit or 64-bit.",
+      "parentUuid": "c6a8979a_f8357f8e",
       "range": {
         "startLine": 314,
         "startChar": 44,

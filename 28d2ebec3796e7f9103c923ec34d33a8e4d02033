@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7a1f13_97efe89c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-22T22:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75e480e9_66703961",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 51
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b31fac69_8c5c9810",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-22T15:27:28Z",
       "side": 1,
       "message": "Does that mean --compile also checks?",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 96
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2bd98c4_6fce95ea",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-22T22:30:26Z",
+      "side": 1,
+      "message": "Yes, it\u0027s fast and avoids having to return and pass some reasonably complex data between odrefresh and odsign, ie what exactly is missing / out-of-date.",
+      "parentUuid": "b31fac69_8c5c9810",
       "range": {
         "startLine": 716,
         "startChar": 0,
