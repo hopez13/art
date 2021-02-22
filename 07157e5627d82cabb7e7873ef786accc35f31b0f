@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c5d495_f9b592af",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-02-22T15:49:12Z",
+      "side": 1,
+      "message": "You can define a nested class outside the enclosing class, so you didn\u0027t need to move the code (would have made smaller diff PS7 PS8) but both approaches are OK.",
+      "parentUuid": "eea756ce_2fd4de0b",
+      "range": {
+        "startLine": 2852,
+        "startChar": 2,
+        "endLine": 2852,
+        "endChar": 8
+      },
+      "revId": "07157e5627d82cabb7e7873ef786accc35f31b0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f4ea40a_ba417598",
