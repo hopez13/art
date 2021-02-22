@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df21e7a2_dc82df9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-22T21:33:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec28e735_206baac3",
+      "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92946634_bb6e5de2",
@@ -49,6 +67,24 @@
       "writtenOn": "2021-02-20T10:29:41Z",
       "side": 1,
       "message": "I filed b/180769414 for this. Please make sure there\u0027s a TODO pointing to that ticket for this module.",
+      "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56889b97_a49ab303",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-22T21:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92946634_bb6e5de2",
       "revId": "6a44ff944e67dd9167342ab8e9bfaba1830d0eb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
