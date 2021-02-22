@@ -16,6 +16,24 @@
       "message": "I\u0027m not too fond of moving code from oatdump (developer tool) to libart.so (code taking actual RAM on user devices).",
       "revId": "624336346398cd9dd20986e378e05a00618355c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be72484e_ea713236",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-02-22T14:45:26Z",
+      "side": 1,
+      "message": "It is not a lot of code.  \nI am happy to move it to the header.",
+      "parentUuid": "907db249_99a7347e",
+      "revId": "624336346398cd9dd20986e378e05a00618355c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
