@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea756ce_2fd4de0b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T15:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f375ca8_8964ecb5",
+      "range": {
+        "startLine": 2852,
+        "startChar": 2,
+        "endLine": 2852,
+        "endChar": 8
+      },
+      "revId": "07157e5627d82cabb7e7873ef786accc35f31b0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f4ea40a_ba417598",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-22T15:31:33Z",
       "side": 1,
       "message": "Initialize to -1, otherwise you\u0027re potentially closing arbitrary file descriptors in destructor for each that was not actually initialized in constructor.",
+      "range": {
+        "startLine": 2958,
+        "startChar": 2,
+        "endLine": 2961,
+        "endChar": 20
+      },
+      "revId": "07157e5627d82cabb7e7873ef786accc35f31b0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc77e87_17681cb8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2961,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T15:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f4ea40a_ba417598",
       "range": {
         "startLine": 2958,
         "startChar": 2,
