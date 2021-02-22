@@ -39,6 +39,30 @@
       },
       "revId": "810542be7c1f061d64e545a67e7fa17575da4792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e9014e_c1032f4d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3069,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-22T20:14:42Z",
+      "side": 1,
+      "message": "Ah, good idea. I think I\u0027ll save that for a follow up though.",
+      "parentUuid": "4f18dc2d_fc97fa3b",
+      "range": {
+        "startLine": 3069,
+        "startChar": 21,
+        "endLine": 3069,
+        "endChar": 26
+      },
+      "revId": "810542be7c1f061d64e545a67e7fa17575da4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
