@@ -93,6 +93,30 @@
       },
       "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1962d0_6562625e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T22:41:02Z",
+      "side": 1,
+      "message": "I see - so if we need to recompile, we end up doing the check twice, right? One for when odsign asks odrefresh to check, and one when odsign asks odrefresh to compile. Is the overhead marginal? Could we save some time by only invoking --compile with somehow returning a list of what files got regenerated?",
+      "parentUuid": "f2bd98c4_6fce95ea",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 96
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

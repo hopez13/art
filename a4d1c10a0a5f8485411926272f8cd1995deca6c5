@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93273797_ebdea6d8",
+        "filename": "odrefresh/odr_artifacts.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T22:41:02Z",
+      "side": 1,
+      "message": "Nit: add high-level comment.",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6152920_4af340ad",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T22:41:02Z",
+      "side": 1,
+      "message": "Add high-level comment.",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0174fa9a_da603c44",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T22:41:02Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cc67fdc_88985556",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T22:41:02Z",
+      "side": 1,
+      "message": "Can you add a comment about why a 32bit variant (kArm or kX86) also returns the 64bit variant?",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
