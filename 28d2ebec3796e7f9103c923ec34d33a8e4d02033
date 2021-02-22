@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e480e9_66703961",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T15:27:28Z",
+      "side": 1,
+      "message": "Move this to a gtest as well? (following your other comment below about also moving some CHECKs to a gtest)",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 51
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31fac69_8c5c9810",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-22T15:27:28Z",
+      "side": 1,
+      "message": "Does that mean --compile also checks?",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 96
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
