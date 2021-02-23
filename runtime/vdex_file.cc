@@ -200,6 +200,35 @@ std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
     vdex->AllowWriting(false);
   }
 
+  size_t targetSize = 0;
+  Runtime* const runtime = Runtime::Current();
+  int64_t madviseSizeLimit = runtime->GetMadviseWillNeedSizeVdex();
+  if (madviseSizeLimit < 0) {
+    targetSize = vdex->Size();
+  } else if (madviseSizeLimit > 0) {
+    targetSize = std::min<size_t>(vdex->Size(), (size_t)madviseSizeLimit);
+  }
+
+  if (targetSize > 0) {
+    ScopedTrace madvisingTrace("madvising " + vdex_filename + "size=" + std::to_string(targetSize));
+    const uint8_t* mapBegin = vdex->Begin();
+    const uint8_t* mapEnd = vdex->End();
+
+    // Based on requested size (targetSize)
+    const uint8_t* targetPos = mapBegin + targetSize;
+    // Clamp endOfFile if its past mapEnd
+    if (mapEnd < targetPos) {
+      targetPos = mapEnd;
+    }
+
+    static constexpr size_t idealIoTransferSizeKb = 128*1024;
+    for (const uint8_t *madviseStart = mapBegin; madviseStart < targetPos; madviseStart += idealIoTransferSizeKb) {
+      void *madviseAddr = const_cast<void*>(reinterpret_cast<const void*>(madviseStart));
+      size_t madviseLength = std::min(idealIoTransferSizeKb, (size_t)(targetPos - madviseStart));
+      madvise(madviseAddr, madviseLength, MADV_WILLNEED);
+    }
+  }
+
   return vdex;
 }
 
