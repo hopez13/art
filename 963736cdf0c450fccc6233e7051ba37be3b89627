@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3eaaab46_272a6247",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-23T21:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64885f4a_ba955017",
+      "range": {
+        "startLine": 2367,
+        "startChar": 0,
+        "endLine": 2372,
+        "endChar": 9
+      },
+      "revId": "963736cdf0c450fccc6233e7051ba37be3b89627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a24454da_77c8bf81",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-23T11:17:24Z",
       "side": 1,
       "message": "This wouldn\u0027t be necessary using android::base:unique_fd, same with assignment of -1.",
+      "range": {
+        "startLine": 2389,
+        "startChar": 0,
+        "endLine": 2391,
+        "endChar": 7
+      },
+      "revId": "963736cdf0c450fccc6233e7051ba37be3b89627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2dd4f59_2987097c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-23T21:51:58Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a24454da_77c8bf81",
       "range": {
         "startLine": 2389,
         "startChar": 0,
