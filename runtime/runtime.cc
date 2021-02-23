@@ -284,6 +284,9 @@ Runtime::Runtime()
       experimental_flags_(ExperimentalFlags::kNone),
       oat_file_manager_(nullptr),
       is_low_memory_mode_(false),
+      madvise_size_for_vdex_(0),
+      madvise_size_for_odex_(0),
+      madvise_size_for_art_(0),
       safe_mode_(false),
       hidden_api_policy_(hiddenapi::EnforcementPolicy::kDisabled),
       core_platform_api_policy_(hiddenapi::EnforcementPolicy::kDisabled),
@@ -3112,6 +3115,36 @@ void Runtime::ProcessWeakClass(GcRoot<mirror::Class>* root_ptr,
     } else {
       // The class loader is not live, clear the entry.
       *root_ptr = GcRoot<mirror::Class>(update);
+    }
+  }
+}
+
+void Runtime::MadviseFileForRange(int64_t madvise_size_limit, size_t map_size,
+                                  const uint8_t* map_begin, const uint8_t* map_end,
+                                  const std::string& file_name) {
+  size_t target_size = 0;
+  if (madvise_size_limit < 0) {
+    target_size = map_size;
+  } else if (madvise_size_limit > 0) {
+    target_size = std::min<size_t>(map_size, madvise_size_limit);
+  }
+
+  if (target_size > 0) {
+    ScopedTrace madvising_trace("madvising " + file_name + "size="+ std::to_string(target_size));
+    // Based on requested size (target_size)
+    const uint8_t* target_pos = map_begin + target_size;
+
+    // Clamp endOfFile if its past map_end
+    if (target_pos < map_end) {
+        target_pos = map_end;
+    }
+
+    for (const uint8_t* madvise_start = map_begin; madvise_start < target_pos;
+         madvise_start += idealIoTransferSizeKb) {
+      void *madvise_addr = const_cast<void*>(reinterpret_cast<const void*>(madvise_start));
+      size_t madvise_length = std::min(idealIoTransferSizeKb,
+                                      static_cast<size_t>(target_pos - madvise_start));
+      madvise(madvise_addr, madvise_length, MADV_WILLNEED);
     }
   }
 }

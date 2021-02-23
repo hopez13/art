@@ -291,6 +291,9 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
                                             jint runtime_flags,
                                             jboolean is_system_server,
                                             jboolean is_zygote,
+                                            jlong madvise_size_vdex,
+                                            jlong madvise_size_odex,
+                                            jlong madvise_size_art,
                                             jstring instruction_set) {
   DCHECK(!(is_system_server && is_zygote));
   // Set the runtime state as the first thing, in case JIT and other services
@@ -304,6 +307,10 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   hiddenapi::EnforcementPolicy api_enforcement_policy = hiddenapi::EnforcementPolicy::kDisabled;
 
   Runtime* runtime = Runtime::Current();
+
+  runtime->SetMadviseWillNeedSizeVdex(madvise_size_vdex);
+  runtime->SetMadviseWillNeedSizeOdex(madvise_size_odex);
+  runtime->SetMadviseWillNeedSizeArt(madvise_size_art);
 
   if ((runtime_flags & DISABLE_VERIFIER) != 0) {
     runtime->DisableVerifier();
@@ -446,7 +453,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
   NATIVE_METHOD(ZygoteHooks, nativePostZygoteFork, "()V"),
   NATIVE_METHOD(ZygoteHooks, nativePostForkSystemServer, "(I)V"),
-  NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZZLjava/lang/String;)V"),
+  NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZZJJJLjava/lang/String;)V"),
   NATIVE_METHOD(ZygoteHooks, nativeZygoteJitEnabled, "()Z"),
   NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
   NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),

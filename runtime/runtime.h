@@ -885,6 +885,30 @@ class Runtime {
     return madvise_random_access_;
   }
 
+  size_t GetMadviseWillNeedSizeVdex() const {
+    return madvise_size_for_vdex_;
+  }
+
+  void SetMadviseWillNeedSizeVdex(uint32_t size) {
+    madvise_size_for_vdex_ = size;
+  }
+
+  size_t GetMadviseWillNeedSizeOdex() const {
+    return madvise_size_for_odex_;
+  }
+
+  void SetMadviseWillNeedSizeOdex(int64_t size) {
+    madvise_size_for_odex_ = size;
+  }
+
+  size_t GetMadviseWillNeedSizeArt() const {
+    return madvise_size_for_art_;
+  }
+
+  void SetMadviseWillNeedSizeArt(int64_t size) {
+    madvise_size_for_art_ = size;
+  }
+
   const std::string& GetJdwpOptions() {
     return jdwp_options_;
   }
@@ -966,6 +990,10 @@ class Runtime {
   bool GetOatFilesExecutable() const;
 
   metrics::ArtMetrics* GetMetrics() { return &metrics_; }
+
+  static void MadviseFileForRange(int64_t madvise_size_limit, size_t map_size,
+                                   const uint8_t* map_begin, const uint8_t* map_end,
+                                   const std::string& file_name);
 
  private:
   static void InitPlatformSignalHandlers();
@@ -1230,6 +1258,15 @@ class Runtime {
   // This is beneficial for low RAM devices since it reduces page cache thrashing.
   bool madvise_random_access_;
 
+  // Madvise size limit for vdex file
+  int64_t madvise_size_for_vdex_;
+
+  // Madvise size limit for odex file
+  int64_t madvise_size_for_odex_;
+
+  // Madvise size limit for art file
+  int64_t madvise_size_for_art_;
+
   // Whether the application should run in safe mode, that is, interpreter only.
   bool safe_mode_;
 
@@ -1282,6 +1319,9 @@ class Runtime {
   // Set to false in cases where we want to directly control when jni-id
   // indirection is changed. This is intended only for testing JNI id swapping.
   bool automatically_set_jni_ids_indirection_;
+
+  // Ideal blockTransferSize for madvising files
+  static constexpr size_t idealIoTransferSizeKb = 128*1024;
 
   // Saved environment.
   class EnvSnapshot {
