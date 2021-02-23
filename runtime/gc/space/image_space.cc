@@ -964,6 +964,34 @@ class ImageSpace::Loader {
         return MemMap::Invalid();
       }
 
+      size_t targetSize = 0;
+      Runtime* const runtime = Runtime::Current();
+      int64_t madviseSizeLimit = runtime->GetMadviseWillNeedSizeArt();
+      if (madviseSizeLimit < 0) {
+        targetSize = temp_map.Size();
+      } else if (madviseSizeLimit > 0) {
+        targetSize = std::min<size_t>(temp_map.Size(), (size_t)madviseSizeLimit);
+      }
+      if (targetSize > 0) {
+        ScopedTrace madvisingTrace("madvising " + std::string(image_filename) + "size=" + std::to_string(targetSize));
+
+        const uint8_t* mapBegin = temp_map.Begin();
+        const uint8_t* mapEnd = temp_map.End();
+
+        // Based on requested size (targetSize)
+        const uint8_t* targetPos = mapBegin + targetSize;
+        // Clamp targetPos if its past mapEnd
+        if (targetPos < mapEnd)
+          targetPos = mapEnd;
+
+        static constexpr size_t idealIoTransferSizeKb = 128*1024;
+        for (const uint8_t *madviseStart = mapBegin; madviseStart < targetPos; madviseStart += idealIoTransferSizeKb) {
+          void *madviseAddr = const_cast<void*>(reinterpret_cast<const void*>(madviseStart));
+          size_t madviseLength = std::min(idealIoTransferSizeKb, (size_t)(targetPos - madviseStart));
+          madvise(madviseAddr, madviseLength, MADV_WILLNEED);
+        }
+      }
+
       if (is_compressed) {
         memcpy(map.Begin(), &image_header, sizeof(ImageHeader));
 
