@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c1f3e87_ec6b43b4",
+        "filename": "odrefresh/odr_artifacts.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-23T12:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93273797_ebdea6d8",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6152920_4af340ad",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-02-22T22:41:02Z",
       "side": 1,
       "message": "Add high-level comment.",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed699f41_af6dde38",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-23T12:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6152920_4af340ad",
       "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7162411b_3fd38fc4",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-23T12:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0174fa9a_da603c44",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cc67fdc_88985556",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-02-22T22:41:02Z",
       "side": 1,
       "message": "Can you add a comment about why a 32bit variant (kArm or kX86) also returns the 64bit variant?",
+      "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfae2de7_db026b2e",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 93
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-23T12:08:11Z",
+      "side": 1,
+      "message": "Changed to return InstructionSet::kNone for the 64-bit.  Added hard fails to GetSystemServerIsa() and GetBootExtensionIsas().",
+      "parentUuid": "3cc67fdc_88985556",
       "revId": "a4d1c10a0a5f8485411926272f8cd1995deca6c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

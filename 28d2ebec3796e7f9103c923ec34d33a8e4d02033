@@ -117,6 +117,30 @@
       },
       "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a963cdad_4b6eebf8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 92
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-23T12:08:11Z",
+      "side": 1,
+      "message": "Recompilation takes 15s-60s typically. The time to check artifacts is ~0.5s. In the workflow of manually testing this code, the check step is not noticeable.\n\nThe proposal is:\n\n`odrefresh --check` to write a file / socket / fd that lists out of date artifacts.\n\n`odrefresh --compile` to consume that list (possibly as a command-line argument).\n\nIt might make sense for odrefresh to write a file to the kOdrefreshArtifactDirectory that describes coarse actions (compile bcp for \u003carch\u003e, compile system_server for \u003carch\u003e) rather than passing the state back to `odsign` and have it pass it back to `odrefresh`. The latter approach seems fragile here and creates more contract between the module and the platform.\n\nGiven the relative costs and other things that need to be addressed (ie space checking, invocation throttling, metrics, tests) this seems somewhat lower priority that getting to MVP.",
+      "parentUuid": "5b1962d0_6562625e",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 96
+      },
+      "revId": "28d2ebec3796e7f9103c923ec34d33a8e4d02033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
