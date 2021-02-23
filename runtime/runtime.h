@@ -885,6 +885,30 @@ class Runtime {
     return madvise_random_access_;
   }
 
+  size_t GetMadviseWillNeedSizeVdex() const {
+    return madvise_size_for_vdex_;
+  }
+
+  void SetMadviseWillNeedSizeVdex(uint32_t size) {
+    madvise_size_for_vdex_ = size;
+  }
+
+  size_t GetMadviseWillNeedSizeOdex() const {
+    return madvise_size_for_odex_;
+  }
+
+  void SetMadviseWillNeedSizeOdex(int64_t size) {
+    madvise_size_for_odex_ = size;
+  }
+
+  size_t GetMadviseWillNeedSizeArt() const {
+    return madvise_size_for_art_;
+  }
+
+  void SetMadviseWillNeedSizeArt(int64_t size) {
+    madvise_size_for_art_ = size;
+  }
+
   const std::string& GetJdwpOptions() {
     return jdwp_options_;
   }
@@ -1229,6 +1253,15 @@ class Runtime {
   // Whether or not we use MADV_RANDOM on files that are thought to have random access patterns.
   // This is beneficial for low RAM devices since it reduces page cache thrashing.
   bool madvise_random_access_;
+
+  // Madvise size limit for vdex file
+  int64_t madvise_size_for_vdex_;
+
+  // Madvise size limit for odex file
+  int64_t madvise_size_for_odex_;
+
+  // Madvise size limit for art file
+  int64_t madvise_size_for_art_;
 
   // Whether the application should run in safe mode, that is, interpreter only.
   bool safe_mode_;

@@ -1693,6 +1693,35 @@ OatFile* OatFile::Open(int zip_fd,
                                                                  reservation,
                                                                  error_msg);
   if (with_dlopen != nullptr) {
+    size_t targetSize = 0;
+    Runtime* const runtime = Runtime::Current();
+    int64_t madviseSizeLimit = runtime->GetMadviseWillNeedSizeOdex();
+    if (madviseSizeLimit < 0) {
+      targetSize = with_dlopen->Size();
+    } else if (madviseSizeLimit > 0) {
+      targetSize = std::min<size_t>(with_dlopen->Size(),
+                                madviseSizeLimit);
+    }
+
+    if (targetSize > 0) {
+      ScopedTrace madvisingTrace("madvising " + oat_location + "size="+ std::to_string(targetSize));
+      const uint8_t* mapBegin = with_dlopen->Begin();
+      const uint8_t* mapEnd = with_dlopen->End();
+
+      // Based on requested size (targetSize)
+      const uint8_t* targetPos = mapBegin + targetSize;
+      // Clamp endOfFile if its past mapEnd
+      if (targetPos < mapEnd) {
+        targetPos = mapEnd;
+      }
+
+      static constexpr size_t idealIoTransferSizeKb = 128*1024;
+      for (const uint8_t *madviseStart = mapBegin; madviseStart < targetPos; madviseStart += idealIoTransferSizeKb) {
+        void *madviseAddr = const_cast<void*>(reinterpret_cast<const void*>(madviseStart));
+        size_t madviseLength = std::min(idealIoTransferSizeKb, (size_t)(targetPos - madviseStart));
+        madvise(madviseAddr, madviseLength, MADV_WILLNEED);
+      }
+    }
     return with_dlopen;
   }
   if (kPrintDlOpenErrorMessage) {
