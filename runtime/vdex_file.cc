@@ -198,7 +198,15 @@ std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
 
   if (!writable) {
     vdex->AllowWriting(false);
+    Runtime* const runtime = Runtime::Current();
+    size_t madvise_size_limit = runtime->GetMadviseWillNeedSizeVdex();
+    Runtime::MadviseFileForRange(madvise_size_limit,
+                                 vdex->Size(),
+                                 vdex->Begin(),
+                                 vdex->End(),
+                                 vdex_filename);
   }
+
 
   return vdex;
 }
