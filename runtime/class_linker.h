@@ -22,6 +22,7 @@
 #include <set>
 #include <string>
 #include <type_traits>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -802,27 +803,20 @@ class ClassLinker {
 
   struct DexCacheData {
     // Construct an invalid data object.
-    DexCacheData()
-        : weak_root(nullptr),
-          dex_file(nullptr),
-          class_table(nullptr) { }
-
-    // Check if the data is valid.
-    bool IsValid() const {
-      return dex_file != nullptr;
-    }
+    DexCacheData() : weak_root(nullptr), class_table(nullptr) { }
+    DexCacheData(DexCacheData&&) = default;
 
     // Weak root to the DexCache. Note: Do not decode this unnecessarily or else class unloading may
     // not work properly.
     jweak weak_root;
-    // The following field caches the DexCache's field here to avoid unnecessary jweak decode that
-    // triggers read barriers (and marks them alive unnecessarily and messes with class unloading.)
-    const DexFile* dex_file;
     // Identify the associated class loader's class table. This is used to make sure that
     // the Java call to native DexCache.setResolvedType() inserts the resolved type in that
     // class table. It is also used to make sure we don't register the same dex cache with
     // multiple class loaders.
     ClassTable* class_table;
+
+   private:
+    DISALLOW_COPY_AND_ASSIGN(DexCacheData);
   };
 
   // Forces a class to be marked as initialized without actually running initializers. Should only
@@ -1090,7 +1084,7 @@ class ClassLinker {
       REQUIRES(Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   const DexCacheData* FindDexCacheDataLocked(const DexFile& dex_file)
-      REQUIRES(Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   static ObjPtr<mirror::DexCache> DecodeDexCacheLocked(Thread* self, const DexCacheData* data)
       REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_);
@@ -1231,7 +1225,7 @@ class ClassLinker {
   size_t GetDexCacheCount() REQUIRES_SHARED(Locks::mutator_lock_, Locks::dex_lock_) {
     return dex_caches_.size();
   }
-  const std::list<DexCacheData>& GetDexCachesData()
+  const std::unordered_map<const DexFile*, DexCacheData>& GetDexCachesData()
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::dex_lock_) {
     return dex_caches_;
   }
@@ -1345,7 +1339,7 @@ class ClassLinker {
 
   // JNI weak globals and side data to allow dex caches to get unloaded. We lazily delete weak
   // globals when we register new dex files.
-  std::list<DexCacheData> dex_caches_ GUARDED_BY(Locks::dex_lock_);
+  std::unordered_map<const DexFile*, DexCacheData> dex_caches_ GUARDED_BY(Locks::dex_lock_);
 
   // This contains the class loaders which have class tables. It is populated by
   // InsertClassTableForClassLoader.
