@@ -2276,6 +2276,7 @@ class Dex2Oat final {
         (kIsDebugBuild && timings_->GetTotalNs() > MsToNs(1000))) {
       LOG(INFO) << Dumpable<TimingLogger>(*timings_);
     }
+    GetMetrics()->Dex2OatCompileTotalTime()->Add(timings_->GetTotalNs());
   }
 
   bool IsImage() const {

@@ -37,7 +37,8 @@
 // COUNTER(counter_name)
 #define ART_COUNTERS(COUNTER)    \
   COUNTER(ClassLoadingTotalTime) \
-  COUNTER(ClassVerificationTotalTime)
+  COUNTER(ClassVerificationTotalTime) \
+  COUNTER(Dex2OatCompileTotalTime)
 
 // HISTOGRAM(counter_name, num_buckets, minimum_value, maximum_value)
 //
