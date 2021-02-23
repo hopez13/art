@@ -1693,6 +1693,13 @@ OatFile* OatFile::Open(int zip_fd,
                                                                  reservation,
                                                                  error_msg);
   if (with_dlopen != nullptr) {
+    Runtime* const runtime = Runtime::Current();
+    size_t madvise_size_limit = runtime->GetMadviseWillNeedSizeOdex();
+    Runtime::MadviseFileForRange(madvise_size_limit,
+                                 with_dlopen->Size(),
+                                 with_dlopen->Begin(),
+                                 with_dlopen->End(),
+                                 oat_location);
     return with_dlopen;
   }
   if (kPrintDlOpenErrorMessage) {
