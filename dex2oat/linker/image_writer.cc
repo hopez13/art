@@ -1200,7 +1200,8 @@ std::vector<ObjPtr<mirror::DexCache>> ImageWriter::FindDexCaches(Thread* self) {
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ReaderMutexLock mu2(self, *Locks::dex_lock_);
   dex_caches.reserve(class_linker->GetDexCachesData().size());
-  for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
+  for (const auto& it : class_linker->GetDexCachesData()) {
+    const ClassLinker::DexCacheData& data = it.second;
     if (self->IsJWeakCleared(data.weak_root)) {
       continue;
     }
@@ -1251,7 +1252,8 @@ ObjPtr<mirror::ObjectArray<mirror::Object>> ImageWriter::CollectDexCaches(Thread
   {
     ReaderMutexLock mu(self, *Locks::dex_lock_);
     // Count number of dex caches not in the boot image.
-    for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
+    for (const auto& it : class_linker->GetDexCachesData()) {
+      const ClassLinker::DexCacheData& data = it.second;
       ObjPtr<mirror::DexCache> dex_cache =
           ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
       if (dex_cache == nullptr) {
@@ -1268,23 +1270,11 @@ ObjPtr<mirror::ObjectArray<mirror::Object>> ImageWriter::CollectDexCaches(Thread
   CHECK(dex_caches != nullptr) << "Failed to allocate a dex cache array.";
   {
     ReaderMutexLock mu(self, *Locks::dex_lock_);
-    size_t non_image_dex_caches = 0;
+    // Sort the dex caches by location to ensure deterministic order.
+    std::map<std::string_view, ObjPtr<mirror::DexCache>> non_image_dex_caches;
     // Re-count number of non image dex caches.
-    for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
-      ObjPtr<mirror::DexCache> dex_cache =
-          ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
-      if (dex_cache == nullptr) {
-        continue;
-      }
-      const DexFile* dex_file = dex_cache->GetDexFile();
-      if (IsImageDexCache(dex_cache)) {
-        non_image_dex_caches += image_dex_files.find(dex_file) != image_dex_files.end() ? 1u : 0u;
-      }
-    }
-    CHECK_EQ(dex_cache_count, non_image_dex_caches)
-        << "The number of non-image dex caches changed.";
-    size_t i = 0;
-    for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
+    for (const auto& it : class_linker->GetDexCachesData()) {
+      const ClassLinker::DexCacheData& data = it.second;
       ObjPtr<mirror::DexCache> dex_cache =
           ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
       if (dex_cache == nullptr) {
@@ -1293,9 +1283,14 @@ ObjPtr<mirror::ObjectArray<mirror::Object>> ImageWriter::CollectDexCaches(Thread
       const DexFile* dex_file = dex_cache->GetDexFile();
       if (IsImageDexCache(dex_cache) &&
           image_dex_files.find(dex_file) != image_dex_files.end()) {
-        dex_caches->Set<false>(i, dex_cache.Ptr());
-        ++i;
+        non_image_dex_caches.emplace(dex_file->GetLocation(), dex_cache);
       }
+    }
+    CHECK_EQ(dex_cache_count, non_image_dex_caches.size())
+        << "The number of non-image dex caches changed.";
+    size_t i = 0;
+    for (const auto& it : non_image_dex_caches) {
+      dex_caches->Set<false>(i++, it.second.Ptr());
     }
   }
   return dex_caches;
@@ -2095,7 +2090,8 @@ void ImageWriter::LayoutHelper::VerifyImageBinSlotsAssigned() {
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     Thread* self = Thread::Current();
     ReaderMutexLock mu(self, *Locks::dex_lock_);
-    for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
+    for (const auto& it : class_linker->GetDexCachesData()) {
+      const ClassLinker::DexCacheData& data = it.second;
       ObjPtr<mirror::DexCache> dex_cache =
           ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
       if (dex_cache == nullptr ||
