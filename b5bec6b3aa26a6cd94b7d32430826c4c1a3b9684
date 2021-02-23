@@ -22,6 +22,30 @@
       },
       "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c776bf7_10f8340a",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-23T12:51:53Z",
+      "side": 1,
+      "message": "This is submitted. Change to perfetto/heap_profile.h to fix  the build.",
+      "parentUuid": "9d7fe57e_11176672",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
