@@ -111,6 +111,9 @@
     },
     {
       "name": "art-run-test-047-returns[com.google.android.art.apex]"
+    },
+    {
+      "name": "art-run-test-048-reflect-v8[com.google.android.art.apex]"
     }
   ],
   "presubmit": [
@@ -977,12 +980,12 @@
     },
     {
       "name": "art-run-test-572-checker-array-get-regression"
+    },
+    {
+      "name": "art-run-test-573-checker-checkcast-regression"
     }
   ],
   "postsubmit": [
-    {
-      "name": "art-run-test-573-checker-checkcast-regression"
-    },
     {
       "name": "art-run-test-576-polymorphic-inlining"
     },
@@ -1261,6 +1264,9 @@
     },
     {
       "name": "art-run-test-818-clinit-nterp"
+    },
+    {
+      "name": "art-run-test-821-madvise-willneed"
     },
     {
       "name": "art-run-test-963-default-range-smali"
