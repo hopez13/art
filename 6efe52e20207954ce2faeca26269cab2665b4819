@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f12e4f_fda21c2c",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:30:11Z",
+      "side": 1,
+      "message": "I find this hard to read. Could you use the ternary as:\n\n((class_flags \u0026 mirror::kClassFlagPhantomReference) !\u003d 0)\n    ? nullptr\n    : reference_process-\u003eGetReferent(...)",
+      "range": {
+        "startLine": 116,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 60
+      },
+      "revId": "6efe52e20207954ce2faeca26269cab2665b4819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
