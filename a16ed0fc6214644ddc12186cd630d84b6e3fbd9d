@@ -39,6 +39,30 @@
       },
       "revId": "a16ed0fc6214644ddc12186cd630d84b6e3fbd9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d6ba4c_e317510b",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-24T19:52:28Z",
+      "side": 1,
+      "message": "I just thought that this way if ever in the future the counter has to be anything other than 64-bit, then implementing it this way would be much cleaner and re-usable.",
+      "parentUuid": "bd28a765_4d923de4",
+      "range": {
+        "startLine": 203,
+        "startChar": 48,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "a16ed0fc6214644ddc12186cd630d84b6e3fbd9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
