@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abceb671_07bbca8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T09:11:15Z",
+      "side": 1,
+      "message": "Is that the motivation of this CL or is there something else? Do we have known performance issues around that lookup?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbaba826_170a3b45",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T09:11:15Z",
+      "side": 1,
+      "message": "Can you be more explicit on how the sorting happens?",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1274,
+        "endChar": 78
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
