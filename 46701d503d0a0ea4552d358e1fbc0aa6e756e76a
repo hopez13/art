@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8da41bac_31141e7b",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-24T11:42:02Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I renamed it as `ADVISORY`, following suggestions from go/pystyle#naming. I also rename `me` as `ME` line 32.",
+      "parentUuid": "145c60b0_c4b3d64e",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "46701d503d0a0ea4552d358e1fbc0aa6e756e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2014657f_d64b0f7c",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-24T08:03:44Z",
       "side": 1,
       "message": "Optional: this could have a separate XML_INDENT as this probably fits some style that an (unlikely) change to INDENT would break.",
+      "range": {
+        "startLine": 528,
+        "startChar": 31,
+        "endLine": 528,
+        "endChar": 50
+      },
+      "revId": "46701d503d0a0ea4552d358e1fbc0aa6e756e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e23678_3942174c",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-24T11:42:02Z",
+      "side": 1,
+      "message": "Good idea; implemented in PS2.",
+      "parentUuid": "2014657f_d64b0f7c",
       "range": {
         "startLine": 528,
         "startChar": 31,
