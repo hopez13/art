@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "deb49af3_7379e7ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-24T20:18:08Z",
+      "side": 1,
+      "message": "Totally agree with you. I\u0027ll add this in the commit message.",
+      "parentUuid": "ee917297_f350805b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "fa4c2fd2ef98e3bddd5e20a9c3055593c58ea804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2790b77b_592b9f4f",
         "filename": "runtime/native/java_lang_reflect_Field.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2021-02-24T19:54:00Z",
       "side": 1,
       "message": "I think we need to do at least the PhanotmReference part of this unconditionally, right?",
+      "range": {
+        "startLine": 112,
+        "startChar": 12,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "fa4c2fd2ef98e3bddd5e20a9c3055593c58ea804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf1887e_5cff1564",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-24T20:18:08Z",
+      "side": 1,
+      "message": "I think you are right. How about making the whole Reference handling indifferent to whether we have a read-barrier based GC or not? Because to me it seems like going through getReferent for CMS wouldn\u0027t be wrong. The only reason I initially made it all conditional on kUseReadBarrier because otherwise we don\u0027t get impacted by this bug.\nBut on thinking about this, it seems like Reference.referent must be handled carefully, irrespective of what GC is being used. WDYT?",
+      "parentUuid": "2790b77b_592b9f4f",
       "range": {
         "startLine": 112,
         "startChar": 12,
