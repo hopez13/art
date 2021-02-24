@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "920013ea_01d176fe",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-24T19:42:34Z",
+      "side": 1,
+      "message": "Either way\u0027s fine with me. I think I like it slightly better without the casts.",
+      "parentUuid": "4edf6399_3ad9424c",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 19
+      },
+      "revId": "65edc3c48e6d81149e2a6fb458b98ca0777cdd76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eba0ff3e_02541145",

@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc69b1ff_0ae9c5d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-24T19:42:34Z",
+      "side": 1,
+      "message": "Looks good to me. I added a small comment, but feel free to leave the code as is.",
+      "revId": "a16ed0fc6214644ddc12186cd630d84b6e3fbd9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd28a765_4d923de4",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-24T19:42:34Z",
+      "side": 1,
+      "message": "What about instead of taking T as a parameter here, specializing MetricsBase at uint64_t?",
+      "range": {
+        "startLine": 203,
+        "startChar": 48,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "a16ed0fc6214644ddc12186cd630d84b6e3fbd9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
