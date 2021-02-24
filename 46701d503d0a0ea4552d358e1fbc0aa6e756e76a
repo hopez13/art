@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "145c60b0_c4b3d64e",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-24T08:03:44Z",
+      "side": 1,
+      "message": "nit: this is effectively an internal constant, suggest _CAPS.\n\nhttps://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "46701d503d0a0ea4552d358e1fbc0aa6e756e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2014657f_d64b0f7c",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-24T08:03:44Z",
+      "side": 1,
+      "message": "Optional: this could have a separate XML_INDENT as this probably fits some style that an (unlikely) change to INDENT would break.",
+      "range": {
+        "startLine": 528,
+        "startChar": 31,
+        "endLine": 528,
+        "endChar": 50
+      },
+      "revId": "46701d503d0a0ea4552d358e1fbc0aa6e756e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
