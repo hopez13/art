@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4edf6399_3ad9424c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-24T18:18:57Z",
+      "side": 1,
+      "message": "Interestingly using a ternary operator complains because the type of two operands is different, even though both inherit from the same base class, which is the type of lhs.\n\nI will either have to cast, or use the current code.\n\nI\u0027ve moved back to if..else in PS4. Please let me know if ternary operator with cast is preferred.",
+      "parentUuid": "6225432e_5a09fc0f",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 19
+      },
+      "revId": "65edc3c48e6d81149e2a6fb458b98ca0777cdd76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eba0ff3e_02541145",
