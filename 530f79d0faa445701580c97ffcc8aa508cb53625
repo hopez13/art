@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3e05c2_a061b909",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d75fbe2_00343d2e",
+      "range": {
+        "startLine": 168,
+        "startChar": 5,
+        "endLine": 168,
+        "endChar": 20
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e798fa49_ae8a2da1",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "Can you expand the comment to say why vdex is checked, but oat is not?",
+      "range": {
+        "startLine": 1676,
+        "startChar": 0,
+        "endLine": 1676,
+        "endChar": 53
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d5c5d6_2918638f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e798fa49_ae8a2da1",
       "range": {
         "startLine": 1676,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0ce09e_f8da35c9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Note this matches the wording line 423, which I think makes sense.\n\nVDEX has checksums on the dex file, which we check. However there\u0027s no need to encode boot image checksum in vdex files, as there\u0027s no dependency on them there.",
+      "parentUuid": "f66d418b_35e0e4b7",
+      "range": {
+        "startLine": 416,
+        "startChar": 4,
+        "endLine": 416,
+        "endChar": 84
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9beeed20_8c8a7e92",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "Some part of the code/comments have \"usable\", and some a more rare spelling \"useable\", it may be worth unifying for grepability.",
+      "range": {
+        "startLine": 645,
+        "startChar": 26,
+        "endLine": 645,
+        "endChar": 33
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e6b5b74_3df35855",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Funny, I noticed that too :) In the comments I try to use the same syntax as the code \"Useable\".",
+      "parentUuid": "9beeed20_8c8a7e92",
       "range": {
         "startLine": 645,
         "startChar": 26,
@@ -127,6 +223,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07f04a70_8670a876",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44454e4e_a8d28f69",
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38808f32_118135c5",
@@ -140,6 +254,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "Add a line:\n\n  // - the vdex-only file is not usable",
+      "range": {
+        "startLine": 678,
+        "startChar": 2,
+        "endLine": 678,
+        "endChar": 51
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71f27fce_e3fb2c43",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38808f32_118135c5",
       "range": {
         "startLine": 678,
         "startChar": 2,
@@ -173,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c0fb027_0b3d5699",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Yeah, AOT-compiled. The code in this file has gotten the .odex/.oat difference wrong, so I prefer saying AOT-compiled compared to .oat file.",
+      "parentUuid": "3dabacdf_b7d443e0",
+      "range": {
+        "startLine": 433,
+        "startChar": 9,
+        "endLine": 433,
+        "endChar": 12
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f531d5f6_166f0d04",
@@ -186,6 +348,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 435,
+        "startChar": 9,
+        "endLine": 435,
+        "endChar": 12
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09887d2d_2eba7b94",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f531d5f6_166f0d04",
       "range": {
         "startLine": 435,
         "startChar": 9,
@@ -219,6 +405,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48119264_c095afe0",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "I\u0027ve aded an example, but generally the reasons are described in the IsUseable method.",
+      "parentUuid": "2cee8fc9_c0fcb5d3",
+      "range": {
+        "startLine": 439,
+        "startChar": 2,
+        "endLine": 439,
+        "endChar": 68
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bedf910_414b6892",
@@ -232,6 +442,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bfe13db_269a7e52",
+        "filename": "test/820-vdex-multidex/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bedf910_414b6892",
       "range": {
         "startLine": 3,
         "startChar": 16,
@@ -265,6 +499,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5a68c7_5ce369f3",
+        "filename": "test/820-vdex-multidex/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06c9c8db_e9b3a2ba",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e44ab35_90b3b5ae",
@@ -288,6 +546,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8a48d4_baac19de",
+        "filename": "test/820-vdex-multidex/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Indeed :) This is me having copy-pasted the test 628-vdex and made it multidex. Done.",
+      "parentUuid": "7e44ab35_90b3b5ae",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cccf5242_439d247e",
@@ -301,6 +583,30 @@
       "writtenOn": "2021-02-24T13:31:31Z",
       "side": 1,
       "message": "Please add a comment why we remove the odex file.",
+      "range": {
+        "startLine": 996,
+        "startChar": 4,
+        "endLine": 996,
+        "endChar": 55
+      },
+      "revId": "530f79d0faa445701580c97ffcc8aa508cb53625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1efe78c_fe944b2b",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-02-24T22:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cccf5242_439d247e",
       "range": {
         "startLine": 996,
         "startChar": 4,
