@@ -151,6 +151,8 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
     CHECK(sweep_array_free_buffer_mem_map_.IsValid())
         << "Couldn't allocate sweep array free buffer: " << error_msg;
   }
+  gc_time_histogram_ = young_gen_ ? GetMetrics()->YoungGcCollectionTime()
+                                  : GetMetrics()->FullGcCollectionTime();
 }
 
 void ConcurrentCopying::MarkHeapReference(mirror::HeapReference<mirror::Object>* field,
