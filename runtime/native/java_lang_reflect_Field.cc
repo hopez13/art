@@ -109,14 +109,20 @@ ALWAYS_INLINE inline static bool GetFieldValue(const ScopedFastNativeObjectAcces
       if (kAllowReferences) {
         // We need to ensure that a Reference-type object's referent is fetched
         // via GetReferent and not directly using a read-barrier (See b/174433134)
-        if (kUseReadBarrier &&
-            UNLIKELY(o->IsReferenceInstance() && mirror::Reference::ReferentOffset() == offset)) {
-          value->SetL(Runtime::Current()->GetHeap()->GetReferenceProcessor()->GetReferent(
-                      soa.Self(), o->AsReference()));
-        } else {
-          value->SetL(is_volatile ? o->GetFieldObjectVolatile<mirror::Object>(offset) :
-                      o->GetFieldObject<mirror::Object>(offset));
+        if (kUseReadBarrier) {
+          const uint32_t class_flags = o->GetClass()->GetClassFlags();
+          if (UNLIKELY((class_flags & mirror::kClassFlagReference) != 0
+                       && mirror::Reference::ReferentOffset() == offset)) {
+            // PhantomReference's get() never return the referent. It always
+            // returns null.
+            value->SetL((class_flags & mirror::kClassFlagPhantomReference) != 0 ? nullptr :
+                        Runtime::Current()->GetHeap()->GetReferenceProcessor()->GetReferent(
+                                soa.Self(), o->AsReference()));
+            return true;
+          }
         }
+        value->SetL(is_volatile ? o->GetFieldObjectVolatile<mirror::Object>(offset) :
+                    o->GetFieldObject<mirror::Object>(offset));
         return true;
       }
       // Else break to report an error.
