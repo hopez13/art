@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec98afc2_d3b1b993",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-24T19:54:00Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "fa4c2fd2ef98e3bddd5e20a9c3055593c58ea804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee917297_f350805b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-24T19:54:00Z",
+      "side": 1,
+      "message": "My main concern is that this would otherwise make it possible to \"resurrect\" an object that\u0027s only reachable via a PhantomReference, violating what I would view as the defining property of PhantomReferences. I\u0027m not yet sure whether it breaks anything important in practice, but it makes me very nervous.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "fa4c2fd2ef98e3bddd5e20a9c3055593c58ea804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2790b77b_592b9f4f",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-02-24T19:54:00Z",
+      "side": 1,
+      "message": "I think we need to do at least the PhanotmReference part of this unconditionally, right?",
+      "range": {
+        "startLine": 112,
+        "startChar": 12,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "fa4c2fd2ef98e3bddd5e20a9c3055593c58ea804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
