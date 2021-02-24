@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80449c47_92c36291",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-24T20:29:52Z",
+      "side": 1,
+      "message": "I suggest you make this false and have a dedicated CL to set it to false. If there are issues, you don\u0027t have to revert the whole thing.",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "3bd974cb4f73f1f57175310dbbc7e40890b12fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
