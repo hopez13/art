@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a77ec8d_128fe298",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-25T23:56:08Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 429,
+        "startChar": 98,
+        "endLine": 429,
+        "endChar": 107
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a82c8588_ca4d6652",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-25T23:56:08Z",
+      "side": 1,
+      "message": "Hmm. Proto requiring optional is sort of a proto design. But these are not optional for us when we log. Correct? There\u0027s no reason to propagate proto poor design at code level. By proto poor design I mean the fact they require everything to be so called optional (not our proto in particular)",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060595a5_484bea5a",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-25T23:56:08Z",
+      "side": 1,
+      "message": "nit: fields go at the end",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 32
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db313ba4_05769b91",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-25T23:56:08Z",
+      "side": 1,
+      "message": "what is maybe_unsused?",
+      "range": {
+        "startLine": 247,
+        "startChar": 25,
+        "endLine": 247,
+        "endChar": 37
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
