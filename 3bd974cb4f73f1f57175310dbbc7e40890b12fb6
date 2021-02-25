@@ -22,6 +22,30 @@
       },
       "revId": "3bd974cb4f73f1f57175310dbbc7e40890b12fb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d4d0356_4b5405a5",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-25T05:17:11Z",
+      "side": 1,
+      "message": "In the course of all the rebasing, I also lost the command line argument for this. I\u0027ve added the command line argument but left statsd reporting off by default.",
+      "parentUuid": "80449c47_92c36291",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "3bd974cb4f73f1f57175310dbbc7e40890b12fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
