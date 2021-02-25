@@ -16,6 +16,24 @@
       "message": "Yu, Chen, is this the right approach to allow us to run the ART Mainline test plan with `mts-tradefed` in AOSP?",
       "revId": "2423dc6cae2b0dcaf7434ae63d392298898d3510",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9107ca_621dd491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368485
+      },
+      "writtenOn": "2021-02-25T21:01:22Z",
+      "side": 1,
+      "message": "Yes, that is right. You would also need to explicitly enable the controller in mts-art-tests-list-user.xml if haven\u0027t https://source.corp.google.com/android/test/mts/tools/mts-tradefed/res/config/mts-art-tests-list-user.xml as by default the controller is disabled in *TS that has the tests, which is intended. \n\nExample to enable the controller: https://source.corp.google.com/android/test/mts/tools/mts-tradefed/res/config/mts-statsd-tests-list-user.xml;l\u003d28",
+      "parentUuid": "8db5f1bf_2cf6e547",
+      "revId": "2423dc6cae2b0dcaf7434ae63d392298898d3510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
