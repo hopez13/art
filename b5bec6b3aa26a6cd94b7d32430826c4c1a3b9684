@@ -69,6 +69,29 @@
       },
       "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b576983_d6eec517",
+        "filename": "runtime/javaheapprof/javaheapsampler.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-25T20:15:14Z",
+      "side": 1,
+      "message": "driveby: geometric distribution is much slower than exponential (~4x), so for heapprofd we use exponential to approxiate.",
+      "range": {
+        "startLine": 91,
+        "startChar": 7,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
