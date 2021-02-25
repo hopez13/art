@@ -46,6 +46,29 @@
       },
       "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccbfe75_e87b2523",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-25T19:43:40Z",
+      "side": 1,
+      "message": "This should be the sample size.",
+      "range": {
+        "startLine": 69,
+        "startChar": 62,
+        "endLine": 69,
+        "endChar": 77
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
