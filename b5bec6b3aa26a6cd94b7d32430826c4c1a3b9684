@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9867c243_6d04c8fc",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-02-25T20:21:55Z",
+      "side": 1,
+      "message": "Actually, it\u0027s more complicated. You also need to deal with allocations that might have multiple samples.\n\nEssentially, you need to keep drawing numbers until you have covered the whole allocation. There should be some way to optimize this; we do that in heapprofd but the circumstances are a bit different there.",
+      "parentUuid": "4ccbfe75_e87b2523",
+      "range": {
+        "startLine": 69,
+        "startChar": 62,
+        "endLine": 69,
+        "endChar": 77
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6b576983_d6eec517",
