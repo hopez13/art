@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa82637_2d0d73d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-25T08:43:16Z",
+      "side": 1,
+      "message": "Test errors in the latest presubmits seem to be addressed by https://android-review.googlesource.com/c/platform/tools/tradefederation/+/1607113 (not yet landed, but tested in conjunction with this CL using Forrest). My Forrest run also uncovered other issues; I\u0027ll address them and will ping back this CL when done.",
+      "revId": "cfc3c6e16b48506e94589589dfbbe3d59573dd7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
