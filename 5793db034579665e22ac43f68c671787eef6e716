@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a840fcd7_7e5b59a8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-26T00:15:41Z",
+      "side": 1,
+      "message": "add an extra \"because we need to do the assignability type checks\"",
+      "parentUuid": "9b368513_d6843769",
+      "range": {
+        "startLine": 2011,
+        "startChar": 4,
+        "endLine": 2014,
+        "endChar": 0
+      },
+      "revId": "5793db034579665e22ac43f68c671787eef6e716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05e89445_61597166",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 4
