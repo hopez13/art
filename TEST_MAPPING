@@ -635,9 +635,7 @@
     },
     {
       "name": "art-run-test-471-deopt-environment"
-    }
-  ],
-  "postsubmit": [
+    },
     {
       "name": "art-run-test-472-type-propagation"
     },
@@ -922,7 +920,9 @@
     },
     {
       "name": "art-run-test-572-checker-array-get-regression"
-    },
+    }
+  ],
+  "postsubmit": [
     {
       "name": "art-run-test-573-checker-checkcast-regression"
     },
