@@ -91,6 +91,30 @@
       },
       "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3418ce21_48d0a4ba",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-02-26T09:43:09Z",
+      "side": 1,
+      "message": "C++17 https://en.cppreference.com/w/cpp/language/attributes/maybe_unused\n\nSome of these have already entered the ART code base, but the ART preference is ATTRIBUTE_UNUSED. However, A_U is not in the ART C++ style guide nor in the Google C++ guide. It was introduced on the side in a mega-commit. The Google C++ guide suggests with dropping the parameter name.\n\nThe place where ATTRIBUTE_UNUSED or [[maybe_unused]] is needed is when there is a conditional construct in the code, e.g. assert(histogram_type \u003d\u003d X);\n\nThree paths to a quiet compilation:\n\na) [[maybe_unused]] DatumId histogram_type,\nb) DatumId histogram_type ATTRIBUTE_UNUSED,\nc) DatumId /*histogram_type*/",
+      "parentUuid": "db313ba4_05769b91",
+      "range": {
+        "startLine": 247,
+        "startChar": 25,
+        "endLine": 247,
+        "endChar": 37
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
