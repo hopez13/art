@@ -34,6 +34,24 @@
       "parentUuid": "8db5f1bf_2cf6e547",
       "revId": "2423dc6cae2b0dcaf7434ae63d392298898d3510",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fedc3c70_26c23834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-26T14:56:48Z",
+      "side": 1,
+      "message": "\u003e Yes, that is right.\n\nThanks for the confirmation, Chen.\n\n\u003e You would also need to explicitly enable the controller in mts-art-tests-list-user.xml if haven\u0027t https://source.corp.google.com/android/test/mts/tools/mts-tradefed/res/config/mts-art-tests-list-user.xml as by default the controller is disabled in *TS that has the tests, which is intended. \n\u003e \n\u003e Example to enable the controller: https://source.corp.google.com/android/test/mts/tools/mts-tradefed/res/config/mts-statsd-tests-list-user.xml;l\u003d28\n\nWe do enable the controller for all tests included in the ART MTS test plan, and we even generated these lines automatically (https://cs.android.com/android/platform/superproject/+/master:art/test/utils/regen-test-files;l\u003d608-619;drc\u003d9a1a5a9ae8611c0eb7dd5bfaffc8682eea3ee7c7) since https://android-review.googlesource.com/c/platform/art/+/1603473.",
+      "parentUuid": "3a9107ca_621dd491",
+      "revId": "2423dc6cae2b0dcaf7434ae63d392298898d3510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
