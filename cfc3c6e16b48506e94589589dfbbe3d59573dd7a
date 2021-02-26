@@ -16,6 +16,24 @@
       "message": "Test errors in the latest presubmits seem to be addressed by https://android-review.googlesource.com/c/platform/tools/tradefederation/+/1607113 (not yet landed, but tested in conjunction with this CL using Forrest). My Forrest run also uncovered other issues; I\u0027ll address them and will ping back this CL when done.",
       "revId": "cfc3c6e16b48506e94589589dfbbe3d59573dd7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3225124d_600664cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-02-26T08:58:48Z",
+      "side": 1,
+      "message": "I landed https://android-review.googlesource.com/c/platform/tools/tradefederation/+/1608454 yesterday, which seems to address the remaining test issues, according to a Forrest run I made yesterday, that included both changes (https://android-review.googlesource.com/c/platform/art/+/1498842 and https://android-review.googlesource.com/c/platform/tools/tradefederation/+/1608454). Restarting TreeHugger.",
+      "parentUuid": "bfa82637_2d0d73d9",
+      "revId": "cfc3c6e16b48506e94589589dfbbe3d59573dd7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
