@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "809ef5ab_cfac192e",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-27T02:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a77ec8d_128fe298",
+      "range": {
+        "startLine": 429,
+        "startChar": 98,
+        "endLine": 429,
+        "endChar": 107
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a82c8588_ca4d6652",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d517fb6_13c8480c",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-27T02:05:51Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. I still think optional is a good idea here, but not for the reasons in the comment. I updated the comment.\n\nMy original idea for this class is that it was a C++ mirror of the ArtDatumReported proto, since libstatslog_art doesn\u0027t expose the raw proto. That doesn\u0027t really make sense here, because libstatslog_art doesn\u0027t actually use protos at runtime; it uses protos to generate its own custom logging format. In that format all the fields need to have values.\n\nBut, not every field will have a meaningful value all the time. For example, dex2oat metrics will add a couple more dimensions here which won\u0027t be meaningful during app execution. Vice-versa, some of these fields may not make sense for dex2oat.\n\nOptional lets us explicitly say \"we don\u0027t have meaningful data here\" so log a sentinel value to indicate that it\u0027s unspecified.",
+      "parentUuid": "a82c8588_ca4d6652",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "060595a5_484bea5a",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 6
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-25T23:56:08Z",
       "side": 1,
       "message": "nit: fields go at the end",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 32
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4ca42d_cc87256a",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-27T02:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "060595a5_484bea5a",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "C++17 https://en.cppreference.com/w/cpp/language/attributes/maybe_unused\n\nSome of these have already entered the ART code base, but the ART preference is ATTRIBUTE_UNUSED. However, A_U is not in the ART C++ style guide nor in the Google C++ guide. It was introduced on the side in a mega-commit. The Google C++ guide suggests with dropping the parameter name.\n\nThe place where ATTRIBUTE_UNUSED or [[maybe_unused]] is needed is when there is a conditional construct in the code, e.g. assert(histogram_type \u003d\u003d X);\n\nThree paths to a quiet compilation:\n\na) [[maybe_unused]] DatumId histogram_type,\nb) DatumId histogram_type ATTRIBUTE_UNUSED,\nc) DatumId /*histogram_type*/",
       "parentUuid": "db313ba4_05769b91",
+      "range": {
+        "startLine": 247,
+        "startChar": 25,
+        "endLine": 247,
+        "endChar": 37
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33196bf7_6ef268c1",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-27T02:05:51Z",
+      "side": 1,
+      "message": "I went with option C, since I like to keep the argument name around and we will eventually use them.",
+      "parentUuid": "3418ce21_48d0a4ba",
       "range": {
         "startLine": 247,
         "startChar": 25,
