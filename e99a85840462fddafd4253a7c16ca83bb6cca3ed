@@ -22,6 +22,30 @@
       },
       "revId": "e99a85840462fddafd4253a7c16ca83bb6cca3ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b359dd_65f09b22",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-02-27T00:26:17Z",
+      "side": 1,
+      "message": "I thought only the P0 in that list are being targeted right now. Eric can confirm that. If all are to be done then I can added another CL to include the rest.",
+      "parentUuid": "2437ffc6_cbcfacea",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "e99a85840462fddafd4253a7c16ca83bb6cca3ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
