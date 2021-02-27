@@ -46,6 +46,30 @@
       },
       "revId": "e99a85840462fddafd4253a7c16ca83bb6cca3ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a849eff_fe137e64",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-02-27T01:37:15Z",
+      "side": 1,
+      "message": "I think we eventually want all of them, I just wanted to make sure we get the P0 ones in first. Continuing to add the other ones in followup CLs sounds good to me.",
+      "parentUuid": "c7b359dd_65f09b22",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "e99a85840462fddafd4253a7c16ca83bb6cca3ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
