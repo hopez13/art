@@ -57,6 +57,7 @@
 #include "com_android_apex.h"
 #include "dexoptanalyzer.h"
 #include "exec_utils.h"
+#include "log/log_main.h"
 #include "palette/palette.h"
 #include "palette/palette_types.h"
 
@@ -122,6 +123,52 @@ static std::string QuotePath(std::string_view path) {
   return Concatenate({"'", path, "'"});
 }
 
+// Helper to temporarily remove umask(). init sets the umask of forked processed to
+// 077 (S_IRWXG | S_IRWXO) which blocks the ability to make files and directory world readable and
+// executable.
+class ScopedNoUmask final {
+ public:
+  ScopedNoUmask() : mode_{umask(0)} {}
+  ~ScopedNoUmask() { umask(mode_); }
+
+ private:
+  mode_t mode_;
+
+  ScopedNoUmask(const ScopedNoUmask&) = delete;
+  ScopedNoUmask& operator=(const ScopedNoUmask&) = delete;
+};
+
+static void EnsureFileModeEquals(const std::string& path, mode_t expected_mode) {
+  struct stat sb;
+  if (TEMP_FAILURE_RETRY(stat(path.c_str(), &sb)) != 0) {
+    const std::string error_msg =
+        android::base::StringPrintf("Could not stat(%s): %s", path.c_str(), strerror(errno));
+    LOG_ALWAYS_FATAL_IF(errno == EACCES, "%s", error_msg.c_str());
+    PLOG(WARNING) << error_msg;
+  }
+  mode_t mode = sb.st_mode & (S_IRWXU | S_IRWXG | S_IRWXO);
+  LOG_ALWAYS_FATAL_IF(
+      mode != expected_mode, "Bad mode for %s: %03o != %03o", path.c_str(), mode, expected_mode);
+}
+
+// Create all directory and all required parents.
+static void EnsureDirectoryExists(const std::string& absolute_path) {
+  CHECK(absolute_path.size() > 0 && absolute_path[0] == '/');
+
+  ScopedNoUmask snu;  // Drop the umask() set by init whilst creating directories.
+  std::string path;
+  for (const std::string& directory : android::base::Split(absolute_path, "/")) {
+    path.append("/").append(directory);
+    if (!OS::DirectoryExists(path.c_str())) {
+      static constexpr mode_t kDirectoryMode = S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+      if (mkdir(path.c_str(), kDirectoryMode) != 0) {
+        PLOG(FATAL) << "Could not create directory: " << path;
+      }
+      EnsureFileModeEquals(path, kDirectoryMode);
+    }
+  }
+}
+
 static void EraseFiles(const std::vector<std::unique_ptr<File>>& files) {
   for (auto& file : files) {
     file->Erase(/*unlink=*/true);
@@ -136,6 +183,7 @@ static void EraseFiles(const std::vector<std::unique_ptr<File>>& files) {
 // Returns true if all files are moved, false otherwise.
 static bool MoveOrEraseFiles(const std::vector<std::unique_ptr<File>>& files,
                              std::string_view output_directory_path) {
+  ScopedNoUmask snu;  // Drop the umask() set by init while moving artifacts.
   std::vector<std::unique_ptr<File>> output_files;
   for (auto& file : files) {
     const std::string file_basename(android::base::Basename(file->GetPath()));
@@ -173,6 +221,9 @@ static bool MoveOrEraseFiles(const std::vector<std::unique_ptr<File>>& files,
       EraseFiles(files);
       return false;
     }
+
+    static constexpr mode_t kFileMode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+    EnsureFileModeEquals(output_file_path.c_str(), kFileMode);
   }
   return true;
 }
@@ -646,20 +697,6 @@ class OnDeviceRefresh final {
     }
   }
 
-  // Create all directory and all required parents.
-  static void EnsureDirectoryExists(const std::string& absolute_path) {
-    CHECK(absolute_path.size() > 0 && absolute_path[0] == '/');
-    std::string path;
-    for (const std::string& directory : android::base::Split(absolute_path, "/")) {
-      path.append("/").append(directory);
-      if (!OS::DirectoryExists(path.c_str())) {
-        if (mkdir(path.c_str(), S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH) != 0) {
-          PLOG(FATAL) << "Could not create directory: " << path;
-        }
-      }
-    }
-  }
-
   static std::string GetBootImage() {
     // Typically "/apex/com.android.art/javalib/boot.art".
     return GetArtRoot() + "/javalib/boot.art";
@@ -1057,6 +1094,5 @@ class OnDeviceRefresh final {
 }  // namespace art
 
 int main(int argc, const char** argv) {
-  umask(0);
   return art::odrefresh::OnDeviceRefresh::main(argc, argv);
 }
