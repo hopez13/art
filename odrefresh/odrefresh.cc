@@ -1057,5 +1057,6 @@ class OnDeviceRefresh final {
 }  // namespace art
 
 int main(int argc, const char** argv) {
+  umask(0);
   return art::odrefresh::OnDeviceRefresh::main(argc, argv);
 }
