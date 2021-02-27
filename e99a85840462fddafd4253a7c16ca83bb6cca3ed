@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2437ffc6_cbcfacea",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-02-27T00:07:29Z",
+      "side": 1,
+      "message": "what about \n- number of GCs\n- total time run (is this full + young?)\n- total bytes freed\n- and the rest of gc-related from here: go/art-module-metrics",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "e99a85840462fddafd4253a7c16ca83bb6cca3ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
