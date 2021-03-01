@@ -1660,6 +1660,33 @@ OatFile* OatFile::Open(int zip_fd,
                                                                  reservation,
                                                                  error_msg);
   if (with_dlopen != nullptr) {
+    size_t target = 0;
+    Runtime* const runtime = Runtime::Current();
+    int64_t madviseSizeLimit = runtime->GetMadviseWillNeedSizeOdex();
+    if (madviseSizeLimit < 0) {
+      target = with_dlopen->Size();
+    } else if (madviseSizeLimit > 0) {
+      target = std::min<size_t>(with_dlopen->Size(),
+                                madviseSizeLimit);
+    }
+
+    if (target) {
+      ScopedTrace madvisingTrace("madvising " + oat_location + "size="+ std::to_string(target));
+      const uint8_t* targetBegin = with_dlopen->Begin();
+      const uint8_t* targetEnd = with_dlopen->End();
+
+      // Based on requested size (target)
+      const uint8_t* endOfFile = targetBegin + target;
+      // Clamp endOfFile if its past targetEnd
+      const uint8_t* endPos = (endOfFile) < targetEnd ?  endOfFile : targetEnd;
+
+      size_t idealIoTransferSizeKb = 128*1024;
+      for (size_t pos = 0; pos < target; pos += idealIoTransferSizeKb) {
+        const uint8_t* madviseStart = targetBegin + pos;
+        size_t madviseLength = std::min(idealIoTransferSizeKb, (size_t)(endPos - madviseStart));
+        madvise(reinterpret_cast<void*>(madviseStart(, madviseLength, MADV_WILLNEED);
+      }
+    }
     return with_dlopen;
   }
   if (kPrintDlOpenErrorMessage) {
