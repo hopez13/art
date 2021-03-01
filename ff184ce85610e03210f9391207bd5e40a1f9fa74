@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bac3b1e_d06bf373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359095
+      },
+      "writtenOn": "2021-03-01T18:19:55Z",
+      "side": 1,
+      "message": "PTAL\n\nWhen the LSC adds `LOCAL_NOTICE_FILE :\u003d $(LOCAL_PATH)/../NOTICE`, it ends up referencing an arbitrary, unrelated path (art/tools) that has no NOTICE file.",
+      "revId": "ff184ce85610e03210f9391207bd5e40a1f9fa74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
