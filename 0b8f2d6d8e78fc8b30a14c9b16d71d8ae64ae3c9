@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a479881_7d4154eb",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-01T23:54:00Z",
+      "side": 1,
+      "message": "I suggest you only make optional the fields that are truly optional from our logic point of view. 1 year down the road, someone using this API will see optionals here, and assume it actually is, which is not your intention here. An immediate example is: what\u0027s the usefulness of a metric with an optional value field?",
+      "parentUuid": "4d517fb6_13c8480c",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 73
+      },
+      "revId": "0b8f2d6d8e78fc8b30a14c9b16d71d8ae64ae3c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "060595a5_484bea5a",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 6
