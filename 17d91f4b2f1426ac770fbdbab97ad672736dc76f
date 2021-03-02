@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38eab54d_ddf3f62d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad744972_2bec27ff",
+      "range": {
+        "startLine": 973,
+        "startChar": 63,
+        "endLine": 973,
+        "endChar": 79
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64b58336_1aa2f68b",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae84d26_dc8b3cb5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b58336_1aa2f68b",
+      "range": {
+        "startLine": 976,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 117
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1969c67d_5247b89a",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-03-02T04:36:33Z",
       "side": 1,
       "message": "use a file level constant. check kMaxTotalImageReservationSize in this file for an example.",
+      "range": {
+        "startLine": 988,
+        "startChar": 32,
+        "endLine": 988,
+        "endChar": 53
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f40156ad_bd77c2c8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1969c67d_5247b89a",
       "range": {
         "startLine": 988,
         "startChar": 32,
@@ -150,6 +222,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "639926e0_42b803b3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569c16c7_1160c925",
+      "range": {
+        "startLine": 991,
+        "startChar": 100,
+        "endLine": 991,
+        "endChar": 101
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c61973e_fc2471ec",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5480641f_ee883874",
+      "range": {
+        "startLine": 991,
+        "startChar": 66,
+        "endLine": 991,
+        "endChar": 72
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9858907_7822dcde",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-03-02T04:36:33Z",
       "side": 1,
       "message": "this code is essentially a duplicate of the other one. We can easily de-dup it. Ideally in a class of it\u0027s own, but maybe the runtime class itself can have this functionality as a method.",
+      "range": {
+        "startLine": 1696,
+        "startChar": 0,
+        "endLine": 1724,
+        "endChar": 5
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a094f31a_f81f72b6",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9858907_7822dcde",
       "range": {
         "startLine": 1696,
         "startChar": 0,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c5e72a0_e2f07837",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a97fb5f3_ce04c716",
+      "range": {
+        "startLine": 287,
+        "startChar": 29,
+        "endLine": 287,
+        "endChar": 32
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dc0156b_a0d137ec",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-03-02T04:36:33Z",
       "side": 1,
       "message": "same comment: duplicate code.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 3
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b367d83d_8eb33540",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T06:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dc0156b_a0d137ec",
       "range": {
         "startLine": 203,
         "startChar": 0,
