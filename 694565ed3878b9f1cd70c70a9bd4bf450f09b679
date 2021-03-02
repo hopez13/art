@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "393ac6b0_3ca3a8b0",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-02T16:21:19Z",
+      "side": 1,
+      "message": "Actually, I missed that you were already doing that. Good, but I think it\u0027s worth a coomment on operator\u003c that it just compares addresses. It also needs to be std::less instead of \u003c. Pointer \u003c is not guaranteed to work across separately allocated objects.",
+      "parentUuid": "3dc68add_662c2f9d",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 82
+      },
+      "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "551abc90_52892f21",
         "filename": "runtime/base/timing_logger.h",
         "patchSetId": 1
