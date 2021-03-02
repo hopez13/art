@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0eaadd5_7614ddd2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-02T16:33:49Z",
+      "side": 1,
+      "message": "Thanks Vladimir.\n\nThis method is used to create the image roots, which are written to disk, so all I want to ensure that output is deterministic.  Although if there are duplicate locations, their order still would not be guaranteed.\n\nDo you know if the order could potentially mater for other reason other then output determinism?",
+      "parentUuid": "543ef924_bc93cd5f",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1274,
+        "endChar": 78
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6b198a3_22e23d40",
@@ -190,6 +214,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b679af1_b9360c87",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-02T16:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6b198a3_22e23d40",
+      "range": {
+        "startLine": 1275,
+        "startChar": 4,
+        "endLine": 1275,
+        "endChar": 47
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a83c0078_6b5d357a",
@@ -203,6 +251,30 @@
       "writtenOn": "2021-03-02T15:51:09Z",
       "side": 1,
       "message": "I\u0027m usually not too fond of the `std::unordered_{map,set}` as you can tell from my CLs that replace them with our `Hash{Map,Set}`. On the other hand, `DexCacheData` looks too heavy for a `HashMap` value (though `std::unique_ptr\u003cDexCacheData\u003e` would be OK), so maybe the `std::unordered_map` is a good choice in this particular case.",
+      "range": {
+        "startLine": 1342,
+        "startChar": 2,
+        "endLine": 1342,
+        "endChar": 20
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5d2527_fe09cfa3",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-02T16:33:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a83c0078_6b5d357a",
       "range": {
         "startLine": 1342,
         "startChar": 2,
