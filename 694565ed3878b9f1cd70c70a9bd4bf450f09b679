@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed34ccf4_e6e9a342",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-02T03:08:41Z",
+      "side": 1,
+      "message": "I would be very tempted to say that CumulativeTime instances are identified by the address of the name, not the characters in the name. That would probably make the vector implementation faster than a hash table in practice. It also violates some coding recommendations. Your call.\n\nI suspect the string comparison time isn\u0027t immediately significant, but it might conceivably get there eventually.",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 82
+      },
+      "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "551abc90_52892f21",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-02T03:08:41Z",
+      "side": 1,
+      "message": "GUARDED_BY? Also the other fields?\n\nPreexisting, so not essential to fix here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "445cfaed_e4e1f815",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
