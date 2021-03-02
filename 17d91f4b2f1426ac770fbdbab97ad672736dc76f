@@ -16,6 +16,207 @@
       "message": "Rebasing on tot master",
       "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bdaf751_5fa698d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "We require at least a run-test with the new options to pass for continuous testing.\n\nHere\u0027s an example of how you can pass custom runtime flags to a simple java test: https://cs.android.com/android/platform/superproject/+/master:art/test/679-locks/run",
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad744972_2bec27ff",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "static_cast\u003csize_t\u003e",
+      "range": {
+        "startLine": 973,
+        "startChar": 63,
+        "endLine": 973,
+        "endChar": 79
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b58336_1aa2f68b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 976,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 117
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1969c67d_5247b89a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "use a file level constant. check kMaxTotalImageReservationSize in this file for an example.",
+      "range": {
+        "startLine": 988,
+        "startChar": 32,
+        "endLine": 988,
+        "endChar": 53
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5480641f_ee883874",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 991,
+        "startChar": 66,
+        "endLine": 991,
+        "endChar": 72
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569c16c7_1160c925",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 991,
+        "startChar": 100,
+        "endLine": 991,
+        "endChar": 101
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9858907_7822dcde",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "this code is essentially a duplicate of the other one. We can easily de-dup it. Ideally in a class of it\u0027s own, but maybe the runtime class itself can have this functionality as a method.",
+      "range": {
+        "startLine": 1696,
+        "startChar": 0,
+        "endLine": 1724,
+        "endChar": 5
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a97fb5f3_ce04c716",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "debug leftover?",
+      "range": {
+        "startLine": 287,
+        "startChar": 29,
+        "endLine": 287,
+        "endChar": 32
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc0156b_a0d137ec",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:36:33Z",
+      "side": 1,
+      "message": "same comment: duplicate code.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 3
+      },
+      "revId": "17d91f4b2f1426ac770fbdbab97ad672736dc76f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
