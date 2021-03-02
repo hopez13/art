@@ -41,6 +41,7 @@
 #include <dex/code_item_accessors-inl.h>
 #include <dex/dex_file-inl.h>
 #include <dex/dex_file_loader.h>
+#include <dex/dex_instruction_iterator.h>
 
 namespace art {
 namespace {
@@ -381,5 +382,49 @@ void ExtDexFileGetAllMethodInfos(ExtDexFile* ext_dex_file,
 }
 
 void ExtDexFileFree(ExtDexFile* ext_dex_file) { delete (ext_dex_file); }
+
+#ifdef DEXFILE_EXTERNAL_INCLUDE_EXTENDED
+void ExtDexFileVisitMethodInstructions(struct ExtDexFile* ext_dex_file,
+                                       struct ExtDexFileMethodInfo* method,
+                                       ExtDexFileMethodInstructionCallback* callback,
+                                       void* user_data) {
+  const uint16_t* inst =
+      reinterpret_cast<const uint16_t*>(ext_dex_file->dex_file_->Begin() + method->offset);
+  const art::Instruction* end = reinterpret_cast<const art::Instruction*>(
+      reinterpret_cast<const uint8_t*>(inst) + method->len);
+  art::DexInstructionIterator iter(inst, 0);
+  for (; &iter.Inst() < end; ++iter) {
+    callback(reinterpret_cast<const uint16_t*>(&iter.Inst()), iter.DexPc(), user_data);
+  }
+}
+
+void ExtDexFileGetMethodInfoForMethodReferenceIndex(struct ExtDexFile* ext_dex_file,
+                                                    int32_t method_ref_index,
+                                                    int with_signature,
+                                                    struct ExtDexFileMethodInfo* method_info) {
+  method_info->name = new ExtDexFileString { ext_dex_file->dex_file_->PrettyMethod(
+      method_ref_index, with_signature) };
+  const art::dex::MethodId& id = ext_dex_file->dex_file_->GetMethodId(method_ref_index);
+  const art::dex::ClassDef* cd = ext_dex_file->dex_file_->FindClassDef(id.class_idx_);
+  if (cd == nullptr) {
+    method_info->len = 0;
+    method_info->offset = 0;
+    return;
+  }
+  const art::ClassAccessor ca(*ext_dex_file->dex_file_, *cd);
+  for (const art::ClassAccessor::Method& method : ca.GetMethods()) {
+    if (method.GetReference().index == static_cast<uint32_t>(method_ref_index)) {
+      method_info->len = method.GetInstructions().InsnsSizeInBytes();
+      method_info->offset =
+          static_cast<int32_t>(reinterpret_cast<const uint8_t*>(method.GetInstructions().Insns()) -
+                               ext_dex_file->dex_file_->Begin());
+      return;
+    }
+  }
+  method_info->len = 0;
+  method_info->offset = 0;
+  return;
+}
+#endif
 
 }  // extern "C"

@@ -25,7 +25,7 @@ import functools
 import zipfile
 
 libdexfile_external = CDLL(
-    os.path.expandvars("$ANDROID_HOST_OUT/lib64/libdexfile_external.so"))
+    os.path.expandvars("$ANDROID_HOST_OUT/lib64/libdexfiled_external_extended.so"))
 
 DexFileStr = c_void_p
 ExtDexFile = c_void_p
@@ -60,6 +60,13 @@ libdexfile_external.ExtDexFileGetString.argtypes = [
 libdexfile_external.ExtDexFileGetString.restype = c_char_p
 libdexfile_external.ExtDexFileFreeString.argtypes = [DexFileStr]
 
+MethodInstructionsCallback = CFUNCTYPE(c_int, POINTER(c_uint16), c_uint16, c_void_p)
+libdexfile_external.ExtDexFileVisitMethodInstructions.argtypes = [
+    ExtDexFile, POINTER(ExtMethodInfo), MethodInstructionsCallback, c_void_p
+]
+libdexfile_external.ExtDexFileGetMethodInfoForMethodReferenceIndex.argtypes = [
+    ExtDexFile, c_int32, c_int, POINTER(ExtMethodInfo)
+]
 
 class DexClass(object):
   """Accessor for DexClass Data"""
@@ -98,15 +105,47 @@ class DexClass(object):
       return "[" * self.arrays + "L{};".format("/".join(
           self.base_name.split(".")))
 
+class DexInstruction(object):
+  """Instruction wrapper"""
+  def __init__(self, method, inst, pc):
+    self.method = method
+    self.inst = inst
+    self.pc = pc
+  # TODO Extend this
+  @functools.cached_property
+  def opcode(self):
+    return self.inst[0] & 0xFF
+
+  def is_standard_invoke(self):
+    return self.opcode in {0x6e, 0x6f, 0x70, 0x71, 0x72, 0x74, 0x75, 0x76, 0x77, 0x78}
+
+  @property
+  def invoke_target(self):
+    # Both format 3rc and 35c have second
+    if not self.is_standard_invoke():
+      raise Exception(
+          "opcode {} is not a standard invoke!".format(self.opcode))
+    target = self.inst[1]
+    method_info = ExtMethodInfo()
+    libdexfile_external.ExtDexFileGetMethodInfoForMethodReferenceIndex(
+        self.method.dexfile.ext_dex_file_,
+        c_int32(target),
+        c_int(1),
+        pointer(method_info))
+    return Method(method_info, self.method.dexfile)
+  def __repr__(self):
+    return "(opcode: 0x{:x}, pc: {}{})".format(self.opcode, self.pc, "" if not self.is_standard_invoke() else ", target: {}".format(self.invoke_target))
+
 
 class Method(object):
   """Method info wrapper"""
 
-  def __init__(self, mi):
+  def __init__(self, mi, dexfile):
     self.offset = mi.offset
     self.len = mi.len
     self.name = libdexfile_external.ExtDexFileGetString(
         mi.name, byref(c_size_t(0))).decode("utf-8")
+    self.dexfile = dexfile
     libdexfile_external.ExtDexFileFreeString(mi.name)
 
   def __repr__(self):
@@ -145,6 +184,21 @@ class Method(object):
     class_and_meth = non_ret[0:non_ret.find("(")]
     return DexClass(class_and_meth[0:class_and_meth.rfind(".")])
 
+  @functools.cached_property
+  def instructions(self):
+    """get instructions list"""
+    ret = []
+    meth_info = ExtMethodInfo()
+    meth_info.offset = self.offset
+    meth_info.len = self.len
+    meth_info.name = None
+    @MethodInstructionsCallback
+    def my_cb(data, pc, _):
+      ret.append(DexInstruction(self, data, pc))
+      return 0
+    libdexfile_external.ExtDexFileVisitMethodInstructions(
+        self.dexfile.ext_dex_file_, byref(meth_info), my_cb, c_void_p())
+    return ret
 
 class BaseDexFile(ABC):
   """DexFile base class"""
@@ -161,7 +215,7 @@ class BaseDexFile(ABC):
     @AllMethodsCallback
     def my_cb(info, _):
       """Callback visitor for method infos"""
-      meths.append(Method(info[0]))
+      meths.append(Method(info[0], self))
       return 0
 
     libdexfile_external.ExtDexFileGetAllMethodInfos(self.ext_dex_file_,

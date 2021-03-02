@@ -82,6 +82,24 @@ void ExtDexFileGetAllMethodInfos(struct ExtDexFile* ext_dex_file,
 // Frees an ExtDexFile.
 void ExtDexFileFree(struct ExtDexFile* ext_dex_file);
 
+// These symbols are deliberately not exported by libdexfile_external and are
+// used for art team tooling only.
+#ifdef DEXFILE_EXTERNAL_INCLUDE_EXTENDED
+typedef void ExtDexFileMethodInstructionCallback(const void* instruction_data,
+                                                 int16_t dex_pc,
+                                                 void* user_data);
+
+void ExtDexFileVisitMethodInstructions(struct ExtDexFile* ext_dex_file,
+                                       struct ExtDexFileMethodInfo* method,
+                                       ExtDexFileMethodInstructionCallback* callback,
+                                       void* user_data);
+void ExtDexFileGetMethodInfoForMethodReferenceIndex(
+    struct ExtDexFile* ext_dex_file,
+    int32_t method_ref_index,
+    int with_signature,
+    /*out*/ struct ExtDexFileMethodInfo* method_info);
+#endif
+
 #ifdef __cplusplus
 }  // extern "C"
 #endif

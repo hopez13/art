@@ -316,6 +316,62 @@ cc_defaults {
     ],
 }
 
+// Purely used to provide additional symbols for use by python etc.
+cc_defaults {
+    name: "libdexfile_external_extended-defaults",
+    host_supported: true,
+    srcs: [
+        "external/dex_file_ext.cc",
+    ],
+    cflags: [
+      "-DDEXFILE_EXTERNAL_INCLUDE_EXTENDED"
+    ],
+    header_libs: [
+        "jni_headers",
+        "libdexfile_external_headers",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+    export_header_lib_headers: [
+        "jni_headers",
+        "libdexfile_external_headers",
+    ],
+}
+
+art_cc_library {
+    name: "libdexfile_external_extended",
+    defaults: [
+        "art_defaults",
+        "libdexfile_external_extended-defaults",
+    ],
+    visibility: ["//visibility:public"],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
+    shared_libs: [
+        "libdexfile",
+    ],
+}
+
+art_cc_library {
+    name: "libdexfiled_external_extended",
+    defaults: [
+        "art_debug_defaults",
+        "libdexfile_external_extended-defaults",
+    ],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
+    shared_libs: [
+        "libdexfiled",
+    ],
+}
+
 art_cc_library {
     name: "libdexfile_external",
     defaults: [
