@@ -52,6 +52,24 @@
       "parentUuid": "9cbd6415_63f830f4",
       "revId": "955efe5178487b53151eacad1193ab7cb6694928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e5e1eb3_c6f9026b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-02T21:53:45Z",
+      "side": 1,
+      "message": "Actually, I think we still have a problem. In this case we\u0027re getting lucky because this change hasn\u0027t merged yet. After this change is merged, I don\u0027t think we\u0027ll be able to make structural changes to our atoms (i.e. adding fields; adding enum values should be fine). Here\u0027s why:\n\nAs I understand it, if both prebuilts and source are available, Soong will prefer the source version.\n\natoms.proto is used to generate a statsd_write function that has one argument per field in the atom. So let\u0027s say we have arguments to statsd_write. If someone adds another field, then source builds will generate a statsd_write with 11 arguments, while prebuilts builds (master-art and master-art-host) will still have 10 arguments.\n\nSo either we have to update atoms.proto and ART\u0027s statsd.cc in the same topic, which means the source builds will succeed but then the prebuilt builds will fail. Or, we doing update statsd.cc and the prebuilt builds succeed but the source builds fail.\n\nUnfortunately, to update the prebuilts, we need the atoms.proto change to land and the build server needs to publish a sucessful build, but we can\u0027t do that because of this conflict.\n\nWe should be able to merge this change now, but it will make future structural changes in atoms.proto impossible. There are a couple of possible fixes though. We might be able to #ifdef/#else based on whether we\u0027re in an unbundled build to use the different versions of statsd_write. Also, when the platform moves to using ART prebuilts instead of building from source, this problem may just go away entirely.",
+      "parentUuid": "1918eb4e_741fc76b",
+      "revId": "955efe5178487b53151eacad1193ab7cb6694928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
