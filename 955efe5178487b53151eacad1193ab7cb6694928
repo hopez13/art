@@ -34,6 +34,24 @@
       "parentUuid": "2b3e35b9_e7b89971",
       "revId": "955efe5178487b53151eacad1193ab7cb6694928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1918eb4e_741fc76b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-02T21:22:53Z",
+      "side": 1,
+      "message": "I sent out a ping.\n\nGoing forward, I think the process to update the proto will be:\n\n1. Change atoms.proto in AOSP\n2. Update ART prebuilts from AOSP (after build completes)\n3. Wait for automerger to merge into internal branches.\n4. Update ART code to use new atoms.proto changes.\n\nThat\u0027s probably doable, we\u0027ll just have to be careful.\n\nIf we add a new Atom, we\u0027ll want to do that on Internal first, so we make sure not to conflict with any of the other atom IDs.",
+      "parentUuid": "9cbd6415_63f830f4",
+      "revId": "955efe5178487b53151eacad1193ab7cb6694928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
