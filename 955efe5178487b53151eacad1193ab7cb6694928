@@ -16,6 +16,24 @@
       "message": "It looks like because of http://ag/13699210 (adding dex2oat metric ids and metadata), we are going to have to wait until the cherry pick to AOSP lands (https://r.android.com/1612689) and then do a prebuilts update.\n\nThe problem is that because http://ag/13699210 added an extra field to ArtDatumReported, the generated stats_write function takes an extra argument when being build against source than when being built against prebuilts.\n\nThis is probably going to cause issues for us again in the future.",
       "revId": "955efe5178487b53151eacad1193ab7cb6694928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cbd6415_63f830f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T21:09:08Z",
+      "side": 1,
+      "message": "So then we should enforce AOSP development. Could you chase the approvers?",
+      "parentUuid": "2b3e35b9_e7b89971",
+      "revId": "955efe5178487b53151eacad1193ab7cb6694928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
