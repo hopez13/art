@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7558cffc_041c0d26",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "Note: this is likely the biggest blocker for me as it conflicts with our current API review of ART APIs. Introducing a new temporary API is OK though.",
+      "parentUuid": "a6254188_610680c9",
+      "range": {
+        "startLine": 288,
+        "startChar": 12,
+        "endLine": 288,
+        "endChar": 43
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7719a43a_9546b345",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
@@ -95,6 +119,30 @@
       "side": 1,
       "message": "The sizes of these files and pages accessed from these files are different.\n\nBased on performance characteristics (from field-metrics and our own testing), we might need to come back in and apply further tuned limits for each of these file types independently. Hence these three properties.",
       "parentUuid": "7719a43a_9546b345",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db712650_f71d5be9",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "Note that when the dex file is uncompressed in the APK, we will use it directly. You\u0027ll need to change the place where you madvise vdex to be where we actually load the dex file.",
+      "parentUuid": "8939342e_505cf60e",
       "range": {
         "startLine": 294,
         "startChar": 0,
@@ -147,6 +195,145 @@
         "startChar": 0,
         "endLine": 296,
         "endChar": 67
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a5c2ef6_0ea57802",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "Ack - that level of granularity would usually be overkill for ART, as there are so many knobs. See also all the other places where we madvise. .art files being entirely used I\u0027d be surprised if the madvise had a negative effect.",
+      "parentUuid": "32ab8f43_13affc8b",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 67
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76816521_2b683e8c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 3122,
+        "startChar": 34,
+        "endLine": 3124,
+        "endChar": 62
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efee77f_40cd2fb5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 3142,
+        "startChar": 9,
+        "endLine": 3143,
+        "endChar": 47
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a4cc7e_3dfd060a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 3146,
+        "startChar": 38,
+        "endLine": 3146,
+        "endChar": 49
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49777779_d54d83ae",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "Move this next to its use (also Runtime is already pretty crowded)\n\nconstexpr in ART start with kIdealIoTransferSizeKb.",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1324,
+        "endChar": 59
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3964861_9df21384",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T21:13:29Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 205,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 44
       },
       "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
