@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3dc68add_662c2f9d",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-02T06:05:27Z",
+      "side": 1,
+      "message": "My thinking while implementing this was that in all the `ScopedTiming` usage from where we gather CumulativeLogger data, labels are part of the code and hence always have unique address. In fact, if we were to identify based on the characters in the label, then there is a chance that we may end up merging two separate scopes into one, if their labels are identical.",
+      "parentUuid": "ed34ccf4_e6e9a342",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 82
+      },
+      "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "551abc90_52892f21",
         "filename": "runtime/base/timing_logger.h",
         "patchSetId": 1
