@@ -16,6 +16,24 @@
       "message": "Is this line needed? I didn\u0027t see an obvious use of it, but I probably missed it.",
       "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d46e3a3_8d251915",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-02T03:06:44Z",
+      "side": 1,
+      "message": "It actually caused compilation issues. Earlier, due to timing_logger.h heap.h was inclcluding histogram.h, but not anymore. So had to include it now.",
+      "parentUuid": "445cfaed_e4e1f815",
+      "revId": "694565ed3878b9f1cd70c70a9bd4bf450f09b679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
