@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6347b4f3_f5351755",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-02T15:01:07Z",
+      "side": 1,
+      "message": "The motivation was that I wanted a place to store native pointer of DexCache in the DexCacheData, which seems obvious.\n\nBut the JVMTI makes that tricky as it uses DexCache without registration and thus without DexCacheData.\n\nOn the other hand, this CL caught the issue where JVMTI was registering DexFile twice.\n\nI assume I will still want to get this CL in eventually for the DexCache work.\n\nThe question, should we commit it now or later?",
+      "parentUuid": "abceb671_07bbca8e",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbaba826_170a3b45",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-24T09:11:15Z",
       "side": 1,
       "message": "Can you be more explicit on how the sorting happens?",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1274,
+        "endChar": 78
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0119011c_8394e0bc",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-02T15:01:07Z",
+      "side": 1,
+      "message": "std::map with string key isn\u0027t self-explanatory? :-)\n\nTwo questions here:\nIs ObjPtr in the map ok?\nThis only ensures deterministic order, as opposed to preserving the registration order.  Is that ok?",
+      "parentUuid": "dbaba826_170a3b45",
       "range": {
         "startLine": 1273,
         "startChar": 0,
