@@ -16,6 +16,75 @@
       "message": "Also renaming the variables as the runtime files does not seem to use camel case.",
       "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6254188_610680c9",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T10:00:28Z",
+      "side": 1,
+      "message": "I\u0027d prefer introducing a new method for this kind of information, the number of arguments in nativePostForkChild is becoming way too long.",
+      "range": {
+        "startLine": 288,
+        "startChar": 12,
+        "endLine": 288,
+        "endChar": 43
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7719a43a_9546b345",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T10:00:28Z",
+      "side": 1,
+      "message": "As Calin mentions elsewhere, vdex/odex is an implementation detail. Also, the dex code can be in the .vdex file, but also in the .apk.\n\nTo hide this, can we have just one value for madvise_size?",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0ada34c_a831b79f",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-02T10:00:28Z",
+      "side": 1,
+      "message": "Madvising all of the .art file is always useful (as it\u0027s going to be loaded anyway) - can we drop this argument?",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 67
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
