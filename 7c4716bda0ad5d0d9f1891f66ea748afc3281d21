@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac597192_fc963815",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T16:20:29Z",
+      "side": 1,
+      "message": "Thanks for the comments Nicolas.",
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6254188_610680c9",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
@@ -66,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8939342e_505cf60e",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T16:20:29Z",
+      "side": 1,
+      "message": "The sizes of these files and pages accessed from these files are different.\n\nBased on performance characteristics (from field-metrics and our own testing), we might need to come back in and apply further tuned limits for each of these file types independently. Hence these three properties.",
+      "parentUuid": "7719a43a_9546b345",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ada34c_a831b79f",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
@@ -77,6 +118,30 @@
       "writtenOn": "2021-03-02T10:00:28Z",
       "side": 1,
       "message": "Madvising all of the .art file is always useful (as it\u0027s going to be loaded anyway) - can we drop this argument?",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 67
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ab8f43_13affc8b",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-02T16:20:29Z",
+      "side": 1,
+      "message": "See the comment above. Also:\n\n1. As mentioned in the comment above, we assume madvising the art file is the right thing to do, looking at current local test results. So in future, if we need to tweak this value, we need this property. Other option would be hardcoded values and patching them every time we need a change.\n\n2. Having such a property provides a way to turn this off dynamically.",
+      "parentUuid": "a0ada34c_a831b79f",
       "range": {
         "startLine": 296,
         "startChar": 0,
