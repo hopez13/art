@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccf4cb9_175b1130",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:27:17Z",
+      "side": 1,
+      "message": "nit: this reads a bit odd.",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 88
+      },
+      "revId": "2ec9d929d570dc44feef196308df87aa97e80bcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8913e20_7b0146f5",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:27:17Z",
+      "side": 1,
+      "message": "nit: needs space",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "2ec9d929d570dc44feef196308df87aa97e80bcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423edd10_fc6c6c9e",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:27:17Z",
+      "side": 1,
+      "message": "I assume we don\u0027t have UNKNOWN here? it will keep consistency with the others",
+      "range": {
+        "startLine": 49,
+        "startChar": 18,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "2ec9d929d570dc44feef196308df87aa97e80bcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa7afa2_33b62ccc",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-02T04:27:17Z",
+      "side": 1,
+      "message": "Can we use UNREACHABLE()  ? or add a log of some sort instead of having an empty block?",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 85
+      },
+      "revId": "2ec9d929d570dc44feef196308df87aa97e80bcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
