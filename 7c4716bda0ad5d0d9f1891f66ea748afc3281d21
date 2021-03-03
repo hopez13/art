@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfd1dc57_d2d120fd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-03T01:01:52Z",
+      "side": 1,
+      "message": "nit: one per line\n(see the lines above for code consistency)",
+      "range": {
+        "startLine": 969,
+        "startChar": 53,
+        "endLine": 969,
+        "endChar": 55
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6254188_610680c9",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
@@ -226,6 +249,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a7237fa_6e7cb371",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-03T01:01:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1698,
+        "startChar": 51,
+        "endLine": 1698,
+        "endChar": 52
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c40a7514_04fbcdd8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-03T01:01:52Z",
+      "side": 1,
+      "message": "Does `0` mean disable? or that we madvise everything? Document.",
+      "range": {
+        "startLine": 287,
+        "startChar": 29,
+        "endLine": 287,
+        "endChar": 30
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76816521_2b683e8c",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -288,6 +357,29 @@
         "startChar": 38,
         "endLine": 3146,
         "endChar": 49
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae3c63ee_1df0520b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-03T01:01:52Z",
+      "side": 1,
+      "message": "nit: alignment issue.",
+      "range": {
+        "startLine": 995,
+        "startChar": 34,
+        "endLine": 995,
+        "endChar": 35
       },
       "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
