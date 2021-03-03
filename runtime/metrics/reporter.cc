@@ -37,6 +37,11 @@ MetricsReporter::MetricsReporter(ReportingConfig config, Runtime* runtime)
 
 MetricsReporter::~MetricsReporter() { MaybeStopBackgroundThread(); }
 
+ReportingConfig& MetricsReporter::Config() {
+  CHECK(!thread_.has_value()) << "Cannot modify configuration while reporting thread is running.";
+  return config_;
+}
+
 void MetricsReporter::MaybeStartBackgroundThread(SessionData session_data) {
   CHECK(!thread_.has_value());
 

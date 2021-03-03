@@ -61,6 +61,9 @@ class MetricsReporter {
 
   ~MetricsReporter();
 
+  const ReportingConfig& Config() const { return config_; }
+  ReportingConfig& Config();
+
   // Creates and runs the background reporting thread.
   void MaybeStartBackgroundThread(SessionData session_data);
 
@@ -85,7 +88,7 @@ class MetricsReporter {
   // Outputs the current state of the metrics to the destination set by config_.
   void ReportMetrics() const;
 
-  const ReportingConfig config_;
+  ReportingConfig config_;
   Runtime* runtime_;
   std::vector<std::unique_ptr<MetricsBackend>> backends_;
   std::optional<std::thread> thread_;
