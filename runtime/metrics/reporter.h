@@ -71,6 +71,14 @@ class MetricsReporter {
   // completes.
   void NotifyStartupCompleted();
 
+  bool IsPeriodicReportingEnabled() const;
+
+  // Changes the reporting period.
+  //
+  // This function is not thread safe and may only be called before the background reporting thread
+  // has been started.
+  void SetReportingPeriod(unsigned int period_seconds);
+
   static constexpr const char* kBackgroundThreadName = "Metrics Background Reporting Thread";
 
  private:
@@ -85,7 +93,7 @@ class MetricsReporter {
   // Outputs the current state of the metrics to the destination set by config_.
   void ReportMetrics() const;
 
-  const ReportingConfig config_;
+  ReportingConfig config_;
   Runtime* runtime_;
   std::vector<std::unique_ptr<MetricsBackend>> backends_;
   std::optional<std::thread> thread_;
