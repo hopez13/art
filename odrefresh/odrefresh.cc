@@ -48,7 +48,9 @@
 #include "android-base/strings.h"
 #include "android/log.h"
 #include "arch/instruction_set.h"
+#include "base/array_ref.h"
 #include "base/bit_utils.h"
+#include "base/file_utils.h"
 #include "base/globals.h"
 #include "base/macros.h"
 #include "base/os.h"
@@ -334,116 +336,140 @@ class OnDeviceRefresh final {
 
   bool CheckSystemServerArtifactsAreUpToDate(bool on_system) const {
     std::vector<std::string> classloader_context;
-    for (const std::string& jar_path : systemserver_compilable_jars_) {
-      std::vector<std::string> args;
-      args.emplace_back(config_.GetDexOptAnalyzer());
-      args.emplace_back("--dex-file=" + jar_path);
 
-      const std::string image_location = GetSystemServerImagePath(on_system, jar_path);
+    // Build up the classloader context for the last jar of system_server. Check the associated
+    // artifacts exist as we go.
+    for (size_t i = 0; i < systemserver_compilable_jars_.size() - 1; ++i) {
+      const std::string& jar_path = systemserver_compilable_jars_[i];
 
-      // odrefresh produces app-image files, but these are not guaranteed for those pre-installed
-      // on /system.
-      if (!on_system && !OS::FileExists(image_location.c_str(), true)) {
-        LOG(INFO) << "Missing image file: " << QuotePath(image_location);
+      // Check the image file.
+      const std::string image_path = GetSystemServerImagePath(on_system, jar_path);
+      if (!on_system && !OS::FileExists(image_path.c_str(), /*check_file_type=*/true)) {
+        LOG(INFO) << "Missing image file: " << QuotePath(image_path);
         return false;
       }
 
-      // Generate set of artifacts that are output by compilation.
-      OdrArtifacts artifacts = OdrArtifacts::ForSystemServer(image_location);
-      if (!on_system) {
-        CHECK_EQ(artifacts.OatPath(),
-                 GetApexDataOdexFilename(jar_path, config_.GetSystemServerIsa()));
-        CHECK_EQ(artifacts.ImagePath(),
-                 GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "art"));
-        CHECK_EQ(artifacts.OatPath(),
-                 GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "odex"));
-        CHECK_EQ(artifacts.VdexPath(),
-                 GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "vdex"));
-      }
-
-      // Associate inputs and outputs with dexoptanalyzer arguments.
-      std::pair<const std::string, const char*> location_args[] = {
-          std::make_pair(artifacts.OatPath(), "--oat-fd="),
-          std::make_pair(artifacts.VdexPath(), "--vdex-fd="),
-          std::make_pair(jar_path, "--zip-fd=")
-      };
-
-      // Open file descriptors for dexoptanalyzer file inputs and add to the command-line.
-      std::vector<std::unique_ptr<File>> files;
-      for (const auto& location_arg : location_args) {
-        auto& [location, arg] = location_arg;
-        std::unique_ptr<File> file(OS::OpenFileForReading(location.c_str()));
-        if (file == nullptr) {
-          PLOG(ERROR) << "Failed to open \"" << location << "\"";
+      // Check the odex and vdex files.
+      for (const char* extension : {"odex", "vdex"}) {
+        const std::string& artifact_path = ReplaceFileExtension(image_path, extension);
+        if (!OS::FileExists(artifact_path.c_str(), /*check_file_type=*/true)) {
           return false;
         }
-        args.emplace_back(android::base::StringPrintf("%s%d", arg, file->Fd()));
-        files.emplace_back(file.release());
       }
-
-      const std::string basename(android::base::Basename(jar_path));
-      const std::string root = GetAndroidRoot();
-      const std::string profile_file = Concatenate({root, "/framework/", basename, ".prof"});
-      if (OS::FileExists(profile_file.c_str())) {
-        args.emplace_back("--compiler-filter=speed-profile");
-      } else {
-        args.emplace_back("--compiler-filter=speed");
-      }
-
-      args.emplace_back(
-          Concatenate({"--image=", GetBootImage(), ":", GetBootImageExtensionImage(on_system)}));
-      args.emplace_back(
-          Concatenate({"--isa=", GetInstructionSetString(config_.GetSystemServerIsa())}));
-      args.emplace_back("--runtime-arg");
-      args.emplace_back(Concatenate({"-Xbootclasspath:", config_.GetDex2oatBootClasspath()}));
-      args.emplace_back(Concatenate(
-          {"--class-loader-context=PCL[", android::base::Join(classloader_context, ':'), "]"}));
 
       classloader_context.emplace_back(jar_path);
-
-      LOG(INFO) << "Checking " << jar_path << ": " << android::base::Join(args, ' ');
-      std::string error_msg;
-      bool timed_out = false;
-      const time_t timeout = GetSubprocessTimeout();
-      const int dexoptanalyzer_result = ExecAndReturnCode(args, timeout, &timed_out, &error_msg);
-      if (dexoptanalyzer_result == -1) {
-        LOG(ERROR) << "Unexpected exit from dexoptanalyzer: " << error_msg;
-        if (timed_out) {
-          // TODO(oth): record metric for timeout.
-        }
-        return false;
-      }
-      LOG(INFO) << "dexoptanalyzer returned " << dexoptanalyzer_result;
-
-      bool unexpected_result = true;
-      switch (static_cast<dexoptanalyzer::ReturnCode>(dexoptanalyzer_result)) {
-        case art::dexoptanalyzer::ReturnCode::kNoDexOptNeeded:
-          unexpected_result = false;
-          break;
-
-        // Recompile needed
-        case art::dexoptanalyzer::ReturnCode::kDex2OatFromScratch:
-        case art::dexoptanalyzer::ReturnCode::kDex2OatForBootImageOat:
-        case art::dexoptanalyzer::ReturnCode::kDex2OatForFilterOat:
-        case art::dexoptanalyzer::ReturnCode::kDex2OatForBootImageOdex:
-        case art::dexoptanalyzer::ReturnCode::kDex2OatForFilterOdex:
-          return false;
-
-        // Unexpected issues (note no default-case here to catch missing enum values, but the
-        // return code from dexoptanalyzer may also be outside expected values, such as a
-        // process crash.
-        case art::dexoptanalyzer::ReturnCode::kFlattenClassLoaderContextSuccess:
-        case art::dexoptanalyzer::ReturnCode::kErrorInvalidArguments:
-        case art::dexoptanalyzer::ReturnCode::kErrorCannotCreateRuntime:
-        case art::dexoptanalyzer::ReturnCode::kErrorUnknownDexOptNeeded:
-          break;
-      }
-
-      if (unexpected_result) {
-        LOG(ERROR) << "Unexpected result from dexoptanalyzer: " << dexoptanalyzer_result;
-        return false;
-      }
     }
+
+    // Apply dexoptanalyzer to the last component of the system_server classpath.
+    const std::string& jar_path = systemserver_compilable_jars_.back();
+
+    std::vector<std::string> args;
+    args.emplace_back(config_.GetDexOptAnalyzer());
+    args.emplace_back("--dex-file=" + jar_path);
+
+    const std::string image_location = GetSystemServerImagePath(on_system, jar_path);
+
+    // odrefresh produces app-image files, but these are not guaranteed for those pre-installed
+    // on /system.
+    if (!on_system && !OS::FileExists(image_location.c_str(), true)) {
+      LOG(INFO) << "Missing image file: " << QuotePath(image_location);
+      return false;
+    }
+
+    // Generate set of artifacts that are output by compilation.
+    OdrArtifacts artifacts = OdrArtifacts::ForSystemServer(image_location);
+    if (!on_system) {
+      CHECK_EQ(artifacts.OatPath(),
+                GetApexDataOdexFilename(jar_path, config_.GetSystemServerIsa()));
+      CHECK_EQ(artifacts.ImagePath(),
+                GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "art"));
+      CHECK_EQ(artifacts.OatPath(),
+                GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "odex"));
+      CHECK_EQ(artifacts.VdexPath(),
+                GetApexDataDalvikCacheFilename(jar_path, config_.GetSystemServerIsa(), "vdex"));
+    }
+
+    // Associate inputs and outputs with dexoptanalyzer arguments.
+    std::pair<const std::string, const char*> location_args[] = {
+        std::make_pair(artifacts.OatPath(), "--oat-fd="),
+        std::make_pair(artifacts.VdexPath(), "--vdex-fd="),
+        std::make_pair(jar_path, "--zip-fd=")
+      };
+
+    // Open file descriptors for dexoptanalyzer file inputs and add to the command-line.
+    std::vector<std::unique_ptr<File>> files;
+    for (const auto& location_arg : location_args) {
+      auto& [location, arg] = location_arg;
+      std::unique_ptr<File> file(OS::OpenFileForReading(location.c_str()));
+      if (file == nullptr) {
+        PLOG(ERROR) << "Failed to open \"" << location << "\"";
+        return false;
+      }
+      args.emplace_back(android::base::StringPrintf("%s%d", arg, file->Fd()));
+      files.emplace_back(file.release());
+    }
+
+    const std::string basename(android::base::Basename(jar_path));
+    const std::string root = GetAndroidRoot();
+    const std::string profile_file = Concatenate({root, "/framework/", basename, ".prof"});
+    if (OS::FileExists(profile_file.c_str())) {
+      args.emplace_back("--compiler-filter=speed-profile");
+    } else {
+      args.emplace_back("--compiler-filter=speed");
+    }
+
+    args.emplace_back(
+        Concatenate({"--image=", GetBootImage(), ":", GetBootImageExtensionImage(on_system)}));
+    args.emplace_back(
+        Concatenate({"--isa=", GetInstructionSetString(config_.GetSystemServerIsa())}));
+    args.emplace_back("--runtime-arg");
+    args.emplace_back(Concatenate({"-Xbootclasspath:", config_.GetDex2oatBootClasspath()}));
+    args.emplace_back(Concatenate(
+        {"--class-loader-context=PCL[", android::base::Join(classloader_context, ':'), "]"}));
+
+    LOG(INFO) << "Checking " << jar_path << ": " << android::base::Join(args, ' ');
+    std::string error_msg;
+    bool timed_out = false;
+    const time_t timeout = GetSubprocessTimeout();
+    const int dexoptanalyzer_result = ExecAndReturnCode(args, timeout, &timed_out, &error_msg);
+    if (dexoptanalyzer_result == -1) {
+      LOG(ERROR) << "Unexpected exit from dexoptanalyzer: " << error_msg;
+      if (timed_out) {
+        // TODO(oth): record metric for timeout.
+      }
+      return false;
+    }
+    LOG(INFO) << "dexoptanalyzer returned " << dexoptanalyzer_result;
+
+    bool unexpected_result = true;
+    switch (static_cast<dexoptanalyzer::ReturnCode>(dexoptanalyzer_result)) {
+      case art::dexoptanalyzer::ReturnCode::kNoDexOptNeeded:
+        unexpected_result = false;
+        break;
+
+      // Recompile needed
+      case art::dexoptanalyzer::ReturnCode::kDex2OatFromScratch:
+      case art::dexoptanalyzer::ReturnCode::kDex2OatForBootImageOat:
+      case art::dexoptanalyzer::ReturnCode::kDex2OatForFilterOat:
+      case art::dexoptanalyzer::ReturnCode::kDex2OatForBootImageOdex:
+      case art::dexoptanalyzer::ReturnCode::kDex2OatForFilterOdex:
+        return false;
+
+      // Unexpected issues (note no default-case here to catch missing enum values, but the
+      // return code from dexoptanalyzer may also be outside expected values, such as a
+      // process crash.
+      case art::dexoptanalyzer::ReturnCode::kFlattenClassLoaderContextSuccess:
+      case art::dexoptanalyzer::ReturnCode::kErrorInvalidArguments:
+      case art::dexoptanalyzer::ReturnCode::kErrorCannotCreateRuntime:
+      case art::dexoptanalyzer::ReturnCode::kErrorUnknownDexOptNeeded:
+        break;
+    }
+
+    if (unexpected_result) {
+      LOG(ERROR) << "Unexpected result from dexoptanalyzer: " << dexoptanalyzer_result;
+      return false;
+    }
+
     return true;
   }
 
@@ -593,10 +619,7 @@ class OnDeviceRefresh final {
   // Checks all artifacts are up-to-date.
   //
   // Returns ExitCode::kOkay if artifacts are up-to-date, ExitCode::kCompilationRequired otherwise.
-  //
-  // NB This is the main function used by the --check command-line option. When invoked with
-  // --compile, we only recompile the out-of-date artifacts, not all (see `Odrefresh::Compile`).
-  ExitCode CheckArtifactsAreUpToDate() {
+  ExitCode SlowCheckArtifactsAreUpToDate() {
     ExitCode exit_code = ExitCode::kOkay;
     for (const InstructionSet isa : config_.GetBootExtensionIsas()) {
       if (!CheckBootExtensionArtifactsAreUpToDate(isa)) {
@@ -608,6 +631,38 @@ class OnDeviceRefresh final {
     }
     return exit_code;
   }
+
+  // Quickly checks artifacts are up-to-date, stops checking when any artifact is found to be
+  // out-of-date.
+  //
+  // Returns ExitCode::kOkay if artifacts are up-to-date, ExitCode::kCompilationRequired otherwise.
+  ExitCode QuickCheckArtifactsAreUpToDate() {
+    if (!CheckSystemServerArtifactsAreUpToDate(/*on_system=*/false)) {
+      // Artifacts on /data appear to be stale, remove them, then check /system.
+      RemoveSystemServerArtifactsFromData();
+      if (!CheckSystemServerArtifactsAreUpToDate(/*on_system=*/true)) {
+        // Artifacts on /system are out-of-date.
+        return ExitCode::kCompilationRequired;
+      }
+    }
+
+    const auto system_server_arch = config_.GetSystemServerIsa();
+    for (const auto bcp_arch : config_.GetBootExtensionIsas()) {
+      // Skip system_server_arch as it is covered by the preceding system_server check.
+      if (bcp_arch == system_server_arch) {
+        continue;
+      }
+
+      if (!CheckBootExtensionArtifactsAreUpToDate(bcp_arch, /*on_system=*/false)) {
+        RemoveBootExtensionArtifactsFromData(bcp_arch);
+        if (!CheckBootExtensionArtifactsAreUpToDate(bcp_arch, /*on_system=*/true)) {
+          return ExitCode::kOkay;
+        }
+      }
+    }
+    return ExitCode::kOkay;
+  }
+
 
   // Callback for use with nftw(3) to assist with clearing files and sub-directories.
   // This method removes files and directories below the top-level directory passed to nftw().
@@ -1053,7 +1108,9 @@ class OnDeviceRefresh final {
     for (int i = 0; i < argc; ++i) {
       std::string_view action(argv[i]);
       if (action == "--check") {
-        return odr.CheckArtifactsAreUpToDate();
+        return odr.QuickCheckArtifactsAreUpToDate();
+      } else if (action == "--slow-check") {
+        return odr.SlowCheckArtifactsAreUpToDate();
       } else if (action == "--compile") {
         return odr.Compile(/*force_compile=*/false);
       } else if (action == "--force-compile") {
