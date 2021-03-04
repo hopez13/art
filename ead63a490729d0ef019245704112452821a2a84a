@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4276127_f281e4df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-04T01:45:55Z",
+      "side": 1,
+      "message": "For some reason the definition of ART_DATUM_REPORTED__THREAD_TYPE__ART_THREAD_UNKNOWN doesn\u0027t seem to have made it to sc_dev, although as far as I can tell all the changes have made it through the automerger. Maybe a merge went wrong somehow? To work around this, I removed the reference to the constant and replaced it with 0.",
+      "revId": "ead63a490729d0ef019245704112452821a2a84a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
