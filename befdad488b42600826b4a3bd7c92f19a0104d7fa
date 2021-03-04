@@ -16,6 +16,23 @@
       "message": "Noticed this while reviewing https://r.android.com/1614489, why doesn\u0027t this inherit art_defaults? If there isn\u0027t any particular reason why it can\u0027t, I think it\u0027s easier to reason about things if it does.",
       "revId": "befdad488b42600826b4a3bd7c92f19a0104d7fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab198c26_c09958df",
+        "filename": "libarttools/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-04T19:27:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "befdad488b42600826b4a3bd7c92f19a0104d7fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
