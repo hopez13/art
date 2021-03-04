@@ -583,6 +583,27 @@ static void CompileMethodQuick(
       const VerificationResults* results = driver->GetCompilerOptions().GetVerificationResults();
       DCHECK(results != nullptr);
       const VerifiedMethod* verified_method = results->GetVerifiedMethod(method_ref);
+
+      bool subclassOfView = false;
+      {
+        ScopedObjectAccess soa(Thread::Current());
+        ArtMethod* method =
+            Runtime::Current()->GetClassLinker()->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
+                method_idx, dex_cache, class_loader, /*referrer=*/ nullptr, invoke_type);
+        DCHECK_EQ(method == nullptr, soa.Self()->IsExceptionPending());
+        soa.Self()->ClearException();  // Suppress exception if any.
+        VariableSizedHandleScope handles(soa.Self());
+        Handle<mirror::Class> compiling_class =
+            handles.NewHandle(method != nullptr ? method->GetDeclaringClass() : nullptr);
+        ObjPtr<mirror::Class> view_class = Runtime::Current()->GetClassLinker()->
+            LookupClass(Thread::Current(), "android.view.View", nullptr);
+        subclassOfView = view_class != nullptr &&
+            compiling_class != nullptr &&
+            compiling_class->IsSubClass(view_class);
+        VLOG(compiler) << "SubclassOfView: " << compiling_class->PrettyClass();
+      }
+
+
       bool compile =
           // Basic checks, e.g., not <clinit>.
           results->IsCandidateForCompilation(method_ref, access_flags) &&
@@ -593,7 +614,7 @@ static void CompileMethodQuick(
           (verified_method->GetEncounteredVerificationFailures() &
               (verifier::VERIFY_ERROR_FORCE_INTERPRETER | verifier::VERIFY_ERROR_LOCKING)) == 0 &&
               // Is eligable for compilation by methods-to-compile filter.
-              driver->ShouldCompileBasedOnProfile(method_ref);
+              (subclassOfView || driver->ShouldCompileBasedOnProfile(method_ref));
 
       if (compile) {
         // NOTE: if compiler declines to compile this method, it will return null.
