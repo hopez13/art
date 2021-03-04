@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "173dfcdd_bc841fbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-04T17:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95a2293d_8bd525c5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "59e432da09a598a2d6266150d5cc511712bccd84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a855bd37_56de959b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-04T16:56:11Z",
       "side": 1,
       "message": "Shouldn\u0027t this be `reg_w` for consistency with line 733?",
+      "range": {
+        "startLine": 731,
+        "startChar": 15,
+        "endLine": 731,
+        "endChar": 20
+      },
+      "revId": "59e432da09a598a2d6266150d5cc511712bccd84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6b3757a_88958cd5",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-04T17:25:41Z",
+      "side": 1,
+      "message": "Done (I copied the `reg_x` from `GenerateMarkingRegisterCheck()` implementation and missed that it\u0027s doing `.W()` afterwards.)",
+      "parentUuid": "b6cc9516_8b532a57",
       "range": {
         "startLine": 731,
         "startChar": 15,
