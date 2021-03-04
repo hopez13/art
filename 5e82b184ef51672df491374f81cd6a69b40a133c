@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd43c3c2_22c4ef57",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-04T17:33:12Z",
+      "side": 1,
+      "message": "If `method_being_verified_ !\u003d nullptr`, then the class linker did process annotations and you could get the flags from there.",
+      "range": {
+        "startLine": 957,
+        "startChar": 47,
+        "endLine": 958,
+        "endChar": 17
+      },
+      "revId": "5e82b184ef51672df491374f81cd6a69b40a133c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
