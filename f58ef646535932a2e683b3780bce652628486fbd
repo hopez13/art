@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efb6a47_8ee57e0f",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-04T19:45:43Z",
+      "side": 1,
+      "message": "Not really thread safe at all.\n\nI\u0027m not sure how much that really matters though in this case since we are doing it during runtime startup.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "f58ef646535932a2e683b3780bce652628486fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
