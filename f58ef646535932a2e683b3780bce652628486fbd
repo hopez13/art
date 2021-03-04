@@ -46,6 +46,30 @@
       },
       "revId": "f58ef646535932a2e683b3780bce652628486fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "476d95ee_18cad675",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-04T22:28:17Z",
+      "side": 1,
+      "message": "Fair enough. I\u0027d add some comments saying this is not thread safe at least.",
+      "parentUuid": "ad9ef2e7_699aa627",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "f58ef646535932a2e683b3780bce652628486fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
