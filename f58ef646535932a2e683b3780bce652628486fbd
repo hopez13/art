@@ -22,6 +22,30 @@
       },
       "revId": "f58ef646535932a2e683b3780bce652628486fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad9ef2e7_699aa627",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-04T22:18:29Z",
+      "side": 1,
+      "message": "Yeah, the idea is that you do all of your configuration before starting the background thread and then leave it alone. The CHECK is meant to help catch cases where that wasn\u0027t the case, but it\u0027s definitely not bulletproof. \n\nIdeally we\u0027d do all the configuration once at construction time, but there\u0027s not really a point where we have access to both the command line arguments and the flag that says whether we are system server, so this seemed like the least bad solution to me.",
+      "parentUuid": "9efb6a47_8ee57e0f",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "f58ef646535932a2e683b3780bce652628486fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
