@@ -70,6 +70,29 @@
       },
       "revId": "f58ef646535932a2e683b3780bce652628486fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af568ef9_2731a829",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-04T22:54:38Z",
+      "side": 1,
+      "message": "you should add a setter that also checks for the value.\n\nAvoid exposing the raw field.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 34,
+        "endLine": 1078,
+        "endChar": 57
+      },
+      "revId": "f58ef646535932a2e683b3780bce652628486fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
