@@ -22,6 +22,30 @@
       },
       "revId": "8bd21f2ca35633dd21548033d599f25766c0797c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8eef93e_527d850f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-04T16:22:18Z",
+      "side": 1,
+      "message": "Indeed, but I wanted a first CL that generated exactly the result of the LSC; and then fix it in a follow-up CL (https://android-review.googlesource.com/c/platform/art/+/1619101).",
+      "parentUuid": "17cfeec9_94d26006",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 25
+      },
+      "revId": "8bd21f2ca35633dd21548033d599f25766c0797c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
