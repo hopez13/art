@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14363d70_a8fde5a7",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-04T00:38:51Z",
+      "side": 1,
+      "message": "hmm, so we can\u0027t disable this with the flag? Maybe we should default true but still have the flag processed (if given).",
+      "range": {
+        "startLine": 140,
+        "startChar": 24,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "09b0ee5456580f13d22e62d828aed3ae1ca39e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
