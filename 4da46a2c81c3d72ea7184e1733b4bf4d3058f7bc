@@ -16,6 +16,24 @@
       "message": "do we need to follow up with the reporting side, and atom update?",
       "revId": "4da46a2c81c3d72ea7184e1733b4bf4d3058f7bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67860c5a_6da4ae5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-05T17:32:54Z",
+      "side": 1,
+      "message": "We may not need an atom update, since I added most of our planned metrics in the first version, but we will need to update EncodeDatumId in statsd.cc: https://cs.android.com/android/platform/superproject/+/master:art/runtime/metrics/statsd.cc;l\u003d40\n\nI can do that as a followup, or we could include that as part of this CL.",
+      "parentUuid": "91cf41a8_6e3a5f5b",
+      "revId": "4da46a2c81c3d72ea7184e1733b4bf4d3058f7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
