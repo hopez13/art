@@ -22,6 +22,30 @@
       },
       "revId": "09b0ee5456580f13d22e62d828aed3ae1ca39e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f602c8d8_97beed72",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-05T00:04:58Z",
+      "side": 1,
+      "message": "Done.\n\nThis meant changing -Xwrite-metrics-to-statsd to take an explicit argument, which I did in a separate CL at https://r.android.com/1619843 to keep this one as small as possible.",
+      "parentUuid": "14363d70_a8fde5a7",
+      "range": {
+        "startLine": 140,
+        "startChar": 24,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "09b0ee5456580f13d22e62d828aed3ae1ca39e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
