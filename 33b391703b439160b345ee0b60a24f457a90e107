@@ -16,6 +16,23 @@
       "message": "Thanks Martin.",
       "revId": "33b391703b439160b345ee0b60a24f457a90e107",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f8e0917_98a6d2b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-05T09:03:47Z",
+      "side": 1,
+      "message": "The presubmit failure (`apct/device_boot_health_check_extra`) is unrelated to this change, which has no direct impact on files produced as part of any Android build.",
+      "revId": "33b391703b439160b345ee0b60a24f457a90e107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
