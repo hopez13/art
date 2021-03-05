@@ -22,6 +22,30 @@
       },
       "revId": "4005a9734001e2187ffe59f948c1b0c143d2bf76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1322cb2_41fcdce7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-05T14:35:49Z",
+      "side": 1,
+      "message": "Done. (I tried implicit conversion before using the `.data()` and `.size()` and that fails to build. But it works with explicit conversion.)",
+      "parentUuid": "d27bfc46_f66314e6",
+      "range": {
+        "startLine": 189,
+        "startChar": 21,
+        "endLine": 189,
+        "endChar": 53
+      },
+      "revId": "4005a9734001e2187ffe59f948c1b0c143d2bf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
