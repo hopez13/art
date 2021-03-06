@@ -16,6 +16,29 @@
       "message": "I found a small bug when trying to turn the statsd flag on by default. This fixes it.",
       "revId": "9706e6556949a75ee68bb3632a39b33a5df9ef31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa2732b_6d63125a",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-06T00:30:41Z",
+      "side": 1,
+      "message": "!\u003d nullptr.",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 15
+      },
+      "revId": "9706e6556949a75ee68bb3632a39b33a5df9ef31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
