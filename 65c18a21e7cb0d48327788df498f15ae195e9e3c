@@ -22,6 +22,30 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d39cec9_c7d31d20",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-07T02:25:52Z",
+      "side": 1,
+      "message": "It will not have the performance advantages of spinning here. We generally don\u0027t worry too much about performance in the pthread case; Android always uses futexes.",
+      "parentUuid": "418568d8_4d0036dd",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 6
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
