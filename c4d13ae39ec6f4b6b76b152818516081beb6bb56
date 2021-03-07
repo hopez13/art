@@ -46,6 +46,30 @@
       },
       "revId": "c4d13ae39ec6f4b6b76b152818516081beb6bb56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abfe8391_55dc9cb0",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-07T05:52:14Z",
+      "side": 0,
+      "message": "The mechanism here changed completely. This now relies on the underlying mutex. There is a longer explanation attached to aosp/1111800.",
+      "parentUuid": "9b59de9e_0c91437b",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 35
+      },
+      "revId": "c4d13ae39ec6f4b6b76b152818516081beb6bb56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
