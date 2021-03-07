@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c81edbf6_ba688d9f",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-07T19:29:25Z",
+      "side": 1,
+      "message": "This form can throw (https://en.cppreference.com/w/cpp/filesystem/create_directory).\n\n[ I wonder if directory existence check in IsOnLocation should be there at all? It looks like something that could be in a test that matches well known paths for Android locations. Just musing, not action suggested. ]",
+      "range": {
+        "startLine": 659,
+        "startChar": 2,
+        "endLine": 659,
+        "endChar": 72
+      },
+      "revId": "a077f20464ba7072be12afb30e5d9de64a50f622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
