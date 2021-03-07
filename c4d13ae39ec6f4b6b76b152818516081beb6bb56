@@ -22,6 +22,30 @@
       },
       "revId": "c4d13ae39ec6f4b6b76b152818516081beb6bb56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b59de9e_0c91437b",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1452753
+      },
+      "writtenOn": "2021-03-07T01:41:27Z",
+      "side": 0,
+      "message": "There is a typo. \u0027resolve\u0027 -\u003e \u0027removed\u0027",
+      "parentUuid": "7daaab86_b0801cbe",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 35
+      },
+      "revId": "c4d13ae39ec6f4b6b76b152818516081beb6bb56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
