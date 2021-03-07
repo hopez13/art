@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418568d8_4d0036dd",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1452753
+      },
+      "writtenOn": "2021-03-07T01:38:54Z",
+      "side": 1,
+      "message": "If ART_USE_FUTEXES is not 1, WaitBrieflyFor will not be called. Does the pthread mode work well?",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 6
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
