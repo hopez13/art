@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9805154f_b40944b9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd1dc57_d2d120fd",
+      "range": {
+        "startLine": 969,
+        "startChar": 53,
+        "endLine": 969,
+        "endChar": 55
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6254188_610680c9",
@@ -112,6 +136,30 @@
       "side": 1,
       "message": "Note: this is likely the biggest blocker for me as it conflicts with our current API review of ART APIs. Introducing a new temporary API is OK though.",
       "parentUuid": "a6254188_610680c9",
+      "range": {
+        "startLine": 288,
+        "startChar": 12,
+        "endLine": 288,
+        "endChar": 43
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8924d32c_b2d9b3e2",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Abandoning this route based on discussion with chriswailes@\n\nWill pass the arguments via. AndroidRuntime initialization",
+      "parentUuid": "7558cffc_041c0d26",
       "range": {
         "startLine": 288,
         "startChar": 12,
@@ -264,6 +312,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "063e5f92_eaec1dd7",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5c2ef6_0ea57802",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 67
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a7237fa_6e7cb371",
@@ -277,6 +349,30 @@
       "writtenOn": "2021-03-03T01:01:52Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1698,
+        "startChar": 51,
+        "endLine": 1698,
+        "endChar": 52
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "872f04a1_66dabf55",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7237fa_6e7cb371",
       "range": {
         "startLine": 1698,
         "startChar": 51,
@@ -310,6 +406,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f4137a_c952df2d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done.\n\nUsing kMadviseWillNeedVdexFileSizeDefault instead of 0\nAnd the variable is commented",
+      "parentUuid": "c40a7514_04fbcdd8",
+      "range": {
+        "startLine": 287,
+        "startChar": 29,
+        "endLine": 287,
+        "endChar": 30
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76816521_2b683e8c",
@@ -323,6 +443,30 @@
       "writtenOn": "2021-03-02T21:13:29Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 3122,
+        "startChar": 34,
+        "endLine": 3124,
+        "endChar": 62
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03511173_07aa8731",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3124,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76816521_2b683e8c",
       "range": {
         "startLine": 3122,
         "startChar": 34,
@@ -356,6 +500,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7892b0dc_e1ed0ee6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3143,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9efee77f_40cd2fb5",
+      "range": {
+        "startLine": 3142,
+        "startChar": 9,
+        "endLine": 3143,
+        "endChar": 47
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65a4cc7e_3dfd060a",
@@ -369,6 +537,30 @@
       "writtenOn": "2021-03-02T21:13:29Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 3146,
+        "startChar": 38,
+        "endLine": 3146,
+        "endChar": 49
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2514cbe2_611d5372",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3146,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a4cc7e_3dfd060a",
       "range": {
         "startLine": 3146,
         "startChar": 38,
@@ -402,6 +594,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39ee01e_7c68c475",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae3c63ee_1df0520b",
+      "range": {
+        "startLine": 995,
+        "startChar": 34,
+        "endLine": 995,
+        "endChar": 35
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49777779_d54d83ae",
@@ -425,6 +641,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a475d58f_53a7b0fc",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49777779_d54d83ae",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1324,
+        "endChar": 59
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3964861_9df21384",
@@ -438,6 +678,30 @@
       "writtenOn": "2021-03-02T21:13:29Z",
       "side": 1,
       "message": "nit: one per line.",
+      "range": {
+        "startLine": 205,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 44
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19369220_a835bd9b",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:38:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3964861_9df21384",
       "range": {
         "startLine": 205,
         "startChar": 31,
