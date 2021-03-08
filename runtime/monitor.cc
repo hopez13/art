@@ -244,9 +244,7 @@ bool Monitor::Install(Thread* self) NO_THREAD_SAFETY_ANALYSIS {
 #if ART_USE_FUTEXES
         monitor_lock_.ExclusiveUnlockUncontended();
 #else
-        for (uint32_t i = 0; i <= lockCount; ++i) {
-          monitor_lock_.ExclusiveUnlock(owner);
-        }
+        monitor_lock_.ExclusiveUnlock(owner);
 #endif
         return false;
       }
