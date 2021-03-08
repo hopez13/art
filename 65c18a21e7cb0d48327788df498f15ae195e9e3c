@@ -142,6 +142,29 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e615681_1b015434",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1452753
+      },
+      "writtenOn": "2021-03-08T08:40:48Z",
+      "side": 1,
+      "message": "lockCount should be lock_count_. It may cause compiling failure if ART_USE_FUTEXES disabled.",
+      "range": {
+        "startLine": 240,
+        "startChar": 34,
+        "endLine": 240,
+        "endChar": 43
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
