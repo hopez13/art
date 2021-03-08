@@ -73,6 +73,30 @@
       },
       "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "260314fd_1475031e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4082,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-03-08T17:56:52Z",
+      "side": 1,
+      "message": "Yes, it is a single heap_id.",
+      "parentUuid": "b09d0cde_1d2dc64b",
+      "range": {
+        "startLine": 4082,
+        "startChar": 2,
+        "endLine": 4082,
+        "endChar": 8
+      },
+      "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

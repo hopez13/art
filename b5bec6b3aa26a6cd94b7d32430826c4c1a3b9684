@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9284382_d4ca5482",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-03-08T17:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c776bf7_10f8340a",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ccbfe75_e87b2523",
@@ -121,6 +145,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "befa0443_ab6701a0",
+        "filename": "runtime/javaheapprof/javaheapsampler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-03-08T17:56:52Z",
+      "side": 1,
+      "message": "Lets discuss this in our meeting and since this is the first I have heard of having multiple samples that way. Also this cl is just the API addition cl so that we actually have a profile being generated, so lets keep optimizations to future cls.",
+      "parentUuid": "9867c243_6d04c8fc",
+      "range": {
+        "startLine": 69,
+        "startChar": 62,
+        "endLine": 69,
+        "endChar": 77
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6b576983_d6eec517",
         "filename": "runtime/javaheapprof/javaheapsampler.h",
         "patchSetId": 5
@@ -156,6 +204,30 @@
       "side": 1,
       "message": "I just checked my benchmarks again: it\u0027s actually 8x, I wrote from memory yesterday.",
       "parentUuid": "6b576983_d6eec517",
+      "range": {
+        "startLine": 91,
+        "startChar": 7,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "b5bec6b3aa26a6cd94b7d32430826c4c1a3b9684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f688dc_d19c3df2",
+        "filename": "runtime/javaheapprof/javaheapsampler.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-03-08T17:56:52Z",
+      "side": 1,
+      "message": "We also had a much faster geometric in the previous cl but after discussions with the ART team we decided to leave that optimization to a future cl. If you have benchmark data please share, maybe add it to the bug so that we can consider it in future performance cls.",
+      "parentUuid": "10d06649_3e4bb552",
       "range": {
         "startLine": 91,
         "startChar": 7,
