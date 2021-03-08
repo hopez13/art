@@ -46,6 +46,30 @@
       },
       "revId": "a077f20464ba7072be12afb30e5d9de64a50f622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2355d98_b0d9eade",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-08T13:41:37Z",
+      "side": 1,
+      "message": "We compile ART -fno-exceptions.\n\nThe question is whether your tests follow the same convention as your product: the test harness is just fine, but people may look at tests for examples and follow your reasoning...then we have product problem.\n\nHmmm.",
+      "parentUuid": "df895b8b_793ba1d6",
+      "range": {
+        "startLine": 659,
+        "startChar": 2,
+        "endLine": 659,
+        "endChar": 72
+      },
+      "revId": "a077f20464ba7072be12afb30e5d9de64a50f622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
