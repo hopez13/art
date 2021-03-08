@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a900215_394b7b43",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-08T09:44:39Z",
+      "side": 1,
+      "message": "We usually do static_cast\u003csize_t\u003e(). (Though we also have an enum_cast\u003c\u003e in \"base/casts.h\".)",
+      "range": {
+        "startLine": 1940,
+        "startChar": 76,
+        "endLine": 1940,
+        "endChar": 84
+      },
+      "revId": "43ed7d02be5424a1ff405825888856aa8636f949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
