@@ -243,6 +243,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cddcc622_417d413a",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-08T23:47:16Z",
+      "side": 1,
+      "message": "Looking at https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/dex/art_dex_file_loader.cc;drc\u003d98071159668576ae08c2b0de80b0565d58f409f2;l\u003d394 for this change:\n\nI do not see any invocations of runtime/ methods in here. Is there a recommended way of re-using the `MadviseFileForRange` method from runtime here. Or do I have to duplicate the madvising logic in this method?",
+      "parentUuid": "db712650_f71d5be9",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ada34c_a831b79f",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
