@@ -97,6 +97,30 @@
       },
       "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2865308a_ab57f560",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4082,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-03-08T17:59:19Z",
+      "side": 1,
+      "message": "No, this should not be static. It is not needed between calls of this function.",
+      "parentUuid": "260314fd_1475031e",
+      "range": {
+        "startLine": 4082,
+        "startChar": 2,
+        "endLine": 4082,
+        "endChar": 8
+      },
+      "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
