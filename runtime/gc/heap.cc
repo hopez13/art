@@ -333,6 +333,8 @@ Heap::Heap(size_t initial_size,
       min_interval_homogeneous_space_compaction_by_oom_(
           min_interval_homogeneous_space_compaction_by_oom),
       last_time_homogeneous_space_compaction_by_oom_(NanoTime()),
+      gcs_completed_(0u),
+      gcs_requested_(0u),
       pending_collector_transition_(nullptr),
       pending_heap_trim_(nullptr),
       use_homogeneous_space_compaction_for_oom_(use_homogeneous_space_compaction_for_oom),
@@ -2520,9 +2522,16 @@ size_t Heap::GetNativeBytes() {
   // other things. It seems risky to trigger GCs as a result of such changes.
 }
 
+static inline bool GCRequestsLt(uint32_t gcs_completed, uint32_t gcs_requested) {
+  unsigned int difference = gcs_requested - gcs_completed;
+  bool completed_more_than_requested = difference > 0x80000000;
+  return difference > 0 && !completed_more_than_requested;
+}
+
 collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
                                                GcCause gc_cause,
-                                               bool clear_soft_references) {
+                                               bool clear_soft_references,
+                                               uint32_t gc_no) {
   Thread* self = Thread::Current();
   Runtime* runtime = Runtime::Current();
   // If the heap can't run the GC, silently fail and return that no GC was run.
@@ -2552,6 +2561,11 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     MutexLock mu(self, *gc_complete_lock_);
     // Ensure there is only one GC at a time.
     WaitForGcToCompleteLocked(gc_cause, self);
+    uint32_t gcs_completed = gcs_completed_.load(std::memory_order_relaxed);
+    if (!clear_soft_references && !GCRequestsLt(gcs_completed, gc_no)) {
+      // The appropriate GC was already triggered elsewhere.
+      return collector::kGcTypeNone;
+    }
     compacting_gc = IsMovingGc(collector_type_);
     // GC can be disabled if someone has a used GetPrimitiveArrayCritical.
     if (compacting_gc && disable_moving_gc_count_ != 0) {
@@ -2562,6 +2576,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
       return collector::kGcTypeNone;
     }
     collector_type_running_ = collector_type_;
+    last_gc_cause_ = gc_cause;
   }
   if (gc_cause == kGcCauseForAlloc && runtime->HasStatsEnabled()) {
     ++runtime->GetStats()->gc_for_alloc_count;
@@ -2706,6 +2721,9 @@ void Heap::FinishGC(Thread* self, collector::GcType gc_type) {
   // Reset.
   running_collection_is_blocking_ = false;
   thread_running_gc_ = nullptr;
+  if (gc_type != collector::kGcTypeNone) {
+    gcs_completed_.fetch_add(1, std::memory_order_relaxed);
+  }
   // Wake anyone who may have been waiting for the GC to complete.
   gc_complete_cond_->Broadcast(self);
 }
@@ -3632,17 +3650,17 @@ void Heap::RequestConcurrentGCAndSaveObject(Thread* self,
 
 class Heap::ConcurrentGCTask : public HeapTask {
  public:
-  ConcurrentGCTask(uint64_t target_time, GcCause cause, bool force_full)
-      : HeapTask(target_time), cause_(cause), force_full_(force_full) {}
+  ConcurrentGCTask(uint64_t target_time, GcCause cause, bool force_full, uint32_t gc_no)
+      : HeapTask(target_time), cause_(cause), force_full_(force_full), my_gc_no_(gc_no) {}
   void Run(Thread* self) override {
     gc::Heap* heap = Runtime::Current()->GetHeap();
-    heap->ConcurrentGC(self, cause_, force_full_);
-    heap->ClearConcurrentGCRequest();
+    heap->ConcurrentGC(self, cause_, force_full_, my_gc_no_);
   }
 
  private:
   const GcCause cause_;
   const bool force_full_;  // If true, force full (or partial) collection.
+  const uint32_t my_gc_no_;  // Sequence number of requested GC.
 };
 
 static bool CanAddHeapTask(Thread* self) REQUIRES(!Locks::runtime_shutdown_lock_) {
@@ -3651,20 +3669,21 @@ static bool CanAddHeapTask(Thread* self) REQUIRES(!Locks::runtime_shutdown_lock_
       !self->IsHandlingStackOverflow();
 }
 
-void Heap::ClearConcurrentGCRequest() {
-  concurrent_gc_pending_.store(false, std::memory_order_relaxed);
-}
-
 void Heap::RequestConcurrentGC(Thread* self, GcCause cause, bool force_full) {
-  if (CanAddHeapTask(self) &&
-      concurrent_gc_pending_.CompareAndSetStrongSequentiallyConsistent(false, true)) {
-    task_processor_->AddTask(self, new ConcurrentGCTask(NanoTime(),  // Start straight away.
-                                                        cause,
-                                                        force_full));
+  uint32_t gcs_completed = gcs_completed_.load(std::memory_order_relaxed);
+  uint32_t gcs_requested = gcs_requested_.load(std::memory_order_relaxed);
+  if (!GCRequestsLt(gcs_completed, gcs_requested)) {
+    if (CanAddHeapTask(self)
+        && gcs_requested_.CompareAndSetStrongRelaxed(gcs_requested, gcs_completed + 1)) {
+      task_processor_->AddTask(self, new ConcurrentGCTask(NanoTime(),  // Start straight away.
+                                                          cause,
+                                                          force_full,
+                                                          gcs_completed + 1));
+    }
   }
 }
 
-void Heap::ConcurrentGC(Thread* self, GcCause cause, bool force_full) {
+void Heap::ConcurrentGC(Thread* self, GcCause cause, bool force_full, uint32_t gc_no) {
   if (!Runtime::Current()->IsShuttingDown(self)) {
     // Wait for any GCs currently running to finish.
     if (WaitForGcToComplete(cause, self) == collector::kGcTypeNone) {
@@ -3678,6 +3697,11 @@ void Heap::ConcurrentGC(Thread* self, GcCause cause, bool force_full) {
       if (CollectGarbageInternal(next_gc_type, cause, false) == collector::kGcTypeNone) {
         for (collector::GcType gc_type : gc_plan_) {
           // Attempt to run the collector, if we succeed, we are done.
+          uint32_t gcs_completed = gcs_completed_.load(std::memory_order_relaxed);
+          if (!GCRequestsLt(gcs_completed, gc_no)) {
+            // Somebody did it for us.
+            break;
+          }
           if (gc_type > next_gc_type &&
               CollectGarbageInternal(gc_type, cause, false) != collector::kGcTypeNone) {
             break;
@@ -3720,7 +3744,7 @@ void Heap::RequestCollectorTransition(CollectorType desired_collector_type, uint
   const uint64_t target_time = NanoTime() + delta_time;
   {
     MutexLock mu(self, *pending_task_lock_);
-    // If we have an existing collector transition, update the targe time to be the new target.
+    // If we have an existing collector transition, update the target time to be the new target.
     if (pending_collector_transition_ != nullptr) {
       task_processor_->UpdateTargetRunTime(self, pending_collector_transition_, target_time);
       return;
@@ -3822,10 +3846,6 @@ void Heap::RevokeAllThreadLocalBuffers() {
   if (region_space_ != nullptr) {
     CHECK_EQ(region_space_->RevokeAllThreadLocalBuffers(), 0U);
   }
-}
-
-bool Heap::IsGCRequestPending() const {
-  return concurrent_gc_pending_.load(std::memory_order_relaxed);
 }
 
 void Heap::RunFinalization(JNIEnv* env, uint64_t timeout) {

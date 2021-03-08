@@ -336,10 +336,6 @@ static void VMRuntime_trimHeap(JNIEnv* env, jobject) {
   Runtime::Current()->GetHeap()->Trim(ThreadForEnv(env));
 }
 
-static void VMRuntime_concurrentGC(JNIEnv* env, jobject) {
-  Runtime::Current()->GetHeap()->ConcurrentGC(ThreadForEnv(env), gc::kGcCauseBackground, true);
-}
-
 static void VMRuntime_requestHeapTrim(JNIEnv* env, jobject) {
   Runtime::Current()->GetHeap()->RequestTrim(ThreadForEnv(env));
 }
@@ -497,7 +493,6 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, clampGrowthLimit, "()V"),
   NATIVE_METHOD(VMRuntime, classPath, "()Ljava/lang/String;"),
   NATIVE_METHOD(VMRuntime, clearGrowthLimit, "()V"),
-  NATIVE_METHOD(VMRuntime, concurrentGC, "()V"),
   NATIVE_METHOD(VMRuntime, setHiddenApiExemptions, "([Ljava/lang/String;)V"),
   NATIVE_METHOD(VMRuntime, setHiddenApiAccessLogSamplingRate, "(I)V"),
   NATIVE_METHOD(VMRuntime, getTargetHeapUtilization, "()F"),
