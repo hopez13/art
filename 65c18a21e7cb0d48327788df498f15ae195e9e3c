@@ -165,6 +165,30 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8355ebc5_c8b88cb7",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-08T18:13:38Z",
+      "side": 1,
+      "message": "Thanks for reporting! It looks like this is used even less than I had thought. I don\u0027t think that fix is sufficient. I filed a bug and I\u0027ll look into it.",
+      "parentUuid": "7e615681_1b015434",
+      "range": {
+        "startLine": 240,
+        "startChar": 34,
+        "endLine": 240,
+        "endChar": 43
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
