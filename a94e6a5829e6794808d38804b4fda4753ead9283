@@ -121,6 +121,30 @@
       },
       "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ae51de_c37b55cc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4082,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-03-08T20:11:55Z",
+      "side": 1,
+      "message": "The reason we had this as static originally is: 1- The API directions for AHeapProfile_registerHeap mentioned that it is static. Also its usage in Perfetto\u0027s test and benchmark. 2- To handle any case such as multiple heaps, as well as multiple calls, etc. \nPer Florian\u0027s comment and discussion, it seems it shouldn\u0027t matter from Perfetto\u0027s side whether its static. I also looked at the previous cl to make sure we didn\u0027t have it as static for another reason e.g. ART\u0027s usage. \nIt seems either way is fine but if we change, I will need to rebuild and test this to make sure we are not missing anything.",
+      "parentUuid": "2865308a_ab57f560",
+      "range": {
+        "startLine": 4082,
+        "startChar": 2,
+        "endLine": 4082,
+        "endChar": 8
+      },
+      "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
