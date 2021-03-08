@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31a19045_296440db",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-08T10:29:09Z",
+      "side": 1,
+      "message": "Prone to arithmetic overflow. Should be\n\n  method_header_offset \u003e oat_file_.Size() ||\n  sizeof(OatQuickMethodHeader) \u003e oat_file_.Size() - method_header_offset",
+      "range": {
+        "startLine": 1224,
+        "startChar": 10,
+        "endLine": 1224,
+        "endChar": 80
+      },
+      "revId": "dd8354156164476a7b393888975e50641b2f2380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
