@@ -467,8 +467,9 @@ inline bool Heap::ShouldConcurrentGCForJava(size_t new_num_bytes_allocated) {
 inline void Heap::CheckConcurrentGCForJava(Thread* self,
                                     size_t new_num_bytes_allocated,
                                     ObjPtr<mirror::Object>* obj) {
+  uint32_t starting_gc_num = GetCurrentGcNum();
   if (UNLIKELY(ShouldConcurrentGCForJava(new_num_bytes_allocated))) {
-    RequestConcurrentGCAndSaveObject(self, false /* force_full */, obj);
+    RequestConcurrentGCAndSaveObject(self, false /* force_full */, starting_gc_num, obj);
   }
 }
 
