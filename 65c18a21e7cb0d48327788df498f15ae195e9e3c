@@ -213,6 +213,30 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6601af4_c5ef5eb0",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-08T23:25:46Z",
+      "side": 1,
+      "message": "Did you have a particular need for compiling without ART_USES_FUTEXES? There are enough other issues with ART in that mode that it doesn\u0027t appear to be useful. My current plan is to just remove the support from monitor.cc.",
+      "parentUuid": "ca206235_2c7a474c",
+      "range": {
+        "startLine": 240,
+        "startChar": 34,
+        "endLine": 240,
+        "endChar": 43
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
