@@ -22,6 +22,30 @@
       },
       "revId": "6a5a5b68647926ce9359607c216e010c4c0b40a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584e6a8c_c37e4488",
+        "filename": "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-08T10:04:34Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/1621085",
+      "parentUuid": "138ab5f2_2d9cbe3a",
+      "range": {
+        "startLine": 731,
+        "startChar": 15,
+        "endLine": 731,
+        "endChar": 25
+      },
+      "revId": "6a5a5b68647926ce9359607c216e010c4c0b40a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
