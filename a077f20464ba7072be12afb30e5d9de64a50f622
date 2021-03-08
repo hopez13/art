@@ -22,6 +22,30 @@
       },
       "revId": "a077f20464ba7072be12afb30e5d9de64a50f622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df895b8b_793ba1d6",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-08T12:22:24Z",
+      "side": 1,
+      "message": "Several other tests in here does the same thing already, so it looks fine to me.",
+      "parentUuid": "c81edbf6_ba688d9f",
+      "range": {
+        "startLine": 659,
+        "startChar": 2,
+        "endLine": 659,
+        "endChar": 72
+      },
+      "revId": "a077f20464ba7072be12afb30e5d9de64a50f622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
