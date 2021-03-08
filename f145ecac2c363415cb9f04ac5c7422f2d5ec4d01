@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "ccb3025b_336f5155",
         "filename": "runtime/oat_quick_method_header.h",
@@ -20,10 +21,10 @@
         "endChar": 62
       },
       "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ca17aa26_9002da6e",
         "filename": "runtime/oat_quick_method_header.h",
@@ -44,10 +45,10 @@
         "endChar": 62
       },
       "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "70ec0f02_b058d880",
         "filename": "runtime/oat_quick_method_header.h",
@@ -68,8 +69,31 @@
         "endChar": 62
       },
       "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6442d7f4_930a2359",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-08T08:33:27Z",
+      "side": 1,
+      "message": "Done (the standalone CL was submited long time ago).\nI am still not that keen on reverting the checks.\nThey cause no harm and are a good safeguard.",
+      "parentUuid": "70ec0f02_b058d880",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 62
+      },
+      "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

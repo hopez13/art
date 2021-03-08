@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "df518f06_9d5d8300",
         "filename": "compiler/optimizing/stack_map_stream.cc",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "if (kIsDebugBuild)",
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c939ac_5eea107f",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-08T08:33:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df518f06_9d5d8300",
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6a1723a7_77608f9d",
         "filename": "runtime/arch/arm/asm_support_arm.S",
@@ -37,10 +56,34 @@
         "endChar": 92
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72075860_756d390d",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-08T08:33:27Z",
+      "side": 1,
+      "message": "Ack (resolved in different CL long time ago)",
+      "parentUuid": "6a1723a7_77608f9d",
+      "range": {
+        "startLine": 67,
+        "startChar": 49,
+        "endLine": 67,
+        "endChar": 92
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "181a7b49_bd97733a",
         "filename": "runtime/arch/arm/asm_support_arm.S",
@@ -60,10 +103,34 @@
         "endChar": 88
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "522b0cab_273bd289",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-08T08:33:27Z",
+      "side": 1,
+      "message": "Ack (resolved in different CL long time ago)",
+      "parentUuid": "181a7b49_bd97733a",
+      "range": {
+        "startLine": 70,
+        "startChar": 33,
+        "endLine": 70,
+        "endChar": 88
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f9ff1d31_1b0f4e27",
         "filename": "runtime/oat_quick_method_header.h",
@@ -83,10 +150,10 @@
         "endChar": 16
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "175ad4cf_cb4a4445",
         "filename": "runtime/oat_quick_method_header.h",
@@ -107,10 +174,10 @@
         "endChar": 16
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3b8edf79_963d67c9",
         "filename": "runtime/oat_quick_method_header.h",
@@ -130,10 +197,10 @@
         "endChar": 14
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "6af3bb0c_183cbce4",
         "filename": "runtime/oat_quick_method_header.h",
@@ -154,8 +221,7 @@
         "endChar": 14
       },
       "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
