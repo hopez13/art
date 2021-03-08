@@ -33,6 +33,29 @@
       "message": "LGTM, but I think Florian has some comments which aren\u0027t addressed yet.",
       "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09d0cde_1d2dc64b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4082,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-08T17:39:09Z",
+      "side": 1,
+      "message": "Is it supposed to be static? I don\u0027t see why.",
+      "range": {
+        "startLine": 4082,
+        "startChar": 2,
+        "endLine": 4082,
+        "endChar": 8
+      },
+      "revId": "a94e6a5829e6794808d38804b4fda4753ead9283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
