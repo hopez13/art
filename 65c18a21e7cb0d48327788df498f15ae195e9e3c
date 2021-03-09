@@ -261,6 +261,30 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f171379_ce58f063",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-09T01:43:26Z",
+      "side": 1,
+      "message": "Yes, it looks like that hasn\u0027t really been possible for a long time. The pthread version of Mutex should still be usable, but Java execution isn\u0027t supported at all. So long as I\u0027ve been here, it was never meant to perform competitively.",
+      "parentUuid": "22f1022c_b54d4707",
+      "range": {
+        "startLine": 240,
+        "startChar": 34,
+        "endLine": 240,
+        "endChar": 43
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
