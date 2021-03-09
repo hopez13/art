@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da05a28b_26e6dc57",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-03-09T23:03:59Z",
+      "side": 1,
+      "message": "I don\u0027t believe the order here matters.",
+      "parentUuid": "1a7e4b28_d61adef8",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42017f22_300596a7",
         "filename": "sigchainlib/Android.bp",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-09T14:13:34Z",
       "side": 1,
       "message": "Is it possible to use version_script instead? It would allow us to be more explicit with the symbols we expose globally. (It could be a different file from the one used for the APEX stubs, if necessary.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb711d37_2cb97521",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-03-09T23:03:59Z",
+      "side": 1,
+      "message": "The library needs to -Wl,-z,global so that the library appears in every linker namespace\u0027s \"global group\", which is necessary so that relocations for sig* APIs consistently prefer libsigchain.so over libc.so, even though an app\u0027s DSO doesn\u0027t depend on libsigchain.so.",
+      "parentUuid": "42017f22_300596a7",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "I need at least one symbol, the tools generating the stubs complain without one.",
       "parentUuid": "e637732e_036751f4",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1697b53_9b57fbe5",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-03-09T23:03:59Z",
+      "side": 1,
+      "message": "The libsigchain.so on the device needs to expose the sig* APIs so it can interpose them. I think that means the sig* APIs need to be listed here.\n\nI think we also should rename these sigchain APIs so they don\u0027t collide with ordinary symbols somewhere else.\n\ne.g. If an app has its own EnsureFrontOfChain function, unrelated to signals or libsigchain, the app will generally end up calling into libsigchain instead of calling its own function, breaking the app. Ideally, the app wouldn\u0027t automatically be linked against a set of internal sigchain APIs, but I don\u0027t know if we can avoid that.\n\nAFAIK, this problem with EnsureFrontOfChain already exists in current versions of Android. e.g. On Q, if an app does this:\n\n    extern \"C\" int EnsureFrontOfChain() { return 42; }\n\n... then calls EnsureFrontOfChain, without hiding it in its DSO, and assuming Clang doesn\u0027t inline the call, then the app will instead call libsigchain\u0027s EnsureFrontOfChain.",
+      "parentUuid": "5bd74519_9b38ba6a",
       "range": {
         "startLine": 19,
         "startChar": 0,
