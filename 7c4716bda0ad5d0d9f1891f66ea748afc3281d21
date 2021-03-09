@@ -291,6 +291,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59d8425a_65a83f29",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1017430
+      },
+      "writtenOn": "2021-03-09T04:15:00Z",
+      "side": 1,
+      "message": "how often do we cold start apps directly from an APK? unless it\u0027s extremely common we should delay this to a second patch",
+      "parentUuid": "c1afeed0_73fecbb8",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ada34c_a831b79f",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
