@@ -22,6 +22,30 @@
       },
       "revId": "4e7b3c78854d9639758e2519ae29f86a6799857b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779153ba_9de73678",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-09T14:23:31Z",
+      "side": 0,
+      "message": "It\u0027s already picking it from libart.",
+      "parentUuid": "be8ec038_80207e37",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "4e7b3c78854d9639758e2519ae29f86a6799857b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
