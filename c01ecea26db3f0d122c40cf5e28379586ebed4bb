@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a86606_a9e6be16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-09T23:01:43Z",
+      "side": 1,
+      "message": "Added it to build-art-target-golem too.\n\nI noticed similar lib copying code in the art_common module at https://cs.android.com/android/platform/superproject/+/master:art/build/Android.gtest.mk;l\u003d32-35;drc\u003d394ae695bf724bfb63989ce394860113eb3aa1a7, but it doesn\u0027t seem to be necessary to add this lib there - host gtests and run tests work anyway.",
+      "revId": "c01ecea26db3f0d122c40cf5e28379586ebed4bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
