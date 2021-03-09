@@ -16,6 +16,29 @@
       "message": "For uncompressed dexfiles in the APK let me know how to proceed. If okay, I can also handle that specific case, separately in a follow-on CL.",
       "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4968d6eb_6b0e73e9",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-09T01:08:06Z",
+      "side": 1,
+      "message": "condition and do this  only if the file is not writable.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

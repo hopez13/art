@@ -267,6 +267,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1afeed0_73fecbb8",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-09T01:08:06Z",
+      "side": 1,
+      "message": "Hmm, I don\u0027t think there will be an easy way :(.\n\nAnd I\u0027m not sure we should extend the signatures of those loading methods with the extra arguments.\n\nI think we should go ahead with checking if we have a runtime in art_dex_file_loader to minimize the mess of propagating those args.\n\nSomething like\nif (Runtime::Current() !\u003d nullptr) {\n  // this load is with a live Runtime, try to madvise\n  ...\n}\n\nIt\u0027s not ideal but I don\u0027t think I have a better solution. The proper one will involve encapsulating those arguments into a proper object, but that\u0027s a pretty big change right now.\n\nMaybe Chris or Nicolas have better suggestions or ideas.",
+      "parentUuid": "cddcc622_417d413a",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ada34c_a831b79f",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
