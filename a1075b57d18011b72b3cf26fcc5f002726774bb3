@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd79b048_283b501a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-09T13:46:09Z",
+      "side": 1,
+      "message": "nit: \u0027*\u0027 always next to the type.",
+      "range": {
+        "startLine": 3152,
+        "startChar": 11,
+        "endLine": 3152,
+        "endChar": 12
+      },
+      "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4968d6eb_6b0e73e9",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 5
@@ -31,6 +54,30 @@
       "writtenOn": "2021-03-09T01:08:06Z",
       "side": 1,
       "message": "condition and do this  only if the file is not writable.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837c975d_5122604e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-09T13:46:09Z",
+      "side": 1,
+      "message": "This code can be removed if you can do the madvise on OatDexFile::OatDexfile.",
+      "parentUuid": "4968d6eb_6b0e73e9",
       "range": {
         "startLine": 203,
         "startChar": 0,

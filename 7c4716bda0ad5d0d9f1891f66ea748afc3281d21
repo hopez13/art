@@ -339,6 +339,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "436205ed_a550428a",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-09T13:46:09Z",
+      "side": 1,
+      "message": "@Tim: we\u0027re not tracking which apps decide that, but some apps looking at SH of their app have gone that route.\n\n@Calin: art_dex_file_loader.cc doesn\u0027t even have access to runtime, by design (when David made this library runtime-free).\n\n@Jagadeesh: I think the best place is the constructor of OatDexFile, see OatDexFile::OatDexFile in oat_file.cc",
+      "parentUuid": "77a0b782_0c7f8479",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 68
+      },
+      "revId": "7c4716bda0ad5d0d9f1891f66ea748afc3281d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ada34c_a831b79f",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 4
