@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5eba851_17519f8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2021-03-09T02:11:23Z",
+      "side": 1,
+      "message": "I would have thought maybe `oatdump`, but that appears to not even be built for Mac. I\u0027m not sure if we actually ship any SDK tools from ART\u0027s side.",
+      "parentUuid": "aea568df_ec069205",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 10
+      },
+      "revId": "659e6c05fa53cb3cbed3fa7ab2087cd73a8b6fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a8cac90c_464da801",
