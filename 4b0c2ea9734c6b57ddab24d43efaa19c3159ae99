@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7e4b28_d61adef8",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-09T14:13:34Z",
+      "side": 1,
+      "message": "Unsure if the order matters here - we need libsigchain to be first among the DT_NEEDED entries, don\u0027t we? rprichard, enh, please advise.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42017f22_300596a7",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-09T14:13:34Z",
+      "side": 1,
+      "message": "Is it possible to use version_script instead? It would allow us to be more explicit with the symbols we expose globally. (It could be a different file from the one used for the APEX stubs, if necessary.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e637732e_036751f4",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-09T14:13:34Z",
+      "side": 1,
+      "message": "For the APEX stubs we don\u0027t need to export any symbols at all, but these will end up in them (if go/android-apex-build is still accurate). Does it work without any global symbols at all here (given this is only used as stubs.symbol_file)?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
