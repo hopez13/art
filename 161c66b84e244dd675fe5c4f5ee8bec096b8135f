@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ee4080_50bf3321",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-10T15:15:18Z",
+      "side": 1,
+      "message": "This theoretically does not guarantee stable order of elements with the same key. What about std::unordered_map\u003cuint32_t, std::vector\u003cStackMap\u003e\u003e?",
+      "range": {
+        "startLine": 1525,
+        "startChar": 8,
+        "endLine": 1525,
+        "endChar": 71
+      },
+      "revId": "161c66b84e244dd675fe5c4f5ee8bec096b8135f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
