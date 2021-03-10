@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a7ce71a_1886c603",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-10T10:17:05Z",
+      "side": 1,
+      "message": "I take it then \"global\" in this sense is different from the \"global\" label in version script? It\u0027s a flag that put the symbols in the global group, but doesn\u0027t affect their visibilities like the version script does?\n\nIf so, I\u0027d appreciate if the comment could point that out more clearly.",
+      "parentUuid": "eb711d37_2cb97521",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e637732e_036751f4",
         "filename": "sigchainlib/libsigchain.map.txt",
         "patchSetId": 5
@@ -233,6 +257,53 @@
         "startChar": 0,
         "endLine": 22,
         "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b5d9c3_5988bbcd",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-10T10:17:05Z",
+      "side": 1,
+      "message": "\u003e I need at least one symbol, the tools generating the stubs complain without one.\n\nCan we change that? +jiyong\n\n\u003e I think that means the sig* APIs need to be listed here.\n\nThis script is listed as stubs.symbol_file and nothing else, so I believe it\u0027s only used to build the APEX stubs. We need to expose both sig* and these functions in the implementation .so file, but nothing in the APEX stubs since there\u0027s no APEX API defined here.\n\n\u003e I think we also should rename these sigchain APIs so they don\u0027t collide with ordinary symbols somewhere else.\n\nIiuc we\u0027d ideally want to apply -Wl,-z,global to the sig* functions but not to EnsureFrontOfChain and the other functions here. Assuming we can\u0027t make that distinction I agree a namespace-like prefix that\u0027s unlikely to occur in apps would be good.\n\n\u003e AFAIK, this problem with EnsureFrontOfChain already exists in current versions of Android.\n\nThat means keeping the names doesn\u0027t introduce a de-facto app incompatibility, but it still may cause very weird behaviour for some unlucky app developer.",
+      "parentUuid": "5bd74519_9b38ba6a",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "333b8e8c_4a1de64b",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-10T10:17:05Z",
+      "side": 1,
+      "message": "Was the test broken? Can this be done separately?",
+      "range": {
+        "startLine": 234,
+        "startChar": 2,
+        "endLine": 234,
+        "endChar": 17
       },
       "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

@@ -46,6 +46,53 @@
       },
       "revId": "4e7b3c78854d9639758e2519ae29f86a6799857b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b7458cc_36f3f29a",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-10T10:17:05Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "779153ba_9de73678",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "4e7b3c78854d9639758e2519ae29f86a6799857b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b6a1aa_18719def",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-10T10:17:05Z",
+      "side": 0,
+      "message": "Suggest keeping this, for the sake of prudence in case another test gets added.",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 13
+      },
+      "revId": "4e7b3c78854d9639758e2519ae29f86a6799857b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
