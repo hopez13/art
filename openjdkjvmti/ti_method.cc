@@ -448,7 +448,7 @@ jvmtiError MethodUtil::GetMethodModifiers(jvmtiEnv* env ATTRIBUTE_UNUSED,
   if ((modifiers & art::kAccDeclaredSynchronized) != 0) {
     modifiers |= art::kAccSynchronized;
   }
-  modifiers &= art::kAccJavaFlagsMask;
+  modifiers &= art::kAccJavaFlagsMask & art::kAccDexFileMethodFlagsMask;
 
   *modifiers_ptr = modifiers;
   return ERR(NONE);

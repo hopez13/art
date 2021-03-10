@@ -3785,7 +3785,8 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   dst->SetDeclaringClass(klass.Get());
 
   // Get access flags from the DexFile and set hiddenapi runtime access flags.
-  uint32_t access_flags = method.GetAccessFlags() | hiddenapi::CreateRuntimeFlags(method);
+  uint32_t access_flags = (method.GetAccessFlags() & kAccDexFileMethodFlagsMask) |
+      hiddenapi::CreateRuntimeFlags(method);
 
   if (UNLIKELY(strcmp("finalize", method_name) == 0)) {
     // Set finalizable flag on declaring class.
@@ -3841,6 +3842,26 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   } else {
     dst->SetDataPtrSize(nullptr, image_pointer_size_);
     DCHECK_EQ(method.GetCodeItemOffset(), 0u);
+  }
+
+  bool nterp_invoke_fast_path = true;
+  const char* shorty = dst->GetShorty();
+  for (size_t i = 0, e = strlen(shorty); i < e; ++i) {
+    if (i == 0) {
+      if (shorty[i] == 'F' || shorty[i] == 'D') {
+        nterp_invoke_fast_path = false;
+      }
+    } else {
+      if (shorty[i] != 'L') {
+        if (shorty[i] != 'I') {
+          nterp_invoke_fast_path = false;
+          break;
+        }
+      }
+    }
+  }
+  if (nterp_invoke_fast_path) {
+    dst->SetNterpInvokeFastPath();
   }
 }
 
