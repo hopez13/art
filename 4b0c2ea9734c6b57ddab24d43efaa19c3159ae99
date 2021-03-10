@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1954ec5_67af1d21",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-10T09:32:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da05a28b_26e6dc57",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 22
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42017f22_300596a7",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "The library needs to -Wl,-z,global so that the library appears in every linker namespace\u0027s \"global group\", which is necessary so that relocations for sig* APIs consistently prefer libsigchain.so over libc.so, even though an app\u0027s DSO doesn\u0027t depend on libsigchain.so.",
       "parentUuid": "42017f22_300596a7",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86fe30d1_eb64d113",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-10T09:32:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb711d37_2cb97521",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -156,6 +204,30 @@
       "side": 1,
       "message": "The libsigchain.so on the device needs to expose the sig* APIs so it can interpose them. I think that means the sig* APIs need to be listed here.\n\nI think we also should rename these sigchain APIs so they don\u0027t collide with ordinary symbols somewhere else.\n\ne.g. If an app has its own EnsureFrontOfChain function, unrelated to signals or libsigchain, the app will generally end up calling into libsigchain instead of calling its own function, breaking the app. Ideally, the app wouldn\u0027t automatically be linked against a set of internal sigchain APIs, but I don\u0027t know if we can avoid that.\n\nAFAIK, this problem with EnsureFrontOfChain already exists in current versions of Android. e.g. On Q, if an app does this:\n\n    extern \"C\" int EnsureFrontOfChain() { return 42; }\n\n... then calls EnsureFrontOfChain, without hiding it in its DSO, and assuming Clang doesn\u0027t inline the call, then the app will instead call libsigchain\u0027s EnsureFrontOfChain.",
       "parentUuid": "5bd74519_9b38ba6a",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c39037_42059b55",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-10T09:32:32Z",
+      "side": 1,
+      "message": "\u003e I think that means the sig* APIs need to be listed here.\nI thought this file was only used for creating stubs for the users to build-time link against? How else is it used which affects the linker?\n\n\u003e I think we also should rename these sigchain APIs so they don\u0027t collide with ordinary symbols somewhere else.\n\nDoesn\u0027t that apply also to sig* APIs? Like in your example, if an app has its own sigaction, due to libsigchain being present, they will actually call the one in libsigchain?",
+      "parentUuid": "f1697b53_9b57fbe5",
       "range": {
         "startLine": 19,
         "startChar": 0,
