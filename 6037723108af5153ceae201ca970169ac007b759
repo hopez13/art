@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c241ae_45b7f81d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-10T23:32:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "322d67e7_77e814d5",
+      "range": {
+        "startLine": 3155,
+        "startChar": 4,
+        "endLine": 3157,
+        "endChar": 54
+      },
+      "revId": "6037723108af5153ceae201ca970169ac007b759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22917afd_79eb9554",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-10T16:48:11Z",
       "side": 1,
       "message": "I would at least log unexpected system call failures. There are possible errors here that would be interesting for debugging, e.g. ENOMEM, and thus probably shouldn\u0027t be completely ignored.",
+      "range": {
+        "startLine": 3161,
+        "startChar": 6,
+        "endLine": 3161,
+        "endChar": 59
+      },
+      "revId": "6037723108af5153ceae201ca970169ac007b759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21033e8c_a739555d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3161,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-10T23:32:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22917afd_79eb9554",
       "range": {
         "startLine": 3161,
         "startChar": 6,
