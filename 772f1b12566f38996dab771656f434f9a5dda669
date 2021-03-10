@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c70cabc7_9e93abdc",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-10T14:03:44Z",
+      "side": 1,
+      "message": "If there are multiple stack maps for the same native pc, the `unordered_map` shall discard all but the first one. That\u0027s OK but you should add a comment corresponding to\n\n  // There may be multiple stack maps at a given PC. We display only the first one.\n\nin the old code.",
+      "range": {
+        "startLine": 1530,
+        "startChar": 11,
+        "endLine": 1530,
+        "endChar": 24
+      },
+      "revId": "772f1b12566f38996dab771656f434f9a5dda669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
