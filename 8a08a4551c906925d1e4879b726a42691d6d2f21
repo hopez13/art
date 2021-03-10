@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad459d25_177e9fb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-10T23:17:04Z",
+      "side": 1,
+      "message": "PTAL, I changed this so that it always enables the background thread instead of having to handle different configurations in tests. This also includes updates to make the tests handle the metrics thread.",
+      "revId": "8a08a4551c906925d1e4879b726a42691d6d2f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
