@@ -94,6 +94,30 @@
       },
       "revId": "772f1b12566f38996dab771656f434f9a5dda669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7019992_018b3972",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-10T15:07:38Z",
+      "side": 1,
+      "message": "Ok, so it seems duplicates still can happen for catch blocks.\nI adjusted the code to print them all.",
+      "parentUuid": "92a1e11d_dd2af8e9",
+      "range": {
+        "startLine": 1530,
+        "startChar": 11,
+        "endLine": 1530,
+        "endChar": 24
+      },
+      "revId": "772f1b12566f38996dab771656f434f9a5dda669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
