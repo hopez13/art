@@ -305,6 +305,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "267f5ef1_697a6a2f",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-10T11:47:42Z",
+      "side": 1,
+      "message": "This file is used to create a stub library that is used when someone outside of the APEX has `shared_libs: [\"ligsigchain\"]`.\n\nThis library is not exposed to apps, so we basically don\u0027t need to worry about name collision, BUT I am not sure if \"-z,global\" nullifies the argument. Over to Ryan.\n\n#apex marker is not necessary here (it\u0027s not harmful though). That is required only when this library is an NDK library. In that case, the marker is used to hide a symbol to NDK clients, but not to APEX clients. Since this library is not an NDK library, it has only APEX clients and therefore we don\u0027t need to discriminate NDK/APEX APIs here.\n\n\u003e I need at least one symbol, the tools generating the stubs complain without one.\n\nThat\u0027s WAI. Why do you want to create a stub library having zero symbol? What would be the use of it?",
+      "parentUuid": "00b5d9c3_5988bbcd",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "333b8e8c_4a1de64b",
         "filename": "sigchainlib/sigchain_test.cc",
         "patchSetId": 5
