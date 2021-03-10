@@ -46,6 +46,30 @@
       },
       "revId": "772f1b12566f38996dab771656f434f9a5dda669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52bbbd1e_1741614e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-10T14:39:04Z",
+      "side": 1,
+      "message": "Actually... it does not DCHECK...",
+      "parentUuid": "2f08a0ad_60a3f431",
+      "range": {
+        "startLine": 1530,
+        "startChar": 11,
+        "endLine": 1530,
+        "endChar": 24
+      },
+      "revId": "772f1b12566f38996dab771656f434f9a5dda669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
