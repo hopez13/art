@@ -22,6 +22,30 @@
       },
       "revId": "772f1b12566f38996dab771656f434f9a5dda669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f08a0ad_60a3f431",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-10T14:35:11Z",
+      "side": 1,
+      "message": "That comment no longer applies. If it is happens it will DCHECK fail.\n\nThe very old stack maps used to replicate stack maps as side channel.\n\"if there many copies of stack map then the stack map is OSR entry\".\nThe new version of stack maps just stores the entry once with OSR flag.",
+      "parentUuid": "c70cabc7_9e93abdc",
+      "range": {
+        "startLine": 1530,
+        "startChar": 11,
+        "endLine": 1530,
+        "endChar": 24
+      },
+      "revId": "772f1b12566f38996dab771656f434f9a5dda669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
