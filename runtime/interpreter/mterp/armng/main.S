@@ -972,13 +972,65 @@ END \name
    .elseif \is_string_init
    // No fast path for string.init.
    .else
+     ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+     tst ip, #ART_METHOD_NTERP_INVOKE_FAST_PATH
+     beq .Lfast_path_with_few_args_\suffix
+     FETCH_B rINST, 0, 1
+     .if \is_static
+     asrs lr, rINST, #4
+     beq .Linvoke_fast_path_\suffix
+     .else
+     asr lr, rINST, #4
+     cmp lr, #1
+     beq .Linvoke_fast_path_\suffix
+     .endif
+     FETCH ip, 2
+     cmp lr, #2
+     .if \is_static
+     blt .Lone_arg_fast_path_\suffix
+     .endif
+     beq .Ltwo_args_fast_path_\suffix
+     cmp lr, #4
+     blt .Lthree_args_fast_path_\suffix
+     beq .Lfour_args_fast_path_\suffix
+     and         rINST, rINST, #15
+     GET_VREG    rINST, rINST
+     str         rINST, [sp, #(4 + 4 * 4)]
+.Lfour_args_fast_path_\suffix:
+     asr         rINST, ip, #12
+     GET_VREG    rINST, rINST
+     str         rINST, [sp, #(4 + 3 * 4)]
+.Lthree_args_fast_path_\suffix:
+     ubfx        rINST, ip, #8, #4
+     GET_VREG    r3, rINST
+.Ltwo_args_fast_path_\suffix:
+     ubfx        rINST, ip, #4, #4
+     GET_VREG    r2, rINST
+.Lone_arg_fast_path_\suffix:
+     .if \is_static
+     and         rINST, ip, #0xf
+     GET_VREG    r1, rINST
+     .else
+     // First argument already in r1.
+     .endif
+.Linvoke_fast_path_\suffix:
+     .if \is_interface
+     // Setup hidden argument.
+     mov ip, r4
+     .endif
+     ldr lr, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]
+     blx lr
+     FETCH_ADVANCE_INST 3
+     GET_INST_OPCODE ip
+     GOTO_OPCODE ip
+.Lfast_path_with_few_args_\suffix:
      // Fast path when we have zero or one argument (modulo 'this'). If there
      // is one argument, we can put it in both floating point and core register.
      FETCH_B r2, 0, 1
      asr r2, r2, #4  // number of arguments
      .if \is_static
      cmp r2, #1
-     blt .Lfast_path_\suffix
+     blt .Linvoke_with_few_args_\suffix
      bne .Lget_shorty_\suffix
      FETCH r2, 2
      and r2, r2, #0xf  // dex register of first argument
@@ -986,14 +1038,14 @@ END \name
      vmov s0, r1
      .else
      cmp r2, #2
-     blt .Lfast_path_\suffix
+     blt .Linvoke_with_few_args_\suffix
      bne .Lget_shorty_\suffix
      FETCH r2, 2
      ubfx r2, r2, #4, #4  // dex register of second argument
      GET_VREG r2, r2
      vmov s0, r2
      .endif
-.Lfast_path_\suffix:
+.Linvoke_with_few_args_\suffix:
      // Check if the next instruction is move-result or move-result-wide.
      // If it is, we fetch the shorty and jump to the regular invocation.
      FETCH r3, 3
@@ -1218,26 +1270,88 @@ END \name
    .elseif \is_string_init
    // No fast path for string.init.
    .else
+     ldr ip, [r0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
+     tst ip, #ART_METHOD_NTERP_INVOKE_FAST_PATH
+     beq .Lfast_path_with_few_args_range_\suffix
+     FETCH_B ip, 0, 1  // Number of arguments
+     .if \is_static
+     cmp ip, #0
+     .else
+     cmp ip, #1
+     .endif
+     beq .Linvoke_fast_path_range_\suffix
+     FETCH lr, 2  // dex register of first argument
+     add lr, lr, ip
+     .if \is_static
+     cmp ip, #2
+     blt .Lone_arg_fast_path_range_\suffix
+     beq .Ltwo_args_fast_path_range_\suffix
+     cmp ip, #3
+     .else
+     cmp ip, #3
+     blt .Ltwo_args_fast_path_range_\suffix
+     .endif
+     beq .Lthree_args_fast_path_range_\suffix
+     // Setup r8 to point to the stack location of parameters we do not need
+     // to put parameters in.
+     add r8, sp, #(4 + 3 * 4) // Add space for the ArtMethod and other parameters
+     // Setup rINST to point to the top of the arguments in stack.
+     add rINST, sp, ip, lsl #2
+     add rINST, rINST, #4  // Add space for the ArtMethod
+
+.Lloop_over_fast_path_range_\suffix:
+     sub lr, lr, #1
+     GET_VREG ip, lr
+     str  ip, [rINST, #-4]!
+     cmp rINST, r8
+     bne .Lloop_over_fast_path_range_\suffix
+     REFRESH_MARKING_REGISTER
+
+.Lthree_args_fast_path_range_\suffix:
+     sub lr, lr, #1
+     GET_VREG r3, lr
+.Ltwo_args_fast_path_range_\suffix:
+     sub lr, lr, #1
+     GET_VREG r2, lr
+.Lone_arg_fast_path_range_\suffix:
+     .if \is_static
+     sub lr, lr, #1
+     GET_VREG r1, lr
+     .else
+     // First argument already in w1.
+     .endif
+.Linvoke_fast_path_range_\suffix:
+     .if \is_interface
+     // Setup hidden argument.
+     mov ip, r4
+     .endif
+     ldr lr, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]
+     blx lr
+     FETCH_ADVANCE_INST 3
+     GET_INST_OPCODE ip
+     GOTO_OPCODE ip
+
+.Lfast_path_with_few_args_range_\suffix:
      // Fast path when we have zero or one argument (modulo 'this'). If there
      // is one argument, we can put it in both floating point and core register.
      FETCH_B r2, 0, 1 // number of arguments
      .if \is_static
      cmp r2, #1
-     blt .Lfast_path_range_\suffix
+     blt .Linvoke_with_few_args_range_\suffix
      bne .Lget_shorty_range_\suffix
      FETCH r3, 2  // dex register of first argument
      GET_VREG r1, r3
      vmov s0, r1
      .else
      cmp r2, #2
-     blt .Lfast_path_range_\suffix
+     blt .Linvoke_with_few_args_range_\suffix
      bne .Lget_shorty_range_\suffix
      FETCH r3, 2  // dex register of first argument
      add r3, r3, #1  // Add 1 for next argument
      GET_VREG r2, r3
      vmov s0, r2
      .endif
-.Lfast_path_range_\suffix:
+.Linvoke_with_few_args_range_\suffix:
      // Check if the next instruction is move-result or move-result-wide.
      // If it is, we fetch the shorty and jump to the regular invocation.
      FETCH r3, 3

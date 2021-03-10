@@ -43,7 +43,11 @@ static constexpr uint32_t kAccAnnotation =   0x2000;  // class, ic (1.5)
 static constexpr uint32_t kAccEnum =         0x4000;  // class, field, ic (1.5)
 
 static constexpr uint32_t kAccJavaFlagsMask = 0xffff;  // bits set from Java sources (low 16)
+static constexpr uint32_t kAccDexFileMethodFlagsMask = 0x37fff;  // bits set from dex code (method)
 
+// Note the 0x8000 flag isn't used for methods in the dex file, as it was
+// reserved by the dalvik VM for flagging miranda methods.
+static constexpr uint32_t kAccNterpInvokeFastPath =   0x00008000;  // method (runtime)
 static constexpr uint32_t kAccConstructor =           0x00010000;  // method (dex only) <(cl)init>
 static constexpr uint32_t kAccDeclaredSynchronized =  0x00020000;  // method (dex only)
 static constexpr uint32_t kAccClassIsProxy =          0x00040000;  // class  (dex only)
