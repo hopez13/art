@@ -110,6 +110,30 @@
       },
       "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c0ab92_97ef201b",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-10T23:38:01Z",
+      "side": 1,
+      "message": "Moving the code to under writable block as Calin suggested.\n\nWould it be okay to do the handling of uncompressed dex from apk as a follow-on patch?",
+      "parentUuid": "837c975d_5122604e",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "a1075b57d18011b72b3cf26fcc5f002726774bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
