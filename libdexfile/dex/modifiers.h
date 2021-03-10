@@ -94,6 +94,10 @@ static constexpr uint32_t kAccMustCountLocks =        0x04000000;  // method (ru
 // virtual call.
 static constexpr uint32_t kAccSingleImplementation =  0x08000000;  // method (runtime)
 
+// Set by the class linker to mark that a method does not have floating points
+// or longs in its shorty.
+static constexpr uint32_t kAccNterpInvokeFastPath =   0x00200000;  // method (runtime)
+
 static constexpr uint32_t kAccPublicApi =             0x10000000;  // field, method
 static constexpr uint32_t kAccCorePlatformApi =       0x20000000;  // field, method
 
