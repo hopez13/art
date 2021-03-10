@@ -16,6 +16,52 @@
       "message": "Rebased patch \u0026 adding change from re-run of `test/utils/regen-test-files`",
       "revId": "6037723108af5153ceae201ca970169ac007b759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "322d67e7_77e814d5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-10T16:48:11Z",
+      "side": 1,
+      "message": "Can you explain a bit more, probably in a comment, why the loop is needed? The description in the bug isn\u0027t clear to me.",
+      "range": {
+        "startLine": 3155,
+        "startChar": 4,
+        "endLine": 3157,
+        "endChar": 54
+      },
+      "revId": "6037723108af5153ceae201ca970169ac007b759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22917afd_79eb9554",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3161,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-10T16:48:11Z",
+      "side": 1,
+      "message": "I would at least log unexpected system call failures. There are possible errors here that would be interesting for debugging, e.g. ENOMEM, and thus probably shouldn\u0027t be completely ignored.",
+      "range": {
+        "startLine": 3161,
+        "startChar": 6,
+        "endLine": 3161,
+        "endChar": 59
+      },
+      "revId": "6037723108af5153ceae201ca970169ac007b759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
