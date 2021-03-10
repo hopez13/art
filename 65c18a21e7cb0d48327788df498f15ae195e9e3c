@@ -285,6 +285,29 @@
       },
       "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2e3eaa_53538fd8",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1452753
+      },
+      "writtenOn": "2021-03-10T10:59:12Z",
+      "side": 1,
+      "message": "As called_monitors_callback is set false initially, those codes are never been ran. Sould they be removed?",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 444,
+        "endChar": 5
+      },
+      "revId": "65c18a21e7cb0d48327788df498f15ae195e9e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
