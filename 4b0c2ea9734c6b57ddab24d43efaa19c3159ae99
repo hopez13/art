@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1117586_f3d176d8",
+        "filename": "sigchainlib/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-03-11T00:37:09Z",
+      "side": 1,
+      "message": "That\u0027s right. -Wl,-z,global simply marks the binary with the DF_1_GLOBAL flag. It\u0027s independent from the version script.\n\nThe result is viewable using `readelf -d`. e.g.:\n\n    $ readelf -d \u003cpath-to-library\u003e\n    ...\n    0x000000006ffffffb (FLAGS_1)            Flags: NOW GLOBAL\n    ...",
+      "parentUuid": "3a7ce71a_1886c603",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e637732e_036751f4",
         "filename": "sigchainlib/libsigchain.map.txt",
         "patchSetId": 5
@@ -341,6 +365,30 @@
       "side": 1,
       "message": "This library overrides sigaction, sigprocmask etc from libc. Those are just overrides - they\u0027re part of the libc API and covered by its stubs.\n\nThen it defines the extra functions here, but those are only for ART internal use so shouldn\u0027t be listed here.\n\nHence the API is empty, but the library still needs to be loaded in app_process. (Indeed this is a quite odd special case, but here we are.)",
       "parentUuid": "267f5ef1_697a6a2f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48fd8015_0e0ff956",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-03-11T00:37:09Z",
+      "side": 1,
+      "message": "\u003e This library is not exposed to apps, so we basically don\u0027t need to worry about name collision, BUT I am not sure if \"-z,global\" nullifies the argument. Over to Ryan.\n\nYeah, the library being DF_1_GLOBAL (-z,global) makes it special, by placing it into the \"global group\" for all namespaces. A library that is loaded along with the executable, which is marked DF_1_GLOBAL, is treated the same way as the executable and LD_PRELOAD libraries. All three are part of the \"global group\" for all namespaces, so their symbols interpose everything, even though an app DSO doesn\u0027t explicitly link against them.\n\nThere isn\u0027t a mechanism for specifying just the sig* symbols in libsigchain.so as special interposing symbols.\n\nIt looks like the EnsureFrontOfChain et al functions have been overriding app DSOs since M, so it\u0027s not a recent thing.\n\nI think the change now is OK.\n\nI can\u0027t remember if we ever investigated whether sanitizers also want to hook sig* APIs. The sanitizers intercept a bunch of APIs, and I see interceptors for the sig* APIs. Previously, sigchain (i.e. the executable, app_process) had highest priority (i.e. relocations to sig* resolve to app_process), and then sigchain forwarded to something else using RTLD_NEXT. There was a problem with RTLD_NEXT, though (b/135284876), so in R, sigchain simply forwards to libc.so explicitly, which means that an LD_PRELOAD library can\u0027t currently interpose sig*.\n\nThat changes with libsigchain.so. A LD_PRELOAD library would hook sig* first, and then if it used RTLD_NEXT, it would forward to libsigchain.so, which would call libc.so. But maybe a sanitizer would want to be layered between sigchain and libc. Even if so, this CL isn\u0027t a regression from R, where (it appears) LD_PRELOAD can\u0027t interpose sig* APIs in app_process.",
+      "parentUuid": "e7d8a492_3bf19f4a",
       "range": {
         "startLine": 19,
         "startChar": 0,
