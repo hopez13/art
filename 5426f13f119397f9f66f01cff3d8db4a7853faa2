@@ -70,6 +70,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7171a47b_546ad384",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-11T04:41:52Z",
+      "side": 1,
+      "message": "If all requests come through RequestConcurrentGC(), then I think we\u0027re more or less fine. It\u0027s probably still not perfect, with or without this CL, and that may also be worth addressing. The problem there is that we may notice we need a concurrent GC, get suspended while the current one completes, and then wake up and notice that there is no pending request any more, and enqueue a collection that was triggered based on obsolete heap statistics. I don\u0027t actually think that\u0027s terribly unlikely, though the window is hopefully pretty small; while a background GC is running we observedly get a non-stop stream of RequestConcurrentGC calls. I\u0027ve seen hundreds, and I think it can be thousands.\n\nThis CL doesn\u0027t do much about this path. It still avoids obviously redundant calls like before, with a slightly different mechanism. It may even have made the race window slightly bigger, so it should do better there.\n\nLooking at the code more carefully, I see that if all paths go through AllocateInternalWithGC(), it\u0027s also somewhat unlikely that we get multiple GCs, since we try to allocate after waiting for the previous GC. That\u0027s clearly far from foolproof, e.g. if both threads saw a minor GC in progress, but it didn\u0027t suffice for freeing up a sufficiently large object. But I agree it\u0027s not likely.\n\nThe case that\u0027s probably more likely is if we have an explicitly requested (or nearly out-of-memory) GC running, and then trigger a concurrent GC, I think the concurrent GC will just wait for the earlier blocking GC to complete, and then run immediately. Or possibly vice-versa.\n\nIn general, I think that trying to reason about all these corner cases is a mess, and we should just have a way to notice when the data on which the GC request was based is out of date, and ignore the request. I think that basically means we need to associate a time stamp with the request. If there was an intervening GC, we ignore the request. (With adjustments for the explicit case, which the current CL neglects.) That\u0027s basically what this CL tries to do, though not yet correctly. Getting unnecessary GCs, even if it\u0027s only in near OOM and explicitly requested situations, isn\u0027t good. It compounds a bad situation. The other reason it bothers me is that it potentially adds strange measurement noise, making it hard to evaluate other changes.",
+      "parentUuid": "96e5d85e_c2135abb",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
