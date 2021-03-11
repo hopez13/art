@@ -473,6 +473,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7b18850_ff1660c2",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-11T13:32:42Z",
+      "side": 1,
+      "message": "\u003e It looks like the EnsureFrontOfChain et al functions have been overriding app DSOs since M\n\nRyan, just to double-check, this happened also when libsigchain was statically linked into app_process? Was DF_1_GLOBAL-like behaviour in effect then too?\n\nRegardless whether this is a new issue or not, I think we should consider prefixing something like \"AndroidArt_\" to these functions to make it less likely that apps accidentally create overlap with them.",
+      "parentUuid": "9223e90d_dc876b1f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "333b8e8c_4a1de64b",
         "filename": "sigchainlib/sigchain_test.cc",
         "patchSetId": 5
