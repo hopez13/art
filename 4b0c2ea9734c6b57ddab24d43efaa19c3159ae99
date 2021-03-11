@@ -497,6 +497,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d037ed2a_412b0eb5",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-11T16:12:10Z",
+      "side": 1,
+      "message": "\u003e Regardless whether this is a new issue or not, I think we should consider prefixing something like \"AndroidArt_\" to these functions to make it less likely that apps accidentally create overlap with them.\n\nit\u0027s more traditional to prefix the functions with the name of the library they\u0027re _in_ rather than the code that calls them, but otherwise +1 to a prefix :-)",
+      "parentUuid": "c7b18850_ff1660c2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "333b8e8c_4a1de64b",
         "filename": "sigchainlib/sigchain_test.cc",
         "patchSetId": 5
