@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c23c2bc7_62bbb531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-11T00:27:31Z",
+      "side": 1,
+      "message": "I think this is ready to land.\n\nTo validate the approach, I have a CL that adds a MetricsAccumulator that lets you do things like min or max. It\u0027s at https://android-review.git.corp.google.com/c/platform/art/+/1625006, but I want to add some comments and documentation before merging it.",
+      "revId": "b47f3bce220daa145df592f7fae68d910111bd0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
