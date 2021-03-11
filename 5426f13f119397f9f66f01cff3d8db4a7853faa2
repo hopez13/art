@@ -46,6 +46,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e5d85e_c2135abb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-11T03:07:12Z",
+      "side": 1,
+      "message": "I think the likely case is where multiple threads try to queue up several concurrent GC requests, when they observe concurrent_start_bytes_ being reached. But all the requests except for one will be dropped due to concurrent_gc_pending_ being already set to true.\n\nThe multiple sources of CollectGarbageInternal definitely exist, but doesn\u0027t seem likely to cause multiple GCs one after the other. Can you please give an example of how that can happen, even occasionally?\nEven if such a case exists, I think what we need is ConcurrentGC() be done by the calling thread, instead of adding a task for gc-thread to do asynchronously. With this, let\u0027s say a concurrent GC is already going on, and another thread tries to invoke GC due to native-alloc, then all that second thread should do is wait for the current GC to finish and then back out. And this is exactly what ConcurrentGC() does. No?",
+      "parentUuid": "f0a5703c_f32960aa",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
