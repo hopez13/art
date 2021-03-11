@@ -16,6 +16,24 @@
       "message": "Was it a bug in the previous implementation that we were not calling GoToRunnableFast, or did we miss this in your latest cleanups?",
       "revId": "36d1cd40b9548130391f20adce547d8fcc2130fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828cdc35_b51df003",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-11T13:52:15Z",
+      "side": 1,
+      "message": "I guess this was omitted by mistake. But a missing suspend check is not a big deal, we\u0027d just suspend a bit later. I\u0027m adding it for consistency with JniMethodFastEnd().",
+      "parentUuid": "90ed8dc4_cfe70bd6",
+      "revId": "36d1cd40b9548130391f20adce547d8fcc2130fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
