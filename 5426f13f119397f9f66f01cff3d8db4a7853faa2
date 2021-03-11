@@ -94,6 +94,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18b0208_3cc95a63",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-11T22:02:55Z",
+      "side": 1,
+      "message": "\u003e If all requests come through RequestConcurrentGC(), then I think we\u0027re more or less fine. It\u0027s probably still not perfect, with or without this CL, and that may also be worth addressing. The problem there is that we may notice we need a concurrent GC, get suspended while the current one completes, and then wake up and notice that there is no pending request any more, and enqueue a collection that was triggered based on obsolete heap statistics. I don\u0027t actually think that\u0027s terribly unlikely, though the window is hopefully pretty small; while a background GC is running we observedly get a non-stop stream of RequestConcurrentGC calls. I\u0027ve seen hundreds, and I think it can be thousands.\n\u003e \n\nWouldn\u0027t these RequestConcurrentGC calls all get neglected due to WaitForGCToComplete() as a GC is currently going on?\n\n\u003e This CL doesn\u0027t do much about this path. It still avoids obviously redundant calls like before, with a slightly different mechanism. It may even have made the race window slightly bigger, so it should do better there.\n\u003e \n\u003e Looking at the code more carefully, I see that if all paths go through AllocateInternalWithGC(), it\u0027s also somewhat unlikely that we get multiple GCs, since we try to allocate after waiting for the previous GC. That\u0027s clearly far from foolproof, e.g. if both threads saw a minor GC in progress, but it didn\u0027t suffice for freeing up a sufficiently large object. But I agree it\u0027s not likely.\n\u003e \n\u003e The case that\u0027s probably more likely is if we have an explicitly requested (or nearly out-of-memory) GC running, and then trigger a concurrent GC, I think the concurrent GC will just wait for the earlier blocking GC to complete, and then run immediately. Or possibly vice-versa.\n\nAgain, I would imagine that WaitForGcToComplete() in CollectGarbageInternal() will avoid these, no? An explicit GC gets executed by the calling thread itself, whereas the concurrent one by GC-thread. So it should be addressed, I think.\n\n\u003e \n\u003e In general, I think that trying to reason about all these corner cases is a mess, and we should just have a way to notice when the data on which the GC request was based is out of date, and ignore the request. I think that basically means we need to associate a time stamp with the request. If there was an intervening GC, we ignore the request. (With adjustments for the explicit case, which the current CL neglects.) That\u0027s basically what this CL tries to do, though not yet correctly. Getting unnecessary GCs, even if it\u0027s only in near OOM and explicitly requested situations, isn\u0027t good. It compounds a bad situation. The other reason it bothers me is that it potentially adds strange measurement noise, making it hard to evaluate other changes.\n\nWhen you put it this way, it makes sense 😊\n\nMy point is not that the repeated GCs are not possible. I\u0027m just saying that it seems unlikely. I think this is a problem only in cases where some thread suspends after deciding to do a GC and wakes after someone else has already done it. But the likelihood of the first thread suspending within that small window seems too small. But if I\u0027m wrong and it is indeed being observed frequently, then definitely worth fixing.\nAlso, it seems to me that the root cause of this problem that at some places GC is invoked directly by calling CollectGarbageInternal(), while others (the most frequently taken path via RequestConcurrentGC()) for the rest. Wouldn\u0027t the problem go away if all GC invocations had the similar logic as in ConcurrentGC()?",
+      "parentUuid": "7171a47b_546ad384",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
