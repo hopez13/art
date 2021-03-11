@@ -22,6 +22,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a5703c_f32960aa",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-11T02:05:01Z",
+      "side": 1,
+      "message": "I\u0027ll fix the commit message. I think the problem is with multiple concurrent calls to CollectGarbageInternal, which can come from various sources. Multiple \"concurrent GC\" requests are generally getting filtered.\n\nIt looked to me as this was not too unlikely. If I have several threads allocating and run out of space, they\u0027re all likely to call CollectGarbageInternal(). Do you see something that would prevent that?\n\nHowever TreeHugger pointed out that I\u0027m suppressing collections more aggressively than I should be. So this CL isn\u0027t quite there yet. I also need to run some benchmarks to check for space regressions.",
+      "parentUuid": "b6b7067b_6874fe3f",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
