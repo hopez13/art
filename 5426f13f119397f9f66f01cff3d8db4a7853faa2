@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b7067b_6874fe3f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-11T01:53:36Z",
+      "side": 1,
+      "message": "I didn\u0027t get how is it possible in the current code for multiple simultaneous concurrent-GC requests to end up in multiple GCs being done?\n\nThis function returns kGcTypeNone only if there is no GC running at the same time. I must be missing something. Can you please explain.",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
