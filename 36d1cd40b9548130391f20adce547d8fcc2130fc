@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ed8dc4_cfe70bd6",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-11T13:17:07Z",
+      "side": 1,
+      "message": "Was it a bug in the previous implementation that we were not calling GoToRunnableFast, or did we miss this in your latest cleanups?",
+      "revId": "36d1cd40b9548130391f20adce547d8fcc2130fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
