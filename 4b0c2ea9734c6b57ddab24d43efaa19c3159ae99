@@ -425,6 +425,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cb873df_5b934806",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-11T09:27:50Z",
+      "side": 1,
+      "message": "You\u0027re saying the symbols in this file don\u0027t have to exist, so if there\u0027s a spello we won\u0027t notice until someone actually tries to call the function through the stub? Wouldn\u0027t it be better to check them?\n\nBut sure, we should be able to use a nonsense symbol here (until that\u0027s fixed).",
+      "parentUuid": "cc407dcc_68f7a93b",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4b0c2ea9734c6b57ddab24d43efaa19c3159ae99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "333b8e8c_4a1de64b",
         "filename": "sigchainlib/sigchain_test.cc",
         "patchSetId": 5
