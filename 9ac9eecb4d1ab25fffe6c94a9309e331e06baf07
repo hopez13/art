@@ -22,6 +22,30 @@
       },
       "revId": "9ac9eecb4d1ab25fffe6c94a9309e331e06baf07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28295bdf_a1f4487e",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-12T11:25:43Z",
+      "side": 0,
+      "message": "Initially I thought we\u0027d create a chroot environment and mount the APEXes on Golem devices (b/129332183), meaning we would not have to maintain this extraction logic. I don\u0027t think this is high-priority work, but this seems like an opportunity for future clean up. I\u0027d keep the comment (and maybe adjust it).",
+      "parentUuid": "fa01e71c_21cc1828",
+      "range": {
+        "startLine": 684,
+        "startChar": 48,
+        "endLine": 684,
+        "endChar": 60
+      },
+      "revId": "9ac9eecb4d1ab25fffe6c94a9309e331e06baf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
