@@ -14,6 +14,15 @@
 // limitations under the License.
 //
 
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "art_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["art_license"],
+}
+
 cc_defaults {
     name: "odrefresh-defaults",
     host_supported: true,
@@ -48,8 +57,8 @@ cc_defaults {
     },
     tidy: true,
     tidy_flags: [
-        "-format-style='file'",
-        "--header-filter='system/apex/'",
+        "-format-style=file",
+        "-header-filter=(art/odrefresh/|system/apex/)",
     ],
 }
 
