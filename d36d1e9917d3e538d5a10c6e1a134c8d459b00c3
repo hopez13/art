@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2059f395_d7c4df0f",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-12T16:12:00Z",
+      "side": 1,
+      "message": "Why ENTRY when arm/arm64 has NAME_START?",
+      "range": {
+        "startLine": 1699,
+        "startChar": 0,
+        "endLine": 1699,
+        "endChar": 5
+      },
+      "revId": "d36d1e9917d3e538d5a10c6e1a134c8d459b00c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
