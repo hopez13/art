@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "771ebebc_51fd5efe",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-12T14:23:00Z",
+      "side": 1,
+      "message": "Potential out-of-range access. Restructure the code so that the LOG(INFO) is under the `cur_search_index \u003c seq.size()` condition.",
+      "range": {
+        "startLine": 117,
+        "startChar": 69,
+        "endLine": 117,
+        "endChar": 90
+      },
+      "revId": "9d72fe0607dd628377e1b2e7bf25e22255ad6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
