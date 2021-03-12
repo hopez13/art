@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3137fa_652cd406",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T13:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fd20a02_3bb4763a",
+      "range": {
+        "startLine": 968,
+        "startChar": 10,
+        "endLine": 968,
+        "endChar": 17
+      },
+      "revId": "c99224353cf9e5b119a53a5bfd837700a2b9889b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88c967c5_af09861a",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-12T03:15:34Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1696,
+        "startChar": 4,
+        "endLine": 1697,
+        "endChar": 18
+      },
+      "revId": "c99224353cf9e5b119a53a5bfd837700a2b9889b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d51806c_bb0733a8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T13:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c967c5_af09861a",
       "range": {
         "startLine": 1696,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad63159_882adce8",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T13:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54020ee6_379d46fe",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 18
+      },
+      "revId": "c99224353cf9e5b119a53a5bfd837700a2b9889b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aab8c5f4_9442dab8",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-03-12T03:15:34Z",
       "side": 1,
       "message": "nit: use spaces instead of tabs.",
+      "range": {
+        "startLine": 1387,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 1
+      },
+      "revId": "c99224353cf9e5b119a53a5bfd837700a2b9889b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33bcde09_de8bbf13",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T13:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab8c5f4_9442dab8",
       "range": {
         "startLine": 1387,
         "startChar": 0,
