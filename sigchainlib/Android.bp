@@ -85,5 +85,4 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     srcs: ["sigchain_test.cc"],
-    whole_static_libs: ["libsigchain"],
 }
