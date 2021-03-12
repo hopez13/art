@@ -118,6 +118,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d45f57f_698f0002",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-12T01:10:30Z",
+      "side": 1,
+      "message": "I think usually you\u0027re right that they would get suppressed for ConcurrentGC requests. But it seems complicated. Presumably the ConcurrentGC calls would be made sequentially in the HeapTaskDaemon. So I think waiting for another concurrentGC wouldn\u0027t work? I think we\u0027re counting on the request filtering for that?\n\nI think the WaitForGcToComplete call in GarbageCollectInternal doesn\u0027t really help in this respect, it just waits and then continues unconditionally. I think it currently isn\u0027t in a position to suppress GCs, since it\u0027s sometimes important to run a full GC cycle unconditionally, and sometimes not. PS2 changes its interface for that reason. But you\u0027re right that if RequestConcurrentGC initiates the later request, we\u0027re probably OK.\n\nI actually now suspect the delayed update of the malloc information was the most likely cause of what we\u0027re seeing.\n\nThis CL kind of adds logic similar to RequestConcurrentGC everywhere. I think that actually tracking the time at which we decided to GC makes this a bit easier and more robust than the flag logic. But that may be the most debatable part here.",
+      "parentUuid": "f18b0208_3cc95a63",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
