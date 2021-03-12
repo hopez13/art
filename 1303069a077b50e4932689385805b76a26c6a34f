@@ -113,6 +113,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53488e6e_4964c1f6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3162,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T02:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3842f220_7fb46cbe",
+      "range": {
+        "startLine": 3161,
+        "startChar": 7,
+        "endLine": 3162,
+        "endChar": 51
+      },
+      "revId": "1303069a077b50e4932689385805b76a26c6a34f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "645838d0_f0ca2c47",
@@ -245,6 +269,54 @@
       "side": 1,
       "message": "I agree with Calin, in that I think a failure here is very unexpected, and thus likely to be actionable, and thus should be in the logcat. I\u0027m not opposed to tracing it as well. (Is an empty ScopedTrace like this really visible there, though?) In my view, any really unexpected behavior like this should go in the log, and we should clean up the other stuff, so that the actionable stuff remains visible.\n\nIf there is a reason we should expect this to occasionally fail on a healthy device, I withdraw my comment. But I don\u0027t think so.",
       "parentUuid": "d9c9db5a_d5e03a3f",
+      "range": {
+        "startLine": 3172,
+        "startChar": 8,
+        "endLine": 3172,
+        "endChar": 73
+      },
+      "revId": "1303069a077b50e4932689385805b76a26c6a34f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b9bb46_49056243",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3172,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T02:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "473365f7_cf73af2d",
+      "range": {
+        "startLine": 3172,
+        "startChar": 8,
+        "endLine": 3172,
+        "endChar": 73
+      },
+      "revId": "1303069a077b50e4932689385805b76a26c6a34f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9221c7a4_ec956c62",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3172,
+      "author": {
+        "id": 1651269
+      },
+      "writtenOn": "2021-03-12T02:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0390adeb_aa201261",
       "range": {
         "startLine": 3172,
         "startChar": 8,
