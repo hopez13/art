@@ -16,6 +16,24 @@
       "message": "Why this change? For better debuggability? (add it in the commit message)",
       "revId": "12685c623cc831468545f1b7c9befa21bf1ba56c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bed56d9_6dde3de3",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-12T13:47:24Z",
+      "side": 1,
+      "message": "Done. It is code that verifies the issue and fails if we see it again.",
+      "parentUuid": "cb22afd1_b0a2f5f0",
+      "revId": "12685c623cc831468545f1b7c9befa21bf1ba56c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
