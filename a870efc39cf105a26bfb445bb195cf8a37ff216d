@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eca17680_a6c0852a",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-15T09:15:50Z",
+      "side": 1,
+      "message": "This is not an assert function, so I would find that misleading. If you still want to see this rename, reopen and I\u0027ll do that in a follow-up CL.",
+      "parentUuid": "d09a4eca_272f316a",
+      "range": {
+        "startLine": 460,
+        "startChar": 81,
+        "endLine": 460,
+        "endChar": 89
+      },
+      "revId": "a870efc39cf105a26bfb445bb195cf8a37ff216d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae599d49_4612ef20",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-12T18:45:25Z",
       "side": 1,
       "message": "unrelated changes? Could you move to a different CL?",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "a870efc39cf105a26bfb445bb195cf8a37ff216d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09f6f64_f891dbcf",
+        "filename": "oatdump/oatdump_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-15T09:15:50Z",
+      "side": 1,
+      "message": "Unfortunately somewhat related. Due to an extra include in common_art_test.h, we\u0027re pulling in InvokeType definition and the Flavor::kStatic was then hiding InvokeType::kStatic resulting in an error due to our build flags.",
+      "parentUuid": "ae599d49_4612ef20",
       "range": {
         "startLine": 31,
         "startChar": 19,
