@@ -3842,6 +3842,25 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     dst->SetDataPtrSize(nullptr, image_pointer_size_);
     DCHECK_EQ(method.GetCodeItemOffset(), 0u);
   }
+
+  bool has_all_references = true;
+  const char* shorty = dst->GetShorty();
+  for (size_t i = 0, e = strlen(shorty); i < e; ++i) {
+    if (i == 0) {
+      if (shorty[i] == 'F' || shorty[i] == 'D') {
+      }
+    } else {
+      if (shorty[i] != 'L') {
+        has_all_references = false;
+        if (shorty[i] != 'I') {
+          break;
+        }
+      }
+    }
+  }
+  if (has_all_references) {
+    dst->SetNterpEntryPointFastPathFlag();
+  }
 }
 
 void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile* dex_file) {
@@ -7936,7 +7955,7 @@ void ClassLinker::LinkInterfaceMethodsHelper::ReallocMethods() {
       DCHECK_EQ(new_method.GetAccessFlags() & kAccNative, 0u);
       constexpr uint32_t kSetFlags = kAccDefault | kAccDefaultConflict | kAccCopied;
       constexpr uint32_t kMaskFlags =
-          ~(kAccAbstract | kAccSkipAccessChecks | kAccSingleImplementation);
+          ~(kAccAbstract | kAccSkipAccessChecks | kAccSingleImplementation | kAccMustCountLocks);
       new_method.SetAccessFlags((new_method.GetAccessFlags() | kSetFlags) & kMaskFlags);
       DCHECK(new_method.IsDefaultConflicting());
       // The actual method might or might not be marked abstract since we just copied it from a
