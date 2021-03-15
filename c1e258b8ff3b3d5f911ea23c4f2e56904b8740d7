@@ -33,6 +33,24 @@
       "message": "are you going to prefix these names in a later CL?",
       "revId": "c1e258b8ff3b3d5f911ea23c4f2e56904b8740d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2506da6c_af892645",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-15T15:42:52Z",
+      "side": 1,
+      "message": "Either that or split the library so we don\u0027t need to put the ART internal API in the global group. It\u0027s covered by b/182563345.",
+      "parentUuid": "e497a349_40e1d99e",
+      "revId": "c1e258b8ff3b3d5f911ea23c4f2e56904b8740d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
