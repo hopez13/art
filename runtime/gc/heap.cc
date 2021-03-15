@@ -2118,6 +2118,23 @@ HomogeneousSpaceCompactResult Heap::PerformHomogeneousSpaceCompact() {
   return HomogeneousSpaceCompactResult::kSuccess;
 }
 
+void Heap::SetDefaultConcurrentStartBytes() {
+  MutexLock mu(Thread::Current(), *gc_complete_lock_);
+  if (collector_type_running_ != kCollectorTypeNone) {
+    // If a collector is already running, just let it set concurrent_start_bytes_ .
+    return;
+  }
+  if (IsGcConcurrent()) {
+    size_t target_footprint = target_footprint_.load(std::memory_order_relaxed);
+    size_t reserve_bytes = target_footprint / 4;
+    reserve_bytes = std::min(reserve_bytes, kMaxConcurrentRemainingBytes);
+    reserve_bytes = std::max(reserve_bytes, kMinConcurrentRemainingBytes);
+    concurrent_start_bytes_ = UnsignedDifference(target_footprint, reserve_bytes);
+  } else {
+    concurrent_start_bytes_ = std::numeric_limits<size_t>::max();
+  }
+}
+
 void Heap::ChangeCollector(CollectorType collector_type) {
   // TODO: Only do this with all mutators suspended to avoid races.
   if (collector_type != collector_type_) {
@@ -2164,13 +2181,7 @@ void Heap::ChangeCollector(CollectorType collector_type) {
         UNREACHABLE();
       }
     }
-    if (IsGcConcurrent()) {
-      concurrent_start_bytes_ =
-          UnsignedDifference(target_footprint_.load(std::memory_order_relaxed),
-                             kMinConcurrentRemainingBytes);
-    } else {
-      concurrent_start_bytes_ = std::numeric_limits<size_t>::max();
-    }
+    SetDefaultConcurrentStartBytes();
   }
 }
 
@@ -3527,6 +3538,11 @@ double Heap::HeapGrowthMultiplier() const {
 
 void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
                               size_t bytes_allocated_before_gc) {
+  // We're running in the thread that set collector_type_running_ to something other than none,
+  // thus ensuring that there is only one of us running. Thus
+  // collector_type_running_ != kCollectorTypeNone, but that's a little tricky to turn into a
+  // DCHECK.
+
   // We know what our utilization is at this moment.
   // This doesn't actually resize any memory. It just lets the heap grow more when necessary.
   const size_t bytes_allocated = GetBytesAllocated();
@@ -3652,8 +3668,7 @@ void Heap::ClearGrowthLimit() {
   if (target_footprint_.load(std::memory_order_relaxed) == growth_limit_
       && growth_limit_ < capacity_) {
     target_footprint_.store(capacity_, std::memory_order_relaxed);
-    concurrent_start_bytes_ =
-        UnsignedDifference(capacity_, kMinConcurrentRemainingBytes);
+    SetDefaultConcurrentStartBytes();
   }
   growth_limit_ = capacity_;
   ScopedObjectAccess soa(Thread::Current());
@@ -4411,17 +4426,26 @@ void Heap::VlogHeapGrowth(size_t old_footprint, size_t new_footprint, size_t all
              << PrettySize(new_footprint) << " for a " << PrettySize(alloc_size) << " allocation";
 }
 
-class Heap::TriggerPostForkCCGcTask : public HeapTask {
+// Reduce target footprint, if no GC has occurred since initial_gc_num.
+// If a GC already occurred, it will have done this for us.
+class Heap::ReduceTargetFootprintTask : public HeapTask {
  public:
-  explicit TriggerPostForkCCGcTask(uint64_t target_time) : HeapTask(target_time) {}
-  void Run(Thread* self) override {
+  explicit ReduceTargetFootprintTask(uint64_t target_time, size_t new_target_sz, uint32_t initial_gc_num) :
+      HeapTask(target_time), new_target_sz_(new_target_sz), initial_gc_num_(initial_gc_num) {}
+  void Run(Thread* self ATTRIBUTE_UNUSED) override {
     gc::Heap* heap = Runtime::Current()->GetHeap();
-    // Trigger a GC, if not already done. The first GC after fork, whenever it
-    // takes place, will adjust the thresholds to normal levels.
-    if (heap->target_footprint_.load(std::memory_order_relaxed) == heap->growth_limit_) {
-      heap->RequestConcurrentGC(self, kGcCauseBackground, false, heap->GetCurrentGcNum());
+    if (heap->GetCurrentGcNum() == initial_gc_num_) {
+      size_t target_footprint = heap->target_footprint_.load(std::memory_order_relaxed);
+      if (target_footprint > new_target_sz_) {
+        if (heap->target_footprint_.CompareAndSetStrongRelaxed(target_footprint, new_target_sz_)) {
+          heap->SetDefaultConcurrentStartBytes();
+        }
+      }
     }
   }
+ private:
+  size_t new_target_sz_;
+  uint32_t initial_gc_num_;
 };
 
 void Heap::PostForkChildAction(Thread* self) {
@@ -4431,11 +4455,22 @@ void Heap::PostForkChildAction(Thread* self) {
     // Set target_footprint_ to the largest allowed value.
     SetIdealFootprint(growth_limit_);
     // Set concurrent_start_bytes_ to half of the heap size.
-    size_t target_footprint = target_footprint_.load(std::memory_order_relaxed);
-    concurrent_start_bytes_ = std::max(target_footprint / 2, GetBytesAllocated());
+    uint32_t starting_gc_num = GetCurrentGcNum();
+    uint64_t current_time = NanoTime();
 
+    // Shrink to a small value after a substantial time period. This will typically force a
+    // GC if none has occured yet. Has no effect if there was a GC before this anyway, which
+    // is commonly the case, e.g. because of a process transition.
     GetTaskProcessor()->AddTask(
-        self, new TriggerPostForkCCGcTask(NanoTime() + MsToNs(kPostForkMaxHeapDurationMS)));
+        self, new ReduceTargetFootprintTask(current_time +  5 * MsToNs(kPostForkMaxHeapDurationMS),
+                                            2 * min_free_,
+                                            starting_gc_num));
+    // Shrink heap after kPostForkMaxHeapDurationMS, to force a memory hog process to GC.
+    // This remains high enough that many processes will continue without a GC.
+    GetTaskProcessor()->AddTask(
+        self, new ReduceTargetFootprintTask(current_time + MsToNs(kPostForkMaxHeapDurationMS),
+                                            growth_limit_ / 4,
+                                            starting_gc_num));
   }
 }
 
