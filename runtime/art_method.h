@@ -394,6 +394,21 @@ class ArtMethod final {
     ClearAccessFlags(kAccSkipAccessChecks);
   }
 
+  bool HasNterpEntryPointFastPathFlag() const {
+    if (IsNative()) {
+      return false;
+    }
+
+    return (GetAccessFlags() & kAccNterpEntryPointFastPathFlag) != 0;
+  }
+
+  void SetNterpEntryPointFastPathFlag() REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (IsNative()) {
+      return;
+    }
+    AddAccessFlags(kAccNterpEntryPointFastPathFlag);
+  }
+
   // Returns true if this method could be overridden by a default method.
   bool IsOverridableByDefaultMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
