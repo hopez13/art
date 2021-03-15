@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d027050e_30e90e98",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-15T23:32:55Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this test works - it could use some more comments. Over to jmgao to review, who added the test in https://r.android.com/746868.",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afcb573b_79261002",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-15T23:32:55Z",
+      "side": 1,
+      "message": "I\u0027m curious, do you know what the purpose of this is? Do we need RTLD_LAZY on the libc instance for some reason?",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732bc2a1_5eca096f",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-15T23:32:55Z",
+      "side": 1,
+      "message": "Judging from the first test case below, I conclude it\u0027s the libsigchain wrapper of sigaction that gets called here. But that means the later call to art::EnsureFrontOfChain is a nop, so is it properly tested?",
+      "range": {
+        "startLine": 222,
+        "startChar": 15,
+        "endLine": 222,
+        "endChar": 24
+      },
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b83430_3db1072e",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-15T23:32:55Z",
+      "side": 1,
+      "message": "You added this because you noticed a bug in the code, not because the test started to fail?",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
