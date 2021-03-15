@@ -115,6 +115,11 @@ static constexpr uint32_t kAccClassIsFinalizable        = 0x80000000;
 
 static constexpr uint32_t kAccHiddenapiBits = kAccPublicApi | kAccCorePlatformApi;
 
+// We use a combination of kAccDefaultConflict and kAccMustCountLocks (which
+// cannot happen both on the same method) to flag that nterp can optimize the entrypoint and
+// avoid fetching the shorty.
+static constexpr uint32_t kAccNterpEntryPointFastPathFlags = kAccDefaultConflict | kAccMustCountLocks;
+
 // Continuous sequence of bits used to hold the ordinal of an intrinsic method. Flags
 // which overlap are not valid when kAccIntrinsic is set.
 static constexpr uint32_t kAccIntrinsicBits = kAccHiddenapiBits |
