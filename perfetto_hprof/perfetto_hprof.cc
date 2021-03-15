@@ -32,6 +32,7 @@
 #include <time.h>
 
 #include <limits>
+#include <optional>
 #include <type_traits>
 
 #include "gc/heap-visit-objects-inl.h"
@@ -584,10 +585,10 @@ void DumpPerfetto(art::Thread* self) {
   // We need to do this before the fork, because otherwise it can deadlock
   // waiting for the GC, as all other threads get terminated by the clone, but
   // their locks are not released.
-  art::gc::ScopedGCCriticalSection gcs(self, art::gc::kGcCauseHprof,
-                                       art::gc::kCollectorTypeHprof);
+  std::optional<art::gc::ScopedGCCriticalSection> gcs(std::in_place, self, art::gc::kGcCauseHprof,
+                                                      art::gc::kCollectorTypeHprof);
 
-  art::ScopedSuspendAll ssa(__FUNCTION__, /* long_suspend=*/ true);
+  std::optional<art::ScopedSuspendAll> ssa(std::in_place, __FUNCTION__, /* long_suspend=*/ true);
 
   pid_t pid = fork();
   if (pid == -1) {
@@ -596,6 +597,10 @@ void DumpPerfetto(art::Thread* self) {
     return;
   }
   if (pid != 0) {
+    // Stop the thread suspension as soon as possible to allow the rest of the application to
+    // continue while we waitpid here.
+    ssa.reset();
+    gcs.reset();
     // Parent
     int stat_loc;
     for (;;) {
