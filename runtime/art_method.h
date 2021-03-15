@@ -253,11 +253,35 @@ class ArtMethod final {
     AddAccessFlags(kAccCompileDontBother);
   }
 
+  bool HasNterpEntryPointFastPathFlag() const {
+    if (IsIntrinsic()) {
+      return false;
+    }
+    return (GetAccessFlags() & kAccNterpEntryPointFastPathFlags) ==
+        kAccNterpEntryPointFastPathFlags;
+  }
+
+  void SetNterpEntryPointFastPathFlag() REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (IsIntrinsic()) {
+      return;
+    }
+    if (IsDefaultConflicting()) {
+      return;
+    }
+    if (MustCountLocks()) {
+      return;
+    }
+    AddAccessFlags(kAccNterpEntryPointFastPathFlags);
+  }
+
   // A default conflict method is a special sentinel method that stands for a conflict between
   // multiple default methods. It cannot be invoked, throwing an IncompatibleClassChangeError if one
   // attempts to do so.
   bool IsDefaultConflicting() const {
     if (IsIntrinsic()) {
+      return false;
+    }
+    if (HasNterpEntryPointFastPathFlag()) {
       return false;
     }
     return (GetAccessFlags() & kAccDefaultConflict) != 0u;
@@ -372,14 +396,22 @@ class ArtMethod final {
     if (IsIntrinsic()) {
       return false;
     }
+    if (HasNterpEntryPointFastPathFlag()) {
+      return false;
+    }
     return (GetAccessFlags() & kAccMustCountLocks) != 0;
   }
 
   void ClearMustCountLocks() REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (HasNterpEntryPointFastPathFlag()) {
+      return;
+    }
     ClearAccessFlags(kAccMustCountLocks);
   }
 
   void SetMustCountLocks() REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!IsDefaultConflicting());
+    ClearAccessFlags(kAccDefaultConflict);
     AddAccessFlags(kAccMustCountLocks);
     ClearAccessFlags(kAccSkipAccessChecks);
   }

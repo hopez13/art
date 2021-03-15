@@ -1449,6 +1449,26 @@ END \name
     b 1b
 .endm
 
+.macro SETUP_REFERENCE_PARAMETER_IN_GPR gpr32, regs, refs, ins, arg_offset, finished
+    str \gpr32, [\regs, \arg_offset]
+    str \gpr32, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    sub \ins, \ins, #1
+    cbz \ins, \finished
+.endm
+
+// Uses ip2 as temporary.
+.macro SETUP_REFERENCE_PARAMETER_IN_STACK regs, refs, ins, stack_ptr, arg_offset
+1:
+    add ip2, \stack_ptr, \arg_offset
+    ldr wip2, [ip2,  #OFFSET_TO_FIRST_ARGUMENT_IN_STACK]
+    str wip2, [\regs, \arg_offset]
+    str wip2, [\refs, \arg_offset]
+    add \arg_offset, \arg_offset, #4
+    sub \ins, \ins, #1
+    cbnz \ins, 1b
+.endm
+
 %def entry():
 /*
  * ArtMethod entry point.
@@ -1476,6 +1496,25 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     ldr w26, [x0, #ART_METHOD_ACCESS_FLAGS_OFFSET]
     lsl x21, ip2, #2 // x21 is now the offset for inputs into the registers array.
 
+    tbnz w26, #ART_METHOD_IS_INTRINSIC_BIT, .Lsetup_slow_path
+    mov wip, #ART_METHOD_NTERP_ENTRY_POINT_FAST_PATH_FLAGS
+    bics wzr, wip, w26
+    b.ne .Lsetup_slow_path
+    // Setup pointer to inputs in FP and pointer to inputs in REFS
+    add x10, xFP, x21
+    add x11, xREFS, x21
+    mov x12, #0
+    SETUP_REFERENCE_PARAMETER_IN_GPR w1, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w2, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w3, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w4, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w5, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w6, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_GPR w7, x10, x11, w15, x12, .Lxmm_setup_finished
+    SETUP_REFERENCE_PARAMETER_IN_STACK x10, x11, w15, x28, x12
+    b .Lxmm_setup_finished
+
+.Lsetup_slow_path:
     // If the method is not static and there is one argument ('this'), we don't need to fetch the
     // shorty.
     tbnz w26, #ART_METHOD_IS_STATIC_FLAG_BIT, .Lsetup_with_shorty
