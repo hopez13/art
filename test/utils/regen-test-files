@@ -29,6 +29,8 @@ import sys
 import textwrap
 import xml.dom.minidom
 
+logging.basicConfig(format='%(levelname)s: %(message)s')
+
 ME = os.path.basename(sys.argv[0])
 
 # Common advisory placed at the top of all generated files.
@@ -384,12 +386,12 @@ known_failing_tests = frozenset(known_failing_tests)
 # the `presubmit` test group in `TEST_MAPPING` file -- the rest will be included
 # in `postsubmit` test group.
 # This value has to be a number between 0 and 100.
-presubmit_tests_percentage = 50
+presubmit_tests_percentage = 100
 
 # Percentage of ART run-tests (among the ones expected to succeed) to include in
 # the `mainline-presubmit` test group in `TEST_MAPPING` file.
 # This value has to be a number between 0 and 100.
-mainline_presubmit_tests_percentage = 5
+mainline_presubmit_tests_percentage = 10
 
 
 # Is `run_test` a Checker test (i.e. a test containing Checker
@@ -459,6 +461,7 @@ class Generator:
       # Remove any previously generated file.
       bp_file = os.path.join(self.art_test_dir, run_test, "Android.bp")
       if os.path.exists(bp_file):
+        logging.debug(f"Removing `{bp_file}`.")
         os.remove(bp_file)
 
     for run_test in buildable_tests:
@@ -485,10 +488,20 @@ class Generator:
     else:
       include_src = ""
     with open(bp_file, "w") as f:
+      logging.debug(f"Writing `{bp_file}`.")
       f.write(textwrap.dedent(f"""\
       // {ADVISORY}
 
       // Build rules for ART run-test `{run_test}`.
+
+      package {{
+          // See: http://go/android-license-faq
+          // A large-scale-change added 'default_applicable_licenses' to import
+          // all of the 'license_kinds' from "art_license"
+          // to get the below license kinds:
+          //   SPDX-license-identifier-Apache-2.0
+          default_applicable_licenses: ["art_license"],
+      }}
 
       // Test's Dex code.
       java_test {{
@@ -549,23 +562,28 @@ class Generator:
     postsubmit_tests_dict = [{"name": t} for t in postsubmit_run_tests]
 
     # Use an `OrderedDict` container to preserve the order in which items are inserted.
+    # Do not produce an entry for a test group if it is empty.
     test_mapping_dict = collections.OrderedDict([
-        ("mainline-presubmit", mainline_presubmit_tests_dict),
-        ("presubmit", presubmit_tests_dict),
-        ("postsubmit", postsubmit_tests_dict),
+        (test_group_name, test_group_dict)
+        for (test_group_name, test_group_dict)
+        in [
+            ("mainline-presubmit", mainline_presubmit_tests_dict),
+            ("presubmit", presubmit_tests_dict),
+            ("postsubmit", postsubmit_tests_dict),
+        ]
+        if test_group_dict
     ])
     test_mapping_contents = json.dumps(test_mapping_dict, indent = INDENT)
 
     test_mapping_file = os.path.join(self.art_dir, "TEST_MAPPING")
     with open(test_mapping_file, "w") as f:
+      logging.debug(f"Writing `{test_mapping_file}`.")
       f.write(f"// {ADVISORY}\n")
       f.write(test_mapping_contents)
       f.write("\n")
 
   def regen_art_mts_files(self, art_run_tests):
     """Regenerate ART MTS definition files."""
-
-    run_test_module_names = [ART_RUN_TEST_MODULE_NAME_PREFIX + t for t in art_run_tests]
 
     # Regenerate `mts_art_tests_list_user_file.xml`.
 
@@ -593,35 +611,66 @@ class Generator:
     root.appendChild(configuration)
     configuration.setAttribute("description", "List of ART MTS tests that do not need root access.")
 
+    # Test declarations.
+    # ------------------
+
+    def append_test_declaration(test):
+      option = root.createElement("option")
+      option.setAttribute("name", "compatibility:include-filter")
+      option.setAttribute("value", test)
+      configuration.appendChild(option)
+
     # ART run-tests.
+    art_run_test_module_names = [ART_RUN_TEST_MODULE_NAME_PREFIX + t for t in art_run_tests]
     art_run_test_header = root.createComment(" ART run-tests. ")
     configuration.appendChild(art_run_test_header)
     art_run_test_todo = root.createComment(
         " TODO(rpl): Find a way to express this list in a more concise fashion. ")
     configuration.appendChild(art_run_test_todo)
-    for run_test_module_name in run_test_module_names:
+    for art_run_test_module_name in art_run_test_module_names:
+      append_test_declaration(art_run_test_module_name)
+
+    # Libcore CTS tests.
+    # TODO(rpl): Progressively add more Libcore CTS tests.
+    libcore_cts_test_module_names = [
+        "CtsLibcoreTestCases",
+    ]
+    libcore_cts_test_header = root.createComment(" Libcore CTS tests. ")
+    configuration.appendChild(libcore_cts_test_header)
+    for libcore_cts_test_module_name in libcore_cts_test_module_names:
+      append_test_declaration(libcore_cts_test_module_name)
+
+    # `MainlineTestModuleController` configurations.
+    # ----------------------------------------------
+
+    def append_module_controller_configuration(test):
       option = root.createElement("option")
-      option.setAttribute("name", "compatibility:include-filter")
-      option.setAttribute("value", run_test_module_name)
+      option.setAttribute("name", "compatibility:module-arg")
+      option.setAttribute("value", f"{test}:enable:true")
       configuration.appendChild(option)
 
     # `MainlineTestModuleController` configuration for ART run-tests.
     art_run_test_module_controller_header = root.createComment(
-        " Enable MainlineTestModuleController. ")
+        " Enable MainlineTestModuleController for ART run-tests. ")
     configuration.appendChild(art_run_test_module_controller_header)
     art_run_test_module_controller_todo = root.createComment(
         " TODO(rpl): Find a way to express this list in a more concise fashion. ")
     configuration.appendChild(art_run_test_module_controller_todo)
-    for run_test_module_name in run_test_module_names:
-      option = root.createElement("option")
-      option.setAttribute("name", "compatibility:module-arg")
-      option.setAttribute("value", f"{run_test_module_name}:enable:true")
-      configuration.appendChild(option)
+    for art_run_test_module_name in art_run_test_module_names:
+      append_module_controller_configuration(art_run_test_module_name)
+
+    # `MainlineTestModuleController` configuration for Libcore CTS tests.
+    libcore_cts_test_module_controller_header = root.createComment(
+        " Enable MainlineTestModuleController for Libcore CTS tests. ")
+    configuration.appendChild(libcore_cts_test_module_controller_header)
+    for libcore_cts_test_module_name in libcore_cts_test_module_names:
+      append_module_controller_configuration(libcore_cts_test_module_name)
 
     xml_str = root.toprettyxml(indent = XML_INDENT, encoding = "utf-8")
 
     mts_art_tests_list_user_file = os.path.join(self.mts_config_dir, "mts-art-tests-list-user.xml")
     with open(mts_art_tests_list_user_file, "wb") as f:
+      logging.debug(f"Writing `{mts_art_tests_list_user_file}`.")
       f.write(xml_str)
 
   def regen_test_files(self, regen_art_mts):
@@ -709,9 +758,13 @@ def main():
         Regenerate ART run-tests Blueprint files, ART's `TEST_MAPPING` file, and
         optionally the ART MTS (Mainline Test Suite) definition.
         """))
-  parser.add_argument("-m", "--regen-art-mts", help="Regenerate the ART MTS definition as well",
+  parser.add_argument("-m", "--regen-art-mts", help="regenerate the ART MTS definition as well",
                       action="store_true")
+  parser.add_argument("-v", "--verbose", help="enable verbose output", action="store_true")
   args = parser.parse_args()
+
+  if args.verbose:
+    logging.getLogger().setLevel(logging.DEBUG)
 
   generator = Generator(os.path.join(os.environ["ANDROID_BUILD_TOP"]))
   generator.regen_test_files(args.regen_art_mts)
