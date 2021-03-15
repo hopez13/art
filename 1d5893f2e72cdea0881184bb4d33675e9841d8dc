@@ -16,6 +16,144 @@
       "message": "I inadvertently left on kLogAllGCs in PS2. This should not be submitted as is. But it\u0027s probably good enough to let TreeHugger try it. And I expect we\u0027ll need more changes anyway.",
       "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1615ae3_dc27bea1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1822,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "Line size.",
+      "range": {
+        "startLine": 1822,
+        "startChar": 8,
+        "endLine": 1822,
+        "endChar": 106
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23115dce_6172bb75",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3673,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "Line size",
+      "range": {
+        "startLine": 3673,
+        "startChar": 0,
+        "endLine": 3673,
+        "endChar": 25
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed285f5_843aaf4b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3698,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "line size",
+      "range": {
+        "startLine": 3698,
+        "startChar": 6,
+        "endLine": 3698,
+        "endChar": 27
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf44d62_54eecd60",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3707,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "line size",
+      "range": {
+        "startLine": 3707,
+        "startChar": 14,
+        "endLine": 3707,
+        "endChar": 105
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9b6dfb_4048bee6",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "Here and elsewhere, please change it to gc_num? That is more self explanatory",
+      "range": {
+        "startLine": 820,
+        "startChar": 21,
+        "endLine": 820,
+        "endChar": 25
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fb7363a_8ba15e42",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "If",
+      "range": {
+        "startLine": 825,
+        "startChar": 27,
+        "endLine": 825,
+        "endChar": 29
+      },
+      "revId": "1d5893f2e72cdea0881184bb4d33675e9841d8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

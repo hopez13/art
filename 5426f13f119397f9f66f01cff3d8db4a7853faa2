@@ -142,6 +142,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d990c20f_f055bb4a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-15T06:11:21Z",
+      "side": 1,
+      "message": "I took a look at PS2, all invocations of CollectGarbageInternal(), except for one in CheckGCForNative() is with GC_NO_ANY, which I think means \"perform a GC no matter what\". So I doubt takes care of the likely case you mentioned earlier of an explicit GC running and then subsequently a concurrent GC is requested, right?\n\nThe introduction of gcs_requested_ logic only seems to take care of the case where a thread decides to perform a GC but then gets suspended, and in meantime another thread requests a concurrent GC, which is completed and then the first thread wakes up. In fact, if the first thread suspends *before* loading gcs_requested_, then even this case wouldn\u0027t be handled, right?",
+      "parentUuid": "9d45f57f_698f0002",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
