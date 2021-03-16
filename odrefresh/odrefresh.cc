@@ -58,9 +58,11 @@
 #include "android/log.h"
 #include "arch/instruction_set.h"
 #include "base/bit_utils.h"
+#include "base/compiler_filter.h"
 #include "base/file_utils.h"
 #include "base/globals.h"
 #include "base/macros.h"
+#include "base/metrics/metrics.h"
 #include "base/os.h"
 #include "base/string_view_cpp20.h"
 #include "base/unix_file/fd_file.h"
@@ -86,6 +88,9 @@ namespace {
 
 // Name of cache info file in the ART Apex artifact cache.
 static constexpr const char* kCacheInfoFile = "cache-info.xml";
+
+// Name of metrics file in the ART APEX data directory.
+static constexpr const char* kMetricsFile = "odrefresh.metrics.txt";
 
 static void UsageErrorV(const char* fmt, va_list ap) {
   std::string error;
@@ -253,6 +258,9 @@ class OnDeviceRefresh final {
   // Configuration to use.
   const OdrConfig& config_;
 
+  // Metrics collection for notable events.
+  metrics::FileBackend metrics_backend_;
+
   // Path to cache information file that is used to speed up artifact checking.
   const std::string cache_info_filename_;
 
@@ -267,6 +275,7 @@ class OnDeviceRefresh final {
  public:
   explicit OnDeviceRefresh(const OdrConfig& config)
       : config_{config},
+        metrics_backend_{Concatenate({GetArtApexData(), "/", kMetricsFile})},
         cache_info_filename_{Concatenate({kOdrefreshArtifactDirectory, "/", kCacheInfoFile})},
         start_time_{time(nullptr)} {
     for (const std::string& jar : android::base::Split(config_.GetDex2oatBootClasspath(), ":")) {
@@ -283,6 +292,14 @@ class OnDeviceRefresh final {
       // in APEX modules. Otherwise, we'll recompile on boot any time one of these APEXes updates.
       if (!LocationIsOnApex(jar)) {
         systemserver_compilable_jars_.emplace_back(jar);
+      }
+    }
+
+    // Remove any old metrics output (it will be stale).
+    const char* metrics_filename = metrics_backend_.GetFilename().c_str();
+    if (OS::FileExists(metrics_filename)) {
+      if (unlink(metrics_filename) != 0) {
+        PLOG(ERROR) << "Failed to unlink('" << metrics_filename << "')";
       }
     }
   }
@@ -618,7 +635,7 @@ class OnDeviceRefresh final {
   static void AddDex2OatCommonOptions(/*inout*/ std::vector<std::string>& args) {
     args.emplace_back("--android-root=out/empty");
     args.emplace_back("--abort-on-hard-verifier-error");
-    args.emplace_back("--compilation-reason=boot");
+    args.emplace_back("--compilation-reason=odrefresh");
     args.emplace_back("--image-format=lz4hc");
     args.emplace_back("--resolve-startup-const-strings=true");
   }
@@ -1060,7 +1077,8 @@ class OnDeviceRefresh final {
 
   bool CompileBootExtensionArtifacts(const InstructionSet isa,
                                      const std::string& staging_dir,
-                                     std::string* error_msg) const {
+                                     /*inout*/metrics::ArtMetrics& metrics,
+                                     /*out*/std::string* error_msg) const {
     std::vector<std::string> args;
     args.push_back(config_.GetDex2Oat());
 
@@ -1138,22 +1156,33 @@ class OnDeviceRefresh final {
     }
 
     bool timed_out = false;
-    if (ExecAndReturnCode(args, timeout, &timed_out, error_msg) != 0) {
-      if (timed_out) {
-        // TODO(oth): record timeout event for compiling boot extension
+    auto* compilation_time = metrics.OnDeviceRecompilationTime();
+    metrics::AutoTimer compilation_timer{compilation_time, /*autostart=*/true};
+    bool success = ExecAndReturnCode(args, timeout, &timed_out, error_msg) == 0;
+    compilation_timer.Stop();
+
+    if (success) {
+      if (!MoveOrEraseFiles(staging_files, install_location)) {
+        // If we fail to move files, assume it is due to lack of space for metrics purposes.
+        metrics.OnDeviceRecompilationInsufficientSpace()->AddOne();
+        return false;
       }
-      EraseFiles(staging_files);
-      return false;
+      metrics.OnDeviceRecompilationSuccess()->AddOne();
+      return true;
     }
 
-    if (!MoveOrEraseFiles(staging_files, install_location)) {
-      return false;
+    metrics.OnDeviceRecompilationFailedBootClasspath()->AddOne();
+    if (timed_out) {
+      metrics.OnDeviceRecompilationTimeLimitExceed()->AddOne();
+    } else {
+      metrics.OnDeviceRecompilationUnexpectedError()->AddOne();
     }
-
-    return true;
+    return false;
   }
 
-  bool CompileSystemServerArtifacts(const std::string& staging_dir, std::string* error_msg) const {
+  bool CompileSystemServerArtifacts(const std::string& staging_dir,
+                                    /*inout*/metrics::ArtMetrics& metrics,
+                                    /*out*/std::string* error_msg) const {
     std::vector<std::string> classloader_context;
 
     const std::string dex2oat = config_.GetDex2Oat();
@@ -1222,15 +1251,25 @@ class OnDeviceRefresh final {
       }
 
       bool timed_out = false;
-      if (!Exec(args, error_msg)) {
-        if (timed_out) {
-          // TODO(oth): record timeout event for compiling boot extension
-        }
-        EraseFiles(staging_files);
-        return false;
-      }
+      auto* compilation_time = metrics.OnDeviceRecompilationTime();
+      metrics::AutoTimer compilation_timer{compilation_time, /*autostart=*/true};
+      bool success = ExecAndReturnCode(args, timeout, &timed_out, error_msg) == 0;
+      compilation_timer.Stop();
 
-      if (!MoveOrEraseFiles(staging_files, install_location)) {
+      if (success) {
+        if (!MoveOrEraseFiles(staging_files, install_location)) {
+          // If we fail to move files, assume it is due to lack of space for metrics purposes.
+          metrics.OnDeviceRecompilationInsufficientSpace()->AddOne();
+          return false;
+        }
+        metrics.OnDeviceRecompilationSuccess()->AddOne();
+      } else {
+        metrics.OnDeviceRecompilationFailedSystemServer()->AddOne();
+        if (timed_out) {
+          metrics.OnDeviceRecompilationTimeLimitExceed()->AddOne();
+        } else {
+          metrics.OnDeviceRecompilationUnexpectedError()->AddOne();
+        }
         return false;
       }
 
@@ -1240,7 +1279,30 @@ class OnDeviceRefresh final {
     return true;
   }
 
-  ExitCode Compile(bool force_compile) const {
+  ExitCode CompileWorld(bool force_compile,
+                        const char* staging_dir,
+                        /*inout*/metrics::ArtMetrics& metrics) {
+    std::string error_msg;
+
+    for (const InstructionSet isa : config_.GetBootExtensionIsas()) {
+      if (force_compile || !BootExtensionArtifactsExistOnData(isa, &error_msg)) {
+        if (!CompileBootExtensionArtifacts(isa, staging_dir, metrics, &error_msg)) {
+          LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
+          return ExitCode::kCompilationFailed;
+        }
+      }
+    }
+
+    if (force_compile || !SystemServerArtifactsExistOnData(&error_msg)) {
+      if (!CompileSystemServerArtifacts(staging_dir, metrics, &error_msg)) {
+        LOG(ERROR) << "Compilation of system_server failed: " << error_msg;
+        return ExitCode::kCompilationFailed;
+      }
+    }
+    return ExitCode::kOkay;
+  }
+
+  ExitCode Compile(bool force_compile) {
     ReportSpace();  // TODO(oth): Factor available space into compilation logic.
 
     // Clean-up existing files.
@@ -1255,30 +1317,29 @@ class OnDeviceRefresh final {
       return ExitCode::kCompilationFailed;
     }
 
-    std::string error_msg;
+    // Prepare for collecting compilation metrics.
+    metrics::ArtMetrics metrics;
+    const metrics::SessionData session_data{/*session_id=*/0,
+                                            /*user_id=*/static_cast<int32_t>(getuid()),
+                                            metrics::CompilationReason::kBoot,
+                                            CompilerFilter::Filter::kSpeedProfile};
+    metrics_backend_.BeginSession(session_data);
+    metrics_backend_.BeginReport(/*timestamp_since_start_ms*/0);
 
-    for (const InstructionSet isa : config_.GetBootExtensionIsas()) {
-      if (force_compile || !BootExtensionArtifactsExistOnData(isa, &error_msg)) {
-        if (!CompileBootExtensionArtifacts(isa, staging_dir, &error_msg)) {
-          LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
-          RemoveStagingFilesOrDie(staging_dir);
-          WriteCacheInfo();
-          return ExitCode::kCompilationFailed;
-        }
-      }
+    // Compile boot classpath extensions and system_server.
+    ExitCode exit_code = CompileWorld(force_compile, staging_dir, metrics);
+    if (exit_code != ExitCode::kOkay) {
+      RemoveStagingFilesOrDie(staging_dir);
     }
 
-    if (force_compile || !SystemServerArtifactsExistOnData(&error_msg)) {
-      if (!CompileSystemServerArtifacts(staging_dir, &error_msg)) {
-        LOG(ERROR) << "Compilation of system_server failed: " << error_msg;
-        RemoveStagingFilesOrDie(staging_dir);
-        WriteCacheInfo();
-        return ExitCode::kCompilationFailed;
-      }
-    }
-
+    // Update cache metadata.
     WriteCacheInfo();
-    return ExitCode::kOkay;
+
+    // Write metrics.
+    metrics.ReportAllMetrics(&metrics_backend_);
+    metrics_backend_.EndReport();
+
+    return exit_code;
   }
 
   static bool ArgumentMatches(std::string_view argument,
