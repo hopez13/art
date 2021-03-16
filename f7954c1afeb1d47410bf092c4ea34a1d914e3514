@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7e71813_eaaeaf10",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T19:19:23Z",
+      "side": 1,
+      "message": "Interesting question!\n\nOn the one hand the world is slowly drifting to 64-bit, but we\u0027re not there yet.\n\nOn the other there is a lot of diversity within an ISA (e.g. ARM core version). If we can correlate a report to a device type then running odrefresh doesn\u0027t take very long.\n\nWould we emit a separate report per arch? Or add counters per arch. The latter might get quite cumbersome.",
+      "parentUuid": "ec905c16_29b13a0c",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22803f21_d24754e4",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 6
@@ -65,6 +83,30 @@
       "writtenOn": "2021-03-16T18:24:06Z",
       "side": 1,
       "message": "The session id should normally be a randomly generated number. See https://cs.android.com/android/platform/superproject/+/master:art/runtime/runtime.cc;l\u003d1085;bpv\u003d1;bpt\u003d1 for an example.\n\nFor right now I don\u0027t think that\u0027s an issue, since I don\u0027t think we\u0027ll need to correlate multiple reports as there is only one report from odrefresh. So, 0 should work, but a random number would be better in case things change.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 44,
+        "endLine": 1322,
+        "endChar": 61
+      },
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "733f5de0_86b6c043",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T19:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22803f21_d24754e4",
       "range": {
         "startLine": 1322,
         "startChar": 44,
@@ -98,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8ddb3d_ee098710",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T19:19:23Z",
+      "side": 1,
+      "message": "Ack, thanks.",
+      "parentUuid": "dc2ff15b_0d737428",
+      "range": {
+        "startLine": 1323,
+        "startChar": 44,
+        "endLine": 1323,
+        "endChar": 86
+      },
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdd1afb0_157039e2",
@@ -111,6 +177,24 @@
       "writtenOn": "2021-03-16T18:24:06Z",
       "side": 1,
       "message": "It doesn\u0027t really matter for correctness, but I think conceptually it makes more sense to have the BeginReport call just before ReportAllMetrics, so that all the reporting related calls are right together.",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9bfe00_99fdc88a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T19:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd1afb0_157039e2",
       "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

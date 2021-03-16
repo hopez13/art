@@ -46,6 +46,30 @@
       },
       "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ed3058e_4078d3ed",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T19:19:23Z",
+      "side": 1,
+      "message": "Thanks [ re-opening to remember to follow-up ]\n\nWe currently pass \"boot\" as the compilation reason to dex2oat so this is consistent. Not sure of the history here: I\u0027ve not found other code using it.\n\nAs the metrics are all prefixed byOnDeviceRecompilation we don\u0027t expect any other sources for them so perhaps it is okay either way.",
+      "parentUuid": "0563b61e_55a658fc",
+      "range": {
+        "startLine": 1324,
+        "startChar": 44,
+        "endLine": 1324,
+        "endChar": 77
+      },
+      "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
