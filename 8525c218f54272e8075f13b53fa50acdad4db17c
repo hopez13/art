@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0166d67c_972f479b",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-16T19:31:56Z",
+      "side": 1,
+      "message": "Nvm, I just saw the other CL and realized you have ODRefresh.\n\nNote that we have DEX2OATResult code: https://android-review.googlesource.com/c/platform/frameworks/proto_logging/+/1612689/2/stats/atoms.proto#12039 that could be reused. Might offer more flexibility than defining error codes as independent metrics.",
+      "parentUuid": "0d90336c_a309850e",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bfc5a9_8651eb1c",
         "filename": "libartbase/base/metrics/metrics.h",
         "patchSetId": 7
