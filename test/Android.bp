@@ -474,6 +474,10 @@ art_cc_defaults {
         "libz",
         "slicer_no_rtti",
     ],
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
 }
 
 art_cc_test_library {
@@ -675,6 +679,10 @@ cc_defaults {
         "libbacktrace",
         "libbase",
         "libnativehelper",
+    ],
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
     ],
 }
 
@@ -1034,6 +1042,10 @@ art_cc_test {
             suffix: "64",
         },
     },
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
 }
 
 art_cc_test {
@@ -1050,6 +1062,10 @@ art_cc_test {
     ],
     test_suites: ["general-tests"],
     test_config: "art-gtests-target-chroot.xml",
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
 }
 
 filegroup {
