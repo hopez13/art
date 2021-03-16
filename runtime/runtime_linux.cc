@@ -80,4 +80,9 @@ void Runtime::InitPlatformSignalHandlers() {
                                    /* handle_timeout_signal= */ true);
 }
 
+bool Runtime::IsUidPlatform() {
+  // Not implemented.
+  return false;
+}
+
 }  // namespace art

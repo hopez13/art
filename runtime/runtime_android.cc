@@ -48,4 +48,19 @@ void Runtime::InitPlatformSignalHandlers() {
   }
 }
 
+// TODO: can these be de-duplicated from android_filesystem_config.h?
+constexpr int AID_SYSTEM = 1000;
+constexpr int AID_NETWORK_STACK = 1073;
+
+bool Runtime::IsUidPlatform() {
+  const int32_t uid = static_cast<int32_t>(getuid());
+  switch (uid) {
+  case AID_SYSTEM:
+  case AID_NETWORK_STACK:
+    return true;
+  default:
+    return false;
+  }
+}
+
 }  // namespace art

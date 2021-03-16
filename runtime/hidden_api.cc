@@ -117,6 +117,10 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
     return Domain::kPlatform;
   }
 
+  if (Runtime::IsUidPlatform()) {
+    return Domain::kPlatform;
+  }
+
   if (class_loader.IsNull()) {
     if (kIsTargetBuild && !kIsTargetLinux) {
       // This is unexpected only when running on Android.

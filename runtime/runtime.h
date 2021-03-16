@@ -659,6 +659,8 @@ class Runtime {
     }
   }
 
+  static bool IsUidPlatform();
+
   const std::vector<std::string>& GetCpuAbilist() const {
     return cpu_abilist_;
   }
