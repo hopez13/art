@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bedb3be_e3057721",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T17:38:26Z",
+      "side": 1,
+      "message": "Should this be a new reason? I had added kOnDeviceRefresh, but that requires pushing through to statsd and not sure what else that impacts (?).",
+      "range": {
+        "startLine": 1324,
+        "startChar": 44,
+        "endLine": 1324,
+        "endChar": 77
+      },
+      "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

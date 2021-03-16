@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ff579a_46228860",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-16T17:38:26Z",
+      "side": 1,
+      "message": "DBC: This is intended as 60 seconds, it\u0027s expressed in microseconds because AutoTimer is microseconds. As a consumer of the API, I wonder whether we\u0027d do better to handle times with std::chrono. The time ranges would be clearer in the list here and conversions less manual.\n\ne.g. timestamp of report start is timestamp_millis, this is microseconds.\n\nOr maybe use helpers from time_utils.h to define upper and lower bounds here.",
+      "range": {
+        "startLine": 69,
+        "startChar": 43,
+        "endLine": 69,
+        "endChar": 58
+      },
+      "revId": "36e29ae0aa6e25b7186dc5c0b831ca54024e7b36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
