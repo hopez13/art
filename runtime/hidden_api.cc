@@ -61,6 +61,26 @@ static const std::vector<std::string> kWarningExemptions = {
     "Lsun/misc/Unsafe;",
 };
 
+#ifdef ART_TARGET_ANDROID
+// TODO: can this be de-duplicated from android_filesystem_config.h?
+constexpr int AID_NETWORK_STACK = 1073;
+
+// Returns true iff the caller should be allowed access to platform APIs based on current UID.
+static bool IsUidPlatform() {
+  const int32_t uid = static_cast<int32_t>(getuid());
+  switch (uid) {
+  case AID_NETWORK_STACK:
+    return true;
+  default:
+    return false;
+  }
+}
+#else
+static bool IsUidPlatform() {
+  return false;
+}
+#endif
+
 static inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
   switch (value) {
     case AccessMethod::kNone:
@@ -114,6 +134,10 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
   }
 
   if (LocationIsOnSystemExtFramework(dex_location.c_str())) {
+    return Domain::kPlatform;
+  }
+
+  if (IsUidPlatform()) {
     return Domain::kPlatform;
   }
 
