@@ -306,6 +306,14 @@ cc_defaults {
         "libbase",
         "libnativehelper",
     ],
+    target: {
+        android: {
+            test_for: [
+                "com.android.art",
+                "com.android.art.debug",
+            ],
+        },
+    },
 }
 
 art_cc_test_library {
@@ -676,6 +684,14 @@ cc_defaults {
         "libbase",
         "libnativehelper",
     ],
+    target: {
+        android: {
+            test_for: [
+                "com.android.art",
+                "com.android.art.debug",
+            ],
+        },
+    },
 }
 
 java_library {
@@ -1034,6 +1050,10 @@ art_cc_test {
             suffix: "64",
         },
     },
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
 }
 
 art_cc_test {
@@ -1050,6 +1070,10 @@ art_cc_test {
     ],
     test_suites: ["general-tests"],
     test_config: "art-gtests-target-chroot.xml",
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
 }
 
 filegroup {
