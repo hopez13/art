@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d31822_6490bd6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-16T23:38:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand the context here. Why is it safe at this point to call fork without suspending other threads? Or are we somehow doing so? Or do we somehow know that there are no other threads still running?\n\nIn any case, I agree this can only improve things.",
+      "revId": "633dc7bf005ce9ee04d6dbf9e7ec33a303c36a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
