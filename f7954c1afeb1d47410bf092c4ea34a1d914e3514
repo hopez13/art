@@ -16,6 +16,103 @@
       "message": "PTAL, a first attempt at adding metrics in odrefresh. Thanks!",
       "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5135eff_2c813dfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "Overall, this looks really good! I added a few comments and questions.",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec905c16_29b13a0c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "Hmm, I wonder if we should add ISA as another piece of metadata. Do you think it\u0027s worth being able to slice metrics by ISA?",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22803f21_d24754e4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "The session id should normally be a randomly generated number. See https://cs.android.com/android/platform/superproject/+/master:art/runtime/runtime.cc;l\u003d1085;bpv\u003d1;bpt\u003d1 for an example.\n\nFor right now I don\u0027t think that\u0027s an issue, since I don\u0027t think we\u0027ll need to correlate multiple reports as there is only one report from odrefresh. So, 0 should work, but a random number would be better in case things change.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 44,
+        "endLine": 1322,
+        "endChar": 61
+      },
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2ff15b_0d737428",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "The user id is what we use to correlate metrics with a particular app, since we also get a user id to app mapping with our metrics. For something like dex2oat it can make sense to use the uid of the app that\u0027s being compiled rather than dex2oat\u0027s uid.\n\nIn this case, since we\u0027re just doing System Server and the boot classpath, the uid of the app probably isn\u0027t particularly relevant, so using odrefresh\u0027s uid should be fine.\n\nAnyway, I bring this up just in case you think a different uid might be valuable.",
+      "range": {
+        "startLine": 1323,
+        "startChar": 44,
+        "endLine": 1323,
+        "endChar": 86
+      },
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd1afb0_157039e2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter for correctness, but I think conceptually it makes more sense to have the BeginReport call just before ReportAllMetrics, so that all the reporting related calls are right together.",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

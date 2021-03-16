@@ -22,6 +22,30 @@
       },
       "revId": "36e29ae0aa6e25b7186dc5c0b831ca54024e7b36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c717fe52_2d3729a6",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-16T18:24:06Z",
+      "side": 1,
+      "message": "I agree. At some point what I\u0027d like to do is make metrics take an argument to specify what unit they are in, whether thats bytes, a count, milliseconds, etc. Then AutoTimer would know what the right units are and could do whatever conversions are necessary automatically.\n\nI went with just microseconds to keep things simple and that seemed to work for a lot of use cases, but I would like to add some more flexibility here.",
+      "parentUuid": "c4ff579a_46228860",
+      "range": {
+        "startLine": 69,
+        "startChar": 43,
+        "endLine": 69,
+        "endChar": 58
+      },
+      "revId": "36e29ae0aa6e25b7186dc5c0b831ca54024e7b36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
