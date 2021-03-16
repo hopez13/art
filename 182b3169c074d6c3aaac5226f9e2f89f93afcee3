@@ -73,6 +73,24 @@
       "message": "You added this because you noticed a bug in the code, not because the test started to fail?",
       "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdaad5c9_8edb25d6",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-16T13:45:05Z",
+      "side": 1,
+      "message": "Yeah, I noticed it was missing and was probably missed when the test got introduced.",
+      "parentUuid": "92b83430_3db1072e",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
