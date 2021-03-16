@@ -61,13 +61,24 @@ bool TryLoadLibdexfileExternal([[maybe_unused]] std::string* err_msg) {
   std::lock_guard<std::mutex> lock(load_mutex);
 
   if (!is_loaded) {
-    // Check which version is already loaded to avoid loading both debug and
-    // release builds. We might also be backtracing from separate process, in
-    // which case neither is loaded.
+    // First try to load the libdexfile external API from the old separate
+    // library libdexfile(d)_external.so, present on Q and R devices, then try
+    // to load it from libdexfile(d).so. For each one, we also need to check
+    // whether the debug or non-debug variant is already loaded to avoid loading
+    // both in the same process. We might also be backtracing from a separate
+    // process, in which case neither is loaded.
     const char* so_name = "libdexfiled_external.so";
     void* handle = dlopen(so_name, RTLD_NOLOAD | RTLD_NOW | RTLD_NODELETE);
     if (handle == nullptr) {
       so_name = "libdexfile_external.so";
+      handle = dlopen(so_name, RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);
+    }
+    if (handle == nullptr) {
+      so_name = "libdexfiled.so";
+      handle = dlopen(so_name, RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);
+    }
+    if (handle == nullptr) {
+      so_name = "libdexfile.so";
       handle = dlopen(so_name, RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);
     }
     if (handle == nullptr) {
