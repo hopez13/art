@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a21b0300_7c871356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2021-03-16T13:51:34Z",
+      "side": 1,
+      "message": "You never responded on the email thread. The question was:\n\n\u003e Lorenzo, can you expand what compile-time issues you see? If you compile NetworkStack against the system SDK (system_current, system_30 etc), that should give you the correct guarantees.\n\nThinking about this more, doesn\u0027t this make you *more* vulnerable? It only has an effect on S+, whereas the build would happily allow you to call MODULE_LIBRARIES APIs on R.",
+      "revId": "7bc9fa0503c95ffe7db407fe0d1ab01f18056aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa2da9a9_5d9ee8c4",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 4
