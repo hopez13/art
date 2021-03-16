@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0d06e89_12ead708",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-16T19:34:32Z",
+      "side": 1,
+      "message": "We had the same discussion on PM-dex2oat reporting. \n\nI think we should add the ISA, otherwise you need to always remember that you will get twice the number of metrics and need to make sure how you add/average.\n\n+Yan",
+      "parentUuid": "c7e71813_eaaeaf10",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22803f21_d24754e4",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 6
