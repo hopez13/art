@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed48939_2bc1efcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-03-16T13:08:43Z",
+      "side": 1,
+      "message": "I\u0027ll defer to Nicolas for final judgement here, but I\u0027d really rather now have such special case code in cases like this. It adds complexity, does nothing to help other modules and does not meaningfully advance the state of mainline in any way.\n\nIs there any path to cleaning this up in future? It just feels like instant technical debt to me which is likely to cause further problems in the future.\n\nI\u0027d much rather see some generic support that will work for all modules.",
+      "revId": "7bc9fa0503c95ffe7db407fe0d1ab01f18056aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
