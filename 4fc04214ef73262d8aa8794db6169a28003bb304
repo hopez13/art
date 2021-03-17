@@ -70,6 +70,30 @@
       },
       "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1b7283c_12ecdec8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-17T17:47:47Z",
+      "side": 1,
+      "message": "Yeah, I think because of the OnDeviceRecompilation prefix, this isn\u0027t a huge deal.\n\nI asked Calin about it, and he said kBoot normally means \"during boot time after system server has started.\" He thought adding a new compilation reason made sense. For consistency, it seems like we should probably write that to the OAT file as well.",
+      "parentUuid": "3ed3058e_4078d3ed",
+      "range": {
+        "startLine": 1324,
+        "startChar": 44,
+        "endLine": 1324,
+        "endChar": 77
+      },
+      "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
