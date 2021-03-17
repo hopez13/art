@@ -263,11 +263,7 @@ static jobject DexFile_openInMemoryDexFilesNative(JNIEnv* env,
     jint start = starts.Get(i);
     jint end = ends.Get(i);
 
-    MemMap dex_data = AllocateDexMemoryMap(env, start, end);
-    if (!dex_data.IsValid()) {
-      DCHECK(Thread::Current()->IsExceptionPending());
-      return nullptr;
-    }
+    MemMap dex_data;
 
     if (array == nullptr) {
       // Direct ByteBuffer
@@ -277,9 +273,15 @@ static jobject DexFile_openInMemoryDexFilesNative(JNIEnv* env,
         ThrowWrappedIOException("dexFileBuffer not direct");
         return nullptr;
       }
-      size_t length = static_cast<size_t>(end - start);
-      memcpy(dex_data.Begin(), base_address + start, length);
+      // We use the data directly to save on the memcpy time. The direct byte
+      // buffer is kept alive by the DexList owning this dex file.
+      dex_data = MemMap::MapPlaceholder("DEX Data", base_address, static_cast<size_t>(end - start));
     } else {
+      dex_data = AllocateDexMemoryMap(env, start, end);
+      if (!dex_data.IsValid()) {
+        DCHECK(Thread::Current()->IsExceptionPending());
+        return nullptr;
+      }
       // ByteBuffer backed by a byte array
       jbyte* destination = reinterpret_cast<jbyte*>(dex_data.Begin());
       env->GetByteArrayRegion(array, start, end - start, destination);
