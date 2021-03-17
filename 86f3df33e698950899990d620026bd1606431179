@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec37687b_4ecd31bf",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Can we get rid of `kAccDefaultConflict` and `kAccMiranda` and replace them using the flags `kAccAbstract`, `kAccCopied` and `kAccDefault`?\n\n  mask \u003d kAccAbstract | kAccCopied | kAccDefault;\n  is_miranda \u003d (access_flags \u0026 mask) \u003d\u003d (kAccAbstract | kAccCopied);\n  is_default_conflict \u003d (access_flags \u0026 mask) \u003d\u003d mask;\n\nThen we could simply use one of their values for `kAccNterpEntryPointFastPathFlags`. The `kAccMiranda` does not overlap intrinsic bits, so using that value would really simplify the nterp code.\n\nWe could also move `kAccCopied` to the intrinsic bits and check it together with `kAccIntrinsic` as intrinsics are never copied methods.",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0117ad15_a2f23a4b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Increment the image version, please.",
+      "range": {
+        "startLine": 3855,
+        "startChar": 4,
+        "endLine": 3855,
+        "endChar": 42
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2276547_0b21aab2",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Move between the stores for better scheduling.",
+      "range": {
+        "startLine": 1456,
+        "startChar": 4,
+        "endLine": 1456,
+        "endChar": 22
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f7ea8f6_3749cf7b",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Plural? You\u0027re processing all remaining parameters here.",
+      "range": {
+        "startLine": 1461,
+        "startChar": 23,
+        "endLine": 1461,
+        "endChar": 32
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b10e08d0_47a31e0e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "You could use an adjusted stack_ptr (namely +OFFSET_TO_FIRST_ARGUMENT_IN_STACK) so that you can do this in one instruction.\n\nBut more than 7 args should be rare, so feel free to leave as is.",
+      "range": {
+        "startLine": 1463,
+        "startChar": 4,
+        "endLine": 1464,
+        "endChar": 56
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5732171f_e8dd6089",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Move before the stores.",
+      "range": {
+        "startLine": 1468,
+        "startChar": 4,
+        "endLine": 1468,
+        "endChar": 22
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf35beef_2d2b1c18",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Move between stores.",
+      "range": {
+        "startLine": 1479,
+        "startChar": 4,
+        "endLine": 1479,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9185b63_5fdd5dba",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Pass adjusted stack_ptr?",
+      "range": {
+        "startLine": 1485,
+        "startChar": 4,
+        "endLine": 1486,
+        "endChar": 53
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78796652_c0d37b4e",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T17:31:50Z",
+      "side": 1,
+      "message": "Move before stores? (Neither STR nor ADD modifies flags.)",
+      "range": {
+        "startLine": 1490,
+        "startChar": 4,
+        "endLine": 1490,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
