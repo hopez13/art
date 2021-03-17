@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbec157f_4eb6c423",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T10:25:14Z",
+      "side": 1,
+      "message": "Keeping as is after offline discussion.",
+      "parentUuid": "b70c6382_72a95f7e",
+      "range": {
+        "startLine": 296,
+        "startChar": 7,
+        "endLine": 296,
+        "endChar": 12
+      },
+      "revId": "c806f8ca2e7dc19d63654f59036119254bb40166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da71451_77683da7",
@@ -61,6 +85,30 @@
       "writtenOn": "2021-03-15T14:19:17Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1626,
+        "startChar": 7,
+        "endLine": 1626,
+        "endChar": 12
+      },
+      "revId": "c806f8ca2e7dc19d63654f59036119254bb40166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f39794c7_64777ed3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-17T10:25:14Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "6da71451_77683da7",
       "range": {
         "startLine": 1626,
         "startChar": 7,
