@@ -16,6 +16,24 @@
       "message": "Why doesn\u0027t this library use art_defaults? If there isn\u0027t a specific reason not to, I think it\u0027s better off using it so we have a common place for ART default options.",
       "revId": "39d529f45bad3ecf2bd6b376a049fde6cb0c21b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d042dcbd_6108dcc0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-17T19:31:30Z",
+      "side": 1,
+      "message": "https://r.android.com/1642061 is out to address this.",
+      "parentUuid": "1d045900_4df5c551",
+      "revId": "39d529f45bad3ecf2bd6b376a049fde6cb0c21b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
