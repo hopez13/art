@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b35f82cf_6d89afa4",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-17T13:27:29Z",
+      "side": 1,
+      "message": "We\u0027ve not considered reporting dex2oat metrics directly for odrefresh. It would be easy enough to emit those to a file via a command-line to dex2oat if we wanted to go there. \n\nI don\u0027t think there\u0027s much overlap with these values and dex2oat atoms (dex2oat provides slightly more info for UnexpectedError here, but the exit codes are not very granular anyway).",
+      "parentUuid": "0166d67c_972f479b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bfc5a9_8651eb1c",
         "filename": "libartbase/base/metrics/metrics.h",
         "patchSetId": 7
@@ -61,6 +85,30 @@
       "writtenOn": "2021-03-16T19:28:22Z",
       "side": 1,
       "message": "What are the goals for this one? Do you plan to capture individual dex re-compilation histogram or something else?",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 37
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f04930d_bdd7884d",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-17T13:27:29Z",
+      "side": 1,
+      "message": "We should probably change this, just having the total compilation time is probably sufficient.\n\nThe nuance is that we might fail to completely compile system_server (e.g. due to lack of space) or only compile part of system_server so there may be some low value numbers from those cases, but primarily we care about the total compilation time. There are concerns with how long compilation takes overall since it affects users and other features.",
+      "parentUuid": "a2bfc5a9_8651eb1c",
       "range": {
         "startLine": 69,
         "startChar": 12,
