@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7308f51_555bfcf8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-18T15:25:52Z",
+      "side": 1,
+      "message": "odrefresh would want arch for when errors occurred, but not total compilation time (which covers all archs). We could assign total compilation time to the system server arch if we need to make a choice.",
+      "parentUuid": "c589e058_2562a7e0",
+      "revId": "f7954c1afeb1d47410bf092c4ea34a1d914e3514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22803f21_d24754e4",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 6
