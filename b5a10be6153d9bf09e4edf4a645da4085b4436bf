@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2377c316_a5fa10e0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-03-18T12:22:22Z",
+      "side": 1,
+      "message": "This should not get loaded as an ART plugin. We only need to dlopen it below.",
+      "range": {
+        "startLine": 1092,
+        "startChar": 0,
+        "endLine": 1097,
+        "endChar": 5
+      },
+      "revId": "b5a10be6153d9bf09e4edf4a645da4085b4436bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
