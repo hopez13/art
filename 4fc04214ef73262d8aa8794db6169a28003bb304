@@ -94,6 +94,30 @@
       },
       "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b83daf_30f7f1de",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-18T00:02:48Z",
+      "side": 1,
+      "message": "We dropped the \"boot\" reason in S in favor of more descriptive names: https://android-review.googlesource.com/c/platform/frameworks/base/+/1573881/10/services/core/java/com/android/server/pm/PackageManagerServiceCompilerMapping.java\n\nI would add a new reason for this. It\u0027s easy.",
+      "parentUuid": "e1b7283c_12ecdec8",
+      "range": {
+        "startLine": 1324,
+        "startChar": 44,
+        "endLine": 1324,
+        "endChar": 77
+      },
+      "revId": "4fc04214ef73262d8aa8794db6169a28003bb304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
