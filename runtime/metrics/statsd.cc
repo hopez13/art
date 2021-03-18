@@ -101,6 +101,15 @@ constexpr int32_t EncodeCompilationReason(CompilationReason reason) {
           ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_WITH_DEX_METADATA;
     case CompilationReason::kShared:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_SHARED;
+    // TODO: return the correct statsd constants for these entries once they are added to the proto.
+    case CompilationReason::kBootAfterOTA:
+    case CompilationReason::kPostBoot:
+    case CompilationReason::kInstallFast:
+    case CompilationReason::kInstallBulk:
+    case CompilationReason::kInstallBulkSecondary:
+    case CompilationReason::kInstallBulkDowngraded:
+    case CompilationReason::kInstallBulkSecondaryDowngraded:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_ERROR;
   }
 }
 
