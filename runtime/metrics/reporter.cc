@@ -62,12 +62,6 @@ void MetricsReporter::MaybeStopBackgroundThread() {
   }
 }
 
-void MetricsReporter::NotifyStartupCompleted() {
-  if (thread_.has_value()) {
-    messages_.SendMessage(StartupCompletedMessage{});
-  }
-}
-
 void MetricsReporter::RequestMetricsReport(bool synchronous) {
   if (thread_.has_value()) {
     messages_.SendMessage(RequestMetricsReportMessage{synchronous});
@@ -112,6 +106,8 @@ void MetricsReporter::BackgroundThreadRun() {
           for (auto& backend : backends_) {
             backend->BeginSession(message.session_data);
           }
+
+          ReportMetrics();
         },
         [&]([[maybe_unused]] ShutdownRequestedMessage message) {
           LOG_STREAM(DEBUG) << "Shutdown request received";
@@ -135,10 +131,6 @@ void MetricsReporter::BackgroundThreadRun() {
           ReportMetrics();
 
           MaybeResetTimeout();
-        },
-        [&]([[maybe_unused]] StartupCompletedMessage message) {
-          LOG_STREAM(DEBUG) << "App startup completed, reporting metrics";
-          ReportMetrics();
         });
   }
 

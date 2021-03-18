@@ -66,10 +66,6 @@ class MetricsReporter {
   // Sends a request to the background thread to shutdown.
   void MaybeStopBackgroundThread();
 
-  // Causes metrics to be reported so we can see a snapshot of the metrics after app startup
-  // completes.
-  void NotifyStartupCompleted();
-
   bool IsPeriodicReportingEnabled() const;
 
   // Changes the reporting period.
@@ -105,9 +101,6 @@ class MetricsReporter {
   // A message indicating that the reporting thread should shut down.
   struct ShutdownRequestedMessage {};
 
-  // A message indicating that app startup has completed.
-  struct StartupCompletedMessage {};
-
   // A message marking the beginning of a metrics logging session.
   //
   // The primary purpose of this is to pass the session metadata from the Runtime to the metrics
@@ -123,7 +116,6 @@ class MetricsReporter {
   };
 
   MessageQueue<ShutdownRequestedMessage,
-               StartupCompletedMessage,
                BeginSessionMessage,
                RequestMetricsReportMessage>
       messages_;
