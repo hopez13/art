@@ -16,6 +16,24 @@
       "message": "Should we make it a practice, to always update the atoms as part of the same topic?",
       "revId": "d31ab3991249805f2e438a2b469745a637dedac5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea55472_b9dd3553",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-18T20:40:52Z",
+      "side": 1,
+      "message": "Yes, I think so, but it\u0027s best if we wait until we\u0027re building using proto_logging from source so we can use the generated constants as well.",
+      "parentUuid": "31172cd4_e9413b8e",
+      "revId": "d31ab3991249805f2e438a2b469745a637dedac5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
