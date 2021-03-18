@@ -16,6 +16,52 @@
       "message": "PTAL, 1 unrelated TH failure. :-/",
       "revId": "fa0f30d09045ada0df8a7125f06471b20a215276",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a095fb0_fea6374f",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-18T10:17:37Z",
+      "side": 1,
+      "message": "in this case, should the ones that did build be used (and signed by odsign?)",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 78
+      },
+      "revId": "fa0f30d09045ada0df8a7125f06471b20a215276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63f0bf0_48670cda",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-18T10:17:37Z",
+      "side": 1,
+      "message": "removed the TEMP_FAILURE_RETRY on purpose?",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 14
+      },
+      "revId": "fa0f30d09045ada0df8a7125f06471b20a215276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
