@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d256ef_3e18039c",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-18T14:38:49Z",
+      "side": 1,
+      "message": "Yes.\n\nWe compile boot classpath extensions (which is just a single compile per architecture). If this succeeds we compile the system_server jars sequentially in dependency order and for just the architecture that system_server is configured to be. We can tolerate not compiling any of the system_server jars (e.g. out of space).\n\nWe prune artifacts during --check, ie if the boot classpath extensions for an architecture are out of date, those are deleted and also the system_server artifacts if they are the same architecture as the boot classpath extension artifacts.\n\nWe also now (PS8) prune before compile boot classpath extension and bail if that fails. This should only do anything when force compiling as the check step does this normally.",
+      "parentUuid": "1a095fb0_fea6374f",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 78
+      },
+      "revId": "fa0f30d09045ada0df8a7125f06471b20a215276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d63f0bf0_48670cda",
