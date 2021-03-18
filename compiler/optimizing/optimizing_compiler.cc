@@ -1092,18 +1092,21 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
         compiled_method->MarkAsIntrinsic();
       }
 
-      if (kArenaAllocatorCountAllocations) {
         codegen.reset();  // Release codegen's ScopedArenaAllocator for memory accounting.
+        metrics::ArtMetrics* metrics = GetMetrics();
         size_t total_allocated = allocator.BytesAllocated() + arena_stack.PeakBytesAllocated();
-        if (total_allocated > kArenaAllocatorMemoryReportThreshold) {
-          MemStats mem_stats(allocator.GetMemStats());
-          MemStats peak_stats(arena_stack.GetPeakStats());
-          LOG(INFO) << "Used " << total_allocated << " bytes of arena memory for compiling "
-                    << dex_file.PrettyMethod(method_idx)
-                    << "\n" << Dumpable<MemStats>(mem_stats)
-                    << "\n" << Dumpable<MemStats>(peak_stats);
+        metrics->CompilerArenaUsageBytes()->Add(total_allocated);
+        metrics->CompilerArenaUsageMaxBytes()->Add(total_allocated);
+        if (kArenaAllocatorCountAllocations) {
+          if (total_allocated > kArenaAllocatorMemoryReportThreshold) {
+            MemStats mem_stats(allocator.GetMemStats());
+            MemStats peak_stats(arena_stack.GetPeakStats());
+            LOG(INFO) << "Used " << total_allocated << " bytes of arena memory for compiling "
+                      << dex_file.PrettyMethod(method_idx) << "\n"
+                      << Dumpable<MemStats>(mem_stats) << "\n"
+                      << Dumpable<MemStats>(peak_stats);
+          }
         }
-      }
     }
   } else {
     MethodCompilationStat method_stat;
@@ -1435,18 +1438,22 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     jit_logger->WriteLog(code, code_allocator.GetMemory().size(), method);
   }
 
-  if (kArenaAllocatorCountAllocations) {
     codegen.reset();  // Release codegen's ScopedArenaAllocator for memory accounting.
     size_t total_allocated = allocator.BytesAllocated() + arena_stack.PeakBytesAllocated();
-    if (total_allocated > kArenaAllocatorMemoryReportThreshold) {
-      MemStats mem_stats(allocator.GetMemStats());
-      MemStats peak_stats(arena_stack.GetPeakStats());
-      LOG(INFO) << "Used " << total_allocated << " bytes of arena memory for compiling "
-                << dex_file->PrettyMethod(method_idx)
-                << "\n" << Dumpable<MemStats>(mem_stats)
-                << "\n" << Dumpable<MemStats>(peak_stats);
+    metrics::ArtMetrics* metrics = GetMetrics();
+    metrics->CompilerArenaUsageBytes()->Add(total_allocated);
+    metrics->CompilerArenaUsageMaxBytes()->Add(total_allocated);
+
+    if (kArenaAllocatorCountAllocations) {
+      if (total_allocated > kArenaAllocatorMemoryReportThreshold) {
+        MemStats mem_stats(allocator.GetMemStats());
+        MemStats peak_stats(arena_stack.GetPeakStats());
+        LOG(INFO) << "Used " << total_allocated << " bytes of arena memory for compiling "
+                  << dex_file->PrettyMethod(method_idx) << "\n"
+                  << Dumpable<MemStats>(mem_stats) << "\n"
+                  << Dumpable<MemStats>(peak_stats);
+      }
     }
-  }
 
   return true;
 }
