@@ -1073,21 +1073,6 @@ void Runtime::InitNonZygoteOrPostFork(
   heap_->ResetGcPerformanceInfo();
   GetMetrics()->Reset();
 
-  if (metrics_reporter_ != nullptr) {
-    if (IsSystemServer() && !metrics_reporter_->IsPeriodicReportingEnabled()) {
-      // For system server, we don't get startup metrics, so make sure we have periodic reporting
-      // enabled.
-      //
-      // Note that this does not override the command line argument if one is given.
-      metrics_reporter_->SetReportingPeriod(kOneHourInSeconds);
-    }
-
-    metrics::SessionData session_data{metrics::SessionData::CreateDefault()};
-    session_data.session_id = GetRandomNumber<int64_t>(0, std::numeric_limits<int64_t>::max());
-    // TODO: set session_data.compilation_reason and session_data.compiler_filter
-    metrics_reporter_->MaybeStartBackgroundThread(session_data);
-  }
-
   StartSignalCatcher();
 
   ScopedObjectAccess soa(Thread::Current());
@@ -3083,8 +3068,26 @@ void Runtime::NotifyStartupCompleted() {
   // Notify the profiler saver that startup is now completed.
   ProfileSaver::NotifyStartupCompleted();
 
+  // Begin metrics reporting
   if (metrics_reporter_ != nullptr) {
-    metrics_reporter_->NotifyStartupCompleted();
+    if (IsSystemServer() && !metrics_reporter_->IsPeriodicReportingEnabled()) {
+      // For system server, we don't get startup metrics, so make sure we have periodic reporting
+      // enabled.
+      //
+      // Note that this does not override the command line argument if one is given.
+      metrics_reporter_->SetReportingPeriod(kOneHourInSeconds);
+    }
+
+    metrics::SessionData session_data{metrics::SessionData::CreateDefault()};
+    session_data.session_id = GetRandomNumber<int64_t>(0, std::numeric_limits<int64_t>::max());
+    const OatFile* primary_oat_file = oat_file_manager_->GetPrimaryOatFile();
+    session_data.compiler_filter = primary_oat_file->GetCompilerFilter();
+    const char* compilation_reason = primary_oat_file->GetCompilationReason();
+    if (compilation_reason != nullptr) {
+      session_data.compilation_reason =
+          metrics::CompilationReasonFromName(primary_oat_file->GetCompilationReason());
+    }
+    metrics_reporter_->MaybeStartBackgroundThread(session_data);
   }
 }
 
