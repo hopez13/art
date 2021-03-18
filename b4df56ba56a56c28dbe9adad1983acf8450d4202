@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4121310f_fdafb254",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-18T16:52:28Z",
+      "side": 1,
+      "message": "Slight preference for defaulting to no flag set since a call\n\n  GetMethodInfoForOffset(o, cb, kWithSignature)\n\nto enable signatures is more clear than\n\n  GetMethodInfoForOffset(o, cb, 0)\n\nto disable them.",
+      "range": {
+        "startLine": 106,
+        "startChar": 63,
+        "endLine": 106,
+        "endChar": 94
+      },
+      "revId": "b4df56ba56a56c28dbe9adad1983acf8450d4202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd98f61_569f3f59",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-18T16:52:28Z",
+      "side": 1,
+      "message": "For the sake of consistency we ought to change this to the same convention, which means updating the call sites. Can be a separate topic though. Or perhaps your intention is to change the clients to the callback functions and drop this altogether?",
+      "range": {
+        "startLine": 116,
+        "startChar": 56,
+        "endLine": 116,
+        "endChar": 75
+      },
+      "revId": "b4df56ba56a56c28dbe9adad1983acf8450d4202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491b0010_df473603",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-18T16:52:28Z",
+      "side": 1,
+      "message": "Spello: \"methods\"",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 50
+      },
+      "revId": "b4df56ba56a56c28dbe9adad1983acf8450d4202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
