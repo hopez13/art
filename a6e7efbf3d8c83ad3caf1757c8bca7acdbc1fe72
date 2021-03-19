@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "228b1e36_9a783e28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-19T09:11:34Z",
+      "side": 1,
+      "message": "Miranda methods were never compiled or marked with kAccCompileDontBother, so kAccMiranda was able to coexist with kAccPreCompiled because kAccPreCompiled is used in conjunction with kAccCompileDontBother. If you find another use case where kAccCompileDontBother does not apply, you can reuse the same flag again.\n\nHowever, it would be better to try and change the kAccPreCompiled to a different value. The kAccPreviouslyWarm value looks promising as \"previously warm\" does not really matter for kAccCompileDontBother methods and it\u0027s also in the intrinsic bits range just like kAccCompileDontBother. But that should be done in a separate CL.",
+      "parentUuid": "af35f7c1_631b427f",
+      "range": {
+        "startLine": 17,
+        "startChar": 39,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "a6e7efbf3d8c83ad3caf1757c8bca7acdbc1fe72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2cf10530_de8ebb89",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
