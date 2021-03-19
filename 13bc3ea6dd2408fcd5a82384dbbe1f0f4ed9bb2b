@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4925b397_7571be4f",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-19T21:51:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "193cfc71_f0f4fe41",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 14
+      },
+      "revId": "13bc3ea6dd2408fcd5a82384dbbe1f0f4ed9bb2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64da7631_77f326fe",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ca6b9c6_1d147c28",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-19T21:51:51Z",
+      "side": 1,
+      "message": "I think relaxed would work here as well, since we don\u0027t really have any synchronization requirements with other memory accesses. Since the only loads we do of this value are already relaxed, I decided to make this one relaxed for consistency.",
+      "parentUuid": "64da7631_77f326fe",
+      "range": {
+        "startLine": 290,
+        "startChar": 29,
+        "endLine": 290,
+        "endChar": 68
+      },
+      "revId": "13bc3ea6dd2408fcd5a82384dbbe1f0f4ed9bb2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a175262_027e93b0",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-03-18T20:10:23Z",
       "side": 1,
       "message": "Do you need that? Are there accesses from a signal handler or the like? I wouldn\u0027t needlessly assert this, since it looks to me like there may be sane use cases for which it\u0027s false.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 302,
+        "endChar": 53
+      },
+      "revId": "13bc3ea6dd2408fcd5a82384dbbe1f0f4ed9bb2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba59c00_321e6bc7",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-19T21:51:51Z",
+      "side": 1,
+      "message": "I did this in a few other places as well since the idea is that each of these metrics should only be a handful of instructions and I wanted to avoid accidentally introducing locks. In this case I think it\u0027s reasonable to remove it, since the custom accumulator function could already push us outside the handful of instructions range, and the custom accumulator also could benefit from using a richer data type for T.\n\nDone.",
+      "parentUuid": "8a175262_027e93b0",
       "range": {
         "startLine": 302,
         "startChar": 2,

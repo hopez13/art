@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f81128_bed5a9d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-19T21:51:51Z",
+      "side": 1,
+      "message": "I had to add a Reset() method for accumulators as well, since the CL to reset metrics at Zygote fork time landed.",
+      "revId": "dd701b266b3202fa898114bcf20c95e87873ebec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
