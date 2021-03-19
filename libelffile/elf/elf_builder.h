@@ -849,7 +849,6 @@ class ElfBuilder final {
         LOG(FATAL) << "Unknown instruction set " << isa;
       }
     }
-    DCHECK_EQ(GetIsaFromHeader(elf_header), isa);
 
     elf_header.e_ident[EI_MAG0]       = ELFMAG0;
     elf_header.e_ident[EI_MAG1]       = ELFMAG1;
