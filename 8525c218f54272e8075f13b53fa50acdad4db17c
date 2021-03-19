@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6fd7cec_5e7e4199",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-19T15:47:28Z",
+      "side": 1,
+      "message": "Okay, let\u0027s return dex2oat status 😊)\n\nI\u0027m working on an updated PS with:\n\n  COUNTER(OnDeviceRefreshStatus)                    \\\n  COUNTER(OnDeviceRefreshTotalCompileTime)          \\\n  COUNTER(OnDeviceRefreshDex2OatResult)             \\\n  COUNTER(OnDeviceRefreshCacheUsedMiB)              \\\n  COUNTER(OnDeviceRefreshCacheFreeMiB)              \\\n  COUNTER(OnDeviceRefreshCacheFileCount)            \\\n\nThe complex one here is the status: it needs to describe both the stage and any error condition that odrefresh identifies. It seems like that could go in the proto or not (ie dex2oat return values aren\u0027t in the proto).\n\nWe don\u0027t currently know this value when we initialize the session data but this can be changed. If not in proto, we\u0027d still need stable values in odrefresh and some way of mapping those in whatever the metrics UI looks like. Seems like proto might be better for this reason.\n\nIn proto there are 2 things we\u0027d want to define (that are currently in the single OnDeviceRefreshStatus count).\n\nStages:\n\n  Preparation\n  BcpPrimaryArchCompilation\n  BcpSecondaryArchCompilation\n  SystemServerCompilation\n  Done\n\nErrors:\n\n  NoError;\n  ErrorInsufficientSpace;\n  ErrorCompileFailed;\n  ErrorCompileTimedOut;\n  ErrorInstallFailed;\n  ErrorStagingDirectoryError;\n\nI\u0027d quite like compilation cause, but that\u0027s currently tricky because we invoke odrefresh twice (once to check artifacts and once to compile and checking does clean-up).\n\n  ApexUpdate\n  FileChecksumsChanged (possible after an OTA)\n  MissingOutputs (possible if ran out of space earlier).\n  ...\n\nThe counters here change quite a bit too, but space is a pretty critical issue for us and dex2oat doesn\u0027t signal out of space cleanly. If we have metrics here we can tune the inevitable heuristics that odrefresh users to determine space limitations.\n\nAppreciate this is a pretty big change of direction. Does it seem reasonable? Preference for proto or counters?\n\nThanks",
+      "parentUuid": "cbb768ee_33c22b6b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bfc5a9_8651eb1c",
         "filename": "libartbase/base/metrics/metrics.h",
         "patchSetId": 7
