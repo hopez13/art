@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c88e634_22e00737",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-19T21:53:21Z",
+      "side": 1,
+      "message": "Overall it seems reasonable to me.\n\nI am encouraging a lot we define the status/error codes in protos. It does require us to stabilize them, and on the surface offer less flexibility, but to make the data analysis sane we need to know which one is which, and going back to code to understand what a value is could cause a lot of headaches. It\u0027s already the case where the compiler-reason/filter are not proto defined but free-range (albeit stable) numerals and it does make it painful to keep that mapping elsewhere.\n\n\nHow would we use the stage information? I feel that can be easily encoded just as status. Completed / FailedCompiler / FailedSpace etc.. and in the compiler case we can again a separate dex2oat status to provide more refinement. \n\nI agree that the out of space is tricky, especially since dex2oat doesn\u0027t do a good job in telling why it failed. My suggestion is that the dex2oat status can itself report out_of_space if needed, even if it seems like a duplication.",
+      "parentUuid": "e6fd7cec_5e7e4199",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bfc5a9_8651eb1c",
         "filename": "libartbase/base/metrics/metrics.h",
         "patchSetId": 7
