@@ -178,6 +178,47 @@ art_cc_library {
     ],
 }
 
+// TODO(b/183217299): This is necessary to build with libdexfile without hitting
+// its APEX stubs. Remove when the build issue is fixed.
+art_cc_library {
+    name: "libprofile_test",
+    defaults: [
+        "art_debug_defaults",
+        "libprofile_defaults",
+    ],
+    shared_libs: [
+        "libbase",
+        "libziparchive",
+        "libartbase",
+        "libdexfile_test",
+    ],
+    export_shared_lib_headers: ["libbase"],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
+// TODO(b/183217299): This is necessary to build with libdexfile without hitting
+// its APEX stubs. Remove when the build issue is fixed.
+art_cc_library {
+    name: "libprofiled_test",
+    defaults: [
+        "art_debug_defaults",
+        "libprofile_defaults",
+    ],
+    shared_libs: [
+        "libbase",
+        "libziparchive",
+        "libartbased",
+        "libdexfiled_test",
+    ],
+    export_shared_lib_headers: ["libbase"],
+    apex_available: [
+        "com.android.art.debug",
+    ],
+}
+
 // For now many of these tests still use CommonRuntimeTest, almost universally because of
 // ScratchFile and related.
 // TODO: Remove CommonRuntimeTest dependency from these tests.
