@@ -22,6 +22,30 @@
       },
       "revId": "c9f4a3762b6c59714393aeca3662d96117e3b72f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "273b0cd6_6770f8e8",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-19T15:12:59Z",
+      "side": 0,
+      "message": "I wanted to remove it at the beginning, but it\u0027s still convenient in compiler_driver.cc, as the simplest way for threads to find their verifier deps.",
+      "parentUuid": "095cc785_21fe9b14",
+      "range": {
+        "startLine": 131,
+        "startChar": 9,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "c9f4a3762b6c59714393aeca3662d96117e3b72f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
