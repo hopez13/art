@@ -104,6 +104,7 @@ bool AotClassLinker::InitializeClass(Thread* self,
 }
 
 verifier::FailureKind AotClassLinker::PerformClassVerification(Thread* self,
+                                                               verifier::VerifierDeps* verifier_deps,
                                                                Handle<mirror::Class> klass,
                                                                verifier::HardFailLogMode log_level,
                                                                std::string* error_msg) {
@@ -125,7 +126,7 @@ verifier::FailureKind AotClassLinker::PerformClassVerification(Thread* self,
     return verifier::FailureKind::kSoftFailure;
   }
   // Do the actual work.
-  return ClassLinker::PerformClassVerification(self, klass, log_level, error_msg);
+  return ClassLinker::PerformClassVerification(self, verifier_deps, klass, log_level, error_msg);
 }
 
 bool AotClassLinker::CanReferenceInBootImageExtension(ObjPtr<mirror::Class> klass, gc::Heap* heap) {
