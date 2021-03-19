@@ -36,8 +36,9 @@ art_cc_binary {
     ],
     shared_libs: [
         "libnativehelper",
-        "libsigchain",
     ],
+    // TODO(b/183102427): this seems to help asan, but libsgichain should really be in shared_libs.
+    whole_static_libs: ["libsigchain"],
     target: {
         android: {
             shared_libs: [
