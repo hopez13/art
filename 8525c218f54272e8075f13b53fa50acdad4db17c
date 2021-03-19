@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a7111b7_e51f91ca",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-19T23:34:49Z",
+      "side": 1,
+      "message": "This definitely looks like worthwhile information to collect.\n\nIt looks like if we add these as extra fields in the ArtDatumReported atom, we\u0027d need two or three new fields, and these fields won\u0027t really be meaningful in our runtime metrics. I think this is drifting enough from the runtime metrics use case that setting up a new atom (i.e. proto) for the ODRefresh metrics probably makes sense.\n\nOrion - maybe we should chat again to discuss in more detail what this might look like?",
+      "parentUuid": "4c88e634_22e00737",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "8525c218f54272e8075f13b53fa50acdad4db17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bfc5a9_8651eb1c",
         "filename": "libartbase/base/metrics/metrics.h",
         "patchSetId": 7
