@@ -166,6 +166,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d09cd9f_4497e705",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-19T02:15:23Z",
+      "side": 1,
+      "message": "I think you\u0027re right, in that there were probably few cases in which this mattered. The earlier mechanisms covered most of them. My current thinking ins that the late update of the native allocation counts was much more of an issue in practice.\n\nI updated a couple of the calls to specify an actual GC number, which should improve things a little. But for me, the main advantage of this part of the change is that it\u0027s easier to see that we\u0027re consistently filtering out redundant requests. I also think the GC_NUM_ANY addition, though it seems like a bit of a hack, is actually an improvement, in that we now have to be clear about whether we want redundant requests filtered or not. In some cases, like tests that explicitly invoke the collector, it\u0027s critical they\u0027re not filtered. In many other cases, we would like them to be filtered.\n\nIn general, any non-GC_NUM_ANY request should only be completed if the GC with the requested number hasn\u0027t happened yet. We should never get 2 GCs for the same request number. In some cases, there\u0027s still a short window between the time we note that we need a GC and we capture the GC number. But we now have a mechanism for eliminating that\u0027 ideally we should capture the GC number before checking. And in the case of the normal concurrent GC tests, we now do that.\n\nYou\u0027re right that the gcs_requested_ logic is in a sense only a heuristic to avoid creating many duplicate requests. The important test is the one in CollectGarbageInternal(). Even if we removed gcs_rested_ entirely, that would still do the filtering, though more expensively.",
+      "parentUuid": "d990c20f_f055bb4a",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
