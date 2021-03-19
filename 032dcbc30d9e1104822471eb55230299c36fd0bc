@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d620e8_12bf3b57",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-19T18:45:30Z",
+      "side": 1,
+      "message": "The TH failures show that the transitive dependency on libasync_safe breaks, because of the delayed linking of static libraries.\n\nI\u0027d rather not put back libasync_safe as whole_static_libs in libsigchain, because the prebuilt drops will reexport all of the Bionic headers then. Instead, can you please try making a libsichain_static alternative of libsigchain which has the requisite whole_static_libs:[\"libasync_safe\"] and then use that here?",
+      "revId": "032dcbc30d9e1104822471eb55230299c36fd0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
