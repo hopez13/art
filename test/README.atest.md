@@ -30,6 +30,16 @@ atest art-run-test-001-HelloWorld
 To run all ART run-tests in a single command, the currently recommended way is
 to use [test mapping](#test-mapping) (see below).
 
+You can nonetheless run all supported ART run-tests with a single command, using
+Atest's support for wildcards:
+```bash
+atest art-run-test-\*
+```
+
+Note: Many ART run-tests are failing as of March 2021, so the above command will
+likely report many tests failures. The ART team is actively working on this
+issue.
+
 ## ART gtests
 
 ### Running ART gtests on device
