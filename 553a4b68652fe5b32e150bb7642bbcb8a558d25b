@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a452c07f_f42cde5c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-19T10:28:05Z",
+      "side": 0,
+      "message": "It\u0027s unnecessary and saves someone else from uploading a CL to fix: it\u0027s described in the commit message about TEMP_FAILURE_RETRY.",
+      "parentUuid": "2f830ca0_a2ad84e0",
+      "range": {
+        "startLine": 192,
+        "startChar": 8,
+        "endLine": 192,
+        "endChar": 26
+      },
+      "revId": "553a4b68652fe5b32e150bb7642bbcb8a558d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "513df0c7_aa9e7951",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-19T10:04:43Z",
       "side": 0,
       "message": "ditto on why removing",
+      "range": {
+        "startLine": 1118,
+        "startChar": 10,
+        "endLine": 1118,
+        "endChar": 28
+      },
+      "revId": "553a4b68652fe5b32e150bb7642bbcb8a558d25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c1a7e8_8a47d107",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-03-19T10:28:05Z",
+      "side": 0,
+      "message": "Unnecessary, fchmod is not interruptible according to the man page.",
+      "parentUuid": "513df0c7_aa9e7951",
       "range": {
         "startLine": 1118,
         "startChar": 10,
