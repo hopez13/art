@@ -36,16 +36,19 @@ art_cc_binary {
     ],
     shared_libs: [
         "libnativehelper",
-        "libsigchain",
     ],
     target: {
         android: {
             shared_libs: [
                 "liblog",
+                "libsigchain",
             ],
         },
         linux: {
             ldflags: ["-Wl,--export-dynamic"],
+            // TODO(b/183102427): this seems to help asan on host, but libsgichain should
+            // really be in shared_libs.
+            whole_static_libs: ["libsigchain"],
         },
         darwin: {
             enabled: false,
