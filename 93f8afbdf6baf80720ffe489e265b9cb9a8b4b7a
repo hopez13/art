@@ -16,6 +16,24 @@
       "message": "Looks ok to me code-wise, but why would we need to do it for pinner? Aren\u0027t the files already in memory? System server would have load them already.",
       "revId": "93f8afbdf6baf80720ffe489e265b9cb9a8b4b7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40cca97d_5967daeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-19T09:09:03Z",
+      "side": 1,
+      "message": "Yes, but pinner does mlock on the files (to have them always resident in memory), which isn\u0027t something ART does.",
+      "parentUuid": "36d85dc5_10b505ba",
+      "revId": "93f8afbdf6baf80720ffe489e265b9cb9a8b4b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
