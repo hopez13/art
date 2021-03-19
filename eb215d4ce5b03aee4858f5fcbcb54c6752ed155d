@@ -16,6 +16,23 @@
       "message": "I think it\u0027s fine to leave this disabled on gcstress and other slow configurations. But it seemed to be failing elsewhere, too, and we want to keep it around in some form, I think.",
       "revId": "eb215d4ce5b03aee4858f5fcbcb54c6752ed155d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6135d02_d8bc7a8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-19T23:56:04Z",
+      "side": 1,
+      "message": "Failures were related to stack unwinding and wifi, and are clearly unrelated. Since this previously passed, I intend to bypass presubmit if the current re-run attempt fails again.",
+      "revId": "eb215d4ce5b03aee4858f5fcbcb54c6752ed155d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
