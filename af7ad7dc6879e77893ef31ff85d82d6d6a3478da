@@ -85,6 +85,30 @@
       },
       "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571e3b8f_2875150f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-03-20T01:51:51Z",
+      "side": 1,
+      "message": "Thanks for your kind advice, but If move to palette implementation, we have to hold a list of threads in palette implementation, and operate those records carefully, I think this is time consuming, would you please reconsider it，thanks.",
+      "parentUuid": "f0986a63_1c83793d",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
