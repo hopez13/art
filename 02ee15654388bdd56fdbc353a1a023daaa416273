@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0134a75f_1e650819",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-21T00:28:34Z",
+      "side": 1,
+      "message": "Please test:\n\n  art/build/build-art-module.sh\n  packages/modules/ArtPrebuilt/update-art-module-prebuilts.py \\\n    --local-dist\u003dout/dist --skip-cls\n  m droid",
+      "revId": "02ee15654388bdd56fdbc353a1a023daaa416273",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
