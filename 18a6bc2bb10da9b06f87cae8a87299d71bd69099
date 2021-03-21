@@ -16,6 +16,75 @@
       "message": "Lokesh - Could you take another look at this on Monday?",
       "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be4a8cf_049a5f5c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1829,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-21T11:03:23Z",
+      "side": 1,
+      "message": "Should there be a fence here to ensure that TryToAllocate isn\u0027t re-ordered with this?",
+      "range": {
+        "startLine": 1829,
+        "startChar": 29,
+        "endLine": 1829,
+        "endChar": 44
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257e8a0a_2cea9f81",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3951,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-21T11:03:23Z",
+      "side": 1,
+      "message": "Again, I think a fence is needed here to avoid re-ordering.",
+      "range": {
+        "startLine": 3951,
+        "startChar": 29,
+        "endLine": 3951,
+        "endChar": 44
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5443c8c9_1671662e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3965,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-21T11:03:23Z",
+      "side": 1,
+      "message": "Since there is no guarantee that the requested GC will start even in 2ms, shouldn\u0027t we wait on the gcs_completed_ to increment, rather than calling WaitForGcToComplete()?",
+      "range": {
+        "startLine": 3963,
+        "startChar": 8,
+        "endLine": 3965,
+        "endChar": 9
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
