@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10702906_c683df24",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46a72da4_71e4f6f9",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0117ad15_a2f23a4b",
@@ -61,6 +85,30 @@
       "writtenOn": "2021-03-17T17:31:50Z",
       "side": 1,
       "message": "Increment the image version, please.",
+      "range": {
+        "startLine": 3855,
+        "startChar": 4,
+        "endLine": 3855,
+        "endChar": 42
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5d9e458_680a80f0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0117ad15_a2f23a4b",
       "range": {
         "startLine": 3855,
         "startChar": 4,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d81d4bda_b7c4a84f",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2276547_0b21aab2",
+      "range": {
+        "startLine": 1456,
+        "startChar": 4,
+        "endLine": 1456,
+        "endChar": 22
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f7ea8f6_3749cf7b",
@@ -107,6 +179,30 @@
       "writtenOn": "2021-03-17T17:31:50Z",
       "side": 1,
       "message": "Plural? You\u0027re processing all remaining parameters here.",
+      "range": {
+        "startLine": 1461,
+        "startChar": 23,
+        "endLine": 1461,
+        "endChar": 32
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8123d349_60195819",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7ea8f6_3749cf7b",
       "range": {
         "startLine": 1461,
         "startChar": 23,
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49cf81b1_38d701ae",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b10e08d0_47a31e0e",
+      "range": {
+        "startLine": 1463,
+        "startChar": 4,
+        "endLine": 1464,
+        "endChar": 56
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5732171f_e8dd6089",
@@ -153,6 +273,30 @@
       "writtenOn": "2021-03-17T17:31:50Z",
       "side": 1,
       "message": "Move before the stores.",
+      "range": {
+        "startLine": 1468,
+        "startChar": 4,
+        "endLine": 1468,
+        "endChar": 22
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5900ef_c86746ef",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5732171f_e8dd6089",
       "range": {
         "startLine": 1468,
         "startChar": 4,
@@ -186,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8533df1_36c25e3a",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf35beef_2d2b1c18",
+      "range": {
+        "startLine": 1479,
+        "startChar": 4,
+        "endLine": 1479,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9185b63_5fdd5dba",
@@ -209,6 +377,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17765f53_5d8d3c6b",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9185b63_5fdd5dba",
+      "range": {
+        "startLine": 1485,
+        "startChar": 4,
+        "endLine": 1486,
+        "endChar": 53
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78796652_c0d37b4e",
@@ -222,6 +414,30 @@
       "writtenOn": "2021-03-17T17:31:50Z",
       "side": 1,
       "message": "Move before stores? (Neither STR nor ADD modifies flags.)",
+      "range": {
+        "startLine": 1490,
+        "startChar": 4,
+        "endLine": 1490,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2abcaae_2b15c891",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T22:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78796652_c0d37b4e",
       "range": {
         "startLine": 1490,
         "startChar": 4,
