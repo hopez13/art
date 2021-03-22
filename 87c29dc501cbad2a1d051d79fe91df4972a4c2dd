@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "974ebc9d_55272bc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d53fc22a_9b8aa4c6",
+      "range": {
+        "startLine": 9,
+        "startChar": 55,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3431c517_93214cfd",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2cf1a48_ef7da6e3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe22a4e_fd4c7bd4",
+      "range": {
+        "startLine": 3849,
+        "startChar": 4,
+        "endLine": 3853,
+        "endChar": 7
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fc4b2fb_c9defac9",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-22T14:31:50Z",
       "side": 1,
       "message": "TBZ",
+      "range": {
+        "startLine": 880,
+        "startChar": 5,
+        "endLine": 881,
+        "endChar": 9
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a5d0026_78ae2618",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc4b2fb_c9defac9",
       "range": {
         "startLine": 880,
         "startChar": 5,
@@ -104,6 +176,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d46c11f5_7d7ff541",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Ack, I\u0027ll keep it like this as it\u0027s also the way we implement for for interpreter to interpreter calls.",
+      "parentUuid": "18a78f0c_de6bba0d",
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f9e6130_20fcbb7b",
@@ -117,6 +207,30 @@
       "writtenOn": "2021-03-22T14:31:50Z",
       "side": 1,
       "message": "TBZ",
+      "range": {
+        "startLine": 1215,
+        "startChar": 5,
+        "endLine": 1216,
+        "endChar": 9
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5638faff_d90857e8",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f9e6130_20fcbb7b",
       "range": {
         "startLine": 1215,
         "startChar": 5,
@@ -150,6 +264,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d3c4a4_5c79d15e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Nice! Done.",
+      "parentUuid": "f347081a_f2430337",
+      "range": {
+        "startLine": 1225,
+        "startChar": 5,
+        "endLine": 1225,
+        "endChar": 20
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6076569_9515012b",
@@ -163,6 +301,30 @@
       "writtenOn": "2021-03-22T14:31:50Z",
       "side": 1,
       "message": "Same as arm64.",
+      "range": {
+        "startLine": 1284,
+        "startChar": 5,
+        "endLine": 1284,
+        "endChar": 19
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2acb2bc_ee0d33ad",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6076569_9515012b",
       "range": {
         "startLine": 1284,
         "startChar": 5,
@@ -196,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf12cd4_0efc9b64",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ec0a9fb_fffa3c47",
+      "range": {
+        "startLine": 1308,
+        "startChar": 5,
+        "endLine": 1308,
+        "endChar": 29
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3a4b8bc_c84a9efd",
@@ -209,6 +395,24 @@
       "writtenOn": "2021-03-22T14:31:50Z",
       "side": 1,
       "message": "Use MOVSD instead of a loop?",
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a028c6_682c8e36",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-22T18:23:02Z",
+      "side": 1,
+      "message": "I\u0027d prefer keeping the loop like other interpreters, to make things consistent (especially since this is only for host). But let me know if you disagree.",
+      "parentUuid": "b3a4b8bc_c84a9efd",
       "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
