@@ -33,6 +33,24 @@
       "message": "This will still be active on host bionic, which means you\u0027ll still need a whole_static_libs:[\"libasync_safe\"] in libsigchain for linux_bionic. But if it\u0027s only for host it should not affect the prebuilts. Still, please build art-module-sdk-current.zip and check that it doesn\u0027t get any paths with \"bionic\" in it.",
       "revId": "01cc4332db5af56c87a54afd2a4a3bf94b5c7373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72eac7fc_c94bfbd0",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-22T14:48:40Z",
+      "side": 1,
+      "message": "As you pointed out in an IM, libasync_safe use is guarded by __ANDROID__ so this isn\u0027t a problem.\n\nHowever, the use of \"linux\" target means libsigchain is both in shared_libs and whole_static_libs on android, which although it appears to work is at least confusing. It should be \"host\" to be mutually exclusive with \"android\".",
+      "parentUuid": "8fa2c766_07ff759c",
+      "revId": "01cc4332db5af56c87a54afd2a4a3bf94b5c7373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
