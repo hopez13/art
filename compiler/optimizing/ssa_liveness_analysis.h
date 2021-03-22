@@ -875,7 +875,6 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
   // Returns whether an interval, when it is non-split, is using
   // the same register of one of its input.
   bool IsUsingInputRegister() const {
-    CHECK(kIsDebugBuild) << "Function should be used only for DCHECKs";
     if (defined_by_ != nullptr && !IsSplit()) {
       for (const HInstruction* input : defined_by_->GetInputs()) {
         LiveInterval* interval = input->GetLiveInterval();
@@ -901,7 +900,6 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
   // the same register of one of its input. Note that this method requires
   // IsUsingInputRegister() to be true.
   bool CanUseInputRegister() const {
-    CHECK(kIsDebugBuild) << "Function should be used only for DCHECKs";
     DCHECK(IsUsingInputRegister());
     if (defined_by_ != nullptr && !IsSplit()) {
       LocationSummary* locations = defined_by_->GetLocations();
