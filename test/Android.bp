@@ -102,6 +102,36 @@ art_cc_defaults {
     },
 }
 
+// Test configuration template for standalone ART gtests on target (not bundled with the ART APEX).
+filegroup {
+    name: "art-gtests-target-standalone-template",
+    srcs: [
+        "art-gtests-target-standalone-template.xml",
+    ],
+}
+
+// Test configuration template for standalone ART gtests on target (not bundled with the ART APEX)
+// needing root access to the device.
+filegroup {
+    name: "art-gtests-target-standalone-root-template",
+    srcs: [
+        "art-gtests-target-standalone-root-template.xml",
+    ],
+}
+
+art_cc_defaults {
+    name: "art_standalone_test_defaults",
+    target: {
+        darwin: {
+            enabled: false,
+        },
+    },
+    cflags: [
+        "-Wno-frame-larger-than=",
+    ],
+    test_config_template: ":art-gtests-target-standalone-template",
+}
+
 art_cc_defaults {
     name: "art_gtest_defaults",
     // These really are gtests, but the gtest library comes from `libartd-gtest.so`.
@@ -157,6 +187,135 @@ art_cc_defaults {
 }
 
 art_cc_defaults {
+    name: "art_standalone_gtest_defaults",
+    // These really are gtests, but the gtest library comes from `libart-gtest.so`.
+    gtest: false,
+    defaults: [
+        // Note: We don't include "art_debug_defaults" here, as standalone ART
+        // gtests link with the "non-d" versions of the libraries contained in
+        // the ART APEX, so that they can be used with all ART APEX flavors
+        // (including the Release ART APEX).
+        "art_standalone_test_defaults",
+        "art_defaults",
+    ],
+
+    test_suites: ["general-tests"],
+
+    // Support multilib variants (using different suffix per sub-architecture), which is needed on
+    // build targets with secondary architectures, as the MTS test suite packaging logic flattens
+    // all test artifacts into a single `testcases` directory.
+    compile_multilib: "both",
+    multilib: {
+        lib32: {
+            suffix: "32",
+        },
+        lib64: {
+            suffix: "64",
+        },
+    },
+
+    // We use the "non-d" variants of libraries, as the Release ART APEX does
+    // not contain the "d" (debug) variants.
+    shared_libs: [
+        "libart",
+        "libart-disassembler",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
+
+        "libbase",
+        "liblog",
+        "libnativehelper",
+        "libz",
+    ],
+    static_libs: [
+        // For now, link `libart-gtest` statically for simplicity, to save the
+        // added complexity to package it in test suites (along with other test
+        // artifacts) and install it on device during tests.
+        // TODO(b/192070541): Consider linking `libart-gtest` dynamically.
+        "libart-gtest",
+    ],
+
+    target: {
+        linux: {
+            ldflags: [
+                // Allow jni_compiler_test to find Java_MyClassNatives_bar
+                // within itself using dlopen(NULL, ...).
+                // Mac OS linker doesn't understand --export-dynamic.
+                "-Wl,--export-dynamic",
+                "-Wl,-u,Java_MyClassNatives_bar",
+                "-Wl,-u,Java_MyClassNatives_sbar",
+            ],
+            cflags: [
+                // gtest issue
+                "-Wno-used-but-marked-unused",
+                "-Wno-deprecated",
+                "-Wno-missing-noreturn",
+            ],
+        },
+        host: {
+            shared_libs: [
+                "libziparchive",
+            ],
+        },
+    },
+
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
+art_cc_defaults {
+    name: "libart-gtest-defaults",
+    host_supported: true,
+    defaults: [
+        "art_defaults",
+    ],
+    shared_libs: [
+        "libart",
+        "libart-compiler",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
+        "liblog",
+    ],
+    static_libs: [
+        "libgtest_isolated",
+    ],
+    target: {
+        android32: {
+            cflags: [
+                "-DART_TARGET_NATIVETEST_DIR=/data/nativetest/art",
+            ],
+        },
+        android64: {
+            cflags: [
+                "-DART_TARGET_NATIVETEST_DIR=/data/nativetest64/art",
+            ],
+        },
+        linux: {
+            cflags: [
+                // gtest issue
+                "-Wno-used-but-marked-unused",
+                "-Wno-deprecated",
+                "-Wno-missing-noreturn",
+            ],
+        },
+        darwin: {
+            enabled: false,
+        },
+    },
+    apex_available: [
+        "com.android.art.debug",
+        // TODO(b/183882457): This lib doesn't go into com.android.art, but
+        // apex_available lists need to be the same for internal libs to avoid
+        // stubs, and this depends on libdexfiled and others.
+        "com.android.art",
+    ],
+}
+
+art_cc_defaults {
     name: "libartd-gtest-defaults",
     host_supported: true,
     defaults: [
@@ -176,10 +335,14 @@ art_cc_defaults {
     ],
     target: {
         android32: {
-            cflags: ["-DART_TARGET_NATIVETEST_DIR=/data/nativetest/art"],
+            cflags: [
+                "-DART_TARGET_NATIVETEST_DIR=/data/nativetest/art",
+            ],
         },
         android64: {
-            cflags: ["-DART_TARGET_NATIVETEST_DIR=/data/nativetest64/art"],
+            cflags: [
+                "-DART_TARGET_NATIVETEST_DIR=/data/nativetest64/art",
+            ],
         },
         linux: {
             cflags: [
@@ -189,6 +352,45 @@ art_cc_defaults {
                 "-Wno-missing-noreturn",
             ],
         },
+        darwin: {
+            enabled: false,
+        },
+    },
+    apex_available: [
+        "com.android.art.debug",
+        // TODO(b/183882457): This lib doesn't go into com.android.art, but
+        // apex_available lists need to be the same for internal libs to avoid
+        // stubs, and this depends on libdexfiled and others.
+        "com.android.art",
+    ],
+}
+
+art_cc_library {
+    name: "libart-gtest",
+    host_supported: true,
+    defaults: [
+        "art_defaults",
+    ],
+    srcs: [
+        "common/gtest_main.cc",
+    ],
+    whole_static_libs: [
+        "libart-compiler-gtest",
+        "libart-runtime-gtest",
+        "libartbase-art-gtest",
+        "libgtest_isolated",
+    ],
+    shared_libs: [
+        "libart",
+        "libart-compiler",
+        "libdexfile",
+        "libprofile",
+        "libartbase",
+        "libbase",
+        "libbacktrace",
+        "liblog",
+    ],
+    target: {
         darwin: {
             enabled: false,
         },

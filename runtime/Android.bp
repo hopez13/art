@@ -629,6 +629,26 @@ art_cc_library {
 }
 
 art_cc_library {
+    name: "libart-runtime-gtest",
+    defaults: [
+        "libart-gtest-defaults",
+    ],
+    srcs: [
+        "common_runtime_test.cc",
+        "dexopt_test.cc",
+    ],
+    shared_libs: [
+        "libart",
+        "libartbase-art-gtest",
+        "libbase",
+        "libbacktrace",
+    ],
+    header_libs: [
+        "libnativehelper_header_only",
+    ],
+}
+
+art_cc_library {
     name: "libartd-runtime-gtest",
     defaults: ["libartd-gtest-defaults"],
     srcs: [
@@ -646,11 +666,8 @@ art_cc_library {
     ],
 }
 
-art_cc_test {
-    name: "art_runtime_tests",
-    defaults: [
-        "art_gtest_defaults",
-    ],
+art_cc_defaults {
+    name: "art_runtime_tests_defaults",
     data: [
         ":art-gtest-jars-AllFields",
         ":art-gtest-jars-ErroneousA",
@@ -768,7 +785,9 @@ art_cc_test {
     ],
     target: {
         host: {
-            required: ["dex2oatd"],
+            required: [
+                "dex2oatd",
+            ],
         },
     },
     shared_libs: [
@@ -779,18 +798,41 @@ art_cc_test {
     ],
 }
 
+// Version of ART gtest `art_runtime_tests` bundled with the ART APEX on target.
 art_cc_test {
-    name: "art_runtime_compiler_tests",
+    name: "art_runtime_tests",
     defaults: [
         "art_gtest_defaults",
+        "art_runtime_tests_defaults",
     ],
+}
+
+// Standalone version of ART gtest `art_runtime_tests`, not bundled with the ART APEX on target.
+art_cc_test {
+    name: "art_standalone_runtime_tests",
+    defaults: [
+        "art_standalone_gtest_defaults",
+        "art_runtime_tests_defaults",
+    ],
+    // Some tests are currently failing (observed on
+    // `aosp_cf_x86_64_phone-userdebug`); use a special test configuration for
+    // `art_standalone_runtime_tests` to filter them out for now.
+    // TODO(b/162834439): Investigate these failures, re-enable these tests,
+    // and remove this custom test configuration.
+    test_config: "art_standalone_runtime_tests.xml",
+}
+
+art_cc_defaults {
+    name: "art_runtime_compiler_tests_defaults",
     srcs: [
         "reflection_test.cc",
         "module_exclusion_test.cc",
     ],
     target: {
         host: {
-            required: ["dex2oatd"],
+            required: [
+                "dex2oatd",
+            ],
         },
     },
     data: [
@@ -798,8 +840,30 @@ art_cc_test {
         ":art-gtest-jars-NonStaticLeafMethods",
         ":art-gtest-jars-StaticLeafMethods",
     ],
+}
+
+// Version of ART gtest `art_runtime_compiler_tests` bundled with the ART APEX on target.
+art_cc_test {
+    name: "art_runtime_compiler_tests",
+    defaults: [
+        "art_gtest_defaults",
+        "art_runtime_compiler_tests_defaults",
+    ],
     shared_libs: [
         "libartd-compiler",
+    ],
+}
+
+// Standalone version of ART gtest `art_runtime_compiler_tests`, not bundled with the ART APEX on
+// target.
+art_cc_test {
+    name: "art_standalone_runtime_compiler_tests",
+    defaults: [
+        "art_standalone_gtest_defaults",
+        "art_runtime_compiler_tests_defaults",
+    ],
+    shared_libs: [
+        "libart-compiler",
     ],
 }
 
