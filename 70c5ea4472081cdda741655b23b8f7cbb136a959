@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac12b7d_e8059885",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-22T10:54:40Z",
+      "side": 1,
+      "message": "Btw, I\u0027m assuming the compiler is clever enough to merge this lambda and the one in GetMethodInfoForOffset when it inlines that function.",
+      "revId": "70c5ea4472081cdda741655b23b8f7cbb136a959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
