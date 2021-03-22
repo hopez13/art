@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46a72da4_71e4f6f9",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T10:45:28Z",
+      "side": 1,
+      "message": "Please use 0x00100000 which is available for non-native methods after https://android-review.googlesource.com/1646010 .",
+      "parentUuid": "ec37687b_4ecd31bf",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "86f3df33e698950899990d620026bd1606431179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0117ad15_a2f23a4b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
