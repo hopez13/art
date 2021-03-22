@@ -16,6 +16,23 @@
       "message": "I had to add a Reset() method for accumulators as well, since the CL to reset metrics at Zygote fork time landed.",
       "revId": "dd701b266b3202fa898114bcf20c95e87873ebec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3af72d8_4c7d1d94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-22T19:52:14Z",
+      "side": 1,
+      "message": "relaxed memory ordering is a little unexpected. I\u0027d just use SeqCts unless there\u0027s a reason not to. If Hans has no issues though I\u0027m fine with it.",
+      "revId": "dd701b266b3202fa898114bcf20c95e87873ebec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
