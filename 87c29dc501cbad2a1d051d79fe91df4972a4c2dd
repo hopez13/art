@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53fc22a_9b8aa4c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "Update.",
+      "range": {
+        "startLine": 9,
+        "startChar": 55,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3431c517_93214cfd",
@@ -14,6 +37,178 @@
       "writtenOn": "2021-03-22T11:28:55Z",
       "side": 1,
       "message": "PTAL, I\u0027m now using the new available flag in modifiers.",
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe22a4e_fd4c7bd4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "Move this out of the loop. Maybe rewrite the rest of the loop with `std::all_of(..., [](char c) { return c \u003d\u003d \u0027L\u0027 || c \u003d\u003d \u0027I\u0027; })`?",
+      "range": {
+        "startLine": 3849,
+        "startChar": 4,
+        "endLine": 3853,
+        "endChar": 7
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc4b2fb_c9defac9",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "TBZ",
+      "range": {
+        "startLine": 880,
+        "startChar": 5,
+        "endLine": 881,
+        "endChar": 9
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18a78f0c_de6bba0d",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "You could replace all the branches with a switch-style\n\n  .if \\is_static\n  adr x9, .Linvoke_fast_path_\\suffix\n  .else\n  adr x9, .Linvoke_fast_path_\\suffix + 8\n  .endif\n  sub x9, x9, ip, lsl #3  // Two instructions (8 bytes) per argument setup.\n  br x9\n\nBut you\u0027d need to `FETCH w8, 2` even for a no-args call.",
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9e6130_20fcbb7b",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "TBZ",
+      "range": {
+        "startLine": 1215,
+        "startChar": 5,
+        "endLine": 1216,
+        "endChar": 9
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f347081a_f2430337",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "What about\n\n  add x8, xFP, ip, uxtw #2\n\nand then you can simplify the loop setup below\n\n     add x9, sp, #8  // Add space for the ArtMethod\n.Lloop_over_fast_path_range_\\suffix:\n     sub ip2, ip2, #1\n     ldr wip, [x8, ip2, uxtw #2]\n     str wip, [x9, ip2, uxtw #2]!\n     cmp ip2, #7\n     b.ne .Lloop_over_fast_path_range_\\suffix\n\nand you can avoid the `ip` decrements when loading w1-w7 because source vregs have fixed offsets from `x8`. We could as well use LDP if we don\u0027t mind reading a bogus value to an unused register (and simplify some of the conditional branches below).",
+      "range": {
+        "startLine": 1225,
+        "startChar": 5,
+        "endLine": 1225,
+        "endChar": 20
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6076569_9515012b",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "Same as arm64.",
+      "range": {
+        "startLine": 1284,
+        "startChar": 5,
+        "endLine": 1284,
+        "endChar": 19
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec0a9fb_fffa3c47",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "No need to clobber MR. r2 and r3 are available before we load them below.",
+      "range": {
+        "startLine": 1308,
+        "startChar": 5,
+        "endLine": 1308,
+        "endChar": 29
+      },
+      "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3a4b8bc_c84a9efd",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-22T14:31:50Z",
+      "side": 1,
+      "message": "Use MOVSD instead of a loop?",
       "revId": "87c29dc501cbad2a1d051d79fe91df4972a4c2dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
