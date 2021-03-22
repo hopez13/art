@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "01cc4332db5af56c87a54afd2a4a3bf94b5c7373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa2c766_07ff759c",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-22T11:01:43Z",
+      "side": 1,
+      "message": "This will still be active on host bionic, which means you\u0027ll still need a whole_static_libs:[\"libasync_safe\"] in libsigchain for linux_bionic. But if it\u0027s only for host it should not affect the prebuilts. Still, please build art-module-sdk-current.zip and check that it doesn\u0027t get any paths with \"bionic\" in it.",
+      "revId": "01cc4332db5af56c87a54afd2a4a3bf94b5c7373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
