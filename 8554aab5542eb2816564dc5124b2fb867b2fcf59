@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "babecbab_85c02ec7",
+        "filename": "build/apex/classpaths.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-23T16:25:18Z",
+      "side": 1,
+      "message": "This seems like a maintenance nightmare. This is duplicating information that is already held in one place, i.e. build configuration. I think this will be better if it is generated automatically by the boot_image module. Or, from the build configuration.",
+      "revId": "8554aab5542eb2816564dc5124b2fb867b2fcf59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
