@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9131c6ac_6166e257",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:31:36Z",
+      "side": 0,
+      "message": "This look related to the \"default\" case, not the invoke-virtual-quick/-range.",
+      "range": {
+        "startLine": 1446,
+        "startChar": 8,
+        "endLine": 1448,
+        "endChar": 36
+      },
+      "revId": "1043aa2489538fe7089ba3cc8fac0567672b14d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
