@@ -16,6 +16,23 @@
       "message": "Thanks! PTAL.",
       "revId": "bccb82aaf6dcf78eaed1834469ed6f2077dc547f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ae7731_c3a0478a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T10:00:54Z",
+      "side": 1,
+      "message": "You could rewrite this as\n\n  if (std::all_of(\u0026shorty[1], \u0026shorty[strlen(shorty)], [](char c) { return c \u003d\u003d \u0027L\u0027; })) {\n    dst-\u003eSetNterpEntryPointFastPathFlag();\n  }",
+      "revId": "bccb82aaf6dcf78eaed1834469ed6f2077dc547f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
