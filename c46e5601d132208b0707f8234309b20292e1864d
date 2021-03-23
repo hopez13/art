@@ -70,6 +70,24 @@
       "parentUuid": "3a2a3a5b_58156a07",
       "revId": "c46e5601d132208b0707f8234309b20292e1864d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12dad55_55bae344",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T18:06:52Z",
+      "side": 1,
+      "message": "Worth mentioning that it\u0027s different for APEX API libs (i.e. those that have stubs) - they can generally be assumed to be real singletons.",
+      "parentUuid": "b9c63648_dac7b499",
+      "revId": "c46e5601d132208b0707f8234309b20292e1864d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
