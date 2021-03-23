@@ -52,6 +52,24 @@
       "parentUuid": "885a4cb8_b2a037d6",
       "revId": "02ee15654388bdd56fdbc353a1a023daaa416273",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a8ee2c9_ac878ccb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T21:54:27Z",
+      "side": 1,
+      "message": "I wonder how that could pass without https://r.android.com/1651647.\n\nAnyway, I\u0027ve added a --skip-apex argument to build-art-module.sh to make an SDK-only update like this less painful: https://r.android.com/1651128",
+      "parentUuid": "6cd6cc80_80f23ae9",
+      "revId": "02ee15654388bdd56fdbc353a1a023daaa416273",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
