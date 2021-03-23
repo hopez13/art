@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279ef6cf_77003b2a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-23T09:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e11cabd_29484f87",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 400,
+        "endChar": 5
+      },
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3571e2f2_55708949",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6e694cf_981be2fb",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-23T09:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3571e2f2_55708949",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a7aaff8_f68f80f4",
@@ -60,6 +108,24 @@
       "writtenOn": "2021-03-23T09:18:42Z",
       "side": 1,
       "message": "Move this in the HasCodeItem() block above? (Avoid for native methods.)",
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da53c1f_b682c57e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-23T09:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a7aaff8_f68f80f4",
       "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
