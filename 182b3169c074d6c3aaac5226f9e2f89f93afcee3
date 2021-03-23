@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "402db5a5_4bc8e0ba",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-23T21:19:57Z",
+      "side": 1,
+      "message": "I don\u0027t think it does...\nThe sigaction call was intended to a call to libc\u0027s sigaction, not sigchain\u0027s.\nUploaded https://android-review.googlesource.com/c/platform/art/+/1650662 to fix",
+      "parentUuid": "d027050e_30e90e98",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "afcb573b_79261002",
         "filename": "sigchainlib/sigchain_test.cc",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-03-15T23:32:55Z",
       "side": 1,
       "message": "I\u0027m curious, do you know what the purpose of this is? Do we need RTLD_LAZY on the libc instance for some reason?",
+      "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "276e55ac_923cbfff",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-23T21:19:57Z",
+      "side": 1,
+      "message": "No, it shouldn\u0027t make a difference.",
+      "parentUuid": "afcb573b_79261002",
       "revId": "182b3169c074d6c3aaac5226f9e2f89f93afcee3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
