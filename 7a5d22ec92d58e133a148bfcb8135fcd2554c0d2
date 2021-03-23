@@ -16,6 +16,154 @@
       "message": "Thanks! PTAL.",
       "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "553d63e8_a890682c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Line too long. Maybe you should just write it as\n\n  if ((shorty[0] !\u003d \u0027F\u0027 \u0026\u0026 shorty[0] !\u003d \u0027D\u0027) \u0026\u0026\n      std::all_of(\u0026shorty[1], \u0026shorty[strlen(shorty)], [](char c) { return c \u003d\u003d \u0027L\u0027 || c \u003d\u003d \u0027I\u0027; })) {\n    dst-\u003eSetNterpInvokeFastPath();\n  }",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ce9f1b_cef83b37",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3851,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Remove this loop now.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5d37c1_2e1900c3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Undoing my CL. Bad conflict resolution?",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a31e0b6b_a712e7c7",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Maybe \"wip, uxtw #2\" as we have loaded the W-register, not X-register. But it probably does not matter to the CPU anyway.",
+      "range": {
+        "startLine": 1234,
+        "startChar": 18,
+        "endLine": 1234,
+        "endChar": 28
+      },
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9ebe1a_5bd278a1",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Remove unnecessary blank lines.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ee1325_396b4f27",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1978,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Remove unnecessary blank lines.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397662e7_4ccd9238",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "This could be LEAQ but you could as well change the store below to use RSP and offset.",
+      "range": {
+        "startLine": 1337,
+        "startChar": 5,
+        "endLine": 1338,
+        "endChar": 32
+      },
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6faeb7_008704a8",
+        "filename": "tools/cpp-define-generator/art_method.def",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:57:02Z",
+      "side": 1,
+      "message": "Try to be consistent with ordering. You have the \u003cname\u003e_BIT right after the \u003cname\u003e here but it\u0027s different for thr kAccStatic and the flag you\u0027re adding in the other nterp CL.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
