@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009271426",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1650262?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "27516dff_90456288",
+          "description": "Change to \"test/162-method-resolution/src/Main.java\"",
+          "replacements": [
+            {
+              "path": "test/162-method-resolution/src/Main.java",
+              "range": {
+                "startLine": 425,
+                "startChar": 23,
+                "endLine": 425,
+                "endChar": 32
+              },
+              "replacement": "Successful"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6e1ad827_03c16bea",
+        "filename": "test/162-method-resolution/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-23T15:59:26Z",
+      "side": 1,
+      "message": "Common typo found: \"Succesful\" -- should it be \"Successful\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 425,
+        "startChar": 23,
+        "endLine": 425,
+        "endChar": 32
+      },
+      "revId": "f5262bf58e6a58fb2f440f029094b77a3fefd04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
