@@ -16,6 +16,40 @@
       "message": "PTAL, I\u0027d like to land this to get new prebuilts to try with.",
       "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a23a94a_f1f70e3d",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-23T11:19:58Z",
+      "side": 1,
+      "message": "Can\u0027t you just add this to the prebuilts_visibility variable in build/sdk/Android.bp?",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade2fcad_b6a4e25a",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-23T11:19:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
