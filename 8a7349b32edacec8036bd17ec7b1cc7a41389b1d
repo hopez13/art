@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c600ca60_8dfb150b",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-23T23:27:51Z",
+      "side": 1,
+      "message": "we can remove this",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 7
+      },
+      "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ced47b9_29cb7c27",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-23T23:27:51Z",
+      "side": 1,
+      "message": "I think you should submit that change first.",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 100
+      },
+      "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef8ccd8_a18f10b7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3083,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-23T23:27:51Z",
+      "side": 1,
+      "message": "dcheck not null",
+      "range": {
+        "startLine": 3083,
+        "startChar": 19,
+        "endLine": 3083,
+        "endChar": 35
+      },
+      "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd026c2b_196effd6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3087,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-23T23:27:51Z",
+      "side": 1,
+      "message": "we should but unknown or error if this is not present.",
+      "range": {
+        "startLine": 3087,
+        "startChar": 8,
+        "endLine": 3087,
+        "endChar": 26
+      },
+      "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
