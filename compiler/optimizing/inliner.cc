@@ -761,7 +761,10 @@ static ArtMethod* ResolveMethodFromInlineCache(Handle<mirror::Class> klass,
     DCHECK(invoke_instruction->IsInvokeVirtual());
     resolved_method = klass->FindVirtualMethodForVirtual(resolved_method, pointer_size);
   }
-  DCHECK(resolved_method != nullptr);
+  // Even if the class exists we can still not have the function if the profile
+  // is from far enough in the past/future. We need to allow this since we
+  // don't update profiles very often.
+  DCHECK(Runtime::Current()->IsAotCompiler() || resolved_method != nullptr);
   return resolved_method;
 }
 
