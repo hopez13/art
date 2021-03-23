@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73caf369_10db97f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T17:52:08Z",
+      "side": 1,
+      "message": "Note that libunwindstack may be loaded in different linker namespaces, so a cache there isn\u0027t guaranteed to be global. I see it being present in platform, in the ART APEXes and in the Runtime (Bionic) APEX, so there can at least in theory be up to three instances of it in a process. What that means in practice for this cache I don\u0027t know - I haven\u0027t investigated where those instances are used from.",
+      "revId": "c46e5601d132208b0707f8234309b20292e1864d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
