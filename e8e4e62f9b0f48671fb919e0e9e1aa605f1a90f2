@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e11cabd_29484f87",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:18:42Z",
+      "side": 1,
+      "message": "Check both flags at once, mask \u003d kAccNative | kAccNterpEntryPointFastPathFlag, value \u003d kAccNterpEntryPointFastPathFlag.",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 400,
+        "endChar": 5
+      },
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3571e2f2_55708949",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:18:42Z",
+      "side": 1,
+      "message": "DCHECK(!IsNative());",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a7aaff8_f68f80f4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3846,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-23T09:18:42Z",
+      "side": 1,
+      "message": "Move this in the HasCodeItem() block above? (Avoid for native methods.)",
+      "revId": "e8e4e62f9b0f48671fb919e0e9e1aa605f1a90f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
