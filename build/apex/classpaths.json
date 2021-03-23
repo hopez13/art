@@ -1,0 +1,45 @@
+{
+    "jars": [
+        {
+            "relativePath": "/apex/com.android.art/javalib/core-oj.jar",
+            "classpath": "BOOTCLASSPATH"
+        },
+        {
+            "relativePath": "/apex/com.android.art/javalib/core-libart.jar",
+            "classpath": "BOOTCLASSPATH"
+        },
+        {
+            "relativePath": "/apex/com.android.art/javalib/okhttp.jar",
+            "classpath": "BOOTCLASSPATH"
+        },
+        {
+            "relativePath": "/apex/com.android.art/javalib/bouncycastle.jar",
+            "classpath": "BOOTCLASSPATH"
+        },
+        {
+            "relativePath": "/apex/com.android.art/javalib/apache-xml.jar",
+            "classpath": "BOOTCLASSPATH"
+        },
+
+        {
+            "relativePath":"/apex/com.android.art/javalib/core-oj.jar",
+            "classpath": "DEX2OATBOOTCLASSPATH",
+        },
+        {
+            "relativePath":"/apex/com.android.art/javalib/core-libart.jar",
+            "classpath":  "DEX2OATBOOTCLASSPATH",
+        },
+        {
+            "relativePath":"/apex/com.android.art/javalib/okhttp.jar",
+            "classpath":  "DEX2OATBOOTCLASSPATH",
+        },
+        {
+            "relativePath":"/apex/com.android.art/javalib/bouncycastle.jar",
+            "classpath":  "DEX2OATBOOTCLASSPATH",
+        },
+        {
+            "relativePath":"/apex/com.android.art/javalib/apache-xml.jar",
+            "classpath":  "DEX2OATBOOTCLASSPATH",
+        }
+    ]
+}
