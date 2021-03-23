@@ -33,6 +33,24 @@
       "message": "I suppose there could be a problem here if statslog-api-gen starts generating code in statslog_art.cpp that\u0027s not okay with our set of warnings, but that\u0027s not a problem now so I\u0027d say we should fix it if/when if becomes a problem.",
       "revId": "644fd372d1c8ef287465c4d2b765441b853b0c8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8618831_80359b35",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T21:08:47Z",
+      "side": 1,
+      "message": "SGTM. The fix then could be to introduce a different art_defaults with higher pickiness (but fixing statslog-api-gen would be better, of course).",
+      "parentUuid": "e7f2b28b_fa6237f3",
+      "revId": "644fd372d1c8ef287465c4d2b765441b853b0c8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
