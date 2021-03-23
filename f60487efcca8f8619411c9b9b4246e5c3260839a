@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49554263_5039fc50",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T12:57:15Z",
+      "side": 1,
+      "message": "Ok, I\u0027ve added TODOs pointing to that ticket.\n\nPTAL at this anyway, I\u0027d like to keep it uncoupled from that issue so that I can get new prebuilts to try with today.",
+      "parentUuid": "ed185d29_94d3a244",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ade2fcad_b6a4e25a",
