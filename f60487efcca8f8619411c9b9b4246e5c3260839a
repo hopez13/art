@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97f822c1_ca2d57c4",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-23T11:53:02Z",
+      "side": 1,
+      "message": "This is not for propagation to the prebuilts, but to allow the prebuilts to depend on the sources. These dependencies aren\u0027t actually exercised (if the prebuilt libdexfile is in use then so are the prebuilts for libartbase and libartpalette). That means one could argue they\u0027re wrong and that Soong should check visibilities only within the prebuilts, even when the sources are preferred. I could open a ticket for that, but as I see this as a temporary measure I\u0027m not overly concerned.",
+      "parentUuid": "5a23a94a_f1f70e3d",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ade2fcad_b6a4e25a",
         "filename": "libartpalette/Android.bp",
         "patchSetId": 2
