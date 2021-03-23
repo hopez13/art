@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed185d29_94d3a244",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-23T12:44:21Z",
+      "side": 1,
+      "message": "Ack. I realised that I had this backwards, and it sounded nasty so I did raise a bug to deal with this http://b/183483755",
+      "parentUuid": "97f822c1_ca2d57c4",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ade2fcad_b6a4e25a",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-03-23T11:19:58Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "775ec2fd_e2c28131",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-23T12:44:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ade2fcad_b6a4e25a",
       "revId": "f60487efcca8f8619411c9b9b4246e5c3260839a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
