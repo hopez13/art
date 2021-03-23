@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20ff44c_63d330f0",
+        "filename": "libdexfile/dex/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-23T17:32:09Z",
+      "side": 0,
+      "message": "I suppose those FALLTHROUGHs are actually \"goto default case\", but it is odd code.",
+      "revId": "40cd07c3e6717b28c0137e8d72a067a9f8663ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
