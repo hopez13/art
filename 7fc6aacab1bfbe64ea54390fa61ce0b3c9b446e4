@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2cf518_342d19d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-23T22:46:24Z",
+      "side": 1,
+      "message": "Sorry about not commenting earlier:",
+      "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4ac259_ce55e049",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-23T22:46:24Z",
+      "side": 1,
+      "message": "I just ran into this, and I don\u0027t understand it. I think this counts only bytes allocated here, but not on the fast path? And it presumably incurs substantial overhead on every allocation that we actually count. I think if we also did this on the fast path, this would be too much? Shouldn\u0027t we be using bytes_tl_bulk_allocated here, and only adjusting that if it\u0027s nonzero?",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 60
+      },
+      "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
