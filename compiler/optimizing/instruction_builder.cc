@@ -852,9 +852,7 @@ static InvokeType GetInvokeTypeFromOpCode(Instruction::Code opcode) {
     case Instruction::INVOKE_DIRECT_RANGE:
       return kDirect;
     case Instruction::INVOKE_VIRTUAL:
-    case Instruction::INVOKE_VIRTUAL_QUICK:
     case Instruction::INVOKE_VIRTUAL_RANGE:
-    case Instruction::INVOKE_VIRTUAL_RANGE_QUICK:
       return kVirtual;
     case Instruction::INVOKE_INTERFACE:
     case Instruction::INVOKE_INTERFACE_RANGE:
@@ -2777,19 +2775,8 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
     case Instruction::INVOKE_INTERFACE:
     case Instruction::INVOKE_STATIC:
     case Instruction::INVOKE_SUPER:
-    case Instruction::INVOKE_VIRTUAL:
-    case Instruction::INVOKE_VIRTUAL_QUICK: {
-      uint16_t method_idx;
-      if (instruction.Opcode() == Instruction::INVOKE_VIRTUAL_QUICK) {
-        if (!CanDecodeQuickenedInfo()) {
-          VLOG(compiler) << "Not compiled: Could not decode quickened instruction "
-                         << instruction.Opcode();
-          return false;
-        }
-        method_idx = LookupQuickenedInfo(quicken_index);
-      } else {
-        method_idx = instruction.VRegB_35c();
-      }
+    case Instruction::INVOKE_VIRTUAL: {
+      uint16_t method_idx = instruction.VRegB_35c();
       uint32_t args[5];
       uint32_t number_of_vreg_arguments = instruction.GetVarArgs(args);
       VarArgsInstructionOperands operands(args, number_of_vreg_arguments);
@@ -2803,19 +2790,8 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
     case Instruction::INVOKE_INTERFACE_RANGE:
     case Instruction::INVOKE_STATIC_RANGE:
     case Instruction::INVOKE_SUPER_RANGE:
-    case Instruction::INVOKE_VIRTUAL_RANGE:
-    case Instruction::INVOKE_VIRTUAL_RANGE_QUICK: {
-      uint16_t method_idx;
-      if (instruction.Opcode() == Instruction::INVOKE_VIRTUAL_RANGE_QUICK) {
-        if (!CanDecodeQuickenedInfo()) {
-          VLOG(compiler) << "Not compiled: Could not decode quickened instruction "
-                         << instruction.Opcode();
-          return false;
-        }
-        method_idx = LookupQuickenedInfo(quicken_index);
-      } else {
-        method_idx = instruction.VRegB_3rc();
-      }
+    case Instruction::INVOKE_VIRTUAL_RANGE: {
+      uint16_t method_idx = instruction.VRegB_3rc();
       RangeInstructionOperands operands(instruction.VRegC(), instruction.VRegA_3rc());
       if (!BuildInvoke(instruction, dex_pc, method_idx, operands)) {
         return false;
@@ -3456,19 +3432,12 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
       break;
 
     case Instruction::IGET:
-    case Instruction::IGET_QUICK:
     case Instruction::IGET_WIDE:
-    case Instruction::IGET_WIDE_QUICK:
     case Instruction::IGET_OBJECT:
-    case Instruction::IGET_OBJECT_QUICK:
     case Instruction::IGET_BOOLEAN:
-    case Instruction::IGET_BOOLEAN_QUICK:
     case Instruction::IGET_BYTE:
-    case Instruction::IGET_BYTE_QUICK:
     case Instruction::IGET_CHAR:
-    case Instruction::IGET_CHAR_QUICK:
-    case Instruction::IGET_SHORT:
-    case Instruction::IGET_SHORT_QUICK: {
+    case Instruction::IGET_SHORT: {
       if (!BuildInstanceFieldAccess(instruction, dex_pc, /* is_put= */ false, quicken_index)) {
         return false;
       }
@@ -3476,19 +3445,12 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
     }
 
     case Instruction::IPUT:
-    case Instruction::IPUT_QUICK:
     case Instruction::IPUT_WIDE:
-    case Instruction::IPUT_WIDE_QUICK:
     case Instruction::IPUT_OBJECT:
-    case Instruction::IPUT_OBJECT_QUICK:
     case Instruction::IPUT_BOOLEAN:
-    case Instruction::IPUT_BOOLEAN_QUICK:
     case Instruction::IPUT_BYTE:
-    case Instruction::IPUT_BYTE_QUICK:
     case Instruction::IPUT_CHAR:
-    case Instruction::IPUT_CHAR_QUICK:
-    case Instruction::IPUT_SHORT:
-    case Instruction::IPUT_SHORT_QUICK: {
+    case Instruction::IPUT_SHORT: {
       if (!BuildInstanceFieldAccess(instruction, dex_pc, /* is_put= */ true, quicken_index)) {
         return false;
       }
@@ -3632,21 +3594,10 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
       break;
     }
 
-    case Instruction::UNUSED_3E:
-    case Instruction::UNUSED_3F:
-    case Instruction::UNUSED_40:
-    case Instruction::UNUSED_41:
-    case Instruction::UNUSED_42:
-    case Instruction::UNUSED_43:
+    case Instruction::UNUSED_3E ... Instruction::UNUSED_43:
     case Instruction::UNUSED_79:
     case Instruction::UNUSED_7A:
-    case Instruction::UNUSED_F3:
-    case Instruction::UNUSED_F4:
-    case Instruction::UNUSED_F5:
-    case Instruction::UNUSED_F6:
-    case Instruction::UNUSED_F7:
-    case Instruction::UNUSED_F8:
-    case Instruction::UNUSED_F9: {
+    case Instruction::UNUSED_E3 ... Instruction::UNUSED_F9: {
       VLOG(compiler) << "Did not compile "
                      << dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex())
                      << " because of unhandled instruction "
