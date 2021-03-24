@@ -16,6 +16,52 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "387fc5ee5a211afe8db7e9699e4612a8234fc177",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c0137e_bfce8587",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-24T12:25:40Z",
+      "side": 1,
+      "message": "What about B/Z/C/S? This should work for these smaller types.",
+      "range": {
+        "startLine": 3855,
+        "startChar": 24,
+        "endLine": 3855,
+        "endChar": 25
+      },
+      "revId": "387fc5ee5a211afe8db7e9699e4612a8234fc177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1370706_f614e7c3",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-24T12:25:40Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 1274,
+        "startChar": 5,
+        "endLine": 1274,
+        "endChar": 8
+      },
+      "revId": "387fc5ee5a211afe8db7e9699e4612a8234fc177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
