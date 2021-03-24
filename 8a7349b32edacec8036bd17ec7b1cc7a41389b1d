@@ -211,6 +211,30 @@
       },
       "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da768651_430e13d3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3087,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-24T23:46:45Z",
+      "side": 1,
+      "message": "I strongly suggest we develop a practice were we set all the fields (even the UNKNOWN/ERRORS ones) at the same time we process the usual values (here in this case). It\u0027s much easier to follow what is the expected value than reason what default the logging will choose.",
+      "parentUuid": "72c102fe_559e7d6c",
+      "range": {
+        "startLine": 3087,
+        "startChar": 8,
+        "endLine": 3087,
+        "endChar": 26
+      },
+      "revId": "8a7349b32edacec8036bd17ec7b1cc7a41389b1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
