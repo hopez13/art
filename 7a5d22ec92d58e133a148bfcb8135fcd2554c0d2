@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8716115b_109dce3a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "With the rebase, I\u0027m now doing a loop again.",
+      "parentUuid": "553d63e8_a890682c",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90ce9f1b_cef83b37",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2938218_f7230268",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3851,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ce9f1b_cef83b37",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d5d37c1_2e1900c3",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-03-23T09:57:02Z",
       "side": 1,
       "message": "Undoing my CL. Bad conflict resolution?",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "396aecc1_a420c83f",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Yes :( Done.",
+      "parentUuid": "6d5d37c1_2e1900c3",
       "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +146,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f0e7847_c0f7af29",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a31e0b6b_a712e7c7",
+      "range": {
+        "startLine": 1234,
+        "startChar": 18,
+        "endLine": 1234,
+        "endChar": 28
+      },
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f9ebe1a_5bd278a1",
@@ -109,6 +187,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f7bff03_e9c825fb",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f9ebe1a_5bd278a1",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6ee1325_396b4f27",
@@ -122,6 +218,24 @@
       "writtenOn": "2021-03-23T09:57:02Z",
       "side": 1,
       "message": "Remove unnecessary blank lines.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eff0585_588d3057",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1978,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6ee1325_396b4f27",
       "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -149,6 +263,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cce6e1d7_72d8f9de",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "397662e7_4ccd9238",
+      "range": {
+        "startLine": 1337,
+        "startChar": 5,
+        "endLine": 1338,
+        "endChar": 32
+      },
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff6faeb7_008704a8",
@@ -162,6 +300,24 @@
       "writtenOn": "2021-03-23T09:57:02Z",
       "side": 1,
       "message": "Try to be consistent with ordering. You have the \u003cname\u003e_BIT right after the \u003cname\u003e here but it\u0027s different for thr kAccStatic and the flag you\u0027re adding in the other nterp CL.",
+      "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a44cb4_56efb134",
+        "filename": "tools/cpp-define-generator/art_method.def",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-24T12:09:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff6faeb7_008704a8",
       "revId": "7a5d22ec92d58e133a148bfcb8135fcd2554c0d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
