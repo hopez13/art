@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d11ce251_15bb47dd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1829,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-24T00:44:14Z",
+      "side": 1,
+      "message": "My initial reasoning was that it\u0027s only a performance issue of this gets reordered, so it\u0027s OK. But on second thought, making the accesses acquire/release seems cleaner. In some of the more esoteric cases, there is still a bit of a race, as we discussed. But with acquire/release, we\u0027re at least on the way to making this fully correct. And I don\u0027t think any of the invocations are on extremely critical paths. So I\u0027ll go ahead and change it.",
+      "parentUuid": "2be4a8cf_049a5f5c",
+      "range": {
+        "startLine": 1829,
+        "startChar": 29,
+        "endLine": 1829,
+        "endChar": 44
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "257e8a0a_2cea9f81",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc09412_4e290db4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3951,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-24T00:44:14Z",
+      "side": 1,
+      "message": "Incorporated into GetCurrentGcNum(). I dislike separate fences. And they\u0027re slower.",
+      "parentUuid": "257e8a0a_2cea9f81",
+      "range": {
+        "startLine": 3951,
+        "startChar": 29,
+        "endLine": 3951,
+        "endChar": 44
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5443c8c9_1671662e",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-21T11:03:23Z",
       "side": 1,
       "message": "Since there is no guarantee that the requested GC will start even in 2ms, shouldn\u0027t we wait on the gcs_completed_ to increment, rather than calling WaitForGcToComplete()?",
+      "range": {
+        "startLine": 3963,
+        "startChar": 8,
+        "endLine": 3965,
+        "endChar": 9
+      },
+      "revId": "18a6bc2bb10da9b06f87cae8a87299d71bd69099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff442c7_525f0a2c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3965,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-24T00:44:14Z",
+      "side": 1,
+      "message": "I\u0027m a little afraid to do that unconditionally, out of concern that there are odd corner cases in which we might get stuck. I\u0027ll change it to do this more aggressively and log if we get into serious issues.\nWe do have the advantage that if we sleep here at all, we\u0027ve partially accomplished our goal of giving the GC more of a chance to advance.",
+      "parentUuid": "5443c8c9_1671662e",
       "range": {
         "startLine": 3963,
         "startChar": 8,

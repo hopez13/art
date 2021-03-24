@@ -214,6 +214,30 @@
       },
       "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22e5ec7_0518b277",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-24T00:44:14Z",
+      "side": 1,
+      "message": "I agree. Done by getting rid of CheckConcurrentGCForJava(), which I think actually makes the code slightly clearer.",
+      "parentUuid": "b2509ae9_94dbebdc",
+      "range": {
+        "startLine": 3689,
+        "startChar": 8,
+        "endLine": 3689,
+        "endChar": 27
+      },
+      "revId": "5426f13f119397f9f66f01cff3d8db4a7853faa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
