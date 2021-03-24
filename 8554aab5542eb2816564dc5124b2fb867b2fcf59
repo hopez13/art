@@ -16,6 +16,24 @@
       "message": "This seems like a maintenance nightmare. This is duplicating information that is already held in one place, i.e. build configuration. I think this will be better if it is generated automatically by the boot_image module. Or, from the build configuration.",
       "revId": "8554aab5542eb2816564dc5124b2fb867b2fcf59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aafe4e6b_4a57dfa8",
+        "filename": "build/apex/classpaths.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2021-03-24T09:42:32Z",
+      "side": 1,
+      "message": "Can we autogen this since we know which java_sdk_library we have in the apexes already?",
+      "parentUuid": "babecbab_85c02ec7",
+      "revId": "8554aab5542eb2816564dc5124b2fb867b2fcf59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
