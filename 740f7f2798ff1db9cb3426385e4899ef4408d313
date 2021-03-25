@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8b8fccb_d5fa8fcf",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-25T15:18:52Z",
+      "side": 1,
+      "message": "Done. Moved it up into the bytes_tl_bulk_allocated \u003e 0 conditional, for performance reasons.",
+      "parentUuid": "1b5a9f0b_6b1994b9",
+      "range": {
+        "startLine": 226,
+        "startChar": 43,
+        "endLine": 226,
+        "endChar": 60
+      },
+      "revId": "740f7f2798ff1db9cb3426385e4899ef4408d313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6bf9d560_63212934",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -88,6 +112,30 @@
       "writtenOn": "2021-03-25T11:11:54Z",
       "side": 1,
       "message": "know",
+      "range": {
+        "startLine": 822,
+        "startChar": 18,
+        "endLine": 822,
+        "endChar": 21
+      },
+      "revId": "740f7f2798ff1db9cb3426385e4899ef4408d313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba540932_aa647d50",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-25T15:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bf9d560_63212934",
       "range": {
         "startLine": 822,
         "startChar": 18,
