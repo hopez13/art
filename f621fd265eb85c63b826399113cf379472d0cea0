@@ -16,6 +16,69 @@
       "message": "Adding Eric as an FYI for the metrics fix; TotalBytesAllocated probably wasn\u0027t usable before this.",
       "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8fe1578_3bbe8a56",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2565,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-25T21:42:26Z",
+      "side": 1,
+      "message": "Is this the same as `return gcs_requested \u003e gcs_completed`, at least if you cast both as signed values?\n\nI tried both in Godbolt, and they generate different code, but it\u0027s not obvious to me why.",
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5ce2b7d_a89664f9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3965,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-25T21:42:26Z",
+      "side": 1,
+      "message": "Should this be a constant?",
+      "range": {
+        "startLine": 3965,
+        "startChar": 29,
+        "endLine": 3965,
+        "endChar": 31
+      },
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4397712_6b3e3f21",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3973,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-03-25T21:42:26Z",
+      "side": 1,
+      "message": "Should this be a constant somewhere?",
+      "range": {
+        "startLine": 3973,
+        "startChar": 17,
+        "endLine": 3973,
+        "endChar": 21
+      },
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
