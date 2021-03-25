@@ -39,6 +39,30 @@
       },
       "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22aac9d_84a0a4dc",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T07:41:38Z",
+      "side": 1,
+      "message": "This is an oversight on my end. You are right, it should be bytes_tl_bulk_allocated and not bytes_allocated. Adding bytes_allocated only makes sense if we are instrumenting and hence entering the runtime on every allocation.\n\nI could upload another CL to fix this, or you can fix this in:\n\nhttps://android-review.googlesource.com/c/platform/art/+/1626960",
+      "parentUuid": "7f4ac259_ce55e049",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 60
+      },
+      "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
