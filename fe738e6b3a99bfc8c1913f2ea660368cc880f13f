@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c16dec4_b509cd7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T16:11:36Z",
+      "side": 1,
+      "message": "I\u0027m a bit surprised that it crashes. We are simply deferring GC trigger.",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c06524b6_c4370992",
@@ -14,6 +37,93 @@
       "writtenOn": "2021-03-25T02:39:55Z",
       "side": 1,
       "message": "Lokesh -\n\nDo you understand why the garbage collection task itself does not simply hold a mutex during the GC, to prevent multiple concurrent GCs?\n\nWe do only allow one GC at a time. But the mechanism for doing that seems needlessly complicated, involving gc_complete_lock, and a field protected by it. We seem to be emulating a mutex with a mutex. This CL attempts to document a little better what we do, but I\u0027m not sure it\u0027s necessary.",
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb21136_873e068a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T16:11:36Z",
+      "side": 1,
+      "message": "\u003e Lokesh -\n\u003e \n\u003e Do you understand why the garbage collection task itself does not simply hold a mutex during the GC, to prevent multiple concurrent GCs?\n\u003e \n\nI\u0027m not fully sure, but I guess if were to do that then couldn\u0027t have synchronized blocking GC calls with non-blocking (via GC-task) ones. That\u0027s why it was necessary to keep that synchronization deeper in the call graph.\n\n\u003e We do only allow one GC at a time. But the mechanism for doing that seems needlessly complicated, involving gc_complete_lock, and a field protected by it. We seem to be emulating a mutex with a mutex. This CL attempts to document a little better what we do, but I\u0027m not sure it\u0027s necessary.\n\nMaybe I missed. can you point me to where have you explained that logic?",
+      "parentUuid": "c06524b6_c4370992",
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f30fe0_f960730f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T16:11:36Z",
+      "side": 1,
+      "message": "kMaxConcurrentRemainingBytes is too small (only 512KB). We should consider increasing it. Also, should we be using the heap_growth_multiplier_ here?\n\nWhat\u0027s the reasoning behind using reserved_bytes. Can\u0027t we directly use kMaxConcurrentRemainingBytes against target_footprint?",
+      "range": {
+        "startLine": 2130,
+        "startChar": 4,
+        "endLine": 2130,
+        "endChar": 74
+      },
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a664b237_5d11de62",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4457,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T16:11:36Z",
+      "side": 1,
+      "message": "I think you missed setting concurrent_start_bytes_ here.",
+      "range": {
+        "startLine": 4457,
+        "startChar": 4,
+        "endLine": 4457,
+        "endChar": 59
+      },
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bb56c1b_7c9d2f94",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4466,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-03-25T16:11:36Z",
+      "side": 1,
+      "message": "Why so low? Shouldn\u0027t we set it to what the heap would have been if all this logic wasn\u0027t there, which I think is \u0027initial heap size\u0027?",
+      "range": {
+        "startLine": 4466,
+        "startChar": 44,
+        "endLine": 4466,
+        "endChar": 57
+      },
       "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
