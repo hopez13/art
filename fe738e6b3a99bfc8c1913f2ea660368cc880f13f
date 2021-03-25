@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06524b6_c4370992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-25T02:39:55Z",
+      "side": 1,
+      "message": "Lokesh -\n\nDo you understand why the garbage collection task itself does not simply hold a mutex during the GC, to prevent multiple concurrent GCs?\n\nWe do only allow one GC at a time. But the mechanism for doing that seems needlessly complicated, involving gc_complete_lock, and a field protected by it. We seem to be emulating a mutex with a mutex. This CL attempts to document a little better what we do, but I\u0027m not sure it\u0027s necessary.",
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
