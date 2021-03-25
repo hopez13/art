@@ -63,6 +63,30 @@
       },
       "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a25d168_469f320d",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-03-25T15:38:12Z",
+      "side": 1,
+      "message": "I added the fix to the other CL, which restructures this code a bit anyway.",
+      "parentUuid": "f22aac9d_84a0a4dc",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 60
+      },
+      "revId": "7fc6aacab1bfbe64ea54390fa61ce0b3c9b446e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
