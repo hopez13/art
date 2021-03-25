@@ -74,6 +74,16 @@ public class Transaction {
       }
     }
 
+    static class CatchClassForNameAbortClass {
+      static {
+        try {
+          Class.forName("non.existent.TestClass");
+        } catch (Throwable e) {
+          // ignore exception.
+        }
+      }
+    }
+
     // Helper class to abort transaction: finalizable class with natve methods.
     static class AbortHelperClass {
       public void finalize() throws Throwable {
