@@ -76,6 +76,7 @@ art_cc_binary {
     apex_available: [
         "com.android.art.debug",
     ],
+    cflags:["-O0"],
 }
 
 art_cc_binary {
