@@ -269,7 +269,8 @@ bool VdexFile::WriteToDisk(const std::string& path,
 
   // Write checksum section.
   for (const DexFile* dex_file : dex_files) {
-    const uint32_t* checksum_ptr = &dex_file->GetHeader().checksum_;
+    const uint32_t checksum = dex_file->GetLocationChecksum();
+    const uint32_t* checksum_ptr = &checksum;
     static_assert(sizeof(*checksum_ptr) == sizeof(VdexFile::VdexChecksum));
     if (!out->WriteFully(reinterpret_cast<const char*>(checksum_ptr),
                          sizeof(VdexFile::VdexChecksum))) {
@@ -295,17 +296,17 @@ bool VdexFile::WriteToDisk(const std::string& path,
   return true;
 }
 
-bool VdexFile::MatchesDexFileChecksums(const std::vector<const DexFile::Header*>& dex_headers)
-    const {
-  if (dex_headers.size() != GetNumberOfDexFiles()) {
+bool VdexFile::MatchesDexFileChecksums(
+    const std::vector<std::unique_ptr<const DexFile>>& dex_files) const {
+  if (dex_files.size() != GetNumberOfDexFiles()) {
     LOG(WARNING) << "Mismatch of number of dex files in vdex (expected="
-        << GetNumberOfDexFiles() << ", actual=" << dex_headers.size() << ")";
+        << GetNumberOfDexFiles() << ", actual=" << dex_files.size() << ")";
     return false;
   }
-  const VdexChecksum* checksums = GetDexChecksumsArray();
-  for (size_t i = 0; i < dex_headers.size(); ++i) {
-    if (checksums[i] != dex_headers[i]->checksum_) {
-      LOG(WARNING) << "Mismatch of dex file checksum in vdex (index=" << i << ")";
+  const VdexChecksum* vdex_checksums = GetDexChecksumsArray();
+  for (size_t i = 0; i < dex_files.size(); ++i) {
+    if (vdex_checksums[i] != dex_files[i]->GetLocationChecksum()) {
+      LOG(WARNING) << "Mismatch of dex file location checksum in vdex (index=" << i << ")";
       return false;
     }
   }

@@ -124,8 +124,7 @@ class OatFileManager {
 
   // Spawn a background thread which verifies all classes in the given dex files.
   void RunBackgroundVerification(const std::vector<const DexFile*>& dex_files,
-                                 jobject class_loader,
-                                 const char* class_loader_context);
+                                 jobject class_loader);
 
   // Wait for thread pool workers to be created. This is used during shutdown as
   // threads are not allowed to attach while runtime is in shutdown lock.
@@ -141,11 +140,9 @@ class OatFileManager {
   static constexpr size_t kAnonymousVdexCacheSize = 8u;
 
  private:
-  std::vector<std::unique_ptr<const DexFile>> OpenDexFilesFromOat_Impl(
-      std::vector<MemMap>&& dex_mem_maps,
+  const OatFile* OpenDexFilesFromOat_Impl(
       jobject class_loader,
-      jobjectArray dex_elements,
-      /*out*/ const OatFile** out_oat_file,
+      /*in-out*/ std::vector<std::unique_ptr<const DexFile>>* dex_files,
       /*out*/ std::vector<std::string>* error_msgs)
       REQUIRES(!Locks::oat_file_manager_lock_, !Locks::mutator_lock_);
 

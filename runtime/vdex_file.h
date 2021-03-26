@@ -287,9 +287,9 @@ class VdexFile {
                           std::string* error_msg);
 
   // Returns true if the dex file checksums stored in the vdex header match
-  // the checksums in `dex_headers`. Both the number of dex files and their
+  // the location checksums of `dex_files`. Both the number of dex files and their
   // order must match too.
-  bool MatchesDexFileChecksums(const std::vector<const DexFile::Header*>& dex_headers) const;
+  bool MatchesDexFileChecksums(const std::vector<std::unique_ptr<const DexFile>>& checksums) const;
 
   ClassStatus ComputeClassStatus(Thread* self, Handle<mirror::Class> cls) const
       REQUIRES_SHARED(Locks::mutator_lock_);
