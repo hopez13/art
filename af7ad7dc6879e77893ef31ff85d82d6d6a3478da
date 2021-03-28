@@ -109,6 +109,30 @@
       },
       "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6757d26_43693b11",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-28T11:12:08Z",
+      "side": 1,
+      "message": "You can use \"thread_local\" or the custom_tls_ map which is already in this Thread data structure. This will make sure you can easily and cheaply access the data structure from the current thread.",
+      "parentUuid": "571e3b8f_2875150f",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
