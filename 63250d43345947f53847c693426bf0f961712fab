@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed05a3ca_7444dd0b",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-29T13:16:35Z",
+      "side": 1,
+      "message": "Yes, this is done automatically. https://source.corp.google.com/android/build/soong/apex/builder.go;rcl\u003db3aa809d3fa022442d101d8f3240760a8c15ffb8;l\u003d226",
+      "parentUuid": "2f42d2c9_247dff3f",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50710424_097d76e1",
         "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
         "patchSetId": 1
