@@ -133,6 +133,30 @@
       },
       "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63dc3b13_76b01f30",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-03-29T11:33:24Z",
+      "side": 1,
+      "message": "I understand your good idea, but the context is that we have a deamon used for collect all app performance, \nmaybe using thread_local can work, but we think it complex in general.",
+      "parentUuid": "a6757d26_43693b11",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
