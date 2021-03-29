@@ -18,13 +18,16 @@
 
 #include <unistd.h>
 
+#include <binder/BinderService.h>
+
+#include "android/os/BnArtd.h"
 #include "base/logging.h"
 #include "base/macros.h"
 #include "tools/tools.h"
 
-namespace {
-
-class Artd {
+namespace android {
+namespace artd {
+class Artd : public BinderService<Artd>, public os::BnArtd {
  public:
   Artd(ATTRIBUTE_UNUSED const int argc, ATTRIBUTE_UNUSED char* argv[]) {}
 
@@ -41,13 +44,14 @@ class Artd {
   }
 };
 
-}  // namespace
+}  // namespace artd
+}  // namespace android
 
 int main(const int argc, char* argv[]) {
   setenv("ANDROID_LOG_TAGS", "*:v", 1);
   android::base::InitLogging(argv);
 
-  Artd artd(argc, argv);
+  android::artd::Artd artd(argc, argv);
 
   artd.Run();
 }
