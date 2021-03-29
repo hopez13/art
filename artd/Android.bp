@@ -12,7 +12,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
+
+filegroup {
+    name: "artd-aidl",
+    srcs: [
+        "binder/android/os/IArtd.aidl",
+    ],
+    path: "binder",
+}
 
 art_cc_binary {
     name: "artd",
@@ -22,12 +29,14 @@ art_cc_binary {
 
     srcs: [
         "artd.cc",
+        ":artd-aidl",
     ],
 
     shared_libs: [
         "libartbase",
         "libarttools",
         "libbase",
+        "libbinder_ndk",
     ],
 
     target: {
