@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009409101",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1654954?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "3e2ef694_6444e76f",
+        "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-29T07:38:05Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
