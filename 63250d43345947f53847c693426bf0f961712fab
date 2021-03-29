@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6a2e3ee_89fb6dd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:35:21Z",
+      "side": 1,
+      "message": "Moving this to CTS means that this test verifies a compatibility behavior, that should hopefully be defined in the CDD. Is this the case? If so, I think this test should probably be moved into project `cts`.",
+      "parentUuid": "b4866bc3_e0be8c56",
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a57705b_37bdcc0c",
         "filename": "build/apex/test_apex_manifest.json",
         "patchSetId": 1
