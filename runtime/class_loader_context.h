@@ -39,7 +39,6 @@ class ClassLoaderContext {
  public:
   enum class VerificationResult {
     kVerifies,
-    kForcedToSkipChecks,
     kMismatch,
   };
 
