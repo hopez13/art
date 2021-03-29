@@ -16,6 +16,24 @@
       "message": "For my education, when are we not in a transaction when executing UnstartedRuntime?",
       "revId": "ced65bd0ece060eee94eda96e21b368fc7d7dd58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3762b538_d0c05a04",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-29T08:32:38Z",
+      "side": 1,
+      "message": "Early intialization without boot image (presumably only primary boot image compilation and \"no-image\" run-tests).",
+      "parentUuid": "a5c1ae4e_46ad1678",
+      "revId": "ced65bd0ece060eee94eda96e21b368fc7d7dd58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
