@@ -12,7 +12,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
 
 art_cc_binary {
     name: "artd",
@@ -22,7 +21,7 @@ art_cc_binary {
 
     srcs: [
         "artd.cc",
-        //"binder/android/os/art/IArtd.aidl",
+        "binder/android/os/IArtd.aidl",
     ],
 
     shared_libs: [

@@ -18,13 +18,16 @@
 
 #include <unistd.h>
 
+#include <binder/BinderService.h>
+
+#include "android/os/BnArtd.h"
 #include "base/logging.h"
 #include "base/macros.h"
+#include "installd_constants.h"
 #include "tools/tools.h"
 
 namespace {
-
-class Artd {
+class Artd : public BinderService<Artd>, public os::BnArtd {
  public:
   Artd(ATTRIBUTE_UNUSED const int argc, ATTRIBUTE_UNUSED char* argv[]) {}
 
