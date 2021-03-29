@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d361d5_4562d783",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-29T21:06:34Z",
+      "side": 1,
+      "message": "I don\u0027t know whether there are any builds that prefer prebuilts (or just exclude some source repositories) yet and I don\u0027t want to find out after I have submitted and have to revert.\n\nThis may take a little longer but it is safe.",
+      "parentUuid": "27a3e3e8_0aebb673",
+      "range": {
+        "startLine": 10,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "88a599a600ed66cc3ff07605dbace2dbddd007ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ea72446_7560db96",
