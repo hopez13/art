@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-public class TestCase {
+#include "jni.h"
 
-  public static void test() {
-    // This call should be successful as the method is accessible through the interface.
-    int value = new InheritAbstract().methodPublicSdkNotInAbstractParent();
-    if (value != 42) {
-      throw new Error("Expected 42, got " + value);
-    }
+namespace art {
+
+extern "C" JNIEXPORT jint JNICALL Java_TestCase_testNativeInternal(JNIEnv* env,
+                                                                   jclass) {
+
+  jclass cls = env->FindClass("InheritAbstract");
+  jmethodID constructor = env->GetMethodID(cls, "<init>", "()V");
+  jmethodID method_id = env->GetMethodID(cls, "methodPublicSdkNotInAbstractParent", "()I");
+  if (method_id == nullptr) {
+    return -1;
   }
-
-  public static void testNative(String library) {
-    System.load(library);
-    int value = testNativeInternal();
-    if (value != 42) {
-      throw new Error("Expected 42, got " + value);
-    }
-  }
-
-  public static native int testNativeInternal();
+  jobject obj = env->NewObject(cls, constructor);
+  return env->CallIntMethod(obj, method_id);
 }
+
+}  // namespace art
