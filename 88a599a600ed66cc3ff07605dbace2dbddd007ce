@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "27a3e3e8_0aebb673",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-29T20:57:07Z",
+      "side": 1,
+      "message": "I thought that process would only become necessary once we have builds that prefer the prebuilts. Right now it\u0027s just me in my presubmit runs, and I can drop a new prebuilt when the sources have switched fully to the new module types. Do the prebuilts interfere even when they aren\u0027t preferred?\n\n\u003e 30 Finally\n\nYeah, sometimes it can certainly feel like that...",
+      "parentUuid": "baf609eb_2721be09",
+      "range": {
+        "startLine": 10,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "88a599a600ed66cc3ff07605dbace2dbddd007ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ea72446_7560db96",
