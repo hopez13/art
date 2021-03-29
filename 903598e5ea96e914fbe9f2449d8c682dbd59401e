@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af31c47c_7ee34381",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-03-29T09:38:46Z",
+      "side": 1,
+      "message": "Cool, so much red! :)",
+      "revId": "903598e5ea96e914fbe9f2449d8c682dbd59401e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30eb2f5d_e295d7c1",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-03-29T09:38:46Z",
+      "side": 1,
+      "message": "Nit: this should be a period perhaps.",
+      "range": {
+        "startLine": 1372,
+        "startChar": 76,
+        "endLine": 1372,
+        "endChar": 77
+      },
+      "revId": "903598e5ea96e914fbe9f2449d8c682dbd59401e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98cf3932_8c826391",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-03-29T09:38:46Z",
+      "side": 1,
+      "message": "Looks like this needs to be removed.",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "903598e5ea96e914fbe9f2449d8c682dbd59401e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
