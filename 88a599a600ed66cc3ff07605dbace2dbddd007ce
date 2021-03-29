@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf609eb_2721be09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-03-29T20:36:28Z",
+      "side": 1,
+      "message": "Yes. There\u0027s no other way to change the name of a module when prebuilts and source are updated independently. If I just change the name of the source (and all references) then the prebuilts are broken. So, we have to:\n\n1) Add the new module alongside the old won\u0027t break any build and will allow the prebuilts to be updated.\n2) Once prebuilts support both then we can switch any references to the new module which will work with both prebuilt and source as they both have the new module.\n30 Finally, we can remove the old module from source, and update the prebuilts. Again this won\u0027t break prebuilts as nothing references the old module.",
+      "parentUuid": "84f183ee_b1953ee6",
+      "range": {
+        "startLine": 10,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "88a599a600ed66cc3ff07605dbace2dbddd007ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ea72446_7560db96",
