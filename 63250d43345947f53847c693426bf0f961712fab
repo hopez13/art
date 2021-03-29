@@ -267,6 +267,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6612ae8_75f92f15",
+        "filename": "test/odsign/odsign-e2e-tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:38:22Z",
+      "side": 1,
+      "message": "Also, regarding CTS: IIUC, most (all?) tests in CTS are expected to pass on `user` devices, where one cannot get `root` permissions.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 81
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40e5383b_328664ee",
         "filename": "test/odsign/src/com/android/tests/odsign/ArtifactsSignedTest.java",
         "patchSetId": 1
