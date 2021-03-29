@@ -43,6 +43,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b012641e_8f44df03",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T08:32:47Z",
+      "side": 1,
+      "message": "+nikita for this.",
+      "parentUuid": "6a57705b_37bdcc0c",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50710424_097d76e1",
+        "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T08:32:47Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "3e2ef694_6444e76f",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "309aa577_646322bf",
         "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
         "patchSetId": 1
@@ -54,6 +102,30 @@
       "writtenOn": "2021-03-29T07:39:43Z",
       "side": 1,
       "message": "we probably need to check device fs-verity support here as well.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 92
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15a12e17_71a6fef8",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T08:32:47Z",
+      "side": 1,
+      "message": "Yeah, would be good to do as a follow-up (could we still run the test and have some marker / indication that we have done eager verification of the file?)",
+      "parentUuid": "309aa577_646322bf",
       "range": {
         "startLine": 51,
         "startChar": 0,
