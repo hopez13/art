@@ -156,6 +156,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ac7052f_5be913bc",
+        "filename": "test/odsign/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:32:34Z",
+      "side": 1,
+      "message": "Nit: We usually use the `.cc` extension in ART.",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b8984f_d9307a9c",
+        "filename": "test/odsign/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:32:34Z",
+      "side": 1,
+      "message": "Nit: Drop these prefixes and used the same style as in https://android-review.googlesource.com/c/platform/art/+/1654954/1/test/odsign/odsign-e2e-tests.xml for consistency.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45fc9bd_d30945c4",
+        "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:32:34Z",
+      "side": 1,
+      "message": "I think you should use\n\n  /*flags\u003d*/ 0\n\nto benefit from Clang\u0027s checks (see https://clang.llvm.org/extra/clang-tidy/checks/bugprone-argument-comment.html).",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 49
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50710424_097d76e1",
         "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
         "patchSetId": 1
@@ -173,6 +242,52 @@
         "startChar": 5,
         "endLine": 44,
         "endChar": 11
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e5383b_328664ee",
+        "filename": "test/odsign/src/com/android/tests/odsign/ArtifactsSignedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:32:34Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 107
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "919b50dd_bc07a9fb",
+        "filename": "test/odsign/src/com/android/tests/odsign/ArtifactsSignedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-03-29T16:32:34Z",
+      "side": 1,
+      "message": "Maybe also rethrow the exception? I think TradeFed has some logic around exception handling. Adding Dan and Julien for comments.",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 9
       },
       "revId": "63250d43345947f53847c693426bf0f961712fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
