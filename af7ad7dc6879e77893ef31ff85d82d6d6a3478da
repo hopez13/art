@@ -157,6 +157,30 @@
       },
       "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fde3609_c5e0b22a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T12:47:55Z",
+      "side": 1,
+      "message": "Why do you think it\u0027s more complex? You essentially need to copy/paste this code to your palette_system.cc and mark those variables thread_local.",
+      "parentUuid": "63dc3b13_76b01f30",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 32
+      },
+      "revId": "af7ad7dc6879e77893ef31ff85d82d6d6a3478da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
