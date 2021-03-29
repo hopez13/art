@@ -85,6 +85,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da00a7a1_7b8b2e26",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-29T11:55:58Z",
+      "side": 1,
+      "message": "Why not MAX_INT? Then it will always be higher than whatever is installed :)",
+      "parentUuid": "b012641e_8f44df03",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f42d2c9_247dff3f",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2021-03-29T11:55:58Z",
+      "side": 1,
+      "message": "I think build system populates list of required native libs for you. +Jiyong to keep me honest.",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50710424_097d76e1",
         "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
         "patchSetId": 1
