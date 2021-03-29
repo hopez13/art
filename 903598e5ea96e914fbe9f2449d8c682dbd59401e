@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f34d14_982f81dd",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T09:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30eb2f5d_e295d7c1",
+      "range": {
+        "startLine": 1372,
+        "startChar": 76,
+        "endLine": 1372,
+        "endChar": 77
+      },
+      "revId": "903598e5ea96e914fbe9f2449d8c682dbd59401e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98cf3932_8c826391",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-29T09:38:46Z",
       "side": 1,
       "message": "Looks like this needs to be removed.",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "903598e5ea96e914fbe9f2449d8c682dbd59401e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f436d376_cb619e11",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-29T09:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98cf3932_8c826391",
       "range": {
         "startLine": 211,
         "startChar": 4,
