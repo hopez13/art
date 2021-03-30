@@ -39,6 +39,30 @@
       },
       "revId": "51909ce0fd6d6a8465d01ecd01815e1964e5e46c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e28f5a2f_b3db6466",
+        "filename": "test/817-hiddenapi/test_native.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:56:25Z",
+      "side": 1,
+      "message": "Because that\u0027s the test that would have failed before the runtime change. I could make the other CHECKs into if () return -1. No strong preference.",
+      "parentUuid": "39fe2550_9c047dc6",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "51909ce0fd6d6a8465d01ecd01815e1964e5e46c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
