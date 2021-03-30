@@ -38,6 +38,11 @@ bootclasspath_fragment {
         contents: [
             "jacocoagent",
         ],
+        api: {
+            stub_libs: [
+                "jacoco-stubs",
+            ],
+        },
     },
     visibility: [
         "//art/build/apex",
@@ -47,6 +52,21 @@ bootclasspath_fragment {
         "com.android.art",
         "com.android.art.debug",
     ],
+
+    api: {
+        stub_libs: [
+            "art.module.public.api",
+        ],
+    },
+    core_platform_api: {
+        stub_libs: [
+            // Use the stubs java_library directly and not the java_sdk_library
+            // as the sdk already includes the stubs library and switching it
+            // over to use the java_sdk_library would involve significant
+            // refactoring of the sdk snapshot functionality.
+            "legacy.art.module.platform.api.stubs",
+        ],
+    },
 
     hidden_api: {
         blocked: ["hiddenapi/hiddenapi-blocked.txt"],
