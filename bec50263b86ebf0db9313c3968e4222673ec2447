@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaf8efbd_8a08c041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d050a4a_088ef1c5",
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "259a4e2f_402b2110",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-03-30T01:00:55Z",
       "side": 1,
       "message": "By the way, I don\u0027t think this would have worked for primary apks anyway, as the app doesn\u0027t have the right to open the odex/vdex from /data/app as writable.",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 753,
+        "endChar": 5
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcb5b78_a6a8f3c9",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "Indeed, writing a vdex file would not have worked (was planning on thinking about this where we could create an anonymous dex file for in in the app\u0027s data directory).\n\nHowever, the background verification still runs.",
+      "parentUuid": "259a4e2f_402b2110",
       "range": {
         "startLine": 747,
         "startChar": 4,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0e905a5_d20e7cc2",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "No, I am now taking the location checksum instead of the dex header checksum.",
+      "parentUuid": "b9219c67_d35b6fcc",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 45
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ea6f396_358799f9",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-03-30T01:00:55Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1baf80ec_fc7e1339",
+        "filename": "test/692-vdex-secondary-loader/src-ex/art/ClassA.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea6f396_358799f9",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a1f51d_754cf460",
+        "filename": "test/692-vdex-secondary-loader/src-ex/art/ClassB.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c103e71_cb8edb7a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c423b45b_1e0ccfbc",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-03-30T01:00:55Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d66b1f_e6eed464",
+        "filename": "test/692-vdex-secondary-loader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c423b45b_1e0ccfbc",
       "range": {
         "startLine": 2,
         "startChar": 17,
