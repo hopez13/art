@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d050a4a_088ef1c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "lgtm, but as discussed limit this to secondary dex files. ",
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259a4e2f_402b2110",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "By the way, I don\u0027t think this would have worked for primary apks anyway, as the app doesn\u0027t have the right to open the odex/vdex from /data/app as writable.",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 753,
+        "endChar": 5
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9219c67_d35b6fcc",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "cosmetic change?",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 45
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea6f396_358799f9",
+        "filename": "test/692-vdex-secondary-loader/src-ex/art/ClassA.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c103e71_cb8edb7a",
+        "filename": "test/692-vdex-secondary-loader/src-ex/art/ClassB.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c423b45b_1e0ccfbc",
+        "filename": "test/692-vdex-secondary-loader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-30T01:00:55Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bec50263b86ebf0db9313c3968e4222673ec2447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
