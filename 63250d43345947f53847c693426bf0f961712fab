@@ -125,6 +125,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c334144_486a3f31",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da00a7a1_7b8b2e26",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f42d2c9_247dff3f",
@@ -172,6 +196,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8789a7ba_7beca023",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Thanks, done",
+      "parentUuid": "ed05a3ca_7444dd0b",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ac7052f_5be913bc",
@@ -185,6 +233,30 @@
       "writtenOn": "2021-03-29T16:32:34Z",
       "side": 1,
       "message": "Nit: We usually use the `.cc` extension in ART.",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92793e1d_9f79ea38",
+        "filename": "test/odsign/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ac7052f_5be913bc",
       "range": {
         "startLine": 37,
         "startChar": 20,
@@ -218,6 +290,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9fd5f4b_ea36175f",
+        "filename": "test/odsign/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8984f_d9307a9c",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 3
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d45fc9bd_d30945c4",
@@ -231,6 +327,30 @@
       "writtenOn": "2021-03-29T16:32:34Z",
       "side": 1,
       "message": "I think you should use\n\n  /*flags\u003d*/ 0\n\nto benefit from Clang\u0027s checks (see https://clang.llvm.org/extra/clang-tidy/checks/bugprone-argument-comment.html).",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 49
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d94698_65d8d1a3",
+        "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "d45fc9bd_d30945c4",
       "range": {
         "startLine": 39,
         "startChar": 36,
@@ -265,6 +385,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9ed91d9_e7a02c73",
+        "filename": "test/odsign/jni/android_tests_odsign_ArtifactsSignedTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50710424_097d76e1",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6612ae8_75f92f15",
@@ -278,6 +422,30 @@
       "writtenOn": "2021-03-29T16:38:22Z",
       "side": 1,
       "message": "Also, regarding CTS: IIUC, most (all?) tests in CTS are expected to pass on `user` devices, where one cannot get `root` permissions.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 81
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02c16bd_1c2131a4",
+        "filename": "test/odsign/odsign-e2e-tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Yeah, Nikita actually pointed out to me we can\u0027t run this in CTS, because we need to build an APEX with keys that matches the one on the device, but we don\u0027t have the release keys for -user builds. There\u0027s apparently ways to do this in GTS, which I\u0027ll investigate as a follow-up.",
+      "parentUuid": "c6612ae8_75f92f15",
       "range": {
         "startLine": 20,
         "startChar": 4,
@@ -311,6 +479,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c08ca48_5ee77470",
+        "filename": "test/odsign/src/com/android/tests/odsign/ArtifactsSignedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40e5383b_328664ee",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 107
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "919b50dd_bc07a9fb",
@@ -324,6 +516,30 @@
       "writtenOn": "2021-03-29T16:32:34Z",
       "side": 1,
       "message": "Maybe also rethrow the exception? I think TradeFed has some logic around exception handling. Adding Dan and Julien for comments.",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 9
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5e577f_2abc1c06",
+        "filename": "test/odsign/src/com/android/tests/odsign/ArtifactsSignedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Yeah you\u0027re right, this just gets forwarded back to the test host, which is what we want.",
+      "parentUuid": "919b50dd_bc07a9fb",
       "range": {
         "startLine": 58,
         "startChar": 10,
@@ -371,6 +587,30 @@
       "side": 1,
       "message": "Yeah, would be good to do as a follow-up (could we still run the test and have some marker / indication that we have done eager verification of the file?)",
       "parentUuid": "309aa577_646322bf",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 92
+      },
+      "revId": "63250d43345947f53847c693426bf0f961712fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c232fc11_efae0daf",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-30T07:25:19Z",
+      "side": 1,
+      "message": "Implemented fs-verity check in the device-side test for now.",
+      "parentUuid": "15a12e17_71a6fef8",
       "range": {
         "startLine": 51,
         "startChar": 0,
