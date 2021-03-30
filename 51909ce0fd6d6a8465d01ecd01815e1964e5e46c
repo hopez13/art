@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "51909ce0fd6d6a8465d01ecd01815e1964e5e46c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39fe2550_9c047dc6",
+        "filename": "test/817-hiddenapi/test_native.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-03-30T08:52:30Z",
+      "side": 1,
+      "message": "If you\u0027re doing a CHECK() above, why not here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "51909ce0fd6d6a8465d01ecd01815e1964e5e46c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
