@@ -214,7 +214,6 @@ art_module_exports {
                 "hiddenapi",
                 "dex2oat",
                 "dex2oatd",
-                "profman",
             ],
             native_libs: [
                 "libdexfile", // libdexfile_external dependency
