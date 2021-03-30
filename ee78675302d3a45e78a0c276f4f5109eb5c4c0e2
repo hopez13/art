@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cd28789_7e9938fe",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17082b62_e80807fe",
+      "range": {
+        "startLine": 171,
+        "startChar": 68,
+        "endLine": 171,
+        "endChar": 69
+      },
+      "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "544311ba_f2f26d35",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-30T08:33:35Z",
       "side": 1,
       "message": "Seems like `\u003d` or explicit `self` would be better.",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 8
+      },
+      "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a503b4d0_1eb9d6f0",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "544311ba_f2f26d35",
       "range": {
         "startLine": 184,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75f595f_36137f6d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89c58242_dd795933",
+      "range": {
+        "startLine": 1812,
+        "startChar": 8,
+        "endLine": 1813,
+        "endChar": 79
+      },
+      "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b99d6058_4fd9c322",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c480a45_ece11a3c",
+        "filename": "test/817-hiddenapi/test_native.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b99d6058_4fd9c322",
+      "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42f0219b_c21b1e14",
@@ -100,6 +190,24 @@
       "writtenOn": "2021-03-30T08:33:35Z",
       "side": 1,
       "message": "Check that `constructor !\u003d nullptr`.",
+      "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a4ec57_396fc81d",
+        "filename": "test/817-hiddenapi/test_native.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-30T08:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42f0219b_c21b1e14",
       "revId": "ee78675302d3a45e78a0c276f4f5109eb5c4c0e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
