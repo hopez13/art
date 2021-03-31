@@ -142,6 +142,24 @@
       "parentUuid": "47829a8c_b18f3609",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d3ead0_886219b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T12:39:44Z",
+      "side": 1,
+      "message": "Oh and re: the debug apex, I guess there\u0027s not really a reason for that, but since the test runs on -userdebug, I wanted to keep it as close as possible to the \"normal\" apex on -userdebug (which is the debug APEX IIUC). But if switching to release helps with the sizes, I\u0027m totally fine with that.",
+      "parentUuid": "d5e005dd_a56c70bf",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
