@@ -70,6 +70,24 @@
       "parentUuid": "5df16b32_d58b55a2",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54e637f7_43cd3255",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T12:01:49Z",
+      "side": 1,
+      "message": "Then, if the test should also work on ART head it\u0027ll have to work in the master-art manifest. Short term it may be ok to add system/security to master-art if it doesn\u0027t bring in too many dependencies, but longer term we\u0027d need prebuilts for the test.\n\nIn any case, would you move test_com.android.art with the test then? What\u0027s the purpose of it?\n\n\u003e go/ag/14049406 and go/ag/14047085, I wonder if that is enough.\n\nI guess you\u0027re doing that because you need an APEX signed with the internal dev key to test with? If so, and if the test APEX is moved with the test then you\u0027d need essentially the same thing but maybe with the override_apex in a different location.",
+      "parentUuid": "ce94828e_10dedbba",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
