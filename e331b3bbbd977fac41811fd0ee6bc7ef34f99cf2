@@ -121,6 +121,24 @@
       "message": "This hasn\u0027t shipped yet, right?",
       "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c12d816_01b9959f",
+        "filename": "libdexfile/external/libdexfile_external.map.txt",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T22:43:17Z",
+      "side": 1,
+      "message": "Nope, it\u0027s the same library that dsrbecky is working over in aosp/1652390. I\u0027ve investigated that there are no compat considerations in the ticket.",
+      "parentUuid": "e5bccf53_35954f49",
+      "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
