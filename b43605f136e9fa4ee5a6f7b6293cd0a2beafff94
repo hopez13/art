@@ -52,6 +52,24 @@
       "parentUuid": "3038f4a3_41ca4142",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "063c010f_17abe56a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T12:22:06Z",
+      "side": 1,
+      "message": "Output (without this CL):\n\ndeapexer info test_com.android.art.apex\n{\n  \"name\": \"com.android.art\",\n  \"version\": \"2147483647\",\n  \"provideNativeLibs\": [\n    \"libandroidio.so\",\n    \"libdexfile_external.so\",\n    \"libdexfiled_external.so\",\n    \"libnativebridge.so\",\n    \"libnativehelper.so\",\n    \"libnativeloader.so\",\n    \"libsigchain.so\"\n  ],\n  \"requireNativeLibs\": [\n    \"heapprofd_client_api.so\",\n    \"libadbconnection_client.so\",\n    \"libc.so\",\n    \"libdl.so\",\n    \"libdl_android.so\",\n    \"libicu.so\",\n    \"liblog.so\",\n    \"libm.so\",\n    \"libstatssocket.so\",\n    \"libz.so\"\n  ]\n}",
+      "parentUuid": "2223860d_a9d66d48",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
