@@ -68,6 +68,24 @@
       "parentUuid": "16fe65bf_26ee5aef",
       "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0ad1122_4f273295",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-03-31T22:08:28Z",
+      "side": 1,
+      "message": "I assume you got falsely broken build because of that?\n\nI got burned liked that before.  I wanted to try to fix that more generally.",
+      "parentUuid": "577f33a9_2a26f9c6",
+      "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
