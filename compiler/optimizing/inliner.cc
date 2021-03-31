@@ -662,58 +662,38 @@ HInliner::InlineCacheType HInliner::GetInlineCacheAOT(
   }
   DCHECK_LE(dex_pc_data.classes.size(), InlineCache::kIndividualCacheSize);
 
-  Thread* self = Thread::Current();
-  // We need to resolve the class relative to the containing dex file.
-  // So first, build a mapping from the index of dex file in the profile to
-  // its dex cache. This will avoid repeating the lookup when walking over
-  // the inline cache types.
-  ScopedArenaAllocator allocator(graph_->GetArenaStack());
-  ScopedArenaVector<ObjPtr<mirror::DexCache>> dex_profile_index_to_dex_cache(
-        pci->GetNumberOfDexFiles(), nullptr, allocator.Adapter(kArenaAllocMisc));
-  const std::vector<const DexFile*>& dex_files =
-      codegen_->GetCompilerOptions().GetDexFilesForOatFile();
-  for (const ProfileCompilationInfo::ClassReference& class_ref : dex_pc_data.classes) {
-    if (dex_profile_index_to_dex_cache[class_ref.dex_profile_index] == nullptr) {
-      ProfileCompilationInfo::ProfileIndexType profile_index = class_ref.dex_profile_index;
-      const DexFile* dex_file = pci->FindDexFileForProfileIndex(profile_index, dex_files);
-      if (dex_file == nullptr) {
-        VLOG(compiler) << "Could not find profiled dex file: "
-            << pci->DumpDexReference(profile_index);
-        return kInlineCacheMissingTypes;
-      }
-      dex_profile_index_to_dex_cache[class_ref.dex_profile_index] =
-          caller_compilation_unit_.GetClassLinker()->FindDexCache(self, *dex_file);
-      DCHECK(dex_profile_index_to_dex_cache[class_ref.dex_profile_index] != nullptr);
-    }
-  }
-
   // Walk over the classes and resolve them. If we cannot find a type we return
   // kInlineCacheMissingTypes.
-  for (const ProfileCompilationInfo::ClassReference& class_ref : dex_pc_data.classes) {
-    ObjPtr<mirror::DexCache> dex_cache =
-        dex_profile_index_to_dex_cache[class_ref.dex_profile_index];
-    DCHECK(dex_cache != nullptr);
-
-    if (!dex_cache->GetDexFile()->IsTypeIndexValid(class_ref.type_index)) {
-      VLOG(compiler) << "Profile data corrupt: type index " << class_ref.type_index
-            << "is invalid in location" << dex_cache->GetDexFile()->GetLocation();
-      return kInlineCacheNoData;
-    }
-    ObjPtr<mirror::Class> clazz = caller_compilation_unit_.GetClassLinker()->LookupResolvedType(
-          class_ref.type_index,
-          dex_cache,
-          caller_compilation_unit_.GetClassLoader().Get());
-    if (clazz != nullptr) {
-      DCHECK_NE(classes->RemainingSlots(), 0u);
-      classes->NewHandle(clazz);
+  ClassLinker* class_linker = caller_compilation_unit_.GetClassLinker();
+  for (const dex::TypeIndex& type_index : dex_pc_data.classes) {
+    // TODO: Why are we doing a lookup when the comment above says "resolve"?
+    uint32_t num_type_ids = caller_compilation_unit_.GetDexFile()->NumTypeIds();
+    ObjPtr<mirror::ClassLoader> class_loader = caller_compilation_unit_.GetClassLoader().Get();
+    ObjPtr<mirror::Class> clazz;
+    if (type_index.index_ < num_type_ids) {
+      ObjPtr<mirror::DexCache> dex_cache = caller_compilation_unit_.GetDexCache().Get();
+      clazz = class_linker->LookupResolvedType(type_index, dex_cache, class_loader);
+      if (clazz == nullptr) {
+        VLOG(compiler) << "Could not resolve class from inline cache in AOT mode "
+            << invoke_instruction->GetMethodReference().PrettyMethod()
+            << " : "
+            << caller_compilation_unit_.GetDexFile()->StringByTypeIdx(type_index);
+        return kInlineCacheMissingTypes;
+      }
     } else {
-      VLOG(compiler) << "Could not resolve class from inline cache in AOT mode "
-          << invoke_instruction->GetMethodReference().PrettyMethod()
-          << " : "
-          << caller_compilation_unit_
-              .GetDexFile()->StringByTypeIdx(class_ref.type_index);
-      return kInlineCacheMissingTypes;
+      const std::string& descriptor = pci->GetExtraString(type_index.index_ - num_type_ids);
+      clazz = class_linker->LookupResolvedType(descriptor.c_str(), class_loader);
+      if (clazz == nullptr) {
+        VLOG(compiler) << "Could not resolve class from inline cache in AOT mode "
+            << invoke_instruction->GetMethodReference().PrettyMethod()
+            << " : "
+            << descriptor.c_str();
+        return kInlineCacheMissingTypes;
+      }
     }
+    DCHECK(clazz != nullptr);
+    DCHECK_NE(classes->RemainingSlots(), 0u);
+    classes->NewHandle(clazz);
   }
 
   return GetInlineCacheType(*classes);
