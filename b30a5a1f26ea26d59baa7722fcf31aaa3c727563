@@ -196,6 +196,24 @@
       "parentUuid": "8ef43adf_f5cbcd53",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "340a93d7_9aff2909",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T13:09:17Z",
+      "side": 1,
+      "message": "Yeah, then I\u0027d be effectively blocked until step #2, which means it needs to happen quite soon afterwards. I can help out setting up the prebuilts. Is there a ticket tracking this?\n\nBtw, re #3, yes I\u0027m fairly sure we can (re)sign in platform builds (except for \"user\" images) - that\u0027s what we do when building from source after all. There\u0027s also been talk about changing the prebuilt APEXes to another format, e.g. a zip file or even the unpacked file system - this isn\u0027t the first time we\u0027ve needed to unpack them and get to info inside.",
+      "parentUuid": "f5366389_08496897",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
