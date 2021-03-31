@@ -178,6 +178,24 @@
       "parentUuid": "75d3ead0_886219b3",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5366389_08496897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T13:00:09Z",
+      "side": 1,
+      "message": "I was planning to add them to the TEST_MAPPING for system/security/ondevice-signing, which would put them in presubmit for regular platform builds (I guess in aosp / sc-dev / internal master branches?)",
+      "parentUuid": "8ef43adf_f5cbcd53",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
