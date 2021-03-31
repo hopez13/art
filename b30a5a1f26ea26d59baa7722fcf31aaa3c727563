@@ -106,6 +106,24 @@
       "parentUuid": "54e637f7_43cd3255",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47829a8c_b18f3609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T12:29:11Z",
+      "side": 1,
+      "message": "Yes, we\u0027ll need prebuilts of the test_com.android.art APEX right away when the test is in system/security, because I\u0027m working on getting platform to use prebuilts right now and will enable it in platform builds as soon as I can.\n\n\u003e In fact, it is just an ART apex with a higher module version number\n\nI see. That means we\u0027ll need a new set of prebuilt APEXes both in packages/modules/ArtPrebuilt and vendor/unbundled_google/modules/ArtGooglePrebuilt. It\u0027ll add ~200 MB in both places, and considering we want to do frequent prebuilt drops eventually that\u0027ll become a bit of a concern - I wonder if it may be possible to take a stock prebuilt and repackage it with the higher version number? It\u0027d need to be resigned then, though.\n\nShort term though, new prebuilts are probably fine.\n\nI see it\u0027s currently an instance of the debug APEX rather than the release one. Does it have to be that? The debug APEXes are ~50% bigger.",
+      "parentUuid": "a5b3c626_d775e55a",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
