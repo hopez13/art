@@ -106,6 +106,24 @@
       "parentUuid": "f6727e13_ace2fc6e",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e3153e_601fe89c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T12:55:05Z",
+      "side": 1,
+      "message": "Ack, thanks. It looks like there might be more libraries like that. Can we do this as a follow-up if I file a bug? The main ART apex is also affected, and I want to unblock this test for now.",
+      "parentUuid": "7e0c8db1_7a21fcac",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
