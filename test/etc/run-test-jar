@@ -916,7 +916,8 @@ elif [ "$USE_EXTRACTED_ZIPAPEX" = "y" ]; then
   if [ "$DEV_MODE" = "y" ]; then
     ln_options="--verbose"
   fi
-  installapex_cmdline="ln -s -f ${ln_options} ${EXTRACTED_ZIPAPEX_LOC} ${DEX_LOCATION}/zipapex"
+  # If the ${RUN} is executed multiple times we don't need to recreate the link
+  installapex_cmdline="( test -L ${DEX_LOCATION}/zipapex || ln -s -f ${ln_options} ${EXTRACTED_ZIPAPEX_LOC} ${DEX_LOCATION}/zipapex )"
 fi
 
 # PROFILE takes precedence over RANDOM_PROFILE, since PROFILE tests require a
