@@ -86,6 +86,24 @@
       "parentUuid": "577f33a9_2a26f9c6",
       "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "202fe31d_82161add",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T22:15:09Z",
+      "side": 1,
+      "message": "Yeah, got build failures in TH, but the errors made it obvious there were still libdexfile_external.so around.",
+      "parentUuid": "e0ad1122_4f273295",
+      "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
