@@ -160,6 +160,24 @@
       "parentUuid": "d5e005dd_a56c70bf",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef43adf_f5cbcd53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T12:54:14Z",
+      "side": 1,
+      "message": "For step 1 we\u0027d go ahead with this CL then.\n\nDo you plan to add the test to TH pre- or postsubmit testing at step 1? If so, in which builds? Then I wouldn\u0027t be able to switch them to prebuilts before #2 is done.\n\nAs for the debug APEX, yes please switch it to be based on the release. The debug variant is actually no longer used for userdebug, now it\u0027s only used in AOSP eng builds.",
+      "parentUuid": "75d3ead0_886219b3",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
