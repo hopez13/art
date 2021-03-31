@@ -88,6 +88,24 @@
       "parentUuid": "ce94828e_10dedbba",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b3c626_d775e55a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T12:08:40Z",
+      "side": 1,
+      "message": "I think I\u0027m also fine with running this test only in the platform, but if I understand you correctly that means we need a test prebuilt as soon as ART gets moved out of the platform manifest?\n\nThe reason I need test_com.android.art is that I need to trigger the \"on-device signing\" flow for new artifacts; the odrefresh binary inside the ART apex determines whether new artifacts need to be generated, and the easiest way to trigger it to generate new artifacts is to install an ART apex which has a higher version number.\n\nI\u0027m not sure how easy it is to move test_com.android.art itself - I think it needs to be in the ART tree because it needs to be built exactly like the ART apex. (In fact, it is just an ART apex with a higher module version number).",
+      "parentUuid": "54e637f7_43cd3255",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
