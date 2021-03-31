@@ -1065,6 +1065,7 @@ class Dex2Oat final {
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
     AssignTrueIfExists(args, M::CheckLinkageConditions, &check_linkage_conditions_);
     AssignTrueIfExists(args, M::CrashOnLinkageViolation, &crash_on_linkage_violation_);
+    AssignTrueIfExists(args, M::ForceAllowOjInlines, &force_allow_oj_inlines_);
     AssignIfExists(args, M::PublicSdk, &public_sdk_);
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
@@ -1781,7 +1782,11 @@ class Dex2Oat final {
     // For now, on the host always have core-oj removed.
     const std::string core_oj = "core-oj";
     if (!kIsTargetBuild && !ContainsElement(no_inline_filters, core_oj)) {
-      no_inline_filters.push_back(core_oj);
+      if (force_allow_oj_inlines_) {
+        LOG(WARNING) << "Inlines allowed from core-oj!";
+      } else {
+        no_inline_filters.push_back(core_oj);
+      }
     }
 
     if (!no_inline_filters.empty()) {
@@ -2843,6 +2848,7 @@ class Dex2Oat final {
   bool is_host_;
   std::string android_root_;
   std::string no_inline_from_string_;
+  bool force_allow_oj_inlines_ = false;
   CompactDexLevel compact_dex_level_ = kDefaultCompactDexLevel;
 
   std::vector<std::unique_ptr<linker::ElfWriter>> elf_writers_;
