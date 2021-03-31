@@ -16,6 +16,24 @@
       "message": "Thanks Martin! I was wondering if this is also necessary with go/ag/14047085 in place?",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc05f4f_82527035",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T11:40:07Z",
+      "side": 1,
+      "message": "It depends on whether you need this to test to work with ART prebuilts or not. If it does then it can run on platform head against prebuilts of the ART module, otherwise it\u0027d only run on fixed platform images against master-art head.\n\nIf it should be used with prebuilts then we shouldn\u0027t do this CL, but rather add the necessary prebuilt modules, which at least means exporting test_com.android.art as a prebuilt module.\n\nSo what\u0027s the plan here?",
+      "parentUuid": "d75a106c_0702c330",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
