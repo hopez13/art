@@ -124,6 +124,24 @@
       "parentUuid": "7e0c8db1_7a21fcac",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001dfc57_1c6d33f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-31T13:00:30Z",
+      "side": 1,
+      "message": "Fine. I suggest you to manually compose test_apex_manifest.json with the output of the deapexer plus the extra libraries (libicui18n.so) you need.",
+      "parentUuid": "a1e3153e_601fe89c",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
