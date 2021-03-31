@@ -65,21 +65,6 @@ ProfileAssistant::ProcessingResult ProfileAssistant::ProcessProfilesInternal(
       return kErrorBadProfiles;
     }
 
-    // Check version mismatch.
-    // This may happen during profile analysis if one profile is regular and
-    // the other one is for the boot image. For example when switching on-off
-    // the boot image profiles.
-    if (!info.SameVersion(cur_info)) {
-      if (options.IsForceMerge()) {
-        // If we have to merge forcefully, ignore the current profile and
-        // continue to the next one.
-        continue;
-      } else {
-        // Otherwise, return an error.
-        return kErrorDifferentVersions;
-      }
-    }
-
     if (!info.MergeWith(cur_info)) {
       LOG(WARNING) << "Could not merge profile file at index " << i;
       return kErrorBadProfiles;

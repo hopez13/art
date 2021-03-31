@@ -312,6 +312,13 @@ class ClassLinker {
                                            ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Look up a resolved type with the given descriptor associated with the given
+  // ClassLoader. The ClassLoader is used to search for the type, since it may
+  // be referenced from but not contained within the DexFile.
+  ObjPtr<mirror::Class> LookupResolvedType(const char* descriptor,
+                                           ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Determine whether a dex cache result should be trusted, or an IncompatibleClassChangeError
   // check and IllegalAccessError check should be performed even after a hit.
   enum class ResolveMode {  // private.

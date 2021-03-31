@@ -1228,20 +1228,9 @@ TEST_F(ProfileCompilationInfoTest, ClearDataAndSave) {
 
 TEST_F(ProfileCompilationInfoTest, InitProfiles) {
   ProfileCompilationInfo info;
-  ASSERT_EQ(
-      memcmp(info.GetVersion(),
-             ProfileCompilationInfo::kProfileVersion,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_FALSE(info.IsForBootImage());
 
   ProfileCompilationInfo info1(/*for_boot_image=*/ true);
-
-  ASSERT_EQ(
-      memcmp(info1.GetVersion(),
-             ProfileCompilationInfo::kProfileVersionForBootImage,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_TRUE(info1.IsForBootImage());
 }
 
