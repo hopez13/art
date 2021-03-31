@@ -124,6 +124,24 @@
       "parentUuid": "a5b3c626_d775e55a",
       "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e005dd_a56c70bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T12:38:42Z",
+      "side": 1,
+      "message": "Yeah the re-signing might be an issue, though I guess we only need this to run on -userdebug builds, so presumably we do have the keys available. I don\u0027t know enough about the APEX build system whether that is feasible. If possible I\u0027d like to at least get these tests going asap, as they\u0027re required for marking the feature complete.\n\nWould the following sequence be an option:\n1) First get the tests going as they are (eg running from platform/art)\n2) Get prebuilts going for the test apex, and move the test to system/security\n3) Potential future optimization: get rid of test APEX prebuilt, repackage the existing APEX with a higher version number..",
+      "parentUuid": "47829a8c_b18f3609",
+      "revId": "b30a5a1f26ea26d59baa7722fcf31aaa3c727563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
