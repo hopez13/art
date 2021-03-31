@@ -46,6 +46,30 @@
       },
       "revId": "d9d0a5f1e25cfc26cd985edb538b19bf1b1a26f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da706f32_862b61f7",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T20:03:35Z",
+      "side": 1,
+      "message": "basically the issue is that when compiled on a device that no.nrk app would crash dex2oat. if you tried it on host, even with identical arguments it would complete successfully due to the automatic addition of a core-oj no inline. all this flag does is turn that off so the compilation process is identical between host and device.",
+      "parentUuid": "eee65913_2ac8a484",
+      "range": {
+        "startLine": 341,
+        "startChar": 20,
+        "endLine": 341,
+        "endChar": 95
+      },
+      "revId": "d9d0a5f1e25cfc26cd985edb538b19bf1b1a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
