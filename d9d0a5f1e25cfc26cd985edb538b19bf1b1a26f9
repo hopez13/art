@@ -22,6 +22,30 @@
       },
       "revId": "d9d0a5f1e25cfc26cd985edb538b19bf1b1a26f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee65913_2ac8a484",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T20:00:29Z",
+      "side": 1,
+      "message": "that is based on the method name. this flag is for compiling regular apps for testing purposes.",
+      "parentUuid": "ef5236a3_791c4f53",
+      "range": {
+        "startLine": 341,
+        "startChar": 20,
+        "endLine": 341,
+        "endChar": 95
+      },
+      "revId": "d9d0a5f1e25cfc26cd985edb538b19bf1b1a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
