@@ -88,6 +88,24 @@
       "parentUuid": "063c010f_17abe56a",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e0c8db1_7a21fcac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-31T12:52:07Z",
+      "side": 1,
+      "message": "Ok. The build system produces requiredNativeLibs entries, but libicui18n isn\u0027t there. And that\u0027s because the library is not registered as a stub-providing library.\n\nAdding \n\n````\nstubs: {\n    symbol_file: \"libicui18n.map.txt\",\n    versions: [\"10000\"], // won\u0027t be needed after aosp/1641782 lands\n}\n```\n\nto the library would fix this.\n\nlibicui18n.map.txt should have list of public C symbols that the library exports. See go/android-ndk-apex-apis for how.",
+      "parentUuid": "f6727e13_ace2fc6e",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
