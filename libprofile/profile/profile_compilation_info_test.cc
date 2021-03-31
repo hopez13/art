@@ -32,7 +32,6 @@
 
 namespace art {
 
-using ProfileIndexTypeRegular = ProfileCompilationInfo::ProfileIndexTypeRegular;
 using ItemMetadata = FlattenProfileData::ItemMetadata;
 
 class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelper {
@@ -171,8 +170,8 @@ class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelpe
   }
 
   void SizeStressTest(bool random) {
-    ProfileCompilationInfo boot_profile(/*for_boot_image*/ true);
-    ProfileCompilationInfo reg_profile(/*for_boot_image*/ false);
+    ProfileCompilationInfo boot_profile(/*for_boot_image=*/ true);
+    ProfileCompilationInfo reg_profile(/*for_boot_image=*/ false);
 
     static constexpr size_t kNumDexFiles = 5;
 
@@ -214,7 +213,7 @@ class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelpe
     ASSERT_TRUE(boot_file.GetFile()->ResetOffset());
     ASSERT_TRUE(reg_file.GetFile()->ResetOffset());
 
-    ProfileCompilationInfo loaded_boot;
+    ProfileCompilationInfo loaded_boot(/*for_boot_image=*/ true);
     ProfileCompilationInfo loaded_reg;
     ASSERT_TRUE(loaded_boot.Load(GetFd(boot_file)));
     ASSERT_TRUE(loaded_reg.Load(GetFd(reg_file)));
@@ -248,6 +247,39 @@ class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelpe
   // caches are destructed at the end of the test.
   std::vector<std::unique_ptr<ProfileCompilationInfo::InlineCacheMap>> used_inline_caches;
 };
+
+TEST_F(ProfileCompilationInfoTest, AddClasses) {
+  ProfileCompilationInfo info;
+
+  // Add all classes with a `TypeId` in `dex1`.
+  uint32_t num_type_ids1 = dex1->NumTypeIds();
+  for (uint32_t type_index = 0; type_index != num_type_ids1; ++type_index) {
+    ASSERT_TRUE(info.AddClass(*dex1, dex::TypeIndex(type_index)));
+  }
+  // Add classes without `TypeId` in `dex1`.
+  for (uint32_t type_index = num_type_ids1; type_index != DexFile::kDexNoIndex16; ++type_index) {
+    std::string descriptor = "LX" + std::to_string(type_index) + ";";
+    ASSERT_TRUE(info.AddClass(*dex1, descriptor));
+  }
+  // Fail to add another class without `TypeId` in `dex1` as we have
+  // run out of available artificial type indexes.
+  ASSERT_FALSE(info.AddClass(*dex1, "LCannotAddThis;"));
+
+  // Add all classes with a `TypeId` in `dex2`.
+  uint32_t num_type_ids2 = dex2->NumTypeIds();
+  for (uint32_t type_index = 0; type_index != num_type_ids2; ++type_index) {
+    ASSERT_TRUE(info.AddClass(*dex2, dex::TypeIndex(type_index)));
+  }
+  // Fail to add another class without `TypeId` in `dex2` as we have
+  // run out of available artificial type indexes when adding types for `dex1`.
+  ASSERT_FALSE(info.AddClass(*dex2, "LCannotAddThis;"));
+  // Add classes without `TypeId` in `dex2` for which we already have articial indexes.
+  ASSERT_EQ(num_type_ids1, num_type_ids2);
+  for (uint32_t type_index = num_type_ids2; type_index != DexFile::kDexNoIndex16; ++type_index) {
+    std::string descriptor = "LX" + std::to_string(type_index) + ";";
+    ASSERT_TRUE(info.AddClass(*dex2, descriptor));
+  }
+}
 
 TEST_F(ProfileCompilationInfoTest, SaveFd) {
   ScratchFile profile;
@@ -486,11 +518,11 @@ TEST_F(ProfileCompilationInfoTest, SaveInlineCaches) {
   ProfileCompilationInfo::MethodHotness loaded_hotness1 =
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, loaded_info));
   ProfileCompilationInfo::MethodHotness loaded_hotness2 =
       GetMethod(loaded_info, dex4, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness2.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex4, loaded_hotness2, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCaches) {
@@ -532,7 +564,7 @@ TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCaches) {
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
 
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches_extra, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches_extra, dex1, loaded_hotness1, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, MissingTypesInlineCaches) {
@@ -581,7 +613,7 @@ TEST_F(ProfileCompilationInfoTest, MissingTypesInlineCaches) {
   ProfileCompilationInfo::MethodHotness loaded_hotness1 =
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(missing_types, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(missing_types, dex1, loaded_hotness1, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, InvalidChecksumInInlineCache) {
@@ -596,7 +628,44 @@ TEST_F(ProfileCompilationInfoTest, InvalidChecksumInInlineCache) {
   types->front().dex_file = dex1_checksum_missmatch;
 
   ASSERT_TRUE(AddMethod(&info, dex1, /* method_idx= */ 0, inline_caches1));
-  ASSERT_FALSE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches2));
+
+  // The dex files referenced in inline infos do not matter. We are recoding class
+  // references across dex files by looking up the descriptor in the referencing
+  // method's dex file. If not found, we create an artificial type index.
+  ASSERT_TRUE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches2));
+}
+
+TEST_F(ProfileCompilationInfoTest, InlineCacheAcrossDexFiles) {
+  ScratchFile profile;
+
+  const char kDex1Class[] = "LUnique1;";
+  const dex::TypeId* dex1_tid = dex1->FindTypeId(kDex1Class);
+  ASSERT_TRUE(dex1_tid != nullptr);
+  dex::TypeIndex dex1_tidx = dex1->GetIndexForTypeId(*dex1_tid);
+  ASSERT_FALSE(dex2->FindTypeId(kDex1Class) != nullptr);
+
+  const uint16_t dex_pc = 33u;
+  std::vector<TypeReference> types = {TypeReference(dex1, dex1_tidx)};
+  std::vector<ProfileInlineCache> inline_caches {
+      ProfileInlineCache(dex_pc, /*missing_types=*/ false, types)
+  };
+
+  ProfileCompilationInfo info;
+  ASSERT_TRUE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches));
+  Hotness hotness = GetMethod(info, dex2, /* method_idx= */ 0);
+  ASSERT_TRUE(hotness.IsHot());
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex2, hotness, info));
+  const ProfileCompilationInfo::InlineCacheMap* inline_cache_map = hotness.GetInlineCacheMap();
+  ASSERT_TRUE(inline_cache_map != nullptr);
+  ASSERT_EQ(1u, inline_cache_map->size());
+  ASSERT_EQ(dex_pc, inline_cache_map->begin()->first);
+  const ProfileCompilationInfo::DexPcData& dex_pc_data = inline_cache_map->begin()->second;
+  ASSERT_FALSE(dex_pc_data.is_missing_types);
+  ASSERT_FALSE(dex_pc_data.is_megamorphic);
+  ASSERT_EQ(1u, dex_pc_data.classes.size());
+  dex::TypeIndex type_index = *dex_pc_data.classes.begin();
+  ASSERT_FALSE(dex2->IsTypeIndexValid(type_index));
+  ASSERT_STREQ(kDex1Class, info.GetTypeDescriptor(dex2, type_index));
 }
 
 // Verify that profiles behave correctly even if the methods are added in a different
@@ -642,17 +711,17 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
   for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
     ProfileCompilationInfo::MethodHotness loaded_hotness1 = GetMethod(info, dex1, method_idx);
     ASSERT_TRUE(loaded_hotness1.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, info));
     ProfileCompilationInfo::MethodHotness loaded_hotness2 = GetMethod(info, dex2, method_idx);
     ASSERT_TRUE(loaded_hotness2.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex2, loaded_hotness2, info));
   }
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitRegular) {
   ProfileCompilationInfo info;
   // Save a few methods.
-  for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexTypeRegular>::max(); i++) {
+  for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexType>::max(); i++) {
     std::string location = std::to_string(i);
     const DexFile* dex = BuildDex(location, /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
     ASSERT_TRUE(AddMethod(&info, dex, /* method_idx= */ 0));
@@ -1043,7 +1112,7 @@ TEST_F(ProfileCompilationInfoTest, FilteredLoading) {
     }
 
     // Now check that we get back what we expect.
-    ASSERT_TRUE(EqualInlineCaches(expected_ics, loaded_hotness1, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(expected_ics, dex1, loaded_hotness1, loaded_info));
   }
 }
 
@@ -1112,13 +1181,13 @@ TEST_F(ProfileCompilationInfoTest, FilteredLoadingKeepAll) {
     ProfileCompilationInfo::MethodHotness loaded_hotness1 =
         GetMethod(loaded_info, dex1, method_idx);
     ASSERT_TRUE(loaded_hotness1.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, loaded_info));
   }
   for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
     ProfileCompilationInfo::MethodHotness loaded_hotness2 =
         GetMethod(loaded_info, dex4, method_idx);
     ASSERT_TRUE(loaded_hotness2.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex4, loaded_hotness2, loaded_info));
   }
 }
 
@@ -1201,31 +1270,14 @@ TEST_F(ProfileCompilationInfoTest, ClearDataAndSave) {
 
 TEST_F(ProfileCompilationInfoTest, InitProfiles) {
   ProfileCompilationInfo info;
-  ASSERT_EQ(
-      memcmp(info.GetVersion(),
-             ProfileCompilationInfo::kProfileVersion,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_FALSE(info.IsForBootImage());
 
   ProfileCompilationInfo info1(/*for_boot_image=*/ true);
-
-  ASSERT_EQ(
-      memcmp(info1.GetVersion(),
-             ProfileCompilationInfo::kProfileVersionForBootImage,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_TRUE(info1.IsForBootImage());
 }
 
-TEST_F(ProfileCompilationInfoTest, VersionEquality) {
-  ProfileCompilationInfo info(/*for_boot_image=*/ false);
-  ProfileCompilationInfo info1(/*for_boot_image=*/ true);
-  ASSERT_FALSE(info.Equals(info1));
-}
-
 TEST_F(ProfileCompilationInfoTest, AllMethodFlags) {
-  ProfileCompilationInfo info(/*for_boot_image*/ true);
+  ProfileCompilationInfo info(/*for_boot_image=*/ true);
 
   for (uint32_t index = 0; index <= kMaxHotnessFlagBootIndex; index++) {
     AddMethod(&info, dex1, index, static_cast<Hotness::Flag>(1 << index));
@@ -1248,13 +1300,13 @@ TEST_F(ProfileCompilationInfoTest, AllMethodFlags) {
   ASSERT_TRUE(profile.GetFile()->ResetOffset());
 
   // Load the profile and make sure we can read the data and it matches what we expect.
-  ProfileCompilationInfo loaded_info;
+  ProfileCompilationInfo loaded_info(/*for_boot_image=*/ true);
   ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
   run_test(loaded_info);
 }
 
 TEST_F(ProfileCompilationInfoTest, AllMethodFlagsOnOneMethod) {
-  ProfileCompilationInfo info(/*for_boot_image*/ true);
+  ProfileCompilationInfo info(/*for_boot_image=*/ true);
 
   // Set all flags on a single method.
   for (uint32_t index = 0; index <= kMaxHotnessFlagBootIndex; index++) {
@@ -1277,15 +1329,15 @@ TEST_F(ProfileCompilationInfoTest, AllMethodFlagsOnOneMethod) {
   ASSERT_TRUE(profile.GetFile()->ResetOffset());
 
   // Load the profile and make sure we can read the data and it matches what we expect.
-  ProfileCompilationInfo loaded_info;
+  ProfileCompilationInfo loaded_info(/*for_boot_image=*/ true);
   ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
   run_test(loaded_info);
 }
 
 
 TEST_F(ProfileCompilationInfoTest, MethodFlagsMerge) {
-  ProfileCompilationInfo info1(/*for_boot_image*/ true);
-  ProfileCompilationInfo info2(/*for_boot_image*/ true);
+  ProfileCompilationInfo info1(/*for_boot_image=*/ true);
+  ProfileCompilationInfo info2(/*for_boot_image=*/ true);
 
   // Set a few flags on a 2 different methods in each of the profile.
   for (uint32_t index = 0; index <= kMaxHotnessFlagBootIndex / 4; index++) {
@@ -1347,7 +1399,7 @@ TEST_F(ProfileCompilationInfoTest, MethodFlagsMerge) {
   ASSERT_TRUE(profile.GetFile()->ResetOffset());
 
   // Load the profile and make sure we can read the data and it matches what we expect.
-  ProfileCompilationInfo loaded_info;
+  ProfileCompilationInfo loaded_info(/*for_boot_image=*/ true);
   ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
   run_test(loaded_info);
 }
@@ -1663,7 +1715,7 @@ TEST_F(ProfileCompilationInfoTest, MergeWithInlineCaches) {
                                                       /* missing_types= */ false,
                                                       /* profile_classes= */ cls_pc15) };
     EXPECT_EQ(loaded_ic_12.GetInlineCacheMap()->size(), expected.size());
-    EXPECT_TRUE(EqualInlineCaches(expected, loaded_ic_12, info_12)) << i;
+    EXPECT_TRUE(EqualInlineCaches(expected, dex1, loaded_ic_12, info_12)) << i;
   }
 }
 
