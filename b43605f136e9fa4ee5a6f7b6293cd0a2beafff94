@@ -34,6 +34,24 @@
       "parentUuid": "59b4a6d2_019d04f1",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2223860d_a9d66d48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-31T12:20:15Z",
+      "side": 1,
+      "message": "What is the result of `deapexer info \u003cthe_apex\u003e`?\n\nIs it only libicui18n.so that is failing?\n\nIt looks like libicui18n.so is NOT a library that can be shared across APEXes. https://source.corp.google.com/android/external/icu/icu4c/source/i18n/Android.bp;rcl\u003d58de6466aa978fbbc55b51da317bc424edf89258;l\u003d76 It doesn\u0027t have \u003clibname\u003e.map.txt file registered as `stubs.symbol_file`.",
+      "parentUuid": "3038f4a3_41ca4142",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
