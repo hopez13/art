@@ -94,6 +94,30 @@
       },
       "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce238732_5b2239dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T16:26:22Z",
+      "side": 1,
+      "message": "Without this change it\u0027s impossible to compile dex files on the host in the same way they do on target. See for example: https://paste.googleplex.com/5893767035879424?raw",
+      "parentUuid": "d7ad38b1_da7056c5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
