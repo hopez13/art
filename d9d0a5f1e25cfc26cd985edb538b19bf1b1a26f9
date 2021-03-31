@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5236a3_791c4f53",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-03-31T19:47:32Z",
+      "side": 1,
+      "message": "instead of mention this you can enforce this only for the test only with: https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/optimizing_compiler.cc;drc\u003d4924ea9ad98832f0ec7db841defca82331ee1b13;l\u003d1115 ?",
+      "range": {
+        "startLine": 341,
+        "startChar": 20,
+        "endLine": 341,
+        "endChar": 95
+      },
+      "revId": "d9d0a5f1e25cfc26cd985edb538b19bf1b1a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
