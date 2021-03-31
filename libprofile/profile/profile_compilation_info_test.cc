@@ -32,7 +32,6 @@
 
 namespace art {
 
-using ProfileIndexTypeRegular = ProfileCompilationInfo::ProfileIndexTypeRegular;
 using ItemMetadata = FlattenProfileData::ItemMetadata;
 
 class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelper {
@@ -486,11 +485,11 @@ TEST_F(ProfileCompilationInfoTest, SaveInlineCaches) {
   ProfileCompilationInfo::MethodHotness loaded_hotness1 =
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, loaded_info));
   ProfileCompilationInfo::MethodHotness loaded_hotness2 =
       GetMethod(loaded_info, dex4, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness2.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex4, loaded_hotness2, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCaches) {
@@ -532,7 +531,7 @@ TEST_F(ProfileCompilationInfoTest, MegamorphicInlineCaches) {
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
 
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(inline_caches_extra, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(inline_caches_extra, dex1, loaded_hotness1, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, MissingTypesInlineCaches) {
@@ -581,7 +580,7 @@ TEST_F(ProfileCompilationInfoTest, MissingTypesInlineCaches) {
   ProfileCompilationInfo::MethodHotness loaded_hotness1 =
       GetMethod(loaded_info, dex1, /* method_idx= */ 3);
   ASSERT_TRUE(loaded_hotness1.IsHot());
-  ASSERT_TRUE(EqualInlineCaches(missing_types, loaded_hotness1, loaded_info));
+  ASSERT_TRUE(EqualInlineCaches(missing_types, dex1, loaded_hotness1, loaded_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, InvalidChecksumInInlineCache) {
@@ -596,7 +595,44 @@ TEST_F(ProfileCompilationInfoTest, InvalidChecksumInInlineCache) {
   types->front().dex_file = dex1_checksum_missmatch;
 
   ASSERT_TRUE(AddMethod(&info, dex1, /* method_idx= */ 0, inline_caches1));
-  ASSERT_FALSE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches2));
+
+  // The dex files referenced in inline infos do not matter. We are recoding class
+  // references across dex files by looking up the descriptor in the referencing
+  // method's dex file. If not found, we create an artificial type index.
+  ASSERT_TRUE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches2));
+}
+
+TEST_F(ProfileCompilationInfoTest, InlineCacheAcrossDexFiles) {
+  ScratchFile profile;
+
+  const char kDex1Class[] = "LUnique1;";
+  const dex::TypeId* dex1_tid = dex1->FindTypeId(kDex1Class);
+  ASSERT_TRUE(dex1_tid != nullptr);
+  dex::TypeIndex dex1_tidx = dex1->GetIndexForTypeId(*dex1_tid);
+  ASSERT_FALSE(dex2->FindTypeId(kDex1Class) != nullptr);
+
+  const uint16_t dex_pc = 33u;
+  std::vector<TypeReference> types = {TypeReference(dex1, dex1_tidx)};
+  std::vector<ProfileInlineCache> inline_caches {
+      ProfileInlineCache(dex_pc, /*missing_types=*/ false, types)
+  };
+
+  ProfileCompilationInfo info;
+  ASSERT_TRUE(AddMethod(&info, dex2, /* method_idx= */ 0, inline_caches));
+  Hotness hotness = GetMethod(info, dex2, /* method_idx= */ 0);
+  ASSERT_TRUE(hotness.IsHot());
+  ASSERT_TRUE(EqualInlineCaches(inline_caches, dex2, hotness, info));
+  const ProfileCompilationInfo::InlineCacheMap* inline_cache_map = hotness.GetInlineCacheMap();
+  ASSERT_TRUE(inline_cache_map != nullptr);
+  ASSERT_EQ(1u, inline_cache_map->size());
+  ASSERT_EQ(dex_pc, inline_cache_map->begin()->first);
+  const ProfileCompilationInfo::DexPcData& dex_pc_data = inline_cache_map->begin()->second;
+  ASSERT_FALSE(dex_pc_data.is_missing_types);
+  ASSERT_FALSE(dex_pc_data.is_megamorphic);
+  ASSERT_EQ(1u, dex_pc_data.classes.size());
+  dex::TypeIndex type_index = *dex_pc_data.classes.begin();
+  ASSERT_FALSE(dex2->IsTypeIndexValid(type_index));
+  ASSERT_STREQ(kDex1Class, info.GetTypeDescriptor(dex2, type_index));
 }
 
 // Verify that profiles behave correctly even if the methods are added in a different
@@ -642,17 +678,17 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
   for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
     ProfileCompilationInfo::MethodHotness loaded_hotness1 = GetMethod(info, dex1, method_idx);
     ASSERT_TRUE(loaded_hotness1.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, info));
     ProfileCompilationInfo::MethodHotness loaded_hotness2 = GetMethod(info, dex2, method_idx);
     ASSERT_TRUE(loaded_hotness2.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex2, loaded_hotness2, info));
   }
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitRegular) {
   ProfileCompilationInfo info;
   // Save a few methods.
-  for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexTypeRegular>::max(); i++) {
+  for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexType>::max(); i++) {
     std::string location = std::to_string(i);
     const DexFile* dex = BuildDex(location, /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
     ASSERT_TRUE(AddMethod(&info, dex, /* method_idx= */ 0));
@@ -1043,7 +1079,7 @@ TEST_F(ProfileCompilationInfoTest, FilteredLoading) {
     }
 
     // Now check that we get back what we expect.
-    ASSERT_TRUE(EqualInlineCaches(expected_ics, loaded_hotness1, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(expected_ics, dex1, loaded_hotness1, loaded_info));
   }
 }
 
@@ -1112,13 +1148,13 @@ TEST_F(ProfileCompilationInfoTest, FilteredLoadingKeepAll) {
     ProfileCompilationInfo::MethodHotness loaded_hotness1 =
         GetMethod(loaded_info, dex1, method_idx);
     ASSERT_TRUE(loaded_hotness1.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness1, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex1, loaded_hotness1, loaded_info));
   }
   for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
     ProfileCompilationInfo::MethodHotness loaded_hotness2 =
         GetMethod(loaded_info, dex4, method_idx);
     ASSERT_TRUE(loaded_hotness2.IsHot());
-    ASSERT_TRUE(EqualInlineCaches(inline_caches, loaded_hotness2, loaded_info));
+    ASSERT_TRUE(EqualInlineCaches(inline_caches, dex4, loaded_hotness2, loaded_info));
   }
 }
 
@@ -1201,27 +1237,10 @@ TEST_F(ProfileCompilationInfoTest, ClearDataAndSave) {
 
 TEST_F(ProfileCompilationInfoTest, InitProfiles) {
   ProfileCompilationInfo info;
-  ASSERT_EQ(
-      memcmp(info.GetVersion(),
-             ProfileCompilationInfo::kProfileVersion,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_FALSE(info.IsForBootImage());
 
   ProfileCompilationInfo info1(/*for_boot_image=*/ true);
-
-  ASSERT_EQ(
-      memcmp(info1.GetVersion(),
-             ProfileCompilationInfo::kProfileVersionForBootImage,
-             ProfileCompilationInfo::kProfileVersionSize),
-      0);
   ASSERT_TRUE(info1.IsForBootImage());
-}
-
-TEST_F(ProfileCompilationInfoTest, VersionEquality) {
-  ProfileCompilationInfo info(/*for_boot_image=*/ false);
-  ProfileCompilationInfo info1(/*for_boot_image=*/ true);
-  ASSERT_FALSE(info.Equals(info1));
 }
 
 TEST_F(ProfileCompilationInfoTest, AllMethodFlags) {
@@ -1663,7 +1682,7 @@ TEST_F(ProfileCompilationInfoTest, MergeWithInlineCaches) {
                                                       /* missing_types= */ false,
                                                       /* profile_classes= */ cls_pc15) };
     EXPECT_EQ(loaded_ic_12.GetInlineCacheMap()->size(), expected.size());
-    EXPECT_TRUE(EqualInlineCaches(expected, loaded_ic_12, info_12)) << i;
+    EXPECT_TRUE(EqualInlineCaches(expected, dex1, loaded_ic_12, info_12)) << i;
   }
 }
 

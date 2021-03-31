@@ -90,6 +90,7 @@ class ProfileTestHelper {
 
   // Compare different representations of inline caches for equality.
   static bool EqualInlineCaches(const std::vector<ProfileMethodInfo::ProfileInlineCache>& expected,
+                                const DexFile* dex_file,
                                 const ProfileCompilationInfo::MethodHotness& actual_hotness,
                                 const ProfileCompilationInfo& info) {
     CHECK(actual_hotness.IsHot());
@@ -126,14 +127,18 @@ class ProfileTestHelper {
       if (dex_pc_data.classes.size() != expected_it->classes.size()) {
         return false;
       }
-      for (const ProfileCompilationInfo::ClassReference& class_ref : dex_pc_data.classes) {
+      for (dex::TypeIndex type_index : dex_pc_data.classes) {
         if (std::none_of(expected_it->classes.begin(),
                          expected_it->classes.end(),
                          [&](const TypeReference& type_ref) {
-                           return (class_ref.type_index == type_ref.TypeIndex()) &&
-                                  ProfileIndexMatchesDexFile(info,
-                                                             class_ref.dex_profile_index,
-                                                             type_ref.dex_file);
+                           if (type_ref.dex_file == dex_file) {
+                             return type_index == type_ref.TypeIndex();
+                           } else {
+                             const char* expected_descriptor =
+                                 type_ref.dex_file->StringByTypeIdx(type_ref.TypeIndex());
+                             const char* descriptor = info.GetTypeDescriptor(dex_file, type_index);
+                             return strcmp(expected_descriptor, descriptor) == 0;
+                           }
                          })) {
           return false;
         }

@@ -36,7 +36,6 @@ class ProfileAssistant {
     kErrorBadProfiles = 3,
     kErrorIO = 4,
     kErrorCannotLock = 5,
-    kErrorDifferentVersions = 6,
   };
 
   class Options {

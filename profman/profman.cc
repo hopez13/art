@@ -337,6 +337,9 @@ class ProfMan final {
       } else if (option == "--generate-boot-image-profile") {
         generate_boot_image_profile_ = true;
       } else if (option == "--generate-boot-android-profile") {
+        // TODO: Remove this option. It has no effect on the generated file
+        // as profman does not add the special boot image flags and the
+        // output file is therefore identical with or without this option.
         generate_boot_android_profile_ = true;
       } else if (StartsWith(option, "--method-threshold=")) {
         ParseUintOption(raw_option,
@@ -765,7 +768,6 @@ class ProfMan final {
   // followed by an IC description matching the format described by ProcessLine
   // below. Note that this will collapse all ICs with the same receiver type.
   std::string GetInlineCacheLine(const ProfileCompilationInfo& profile_info,
-                                 std::vector<std::unique_ptr<const DexFile>>* dex_files,
                                  const dex::MethodId& id,
                                  const DexFile* dex_file,
                                  uint16_t dex_method_idx) {
@@ -779,7 +781,7 @@ class ProfMan final {
     struct IcLineInfo {
       bool is_megamorphic_ = false;
       bool is_missing_types_ = false;
-      std::set<TypeReference> classes_;
+      std::set<dex::TypeIndex> classes_;
     };
     std::unordered_map<dex::TypeIndex, IcLineInfo> ics;
     CodeItemInstructionAccessor accessor(
@@ -802,14 +804,8 @@ class ProfMan final {
       if (ic_data.is_missing_types) {
         val->second.is_missing_types_ = true;
       }
-      for (auto cls : ic_data.classes) {
-        const DexFile* class_dex_file =
-            profile_info.FindDexFileForProfileIndex(cls.dex_profile_index, *dex_files);
-        if (class_dex_file == nullptr) {
-          val->second.is_missing_types_ = true;
-          continue;
-        }
-        val->second.classes_.insert({ class_dex_file, cls.type_index });
+      for (dex::TypeIndex type_index : ic_data.classes) {
+        val->second.classes_.insert(type_index);
       }
     }
     if (ics.empty()) {
@@ -826,13 +822,12 @@ class ProfMan final {
         dump_ic << kMegamorphicTypesMarker;
       } else {
         bool first = true;
-        for (const auto& klass : dex_data.classes_) {
+        for (dex::TypeIndex type_index : dex_data.classes_) {
           if (!first) {
             dump_ic << kProfileParsingTypeSep;
           }
           first = false;
-          dump_ic << klass.dex_file->GetTypeDescriptor(
-              klass.dex_file->GetTypeId(klass.TypeIndex()));
+          dump_ic << profile_info.GetTypeDescriptor(dex_file, type_index);
         }
       }
     }
@@ -859,8 +854,7 @@ class ProfMan final {
                                             &startup_methods,
                                             &post_startup_methods)) {
         for (const dex::TypeIndex& type_index : class_types) {
-          const dex::TypeId& type_id = dex_file->GetTypeId(type_index);
-          out_lines->insert(std::string(dex_file->GetTypeDescriptor(type_id)));
+          out_lines->insert(profile_info.GetTypeDescriptor(dex_file.get(), type_index));
         }
         combined_methods = hot_methods;
         combined_methods.insert(startup_methods.begin(), startup_methods.end());
@@ -881,7 +875,7 @@ class ProfMan final {
             flags_string += kMethodFlagStringPostStartup;
           }
           std::string inline_cache_string =
-              GetInlineCacheLine(profile_info, dex_files, id, dex_file.get(), dex_method_idx);
+              GetInlineCacheLine(profile_info, id, dex_file.get(), dex_method_idx);
           out_lines->insert(flags_string + type_string + kMethodSep + method_name +
                             signature_string + inline_cache_string);
         }

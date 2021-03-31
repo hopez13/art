@@ -342,7 +342,7 @@ class ProfileAssistantTest : public CommonRuntimeTest, public ProfileTestHelper 
 
   void AssertInlineCaches(ArtMethod* method,
                           uint16_t dex_pc,
-                          const TypeReferenceSet& expected_clases,
+                          const TypeReferenceSet& expected_classes,
                           const ProfileCompilationInfo& info,
                           bool is_megamorphic,
                           bool is_missing_types)
@@ -352,14 +352,15 @@ class ProfileAssistantTest : public CommonRuntimeTest, public ProfileTestHelper 
     ASSERT_TRUE(hotness.IsHot());
     const ProfileCompilationInfo::InlineCacheMap* inline_caches = hotness.GetInlineCacheMap();
     ASSERT_TRUE(inline_caches->find(dex_pc) != inline_caches->end());
-    AssertInlineCaches(expected_clases,
+    AssertInlineCaches(expected_classes,
                        info,
+                       method,
                        inline_caches->find(dex_pc)->second,
                        is_megamorphic,
                        is_missing_types);
   }
   void AssertInlineCaches(ArtMethod* method,
-                          const TypeReferenceSet& expected_clases,
+                          const TypeReferenceSet& expected_classes,
                           const ProfileCompilationInfo& info,
                           bool is_megamorphic,
                           bool is_missing_types)
@@ -369,8 +370,9 @@ class ProfileAssistantTest : public CommonRuntimeTest, public ProfileTestHelper 
     ASSERT_TRUE(hotness.IsHot());
     const ProfileCompilationInfo::InlineCacheMap* inline_caches = hotness.GetInlineCacheMap();
     ASSERT_EQ(inline_caches->size(), 1u);
-    AssertInlineCaches(expected_clases,
+    AssertInlineCaches(expected_classes,
                        info,
+                       method,
                        inline_caches->begin()->second,
                        is_megamorphic,
                        is_missing_types);
@@ -378,6 +380,7 @@ class ProfileAssistantTest : public CommonRuntimeTest, public ProfileTestHelper 
 
   void AssertInlineCaches(const TypeReferenceSet& expected_clases,
                           const ProfileCompilationInfo& info,
+                          ArtMethod* method,
                           const ProfileCompilationInfo::DexPcData& dex_pc_data,
                           bool is_megamorphic,
                           bool is_missing_types)
@@ -385,12 +388,26 @@ class ProfileAssistantTest : public CommonRuntimeTest, public ProfileTestHelper 
     ASSERT_EQ(dex_pc_data.is_megamorphic, is_megamorphic);
     ASSERT_EQ(dex_pc_data.is_missing_types, is_missing_types);
     ASSERT_EQ(expected_clases.size(), dex_pc_data.classes.size());
+    const DexFile* dex_file = method->GetDexFile();
     size_t found = 0;
     for (const TypeReference& type_ref : expected_clases) {
-      for (const auto& class_ref : dex_pc_data.classes) {
-        if (class_ref.type_index == type_ref.TypeIndex() &&
-            ProfileIndexMatchesDexFile(info, class_ref.dex_profile_index, type_ref.dex_file)) {
-          found++;
+      if (type_ref.dex_file == dex_file) {
+        CHECK_LT(type_ref.TypeIndex().index_, dex_file->NumTypeIds());
+        for (dex::TypeIndex type_index : dex_pc_data.classes) {
+          ASSERT_TRUE(type_index.IsValid());
+          if (type_ref.TypeIndex() == type_index) {
+            ++found;
+          }
+        }
+      } else {
+        // Match by descriptor.
+        const char* expected_descriptor = type_ref.dex_file->StringByTypeIdx(type_ref.TypeIndex());
+        for (dex::TypeIndex type_index : dex_pc_data.classes) {
+          ASSERT_TRUE(type_index.IsValid());
+          const char* descriptor = info.GetTypeDescriptor(dex_file, type_index);
+          if (strcmp(expected_descriptor, descriptor) == 0) {
+            ++found;
+          }
         }
       }
     }
