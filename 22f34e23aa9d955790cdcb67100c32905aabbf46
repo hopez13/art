@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec02c8b_70bc1ab2",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T14:31:28Z",
+      "side": 1,
+      "message": "Besides the issue with requiring all the duplicate entries here (can you please point me to that ticket, btw?), I\u0027d prefer to avoid the duplication wrt manifest_art.json. Is it possible to create it with a genrule?",
+      "revId": "22f34e23aa9d955790cdcb67100c32905aabbf46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
