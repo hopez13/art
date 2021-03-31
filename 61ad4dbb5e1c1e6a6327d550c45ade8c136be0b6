@@ -70,6 +70,30 @@
       },
       "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ad38b1_da7056c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T14:58:29Z",
+      "side": 1,
+      "message": "No. \u0027core-oj\u0027 will be added to the no-inline list (as if you\u0027d put it in- -no-inline-from) even if you don\u0027t pass anything on host. this flag turns that behavior off.\n\n\n    const std::string core_oj \u003d \"core-oj\";\n    if (!kIsTargetBuild \u0026\u0026 !ContainsElement(no_inline_filters, core_oj)) {\n      no_inline_filters.push_back(core_oj);",
+      "parentUuid": "36f2f918_163ff6ed",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
