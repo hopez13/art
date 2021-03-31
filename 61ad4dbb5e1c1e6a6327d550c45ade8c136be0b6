@@ -118,6 +118,30 @@
       },
       "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73538106_bad7684c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-03-31T17:09:07Z",
+      "side": 1,
+      "message": "Yikes, thanks for reminding me we unconditionally add on the host. Given this has some limited use, I\u0027d prefer if we just keep it simple and avoid adding new flags, but won\u0027t push for it if you and others think it\u0027s worthwhile.",
+      "parentUuid": "ce238732_5b2239dc",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
