@@ -34,6 +34,24 @@
       "parentUuid": "dec02c8b_70bc1ab2",
       "revId": "22f34e23aa9d955790cdcb67100c32905aabbf46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19358a64_13fa40ac",
+        "filename": "build/apex/test_apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T14:54:04Z",
+      "side": 1,
+      "message": "Thanks. \n\nSomething like this:\n\n  genrule {\n    name: \"test_apex_manifest\",\n    srcs: [\"manifest-art.json\"],\n    out: [\"manifest-art-test.json\"],\n    cmd: \"sed -e s/\\\"version\\\": [0-9]+/\\\"version\\\": 2147483647 \u003c $(in) \u003e $(out)\",\n  }\n\n  apex {\n    ...\n    manifest: \":test_apex_manifest\",\n    ...\n  }\n\nWhat I\u0027m unsure about is if apex{} accepts a genrule in the manifest arg.",
+      "parentUuid": "dd6012d7_f187dc24",
+      "revId": "22f34e23aa9d955790cdcb67100c32905aabbf46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

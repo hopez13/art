@@ -214,6 +214,24 @@
       "parentUuid": "829d29c2_6fba5dd7",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b84d815_426b87b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T14:54:04Z",
+      "side": 1,
+      "message": "Ok, then I misunderstood the situation. In that case I see no reason to not go with PS2 - it\u0027s clearly better to avoid libraries here that are added automatically by linkerconfig.",
+      "parentUuid": "7b1987b5_1a1c733b",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
