@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b4a6d2_019d04f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-03-31T11:53:03Z",
+      "side": 1,
+      "message": "I removed these per feedback on the earlier CL, but it does look like they are needed:\n\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661] Runtime aborting...\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661] All threads:\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661] DALVIK THREADS (1):\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661] \"main\" prio\u003d10 tid\u003d1 Runnable (still starting up)\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   | group\u003d\"\" sCount\u003d0 ucsCount\u003d0 flags\u003d0 obj\u003d0x0 self\u003d0x74cedf660380     03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   | sysTid\u003d391 nice\u003d-20 cgrp\u003dtop-app sched\u003d0/0 handle\u003d0x74d0264c94f8\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   | state\u003dR schedstat\u003d( 1121289106 1115912514 785 ) utm\u003d14 stm\u003d97 core\u003d0 HZ\u003d100\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   | stack\u003d0x7ffe435ec000-0x7ffe435ee000 stackSize\u003d8188KB\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   | held mutexes\u003d \"abort lock\" \"mutator lock\"(shared held)\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #00 pc 000000000052a8fd  /apex/com.android.art/lib64/libart.so (art::DumpNativeStack(std::__1::basic_ostream\u003cchar, std::__1::char_traits\u003cchar\u003e \u003e\u0026, int, BacktraceMap*, char const*, art::ArtMethod*, void*, bool)+125)                                                                                                                 03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #01 pc 000000000066da18  /apex/com.android.art/lib64/libart.so (art::Thread::DumpStack(std::__1::basic_ostream\u003cchar, std::__1::char_traits\u003cchar\u003e \u003e\u0026, bool, BacktraceMap*, bool) const+360)\n03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #02 pc 000000000068e41d  /apex/com.android.art/lib64/libart.so (art::DumpCheckpoint::Run(art::Thread*)+1085)                                                                                       03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #03 pc 0000000000687412  /apex/com.android.art/lib64/libart.so (art::ThreadList::RunCheckpoint(art::Closure*, art::Closure*)+226)                                                                  03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #04 pc 00000000006864cd  /apex/com.android.art/lib64/libart.so (art::ThreadList::Dump(std::__1::basic_ostream\u003cchar, std::__1::char_traits\u003cchar\u003e \u003e\u0026, bool)+1197)                                    03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #05 pc 000000000061396d  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+2349)                                                                                             03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #06 pc 000000000001936f  /system/lib64/libbase.so (android::base::SetAborter(std::__1::function\u003cvoid (char const*)\u003e\u0026\u0026)::$_3::__invoke(char const*)+63)                                             03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #07 pc 00000000000075f5  /system/lib64/liblog.so (__android_log_assert+373)                                                                                                                        03-31 06:02:14.477   391   391 F zygote64: runtime.cc:661]   native: #08 pc 0000000000009719  /apex/com.android.art/lib64/libnativeloader.so (android::nativeloader::LibraryNamespaces::Initialize()+313)                                                              ",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
