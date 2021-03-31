@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61df579a_9afab85e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T17:17:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3504a456_3ae5967f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 231
+      },
+      "revId": "17f8228234c91a1422a3139d8760aeabca796cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e4501c6_073ee037",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-31T10:41:49Z",
       "side": 1,
       "message": "Given the `ASSERT_EQ(merges.size(), 1u)` above, simplify this as\n\n  HPhi* merge_alloc \u003d merges[0];\n  ASSERT_NE(merge_alloc, nullptr);\n  ASSERT_EQ(merge_alloc-\u003eGetType(), DataType::Type::kReference);",
+      "range": {
+        "startLine": 6319,
+        "startChar": 2,
+        "endLine": 6322,
+        "endChar": 34
+      },
+      "revId": "17f8228234c91a1422a3139d8760aeabca796cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0cd185f_a94a6220",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6322,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T17:17:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e4501c6_073ee037",
       "range": {
         "startLine": 6319,
         "startChar": 2,
