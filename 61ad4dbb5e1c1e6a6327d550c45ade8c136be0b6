@@ -22,6 +22,30 @@
       },
       "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b0f347_2809e69d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-03-31T14:43:49Z",
+      "side": 1,
+      "message": "it was put in to ensure build changes wouldn\u0027t accidently inline gpl code into anything. I\u0027m not sure we want to completely remove that behavior.\n\nwhat are you suggesting?",
+      "parentUuid": "560fe34f_6a5fff11",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "61ad4dbb5e1c1e6a6327d550c45ade8c136be0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
