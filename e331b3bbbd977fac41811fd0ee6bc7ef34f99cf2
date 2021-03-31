@@ -50,6 +50,24 @@
       "message": "Can you tell me more about this? (curiosity)",
       "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "577f33a9_2a26f9c6",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-03-31T22:01:58Z",
+      "side": 1,
+      "message": "Lines like this one are sensitive to leftover files: https://cs.android.com/android/platform/superproject/+/master:art/tools/build_linux_bionic_tests.sh;l\u003d93;drc\u003dfbdda07e7bbf7d835356d98a3ca294e5d2a160e7 It should probably delete those locations before it starts the build, but I didn\u0027t dig into that.",
+      "parentUuid": "16fe65bf_26ee5aef",
+      "revId": "e331b3bbbd977fac41811fd0ee6bc7ef34f99cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
