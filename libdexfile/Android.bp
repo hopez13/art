@@ -88,6 +88,9 @@ cc_defaults {
             ],
         },
         windows: {
+            exclude_srcs: [
+                "external/dex_file_ext.cc",
+            ],
             static_libs: [
                 "libziparchive",
                 "libz",
