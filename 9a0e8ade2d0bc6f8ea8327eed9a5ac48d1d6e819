@@ -33,6 +33,24 @@
       "message": "You\u0027re removing all such lines, so you need to remove those from the expected output as well.",
       "revId": "9a0e8ade2d0bc6f8ea8327eed9a5ac48d1d6e819",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb2315c6_6d9b30bf",
+        "filename": "test/817-hiddenapi/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-01T08:29:34Z",
+      "side": 1,
+      "message": "These are the \"OnUnload\" lines, the expected output only has \"OnLoad\".",
+      "parentUuid": "95eb1e87_7ddc5653",
+      "revId": "9a0e8ade2d0bc6f8ea8327eed9a5ac48d1d6e819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
