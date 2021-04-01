@@ -250,6 +250,24 @@
       "parentUuid": "8b84d815_426b87b5",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f6b5964_fb6de91f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-04-01T07:53:40Z",
+      "side": 1,
+      "message": "Manually crafted libraries list can be incorrect as shown above. It has to be adjusted whenever there\u0027s a change in the library dependencies. I wish we could disallow specifying libraries list manually as that is done by the build system.\n\nPS3 is closer to the reality compared to PS2.",
+      "parentUuid": "fe050b76_4bbd0aaf",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
