@@ -53,6 +53,11 @@ art_cc_library_static {
         "com.android.art",
         "com.android.art.debug",
     ],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
 }
 
 art_cc_library_static {
