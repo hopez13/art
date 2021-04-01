@@ -268,6 +268,24 @@
       "parentUuid": "fe050b76_4bbd0aaf",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "851cfb1b_fe113686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-04-01T09:14:37Z",
+      "side": 1,
+      "message": "Yeah, I agree. So we should really get rid of the manual library spec, which will be tracked in b/184148353.\n\nSubmitting this for now to unblock the test, as mast@ is also OOO until Tue.",
+      "parentUuid": "4f6b5964_fb6de91f",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
