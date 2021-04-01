@@ -41,4 +41,9 @@ art_cc_binary {
         "liblzma",
         "liblog",
     ],
+    target: {
+        darwin: {
+            enabled: true,
+        },
+    },
 }
