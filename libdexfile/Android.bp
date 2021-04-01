@@ -45,7 +45,6 @@ cc_defaults {
         "dex/standard_dex_file.cc",
         "dex/type_lookup_table.cc",
         "dex/utf.cc",
-        "external/dex_file_ext.cc",
     ],
     header_libs: [
         "jni_headers",
@@ -85,6 +84,9 @@ cc_defaults {
             ],
             export_shared_lib_headers: [
                 "libbase",
+            ],
+            srcs: [
+                "external/dex_file_ext.cc",
             ],
         },
         windows: {
