@@ -2833,7 +2833,7 @@ void LSEVisitor::PrepareForPartialPhiComputation() {
   std::replace_if(
       phi_placeholder_replacements_.begin(),
       phi_placeholder_replacements_.end(),
-      [](const Value& val) { return val.IsPureUnknown(); },
+      [](const Value& val) { return !val.IsDefault() && !val.IsInstruction(); },
       Value::Invalid());
 }
 
@@ -3100,6 +3100,26 @@ class PartialLoadStoreEliminationHelper {
         }
         DCHECK(BeforeAllEscapes(ins->GetBlock())) << *ins;
         if (ins->IsInstanceFieldGet() || ins->IsInstanceFieldSet()) {
+          if (ins->IsInstanceFieldGet()) {
+            // Make sure users of read are replaced.
+            std::for_each(ins->GetUses().begin(),
+                          ins->GetUses().end(),
+                          [&](const HUseListNode<HInstruction*>& use) {
+                            use.GetUser()->ReplaceInput(
+                                helper_->lse_->GetPartialValueAt(OriginalNewInstance(), ins),
+                                use.GetIndex());
+                          });
+            std::for_each(ins->GetEnvUses().begin(),
+                          ins->GetEnvUses().end(),
+                          [&](const HUseListNode<HEnvironment*>& use) {
+                            use.GetUser()->ReplaceInput(
+                                helper_->lse_->GetPartialValueAt(OriginalNewInstance(), ins),
+                                use.GetIndex());
+                          });
+          } else {
+            DCHECK(ins->GetUses().empty());
+            DCHECK(ins->GetEnvUses().empty());
+          }
           ins->GetBlock()->RemoveInstruction(ins);
         } else {
           // Can only be obj == other, obj != other, obj == obj (!?) or, obj != obj (!?)
@@ -3554,12 +3574,12 @@ HInstruction* LSEVisitor::SetupPartialMaterialization(PartialLoadStoreEliminatio
     info = field_infos_[loc_off];
     DCHECK(loc->GetIndex() == nullptr);
     Value value = ReplacementOrValue(heap_values_for_[old_pred->GetBlockId()][loc_off].value);
-    if (value.NeedsLoopPhi()) {
+    if (value.NeedsLoopPhi() || value.IsMergedUnknown()) {
       Value repl = phi_placeholder_replacements_[PhiPlaceholderIndex(value.GetPhiPlaceholder())];
       DCHECK(!repl.IsUnknown());
       DCHECK(repl.IsDefault() || repl.IsInvalid() || repl.IsInstruction())
           << repl << " from " << value << " pred is " << old_pred->GetBlockId();
-      if (!repl.IsInvalid()) {
+      if (repl.IsDefault() || repl.IsInstruction()) {
         value = repl;
       } else {
         FullyMaterializePhi(value.GetPhiPlaceholder(), info->GetFieldType());
@@ -3569,7 +3589,7 @@ HInstruction* LSEVisitor::SetupPartialMaterialization(PartialLoadStoreEliminatio
       Value repl = phi_placeholder_replacements_[PhiPlaceholderIndex(value.GetPhiPlaceholder())];
       DCHECK(repl.IsDefault() || repl.IsInvalid() || repl.IsInstruction())
           << repl << " from " << value << " pred is " << old_pred->GetBlockId();
-      if (!repl.IsInvalid()) {
+      if (repl.IsDefault() || repl.IsInstruction()) {
         value = repl;
       } else {
         MaterializeNonLoopPhis(value.GetPhiPlaceholder(), info->GetFieldType());
