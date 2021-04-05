@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbe073b3_20dbec9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-05T21:52:27Z",
+      "side": 1,
+      "message": "vmarko: this seems like the kind of code you\u0027d be one to review? (`git blame` seems to agree with my  guess too :-) )\n\nwe\u0027re assuming you\u0027d rather keep this roughly as-is rather than trying to inline it into the call site? (the clang assembler doesn\u0027t let you scope local labels.)",
+      "revId": "41dd6a3b31e161702e2d97a950717a61b29cd22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
