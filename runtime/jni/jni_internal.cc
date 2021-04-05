@@ -167,9 +167,9 @@ static hiddenapi::AccessContext GetJniAccessContext(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Construct AccessContext from the first calling class on stack.
   // If the calling class cannot be determined, e.g. unattached threads,
-  // we conservatively assume the caller is trusted.
+  // we don't trust the caller.
   ObjPtr<mirror::Class> caller = GetCallingClass(self, /* num_frames= */ 1);
-  return caller.IsNull() ? hiddenapi::AccessContext(/* is_trusted= */ true)
+  return caller.IsNull() ? hiddenapi::AccessContext(/* is_trusted= */ false)
                          : hiddenapi::AccessContext(caller);
 }
 
