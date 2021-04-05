@@ -16,6 +16,23 @@
       "message": "vmarko: this seems like the kind of code you\u0027d be one to review? (`git blame` seems to agree with my  guess too :-) )\n\nwe\u0027re assuming you\u0027d rather keep this roughly as-is rather than trying to inline it into the call site? (the clang assembler doesn\u0027t let you scope local labels.)",
       "revId": "41dd6a3b31e161702e2d97a950717a61b29cd22f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb2f4a3_b76cb7fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2021-04-05T23:22:48Z",
+      "side": 1,
+      "message": "It looks like both GNU as and the LLVM assembler allow multi-digit local labels (maybe limited by [U]LONG_MAX), so if we do want to inline the instructions, we could define new labels in SETUP_GOT_NOSAVE that are unique w.r.t. to the rest of art/runtime/arch/x86.\n\nBionic did something similar for its PIC setup instructions (copying OpenBSD):\n\nhttps://googleplex-android-review.git.corp.google.com/c/platform/bionic/+/521204/1//COMMIT_MSG#10\n\nhttps://android-review.googlesource.com/c/platform/bionic/+/103901/\n\nhttps://github.com/openbsd/src/blob/53ca2301ea390a7d267740587ab06efb1592d445/sys/arch/i386/include/asm.h#L45\n",
+      "revId": "41dd6a3b31e161702e2d97a950717a61b29cd22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
