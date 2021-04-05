@@ -125,10 +125,10 @@ static hiddenapi::AccessContext GetReflectionCaller(Thread* self)
 
   // Construct AccessContext from the calling class found on the stack.
   // If the calling class cannot be determined, e.g. unattached threads,
-  // we conservatively assume the caller is trusted.
+  // we don't trust the caller.
   ObjPtr<mirror::Class> caller = (visitor.caller == nullptr)
       ? nullptr : visitor.caller->GetDeclaringClass();
-  return caller.IsNull() ? hiddenapi::AccessContext(/* is_trusted= */ true)
+  return caller.IsNull() ? hiddenapi::AccessContext(/* is_trusted= */ false)
                          : hiddenapi::AccessContext(caller);
 }
 
