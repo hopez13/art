@@ -52,6 +52,24 @@
       "parentUuid": "54a69d43_56de9835",
       "revId": "6ff674a1ae256b34ab53701177c00e4831e29ef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b416a40b_13707935",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T11:29:52Z",
+      "side": 1,
+      "message": "And we\u0027d have to update the reflection code in java_lang_Class.cc as well. There is no point in preventing direct JNI access if you can work around the restriction by wrapping the access in reflection. (See `git grep \u0027is_trusted\u003d\u0027`.)",
+      "parentUuid": "5e9a4c9b_dc6add33",
+      "revId": "6ff674a1ae256b34ab53701177c00e4831e29ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
