@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "574ec265_5f00f2c2",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T16:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4937eee_b31cc325",
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5471f211_0158abd4",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e7ee880_58fdd601",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T16:42:08Z",
+      "side": 1,
+      "message": "Ah excellent, thanks! You\u0027re right the inline cache can trigger this. For the IsDefault check, the comment seems right as I\u0027m not hitting the issue with the same use case but with a default method.\n\nI still don\u0027t see why we need the IsDefaultConflicting check though. A default conflict method always ends up in the vtable, so we are able to change the HInvokeInterface into a HInvokeVirtual.",
+      "parentUuid": "5471f211_0158abd4",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 73
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cef5c4a9_2a9c2ae8",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 6
@@ -54,6 +96,30 @@
       "writtenOn": "2021-04-06T15:41:53Z",
       "side": 1,
       "message": "This case is actually not interesting. The static type of the receiver is `Itf` and the resolved method is `Itf.mConflict()` which is a normal default method, not a default conflicting method.",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e186f60_03532092",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T16:42:08Z",
+      "side": 1,
+      "message": "At runtime it will be a default conflict though.",
+      "parentUuid": "cef5c4a9_2a9c2ae8",
       "range": {
         "startLine": 79,
         "startChar": 4,
