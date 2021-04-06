@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f60615_31f864d2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Maybe rename to RemoveAndReplaceInputs()?",
+      "range": {
+        "startLine": 3095,
+        "startChar": 9,
+        "endLine": 3095,
+        "endChar": 20
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30afaea5_ce9be7f4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "You\u0027re indirectly modifying the `IntrusiveForwardList\u003c\u003e` while you\u0027re iterating over it. That\u0027s unsafe and you should replace it with `while (!\u003clist\u003e.empty()) { process \u003clist\u003e.front() }`. Same below.\n\n(We\u0027re actually moving the node from one container to another with `splice_after()`, so you may end up iterating over the wrong container.)",
+      "range": {
+        "startLine": 3108,
+        "startChar": 28,
+        "endLine": 3108,
+        "endChar": 55
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecf019d_c01676fa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "This DCHECK() is unnecessary given the DCHECK() on the next line.",
+      "range": {
+        "startLine": 3579,
+        "startChar": 6,
+        "endLine": 3579,
+        "endChar": 32
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe66ed7_5141f0ec",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "You could have left this as `!repl.IsInvald()`. There is no difference if you trust the DCHECK() above.",
+      "range": {
+        "startLine": 3582,
+        "startChar": 10,
+        "endLine": 3582,
+        "endChar": 50
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a81d662_5d8ce075",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3592,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3592,
+        "startChar": 10,
+        "endLine": 3592,
+        "endChar": 50
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa0f9a6_71ab4ac3",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5969,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f63887b_e478b1fe",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5986,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Duplicate assertion.",
+      "range": {
+        "startLine": 5986,
+        "startChar": 2,
+        "endLine": 5986,
+        "endChar": 33
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9edfdf78_48731774",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6011,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d578a92_4aa3047c",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7307,
+        "startChar": 50,
+        "endLine": 7307,
+        "endChar": 72
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "343eb342_34aafd9d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7337,
+        "startChar": 2,
+        "endLine": 7337,
+        "endChar": 27
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7907f2_7e71c10d",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7341,
+        "startChar": 2,
+        "endLine": 7341,
+        "endChar": 71
+      },
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc4260e_567d42f5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T14:50:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "035ede887463996ff7aca34e14d2c26c33749592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
