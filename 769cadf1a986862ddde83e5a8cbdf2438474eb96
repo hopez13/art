@@ -57,6 +57,24 @@
       "parentUuid": "e248fce8_b39a4218",
       "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f6c9828_0c9d6ae0",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-06T01:22:20Z",
+      "side": 1,
+      "message": "This also works if you put the AIDL files in a filegroup.",
+      "parentUuid": "37cee3ad_0eda36fa",
+      "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
