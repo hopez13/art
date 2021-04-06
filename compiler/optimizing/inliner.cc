@@ -1270,6 +1270,7 @@ bool HInliner::TryInlineAndReplace(HInvoke* invoke_instruction,
   } else if (!TryBuildAndInline(invoke_instruction, method, receiver_type, &return_replacement)) {
     if (invoke_instruction->IsInvokeInterface()) {
       DCHECK(!method->IsProxyMethod());
+      CHECK(!method->IsDefaultConflicting());
       // Turn an invoke-interface into an invoke-virtual. An invoke-virtual is always
       // better than an invoke-interface because:
       // 1) In the best case, the interface call has one more indirection (to fetch the IMT).
@@ -1282,13 +1283,6 @@ bool HInliner::TryInlineAndReplace(HInvoke* invoke_instruction,
         // always uses a method in the iftable which is never an original default
         // method.
         // On the other hand, inlining an original default method by CHA is fine.
-        DCHECK(cha_devirtualize);
-        return false;
-      }
-
-      if (method->IsDefault() && method->IsDefaultConflicting()) {
-        // Changing to invoke-virtual cannot be done on default conflict method
-        // since it's not in any vtable.
         DCHECK(cha_devirtualize);
         return false;
       }
@@ -1786,14 +1780,12 @@ void HInliner::SubstituteArguments(HGraph* callee_graph,
 bool HInliner::CanInlineBody(const HGraph* callee_graph,
                              const HBasicBlock* target_block,
                              size_t* out_number_of_instructions) const {
-  const DexFile& callee_dex_file = callee_graph->GetDexFile();
   ArtMethod* const resolved_method = callee_graph->GetArtMethod();
-  const uint32_t method_index = resolved_method->GetMethodIndex();
 
   HBasicBlock* exit_block = callee_graph->GetExitBlock();
   if (exit_block == nullptr) {
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInfiniteLoop)
-        << "Method " << callee_dex_file.PrettyMethod(method_index)
+        << "Method " << resolved_method->PrettyMethod()
         << " could not be inlined because it has an infinite loop";
     return false;
   }
@@ -1804,21 +1796,21 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
       if (target_block->IsTryBlock()) {
         // TODO(ngeoffray): Support adding HTryBoundary in Hgraph::InlineInto.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedTryCatch)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because one branch always throws and"
             << " caller is in a try/catch block";
         return false;
       } else if (graph_->GetExitBlock() == nullptr) {
         // TODO(ngeoffray): Support adding HExit in the caller graph.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInfiniteLoop)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because one branch always throws and"
             << " caller does not have an exit block";
         return false;
       } else if (graph_->HasIrreducibleLoops()) {
         // TODO(ngeoffray): Support re-computing loop information to graphs with
         // irreducible loops?
-        VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
+        VLOG(compiler) << "Method " << resolved_method->PrettyMethod()
                        << " could not be inlined because one branch always throws and"
                        << " caller has irreducible loops";
         return false;
@@ -1830,7 +1822,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
 
   if (!has_one_return) {
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedAlwaysThrows)
-        << "Method " << callee_dex_file.PrettyMethod(method_index)
+        << "Method " << resolved_method->PrettyMethod()
         << " could not be inlined because it always throws";
     return false;
   }
@@ -1843,7 +1835,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
         // Don't inline methods with irreducible loops, they could prevent some
         // optimizations to run.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedIrreducibleLoop)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because it contains an irreducible loop";
         return false;
       }
@@ -1852,7 +1844,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
         // loop information to be computed incorrectly when updating after
         // inlining.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedLoopWithoutExit)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because it contains a loop with no exit";
         return false;
       }
@@ -1863,7 +1855,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
          instr_it.Advance()) {
       if (++number_of_instructions >= inlining_budget_) {
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInstructionBudget)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " is not inlined because the outer method has reached"
             << " its instruction budget limit.";
         return false;
@@ -1872,7 +1864,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
       if (current->NeedsEnvironment() &&
           (total_number_of_dex_registers_ >= kMaximumNumberOfCumulatedDexRegisters)) {
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedEnvironmentBudget)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " is not inlined because its caller has reached"
             << " its environment budget limit.";
         return false;
@@ -1882,7 +1874,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
           !CanEncodeInlinedMethodInStackMap(*caller_compilation_unit_.GetDexFile(),
                                             resolved_method)) {
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedStackMaps)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because " << current->DebugName()
             << " needs an environment, is in a different dex file"
             << ", and cannot be encoded in the stack maps.";
@@ -1895,7 +1887,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
           current->IsUnresolvedInstanceFieldSet()) {
         // Entrypoint for unresolved fields does not handle inlined frames.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedUnresolvedEntrypoint)
-            << "Method " << callee_dex_file.PrettyMethod(method_index)
+            << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because it is using an unresolved"
             << " entrypoint";
         return false;
