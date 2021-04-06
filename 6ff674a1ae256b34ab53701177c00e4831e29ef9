@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e8a587_04b02b52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T10:52:01Z",
+      "side": 1,
+      "message": "AFAIR, this wasn\u0027t possible due to platform libraries that were also attaching threads and accessing non-SDK APIs (which they are allowed to as being platform libraries). Mathew, is that right?",
+      "revId": "6ff674a1ae256b34ab53701177c00e4831e29ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
