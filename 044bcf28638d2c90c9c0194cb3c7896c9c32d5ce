@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8763eda9_5c44cae8",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T15:00:48Z",
+      "side": 1,
+      "message": "Are all the calls under the `HasSingleImplementation()` condition?",
+      "parentUuid": "393453fc_a34e350a",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 35
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a86fbfbd_c30e5517",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 2
