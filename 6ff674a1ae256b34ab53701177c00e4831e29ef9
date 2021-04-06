@@ -16,6 +16,24 @@
       "message": "AFAIR, this wasn\u0027t possible due to platform libraries that were also attaching threads and accessing non-SDK APIs (which they are allowed to as being platform libraries). Mathew, is that right?",
       "revId": "6ff674a1ae256b34ab53701177c00e4831e29ef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54a69d43_56de9835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-04-06T11:04:08Z",
+      "side": 1,
+      "message": "I don\u0027t recall I\u0027m afraid.\n\nEither way, this seems like a highly risky change that should, at the very least, be protected using go/compat-framework.\n\nRunning the presubmits may expose some issues, and more are likely to come up in post-submit. We should also request a manual app compat test run to catch issues with major apps.\n\nI suggest contacting compat-team@ for assistance. I\u0027d say it\u0027s too late for S now, and we should hold off until T.",
+      "parentUuid": "e0e8a587_04b02b52",
+      "revId": "6ff674a1ae256b34ab53701177c00e4831e29ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
