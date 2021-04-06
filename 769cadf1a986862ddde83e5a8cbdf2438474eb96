@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4d06420_f8bea02a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-04-06T22:21:00Z",
+      "side": 1,
+      "message": "Thanks for the help Steve.",
+      "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3116c1c1_4e2ab83d",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-04-06T00:50:30Z",
       "side": 1,
       "message": "deleting this and removing the subdir works. That\u0027s probably the best solution to get unblocked.",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58b1634_e05c7648",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-04-06T22:21:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3116c1c1_4e2ab83d",
       "range": {
         "startLine": 24,
         "startChar": 9,
@@ -73,6 +114,24 @@
       "side": 1,
       "message": "This also works if you put the AIDL files in a filegroup.",
       "parentUuid": "37cee3ad_0eda36fa",
+      "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aede3f3_88808cde",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-04-06T22:21:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f6c9828_0c9d6ae0",
       "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
