@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e248fce8_b39a4218",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-06T00:32:16Z",
+      "side": 1,
+      "message": "add:\n\n    \n    aidl: {\n        local_include_dirs: [\"binder\"],\n    },",
+      "revId": "769cadf1a986862ddde83e5a8cbdf2438474eb96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
