@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d9b965e_073f3b3d",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T13:14:30Z",
+      "side": 1,
+      "message": "Good point. Should we change line 97 to:\nif (!IsAbstract() \u0026\u0026 !IsDefaultConflicting()) {\n\n?",
+      "parentUuid": "6e8d191e_8ee04fd6",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 35
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a86fbfbd_c30e5517",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-06T13:04:00Z",
       "side": 1,
       "message": "There is also a very interesting case where an _interface_ extends both `Itf` and `Itf2`. We are creating a default conflict method in that case and we could theoretically have a single implementation of that method.",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "616496ce_710e8556",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T13:14:30Z",
+      "side": 1,
+      "message": "Right, but I don\u0027t see the code in cha.cc making the default conflict be the single implementation (see InitSingleImplementationFlag method in cha.cc). Do you agree?",
+      "parentUuid": "a86fbfbd_c30e5517",
       "range": {
         "startLine": 35,
         "startChar": 7,
