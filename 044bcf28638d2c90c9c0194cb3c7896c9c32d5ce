@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "393453fc_a34e350a",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T14:09:39Z",
+      "side": 1,
+      "message": "Looking at all the callers of GetSingleImplementation I don\u0027t think there\u0027s any that will hit this CHECK today.",
+      "parentUuid": "dedabe56_40e1a60f",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 35
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a86fbfbd_c30e5517",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 2
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "There\u0027s this comment:\n\n  // Default conflicting methods cannot be treated with single implementations,\n  // as we need to call them (and not inline them) in case of ICCE.\n\nThat\u0027s somewhat misleading for a default conflict method in an interface (or abstract class). There could really be just a single implementation as long as there is no concrete class implementing that interface (or extending that abstract class) and leaving the method as default conflict.\n\nThe fact that we do not currently optimize that case does not mean that we cannot. And it presents an interesting case that we should add to our test suite.",
       "parentUuid": "616496ce_710e8556",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c710e989_ffc57e65",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-06T14:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0881e4d1_df54adda",
       "range": {
         "startLine": 35,
         "startChar": 7,
