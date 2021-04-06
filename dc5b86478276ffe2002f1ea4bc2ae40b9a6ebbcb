@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4937eee_b31cc325",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T15:41:53Z",
+      "side": 1,
+      "message": "Adding `mConflict()` would be interesting as the default-conflicting `Itf3.mConflict()` would then receive an actual single implementation.",
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5471f211_0158abd4",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T15:41:53Z",
+      "side": 1,
+      "message": "What if we call `$noinline$doCallDefaultConflictItf3()` enough to populate the inline cache with the `Itf3Impl` receiver before we do the compilation? If I read the inliner code correctly, that would be the case where `TryInlineMonomorphicCall()` calls `TryInlineAndReplace()` and we crash on the `CHECK(!method-\u003eIsDefaultConflicting());`. I think the `CHECK(cha_devirtualize)` was wrong and misleading in the path you\u0027re trying to remove and may also be wrong and misleading in the `if (method-\u003eIsDefault() \u0026\u0026 !method-\u003eIsCopied())` block.",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 73
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef5c4a9_2a9c2ae8",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-06T15:41:53Z",
+      "side": 1,
+      "message": "This case is actually not interesting. The static type of the receiver is `Itf` and the resolved method is `Itf.mConflict()` which is a normal default method, not a default conflicting method.",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
