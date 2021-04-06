@@ -95,10 +95,13 @@ ArtMethod* ArtMethod::GetNonObsoleteMethod() {
 
 ArtMethod* ArtMethod::GetSingleImplementation(PointerSize pointer_size) {
   if (!IsAbstract()) {
+    CHECK(!IsDefaultConflicting());
     // A non-abstract's single implementation is itself.
     return this;
   }
-  return reinterpret_cast<ArtMethod*>(GetDataPtrSize(pointer_size));
+  ArtMethod* m = reinterpret_cast<ArtMethod*>(GetDataPtrSize(pointer_size));
+  CHECK(m == nullptr || !m->IsDefaultConflicting());
+  return m;
 }
 
 ArtMethod* ArtMethod::FromReflectedMethod(const ScopedObjectAccessAlreadyRunnable& soa,
