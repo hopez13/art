@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c785b4_ab9053e5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-07T17:00:59Z",
+      "side": 1,
+      "message": "made plural",
+      "parentUuid": "5c0697b7_d0baef3b",
+      "range": {
+        "startLine": 3095,
+        "startChar": 25,
+        "endLine": 3095,
+        "endChar": 30
+      },
+      "revId": "8af7480e8e4a8d98c2f828c21a8ea39c5c28ae6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01c9ec0b_8229392f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-07T09:11:19Z",
       "side": 1,
       "message": "The use of `std::reference_wrapper` makes it quite difficult to reason about correctness as the referenced nodes are moved across containers. You need to consider that they are not used anymore inside the loop after the `ReplaceInput()` call to conclude that the code is correct as written.\n\nI would find the following much cleaner:\n\n  if (!ins-\u003eGetUses().empty() || !ins-\u003eGetEnvUses().empty()) {\n    HInstruction* replacement \u003d helper_-\u003else_-\u003eGetPartialValueAt(OriginalNewInstance(), ins);\n    while (!ins-\u003eGetUses().empty()) {\n      const HUseListNode\u003cHInstruction*\u003e\u0026 use \u003d ins-\u003eGetUses().front();\n      use.GetUser()-\u003eReplaceInput(replacement, use.GetIndex());\n    }\n    while (!ins-\u003eGetEnvUses().empty()) {\n      const HUseListNode\u003cHEnvironment*\u003e\u0026 use \u003d ins-\u003eGetEnvUses().front();\n      use.GetUser()-\u003eReplaceInput(replacement, use.GetIndex());\n    }\n  }\n\n(I like lambdas but sometimes they are an overkill.)",
+      "range": {
+        "startLine": 3107,
+        "startChar": 30,
+        "endLine": 3107,
+        "endChar": 52
+      },
+      "revId": "8af7480e8e4a8d98c2f828c21a8ea39c5c28ae6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37ff4b2_48315554",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3107,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-07T17:00:59Z",
+      "side": 1,
+      "message": "I don\u0027t really like how it\u0027s non-obvious that this ever finishes but done I guess.",
+      "parentUuid": "01c9ec0b_8229392f",
       "range": {
         "startLine": 3107,
         "startChar": 30,
