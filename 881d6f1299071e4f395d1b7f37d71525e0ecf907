@@ -33,6 +33,24 @@
       "message": "Should we report that we\u0027re running from APK?",
       "revId": "881d6f1299071e4f395d1b7f37d71525e0ecf907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913c3564_e5bd8261",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3073,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-04-07T17:52:04Z",
+      "side": 1,
+      "message": "I think that\u0027d be worthwhile. Is it okay to do it in a followup CL to keep this one closer to a straight revert?",
+      "parentUuid": "4a5df603_6af123b9",
+      "revId": "881d6f1299071e4f395d1b7f37d71525e0ecf907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
