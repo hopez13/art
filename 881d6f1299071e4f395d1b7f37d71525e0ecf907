@@ -16,6 +16,23 @@
       "message": "Added null check for primary oat file.",
       "revId": "881d6f1299071e4f395d1b7f37d71525e0ecf907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5df603_6af123b9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3073,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-07T09:53:25Z",
+      "side": 1,
+      "message": "Should we report that we\u0027re running from APK?",
+      "revId": "881d6f1299071e4f395d1b7f37d71525e0ecf907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
