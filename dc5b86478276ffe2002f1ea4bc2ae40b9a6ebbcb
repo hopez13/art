@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "752601db_ec307de2",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-07T15:01:36Z",
+      "side": 1,
+      "message": "Try asserting in ClassLinker::LinkInterfaceMethodsHelper::ReallocMethods() that\n\n  CHECK((default_conflict_methods_.empty() \u0026\u0026 overriding_default_conflict_methods_.empty()) ||\n        !klass_-\u003eIsInterface())\n      \u003c\u003c klass_-\u003ePrettyDescriptor() \u003c\u003c \" \"\n      \u003c\u003c default_conflict_methods_.size() \u003c\u003c \" \" \u003c\u003c overriding_default_conflict_methods_.size();\n\nand you\u0027ll quickly get\n\n  Check failed: (default_conflict_methods_.empty() \u0026\u0026 overriding_default_conflict_methods_.empty()) || !klass_-\u003eIsInterface() Itf3 1 0\n\nBut I may have been wrong about the zero-initialization of the method index. The `ClassLinker::LinkInterfaceMethodsHelper::FindMethod()` seems to copy it from a source interface method. So we seem to accidentally hit a valid index and load an actual ArtMethod instead of reading a bogus pointer from outside the vtable and crashing.\n\n(Nit: ArtMethod::CopyFrom() has bad nterp-related indentation.)",
+      "parentUuid": "487d207c_32c5f44a",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 73
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cef5c4a9_2a9c2ae8",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 6
