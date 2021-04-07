@@ -304,6 +304,24 @@
       "parentUuid": "851cfb1b_fe113686",
       "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "927e5bcd_3a2a6439",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-04-07T13:18:38Z",
+      "side": 1,
+      "message": "Martin, you are right. I overlooked the fact that build system \u0027appends\u0027 the list to the user-given manifest. So, yeah, duplicating them here doesn\u0027t give any value. Thanks for correcting me.\n\nYes, what\u0027s more important is to eliminate the need to manually add anything here.",
+      "parentUuid": "392686b7_8b14ddcd",
+      "revId": "b43605f136e9fa4ee5a6f7b6293cd0a2beafff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
