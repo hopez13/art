@@ -16,6 +16,52 @@
       "message": "Are the licence changes intentionally included in the CL?",
       "revId": "a73c670ba0e67ad748bc52a923957bb8e665831e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265b5995_7175fed2",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-08T08:49:50Z",
+      "side": 1,
+      "message": "The change in tools/generate_operator_out.py was from \u0027python\u0027 to \u0027python3\u0027, but this isn\u0027t mirrored here?",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "a73c670ba0e67ad748bc52a923957bb8e665831e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8e0657_b8999451",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-08T08:49:50Z",
+      "side": 1,
+      "message": "Good spot, thanks.",
+      "range": {
+        "startLine": 51,
+        "startChar": 26,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "a73c670ba0e67ad748bc52a923957bb8e665831e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
