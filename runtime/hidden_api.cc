@@ -122,6 +122,7 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
       // This is unexpected only when running on Android.
       LOG(WARNING) << "DexFile " << dex_location
           << " is in boot class path but is not in a known location";
+      return Domain::kApplication;
     }
     return Domain::kPlatform;
   }
