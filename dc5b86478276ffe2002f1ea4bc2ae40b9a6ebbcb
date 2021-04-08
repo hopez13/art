@@ -181,6 +181,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e58463a_fe3ee3a9",
+        "filename": "test/823-cha-inlining/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-08T13:45:38Z",
+      "side": 1,
+      "message": "It adds it to the interface\u0027s methods, not to the vtable. An interface class does not have a vtable, see `fill_tables` in `ClassLinker::LinkInterfaceMethods()`, as indexes to such vtable would be useless for dispatch (cannot reconcile superclass vtable with interface vtable).",
+      "parentUuid": "f333d56b_1b38b960",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 73
+      },
+      "revId": "dc5b86478276ffe2002f1ea4bc2ae40b9a6ebbcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cef5c4a9_2a9c2ae8",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 6
