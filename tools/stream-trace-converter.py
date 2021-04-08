@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (C) 2014 The Android Open Source Project
 #
@@ -115,20 +115,20 @@ class Rewriter:
     stringLength = ReadShortLE(input)
     str = input.read(stringLength)
     self._methods.append(str)
-    print 'New method: %s' % str
+    print('New method: %s' % str)
 
   def ProcessThread(self, input):
     tid = ReadShortLE(input)
     stringLength = ReadShortLE(input)
     str = input.read(stringLength)
     self._threads.append('%d\t%s\n' % (tid, str))
-    print 'New thread: %d/%s' % (tid, str)
+    print('New thread: %d/%s' % (tid, str))
 
   def ProcessTraceSummary(self, input):
     summaryLength = ReadIntLE(input)
     str = input.read(summaryLength)
     self._summary = str
-    print 'Summary: \"%s\"' % str
+    print('Summary: \"%s\"' % str)
 
   def ProcessSpecial(self, input):
     code = ord(input.read(1))
@@ -152,7 +152,7 @@ class Rewriter:
           WriteShortLE(body, threadId)
           Copy(input, body, self._mRecordSize - 2)
     except BufferUnderrun:
-      print 'Buffer underrun, file was probably truncated. Results should still be usable.'
+      print('Buffer underrun, file was probably truncated. Results should still be usable.')
 
   def Finalize(self, header):
     # If the summary is present in the input file, use it as the header except
@@ -202,8 +202,8 @@ def main():
   Rewriter().ProcessFile(sys.argv[1])
   header_name = sys.argv[1] + '.header'
   body_name = sys.argv[1] + '.body'
-  print 'Results have been written to %s and %s.' % (header_name, body_name)
-  print 'Concatenate the files to get a result usable with traceview.'
+  print('Results have been written to %s and %s.' % (header_name, body_name))
+  print('Concatenate the files to get a result usable with traceview.')
   sys.exit(0)
 
 if __name__ == '__main__':

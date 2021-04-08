@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (C) 2017 The Android Open Source Project
 #
@@ -37,7 +37,7 @@ def main():
     warnings = collections.defaultdict(list)
     r = requests.get('https://build.chromium.org/p/client.art/json/builders')
     if r.status_code != 200:
-        print r.text
+        print(r.text)
         return
     builders = json.loads(r.text)
     for builder_name in sorted(builders):
@@ -52,7 +52,7 @@ def main():
                 '/json/builders/%s/builds/%d' % (
                 builder_name, build_num))
             if r.status_code != 200:
-                print r.text
+                print(r.text)
                 return
             builder = json.loads(r.text)
             libcore_steps = [x for x in builder['steps']
@@ -64,7 +64,7 @@ def main():
                     # text version
                     r = requests.get(sl[1] + '/text')
                     if r.status_code != 200:
-                        print r.text
+                        print(r.text)
                         return
                     stdio = r.text.splitlines()
 
@@ -80,16 +80,16 @@ def main():
                             i += 1
                     except IndexError:
                         # Some builds don't have any
-                        print '  No warnings section found.'
+                        print('  No warnings section found.')
     # sharedwarnings will build up the intersection of all the lists of
     # warnings.  We seed it with an arbitrary starting point (which is fine
     # since intersection is commutative).
     sharedwarnings = set(warnings.popitem()[1])
     for warning_list in warnings.itervalues():
         sharedwarnings = sharedwarnings & set(warning_list)
-    print 'Warnings shared across all builders:'
+    print('Warnings shared across all builders:')
     for warning in sorted(list(sharedwarnings)):
-        print warning
+        print(warning)
 
 
 if __name__ == '__main__':

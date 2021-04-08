@@ -28,14 +28,6 @@ python_binary_host {
     srcs: [
         "generate_operator_out.py",
     ],
-    version: {
-        py2: {
-            enabled: true,
-        },
-        py3: {
-            enabled: false,
-        },
-    },
 }
 
 // Copy the art shell script to the host and target's bin directory
@@ -86,14 +78,6 @@ python_binary_host {
         "checker/**/*.py",
     ],
     main: "checker/checker.py",
-    version: {
-        py2: {
-            enabled: false,
-        },
-        py3: {
-            enabled: true,
-        },
-    },
     test_suites: [
         "general-tests",
         "mts",
