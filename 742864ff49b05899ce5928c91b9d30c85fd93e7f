@@ -80,6 +80,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10be08d8_c5565102",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-04-08T21:51:23Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/build/soong/+/1670427 says it should work fine. What error are you seeing?",
+      "parentUuid": "4a4d22f2_179e8e55",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
