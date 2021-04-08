@@ -48,7 +48,7 @@ def get_android_build_top():
 
   if not os.path.exists(os.path.join(path_to_top, 'build/envsetup.sh')):
     print path_to_top
-    raise AssertionError("geneate_cmake_lists.py must be located inside an android source tree")
+    raise AssertionError("generate_cmake_lists.py must be located inside an android source tree")
 
   return path_to_top
 

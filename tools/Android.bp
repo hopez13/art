@@ -15,12 +15,7 @@
 //
 
 package {
-    // See: http://go/android-license-faq
-    // A large-scale-change added 'default_applicable_licenses' to import
-    // all of the 'license_kinds' from "art_license"
-    // to get the below license kinds:
-    //   SPDX-license-identifier-Apache-2.0
-    default_applicable_licenses: ["art_license"],
+    default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
 python_binary_host {
@@ -28,14 +23,6 @@ python_binary_host {
     srcs: [
         "generate_operator_out.py",
     ],
-    version: {
-        py2: {
-            enabled: true,
-        },
-        py3: {
-            enabled: false,
-        },
-    },
 }
 
 // Copy the art shell script to the host and target's bin directory
@@ -86,14 +73,6 @@ python_binary_host {
         "checker/**/*.py",
     ],
     main: "checker/checker.py",
-    version: {
-        py2: {
-            enabled: false,
-        },
-        py3: {
-            enabled: true,
-        },
-    },
     test_suites: [
         "general-tests",
         "mts",
