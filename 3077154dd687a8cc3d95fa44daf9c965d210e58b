@@ -16,6 +16,29 @@
       "message": "Calin, friendly ping.",
       "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89250f8a_d1afceaa",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-04-08T17:53:48Z",
+      "side": 1,
+      "message": "A few lines below there\u0027s a call to OpenDexFiles, which doesn\u0027t align with the expectations you document here.",
+      "range": {
+        "startLine": 904,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 32
+      },
+      "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
