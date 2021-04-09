@@ -87,6 +87,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d52d11d_c424e752",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-04-09T13:25:38Z",
+      "side": 1,
+      "message": "You are proposing compiling different dex files based on sdk level?\n\nIs it not possible to \"hack\" something here, with keeping the first 3 bits to be reserved for Q/R format, and add extra bits for S+ encoding + some bumper? (haven\u0027t thought it through, but thought it would be possible, albeit increase dex sizes)",
+      "parentUuid": "b23dc024_79631492",
+      "revId": "36c356e92f582d468a6d6ac8e4b404f3eba3a95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e82376d_8baeae76",
@@ -124,6 +142,30 @@
       "side": 1,
       "message": "This is already present line 131.",
       "parentUuid": "1e82376d_8baeae76",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 54
+      },
+      "revId": "36c356e92f582d468a6d6ac8e4b404f3eba3a95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "895482c0_97d811d2",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-04-09T13:25:38Z",
+      "side": 1,
+      "message": "kMax could be kInvalid-1 (years from now), which would make this return ApiList(kInvalid).",
+      "parentUuid": "0cea8803_cabca11d",
       "range": {
         "startLine": 226,
         "startChar": 6,
