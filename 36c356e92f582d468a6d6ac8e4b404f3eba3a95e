@@ -240,6 +240,30 @@
       },
       "revId": "36c356e92f582d468a6d6ac8e4b404f3eba3a95e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a9e14fb_ff1c8311",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-09T14:45:32Z",
+      "side": 1,
+      "message": "Ah yes, off by one error :) Added the assert.",
+      "parentUuid": "e3fa5805_e15ac8fd",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 54
+      },
+      "revId": "36c356e92f582d468a6d6ac8e4b404f3eba3a95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
