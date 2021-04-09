@@ -176,6 +176,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1745aaec_fa260ccb",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-04-09T10:27:44Z",
+      "side": 1,
+      "message": "Yes... because APEX stubs are created using the same function as the NDK stubs.\n\nhttps://source.corp.google.com/android/build/soong/cc/ndk_library.go;rcl\u003d74bf62a278f8776fe498b9eb5ef040726ae9285a;l\u003d234\n\nWe perhaps need to revise the implementation of shouldUseVersionScript().",
+      "parentUuid": "7980532e_ab2f0e2f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
