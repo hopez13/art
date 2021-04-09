@@ -104,6 +104,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "616f1950_bee21462",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-04-09T02:51:55Z",
+      "side": 1,
+      "message": "Linker doesn\u0027t accept empty map file. I did an experiment in another library (libincident):\n\n```\nFAILED: out/soong/.intermediates/frameworks/base/libs/incident/libincident/android_arm_armv7-a-neon_shared_30/libincident.so\nprebuilts/clang/host/linux-x86/clang-r416183/bin/clang++  @out/soong/.intermediates/frameworks/base/libs/incident/libincident/android_arm_armv7-a-neon_shared_30/libincident.so.rsp   -o out/soong/.intermediates/frameworks/base/libs/incident/libincident/android_arm_armv7-a-neon_shared_30/libincident.so -target armv7a-linux-androideabi10000 -Bprebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/arm-linux-androideabi/bin -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -Wl,--build-id\u003dmd5 -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined-version -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_stripped.a -Wl,--exclude-libs,libunwind_llvm.a -Wl,--exclude-libs,libunwind.a -Wl,--icf\u003dsafe -fuse-ld\u003dlld -Wl,--pack-dyn-relocs\u003dandroid+relr -Wl,--use-android-relr-tags -Wl,--no-undefined -Wl,--hash-style\u003dgnu -Wl,-m,armelf -Wl,--exclude-libs\u003dlibclang_rt.builtins-arm-android.a  -nostdlib -Wl,--gc-sections -shared -Wl,-soname,libincident.so -Wl,--version-script,out/soong/.intermediates/frameworks/base/libs/incident/libincident/android_arm_armv7-a-neon_shared_30/gen/stub.map \nld.lld: error: out/soong/.intermediates/frameworks/base/libs/incident/libincident/android_arm_armv7-a-neon_shared_30/gen/stub.map:1: unexpected EOF\n```",
+      "parentUuid": "10be08d8_c5565102",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
