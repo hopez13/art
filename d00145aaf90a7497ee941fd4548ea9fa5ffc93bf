@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf4b4ee_a84e89df",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-09T13:28:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4935f8c9_d2cf2848",
+      "range": {
+        "startLine": 1289,
+        "startChar": 10,
+        "endLine": 1289,
+        "endChar": 37
+      },
+      "revId": "d00145aaf90a7497ee941fd4548ea9fa5ffc93bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7904d9e0_4af0d595",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-09T09:58:45Z",
       "side": 1,
       "message": "Check this assumption with\n\n  ObjPtr\u003cmirror::Class\u003e receiver_class \u003d receiver_type.GetTypeHandle();\n  CHECK(!receiver_class-\u003eIsInterface());\n  PointerSize pointer_size \u003d Runtime::Current()-\u003eGetClassLinker()-\u003eGetImagePointerSize();\n  CHECK(method \u003d\u003d receiver_class-\u003eGetVTableEntry(method-\u003eMethodIndex(), pointer_size));",
+      "range": {
+        "startLine": 1291,
+        "startChar": 8,
+        "endLine": 1292,
+        "endChar": 66
+      },
+      "revId": "d00145aaf90a7497ee941fd4548ea9fa5ffc93bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da067728_99278c12",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-09T13:28:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7904d9e0_4af0d595",
       "range": {
         "startLine": 1291,
         "startChar": 8,
