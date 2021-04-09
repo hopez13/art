@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65ef3003_132bc714",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-09T09:58:45Z",
+      "side": 1,
+      "message": "Maybe change to\n\n  if (IsInvokable()) {\n    // An invokable method\u0027s single implementation is itself.\n    return this;\n  }\n  DCHECK(!IsDefaultConflicting()); // Or `DCHECK(IsAbstract())` or both.\n  ...\n\n(Because `IsInvokable()` is faster than `IsAbstract()` in release mode.)",
+      "parentUuid": "1886284f_c75af07e",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 35
+      },
+      "revId": "044bcf28638d2c90c9c0194cb3c7896c9c32d5ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a86fbfbd_c30e5517",
         "filename": "test/823-cha-inlining/src/Main.java",
         "patchSetId": 2
