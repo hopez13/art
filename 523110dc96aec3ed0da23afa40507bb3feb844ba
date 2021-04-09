@@ -68,6 +68,23 @@
       "message": "The test failing is a gtest: dex2oat_image_test.cc\n\nYou can reproduce with m test-art-host-gtest",
       "revId": "523110dc96aec3ed0da23afa40507bb3feb844ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e88f92bd_ad036a13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1319385
+      },
+      "writtenOn": "2021-04-09T15:29:34Z",
+      "side": 1,
+      "message": "Haven\u0027t run it yet, but I assume it comes from a various set of tests to load image from different locations here: https://github.com/LineageOS/android_art/blame/lineage-18.1/dex2oat/dex2oat_image_test.cc#L444\n\n@vmarko, this test is mostly written by you, do you think we should still support these usecases?",
+      "revId": "523110dc96aec3ed0da23afa40507bb3feb844ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
