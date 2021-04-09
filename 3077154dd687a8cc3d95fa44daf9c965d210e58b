@@ -39,6 +39,30 @@
       },
       "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc1cfc23_19c8f580",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-09T09:07:13Z",
+      "side": 1,
+      "message": "It does align, as we pass an empty context_fds vector (the comment is for when that vector should not be empty). Any suggestion how to make the comment clearer?",
+      "parentUuid": "89250f8a_d1afceaa",
+      "range": {
+        "startLine": 904,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 32
+      },
+      "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
