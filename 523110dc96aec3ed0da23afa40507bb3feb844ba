@@ -51,6 +51,23 @@
       "parentUuid": "171c9f75_aad32f6f",
       "revId": "523110dc96aec3ed0da23afa40507bb3feb844ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b1aba1_f44d8263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-09T15:17:20Z",
+      "side": 1,
+      "message": "The test failing is a gtest: dex2oat_image_test.cc\n\nYou can reproduce with m test-art-host-gtest",
+      "revId": "523110dc96aec3ed0da23afa40507bb3feb844ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
