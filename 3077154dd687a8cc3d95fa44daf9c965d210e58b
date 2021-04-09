@@ -63,6 +63,30 @@
       },
       "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc2dbf35_2bc86461",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-04-09T22:51:59Z",
+      "side": 1,
+      "message": "Seems a bit odd because at L913 we open the dex files unconditionally.\n\nAnd this implies that the caller will need to execute context_-\u003eOpenDexFiles() before, even if we execute it here?",
+      "parentUuid": "fc1cfc23_19c8f580",
+      "range": {
+        "startLine": 904,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 32
+      },
+      "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
