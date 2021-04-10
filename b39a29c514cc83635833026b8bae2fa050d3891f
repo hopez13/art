@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e821f6aa_c7601f7e",
+        "filename": "artd/artd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-10T01:13:44Z",
+      "side": 1,
+      "message": "btw - this should be \"aidl/android/os/BnArtd.h\" after it is converted to AIDL. Other than that, see some of the NDK backend tests (see hardware/interfaces or CtsNdkBinderTestCases) for examples, in addition to https://source.android.com/devices/architecture/aidl/aidl-backends which shows the type comparisons",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "b39a29c514cc83635833026b8bae2fa050d3891f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
