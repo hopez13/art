@@ -567,6 +567,7 @@ class OatDexFile final {
     return dex_layout_sections_;
   }
 
+
  private:
   OatDexFile(const OatFile* oat_file,
              const std::string& dex_file_location,
@@ -588,9 +589,11 @@ class OatDexFile final {
              const uint8_t* dex_file_pointer,
              uint32_t dex_file_checksum,
              const std::string& dex_file_location,
-             const std::string& canonical_dex_file_location);
+             const std::string& canonical_dex_file_location,
+             const uint8_t* lookup_table_data);
 
   bool IsBackedByVdexOnly() const;
+  void InitializeTypeLookupTable();
 
   static void AssertAotCompiler();
 
