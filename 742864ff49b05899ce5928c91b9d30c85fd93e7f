@@ -344,6 +344,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30205aeb_24ad8bfa",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-12T21:49:18Z",
+      "side": 1,
+      "message": "Good, thanks!\n\n\u003e I think empty_stub would make the version_script field do nothing\n\nOk, but note that here it\u0027s not passed as version_script (in Soong), and we wouldn\u0027t start doing that even if this was fixed.",
+      "parentUuid": "31d1b086_e40a5641",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
