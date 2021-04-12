@@ -183,6 +183,21 @@ const uint8_t* VdexFile::GetNextDexFileData(const uint8_t* cursor, uint32_t dex_
   }
 }
 
+const uint8_t* VdexFile::GetNextTypeLookupTableData(const uint8_t* cursor,
+                                                    uint32_t dex_file_index) const {
+  if (cursor == nullptr) {
+    // Beginning of the iteration, return the first dex file if there is one.
+    return HasTypeLookupTableSection() ? TypeLookupTableDataBegin() : nullptr;
+  } else if (dex_file_index >= GetNumberOfDexFiles()) {
+    return nullptr;
+  } else {
+    const uint8_t* data = cursor + sizeof(uint32_t) + reinterpret_cast<const uint32_t*>(cursor)[0];
+    // TypeLookupTables are required to be 4 byte aligned. the OatWriter makes sure they are.
+    CHECK_EQ(data, AlignUp(data, 4));
+    return data;
+  }
+}
+
 bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_files,
                                std::string* error_msg) const {
   const ArtDexFileLoader dex_file_loader;
@@ -237,6 +252,12 @@ bool VdexFile::WriteToDisk(const std::string& path,
   std::vector<uint8_t> verifier_deps_data;
   verifier_deps.Encode(dex_files, &verifier_deps_data);
 
+  size_t type_lookup_table_size = 0u;
+  for (const DexFile* dex_file : dex_files) {
+    type_lookup_table_size +=
+        sizeof(uint32_t) + RoundUp(TypeLookupTable::RawDataLength(dex_file->NumClassDefs()), 4);
+  }
+
   VdexFile::VdexFileHeader vdex_header(/* has_dex_section= */ false);
   VdexFile::VdexSectionHeader sections[static_cast<uint32_t>(VdexSection::kNumberOfSections)];
 
@@ -251,11 +272,19 @@ bool VdexFile::WriteToDisk(const std::string& path,
   sections[VdexSection::kDexFileSection].section_offset = 0u;
   sections[VdexSection::kDexFileSection].section_size = 0u;
 
+  uint32_t verifier_deps_size = RoundUp(verifier_deps_data.size(), 4);
   // Set VerifierDeps section.
   sections[VdexSection::kVerifierDepsSection].section_kind = VdexSection::kVerifierDepsSection;
   sections[VdexSection::kVerifierDepsSection].section_offset =
       GetChecksumsOffset() + sections[kChecksumSection].section_size;
-  sections[VdexSection::kVerifierDepsSection].section_size = verifier_deps_data.size();
+  sections[VdexSection::kVerifierDepsSection].section_size = verifier_deps_size;
+
+  // Set TypeLookupTable section.
+  sections[VdexSection::kTypeLookupTableSection].section_kind =
+      VdexSection::kTypeLookupTableSection;
+  sections[VdexSection::kTypeLookupTableSection].section_offset =
+      sections[VdexSection::kVerifierDepsSection].section_offset + verifier_deps_size;
+  sections[VdexSection::kTypeLookupTableSection].section_size = type_lookup_table_size;
 
   if (!CreateDirectories(path, error_msg)) {
     return false;
@@ -300,6 +329,23 @@ bool VdexFile::WriteToDisk(const std::string& path,
     out->Unlink();
     return false;
   }
+
+  size_t written_type_lookup_table_size = 0;
+  for (const DexFile* dex_file : dex_files) {
+    TypeLookupTable type_lookup_table = TypeLookupTable::Create(*dex_file);
+    uint32_t size = RoundUp(type_lookup_table.RawDataLength(), 4);
+    uint32_t padding_size = size - type_lookup_table.RawDataLength();
+    std::vector<uint8_t> buffer(padding_size, 0u);
+    if (!out->WriteFully(reinterpret_cast<const char*>(&size), sizeof(uint32_t)) ||
+        !out->WriteFully(reinterpret_cast<const char*>(type_lookup_table.RawData()), size) ||
+        !out->WriteFully(reinterpret_cast<const char*>(buffer.data()), padding_size)) {
+      *error_msg = "Could not write type lookup table " + path;
+      out->Unlink();
+      return false;
+    }
+    written_type_lookup_table_size += sizeof(uint32_t) + size + padding_size;
+  }
+  DCHECK_EQ(written_type_lookup_table_size, type_lookup_table_size);
 
   if (out->FlushClose() != 0) {
     *error_msg = "Could not flush and close " + path;
