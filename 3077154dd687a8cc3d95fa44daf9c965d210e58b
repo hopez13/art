@@ -87,6 +87,30 @@
       },
       "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e59cac_bcf35fa5",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-12T16:56:53Z",
+      "side": 1,
+      "message": "OK, I agree that it makes it for a confusing API (are the dex files opened or not?). In the latest PS, dex files are opened prior to asking GetDexoptNeeded.",
+      "parentUuid": "bc2dbf35_2bc86461",
+      "range": {
+        "startLine": 904,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 32
+      },
+      "revId": "3077154dd687a8cc3d95fa44daf9c965d210e58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
