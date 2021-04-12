@@ -296,6 +296,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52f8f1d_f6a0bc5c",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-12T21:26:58Z",
+      "side": 1,
+      "message": "LibsigchainNonexistentFunction would only be visible during build-time linking (in platform or other APEX modules) - runtime linking would still always fail, right? Hence it\u0027d take a conscious, and even quite determined, effort for anyone to start depending on it so that we\u0027d have to keep it in the future. I figured we don\u0027t need to worry about such a scenario, and so in practice have the liberty to drop it.\n\n\u003e I can get you a `empty_stub` flag today if that\u0027s all we need.\n\nI certainly don\u0027t mind a proper fix if it can happen now and I don\u0027t need to do it myself. How would that empty_stub flag work?",
+      "parentUuid": "c5b08c16_718202ae",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
