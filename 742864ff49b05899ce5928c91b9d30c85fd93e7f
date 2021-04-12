@@ -320,6 +320,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d1b086_e40a5641",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-04-12T21:37:09Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s a very good point. I\u0027d been thinking of this as a trivial function that did actually exist, since that would be required if this were to be used as an actual version script for the implementation, but that was an incorrect assumption on my part.\n\nI think empty_stub would make the version_script field do nothing and avoid passing the version script to the linker when linking the stub .so. I\u0027ll take a shot at this this week but yes, given that can\u0027t really be abused the cleanup can happen later.",
+      "parentUuid": "d52f8f1d_f6a0bc5c",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
