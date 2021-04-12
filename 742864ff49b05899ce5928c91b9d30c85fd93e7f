@@ -272,6 +272,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b08c16_718202ae",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-04-12T21:08:15Z",
+      "side": 1,
+      "message": "I don\u0027t think it can be? This false API would be permanent if it ships. I can get you a `empty_stub` flag today if that\u0027s all we need.",
+      "parentUuid": "757b3ae4_ac58aca8",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
