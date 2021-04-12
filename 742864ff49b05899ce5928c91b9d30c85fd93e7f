@@ -368,6 +368,30 @@
       },
       "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ea1d42_9fe303d8",
+        "filename": "sigchainlib/libsigchain.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-04-12T21:52:33Z",
+      "side": 1,
+      "message": "\u003e Ok, but note that here it\u0027s not passed as version_script (in Soong), and we wouldn\u0027t start doing that even if this was fixed.\n\nSorry, wrong field name. `symbol_file` would become optional.",
+      "parentUuid": "30205aeb_24ad8bfa",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "742864ff49b05899ce5928c91b9d30c85fd93e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
