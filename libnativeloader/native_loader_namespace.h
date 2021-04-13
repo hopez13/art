@@ -33,6 +33,8 @@ namespace android {
 
 using android::base::Result;
 
+android_namespace_t* GetAndroidSystemNamespace();
+
 // NativeLoaderNamespace abstracts a linker namespace for the native
 // architecture (ex: arm on arm) or the translated architecture (ex: arm on
 // x86). Instances of this class are managed by LibraryNamespaces object.
