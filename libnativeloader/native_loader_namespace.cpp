@@ -157,18 +157,18 @@ Result<void> NativeLoaderNamespace::Link(const NativeLoaderNamespace& target,
   return Error() << GetLinkerError(IsBridged());
 }
 
-Result<void*> NativeLoaderNamespace::Load(const char* lib_name) const {
+Result<void*> NativeLoaderNamespace::Load(const char* lib_name, int dlopen_flags) const {
   if (!IsBridged()) {
     android_dlextinfo extinfo;
     extinfo.flags = ANDROID_DLEXT_USE_NAMESPACE;
     extinfo.library_namespace = this->ToRawAndroidNamespace();
-    void* handle = android_dlopen_ext(lib_name, RTLD_NOW, &extinfo);
+    void* handle = android_dlopen_ext(lib_name, dlopen_flags, &extinfo);
     if (handle != nullptr) {
       return handle;
     }
   } else {
     void* handle =
-        NativeBridgeLoadLibraryExt(lib_name, RTLD_NOW, this->ToRawNativeBridgeNamespace());
+        NativeBridgeLoadLibraryExt(lib_name, dlopen_flags, this->ToRawNativeBridgeNamespace());
     if (handle != nullptr) {
       return handle;
     }

@@ -113,11 +113,20 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         return handle;
       }
     }
-    void* handle = dlopen(path, RTLD_NOW);
-    if (handle == nullptr) {
-      *error_msg = strdup(dlerror());
+
+    // Fall back to loading the libraries from the system namespace.
+    Result<NativeLoaderNamespace> system_ns =
+        NativeLoaderNamespace::GetSystemNamespace(/*is_bridged=*/false);
+    LOG_ALWAYS_FATAL_IF(!system_ns.ok(),
+                        "Failed to get system namespace for loading %s at %s: %s",
+                        path,
+                        caller_location,
+                        system_ns.error().message().c_str());
+    Result<void*> handle = system_ns->Load(path, RTLD_NOW);
+    if (!handle.ok()) {
+      *error_msg = strdup(handle.error().message().c_str());
     }
-    return handle;
+    return *handle;
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
@@ -212,7 +221,7 @@ void NativeLoaderFreeErrorMessage(char* msg) {
 #if defined(ART_TARGET_ANDROID)
 void* OpenNativeLibraryInNamespace(NativeLoaderNamespace* ns, const char* path,
                                    bool* needs_native_bridge, char** error_msg) {
-  auto handle = ns->Load(path);
+  auto handle = ns->Load(path, RTLD_NOW);
   if (!handle.ok() && error_msg != nullptr) {
     *error_msg = strdup(handle.error().message().c_str());
   }
