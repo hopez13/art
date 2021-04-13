@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99af825a_aad5ddc4",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Please add back a `ScopedTiming`.",
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66670c95_b2ce16dc",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3662,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "buffer-\u003einsert(buffer-\u003eend(), {0u, 0u, 0u, 0u});",
+      "range": {
+        "startLine": 3659,
+        "startChar": 6,
+        "endLine": 3662,
+        "endChar": 28
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf50b51_4c97ff47",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "You should pre-calculate the total size and `reserve()` it before the loop to avoid repeated reallocations and moves.",
+      "range": {
+        "startLine": 3672,
+        "startChar": 6,
+        "endLine": 3672,
+        "endChar": 85
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe19d9b5_e7148357",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3702,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "I would prefer the old code here. The new code has one more `if` and the variable named `bytes_available` refers only to bytes available in the pre-existing mapping even though we have already mmapped more \"available bytes\".",
+      "range": {
+        "startLine": 3702,
+        "startChar": 4,
+        "endLine": 3702,
+        "endChar": 41
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef7cb91_0007e8b4",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Have we been \"lucky\" that the size of the VdexFileHeader and VdexSectionHeader is the same?",
+      "range": {
+        "startLine": 3763,
+        "startChar": 9,
+        "endLine": 3763,
+        "endChar": 44
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9053536b_72e9640e",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "I don\u0027t think we should include the padding in the section size. (But the vdex code does not support gaps between sections at the moment.)",
+      "range": {
+        "startLine": 3775,
+        "startChar": 40,
+        "endLine": 3775,
+        "endChar": 66
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44448356_d5abf4f9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Why? This risks vdex header being interpreted as OatHeader.",
+      "range": {
+        "startLine": 1550,
+        "startChar": 4,
+        "endLine": 1551,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca034cb_ce8f8d3d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 1566,
+        "startChar": 4,
+        "endLine": 1567,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe12956_dcc4226f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e54b04d7_1962647e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "CHECK_ALIGNED(data, 4);",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 37
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eb77804_3eff393a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "We should not include padding in the section size.",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2cba8b_8de10b5e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Unnecessary as the `RawDataLength()` is a multiple of `sizeof(TypeLookupTable::Entry)` which is 8. Replace with DCHECK_ALIGNED.",
+      "range": {
+        "startLine": 336,
+        "startChar": 20,
+        "endLine": 336,
+        "endChar": 27
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb16905_737035ee",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-13T14:13:33Z",
+      "side": 1,
+      "message": "Always zero.",
+      "range": {
+        "startLine": 337,
+        "startChar": 13,
+        "endLine": 337,
+        "endChar": 25
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
