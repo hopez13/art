@@ -49,6 +49,17 @@ std::string GetLinkerError(bool is_bridged) {
 
 }  // namespace
 
+android_namespace_t* GetAndroidSystemNamespace() {
+  // The system namespace is called "default" for binaries in /system and
+  // "system" for those in the Runtime APEX. Try "system" first since
+  // "default" always exists.
+  android_namespace_t* ns = android_get_exported_namespace(kSystemNamespaceName);
+  if (ns == nullptr) {
+    ns = android_get_exported_namespace(kDefaultNamespaceName);
+  }
+  return ns;
+}
+
 Result<NativeLoaderNamespace> NativeLoaderNamespace::GetExportedNamespace(const std::string& name,
                                                                           bool is_bridged) {
   if (!is_bridged) {
@@ -65,10 +76,10 @@ Result<NativeLoaderNamespace> NativeLoaderNamespace::GetExportedNamespace(const 
   return Errorf("namespace {} does not exist or exported", name);
 }
 
-// The system namespace is called "default" for binaries in /system and
-// "system" for those in the Runtime APEX. Try "system" first since
-// "default" always exists.
 Result<NativeLoaderNamespace> NativeLoaderNamespace::GetSystemNamespace(bool is_bridged) {
+  // The system namespace is called "default" for binaries in /system and
+  // "system" for those in the Runtime APEX. Try "system" first since
+  // "default" always exists.
   auto ns = GetExportedNamespace(kSystemNamespaceName, is_bridged);
   if (ns.ok()) return ns;
   ns = GetExportedNamespace(kDefaultNamespaceName, is_bridged);
