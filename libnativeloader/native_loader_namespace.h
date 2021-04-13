@@ -56,7 +56,7 @@ struct NativeLoaderNamespace {
   bool IsBridged() const { return raw_.index() == 1; }
 
   Result<void> Link(const NativeLoaderNamespace& target, const std::string& shared_libs) const;
-  Result<void*> Load(const char* lib_name) const;
+  Result<void*> Load(const char* lib_name, int dlopen_flags) const;
 
   static Result<NativeLoaderNamespace> GetExportedNamespace(const std::string& name,
                                                             bool is_bridged);
