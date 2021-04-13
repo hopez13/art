@@ -106,6 +106,7 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
             .flags = ANDROID_DLEXT_USE_NAMESPACE,
             .library_namespace = boot_namespace,
         };
+        ALOGD("OpenNativeLibrary %s, %p, %s: found namespace", path, class_loader, caller_location);  // FIXME: clean up
         void* handle = android_dlopen_ext(path, RTLD_NOW, &dlextinfo);
         if (handle == nullptr) {
           *error_msg = strdup(dlerror());
@@ -113,7 +114,18 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         return handle;
       }
     }
-    void* handle = dlopen(path, RTLD_NOW);
+
+    // Fall back to loading the libraries from the system namespace.
+    android_namespace_t* system_ns = GetAndroidSystemNamespace();
+    LOG_ALWAYS_FATAL_IF(system_ns == nullptr,
+                        "Failed to get system namespace for loading %s from %s",
+                        path, caller_location);
+    const android_dlextinfo dlextinfo = {
+        .flags = ANDROID_DLEXT_USE_NAMESPACE,
+        .library_namespace = system_ns,
+    };
+    ALOGD("OpenNativeLibrary %s, %p, %s: fallback namespace", path, class_loader, caller_location);  // FIXME: clean up
+    void* handle = android_dlopen_ext(path, RTLD_NOW, &dlextinfo);
     if (handle == nullptr) {
       *error_msg = strdup(dlerror());
     }
