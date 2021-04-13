@@ -36,12 +36,13 @@ namespace android {
 namespace nativeloader {
 
 using ::testing::Eq;
+using ::testing::NotNull;
 using ::testing::Return;
 using ::testing::StrEq;
 using ::testing::_;
 using internal::ConfigEntry;
-using internal::ParseConfig;
 using internal::ParseApexLibrariesConfig;
+using internal::ParseConfig;
 
 #if defined(__LP64__)
 #define LIB_DIR "lib64"
@@ -55,8 +56,6 @@ class Platform {
   virtual ~Platform() {}
 
   // libdl APIs
-  virtual void* dlopen(const char* filename, int flags) = 0;
-  virtual int dlclose(void* handle) = 0;
   virtual char* dlerror(void) = 0;
 
   // These mock_* are the APIs semantically the same across libdl and libnativebridge.
@@ -126,8 +125,6 @@ class MockPlatform : public Platform {
   }
 
   // Mocking libdl APIs
-  MOCK_METHOD2(dlopen, void*(const char*, int));
-  MOCK_METHOD1(dlclose, int(void*));
   MOCK_METHOD0(dlerror, char*());
 
   // Mocking the common APIs
@@ -157,14 +154,6 @@ static std::unique_ptr<MockPlatform> mock;
 
 // Provide C wrappers for the mock object.
 extern "C" {
-void* dlopen(const char* file, int flag) {
-  return mock->dlopen(file, flag);
-}
-
-int dlclose(void* handle) {
-  return mock->dlclose(handle);
-}
-
 char* dlerror(void) {
   return mock->dlerror();
 }
@@ -313,7 +302,8 @@ class NativeLoaderTest : public ::testing::TestWithParam<bool> {
     std::vector<std::string> default_public_libs =
         android::base::Split(preloadable_public_libraries(), ":");
     for (auto l : default_public_libs) {
-      EXPECT_CALL(*mock, dlopen(StrEq(l.c_str()), RTLD_NOW | RTLD_NODELETE))
+      EXPECT_CALL(*mock,
+                  mock_dlopen_ext(false, StrEq(l.c_str()), RTLD_NOW | RTLD_NODELETE, NotNull()))
           .WillOnce(Return(any_nonnull));
     }
   }
