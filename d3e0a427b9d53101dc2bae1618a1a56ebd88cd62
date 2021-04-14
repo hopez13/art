@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b70a8dc9_14f983fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Thanks Vladimir, PTAL.",
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99af825a_aad5ddc4",
@@ -18,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "557650f2_23d8e4aa",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3553,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99af825a_aad5ddc4",
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66670c95_b2ce16dc",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "buffer-\u003einsert(buffer-\u003eend(), {0u, 0u, 0u, 0u});",
+      "range": {
+        "startLine": 3659,
+        "startChar": 6,
+        "endLine": 3662,
+        "endChar": 28
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83cf3d42_d0e3286a",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3662,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66670c95_b2ce16dc",
       "range": {
         "startLine": 3659,
         "startChar": 6,
@@ -64,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3666decb_61c22586",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf50b51_4c97ff47",
+      "range": {
+        "startLine": 3672,
+        "startChar": 6,
+        "endLine": 3672,
+        "endChar": 85
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe19d9b5_e7148357",
@@ -87,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "781c11b4_fc3ce6cf",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe19d9b5_e7148357",
+      "range": {
+        "startLine": 3702,
+        "startChar": 4,
+        "endLine": 3702,
+        "endChar": 41
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eef7cb91_0007e8b4",
@@ -100,6 +207,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "Have we been \"lucky\" that the size of the VdexFileHeader and VdexSectionHeader is the same?",
+      "range": {
+        "startLine": 3763,
+        "startChar": 9,
+        "endLine": 3763,
+        "endChar": 44
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92641b9_ea9481b7",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Yes...",
+      "parentUuid": "eef7cb91_0007e8b4",
       "range": {
         "startLine": 3763,
         "startChar": 9,
@@ -135,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df95f277_3e9bcc5a",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Yeah it\u0027s either or :) Do you prefer changing the size computation logic in vdex to do the padding itself?",
+      "parentUuid": "9053536b_72e9640e",
+      "range": {
+        "startLine": 3775,
+        "startChar": 40,
+        "endLine": 3775,
+        "endChar": 66
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44448356_d5abf4f9",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 3
@@ -146,6 +301,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "Why? This risks vdex header being interpreted as OatHeader.",
+      "range": {
+        "startLine": 1550,
+        "startChar": 4,
+        "endLine": 1551,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d48bca4_d1558060",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Yeah, that was me hitting a DCHECK while working on the CL. I can remove them now.",
+      "parentUuid": "44448356_d5abf4f9",
       "range": {
         "startLine": 1550,
         "startChar": 4,
@@ -179,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd99970_3a7e494d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "1ca034cb_ce8f8d3d",
+      "range": {
+        "startLine": 1566,
+        "startChar": 4,
+        "endLine": 1567,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fe12956_dcc4226f",
@@ -196,6 +399,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4583a508_f136c4df",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe12956_dcc4226f",
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e54b04d7_1962647e",
@@ -209,6 +430,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "CHECK_ALIGNED(data, 4);",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 37
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9146f4d7_6fa9d47f",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e54b04d7_1962647e",
       "range": {
         "startLine": 196,
         "startChar": 4,
@@ -244,6 +489,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf36eeef_519ba12f",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "I take it you prefer if the Vdex::GetComputedFileSize handles the padding?",
+      "parentUuid": "1eb77804_3eff393a",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f2cba8b_8de10b5e",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 3
@@ -255,6 +524,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "Unnecessary as the `RawDataLength()` is a multiple of `sizeof(TypeLookupTable::Entry)` which is 8. Replace with DCHECK_ALIGNED.",
+      "range": {
+        "startLine": 336,
+        "startChar": 20,
+        "endLine": 336,
+        "endChar": 27
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4925b4c5_4dac1efa",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2cba8b_8de10b5e",
       "range": {
         "startLine": 336,
         "startChar": 20,
@@ -278,6 +571,30 @@
       "writtenOn": "2021-04-13T14:13:33Z",
       "side": 1,
       "message": "Always zero.",
+      "range": {
+        "startLine": 337,
+        "startChar": 13,
+        "endLine": 337,
+        "endChar": 25
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd7451e_1f457e41",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-14T11:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fb16905_737035ee",
       "range": {
         "startLine": 337,
         "startChar": 13,
