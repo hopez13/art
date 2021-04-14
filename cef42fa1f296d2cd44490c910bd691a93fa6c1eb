@@ -1,0 +1,82 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009898647",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1675578?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9d5f9e29_24a56c5e",
+        "filename": "build/boot/hiddenapi/hiddenapi-max-target-o-low-priority.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 8818,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-04-14T18:21:06Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 8818,
+        "startChar": 32,
+        "endLine": 8818,
+        "endChar": 35
+      },
+      "revId": "cef42fa1f296d2cd44490c910bd691a93fa6c1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009898647",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1675578?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "22978f75_41055919",
+        "filename": "build/boot/hiddenapi/hiddenapi-max-target-o-low-priority.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 11465,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-04-14T18:21:06Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 11465,
+        "startChar": 43,
+        "endLine": 11465,
+        "endChar": 46
+      },
+      "revId": "cef42fa1f296d2cd44490c910bd691a93fa6c1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009898647",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1675578?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "a96c9db4_ed3ba828",
+        "filename": "build/boot/hiddenapi/hiddenapi-max-target-o-low-priority.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 11712,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-04-14T18:21:06Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027exempted\u0027 or \u0027legacy\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 11712,
+        "startChar": 31,
+        "endLine": 11712,
+        "endChar": 42
+      },
+      "revId": "cef42fa1f296d2cd44490c910bd691a93fa6c1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
