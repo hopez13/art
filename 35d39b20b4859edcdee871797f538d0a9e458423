@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84b5966_c22e1f41",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-14T13:42:04Z",
+      "side": 1,
+      "message": "Please add a `ScopedTiming` for `InitializeTypeLookupTables`.",
+      "revId": "35d39b20b4859edcdee871797f538d0a9e458423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68985eae_5201e40c",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-14T13:42:04Z",
+      "side": 1,
+      "message": "DCHECK_GE(verifier_deps_size, verifier_deps_data.size());\nverifier_deps_data.resize(verifier_deps_size, 0);",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 260,
+        "endChar": 3
+      },
+      "revId": "35d39b20b4859edcdee871797f538d0a9e458423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

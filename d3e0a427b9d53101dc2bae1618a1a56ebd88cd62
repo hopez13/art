@@ -290,6 +290,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5dfa5e4e_d61a4f92",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-14T13:42:04Z",
+      "side": 1,
+      "message": "The size computation already allows padding. I was assuming that something else in vdex does not support it.",
+      "parentUuid": "df95f277_3e9bcc5a",
+      "range": {
+        "startLine": 3775,
+        "startChar": 40,
+        "endLine": 3775,
+        "endChar": 66
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44448356_d5abf4f9",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 3
@@ -501,6 +525,30 @@
       "side": 1,
       "message": "I take it you prefer if the Vdex::GetComputedFileSize handles the padding?",
       "parentUuid": "1eb77804_3eff393a",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9383f1c_14d1ed03",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-14T13:42:04Z",
+      "side": 1,
+      "message": "It already does (see the implementation using `std::max()`). Is there anything else that breaks if there are gaps between sections?",
+      "parentUuid": "cf36eeef_519ba12f",
       "range": {
         "startLine": 275,
         "startChar": 32,
