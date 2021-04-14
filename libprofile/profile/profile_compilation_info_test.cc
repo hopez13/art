@@ -27,77 +27,35 @@
 #include "dex/method_reference.h"
 #include "dex/type_reference.h"
 #include "profile/profile_compilation_info.h"
+#include "profile/profile_test_helper.h"
 #include "ziparchive/zip_writer.h"
 
 namespace art {
 
-using Hotness = ProfileCompilationInfo::MethodHotness;
-using ProfileInlineCache = ProfileMethodInfo::ProfileInlineCache;
-using ProfileSampleAnnotation = ProfileCompilationInfo::ProfileSampleAnnotation;
 using ProfileIndexType = ProfileCompilationInfo::ProfileIndexType;
 using ProfileIndexTypeRegular = ProfileCompilationInfo::ProfileIndexTypeRegular;
 using ItemMetadata = FlattenProfileData::ItemMetadata;
 
-static constexpr size_t kMaxMethodIds = 65535;
-static uint32_t kMaxHotnessFlagBootIndex =
-    WhichPowerOf2(static_cast<uint32_t>(Hotness::kFlagLastBoot));
-static uint32_t kMaxHotnessFlagRegularIndex =
-    WhichPowerOf2(static_cast<uint32_t>(Hotness::kFlagLastRegular));
-
-class ProfileCompilationInfoTest : public CommonArtTest {
+class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelper {
  public:
   void SetUp() override {
     CommonArtTest::SetUp();
     allocator_.reset(new ArenaAllocator(&pool_));
 
-    dex1 = fake_dex_storage.AddFakeDex("location1", /* checksum= */ 1, /* num_method_ids= */ 10001);
-    dex2 = fake_dex_storage.AddFakeDex("location2", /* checksum= */ 2, /* num_method_ids= */ 10002);
-    dex3 = fake_dex_storage.AddFakeDex("location3", /* checksum= */ 3, /* num_method_ids= */ 10003);
-    dex4 = fake_dex_storage.AddFakeDex("location4", /* checksum= */ 4, /* num_method_ids= */ 10004);
+    dex1 = BuildDex("location1", /* checksum= */ 1, "LUnique1;", /* num_method_ids= */ 101);
+    dex2 = BuildDex("location2", /* checksum= */ 2, "LUnique2;", /* num_method_ids= */ 102);
+    dex3 = BuildDex("location3", /* checksum= */ 3, "LUnique3;", /* num_method_ids= */ 103);
+    dex4 = BuildDex("location4", /* checksum= */ 4, "LUnique4;", /* num_method_ids= */ 104);
 
-    dex1_checksum_missmatch = fake_dex_storage.AddFakeDex(
-        "location1", /* checksum= */ 12, /* num_method_ids= */ 10001);
-    dex1_renamed = fake_dex_storage.AddFakeDex(
-        "location1-renamed", /* checksum= */ 1, /* num_method_ids= */ 10001);
-    dex2_renamed = fake_dex_storage.AddFakeDex(
-        "location2-renamed", /* checksum= */ 2, /* num_method_ids= */ 10002);
-
-    dex_max_methods1 = fake_dex_storage.AddFakeDex(
-        "location-max1", /* checksum= */ 5, /* num_method_ids= */ kMaxMethodIds);
-    dex_max_methods2 = fake_dex_storage.AddFakeDex(
-        "location-max2", /* checksum= */ 6, /* num_method_ids= */ kMaxMethodIds);
+    dex1_checksum_missmatch =
+        BuildDex("location1", /* checksum= */ 12, "LUnique1;", /* num_method_ids= */ 101);
+    dex1_renamed =
+        BuildDex("location1-renamed", /* checksum= */ 1, "LUnique1;", /* num_method_ids= */ 101);
+    dex2_renamed =
+        BuildDex("location2-renamed", /* checksum= */ 2, "LUnique2;", /* num_method_ids= */ 102);
   }
 
  protected:
-  bool AddMethod(ProfileCompilationInfo* info,
-                 const DexFile* dex,
-                 uint16_t method_idx,
-                 Hotness::Flag flags = Hotness::kFlagHot,
-                 const ProfileSampleAnnotation& annotation = ProfileSampleAnnotation::kNone) {
-    return info->AddMethod(ProfileMethodInfo(MethodReference(dex, method_idx)),
-                           flags,
-                           annotation);
-  }
-
-  bool AddMethod(ProfileCompilationInfo* info,
-                const DexFile* dex,
-                uint16_t method_idx,
-                const std::vector<ProfileInlineCache>& inline_caches,
-                const ProfileSampleAnnotation& annotation = ProfileSampleAnnotation::kNone) {
-    return info->AddMethod(
-        ProfileMethodInfo(MethodReference(dex, method_idx), inline_caches),
-        Hotness::kFlagHot,
-        annotation);
-  }
-
-  bool AddClass(ProfileCompilationInfo* info,
-                const DexFile* dex,
-                dex::TypeIndex type_index,
-                const ProfileSampleAnnotation& annotation = ProfileSampleAnnotation::kNone) {
-    std::vector<dex::TypeIndex> classes = {type_index};
-    return info->AddClassesForDex(dex, classes.begin(), classes.end(), annotation);
-  }
-
   uint32_t GetFd(const ScratchFile& file) {
     return static_cast<uint32_t>(file.GetFd());
   }
@@ -219,10 +177,9 @@ class ProfileCompilationInfoTest : public CommonArtTest {
 
     static constexpr size_t kNumDexFiles = 5;
 
-    FakeDexStorage local_storage;
     std::vector<const DexFile*> dex_files;
     for (uint32_t i = 0; i < kNumDexFiles; i++) {
-      dex_files.push_back(local_storage.AddFakeDex(std::to_string(i), i, kMaxMethodIds));
+      dex_files.push_back(BuildDex(std::to_string(i), i, "LC;", kMaxMethodIds));
     }
 
     std::srand(0);
@@ -264,6 +221,12 @@ class ProfileCompilationInfoTest : public CommonArtTest {
     ASSERT_TRUE(loaded_reg.Load(GetFd(reg_file)));
   }
 
+  static constexpr size_t kMaxMethodIds = 65535;
+  static constexpr uint32_t kMaxHotnessFlagBootIndex =
+      WhichPowerOf2(static_cast<uint32_t>(Hotness::kFlagLastBoot));
+  static constexpr uint32_t kMaxHotnessFlagRegularIndex =
+      WhichPowerOf2(static_cast<uint32_t>(Hotness::kFlagLastRegular));
+
   // Cannot sizeof the actual arrays so hard code the values here.
   // They should not change anyway.
   static constexpr int kProfileMagicSize = 4;
@@ -279,15 +242,11 @@ class ProfileCompilationInfoTest : public CommonArtTest {
   const DexFile* dex1_checksum_missmatch;
   const DexFile* dex1_renamed;
   const DexFile* dex2_renamed;
-  const DexFile* dex_max_methods1;
-  const DexFile* dex_max_methods2;
 
   // Cache of inline caches generated during tests.
   // This makes it easier to pass data between different utilities and ensure that
   // caches are destructed at the end of the test.
   std::vector<std::unique_ptr<ProfileCompilationInfo::InlineCacheMap>> used_inline_caches;
-
-  FakeDexStorage fake_dex_storage;
 };
 
 TEST_F(ProfileCompilationInfoTest, SaveFd) {
@@ -365,6 +324,11 @@ TEST_F(ProfileCompilationInfoTest, MergeFdFail) {
 
 TEST_F(ProfileCompilationInfoTest, SaveMaxMethods) {
   ScratchFile profile;
+
+  const DexFile* dex_max_methods1 = BuildDex(
+      "location-max1", /* checksum= */ 5, "LUniqueMax1;", /* num_method_ids= */ kMaxMethodIds);
+  const DexFile* dex_max_methods2 = BuildDex(
+      "location-max2", /* checksum= */ 6, "LUniqueMax2;", /* num_method_ids= */ kMaxMethodIds);
 
   ProfileCompilationInfo saved_info;
   // Save the maximum number of methods
@@ -685,32 +649,28 @@ TEST_F(ProfileCompilationInfoTest, MergeInlineCacheTriggerReindex) {
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitRegular) {
-  FakeDexStorage local_storage;
   ProfileCompilationInfo info;
   // Save a few methods.
   for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexTypeRegular>::max(); i++) {
     std::string location = std::to_string(i);
-    const DexFile* dex = local_storage.AddFakeDex(
-        location, /* checksum= */ 1, /* num_method_ids= */ 1);
+    const DexFile* dex = BuildDex(location, /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
     ASSERT_TRUE(AddMethod(&info, dex, /* method_idx= */ 0));
   }
   // Add an extra dex file.
-  const DexFile* dex = local_storage.AddFakeDex("-1", /* checksum= */ 1, /* num_method_ids= */ 1);
+  const DexFile* dex = BuildDex("-1", /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
   ASSERT_FALSE(AddMethod(&info, dex, /* method_idx= */ 0));
 }
 
 TEST_F(ProfileCompilationInfoTest, AddMoreDexFileThanLimitBoot) {
-  FakeDexStorage local_storage;
   ProfileCompilationInfo info(/*for_boot_image=*/true);
   // Save a few methods.
   for (uint16_t i = 0; i < std::numeric_limits<ProfileIndexType>::max(); i++) {
     std::string location = std::to_string(i);
-    const DexFile* dex = local_storage.AddFakeDex(
-        location, /* checksum= */ 1, /* num_method_ids= */ 1);
+    const DexFile* dex = BuildDex(location, /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
     ASSERT_TRUE(AddMethod(&info, dex, /* method_idx= */ 0));
   }
   // Add an extra dex file.
-  const DexFile* dex = local_storage.AddFakeDex("-1", /* checksum= */ 1, /* num_method_ids= */ 1);
+  const DexFile* dex = BuildDex("-1", /* checksum= */ 1, "LC;", /* num_method_ids= */ 1);
   ASSERT_FALSE(AddMethod(&info, dex, /* method_idx= */ 0));
 }
 
