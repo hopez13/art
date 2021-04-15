@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009929909",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1671710?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "29e6d059_fefe01b1",
+          "description": "Change to \"libprofile/profile/profile_compilation_info.cc\"",
+          "replacements": [
+            {
+              "path": "libprofile/profile/profile_compilation_info.cc",
+              "range": {
+                "startLine": 1584,
+                "startChar": 50,
+                "endLine": 1584,
+                "endChar": 56
+              },
+              "replacement": "Upgrade"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "2d756ffd_ec5e752f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-04-15T15:58:12Z",
+      "side": 1,
+      "message": "Common typo found: \"Uprade\" -- should it be \"Upgrade\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1584,
+        "startChar": 50,
+        "endLine": 1584,
+        "endChar": 56
+      },
+      "revId": "9e6d70f83723004dadd298ec0cd644ac7ad8c3e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
