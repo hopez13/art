@@ -106,6 +106,7 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
             .flags = ANDROID_DLEXT_USE_NAMESPACE,
             .library_namespace = boot_namespace,
         };
+        ALOGD("OpenNativeLibrary %s, %p, %s: found namespace", path, class_loader, caller_location);  // FIXME: clean up
         void* handle = android_dlopen_ext(path, RTLD_NOW, &dlextinfo);
         if (handle == nullptr) {
           *error_msg = strdup(dlerror());
@@ -113,6 +114,7 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         return handle;
       }
     }
+    ALOGD("OpenNativeLibrary %s, %p, %s: found namespace", path, class_loader, caller_location);  // FIXME: clean up
     void* handle = dlopen(path, RTLD_NOW);
     if (handle == nullptr) {
       *error_msg = strdup(dlerror());
