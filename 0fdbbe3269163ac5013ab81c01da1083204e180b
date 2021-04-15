@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "23da98f7_0d04c84d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-15T15:00:29Z",
+      "side": 1,
+      "message": "I think several of these scripts are not exercised at build time. How did you test them? (See also this comment: https://android-review.googlesource.com/c/platform/art/+/1673206/1#message-3c2c812cfd3c190a6cff92beec9379c5eb5245b2.)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "0fdbbe3269163ac5013ab81c01da1083204e180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd67e280_fcdc1c4c",
