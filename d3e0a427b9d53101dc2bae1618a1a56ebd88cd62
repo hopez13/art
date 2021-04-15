@@ -312,6 +312,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db6f166a_b12402aa",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-15T14:14:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dfa5e4e_d61a4f92",
+      "range": {
+        "startLine": 3775,
+        "startChar": 40,
+        "endLine": 3775,
+        "endChar": 66
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44448356_d5abf4f9",
@@ -549,6 +573,30 @@
       "side": 1,
       "message": "It already does (see the implementation using `std::max()`). Is there anything else that breaks if there are gaps between sections?",
       "parentUuid": "cf36eeef_519ba12f",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 39
+      },
+      "revId": "d3e0a427b9d53101dc2bae1618a1a56ebd88cd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f49255_de66db80",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-15T14:14:22Z",
+      "side": 1,
+      "message": "Ah good point! Done.",
+      "parentUuid": "d9383f1c_14d1ed03",
       "range": {
         "startLine": 275,
         "startChar": 32,
