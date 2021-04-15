@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2b364b_a9ce998b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-15T15:19:52Z",
+      "side": 1,
+      "message": "I have at least checked test.py works. A lot of those scripts are random utilities, not generally exercised. I suppose we have two options:\n1) Commit this CL as is, and the next time someone needs those utilities, they might or might not work.\n2) Excluded non-essential scripts from this CL, so the next time someone needs to use those utilities, they will break for sure (assuming python2 is gone for good).\nEither way sounds fine to me.",
+      "parentUuid": "23da98f7_0d04c84d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "0fdbbe3269163ac5013ab81c01da1083204e180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd67e280_fcdc1c4c",
