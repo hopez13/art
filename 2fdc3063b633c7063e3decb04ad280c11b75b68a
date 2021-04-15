@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7d5993_62d325e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-15T21:36:07Z",
+      "side": 1,
+      "message": "While investigating a different issue I noticed that without careful reading it\u0027s not obvious that this is supported by the class-linker. This test is more to ensure anyone making changes the the class-linker in the future is aware of it.",
+      "revId": "2fdc3063b633c7063e3decb04ad280c11b75b68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
