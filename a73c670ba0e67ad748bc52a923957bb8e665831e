@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c84eed_6db544cf",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2021-04-15T01:46:55Z",
+      "side": 1,
+      "message": "Reverted the license changes for now.",
+      "parentUuid": "9b288b20_57d1c01c",
+      "revId": "a73c670ba0e67ad748bc52a923957bb8e665831e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "265b5995_7175fed2",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-04-08T08:49:50Z",
       "side": 1,
       "message": "The change in tools/generate_operator_out.py was from \u0027python\u0027 to \u0027python3\u0027, but this isn\u0027t mirrored here?",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "a73c670ba0e67ad748bc52a923957bb8e665831e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ce4c29_cac0b575",
+        "filename": "tools/generate_cmake_lists.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2021-04-15T01:46:55Z",
+      "side": 1,
+      "message": "Changed shebang to python3 in all scripts",
+      "parentUuid": "265b5995_7175fed2",
       "range": {
         "startLine": 1,
         "startChar": 15,
