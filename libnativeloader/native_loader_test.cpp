@@ -36,12 +36,13 @@ namespace android {
 namespace nativeloader {
 
 using ::testing::Eq;
+using ::testing::NotNull;
 using ::testing::Return;
 using ::testing::StrEq;
 using ::testing::_;
 using internal::ConfigEntry;
-using internal::ParseConfig;
 using internal::ParseApexLibrariesConfig;
+using internal::ParseConfig;
 
 #if defined(__LP64__)
 #define LIB_DIR "lib64"
@@ -49,19 +50,15 @@ using internal::ParseApexLibrariesConfig;
 #define LIB_DIR "lib"
 #endif
 
-// gmock interface that represents interested platform APIs on libdl and libnativebridge
+// gmock interface that represents interested platform APIs on libdl_android and libnativebridge
 class Platform {
  public:
   virtual ~Platform() {}
 
-  // libdl APIs
-  virtual void* dlopen(const char* filename, int flags) = 0;
-  virtual int dlclose(void* handle) = 0;
-  virtual char* dlerror(void) = 0;
-
-  // These mock_* are the APIs semantically the same across libdl and libnativebridge.
+  // These mock_* are the APIs semantically the same across libdl_android and libnativebridge.
   // Instead of having two set of mock APIs for the two, define only one set with an additional
-  // argument 'bool bridged' to identify the context (i.e., called for libdl or libnativebridge).
+  // argument 'bool bridged' to identify the context (i.e., called for libdl_android or
+  // libnativebridge).
   typedef char* mock_namespace_handle;
   virtual mock_namespace_handle mock_create_namespace(
       bool bridged, const char* name, const char* ld_library_path, const char* default_library_path,
@@ -72,7 +69,7 @@ class Platform {
   virtual void* mock_dlopen_ext(bool bridged, const char* filename, int flags,
                                 mock_namespace_handle ns) = 0;
 
-  // libnativebridge APIs for which libdl has no corresponding APIs
+  // libnativebridge APIs for which libdl_android has no corresponding APIs
   virtual bool NativeBridgeInitialized() = 0;
   virtual const char* NativeBridgeGetError() = 0;
   virtual bool NativeBridgeIsPathSupported(const char*) = 0;
@@ -123,11 +120,6 @@ class MockPlatform : public Platform {
         }));
   }
 
-  // Mocking libdl APIs
-  MOCK_METHOD2(dlopen, void*(const char*, int));
-  MOCK_METHOD1(dlclose, int(void*));
-  MOCK_METHOD0(dlerror, char*());
-
   // Mocking the common APIs
   MOCK_METHOD7(mock_create_namespace,
                mock_namespace_handle(bool, const char*, const char*, const char*, uint64_t,
@@ -152,19 +144,11 @@ class MockPlatform : public Platform {
 
 static std::unique_ptr<MockPlatform> mock;
 
-// Provide C wrappers for the mock object.
+// Provide C wrappers for the mock object. These symbols must be exported by ld
+// to be able to override the real symbols in the shared libs.
 extern "C" {
-void* dlopen(const char* file, int flag) {
-  return mock->dlopen(file, flag);
-}
 
-int dlclose(void* handle) {
-  return mock->dlclose(handle);
-}
-
-char* dlerror(void) {
-  return mock->dlerror();
-}
+// libdl_android APIs
 
 struct android_namespace_t* android_create_namespace(const char* name, const char* ld_library_path,
                                                      const char* default_library_path,
@@ -190,6 +174,7 @@ void* android_dlopen_ext(const char* filename, int flags, const android_dlextinf
 }
 
 // libnativebridge APIs
+
 bool NativeBridgeIsSupported(const char* libpath) {
   return mock->NativeBridgeIsSupported(libpath);
 }
@@ -301,7 +286,8 @@ class NativeLoaderTest : public ::testing::TestWithParam<bool> {
     std::vector<std::string> default_public_libs =
         android::base::Split(preloadable_public_libraries(), ":");
     for (auto l : default_public_libs) {
-      EXPECT_CALL(*mock, dlopen(StrEq(l.c_str()), RTLD_NOW | RTLD_NODELETE))
+      EXPECT_CALL(*mock,
+                  mock_dlopen_ext(false, StrEq(l.c_str()), RTLD_NOW | RTLD_NODELETE, NotNull()))
           .WillOnce(Return(any_nonnull));
     }
   }
@@ -585,6 +571,8 @@ TEST_P(NativeLoaderTest_Create, TwoApks) {
                  reinterpret_cast<const char*>(ns->ToRawNativeBridgeNamespace()));
   }
 }
+
+// FIXME: Add test for OpenNativeLibrary fallback namespace.
 
 INSTANTIATE_TEST_SUITE_P(NativeLoaderTests_Create, NativeLoaderTest_Create, testing::Bool());
 
