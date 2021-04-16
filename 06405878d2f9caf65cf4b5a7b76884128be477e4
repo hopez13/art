@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d82c5b_158c76eb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-16T11:20:44Z",
+      "side": 1,
+      "message": "We should not record this in the oat file anymore. We can retrieve if from the vdex file.",
+      "range": {
+        "startLine": 867,
+        "startChar": 13,
+        "endLine": 867,
+        "endChar": 32
+      },
+      "revId": "06405878d2f9caf65cf4b5a7b76884128be477e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
