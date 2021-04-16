@@ -49,7 +49,7 @@ std::mutex g_namespaces_mutex;
 LibraryNamespaces* g_namespaces = new LibraryNamespaces;
 
 android_namespace_t* FindExportedNamespace(const char* caller_location) {
-  auto name = nativeloader::FindApexNamespaceName(caller_location);
+  Result<std::string> name = nativeloader::FindApexNamespaceName(caller_location);
   if (name.ok()) {
     android_namespace_t* boot_namespace = android_get_exported_namespace(name->c_str());
     LOG_ALWAYS_FATAL_IF((boot_namespace == nullptr),
@@ -113,11 +113,21 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         return handle;
       }
     }
-    void* handle = dlopen(path, RTLD_NOW);
-    if (handle == nullptr) {
-      *error_msg = strdup(dlerror());
+
+    // Fall back to the app main namespace.
+    NativeLoaderNamespace* main_ns = g_namespaces->AppMainNamespace();
+    if (main_ns != nullptr) {
+      Result<void*> handle = main_ns->Load(path);
+      if (!handle.ok()) {
+        *error_msg = strdup(handle.message().c_str());
+        return nullptr;
+      }
+      return *handle;
     }
-    return handle;
+
+    // If there is no app main namespace we don't know where to load this.
+    *error_msg = strdup(std::string("No app main namespace for loading ") + path);
+    return nullptr;
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
