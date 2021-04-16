@@ -1009,10 +1009,11 @@ def get_default_threads(target):
     cpu_info = cpu_info_proc.stdout.read()
     if type(cpu_info) is bytes:
       cpu_info = cpu_info.decode('utf-8')
-    cpu_info_regex = r'\d*-(\d*)'
+    cpu_info_regex = r'\d*-(\d*)'  # For example, 0-7 if there are 8 cores.
     match = re.match(cpu_info_regex, cpu_info)
     if match:
-      return int(match.group(1))
+      # Use only half of the cores since fully loading the device tends to load to timeouts.
+      return (int(match.group(1)) + 1) // 2
     else:
       raise ValueError('Unable to predict the concurrency for the target. '
                        'Is device connected?')
