@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb3bf09d_9acb3b47",
+        "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-16T13:41:40Z",
+      "side": 1,
+      "message": "Start a new section with `CHECK-START` for the `CHECK-NOT` statements.",
+      "revId": "7b08fda24f280f91ba3f65e1693135be8d3f6f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c6634a_3798339a",
+        "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-16T13:41:40Z",
+      "side": 1,
+      "message": "Remove? Right now, you\u0027re asserting that there is no call _after_ Deoptimize but there may or may not be one before Deoptimize. I\u0027m not too fond of this weak assertion and I don\u0027t think we should care whether the call was really inlined or not.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 75
+      },
+      "revId": "7b08fda24f280f91ba3f65e1693135be8d3f6f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75042e81_b01fe3ea",
+        "filename": "test/638-checker-inline-cache-intrinsic/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-16T13:41:40Z",
+      "side": 1,
+      "message": "Use a different string.",
+      "range": {
+        "startLine": 121,
+        "startChar": 54,
+        "endLine": 121,
+        "endChar": 59
+      },
+      "revId": "7b08fda24f280f91ba3f65e1693135be8d3f6f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
