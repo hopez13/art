@@ -64,6 +64,7 @@ art_cc_library {
 
     target: {
         android: {
+            shared_libs: ["libdl_android"],
             version_script: "libnativebridge.map.txt",
         },
         linux: {
