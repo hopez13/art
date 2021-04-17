@@ -617,12 +617,6 @@ extern "C" bool native_bridge_isPathSupported(const char* library_path ATTRIBUTE
   return false;
 }
 
-extern "C" bool native_bridge_initAnonymousNamespace(const char* public_ns_sonames ATTRIBUTE_UNUSED,
-                                                     const char* anon_ns_library_path ATTRIBUTE_UNUSED) {
-  printf("Initializing anonymous namespace in native bridge.\n");
-  return false;
-}
-
 extern "C" android::native_bridge_namespace_t*
 native_bridge_createNamespace(const char* name ATTRIBUTE_UNUSED,
                               const char* ld_library_path ATTRIBUTE_UNUSED,
@@ -665,7 +659,7 @@ android::NativeBridgeCallbacks NativeBridgeItf {
   .unloadLibrary = &native_bridge_unloadLibrary,
   .getError = &native_bridge_getError,
   .isPathSupported = &native_bridge_isPathSupported,
-  .initAnonymousNamespace = &native_bridge_initAnonymousNamespace,
+  .unused_initAnonymousNamespace = nullptr,
   .createNamespace = &native_bridge_createNamespace,
   .linkNamespaces = &native_bridge_linkNamespaces,
   .loadLibraryExt = &native_bridge_loadLibraryExt

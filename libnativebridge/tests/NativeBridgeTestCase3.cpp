@@ -118,7 +118,7 @@ android::NativeBridgeCallbacks NativeBridgeItf{
     .unloadLibrary = &native_bridge3_unloadLibrary,
     .getError = &native_bridge3_getError,
     .isPathSupported = &native_bridge3_isPathSupported,
-    .initAnonymousNamespace = &native_bridge3_initAnonymousNamespace,
+    .unused_initAnonymousNamespace = &native_bridge3_initAnonymousNamespace,
     .createNamespace = &native_bridge3_createNamespace,
     .linkNamespaces = &native_bridge3_linkNamespaces,
     .loadLibraryExt = &native_bridge3_loadLibraryExt};
