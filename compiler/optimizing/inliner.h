@@ -83,13 +83,11 @@ class HInliner : public HOptimization {
 
   // Try to inline `resolved_method` in place of `invoke_instruction`. `do_rtp` is whether
   // reference type propagation can run after the inlining. If the inlining is successful, this
-  // method will replace and remove the `invoke_instruction`. If `cha_devirtualize` is true,
-  // a CHA guard needs to be added for the inlining.
+  // method will replace and remove the `invoke_instruction`.
   bool TryInlineAndReplace(HInvoke* invoke_instruction,
                            ArtMethod* resolved_method,
                            ReferenceTypeInfo receiver_type,
-                           bool do_rtp,
-                           bool cha_devirtualize)
+                           bool do_rtp)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool TryBuildAndInline(HInvoke* invoke_instruction,
@@ -170,6 +168,17 @@ class HInliner : public HOptimization {
   bool TryInlineFromInlineCache(HInvoke* invoke_instruction)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Try inlining the invoke instruction using CHA.
+  bool TryInlineFromCHA(HInvoke* invoke_instruction)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // When we fail inlining `invoke_instruction`, we will try to devirtualize the
+  // call.
+  bool TryDevirtualize(HInvoke* invoke_instruction,
+                       ArtMethod* method,
+                       HInvoke** replacement)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Try getting the inline cache from JIT code cache.
   // Return true if the inline cache was successfully allocated and the
   // invoke info was found in the profile info.
@@ -215,7 +224,7 @@ class HInliner : public HOptimization {
   // Try CHA-based devirtualization to change virtual method calls into
   // direct calls.
   // Returns the actual method that resolved_method can be devirtualized to.
-  ArtMethod* TryCHADevirtualization(ArtMethod* resolved_method)
+  ArtMethod* FindMethodFromCHA(ArtMethod* resolved_method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Add a CHA guard for a CHA-based devirtualized call. A CHA guard checks a
@@ -230,13 +239,17 @@ class HInliner : public HOptimization {
                                            uint32_t dex_pc) const
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void MaybeRunReferenceTypePropagation(HInstruction* replacement,
+                                        HInvoke* invoke_instruction)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
   void FixUpReturnReferenceType(ArtMethod* resolved_method, HInstruction* return_replacement)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool ArgumentTypesMoreSpecific(HInvoke* invoke_instruction, ArtMethod* resolved_method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool ReturnTypeMoreSpecific(HInvoke* invoke_instruction, HInstruction* return_replacement)
+  bool ReturnTypeMoreSpecific(HInstruction* return_replacement, HInvoke* invoke_instruction)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Add a type guard on the given `receiver`. This will add to the graph:
