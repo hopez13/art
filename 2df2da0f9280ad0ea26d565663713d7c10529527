@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2d8da9c_e13bfe6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1330217
+      },
+      "writtenOn": "2021-04-17T04:41:40Z",
+      "side": 1,
+      "message": "@Roland\n\nAre there tests should not be run on R platform?\n - art-run-test-411-checker-instruct-simplifier-hrem\n - art-run-test-441-checker-inliner\n - art-run-test-449-checker-bce-rem\n - art-run-test-455-checker-gvn\n\nIf yes, we would need to exclude them in the GCL.",
+      "revId": "2df2da0f9280ad0ea26d565663713d7c10529527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
