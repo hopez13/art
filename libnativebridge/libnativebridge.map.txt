@@ -27,7 +27,6 @@ LIBNATIVEBRIDGE_1 {
     NativeBridgeGetExportedNamespace;
     NativeBridgeLinkNamespaces;
     NativeBridgeLoadLibraryExt;
-    NativeBridgeInitAnonymousNamespace;
     NativeBridgeInitialized;
     NativeBridgeGetTrampoline;
     LoadNativeBridge;

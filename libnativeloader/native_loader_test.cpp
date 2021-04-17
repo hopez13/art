@@ -60,8 +60,6 @@ class Platform {
   // argument 'bool bridged' to identify the context (i.e., called for libdl_android or
   // libnativebridge).
   typedef char* mock_namespace_handle;
-  virtual bool mock_init_anonymous_namespace(bool bridged, const char* sonames,
-                                             const char* search_paths) = 0;
   virtual mock_namespace_handle mock_create_namespace(
       bool bridged, const char* name, const char* ld_library_path, const char* default_library_path,
       uint64_t type, const char* permitted_when_isolated_path, mock_namespace_handle parent) = 0;
@@ -123,7 +121,6 @@ class MockPlatform : public Platform {
   }
 
   // Mocking the common APIs
-  MOCK_METHOD3(mock_init_anonymous_namespace, bool(bool, const char*, const char*));
   MOCK_METHOD7(mock_create_namespace,
                mock_namespace_handle(bool, const char*, const char*, const char*, uint64_t,
                                      const char*, mock_namespace_handle));
@@ -152,10 +149,6 @@ static std::unique_ptr<MockPlatform> mock;
 extern "C" {
 
 // libdl_android APIs
-
-bool android_init_anonymous_namespace(const char* sonames, const char* search_path) {
-  return mock->mock_init_anonymous_namespace(false, sonames, search_path);
-}
 
 struct android_namespace_t* android_create_namespace(const char* name, const char* ld_library_path,
                                                      const char* default_library_path,
@@ -210,11 +203,6 @@ void* NativeBridgeLoadLibraryExt(const char* libpath, int flag,
 
 bool NativeBridgeInitialized() {
   return mock->NativeBridgeInitialized();
-}
-
-bool NativeBridgeInitAnonymousNamespace(const char* public_ns_sonames,
-                                        const char* anon_ns_library_path) {
-  return mock->mock_init_anonymous_namespace(true, public_ns_sonames, anon_ns_library_path);
 }
 
 const char* NativeBridgeGetError() {
