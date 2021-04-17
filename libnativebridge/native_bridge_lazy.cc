@@ -135,12 +135,6 @@ bool NativeBridgeIsPathSupported(const char* path) {
   return f(path);
 }
 
-bool NativeBridgeInitAnonymousNamespace(const char* public_ns_sonames,
-                                        const char* anon_ns_library_path) {
-  static auto f = GET_FUNC_PTR(NativeBridgeInitAnonymousNamespace);
-  return f(public_ns_sonames, anon_ns_library_path);
-}
-
 struct native_bridge_namespace_t* NativeBridgeCreateNamespace(
     const char* name, const char* ld_library_path, const char* default_library_path, uint64_t type,
     const char* permitted_when_isolated_path, struct native_bridge_namespace_t* parent_ns) {
