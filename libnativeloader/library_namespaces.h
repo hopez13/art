@@ -58,6 +58,7 @@ class LibraryNamespaces {
                                         jstring java_library_path, jstring java_permitted_path,
                                         jstring uses_library_list);
   NativeLoaderNamespace* FindNamespaceByClassLoader(JNIEnv* env, jobject class_loader);
+  NativeLoaderNamespace* AppMainNamespace() { return app_main_namespace_; }
 
  private:
   Result<void> InitPublicNamespace(const char* library_path);

@@ -49,7 +49,7 @@ std::mutex g_namespaces_mutex;
 LibraryNamespaces* g_namespaces = new LibraryNamespaces;
 
 android_namespace_t* FindExportedNamespace(const char* caller_location) {
-  auto name = nativeloader::FindApexNamespaceName(caller_location);
+  Result<std::string> name = nativeloader::FindApexNamespaceName(caller_location);
   if (name.ok()) {
     android_namespace_t* boot_namespace = android_get_exported_namespace(name->c_str());
     LOG_ALWAYS_FATAL_IF((boot_namespace == nullptr),
@@ -97,8 +97,10 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
                         bool* needs_native_bridge, char** error_msg) {
 #if defined(ART_TARGET_ANDROID)
   UNUSED(target_sdk_version);
+
   if (class_loader == nullptr) {
     *needs_native_bridge = false;
+
     if (caller_location != nullptr) {
       android_namespace_t* boot_namespace = FindExportedNamespace(caller_location);
       if (boot_namespace != nullptr) {
@@ -113,10 +115,18 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         return handle;
       }
     }
-    // Fall back to the system namespace. This happens for preloaded JNI
-    // libraries in the zygote.
-    // TODO(b/185833744): Investigate if this should fall back to the app main
-    // namespace (aka anonymous namespace) instead.
+
+    // Fall back to the app main namespace.
+    {
+      std::lock_guard<std::mutex> guard(g_namespaces_mutex);
+      NativeLoaderNamespace* main_ns = g_namespaces->AppMainNamespace();
+      if (main_ns != nullptr) {
+        return OpenNativeLibraryInNamespace(main_ns, path, needs_native_bridge, error_msg);
+      }
+    }
+
+    // Use the system namespace if there is no app main namespace. This happens
+    // for preloaded JNI libraries in the zygote.
     void* handle = OpenSystemLibrary(path, RTLD_NOW);
     if (handle == nullptr) {
       *error_msg = strdup(dlerror());
