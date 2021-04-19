@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96587243_a05679fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-19T13:01:23Z",
+      "side": 1,
+      "message": "dist copies files to the DIST_DIR. I\u0027d naively expect that it also triggers building things intended for distribution, but I don\u0027t know and it\u0027s in this CL hence the question.",
+      "parentUuid": "781bbffd_f7891b45",
+      "range": {
+        "startLine": 13,
+        "startChar": 35,
+        "endLine": 13,
+        "endChar": 42
+      },
+      "revId": "3643de5699866d85bf04cffd35fefa576c7ffeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9210b08c_05f3617a",
