@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e8d41b_1809f5ac",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-19T15:18:11Z",
+      "side": 1,
+      "message": "Because libnativeloader depends on libnativebridge and not the other way around. I\u0027m not particularly pleased with this location, but couldn\u0027t find any better - there\u0027s some discussion about it in the CL description.",
+      "parentUuid": "c7c74103_ec83783e",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d61e7d9_694647cb",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-19T13:56:47Z",
       "side": 1,
       "message": "Can this comment clarify why \"system\" might not exist? It\u0027d seem the Runtime APEX has to be there.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55658117_fcc7717e",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-19T15:18:11Z",
+      "side": 1,
+      "message": "Well, it\u0027s just how the system linker config is configured right now. I hope to change that - added a TODO to the ticket I filed about it.",
+      "parentUuid": "2d61e7d9_694647cb",
       "range": {
         "startLine": 49,
         "startChar": 0,
