@@ -28,7 +28,7 @@ package {
 }
 
 java_test {
-    name: "ArtManagerLocalTests",
+    name: "ArtServiceTests",
 
     // Include all test java files.
     srcs: [
