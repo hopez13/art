@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c109d811_bad0ab5c",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-19T13:33:05Z",
+      "side": 1,
+      "message": "This comment has been following around since https://r.android.com/213395, and just about all the code around it has changed several times over since then. I rather suspect it\u0027s stale or misleading by now, but I don\u0027t know enough about vendor public libraries to know what to do with it. Should we remove or rephrase it?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 51
+      },
+      "revId": "bd738d5e9b9c1d79b1b1272e00176ee909f7f736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
