@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb800ad_9508da1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-19T11:16:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5d07fef_5f1b4fdf",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "3643de5699866d85bf04cffd35fefa576c7ffeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbeeb621_36f6342b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-19T11:12:26Z",
       "side": 1,
       "message": "Does building with dist rebuild dex2oat?",
+      "range": {
+        "startLine": 13,
+        "startChar": 35,
+        "endLine": 13,
+        "endChar": 42
+      },
+      "revId": "3643de5699866d85bf04cffd35fefa576c7ffeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "781bbffd_f7891b45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-19T11:16:41Z",
+      "side": 1,
+      "message": "What does \u0027dist\u0027 actually do?  Is it relevant for us?\nPresumably we depend on dex2oat explicitly...",
+      "parentUuid": "dbeeb621_36f6342b",
       "range": {
         "startLine": 13,
         "startChar": 35,
