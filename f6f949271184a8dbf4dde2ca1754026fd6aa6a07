@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7c74103_ec83783e",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-19T13:45:35Z",
+      "side": 1,
+      "message": "It reads odd to have that in libnativebridge, as there\u0027s nothing libnativebridge in it. Why is it not in libnativeloader?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf51a36c_bbb55314",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 16
