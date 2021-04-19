@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f6c24a6_b5fa2046",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-19T15:59:22Z",
+      "side": 1,
+      "message": "Obviously my CL description is over the TL;DR limit here. ;)\n\n\u003e (Another possibility could be to put it in the generic toolbox lib\n\u003e libartbase, but it\u0027s split into -d and non-d variants, and we don\u0027t\n\u003e want to split libnative{loader,bridge} that way.)",
+      "parentUuid": "0408601d_ad1f0aac",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d61e7d9_694647cb",
