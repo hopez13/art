@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d61e7d9_694647cb",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-19T13:56:47Z",
+      "side": 1,
+      "message": "Can this comment clarify why \"system\" might not exist? It\u0027d seem the Runtime APEX has to be there.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf51a36c_bbb55314",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 16
