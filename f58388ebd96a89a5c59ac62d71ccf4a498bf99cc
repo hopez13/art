@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc412909_8b689332",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-19T08:31:53Z",
+      "side": 1,
+      "message": "No that logic was introduced years ago, when the data structure moved from being a vector to a set (though you could argue that was broken as well, because there is no guarantee the first oat file we see is the primary one).",
+      "parentUuid": "c68ff9bf_234924c6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "f58388ebd96a89a5c59ac62d71ccf4a498bf99cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ce89ada_ad380d2f",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f7b1131_4dbaaee2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-19T08:31:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ce89ada_ad380d2f",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "f58388ebd96a89a5c59ac62d71ccf4a498bf99cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965162d0_323bf5fb",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-04-19T08:16:31Z",
       "side": 1,
       "message": "Is there a bug? Or was it a local crash that led to this CL?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "f58388ebd96a89a5c59ac62d71ccf4a498bf99cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a68943_6dfe4dfd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-19T08:31:53Z",
+      "side": 1,
+      "message": "My CL:\nhttps://android-review.googlesource.com/c/platform/art/+/1661962\n\nExposed the bug, and the bots were flaky until David reverted my CL.",
+      "parentUuid": "965162d0_323bf5fb",
       "range": {
         "startLine": 17,
         "startChar": 0,
