@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0408601d_ad1f0aac",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-19T15:39:37Z",
+      "side": 1,
+      "message": "Can we move OpenSystemLibrary to libartbase?",
+      "parentUuid": "72e8d41b_1809f5ac",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "f6f949271184a8dbf4dde2ca1754026fd6aa6a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d61e7d9_694647cb",
