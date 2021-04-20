@@ -39,6 +39,30 @@
       },
       "revId": "386238d898f41097629f0f984114aca2ad8169a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a5fec41_08722edd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-20T08:37:48Z",
+      "side": 1,
+      "message": "It happens so rarely that I figured it doesn\u0027t really matter and is better to be consistent with the case we have to do a copy (a polymorphic inline cache, which is the reason for the new test case).",
+      "parentUuid": "cb18baf2_fd886c9c",
+      "range": {
+        "startLine": 1431,
+        "startChar": 4,
+        "endLine": 1432,
+        "endChar": 14
+      },
+      "revId": "386238d898f41097629f0f984114aca2ad8169a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
