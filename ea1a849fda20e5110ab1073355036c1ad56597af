@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d39182f_97744c91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-20T14:54:00Z",
+      "side": 1,
+      "message": "Late LGTM.",
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb022f3c_885ccfd5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-20T14:54:00Z",
+      "side": 1,
+      "message": "Out of curiosity, does this work on older Android releases we run on the ART Buildbot (genuine question)?",
+      "range": {
+        "startLine": 1007,
+        "startChar": 16,
+        "endLine": 1007,
+        "endChar": 53
+      },
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204195bf_9f0c5bbd",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-20T14:54:00Z",
+      "side": 1,
+      "message": "Could the change of behavior made by this CL be documented here (in a follow-up CL)?",
+      "range": {
+        "startLine": 1038,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 60
+      },
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
