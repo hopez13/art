@@ -22,6 +22,30 @@
       },
       "revId": "bd738d5e9b9c1d79b1b1272e00176ee909f7f736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69166e0_a5de9098",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-04-20T04:37:22Z",
+      "side": 1,
+      "message": "I think we can remove this because vendor public libraries are not preloaded.\n\nI however wonder when we stopped preloading vendor public libraries. Was it me? I can\u0027t remember. :(",
+      "parentUuid": "c109d811_bad0ab5c",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 51
+      },
+      "revId": "bd738d5e9b9c1d79b1b1272e00176ee909f7f736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
