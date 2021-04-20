@@ -31,6 +31,7 @@ namespace mirror {
 
 // C++ mirror of java.lang.reflect.Executable.
 class MANAGED Executable : public AccessibleObject {
+  MIRROR_CLASS("Ljava/lang/reflect/Executable;");
  public:
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ArtMethod* GetArtMethod() REQUIRES_SHARED(Locks::mutator_lock_) {

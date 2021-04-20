@@ -28,6 +28,7 @@ namespace mirror {
 
 // C++ mirror of java.lang.invoke.CallSite
 class MANAGED CallSite : public Object {
+  MIRROR_CLASS("Ljava/lang/invoke/CallSite;");
  public:
   ObjPtr<MethodHandle> GetTarget() REQUIRES_SHARED(Locks::mutator_lock_);
 

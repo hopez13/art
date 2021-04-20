@@ -148,6 +148,14 @@ class MANAGED Array : public Object {
 
 template<typename T>
 class MANAGED PrimitiveArray : public Array {
+  MIRROR_CLASS("[Z");
+  MIRROR_CLASS("[B");
+  MIRROR_CLASS("[C");
+  MIRROR_CLASS("[S");
+  MIRROR_CLASS("[I");
+  MIRROR_CLASS("[J");
+  MIRROR_CLASS("[F");
+  MIRROR_CLASS("[D");
  public:
   typedef T ElementType;
 
