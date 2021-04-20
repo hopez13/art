@@ -63,6 +63,30 @@
       },
       "revId": "386238d898f41097629f0f984114aca2ad8169a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9886456_31980f1b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-20T08:51:24Z",
+      "side": 1,
+      "message": "I see, the `method-\u003eIsIntrinsic()` check above makes this very rare. OK then.",
+      "parentUuid": "8a5fec41_08722edd",
+      "range": {
+        "startLine": 1431,
+        "startChar": 4,
+        "endLine": 1432,
+        "endChar": 14
+      },
+      "revId": "386238d898f41097629f0f984114aca2ad8169a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
