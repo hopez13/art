@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4842704d_6712920b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-20T15:56:58Z",
+      "side": 1,
+      "message": "I see; I thought `getconf` was Android specific. It seems to be in POSIX (https://pubs.opengroup.org/onlinepubs/9699919799/utilities/getconf.html).\n\nIt looks like `getconf` was introduced in 2018 in AOSP (https://cs.android.com/android/platform/superproject/+/master:external/toybox/toys/posix/getconf.c), and was released in Android Q. I don\u0027t remember if we still use Android P devices on some phones on the ART Buildbot, but I know we are using Android N on Fugu, so there\u0027s a good chance this will fail.\n\nShould there be a default value (e.g. 1) in case the command fails?",
+      "parentUuid": "aae21c9e_08005fbe",
+      "range": {
+        "startLine": 1007,
+        "startChar": 16,
+        "endLine": 1007,
+        "endChar": 53
+      },
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "204195bf_9f0c5bbd",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 7
