@@ -30,6 +30,7 @@ class String;
 
 // C++ mirror of java.lang.Throwable
 class MANAGED Throwable : public Object {
+  MIRROR_CLASS("Ljava/lang/Throwable;");
  public:
   void SetDetailMessage(ObjPtr<String> new_detail_message) REQUIRES_SHARED(Locks::mutator_lock_);
 

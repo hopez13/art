@@ -33,6 +33,7 @@ class MethodType;
 
 // C++ mirror of dalvik.system.EmulatedStackFrame
 class MANAGED EmulatedStackFrame : public Object {
+  MIRROR_CLASS("Ldalvik/system/EmulatedStackFrame;");
  public:
   // Creates an emulated stack frame whose type is |frame_type| from
   // a shadow frame.

@@ -75,6 +75,7 @@ static constexpr uint32_t kObjectHeaderSize = kUseBrooksReadBarrier ? 16 : 8;
 
 // C++ mirror of java.lang.Object
 class MANAGED LOCKABLE Object {
+  MIRROR_CLASS("Ljava/lang/Object;");
  public:
   // The number of vtable entries in java.lang.Object.
   static constexpr size_t kVTableLength = 11;
