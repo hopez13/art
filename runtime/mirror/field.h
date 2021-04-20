@@ -38,6 +38,7 @@ class String;
 
 // C++ mirror of java.lang.reflect.Field.
 class MANAGED Field : public AccessibleObject {
+  MIRROR_CLASS("Ljava/lang/reflect/Field;");
  public:
   ALWAYS_INLINE uint32_t GetArtFieldIndex() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetField32(OFFSET_OF_OBJECT_MEMBER(Field, art_field_index_));

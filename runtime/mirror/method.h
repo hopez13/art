@@ -29,6 +29,7 @@ class Class;
 
 // C++ mirror of java.lang.reflect.Method.
 class MANAGED Method : public Executable {
+  MIRROR_CLASS("Ljava/lang/reflect/Method;");
  public:
   template <PointerSize kPointerSize>
   static ObjPtr<Method> CreateFromArtMethod(Thread* self, ArtMethod* method)
@@ -40,6 +41,7 @@ class MANAGED Method : public Executable {
 
 // C++ mirror of java.lang.reflect.Constructor.
 class MANAGED Constructor: public Executable {
+  MIRROR_CLASS("Ljava/lang/reflect/Constructor;");
  public:
   template <PointerSize kPointerSize>
   static ObjPtr<Constructor> CreateFromArtMethod(Thread* self, ArtMethod* method)

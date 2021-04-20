@@ -45,6 +45,7 @@ enum class StringCompressionFlag : uint32_t {
 
 // C++ mirror of java.lang.String
 class MANAGED String final : public Object {
+  MIRROR_CLASS("Ljava/lang/String;");
  public:
   // Size of java.lang.String.class.
   static uint32_t ClassSize(PointerSize pointer_size);

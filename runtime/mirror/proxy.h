@@ -27,6 +27,7 @@ namespace mirror {
 
 // C++ mirror of java.lang.reflect.Proxy.
 class MANAGED Proxy final : public Object {
+  MIRROR_CLASS("Ljava/lang/reflect/Proxy;");
  private:
   HeapReference<Object> h_;
 

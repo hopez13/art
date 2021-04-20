@@ -80,6 +80,7 @@ using StringDexCacheType = std::atomic<StringDexCachePair>;
 
 // C++ mirror of java.lang.Class
 class MANAGED Class final : public Object {
+  MIRROR_CLASS("Ljava/lang/Class;");
  public:
   // A magic value for reference_instance_offsets_. Ignore the bits and walk the super chain when
   // this is the value.
