@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01000958_2305a6f3",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-20T16:55:24Z",
+      "side": 1,
+      "message": "Reverted.\nAddressed in reland (by keeping the original code).\nI still let the code fail on adb error rather then default to 1.",
+      "parentUuid": "4842704d_6712920b",
+      "range": {
+        "startLine": 1007,
+        "startChar": 16,
+        "endLine": 1007,
+        "endChar": 53
+      },
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "204195bf_9f0c5bbd",
@@ -102,6 +126,30 @@
       "writtenOn": "2021-04-20T14:54:00Z",
       "side": 1,
       "message": "Could the change of behavior made by this CL be documented here (in a follow-up CL)?",
+      "range": {
+        "startLine": 1038,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 60
+      },
+      "revId": "ea1a849fda20e5110ab1073355036c1ad56597af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b924b90_68db03ce",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-20T16:55:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "204195bf_9f0c5bbd",
       "range": {
         "startLine": 1038,
         "startChar": 2,
