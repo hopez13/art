@@ -83,6 +83,13 @@
   V(JniMethodEndWithReferenceSynchronized, mirror::Object*, jobject, uint32_t, jobject, Thread*) \
   V(QuickGenericJniTrampoline, void, ArtMethod*) \
 \
+  V(JniMonitoredMethodStart, uint32_t, Thread*) \
+  V(JniMonitoredMethodStartSynchronized, uint32_t, jobject, Thread*) \
+  V(JniMonitoredMethodEnd, void, uint32_t, Thread*) \
+  V(JniMonitoredMethodEndSynchronized, void, uint32_t, jobject, Thread*) \
+  V(JniMonitoredMethodEndWithReference, mirror::Object*, jobject, uint32_t, Thread*) \
+  V(JniMonitoredMethodEndWithReferenceSynchronized, mirror::Object*, jobject, uint32_t, jobject, Thread*) \
+\
   V(LockObject, void, mirror::Object*) \
   V(UnlockObject, void, mirror::Object*) \
 \

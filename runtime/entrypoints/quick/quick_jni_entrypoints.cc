@@ -21,8 +21,18 @@
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "indirect_reference_table.h"
 #include "mirror/object-inl.h"
+#include "palette/palette.h"
+#include "palette/palette_hooks.h"
 #include "thread-inl.h"
 #include "verify_object.h"
+
+// For methods that monitor JNI invocations and report their begin/end to
+// palette hooks.
+#define MONITOR_JNI(kind)                               \
+  PaletteHooks* hooks = nullptr;                        \
+  if (PaletteGetHooks(&hooks) == PALETTE_STATUS_OK) {   \
+    hooks->kind(self->GetJniEnv());                     \
+  }                                                     \
 
 namespace art {
 
@@ -224,6 +234,7 @@ extern uint64_t GenericJniMethodEnd(Thread* self,
   // @CriticalNative does not do a state transition. @FastNative usually does not do a state
   // transition either but it performs a suspend check that may do state transitions.
   if (LIKELY(normal_native)) {
+    MONITOR_JNI(NotifyEndJniInvocation);
     GoToRunnable(self);
   } else if (fast_native) {
     GoToRunnableFast(self);
@@ -275,6 +286,44 @@ extern uint64_t GenericJniMethodEnd(Thread* self,
         UNREACHABLE();
     }
   }
+}
+
+extern uint32_t JniMonitoredMethodStart(Thread* self) {
+  MONITOR_JNI(NotifyBeginJniInvocation);
+  return JniMethodStart(self);
+}
+
+extern uint32_t JniMonitoredMethodStartSynchronized(jobject to_lock, Thread* self) {
+  MONITOR_JNI(NotifyBeginJniInvocation);
+  return JniMethodStartSynchronized(to_lock, self);
+}
+
+extern void JniMonitoredMethodEnd(uint32_t saved_local_ref_cookie, Thread* self) {
+  MONITOR_JNI(NotifyEndJniInvocation);
+  return JniMethodEnd(saved_local_ref_cookie, self);
+}
+
+extern void JniMonitoredMethodEndSynchronized(uint32_t saved_local_ref_cookie,
+                                             jobject locked,
+                                             Thread* self) {
+  MONITOR_JNI(NotifyEndJniInvocation);
+  return JniMethodEndSynchronized(saved_local_ref_cookie, locked, self);
+}
+
+extern mirror::Object* JniMonitoredMethodEndWithReference(jobject result,
+                                                          uint32_t saved_local_ref_cookie,
+                                                          Thread* self) {
+  MONITOR_JNI(NotifyEndJniInvocation);
+  return JniMethodEndWithReference(result, saved_local_ref_cookie, self);
+}
+
+extern mirror::Object* JniMonitoredMethodEndWithReferenceSynchronized(
+    jobject result,
+    uint32_t saved_local_ref_cookie,
+    jobject locked,
+    Thread* self) {
+  MONITOR_JNI(NotifyEndJniInvocation);
+  return JniMethodEndWithReferenceSynchronized(result, saved_local_ref_cookie, locked, self);
 }
 
 }  // namespace art
