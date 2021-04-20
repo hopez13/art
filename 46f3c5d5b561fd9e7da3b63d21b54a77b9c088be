@@ -22,6 +22,30 @@
       },
       "revId": "46f3c5d5b561fd9e7da3b63d21b54a77b9c088be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed24d1dd_bb0d1bef",
+        "filename": "libnativebridge/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-20T10:38:27Z",
+      "side": 1,
+      "message": "It\u0027s necessary to call android_get_exported_namespace in OpenSystemLibrary.\n\nBtw, I find it odd that libnativeloader-headers has a header for libdl_android in Bionic; we ought to get that from Bionic instead. Maybe it could go into bionic_libc_platform_headers, would at least be better than having it here. But I\u0027m not going to do anything about that now.",
+      "parentUuid": "b66ac6d9_83835648",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 43
+      },
+      "revId": "46f3c5d5b561fd9e7da3b63d21b54a77b9c088be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
