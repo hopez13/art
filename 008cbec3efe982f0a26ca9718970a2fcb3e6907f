@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c075fb1_66e8ed1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-21T14:20:42Z",
+      "side": 1,
+      "message": "It may not fail if the code in libunwindstack that depends on libasync_safe isn\u0027t referenced from libdex2oat_static. I think that\u0027s the reason we have seen it until https://r.android.com/1676309",
+      "range": {
+        "startLine": 12,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "008cbec3efe982f0a26ca9718970a2fcb3e6907f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
