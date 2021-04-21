@@ -217,7 +217,6 @@ art_module_exports {
                 "profman",
             ],
             native_libs: [
-                "libdexfile", // libdexfile_external dependency
                 "libartpalette", // libdexfile dependency
                 "libartbase", // libdexfile dependency
             ],
