@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7615f5a_6b7d3f93",
+        "filename": "build/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-21T15:01:08Z",
+      "side": 1,
+      "message": "Can you work \"using the internal master-art branch\" into this sentence for clarity?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "0074f561b532161602cb72290b669fb1c0614478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "daf50634_2c3e7395",
@@ -14,6 +37,30 @@
       "writtenOn": "2021-04-21T14:52:21Z",
       "side": 1,
       "message": "This detail is a bit in flux - hansson@ is working on fixing the module_\u003carch\u003e targets and this depends on how they are defined. Ideally we should have the result apex in a more top level location, but this will have to do for now. I\u0027ll try to keep it updated.",
+      "range": {
+        "startLine": 67,
+        "startChar": 35,
+        "endLine": 67,
+        "endChar": 42
+      },
+      "revId": "0074f561b532161602cb72290b669fb1c0614478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff14c6b_41fe49c7",
+        "filename": "build/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-21T15:01:08Z",
+      "side": 1,
+      "message": "Ack.\n\nUsing it practically, the path to the APEX is emitted in the \u0027m\u0027 step and it\u0027s easy just to cut-and-paste that.",
+      "parentUuid": "daf50634_2c3e7395",
       "range": {
         "startLine": 67,
         "startChar": 35,
