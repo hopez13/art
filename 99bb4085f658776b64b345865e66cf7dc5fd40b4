@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8aaaf1b_74aa08ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-22T22:29:18Z",
+      "side": 1,
+      "message": "Jasmin-ified the test.\n\nHopefully none of the other checker tests were relying on jasmin checker directives since they didn\u0027t work until I added support with this.\n\nPTAL.",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
