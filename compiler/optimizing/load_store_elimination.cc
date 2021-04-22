@@ -32,6 +32,8 @@
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "base/transform_iterator.h"
+#include "class_root.h"
+#include "dex/method_reference.h"
 #include "escape.h"
 #include "execution_subgraph.h"
 #include "handle.h"
@@ -42,6 +44,7 @@
 #include "optimizing/execution_subgraph.h"
 #include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
+#include "scoped_thread_state_change-inl.h"
 #include "side_effects_analysis.h"
 #include "stack_map.h"
 
@@ -3124,6 +3127,33 @@ class PartialLoadStoreEliminationHelper {
                 << "Instruction has users!\n"
                 << ins->DumpWithArgs() << "\nUsers are " << ins->GetEnvUses();
           }
+          ins->GetBlock()->RemoveInstruction(ins);
+        } else if (ins->IsInstanceOf()) {
+          DCHECK_EQ(ins->InputAt(0), OriginalNewInstance())
+              << ins->DumpWithArgs() << " is not " << OriginalNewInstance()->DumpWithArgs();
+          DCHECK(OriginalNewInstance()->GetLoadClass()->GetLoadedClassRTI().IsValid())
+              << ins->DumpWithArgs() << ". We can't do anything with types we aren't sure about!";
+          bool value;
+          auto is_supertype = [&]() -> bool {
+            ScopedObjectAccess soa(Thread::Current());
+            return ins->AsInstanceOf()->GetTargetClassRTI().IsSupertypeOf(
+                OriginalNewInstance()->GetLoadClass()->GetLoadedClassRTI());
+          };
+          if (!ins->AsInstanceOf()->GetTargetClassRTI().IsValid()) {
+            // If we don't know the exact type of the target we can't possibly
+            // pass this check since that would imply that the new-inst's
+            // class has the target as a supertype, which would mean that the
+            // new-inst class has to be invalid. Since this can't be true we
+            // know the instance-of can't ever pass.
+            value = false;
+          } else if (LIKELY(OriginalNewInstance()->GetLoadClass() ==
+                            ins->AsInstanceOf()->GetTargetClass()) ||
+                     LIKELY(is_supertype())) {
+            value = true;
+          } else {
+            value = false;
+          }
+          ins->ReplaceWith(GetGraph()->GetIntConstant(value ? 1 : 0));
           ins->GetBlock()->RemoveInstruction(ins);
         } else {
           // Can only be obj == other, obj != other, obj == obj (!?) or, obj != obj (!?)
