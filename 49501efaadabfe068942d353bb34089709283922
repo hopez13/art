@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "521388cc_c4e8005a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-22T03:54:23Z",
+      "side": 1,
+      "message": "This should also mostly fix problems with obsolete kInstrumented values. One of these, probably one I newly introduced, caused an earlier Treeehugger failure. Vladimir and I have been discussing this off line. There is still at least one such issue left, which I marked with a TODO for now.",
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

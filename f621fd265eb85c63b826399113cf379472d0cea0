@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c03a4dd_b2f67eb7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2565,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-22T03:54:23Z",
+      "side": 1,
+      "message": "No. But it is at least roughly the same as subtracting the two (mod 2^32), interpreting the result as a signed result, and then checking the sign of the result. The goal her is to make this work when gcs_requested wrapped, but gcs_completed didn\u0027t. It\u0027s not completely clear this is worth bothering with.\n\nRereading this, \"unsigned int\" should be uint32_t. I\u0027ll fix that.",
+      "parentUuid": "b8fe1578_3bbe8a56",
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5ce2b7d_a89664f9",
@@ -75,6 +93,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28a71d6_1a928273",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3965,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-22T03:54:23Z",
+      "side": 1,
+      "message": "That\u0027s probably better. I personally don\u0027t like constants that are defined elsewhere and only used once, so they\u0027re defined right here.",
+      "parentUuid": "e5ce2b7d_a89664f9",
+      "range": {
+        "startLine": 3965,
+        "startChar": 29,
+        "endLine": 3965,
+        "endChar": 31
+      },
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4397712_6b3e3f21",
@@ -88,6 +130,30 @@
       "writtenOn": "2021-03-25T21:42:26Z",
       "side": 1,
       "message": "Should this be a constant somewhere?",
+      "range": {
+        "startLine": 3973,
+        "startChar": 17,
+        "endLine": 3973,
+        "endChar": 21
+      },
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95c32cd_9428a20f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3973,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-22T03:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4397712_6b3e3f21",
       "range": {
         "startLine": 3973,
         "startChar": 17,
