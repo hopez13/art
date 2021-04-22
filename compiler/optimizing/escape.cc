@@ -41,6 +41,15 @@ void VisitEscapes(HInstruction* reference, EscapeVisitor& escape_visitor) {
       if (!escape_visitor(user)) {
         return;
       }
+    } else if (user->IsCheckCast() ||
+               (user->IsInstanceOf() &&
+                user->AsInstanceOf()->GetTypeCheckKind() == TypeCheckKind::kBitstringCheck)) {
+      // TODO Currently we'll just be conservative for Partial LSE and avoid
+      // optimizing check-cast things since we'd need to add blocks otherwise.
+      // TODO We should optimize instance-ofs using the bitmask representation.
+      if (!escape_visitor(user)) {
+        return;
+      }
     } else if (user->IsPhi() ||
                user->IsSelect() ||
                (user->IsInvoke() && user->GetSideEffects().DoesAnyWrite()) ||
@@ -104,6 +113,10 @@ void CalculateEscape(HInstruction* reference,
   }
 
   LambdaEscapeVisitor visitor([&](HInstruction* escape) -> bool {
+    if (escape->IsInstanceOf() || escape->IsCheckCast()) {
+      // Ignore since these are not relevant for regular LSE.
+      return true;
+    }
     if (escape == reference || no_escape(reference, escape)) {
       // Ignore already known inherent escapes and escapes client supplied
       // analysis knows is safe. Continue on.
