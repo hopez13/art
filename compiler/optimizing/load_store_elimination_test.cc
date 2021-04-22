@@ -23,12 +23,15 @@
 
 #include "base/iteration_range.h"
 #include "compilation_kind.h"
+#include "class_root-inl.h"
 #include "dex/dex_file_types.h"
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "entrypoints/quick/quick_entrypoints_enum.h"
 #include "gtest/gtest.h"
 #include "handle_scope.h"
 #include "load_store_analysis.h"
+#include "mirror/class_ext.h"
+#include "mirror/var_handle.h"
 #include "nodes.h"
 #include "optimizing/data_type.h"
 #include "optimizing/instruction_simplifier.h"
@@ -473,6 +476,71 @@ class PartialComparisonTestGroup
             ? static_cast<HInstruction*>(new (GetAllocator()) HEqual(target_left, target_right))
             : static_cast<HInstruction*>(new (GetAllocator()) HNotEqual(target_left, target_right));
     return {setup, cmp};
+  }
+};
+
+// Various configs we can use for testing. Currently used in PartialComparison tests.
+enum class PartialInstanceOfKind {
+  kSelf,
+  kUnrelatedLoaded,
+  kUnrelatedUnloaded,
+  kSupertype,
+};
+
+std::ostream& operator<<(std::ostream& os, const PartialInstanceOfKind& comp) {
+  switch (comp) {
+    case PartialInstanceOfKind::kSupertype:
+      return os << "kSupertype";
+    case PartialInstanceOfKind::kSelf:
+      return os << "kSelf";
+    case PartialInstanceOfKind::kUnrelatedLoaded:
+      return os << "kUnrelatedLoaded";
+    case PartialInstanceOfKind::kUnrelatedUnloaded:
+      return os << "kUnrelatedUnloaded";
+  }
+}
+
+class PartialInstanceOfTestGroup
+    : public LoadStoreEliminationTestBase<CommonCompilerTestWithParam<PartialInstanceOfKind>> {
+ public:
+  bool GetConstantResult() const {
+    switch (GetParam()) {
+      case PartialInstanceOfKind::kSupertype:
+      case PartialInstanceOfKind::kSelf:
+        return true;
+      case PartialInstanceOfKind::kUnrelatedLoaded:
+      case PartialInstanceOfKind::kUnrelatedUnloaded:
+        return false;
+    }
+  }
+
+  std::pair<HLoadClass*, HLoadClass*> GetLoadClasses(VariableSizedHandleScope* vshs) {
+    PartialInstanceOfKind kind = GetParam();
+    ScopedObjectAccess soa(Thread::Current());
+    // New inst always needs to have a valid rti since we dcheck that.
+    HLoadClass* new_inst = MakeClassLoad(
+        /* ti= */ std::nullopt, vshs->NewHandle<mirror::Class>(GetClassRoot<mirror::ClassExt>()));
+    new_inst->SetValidLoadedClassRTI();
+    if (kind == PartialInstanceOfKind::kSelf) {
+      return {new_inst, new_inst};
+    }
+    if (kind == PartialInstanceOfKind::kUnrelatedUnloaded) {
+      HLoadClass* target_class = MakeClassLoad();
+      EXPECT_FALSE(target_class->GetLoadedClassRTI().IsValid());
+      return {new_inst, target_class};
+    }
+    // Force both classes to be a real classes.
+    // For simplicity we use class-roots as the types. The new-inst will always
+    // be a ClassExt, unrelated-loaded will always be VarHandle and super will
+    // always be Object
+    HLoadClass* target_class = MakeClassLoad(
+        /* ti= */ std::nullopt,
+        vshs->NewHandle<mirror::Class>(kind == PartialInstanceOfKind::kSupertype ?
+                                           GetClassRoot<mirror::Object>() :
+                                           GetClassRoot<mirror::VarHandle>()));
+    target_class->SetValidLoadedClassRTI();
+    EXPECT_TRUE(target_class->GetLoadedClassRTI().IsValid());
+    return {new_inst, target_class};
   }
 };
 
@@ -5130,6 +5198,128 @@ INSTANTIATE_TEST_SUITE_P(
                     PartialComparisonKind{PartialComparisonKind::Type::kNotEquals,
                                           PartialComparisonKind::Target::kValue,
                                           PartialComparisonKind::Position::kRight}));
+
+
+// // ENTRY
+// // MOVED TO MATERIALIZATION BLOCK
+// obj = new Obj();
+// ELIMINATE, moved to materialization block. Kept by escape.
+// obj.field = 3;
+// // Make sure this graph isn't broken
+// if (obj instanceof <other>) {
+//   // LEFT
+//   // DO NOT ELIMINATE
+//   escape(obj);
+// } else {
+//   // RIGHT
+//   // ELIMINATE
+// }
+// EXIT
+// PREDICATED GET
+// return obj.field
+TEST_P(PartialInstanceOfTestGroup, PartialComparisonOn) {
+  VariableSizedHandleScope vshs(Thread::Current());
+  InitGraph(/*handles=*/&vshs);
+
+  AdjacencyListGraph blks(SetupFromAdjacencyList("entry",
+                                                 "exit",
+                                                 {{"entry", "left"},
+                                                  {"entry", "right"},
+                                                  {"left", "breturn"},
+                                                  {"right", "breturn"},
+                                                  {"breturn", "exit"}}));
+#define GET_BLOCK(name) HBasicBlock* name = blks.Get(#name)
+  GET_BLOCK(entry);
+  GET_BLOCK(exit);
+  GET_BLOCK(breturn);
+  GET_BLOCK(left);
+  GET_BLOCK(right);
+#undef GET_BLOCK
+  EnsurePredecessorOrder(breturn, {left, right});
+  HLoadClass* new_inst_klass;
+  HLoadClass* target_klass;
+  HInstruction* null_const = graph_->GetNullConstant();
+  HInstruction* test_res = graph_->GetIntConstant(GetConstantResult() ? 1 : 0);
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* c3 = graph_->GetIntConstant(3);
+
+  std::tie(new_inst_klass, target_klass) = GetLoadClasses(&vshs);
+  HInstruction* new_inst = MakeNewInstance(new_inst_klass);
+  HInstruction* write_entry = MakeIFieldSet(new_inst, c3, MemberOffset(32));
+  HInstanceOf* instance_of = new (GetAllocator()) HInstanceOf(new_inst,
+                                                              target_klass,
+                                                              TypeCheckKind::kClassHierarchyCheck,
+                                                              target_klass->GetClass(),
+                                                              0u,
+                                                              GetAllocator(),
+                                                              nullptr,
+                                                              nullptr);
+  if (target_klass->GetLoadedClassRTI().IsValid()) {
+    ScopedObjectAccess soa(Thread::Current());
+    instance_of->SetValidTargetClassRTI();
+  }
+  HInstruction* if_inst = new (GetAllocator()) HIf(instance_of);
+  entry->AddInstruction(new_inst_klass);
+  if (new_inst_klass != target_klass) {
+    entry->AddInstruction(target_klass);
+  }
+  entry->AddInstruction(new_inst);
+  entry->AddInstruction(write_entry);
+  entry->AddInstruction(instance_of);
+  entry->AddInstruction(if_inst);
+  ManuallyBuildEnvFor(new_inst_klass, {});
+  if (new_inst_klass != target_klass) {
+    target_klass->CopyEnvironmentFrom(new_inst_klass->GetEnvironment());
+  }
+  new_inst->CopyEnvironmentFrom(new_inst_klass->GetEnvironment());
+
+  HInstruction* call_left = MakeInvoke(DataType::Type::kVoid, {new_inst});
+  HInstruction* goto_left = new (GetAllocator()) HGoto();
+  left->AddInstruction(call_left);
+  left->AddInstruction(goto_left);
+  call_left->CopyEnvironmentFrom(new_inst_klass->GetEnvironment());
+
+  HInstruction* goto_right = new (GetAllocator()) HGoto();
+  right->AddInstruction(goto_right);
+
+  HInstruction* read_bottom = MakeIFieldGet(new_inst, DataType::Type::kInt32, MemberOffset(32));
+  HInstruction* return_exit = new (GetAllocator()) HReturn(read_bottom);
+  breturn->AddInstruction(read_bottom);
+  breturn->AddInstruction(return_exit);
+
+  SetupExit(exit);
+
+  // PerformLSE expects this to be empty.
+  graph_->ClearDominanceInformation();
+
+  LOG(INFO) << "Pre LSE " << blks;
+  PerformLSEWithPartial();
+  LOG(INFO) << "Post LSE " << blks;
+
+  EXPECT_INS_REMOVED(read_bottom);
+  EXPECT_INS_REMOVED(write_entry);
+  EXPECT_INS_RETAINED(call_left);
+  EXPECT_INS_RETAINED(if_inst);
+  EXPECT_INS_EQ(if_inst->InputAt(0), test_res);
+  HPredicatedInstanceFieldGet* pred_get =
+      FindSingleInstruction<HPredicatedInstanceFieldGet>(graph_, breturn);
+  ASSERT_NE(pred_get, nullptr);
+  HInstruction* val_phi = pred_get->GetDefaultValue();
+  HInstruction* target_phi = pred_get->GetTarget();
+  ASSERT_TRUE(val_phi->IsPhi()) << val_phi->DumpWithArgs();
+  ASSERT_TRUE(target_phi->IsPhi()) << target_phi->DumpWithArgs();
+  EXPECT_INS_EQ(val_phi->InputAt(0), c0);
+  EXPECT_INS_EQ(val_phi->InputAt(1), c3);
+  EXPECT_INS_EQ(target_phi->InputAt(0), FindSingleInstruction<HNewInstance>(graph_));
+  EXPECT_INS_EQ(target_phi->InputAt(1), null_const);
+}
+
+INSTANTIATE_TEST_SUITE_P(LoadStoreEliminationTest,
+                         PartialInstanceOfTestGroup,
+                         testing::Values(PartialInstanceOfKind::kSelf,
+                                         PartialInstanceOfKind::kUnrelatedLoaded,
+                                         PartialInstanceOfKind::kUnrelatedUnloaded,
+                                         PartialInstanceOfKind::kSupertype));
 
 // // ENTRY
 // obj = new Obj();
