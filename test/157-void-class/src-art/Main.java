@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import libcore.util.EmptyArray;
-
 public class Main {
+    private static final Class<?>[] EMPTY_CLASS_ARRAY = new Class[0];
+
     public static void main(String[] args) {
         try {
             // Check if we're running dalvik or RI.
@@ -29,7 +29,7 @@ public class Main {
         }
         try {
             // Initialize all classes needed for old java.lang.Void.TYPE initialization.
-            Runnable.class.getMethod("run", EmptyArray.CLASS).getReturnType();
+            Runnable.class.getMethod("run", EMPTY_CLASS_ARRAY).getReturnType();
         } catch (Exception e) {
             throw new Error(e);
         }
