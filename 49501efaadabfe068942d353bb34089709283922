@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a5c5ca1_39b8bb19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-22T08:29:05Z",
+      "side": 1,
+      "message": "This looks like the CL is doing way too many things. I\u0027d prefer these fixes in a separate CL.",
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "521388cc_c4e8005a",
@@ -14,6 +31,52 @@
       "writtenOn": "2021-04-22T03:54:23Z",
       "side": 1,
       "message": "This should also mostly fix problems with obsolete kInstrumented values. One of these, probably one I newly introduced, caused an earlier Treeehugger failure. Vladimir and I have been discussing this off line. There is still at least one such issue left, which I marked with a TODO for now.",
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10c1ee7_f8f33bcb",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-22T08:29:05Z",
+      "side": 1,
+      "message": "We should move the `ants` after the `if` and remove this `ats`. (Or pull the whole `if` further up, maybe just after the `pre_object_allocated` definition.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 38
+      },
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2924e451_5306914c",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-22T08:29:05Z",
+      "side": 1,
+      "message": "You could put this under `if constexpr (!kInstrumented)`. IMO, falling through for `kInstrumented \u003d\u003d true` is better than recursion.",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 66
+      },
       "revId": "49501efaadabfe068942d353bb34089709283922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
