@@ -145,6 +145,30 @@
       },
       "revId": "49501efaadabfe068942d353bb34089709283922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5ef98e_da8a35c0",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T08:30:45Z",
+      "side": 1,
+      "message": "While falling through would probably mean less generated code and shallower stack, I agree that it would make the reasoning about the code more difficult. So it\u0027s OK to keep the code simple and avoid the micro-optimization.",
+      "parentUuid": "4e421dd0_57b171f1",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 66
+      },
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
