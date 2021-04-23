@@ -117,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0436984_9ea46522",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3965,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2021-04-23T20:34:05Z",
+      "side": 1,
+      "message": "Thanks. I\u0027m always on the fence about single use constants, but I think the name gives a little more clarity to what the number means.",
+      "parentUuid": "d28a71d6_1a928273",
+      "range": {
+        "startLine": 3965,
+        "startChar": 29,
+        "endLine": 3965,
+        "endChar": 31
+      },
+      "revId": "f621fd265eb85c63b826399113cf379472d0cea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4397712_6b3e3f21",
