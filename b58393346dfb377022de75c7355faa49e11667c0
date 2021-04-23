@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36a8b6a4_fd521f58",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T15:05:57Z",
+      "side": 1,
+      "message": "\"deduced\"?",
+      "range": {
+        "startLine": 968,
+        "startChar": 15,
+        "endLine": 968,
+        "endChar": 22
+      },
+      "revId": "b58393346dfb377022de75c7355faa49e11667c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d3efc0_137cd927",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T15:05:57Z",
+      "side": 1,
+      "message": "Drop the comment? The DCHECK() output below says the same.",
+      "range": {
+        "startLine": 988,
+        "startChar": 7,
+        "endLine": 989,
+        "endChar": 72
+      },
+      "revId": "b58393346dfb377022de75c7355faa49e11667c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d415900e_90c27733",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T15:05:57Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 990,
+        "startChar": 22,
+        "endLine": 990,
+        "endChar": 43
+      },
+      "revId": "b58393346dfb377022de75c7355faa49e11667c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
