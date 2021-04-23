@@ -22,6 +22,52 @@
       },
       "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29cd3e8f_374f802d",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T08:31:00Z",
+      "side": 1,
+      "message": "Note: This theoretically allows unbounded recursion depth.",
+      "range": {
+        "startLine": 164,
+        "startChar": 19,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db99c0ce_e0fb1622",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T08:31:00Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 45,
+        "endLine": 1035,
+        "endChar": 48
+      },
+      "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
