@@ -22,6 +22,47 @@
       },
       "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0fff593_a4bbe6e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-23T10:49:48Z",
+      "side": 1,
+      "message": "Why? They don\u0027t appear to have been broken by my previous changes and the presubmits for this change have already run and passed linux-bionic targets in git_master-art-host.",
+      "parentUuid": "a07dd85b_854c5b66",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 135
+      },
+      "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d65e3e_64a235fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-23T10:49:48Z",
+      "side": 1,
+      "message": "CC\u0027d Colin and Alex as Colin made the change to remove \"DexpreoptGlobalConfig\" and Alex wrote the script initially just in case they can see any issues with my change.",
+      "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
