@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a8164d_9b8a73cb",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ced4690_5b2af9b8",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1ca95a0_ea9a3904",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "Unnecessary include?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c3bd56_c0c96c9a",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ca95a0_ea9a3904",
       "range": {
         "startLine": 34,
         "startChar": 9,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e110196a_1d50a88f",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b619f1f1_f3df6fca",
+      "range": {
+        "startLine": 1206,
+        "startChar": 2,
+        "endLine": 1206,
+        "endChar": 39
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63ea5818_b1705e1e",
@@ -94,6 +160,24 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "572d6f13_129bfd70",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63ea5818_b1705e1e",
       "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -115,6 +199,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2355492b_aea1466e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Good point. Looking at the simplifier code closer I\u0027m not sure why this wasn\u0027t always done actually. Pretty simple change in any case.",
+      "parentUuid": "b9c596c9_38c9d20f",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17773264_870234e5",
@@ -128,6 +230,30 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "Do we really need these for `GetClassRoot\u003cmirror::{ClassExt,VarHandle}\u003e()`?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1928cbb_769d9f91",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17773264_870234e5",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -161,6 +287,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1c12a6_bf06e7f4",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa17efa2_db68131e",
+      "range": {
+        "startLine": 540,
+        "startChar": 64,
+        "endLine": 540,
+        "endChar": 73
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba1adf20_9140e261",
@@ -174,6 +324,30 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "Why not `auto [new_inst_klass, target_klass]` and remove the declarations above?",
+      "range": {
+        "startLine": 5246,
+        "startChar": 2,
+        "endLine": 5246,
+        "endChar": 40
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96837c8c_c27a0e2a",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5246,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ba1adf20_9140e261",
       "range": {
         "startLine": 5246,
         "startChar": 2,
@@ -207,6 +381,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c1a76bf_439383f5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5258,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3dd7fe3_02c07ca3",
+      "range": {
+        "startLine": 5258,
+        "startChar": 4,
+        "endLine": 5258,
+        "endChar": 46
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75d412b8_e2822042",
@@ -220,6 +418,30 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "Use a separate checker block for this.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "429cda12_1afc5a03",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "With the movement to simplifier the other check isn\u0027t needed.",
+      "parentUuid": "75d412b8_e2822042",
       "range": {
         "startLine": 25,
         "startChar": 3,
@@ -247,6 +469,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6a24b7_063f6d59",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "976a46e0_13ff5e23",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6da25be_07924033",
@@ -260,6 +500,30 @@
       "writtenOn": "2021-04-23T11:32:10Z",
       "side": 1,
       "message": "aload_0; dup2",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 9
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6acd8e40_150f2346",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-23T18:01:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a6da25be_07924033",
       "range": {
         "startLine": 109,
         "startChar": 2,
