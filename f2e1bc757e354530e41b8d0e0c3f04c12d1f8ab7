@@ -80,6 +80,24 @@
       "message": "Probably irrelevant, but one thing to be aware of is that we have two identical global depreopt.config files during the build:\n\n  - out/soong/dexpreopt.config\n  - out/soong/${TARGET_PRODUCT}/dexpreopt.config\n\nThe reason for this is correctness of incremental builds (aosp/959673, aosp/959792).",
       "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e2a3325_ee9fe25b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-23T11:29:31Z",
+      "side": 1,
+      "message": "Eww! That\u0027s nasty. You\u0027re right that it is probably irrelevant. It should not be a problem because the build will guarantee that the dexpreopt.config used by make will be the same as that supplied to Soong initially.\n\nThis is concerned with making sure that the config supplied to Soong initially is consistent. As long as it is consistent on the input it should be consistent all the way through the build.",
+      "parentUuid": "f3378c7d_0591e33f",
+      "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
