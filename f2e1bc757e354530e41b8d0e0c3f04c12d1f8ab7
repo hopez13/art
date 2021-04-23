@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bf736fcb_520d0e2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-23T11:41:34Z",
+      "side": 1,
+      "message": "Because it\u0027s reasonable to suspect this change affects those targets.\n\nYou\u0027re partially right, linux-bionic-zipapex is covered by presubmit, but linux-bionic isn\u0027t. Both run the same script, but I don\u0027t know how similar they are otherwise.",
+      "parentUuid": "a0fff593_a4bbe6e3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 135
+      },
+      "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e1d65e3e_64a235fc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
