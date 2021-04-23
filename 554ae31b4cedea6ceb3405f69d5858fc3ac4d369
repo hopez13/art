@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb62f02e_79c0d29c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-23T16:57:27Z",
+      "side": 1,
+      "message": "Nit: add which options you are removing/adding.",
+      "revId": "554ae31b4cedea6ceb3405f69d5858fc3ac4d369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39eb5370_91d19985",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-23T16:57:27Z",
+      "side": 1,
+      "message": "Note: \"%.*s\" allows to pass the number of characters to be printed from the string (so no need to create an intermediate one).",
+      "range": {
+        "startLine": 301,
+        "startChar": 27,
+        "endLine": 301,
+        "endChar": 29
+      },
+      "revId": "554ae31b4cedea6ceb3405f69d5858fc3ac4d369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
