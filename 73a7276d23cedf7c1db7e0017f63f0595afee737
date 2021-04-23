@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21b0861c_bfc705e4",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-23T04:31:04Z",
+      "side": 1,
+      "message": "This is confusing. I think we rely on the fact that it only suspends with kInstrumented. I guess it could still hide an allocator change?",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 41
+      },
+      "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
