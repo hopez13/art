@@ -16,6 +16,258 @@
       "message": "Jasmin-ified the test.\n\nHopefully none of the other checker tests were relying on jasmin checker directives since they didn\u0027t work until I added support with this.\n\nPTAL.",
       "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ced4690_5b2af9b8",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Move into the `if ... else if ... else if ...` chain?",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ca95a0_ea9a3904",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Unnecessary include?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b619f1f1_f3df6fca",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Move to the `left` block initialization and add it to the graph.",
+      "range": {
+        "startLine": 1206,
+        "startChar": 2,
+        "endLine": 1206,
+        "endChar": 39
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ea5818_b1705e1e",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c596c9_38c9d20f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "This feels like something for instruction simplifier rather than LSE. If we did the simplification there, LSE could simply consider all remaining InstanceOf as escaping.",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17773264_870234e5",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Do we really need these for `GetClassRoot\u003cmirror::{ClassExt,VarHandle}\u003e()`?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa17efa2_db68131e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Why not something more basic such as `Throwable`?",
+      "range": {
+        "startLine": 540,
+        "startChar": 64,
+        "endLine": 540,
+        "endChar": 73
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba1adf20_9140e261",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Why not `auto [new_inst_klass, target_klass]` and remove the declarations above?",
+      "range": {
+        "startLine": 5246,
+        "startChar": 2,
+        "endLine": 5246,
+        "endChar": 40
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3dd7fe3_02c07ca3",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Unnecessary after rebasing on top of https://android-review.googlesource.com/1684880 .",
+      "range": {
+        "startLine": 5258,
+        "startChar": 4,
+        "endLine": 5258,
+        "endChar": 46
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d412b8_e2822042",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "Use a separate checker block for this.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "976a46e0_13ff5e23",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "This differs from the Java code comment above. Maybe just update the comment with local variable `out`?",
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6da25be_07924033",
+        "filename": "test/530-checker-lse4/jasmin/Main.j",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-23T11:32:10Z",
+      "side": 1,
+      "message": "aload_0; dup2",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 9
+      },
+      "revId": "99bb4085f658776b64b345865e66cf7dc5fd40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
