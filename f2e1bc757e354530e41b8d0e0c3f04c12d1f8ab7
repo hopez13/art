@@ -63,6 +63,23 @@
       "message": "CC\u0027d Colin and Alex as Colin made the change to remove \"DexpreoptGlobalConfig\" and Alex wrote the script initially just in case they can see any issues with my change.",
       "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3378c7d_0591e33f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-23T11:17:05Z",
+      "side": 1,
+      "message": "Probably irrelevant, but one thing to be aware of is that we have two identical global depreopt.config files during the build:\n\n  - out/soong/dexpreopt.config\n  - out/soong/${TARGET_PRODUCT}/dexpreopt.config\n\nThe reason for this is correctness of incremental builds (aosp/959673, aosp/959792).",
+      "revId": "f2e1bc757e354530e41b8d0e0c3f04c12d1f8ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
