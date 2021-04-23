@@ -175,6 +175,30 @@
       },
       "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610f0bd0_9727b1b3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-23T14:52:38Z",
+      "side": 1,
+      "message": "What I meant was that this is probably not needed; ee use `eval` in other places, because it is part of this pattern:\n\n  # Build command.\n  make_command\u003d\"\u003ccommand line\u003e\"\n  # Print command for debugging purposes.\n  echo \"$make_command\"\n  # Evaluate it to execute it.\n  eval \"$make_command\"\n\nIn this case, you don\u0027t construct the command as variable, so evaluating it is superfluous.",
+      "parentUuid": "4a6224cc_8a55b3c7",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 4
+      },
+      "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
