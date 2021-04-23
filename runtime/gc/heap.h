@@ -1030,8 +1030,9 @@ class Heap {
       REQUIRES(!*gc_complete_lock_, !*pending_task_lock_,
                !*backtrace_lock_, !process_state_update_lock_);
 
-  // Handles Allocate()'s slow allocation path with GC involved after
-  // an initial allocation attempt failed.
+  // Handles Allocate()'s slow allocation path with GC involved after an initial allocation
+  // attempt failed.
+  // Called with thread suspension disallowed at, but re-enables it, and may suspend, internally.
   mirror::Object* AllocateInternalWithGc(Thread* self,
                                          AllocatorType allocator,
                                          bool instrumented,
