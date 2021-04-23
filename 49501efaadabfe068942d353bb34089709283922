@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a04d8129_61150365",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-23T00:25:35Z",
+      "side": 1,
+      "message": "I\u0027ll move the fixes we\u0027re discussing to a different CL. I\u0027ll leave the metrics one, since it\u0027s a bit entangled.",
+      "parentUuid": "0a5c5ca1_39b8bb19",
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "521388cc_c4e8005a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda71463_2da72438",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-23T00:25:35Z",
+      "side": 1,
+      "message": "I\u0027ll address this in the other CL.",
+      "parentUuid": "c10c1ee7_f8f33bcb",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 38
+      },
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2924e451_5306914c",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-04-22T08:29:05Z",
       "side": 1,
       "message": "You could put this under `if constexpr (!kInstrumented)`. IMO, falling through for `kInstrumented \u003d\u003d true` is better than recursion.",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 66
+      },
+      "revId": "49501efaadabfe068942d353bb34089709283922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e421dd0_57b171f1",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-23T00:25:35Z",
+      "side": 1,
+      "message": "Moving this to a different CL.\nMy reasoning here was that this is a really hard to exercise control path, and I would rather have one such path rather than two. I agree that falling through is in some performance sense better than the tail recursion here. But does it really matter?",
+      "parentUuid": "2924e451_5306914c",
       "range": {
         "startLine": 112,
         "startChar": 6,
