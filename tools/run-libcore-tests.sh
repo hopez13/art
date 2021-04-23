@@ -141,8 +141,8 @@ working_packages=("libcore.android.system"
 #
 # Setup environment for running tests.
 #
-source build/envsetup.sh >&/dev/null # for get_build_var, setpaths
-setpaths # include platform prebuilt java, javac, etc in $PATH.
+# source build/envsetup.sh >&/dev/null # for get_build_var, setpaths
+# setpaths # include platform prebuilt java, javac, etc in $PATH.
 
 # Note: This must start with the CORE_IMG_JARS in Android.common_path.mk
 # because that's what we use for compiling the boot.art image.
@@ -247,7 +247,7 @@ if [ -z "$execution_mode" ]; then
 fi
 
 # Default timeout, gets overridden on device under gcstress.
-default_timeout_secs=480
+default_timeout_secs=600
 
 if [ $execution_mode = "device" ]; then
   # Honor environment variable ART_TEST_CHROOT.
@@ -345,10 +345,6 @@ if [[ ${#user_packages[@]} != 0 ]] ; then
   working_packages=("${user_packages[@]}")
 fi
 
-# Run the tests using vogar.
-echo "Running tests for the following test packages:"
-echo ${working_packages[@]} | tr " " "\n"
-
-cmd="vogar $vogar_args $expectations $(cparg $DEPS) ${working_packages[@]}"
-echo "Running $cmd"
-$dry_run || eval $cmd
+cmd="vogar$vogar_args $expectations $(cparg $DEPS)${working_packages[@]}"
+echo "$cmd"
+#$dry_run || eval $cmd
