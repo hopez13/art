@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe9ac26_16f77cda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-23T14:26:24Z",
+      "side": 1,
+      "message": "Ideally, this should be implemented in a separate CL, as this is not directly related to the main topic of this change (runnning installclean).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e353f9_7c5723fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-23T14:26:24Z",
+      "side": 1,
+      "message": "Maybe reference one the ART testing bugs here for reference/tracking/motivation?",
+      "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39fe9ade_f21a2791",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-23T14:26:24Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that these build targets have different names on device and host?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 16
+      },
+      "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b0cc4b3_894df973",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-23T14:26:24Z",
+      "side": 1,
+      "message": "Is this really needed?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 4
+      },
+      "revId": "0348ded9e998a9a51f696a631eaf4a53585c9311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
