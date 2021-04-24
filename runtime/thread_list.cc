@@ -118,15 +118,6 @@ bool ThreadList::Contains(Thread* thread) {
   return find(list_.begin(), list_.end(), thread) != list_.end();
 }
 
-bool ThreadList::Contains(pid_t tid) {
-  for (const auto& thread : list_) {
-    if (thread->GetTid() == tid) {
-      return true;
-    }
-  }
-  return false;
-}
-
 pid_t ThreadList::GetLockOwner() {
   return Locks::thread_list_lock_->GetExclusiveOwnerTid();
 }
@@ -179,12 +170,12 @@ void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack)
     char* end;
     pid_t tid = strtol(e->d_name, &end, 10);
     if (!*end) {
-      bool contains;
+      Thread* thread;
       {
         MutexLock mu(self, *Locks::thread_list_lock_);
-        contains = Contains(tid);
+        thread = FindThreadByTid(tid);
       }
-      if (!contains) {
+      if (thread != nullptr) {
         DumpUnattachedThread(os, tid, dump_native_stack);
       }
     }
@@ -1110,6 +1101,15 @@ Thread* ThreadList::FindThreadByThreadId(uint32_t thread_id) {
   return nullptr;
 }
 
+Thread* ThreadList::FindThreadByTid(int tid) {
+  for (const auto& thread : list_) {
+    if (thread->GetTid() == tid) {
+      return thread;
+    }
+  }
+  return nullptr;
+}
+
 void ThreadList::WaitForOtherNonDaemonThreadsToExit(bool check_no_birth) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   Thread* self = Thread::Current();
@@ -1325,6 +1325,10 @@ void ThreadList::Unregister(Thread* self) {
       } else {
         MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
         if (!self->IsSuspended()) {
+          auto iterator = last_dumpstack_time_map_.find(self->GetTid());
+          if (iterator != last_dumpstack_time_map_.end()) {
+            last_dumpstack_time_map_.erase(iterator);
+          }
           list_.remove(self);
           break;
         }

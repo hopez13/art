@@ -31,10 +31,15 @@
 #include "mutex-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
+#include "thread.h"
+#include "thread_list.h"
 
 namespace art {
 
 using android::base::StringPrintf;
+
+static constexpr uint64_t kIntervalMillis = 50;
+static constexpr int kMonitorTimeoutTryMax = 5;
 
 struct AllMutexData {
   // A guard for all_mutexes_ that's not a mutex (Mutexes must CAS to acquire and busy wait).
@@ -443,15 +448,28 @@ void Mutex::ExclusiveLock(Thread* self) {
           if (UNLIKELY(should_respond_to_empty_checkpoint_request_)) {
             self->CheckEmptyCheckpointFromMutex();
           }
+
+          uint64_t wait_start_ms = enable_monitor_timeout_ ? MilliTime() : 0;
+          uint64_t try_times = 0;
           do {
+            timespec timeout_ts;
+            timeout_ts.tv_sec = 0;
+            timeout_ts.tv_nsec = Runtime::Current()->GetMonitorTimeoutNs();
             if (futex(state_and_contenders_.Address(), FUTEX_WAIT_PRIVATE, cur_state,
-                      nullptr, nullptr, 0) != 0) {
+                      enable_monitor_timeout_ ? &timeout_ts : nullptr , nullptr, 0) != 0) {
               // We only went to sleep after incrementing and contenders and checking that the
               // lock is still held by someone else.  EAGAIN and EINTR both indicate a spurious
               // failure, try again from the beginning.  We don't use TEMP_FAILURE_RETRY so we can
               // intentionally retry to acquire the lock.
               if ((errno != EAGAIN) && (errno != EINTR)) {
-                PLOG(FATAL) << "futex wait failed for " << name_;
+                if (errno == ETIMEDOUT) {
+                  try_times++;
+                  if (try_times <= kMonitorTimeoutTryMax) {
+                    DumpStack(self, wait_start_ms, try_times);
+                  }
+                } else {
+                  PLOG(FATAL) << "futex wait failed for " << name_;
+                }
               }
             }
             SleepIfRuntimeDeleted(self);
@@ -478,6 +496,52 @@ void Mutex::ExclusiveLock(Thread* self) {
     CHECK(recursion_count_ == 1 || recursive_) << "Unexpected recursion count on mutex: "
         << name_ << " " << recursion_count_;
     AssertHeld(self);
+  }
+}
+
+void Mutex::DumpStack(Thread* self, uint64_t wait_start_ms, uint64_t try_times) {
+  ScopedObjectAccess soa(self);
+  Locks::thread_list_lock_->ExclusiveLock(self);
+  std::string owner_stack_dump;
+  pid_t owner_tid = GetExclusiveOwnerTid();
+  Thread *owner = Runtime::Current()->GetThreadList()->FindThreadByTid(owner_tid);
+  if (owner != nullptr) {
+    if (IsDumpFrequent(owner, try_times)) {
+      Locks::thread_list_lock_->ExclusiveUnlock(self);
+      LOG(WARNING) << "Contention with tid " << owner_tid << ", monitor id " << monitor_id_;
+      return;
+    }
+    struct CollectStackTrace : public Closure {
+      void Run(art::Thread* thread) override
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
+        if (IsDumpFrequent(thread)) {
+          return;
+        }
+        thread->DumpJavaStack(oss);
+      }
+      std::ostringstream oss;
+    };
+    CollectStackTrace owner_trace;
+    owner->RequestSynchronousCheckpoint(&owner_trace);
+    owner_stack_dump = owner_trace.oss.str();
+    uint64_t wait_ms = MilliTime() - wait_start_ms;
+    LOG(WARNING) << "Monitor contention with tid " << owner_tid << ", wait time: " << wait_ms
+                 << "ms, monitor id: " << monitor_id_
+                 << "\nPerfMonitor owner thread(" << owner_tid << ") stack is:\n"
+                 << owner_stack_dump;
+  } else {
+    Locks::thread_list_lock_->ExclusiveUnlock(self);
+  }
+}
+
+bool Mutex::IsDumpFrequent(Thread* thread, uint64_t try_times) {
+  pid_t tid = thread->GetTid();
+  uint64_t last_dump_time = Runtime::Current()->GetThreadList()->GetLastDumpStackTimeMs(tid);
+  uint64_t interval = MilliTime() - last_dump_time;
+  if (interval < kIntervalMillis * try_times) {
+    return true;
+  } else {
+    return false;
   }
 }
 

@@ -230,6 +230,14 @@ class Thread {
                      bool dump_locks = true) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void SetLastDumpStackTime(uint64_t time) {
+    last_dumpstack_time_ = time;
+  }
+
+  uint64_t GetLastDumpStackTime() {
+    return last_dumpstack_time_;
+  }
+
   // Dumps the SIGQUIT per-thread header. 'thread' can be null for a non-attached thread, in which
   // case we use 'tid' to identify the thread, and we'll include as much information as we can.
   static void DumpState(std::ostream& os, const Thread* thread, pid_t tid)
@@ -1540,6 +1548,7 @@ class Thread {
 
   static constexpr uint32_t kMakeVisiblyInitializedCounterTriggerCount = 128;
 
+
   /***********************************************************************************************/
   // Thread local storage. Fields are grouped by size to enable 32 <-> 64 searching to account for
   // pointer size differences. To encourage shorter encoding, more frequently used values appear
@@ -1896,6 +1905,8 @@ class Thread {
   // Set during execution of JNI methods that get field and method id's as part of determining if
   // the caller is allowed to access all fields and methods in the Core Platform API.
   uint32_t core_platform_api_cookie_ = 0;
+
+  uint64_t last_dumpstack_time_ = 0;
 
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.
