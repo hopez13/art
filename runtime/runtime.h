@@ -974,6 +974,13 @@ class Runtime {
     return perfetto_javaheapprof_enabled_;
   }
 
+  bool IsMonitorTimeoutEnabled() const {
+    return monitor_timeout_enable_;
+  }
+
+  uint64_t GetMonitorTimeout() const {
+    return monitor_timeout_;
+  }
   // Return true if we should load oat files as executable or not.
   bool GetOatFilesExecutable() const;
 
@@ -1224,6 +1231,8 @@ class Runtime {
   // Whether Java code needs to be debuggable.
   bool is_java_debuggable_;
 
+  bool monitor_timeout_enable_;
+  uint64_t monitor_timeout_;
   bool is_profileable_from_shell_ = false;
 
   // The maximum number of failed boots we allow before pruning the dalvik cache
