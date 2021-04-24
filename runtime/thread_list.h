@@ -104,6 +104,9 @@ class ThreadList {
   // Find an existing thread (or self) by its thread id (not tid).
   Thread* FindThreadByThreadId(uint32_t thread_id) REQUIRES(Locks::thread_list_lock_);
 
+  // Find an existing thread (or self) by its thread id (not tid).
+  Thread* FindThreadByTid(int tid) REQUIRES(Locks::thread_list_lock_);
+
   // Does the thread list still contain the given thread, or one at the same address?
   // Used by Monitor to provide (mostly accurate) debugging information.
   bool Contains(Thread* thread) REQUIRES(Locks::thread_list_lock_);

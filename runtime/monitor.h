@@ -413,6 +413,8 @@ class Monitor {
   void CheckLockOwnerRequest(Thread* self)
       REQUIRES(monitor_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void CheckMonitorType() REQUIRES(Locks::mutator_lock_);
+
   // The denser encoded version of this monitor as stored in the lock word.
   MonitorId monitor_id_;
 

@@ -1110,6 +1110,15 @@ Thread* ThreadList::FindThreadByThreadId(uint32_t thread_id) {
   return nullptr;
 }
 
+Thread* ThreadList::FindThreadByTid(int tid) {
+  for (const auto& thread : list_) {
+    if (thread->GetTid() == tid) {
+      return thread;
+    }
+  }
+  return nullptr;
+}
+
 void ThreadList::WaitForOtherNonDaemonThreadsToExit(bool check_no_birth) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   Thread* self = Thread::Current();

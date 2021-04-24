@@ -221,6 +221,19 @@ class LOCKABLE Mutex : public BaseMutex {
 
   void Dump(std::ostream& os) const override;
 
+  void DumpStack(Thread *self, uint64_t wait_start_ms, uint64_t try_times = 1);
+
+  static bool IsDumpFrequent(Thread *self, uint64_t try_times = 1);
+
+  void setCheckTimeOut(bool checkTimeout, uint64_t monitor_timeout) {
+    is_check_timeout_ = checkTimeout;
+    monitor_timeout_ = monitor_timeout;
+  }
+
+  void setMonitorId(int monitorId) {
+    monitor_id_ = monitorId;
+  }
+
   // For negative capabilities in clang annotations.
   const Mutex& operator!() const { return *this; }
 
@@ -274,6 +287,10 @@ class LOCKABLE Mutex : public BaseMutex {
 
   unsigned int recursion_count_;
   const bool recursive_;  // Can the lock be recursively held?
+
+  bool is_check_timeout_ = false;
+  uint64_t monitor_timeout_ = 0;
+  int monitor_id_;
 
   friend class ConditionVariable;
   DISALLOW_COPY_AND_ASSIGN(Mutex);
