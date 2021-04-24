@@ -2157,6 +2157,12 @@ void Thread::DumpJavaStack(std::ostream& os, bool check_suspended, bool dump_loc
     }
   }
 
+  // Record last dump stack time.
+  {
+    MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+    Runtime::Current()->GetThreadList()->UpdateLastDumpStackTimeMs(GetTid(), MilliTime());
+  }
+
   // Dumping the Java stack involves the verifier for locks. The verifier operates under the
   // assumption that there is no exception pending on entry. Thus, stash any pending exception.
   // Thread::Current() instead of this in case a thread is dumping the stack of another suspended

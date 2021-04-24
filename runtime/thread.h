@@ -1540,6 +1540,7 @@ class Thread {
 
   static constexpr uint32_t kMakeVisiblyInitializedCounterTriggerCount = 128;
 
+
   /***********************************************************************************************/
   // Thread local storage. Fields are grouped by size to enable 32 <-> 64 searching to account for
   // pointer size differences. To encourage shorter encoding, more frequently used values appear
