@@ -54,6 +54,8 @@ class ScopedContentionRecorder;
 class Thread;
 class LOCKABLE Mutex;
 
+typedef uint32_t MonitorId;
+
 constexpr bool kDebugLocking = kIsDebugBuild;
 
 // Record Log contention information, dumpable via SIGQUIT.
@@ -221,6 +223,18 @@ class LOCKABLE Mutex : public BaseMutex {
 
   void Dump(std::ostream& os) const override;
 
+  void DumpStack(Thread *self, uint64_t wait_start_ms, uint64_t try_times = 1);
+
+  static bool IsDumpFrequent(Thread *self, uint64_t try_times = 1);
+
+  void setEnableMonitorTimeout() {
+    enable_monitor_timeout_ = true;
+  }
+
+  void setMonitorId(MonitorId monitorId) {
+    monitor_id_ = monitorId;
+  }
+
   // For negative capabilities in clang annotations.
   const Mutex& operator!() const { return *this; }
 
@@ -274,6 +288,10 @@ class LOCKABLE Mutex : public BaseMutex {
 
   unsigned int recursion_count_;
   const bool recursive_;  // Can the lock be recursively held?
+
+  bool enable_monitor_timeout_ = false;
+
+  MonitorId monitor_id_;
 
   friend class ConditionVariable;
   DISALLOW_COPY_AND_ASSIGN(Mutex);
