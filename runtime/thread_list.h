@@ -28,6 +28,7 @@
 #include <bitset>
 #include <list>
 #include <vector>
+#include <map>
 
 namespace art {
 namespace gc {
@@ -103,6 +104,9 @@ class ThreadList {
 
   // Find an existing thread (or self) by its thread id (not tid).
   Thread* FindThreadByThreadId(uint32_t thread_id) REQUIRES(Locks::thread_list_lock_);
+
+  // Find an existing thread (or self) by its tid (not thread id).
+  Thread* FindThreadByTid(int tid) REQUIRES(Locks::thread_list_lock_);
 
   // Does the thread list still contain the given thread, or one at the same address?
   // Used by Monitor to provide (mostly accurate) debugging information.
@@ -187,11 +191,24 @@ class ThreadList {
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_,
                !Locks::mutator_lock_);
 
+  void UpdateLastDumpStackTimeMs(pid_t tid, uint64_t lastDumpTime)
+      REQUIRES(Locks::thread_list_lock_) {
+    auto iterator = last_dumpstack_time_map_.find(tid);
+    if (iterator != last_dumpstack_time_map_.end()) {
+      last_dumpstack_time_map_.erase(iterator);
+    }
+    last_dumpstack_time_map_.insert(std::make_pair(tid, lastDumpTime));
+  }
+
+  uint64_t GetLastDumpStackTimeMs(pid_t tid) {
+    auto iterator = last_dumpstack_time_map_.find(tid);
+    return (iterator == last_dumpstack_time_map_.end()) ? 0 : iterator->second;
+  }
+
  private:
   uint32_t AllocThreadId(Thread* self);
   void ReleaseThreadId(Thread* self, uint32_t id) REQUIRES(!Locks::allocated_thread_ids_lock_);
 
-  bool Contains(pid_t tid) REQUIRES(Locks::thread_list_lock_);
   size_t RunCheckpoint(Closure* checkpoint_function, bool includeSuspended)
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 
@@ -236,6 +253,8 @@ class ThreadList {
   const uint64_t thread_suspend_timeout_ns_;
 
   std::unique_ptr<Barrier> empty_checkpoint_barrier_;
+
+  std::map<pid_t, uint64_t> last_dumpstack_time_map_;
 
   friend class Thread;
 

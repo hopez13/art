@@ -42,6 +42,7 @@
 #include "thread_list.h"
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
+#include <android-base/properties.h>
 
 static_assert(ART_USE_FUTEXES);
 
@@ -51,6 +52,8 @@ using android::base::StringPrintf;
 
 static constexpr uint64_t kDebugThresholdFudgeFactor = kIsDebugBuild ? 10 : 1;
 static constexpr uint64_t kLongWaitMs = 100 * kDebugThresholdFudgeFactor;
+
+#define PROP_LOCK_MONITOR_PACKAGE   "debug.art.monitor.package"
 
 /*
  * Every Object has a monitor associated with it, but not every Object is actually locked.  Even
@@ -116,6 +119,11 @@ Monitor::Monitor(Thread* self, Thread* owner, ObjPtr<mirror::Object> obj, int32_
   // with the owner unlocking the thin-lock.
   CHECK(owner == nullptr || owner == self || owner->IsSuspended());
   // The identity hash code is set for the life time of the monitor.
+
+  bool monitor_timeout_enabled = Runtime::Current()->IsMonitorTimeoutEnabled();
+  if (monitor_timeout_enabled) {
+    MaybeEnableTimeout();
+  }
 }
 
 Monitor::Monitor(Thread* self,
@@ -144,6 +152,11 @@ Monitor::Monitor(Thread* self,
   // with the owner unlocking the thin-lock.
   CHECK(owner == nullptr || owner == self || owner->IsSuspended());
   // The identity hash code is set for the life time of the monitor.
+
+  bool monitor_timeout_enabled = Runtime::Current()->IsMonitorTimeoutEnabled();
+  if (monitor_timeout_enabled) {
+    MaybeEnableTimeout();
+  }
 }
 
 int32_t Monitor::GetHashCode() {
@@ -1708,6 +1721,15 @@ MonitorInfo::MonitorInfo(ObjPtr<mirror::Object> obj) : owner_(nullptr), entry_co
       }
       break;
     }
+  }
+}
+
+void Monitor::MaybeEnableTimeout() {
+  std::string track_package = android::base::GetProperty(PROP_LOCK_MONITOR_PACKAGE, "");
+  std::string current_package = Runtime::Current()->GetProcessPackageName();
+  if (current_package == "android" || track_package == current_package) {
+    monitor_lock_.setEnableMonitorTimeout();
+    monitor_lock_.setMonitorId(monitor_id_);
   }
 }
 
