@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa52a7c_130693a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-24T01:41:14Z",
+      "side": 1,
+      "message": "I\u0027ve added a few more comments in heap.h about how things are protected against concurrent access, but nothing major.\nA lot of things seem to be effectively protected by a combination of collector_type_running_ and gc_complete_lock_ . Superficially, it seems much simpler to hold a lock during the entire GC, where we now just set collector_type_running_",
+      "parentUuid": "9cb21136_873e068a",
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f30fe0_f960730f",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Some of the use cases previously used half the target footprint, others used the minimum. I\u0027m trying to compromise and switch to a common algorithm. I agree the maximum is too small. I may increase it, but I think that has the potential to affect performance. So it should probably be a separate CL.",
       "parentUuid": "15f30fe0_f960730f",
+      "range": {
+        "startLine": 2130,
+        "startChar": 4,
+        "endLine": 2130,
+        "endChar": 74
+      },
+      "revId": "fe738e6b3a99bfc8c1913f2ea660368cc880f13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4a18a1_6ba89abd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-24T01:41:14Z",
+      "side": 1,
+      "message": "After thinking about it, I don\u0027t think it makes sense to include HeapGrowthMultiplier here. We\u0027re basically computing a guess as to how long it will take to GC.",
+      "parentUuid": "d639af47_a67fad2b",
       "range": {
         "startLine": 2130,
         "startChar": 4,
