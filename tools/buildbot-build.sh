@@ -100,6 +100,7 @@ elif [[ $mode == "target" ]]; then
   # chroot environment. The *.libraries.txt targets are required by
   # the source linkerconfig but not included in the prebuilt one.
   make_command+=" linkerconfig conv_linker_config sanitizer.libraries.txt vndkcorevariant.libraries.txt"
+  make_command+=" ${ANDROID_PRODUCT_OUT#"${ANDROID_BUILD_TOP}/"}/system/etc/linker.config.pb"
   # Additional targets needed for the chroot environment.
   make_command+=" event-log-tags"
   # Needed to extract prebuilt APEXes.
@@ -288,11 +289,7 @@ EOF
 </apex-info-list>
 EOF
 
-  system_linker_config_pb=$linkerconfig_root/system/etc/linker.config.pb
-  echo "Encoding linker.config.json to $system_linker_config_pb"
-  $ANDROID_HOST_OUT/bin/conv_linker_config proto -s $ANDROID_BUILD_TOP/system/core/rootdir/etc/linker.config.json -o $system_linker_config_pb
-  $ANDROID_HOST_OUT/bin/conv_linker_config append -s $system_linker_config_pb -o $system_linker_config_pb --key "provideLibs" \
-    --value "libEGL.so libGLESv1_CM.so libGLESv2.so libGLESv3.so libRS.so libandroid_net.so libbinder_ndk.so libc.so libcgrouprc.so libclang_rt.asan-arm-android.so libclang_rt.asan-i686-android.so libclang_rt.asan-x86_64-android.so libdl.so libft2.so liblog.so libm.so libmediandk.so libnativewindow.so libsync.so libvndksupport.so libvulkan.so libaaudio.so libandroid.so libadbd_auth.so libadbd_fs.so libdl_android.so libincident.so libmediametrics.so libneuralnetworks_packageinfo.so libselinux.so"
+  cp $ANDROID_PRODUCT_OUT/system/etc/linker.config.pb $linkerconfig_root/system/etc/linker.config.pb
 
   # To avoid warnings from linkerconfig when it checks following two partitions
   mkdir -p $linkerconfig_root/product
