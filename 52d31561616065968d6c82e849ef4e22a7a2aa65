@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36310b67_31185572",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T09:41:34Z",
+      "side": 1,
+      "message": "`DCHECK(single_value !\u003d nullptr)` and let the release build crash on the `single_value-\u003eStrictlyDominates()` call if we ever hit `single_value \u003d\u003d nullptr`.",
+      "range": {
+        "startLine": 997,
+        "startChar": 2,
+        "endLine": 998,
+        "endChar": 17
+      },
+      "revId": "52d31561616065968d6c82e849ef4e22a7a2aa65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
