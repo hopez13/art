@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f9f73e_e34d2df2",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-26T11:28:45Z",
+      "side": 1,
+      "message": "This isn\u0027t as lightweight as we might believe. I\u0027m currently working in a full AOSP tree and I get two problems:\n\n1. It causes Soong to regenerate build.ninja and rerun kati every time in consecutive buildbot-build.sh runs, which takes over a minute. It happens both for --host and --target. It\u0027s probably a bug in the Soong invalidation of build.ninja, but this makes it get in the way much more.\n\n2. It deletes the system images which takes about half a minute to rebuild from intermediates, so if the same out tree is used for a platform build it gets annoying.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "0cdbf97c3d654b8e985361e44952ef03d3fa4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
