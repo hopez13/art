@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc9cd19_fdbfb4dc",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T15:18:08Z",
+      "side": 1,
+      "message": "Should this go _after_ the `no_escape` call to let the caller override?",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 5
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53566f01_91948e86",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T15:18:08Z",
+      "side": 1,
+      "message": "Remove the write and `escape()` call? These do not seem to be needed for a simplifier test. Or would the simplifier then do more than we want here?",
+      "range": {
+        "startLine": 387,
+        "startChar": 3,
+        "endLine": 387,
+        "endChar": 17
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ee654f_831b12c5",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T15:18:08Z",
+      "side": 1,
+      "message": "Remove; rebase on ToT (https://android-review.googlesource.com/1684880 was submitted).",
+      "range": {
+        "startLine": 433,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb02421e_09bbde6c",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T15:18:08Z",
+      "side": 1,
+      "message": "Remove write and read?",
+      "range": {
+        "startLine": 484,
+        "startChar": 3,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aebb3de1_d61f3d09",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T15:18:08Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 514,
+        "endChar": 46
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
