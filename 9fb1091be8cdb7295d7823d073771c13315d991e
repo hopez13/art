@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce75fcd5_09aef1c8",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-26T16:04:00Z",
+      "side": 1,
+      "message": "Is the goal here to remove ART_APEX_JARS entirely?",
+      "range": {
+        "startLine": 27,
+        "startChar": 22,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "9fb1091be8cdb7295d7823d073771c13315d991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b38dd8e8_29edd1c1",
         "filename": "build/boot/Android.bp",
         "patchSetId": 1
