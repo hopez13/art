@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be0d7537_3af0ff75",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-26T18:33:20Z",
+      "side": 1,
+      "message": "Fundamentally, I am doing this now because I can. It means that all bootclasspath_fragment will specify their content through the Android.bp file. It makes the content explicit and makes it easier to reason about.\n\nIt\u0027s not that big a drawback as I doubt that we are going to be changing ART_APEX_JARS anytime soon.",
+      "parentUuid": "5dc147eb_44a6b33a",
+      "range": {
+        "startLine": 27,
+        "startChar": 22,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "9fb1091be8cdb7295d7823d073771c13315d991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b38dd8e8_29edd1c1",
         "filename": "build/boot/Android.bp",
         "patchSetId": 1
