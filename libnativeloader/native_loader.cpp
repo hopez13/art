@@ -29,7 +29,6 @@
 
 #include <android-base/file.h>
 #include <android-base/macros.h>
-#include <android-base/properties.h>
 #include <android-base/strings.h>
 #include <android-base/thread_annotations.h>
 #include <nativebridge/native_bridge.h>
