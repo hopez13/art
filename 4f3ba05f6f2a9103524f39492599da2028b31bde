@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6869f927_9ca349e4",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Will fail weirdly if monitor_timeout_ \u003e\u003d 10^9. That should be checked someplace.\n\nThere is also no reason to make this a 64 bit value stored in every Mutex.",
+      "range": {
+        "startLine": 456,
+        "startChar": 33,
+        "endLine": 456,
+        "endChar": 49
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f943a2c_75ed3585",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Adds significant space overhead to every Mutex.",
+      "range": {
+        "startLine": 291,
+        "startChar": 1,
+        "endLine": 293,
+        "endChar": 18
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a318ede_65180335",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Misnamed? This enables a timeout, not a lock.",
+      "range": {
+        "startLine": 126,
+        "startChar": 7,
+        "endLine": 126,
+        "endChar": 26
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f0e152_104f2235",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Adds appreciable overhead on code that could be frequently called.",
+      "range": {
+        "startLine": 159,
+        "startChar": 29,
+        "endLine": 159,
+        "endChar": 93
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18285f36_615aab66",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Merge with Contains(int tid)",
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2824cd0_43f426f5",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-26T21:20:04Z",
+      "side": 1,
+      "message": "Copy-paste from previous function. Doesn\u0027t apply here.",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 66
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
