@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88580727_9046588b",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-26T16:14:08Z",
+      "side": 1,
+      "message": "I can rubber-stamp this, but I don\u0027t really understand the implications. I don\u0027t even see where the source of this module is - CodeSearch doesn\u0027t show me any Soong module with this name.",
+      "range": {
+        "startLine": 62,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 54
+      },
+      "revId": "0375c3f097185eaf65413644d9627d0f097e5e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
