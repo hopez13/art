@@ -22,6 +22,30 @@
       },
       "revId": "9fb1091be8cdb7295d7823d073771c13315d991e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7241dfe_c54e41d7",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-26T10:48:43Z",
+      "side": 1,
+      "message": "There is. See bootclasspathImageNameContentsConsistencyCheck in https://r.android.com/1686066",
+      "parentUuid": "b38dd8e8_29edd1c1",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "9fb1091be8cdb7295d7823d073771c13315d991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
