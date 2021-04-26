@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c8f9fc0_c35288d8",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-26T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffc9cd19_fdbfb4dc",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 5
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53566f01_91948e86",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-26T15:18:08Z",
       "side": 1,
       "message": "Remove the write and `escape()` call? These do not seem to be needed for a simplifier test. Or would the simplifier then do more than we want here?",
+      "range": {
+        "startLine": 387,
+        "startChar": 3,
+        "endLine": 387,
+        "endChar": 17
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a1112d3_1478a5b7",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-26T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53566f01_91948e86",
       "range": {
         "startLine": 387,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1de788e_1b4be715",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-26T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ee654f_831b12c5",
+      "range": {
+        "startLine": 433,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb02421e_09bbde6c",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd7e73ff_8a8bf268",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-26T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb02421e_09bbde6c",
+      "range": {
+        "startLine": 484,
+        "startChar": 3,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aebb3de1_d61f3d09",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-04-26T15:18:08Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 514,
+        "endChar": 46
+      },
+      "revId": "48641a059b34f6296eba367367cb6359e0a67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "873c2cd0_430c7ba7",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-26T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aebb3de1_d61f3d09",
       "range": {
         "startLine": 514,
         "startChar": 4,
