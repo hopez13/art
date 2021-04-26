@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76669d74_4f4a570a",
+        "filename": "compiler/optimizing/instruction_simplifier_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-26T16:03:44Z",
+      "side": 1,
+      "message": "Remove. The HReturn below returns `obj`, not `obj.field`.",
+      "range": {
+        "startLine": 484,
+        "startChar": 13,
+        "endLine": 484,
+        "endChar": 19
+      },
+      "revId": "1032c6c4f9a485620e99c38bd5f46a095333cda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
