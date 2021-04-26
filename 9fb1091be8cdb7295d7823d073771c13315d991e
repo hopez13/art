@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b38dd8e8_29edd1c1",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-26T10:42:07Z",
+      "side": 1,
+      "message": "I think there should be a build-time check that this equals ART_APEX_JARS, or else someone will change that variable and forget to update here.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "9fb1091be8cdb7295d7823d073771c13315d991e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
