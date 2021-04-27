@@ -400,6 +400,15 @@ bool OatFileAssistant::DexChecksumUpToDate(const OatFile& file, std::string* err
   return true;
 }
 
+static bool ValidateApexVersions(const OatFile& oat_file) {
+  const char* oat_apex_versions =
+      oat_file.GetOatHeader().GetStoreValueByKey(OatHeader::kApexVersionsKey);
+  std::string_view oat_apex_versions_view(oat_apex_versions);
+  std::string runtime_apex_versions(
+      Runtime::Current()->GetApexVersions().substr(0, oat_apex_versions_view.size()));
+  return oat_apex_versions_view == runtime_apex_versions;
+}
+
 OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& file) {
   // Verify the ART_USE_READ_BARRIER state.
   // TODO: Don't fully reject files due to read barrier state. If they contain
@@ -428,6 +437,10 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   } else if (CompilerFilter::DependsOnImageChecksum(current_compiler_filter)) {
     if (!ValidateBootClassPathChecksums(file)) {
       VLOG(oat) << "Oat image checksum does not match image checksum.";
+      return kOatBootImageOutOfDate;
+    }
+    if (!ValidateApexVersions(file)) {
+      VLOG(oat) << "Apex versions do not match.";
       return kOatBootImageOutOfDate;
     }
   } else {
