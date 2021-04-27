@@ -111,6 +111,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4631661_006d47a4",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-27T15:46:17Z",
+      "side": 1,
+      "message": "The invalidation was about running the script twice in row locally. The issue was the environment variables changed between the installclean command and build command, soong would err on the side of caution, and recreate the ninja files (which takes a minute or so).  So this a a minor speed up.\n\nYeah, explicit --installclean would also work, although I am not a fan :-)  Disclosure: this is in part motivated by trade-fed/atest, where things often randomly break, and then you have to read through the docs to figure what is the magic set of various clean/rebuild arguments that will actually make your test run...\n\nOf course, I am perfectly happy with \"make it faster, I know what am doing and I take responsibility\" command line arguments.",
+      "parentUuid": "d6250bef_f2d83a4b",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
