@@ -135,6 +135,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad3c2f6_b23b4015",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-27T18:11:13Z",
+      "side": 1,
+      "message": "\u003e scripts should just do the right thing by default, and you can pass performance improving options\n\nThere\u0027s merit in that, but in our current build system it\u0027d mean that Soong should do `m installclean` before every build invocation by default - that\u0027s the right level to apply that principle. However the reality is that it doesn\u0027t work well enough for that, and hence it\u0027s intentionally left to user, broken though that undeniably is.\n\nSo given that there in fact is a \"user journey\" for `m installclean`, my impression of it is that it may be necessary after `repo sync`, not otherwise. Adding it here means running it much more often in local use. Iow, it\u0027s the wrong level, and it introduces an inconsistency - users still have plenty of ways of getting bad builds and hence need to be aware of installclean, but now they also have to deal with some cases where it\u0027s often run unnecessarily and how to deal with that too.\n\nIn short, `m installclean` is a build system problem - this is not the place to try to fix it.\n\nTurning it off with a flag isn\u0027t ideal - it\u0027s easy to forget when running manually. If we\u0027re going with this then it should at least be turned off with an environment variable.\n\n\u003e I am curious what your workflow is...\n\nI usually do\n\n  art/tools/buildbot-build.sh --target \u0026\u0026 \\\n  art/tools/buildbot-teardown-device.sh \u0026\u0026 \\\n  art/tools/buildbot-cleanup-device.sh \u0026\u0026 \\\n  art/tools/buildbot-setup-device.sh \u0026\u0026 \\\n  art/tools/buildbot-sync.sh\n\non a Cuttlefish device. With only a source (i.e. C++ or Java) change, that takes 40-50 s, so the build regen step more than doubles the time (in a full platform tree).",
+      "parentUuid": "435229af_1f3159a4",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
