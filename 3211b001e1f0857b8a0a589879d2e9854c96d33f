@@ -159,6 +159,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c7cdbd5_41f69887",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-27T18:22:10Z",
+      "side": 1,
+      "message": "Hasn\u0027t the build regen issue been fixed, so it should be similar time as before for you?  Is there still an issue?\n\nWell, yes, I agree the the existence of installclean is admission of deficiency in the build system.  Hopefully one day it will be improved to the point where we don\u0027t need to think about it at all.\n\nI agree that it is easy to forget when running manually.  Which is why prefer \"just-works\" by default (if you forget).  As opposed to \"breaks\" by default (if you forget to run installclean after sync, and have really unlucky dependency day).\n\nAnyway, is that so painful to add \"--no-installclean\" to the first line of your uber-command?  I prefer to have the installclean for extra sanity, but you are welcome to add --no-installclean, and as bonus point, it is a textual reminder that if things break oddly, maybe you should do the intsallclean after all...",
+      "parentUuid": "2ad3c2f6_b23b4015",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
