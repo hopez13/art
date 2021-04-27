@@ -88,6 +88,9 @@ class MetricsReporter {
 
   static constexpr const char* kBackgroundThreadName = "Metrics Background Reporting Thread";
 
+  // Outputs the current state of the metrics to the destination set by config_.
+  void ReportMetrics();
+
  private:
   MetricsReporter(ReportingConfig config, Runtime* runtime);
 
@@ -97,8 +100,6 @@ class MetricsReporter {
   // Calls messages_.SetTimeout if needed.
   void MaybeResetTimeout();
 
-  // Outputs the current state of the metrics to the destination set by config_.
-  void ReportMetrics();
 
   ReportingConfig config_;
   Runtime* runtime_;

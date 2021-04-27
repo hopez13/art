@@ -33,7 +33,21 @@ std::unique_ptr<MetricsReporter> MetricsReporter::Create(ReportingConfig config,
 }
 
 MetricsReporter::MetricsReporter(ReportingConfig config, Runtime* runtime)
-    : config_{std::move(config)}, runtime_{runtime} {}
+    : config_{std::move(config)}, runtime_{runtime} {
+  // Configure the backends
+  if (config_.dump_to_logcat) {
+    backends_.emplace_back(new LogBackend(LogSeverity::INFO));
+  }
+  if (config_.dump_to_file.has_value()) {
+    backends_.emplace_back(new FileBackend(config_.dump_to_file.value()));
+  }
+  if (config_.dump_to_statsd) {
+    auto backend = CreateStatsdBackend();
+    if (backend != nullptr) {
+      backends_.emplace_back(std::move(backend));
+    }
+  }
+}
 
 MetricsReporter::~MetricsReporter() { MaybeStopBackgroundThread(); }
 
@@ -94,20 +108,6 @@ void MetricsReporter::BackgroundThreadRun() {
                                                       runtime_->GetSystemThreadGroup(),
                                                       /*create_peer=*/true);
   bool running = true;
-
-  // Configure the backends
-  if (config_.dump_to_logcat) {
-    backends_.emplace_back(new LogBackend(LogSeverity::INFO));
-  }
-  if (config_.dump_to_file.has_value()) {
-    backends_.emplace_back(new FileBackend(config_.dump_to_file.value()));
-  }
-  if (config_.dump_to_statsd) {
-    auto backend = CreateStatsdBackend();
-    if (backend != nullptr) {
-      backends_.emplace_back(std::move(backend));
-    }
-  }
 
   MaybeResetTimeout();
 

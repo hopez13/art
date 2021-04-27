@@ -2418,6 +2418,8 @@ class Dex2Oat final {
                                            oat_dup_fd_,
                                            vdex_dup_fd_);
       }
+
+      Runtime::Current()->ReportMetricsOnCurrentThread();
     }
 
     bool ErrorReporting() const { return error_reporting_; }

@@ -1870,6 +1870,12 @@ void Runtime::RequestMetricsReport(bool synchronous) {
   }
 }
 
+void Runtime::ReportMetricsOnCurrentThread() {
+  if (metrics_reporter_) {
+    metrics_reporter_->ReportMetrics();
+  }
+}
+
 bool Runtime::EnsurePluginLoaded(const char* plugin_name, std::string* error_msg) {
   // Is the plugin already loaded?
   for (const Plugin& p : plugins_) {

@@ -980,6 +980,7 @@ class Runtime {
   metrics::ArtMetrics* GetMetrics() { return &metrics_; }
 
   void RequestMetricsReport(bool synchronous = true);
+  void ReportMetricsOnCurrentThread();
 
   static void MadviseFileForRange(size_t madvise_size_limit_bytes,
                                   size_t map_size_bytes,
