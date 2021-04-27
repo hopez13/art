@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa327ad_6ff24869",
+        "filename": "runtime/entrypoints/quick/quick_default_init_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-27T10:45:49Z",
+      "side": 1,
+      "message": "Done by adding ShouldReportJniInvocations.",
+      "parentUuid": "72ea122a_a9e9ed6d",
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b28017ec_48d4d02e",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5367f90c_6ad13f1c",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-27T10:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b28017ec_48d4d02e",
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a35eafb8_0a230dc4",
@@ -65,6 +101,30 @@
       "writtenOn": "2021-04-27T09:11:22Z",
       "side": 1,
       "message": "Should the notification happen in Native or Runnable state? Currently you\u0027re doing the notification in Runnable state for Start and in Native state for End.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 52
+      },
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02e385c_ed771f3e",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-27T10:45:49Z",
+      "side": 1,
+      "message": "It\u0027s probably best to do it while not in runnable (and the hook doesn\u0027t have acces to the Java heap anyway), so moving the logic to be in the native state.",
+      "parentUuid": "a35eafb8_0a230dc4",
       "range": {
         "startLine": 302,
         "startChar": 2,
