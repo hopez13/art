@@ -16,6 +16,63 @@
       "message": "PTAL.",
       "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ea122a_a9e9ed6d",
+        "filename": "runtime/entrypoints/quick/quick_default_init_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-27T09:11:22Z",
+      "side": 1,
+      "message": "If an OEM wants NotifyDexFileLoaded hooks (or other JNI-unrelated hooks), they immediately have to take the JNI transition performance hit?",
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b28017ec_48d4d02e",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-27T09:11:22Z",
+      "side": 1,
+      "message": "Remove. You\u0027re using the previous JNI entrypoint set.",
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a35eafb8_0a230dc4",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-27T09:11:22Z",
+      "side": 1,
+      "message": "Should the notification happen in Native or Runnable state? Currently you\u0027re doing the notification in Runnable state for Start and in Native state for End.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 52
+      },
+      "revId": "33e028ea7846626ac4640bcb1edcea6d1d7ed416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
