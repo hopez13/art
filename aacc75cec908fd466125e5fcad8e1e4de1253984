@@ -16,6 +16,23 @@
       "message": "Michael, could I trouble you for an API review of the change here to libartpalette.map.txt?\n\nThanks",
       "revId": "aacc75cec908fd466125e5fcad8e1e4de1253984",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6016d007_a01f8ad0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-27T16:49:19Z",
+      "side": 1,
+      "message": "Nicolas, ptal when you have time.\n\nI don\u0027t think this causes us any particular issues, we are unlikely to rev the palette version in the module independently of the platform and always have the not implemented fallback if the APEX has a new method that is not in the platform.\n\nThanks",
+      "revId": "aacc75cec908fd466125e5fcad8e1e4de1253984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
