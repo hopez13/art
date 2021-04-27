@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83d5d13_976abe75",
+        "filename": "runtime/class_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-27T16:06:45Z",
+      "side": 1,
+      "message": "EXPECT_EQ(nullptr, ...) seems more idiomatic, but we already have similar EXPECT_TRUE cases above.",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 13
+      },
+      "revId": "f059df4e6292eea11b447dad9c70e45002b927ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
