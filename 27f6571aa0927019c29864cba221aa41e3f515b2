@@ -16,6 +16,24 @@
       "message": "Vladimir, do you also need to regenerate prebuilt profile files in https://source.corp.google.com/sc-dev/vendor/google_data/art_profile/ (judging by the dexpreopt.sh failure on presubmit)?",
       "revId": "27f6571aa0927019c29864cba221aa41e3f515b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736a6aec_1fa25f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-27T15:05:48Z",
+      "side": 1,
+      "message": "How do I regenerate them?\n\nI\u0027m also confused why the command failed. When I build locally, the profile file is empty after the \"Profile out of date\" warning and an empty profile file should be OK.",
+      "parentUuid": "ebc6ee1e_8b4e1224",
+      "revId": "27f6571aa0927019c29864cba221aa41e3f515b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
