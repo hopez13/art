@@ -22,6 +22,30 @@
       },
       "revId": "0375c3f097185eaf65413644d9627d0f097e5e90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d586c7eb_a1b1cab1",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-28T08:53:06Z",
+      "side": 1,
+      "message": "The module is \"legacy.art.module.platform.api\", this is one of the modules it creates automatically.",
+      "parentUuid": "88580727_9046588b",
+      "range": {
+        "startLine": 62,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 54
+      },
+      "revId": "0375c3f097185eaf65413644d9627d0f097e5e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
