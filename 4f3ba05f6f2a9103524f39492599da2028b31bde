@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b972b5f0_b6c012d0",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-04-28T02:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f943a2c_75ed3585",
+      "range": {
+        "startLine": 291,
+        "startChar": 1,
+        "endLine": 293,
+        "endChar": 18
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a318ede_65180335",
@@ -141,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9b0bb6_c16baf1e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-04-28T02:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f0e152_104f2235",
+      "range": {
+        "startLine": 159,
+        "startChar": 29,
+        "endLine": 159,
+        "endChar": 93
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18285f36_615aab66",
@@ -158,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef57f43_452f2cf0",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-04-28T02:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18285f36_615aab66",
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2824cd0_43f426f5",
@@ -171,6 +237,30 @@
       "writtenOn": "2021-04-26T21:20:04Z",
       "side": 1,
       "message": "Copy-paste from previous function. Doesn\u0027t apply here.",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 66
+      },
+      "revId": "4f3ba05f6f2a9103524f39492599da2028b31bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11c01e1_7b89d431",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-04-28T02:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2824cd0_43f426f5",
       "range": {
         "startLine": 107,
         "startChar": 2,
