@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da45f95_7eb5ba01",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-28T23:09:25Z",
+      "side": 1,
+      "message": "Not for the foreseeable future. It serves two purposes.\n1. It identifies that it uses the ArtApexJars configuration to determine what is in the boot image which it needs in order to check that its contents and the configuration are consistent. That can only be removed when the configuration is removed.\n\n2. It indicates that this should build a boot image. That can only be removed when every bootclasspath_fragment creates a boot image.\n\nIt is possible that we could do the above in a different way but I don\u0027t think it much matters.",
+      "parentUuid": "4d1febb7_b208a64e",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "a8a0e6c6ab5ed08d5bd57a130fd5dbe786c6c065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eed2388_219c3a7d",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-28T21:21:04Z",
       "side": 1,
       "message": "nit: maybe a small comment here and above mentioning which stubs cover which content jars above?",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 51
+      },
+      "revId": "a8a0e6c6ab5ed08d5bd57a130fd5dbe786c6c065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1af3bf_65be83c8",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-04-28T23:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eed2388_219c3a7d",
       "range": {
         "startLine": 67,
         "startChar": 12,
