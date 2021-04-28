@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5d0f41_ab3389a6",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-28T08:50:37Z",
+      "side": 1,
+      "message": "The default is the maximum load which seems like it could be problematic. Okay to try and see IMO.\n\nAnd oldskool approach would follow a make(1) like pattern:\n -j\u003d1 as the implicit default, -j as use all number of cores, -j\u003dN use N cores.\n\nRelated example of this in python here:\n\nhttps://source.corp.google.com/aosp-android11/tools/asuite/atest/atest_arg_parser.py;rcl\u003dcc20b3ad9d20afd18df9c7b546905e5028f87772;l\u003d127",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 96
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae01ae3d_cc07ac12",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-28T08:50:37Z",
+      "side": 1,
+      "message": "Probably good to have a sigint handler to stop the workers / shutdown the pool?",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc850fa_8ef72324",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-28T08:50:37Z",
+      "side": 1,
+      "message": "Are we missing anything by not capturing and printing stderr here?",
+      "range": {
+        "startLine": 247,
+        "startChar": 8,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
