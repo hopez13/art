@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c9d579f_0f26b0bf",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-28T09:15:23Z",
+      "side": 1,
+      "message": "I would like the default to be \"what we determine to be fastest but still stable\".\n\nFull load might indeed be too high, but \"try and see\" is indeed the intention.\n\nMy thought here is that hopefully we can find better per-test load handling instead of just disabling most of the cores overall.",
+      "parentUuid": "df5d0f41_ab3389a6",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 96
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae01ae3d_cc07ac12",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5875763b_8556b3e3",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-28T09:15:23Z",
+      "side": 1,
+      "message": "I was hoping that the \"with\" context manager for the pool and process would handle that.",
+      "parentUuid": "ae01ae3d_cc07ac12",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdc850fa_8ef72324",
         "filename": "tools/run-libcore-tests.py",
         "patchSetId": 3
@@ -60,6 +108,30 @@
       "writtenOn": "2021-04-28T08:50:37Z",
       "side": 1,
       "message": "Are we missing anything by not capturing and printing stderr here?",
+      "range": {
+        "startLine": 247,
+        "startChar": 8,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c94d409_a85edb41",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-28T09:15:23Z",
+      "side": 1,
+      "message": "stderr is redirected to stdout (vogar prints everything to stdout anyway)",
+      "parentUuid": "fdc850fa_8ef72324",
       "range": {
         "startLine": 247,
         "startChar": 8,
