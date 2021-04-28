@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d1febb7_b208a64e",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-04-28T21:21:04Z",
+      "side": 1,
+      "message": "do you plan to move away from image_name for art eventually?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "a8a0e6c6ab5ed08d5bd57a130fd5dbe786c6c065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eed2388_219c3a7d",
+        "filename": "build/boot/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-04-28T21:21:04Z",
+      "side": 1,
+      "message": "nit: maybe a small comment here and above mentioning which stubs cover which content jars above?",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 51
+      },
+      "revId": "a8a0e6c6ab5ed08d5bd57a130fd5dbe786c6c065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
