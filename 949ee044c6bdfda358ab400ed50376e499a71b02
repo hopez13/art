@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5648b163_1d118361",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-28T14:51:30Z",
+      "side": 1,
+      "message": "In particular, I did verify that Ctrl+C on host seems to have no lingering running processes around.\nI am not sure whether that is due to python \"with\" statements working, or vogar being clever.",
+      "parentUuid": "5875763b_8556b3e3",
+      "range": {
+        "startLine": 239,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "949ee044c6bdfda358ab400ed50376e499a71b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdc850fa_8ef72324",
