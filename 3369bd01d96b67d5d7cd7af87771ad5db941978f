@@ -70,6 +70,24 @@
       "parentUuid": "c057fcb2_2aa21f67",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e7a8fe8_3eadd6a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-04-29T20:30:18Z",
+      "side": 1,
+      "message": "5MB disk space hit is not super concerning if it can lead to the significant performance improvements. Maybe we should also capture performance improvements data on a Wembley device. \n\nIn general having a config flag to enable/disable it is a great idea and I agree with Calin\u0027s suggestions about it.",
+      "parentUuid": "3b94498d_eb2b2cfb",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
