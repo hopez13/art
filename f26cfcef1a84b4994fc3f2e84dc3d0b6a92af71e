@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c8377a_6d10d7eb",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-29T13:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12131b50_0b031062",
+      "range": {
+        "startLine": 411,
+        "startChar": 21,
+        "endLine": 411,
+        "endChar": 40
+      },
+      "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3daf492d_5bab3b9c",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c22d6b4_29e1ce1e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-29T13:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3daf492d_5bab3b9c",
+      "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cea114fa_263b5dc3",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-04-29T13:28:02Z",
       "side": 1,
       "message": "The `make_pair` is unnecessary for `emplace()` and it can cause `std::string` copying here.",
+      "range": {
+        "startLine": 1260,
+        "startChar": 32,
+        "endLine": 1260,
+        "endChar": 41
+      },
+      "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd584b9a_9b71198f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-29T13:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea114fa_263b5dc3",
       "range": {
         "startLine": 1260,
         "startChar": 32,
