@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1549dee_60d7d671",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Could you please specify more precisely what this does and how to use it.\n\nI\u0027m OK with doing that in the commit message. I would prefer to see it checked into the tree as a .md file.\n\nI think we really need to describe the relationship to the existing lock profiling threshold. As far as I can tell, this mechanism allows finer control, and provides a lot more information about what the contending thread is doing, instead of just where it exited the critical section. In return, it\u0027s somewhat heavier weight by requiring a thread checkpoint, instead of just asking the contending thread to remember some information. It does not sample, and hence is only suitable for very long wait times, not lots of short wait times.\n\nIdeally, I think it would have been nice to integrate the two mechanisms better, but that\u0027s probably too much for the moment.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b85f41_1ae26ce6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "I\u0027m mostly OK with this. Some details below.",
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2f8497_fde613d2",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Please name so that the unit is apparent, e.g. kIntervalMillis.",
+      "range": {
+        "startLine": 41,
+        "startChar": 26,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd94936f_911764bc",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Isn\u0027t this redundant?",
+      "range": {
+        "startLine": 508,
+        "startChar": 26,
+        "endLine": 508,
+        "endChar": 78
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ea10d0d_2439ff08",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "This looks strange to me. If I understand correctly, and the user specifies a short timeout, we will omit some of the sampled stack traces here. And likewise if another thread is contenting with the same thread. Shouldn\u0027t the log at least include an indication that stack traces were skipped?",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 5
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c15ea74_2d7fcccc",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Please use MonitorId as the type.\n\nI think you can use an invalid MonitorID, like 0xffffffff to indicate the timeout is disabled. (See lock_word.h.) That\u0027s likely to save a word here in the future; see line 166.",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 6
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ab5cde_e8ea4091",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "This sounds like it\u0027s purely a check, with no side effect. Please rename to something like MaybeEnableTimeout().",
+      "range": {
+        "startLine": 1727,
+        "startChar": 14,
+        "endLine": 1727,
+        "endChar": 19
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "432f9121_370a4808",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Again, please specify units in the name. Milliseconds may make more sense than noanoseconds, but that\u0027s your call.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 71
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031b874a_0040bb1e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Still needs a range check. Needs to be less than second(?) and greater than the stack dumping interval(?)",
+      "range": {
+        "startLine": 1364,
+        "startChar": 2,
+        "endLine": 1364,
+        "endChar": 71
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1cd1a91_4ab2226d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Again, this and the field should mention the unit. For nanoseconds, should almost certainly match the tv_nsec type.",
+      "range": {
+        "startLine": 981,
+        "startChar": 2,
+        "endLine": 981,
+        "endChar": 28
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40140771_443777b2",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T22:40:43Z",
+      "side": 1,
+      "message": "Should be long, since that\u0027s what tv_nsec is.",
+      "range": {
+        "startLine": 1235,
+        "startChar": 2,
+        "endLine": 1235,
+        "endChar": 10
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
