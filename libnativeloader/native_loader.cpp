@@ -241,6 +241,16 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
       }
     }
 
+    // Special case: libjdwp is a JVMTI agent that is distributed with ART, so use
+    // the ART internal namespace, which dlopen picks by default here.
+    if (!strcmp(path, "libjdwp.so")) {
+      void* handle = dlopen(path, RTLD_NOW);
+      if (handle == nullptr) {
+        *error_msg = strdup(dlerror());
+      }
+      return handle;
+    }
+
     // Check if the library is in NATIVELOADER_DEFAULT_NAMESPACE_LIBS and should
     // be loaded from the kNativeloaderExtraLibs namespace.
     {
