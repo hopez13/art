@@ -16,6 +16,24 @@
       "message": "What\u0027s the impact on the size? Should this be backed by a flag for devices with limited storage space?",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f91b0d_49e526a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1558410
+      },
+      "writtenOn": "2021-04-29T18:09:36Z",
+      "side": 1,
+      "message": "In-memory size should not be affected, on-disk size.\nlibart.so: 8726416 -\u003e 10098576\nlibart-compiler.so: 3305640 -\u003e 6426816\n\nIs there an existing solution for flagging off options for low storage devices.",
+      "parentUuid": "08e2ff75_3f8bd2c9",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
