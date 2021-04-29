@@ -70,6 +70,24 @@
       "parentUuid": "8a53035e_62c62f05",
       "revId": "27f6571aa0927019c29864cba221aa41e3f515b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13fcdf84_3d13e60f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T07:51:32Z",
+      "side": 1,
+      "message": "I reproduced this as an incremental build issue. But it look to me like a rather fundamental flaw in the build rule for the profile because it allows different outcome for clean build and incremental build. I\u0027ll change the rule to remove the file first.\n\nLooking at the history of the profiles, they were last updated for Android P, so they are probably out of date anyway, so I\u0027m not going to update them unless strictly necessary for TH.",
+      "parentUuid": "8a53035e_62c62f05",
+      "revId": "27f6571aa0927019c29864cba221aa41e3f515b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
