@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3926f02c_0a290cce",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-29T13:38:36Z",
+      "side": 1,
+      "message": "WithHelp for purpose and expected argument format.",
+      "range": {
+        "startLine": 421,
+        "startChar": 10,
+        "endLine": 421,
+        "endChar": 34
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "407b92d6_25827f10",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -125,6 +148,29 @@
         "startChar": 19,
         "endLine": 1231,
         "endChar": 25
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60a8e2c_b18796ef",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-29T13:38:36Z",
+      "side": 1,
+      "message": "+g",
+      "range": {
+        "startLine": 1248,
+        "startChar": 10,
+        "endLine": 1248,
+        "endChar": 17
       },
       "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
