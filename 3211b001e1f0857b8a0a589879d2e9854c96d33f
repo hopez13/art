@@ -327,6 +327,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6856b9a_cf83cd0c",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-29T14:02:54Z",
+      "side": 1,
+      "message": "Using the images in the out tree? That\u0027s not so much cuttlefish as launch_cvd, and it\u0027s a feature. Skips the flashing step, or the corresponding upload to the cloud with acloud.",
+      "parentUuid": "33ce9b39_80e4b977",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
