@@ -34,6 +34,24 @@
       "parentUuid": "08e2ff75_3f8bd2c9",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c057fcb2_2aa21f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-04-29T20:17:44Z",
+      "side": 1,
+      "message": "I think you can have a board config flag to configure this. +ccross in how this could be integrated.\n\nThis is about 5MB storage increase and maybe not such a big concern, but I would check with someone working with such devices to understand the expectations. + rajekumar +tjoinnes\n\nAlso, I\u0027m assuming you want to do this on a larger scale (not only to art .so) so gating it might be a good idea.",
+      "parentUuid": "c9f91b0d_49e526a1",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
