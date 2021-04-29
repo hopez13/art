@@ -16,6 +16,52 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12131b50_0b031062",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T13:28:02Z",
+      "side": 1,
+      "message": "Rephrase after code changes.",
+      "range": {
+        "startLine": 411,
+        "startChar": 21,
+        "endLine": 411,
+        "endChar": 40
+      },
+      "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea114fa_263b5dc3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T13:28:02Z",
+      "side": 1,
+      "message": "The `make_pair` is unnecessary for `emplace()` and it can cause `std::string` copying here.",
+      "range": {
+        "startLine": 1260,
+        "startChar": 32,
+        "endLine": 1260,
+        "endChar": 41
+      },
+      "revId": "f26cfcef1a84b4994fc3f2e84dc3d0b6a92af71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
