@@ -16,6 +16,24 @@
       "message": "Please hold off submitting this. The first failure I see in the bug does not look connected.",
       "revId": "2a369a3c8fe0fa1f217f999a2dd3111b4fbc9d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11bb29fb_72e961a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-29T08:22:39Z",
+      "side": 1,
+      "message": "This script is written in python and is only used for running ART tests.\n\nThe failure in the bug is a failure in Java code for com.android.telecom tests which does not use this script.\n\nI would probably assign the bug to the test owner because there is no a clear causal CL here.\n\n[dropping the -2 review score. If you feel you want to revert this you should feel free to do so, but it doesn\u0027t look like this can be related].",
+      "parentUuid": "c6df8bf1_073656bd",
+      "revId": "2a369a3c8fe0fa1f217f999a2dd3111b4fbc9d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
