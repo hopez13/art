@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407b92d6_25827f10",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T10:40:42Z",
+      "side": 1,
+      "message": "Use `StartsWith()`.",
+      "range": {
+        "startLine": 414,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 57
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6174f5c1_d8712849",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T10:40:42Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f28af8e_f6d74c54",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T10:40:42Z",
+      "side": 1,
+      "message": "Use `string_view` to avoid excessive allocations.",
+      "range": {
+        "startLine": 1231,
+        "startChar": 19,
+        "endLine": 1231,
+        "endChar": 25
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89826a24_686471b8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T10:40:42Z",
+      "side": 1,
+      "message": "std::map\u003cstd::string_view, const apex::ApexInfo*\u003e",
+      "range": {
+        "startLine": 1257,
+        "startChar": 4,
+        "endLine": 1257,
+        "endChar": 41
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd5adaf_425ffa23",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T10:40:42Z",
+      "side": 1,
+      "message": "Simplify: `result +\u003d \u0027/\u0027`.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 8,
+        "endLine": 1266,
+        "endChar": 51
+      },
+      "revId": "bb1d9ec9c5253c3ef844fd3e66e8f9ff872c685a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
