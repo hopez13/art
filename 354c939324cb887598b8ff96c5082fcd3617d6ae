@@ -16,6 +16,23 @@
       "message": "This is an alternative to the reverts.",
       "revId": "354c939324cb887598b8ff96c5082fcd3617d6ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07d05ba_a81163f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-29T16:55:43Z",
+      "side": 1,
+      "message": "Since the revert aosp/1689119 was submitted, I\u0027m planning to abandon this and incorporate it into a revert^2 CL.",
+      "revId": "354c939324cb887598b8ff96c5082fcd3617d6ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
