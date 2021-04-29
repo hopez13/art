@@ -22,6 +22,30 @@
       },
       "revId": "aa1b711a40bfe92785f52bff9700dc516eba1d09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "251e3b07_9e84c87e",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 0,
+      "message": "We\u0027re no longer storing profile indexes in inline cache data. Each profile index is essentially saved once in kClasses and once in kMethods section, making the savings from keeping the distinction really negligible. So I decided to avoid this complexity.",
+      "parentUuid": "5b2d97b2_daab26a1",
+      "range": {
+        "startLine": 100,
+        "startChar": 5,
+        "endLine": 100,
+        "endChar": 56
+      },
+      "revId": "aa1b711a40bfe92785f52bff9700dc516eba1d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

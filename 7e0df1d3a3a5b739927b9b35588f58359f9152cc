@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a516eeac_137eb548",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34e3175a_e0ed42b1",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 77
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d83fd97_e224d7ed",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-29T16:03:26Z",
       "side": 1,
       "message": "What is the point of this check after `if (clazz \u003d\u003d nullptr) { ... return }`?",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 680,
+        "endChar": 29
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab27b2b9_b6193b79",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "4d83fd97_e224d7ed",
       "range": {
         "startLine": 680,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e367504_1c59ea47",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "In this CL, we\u0027re passing consecutive regions of `num_method_ids` bits and that is not necessarily a multiple of `SizeOf\u003csize_t\u003e()`, so there shall often be regions with some bits before and after the aligned `size_t` chunks.\n\nI stress _aligned_ `size_t` chunks because the body of the `for` loop below (copy-paste-modify from `StoreBits()` above) loads chunks across two words is the `bit_start_` is not a multiple of `SizeOf\u003csize_t\u003e()`. (It is doing no peeling of initial bits.)",
+      "parentUuid": "5a0fb1f8_a81584ca",
+      "range": {
+        "startLine": 177,
+        "startChar": 63,
+        "endLine": 177,
+        "endChar": 70
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b8aa6ab_ff6d4675",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-04-29T16:03:26Z",
       "side": 1,
       "message": "Maybe a small optimization possibility: don\u0027t do StoreBits if this is 0, and likewise on line 190.",
+      "range": {
+        "startLine": 186,
+        "startChar": 45,
+        "endLine": 186,
+        "endChar": 72
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc10f279_f85f1077",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "For some use cases that could actually perform worse. I\u0027m not keen on benchmarking this and the TODO above covers more important performance improvements.",
+      "parentUuid": "6b8aa6ab_ff6d4675",
       "range": {
         "startLine": 186,
         "startChar": 45,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3796701_27a314c6",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "Because 011 and 012 have been previously used for the kProfileVersionForBootImage.",
+      "parentUuid": "8f595a92_458aaf85",
+      "range": {
+        "startLine": 58,
+        "startChar": 71,
+        "endLine": 58,
+        "endChar": 72
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "618c64eb_dcad2da8",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-04-29T16:03:26Z",
       "side": 1,
       "message": "Missing backtick.",
+      "range": {
+        "startLine": 63,
+        "startChar": 26,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae8f9fa8_38824198",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "618c64eb_dcad2da8",
       "range": {
         "startLine": 63,
         "startChar": 26,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde66be9_46cbb4c2",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "I changed the Hash and Equals but not the Empty helper.",
+      "parentUuid": "d01a838b_047a7351",
+      "range": {
+        "startLine": 634,
+        "startChar": 8,
+        "endLine": 634,
+        "endChar": 32
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16d31776_1699c03f",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-04-29T16:03:26Z",
       "side": 1,
       "message": "What is the logic behind these formulas? Can you add a comment?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 82
+      },
+      "revId": "7e0df1d3a3a5b739927b9b35588f58359f9152cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac1ca024_dd39c591",
+        "filename": "libprofile/profile/profile_test_helper.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-29T17:32:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d31776_1699c03f",
       "range": {
         "startLine": 169,
         "startChar": 0,
