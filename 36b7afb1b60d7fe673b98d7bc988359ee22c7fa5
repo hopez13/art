@@ -22,6 +22,30 @@
       },
       "revId": "36b7afb1b60d7fe673b98d7bc988359ee22c7fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b6f0f3_65844a59",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-30T16:09:35Z",
+      "side": 1,
+      "message": "We could. But those tests are about instruction ordering and I wanted to be explicit that this is about ordering of uses.",
+      "parentUuid": "47c6067c_c631b070",
+      "range": {
+        "startLine": 8003,
+        "startChar": 11,
+        "endLine": 8003,
+        "endChar": 20
+      },
+      "revId": "36b7afb1b60d7fe673b98d7bc988359ee22c7fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
