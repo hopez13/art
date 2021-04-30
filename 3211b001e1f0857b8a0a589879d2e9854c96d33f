@@ -495,6 +495,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d2741c8_362f244b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-30T19:47:28Z",
+      "side": 1,
+      "message": "Anyway, the question was why I am doing this.  It is to make buildbots more stable (both LUCI and go/ab).  I though more stable local builds would be obviously desirable as well, but it seems not...\n\nIn general, I still maintain that\nfoo --make-this-fast--I-know-what-I-am-doing\nis better than\nfoo --must-pass-this-to-avoid-random-crashes\n\nbut I guess I now see what the engineering proverb \"every change breaks someones workflow\" is about.  I admit I still don\u0027t understand your workflow.  So it is that you are good are remembering and maintaining multiple different build states from different times, but worry about remembering what effect buildbot-build has?\n\nIn any case, it seems you feel very strongly about it.  Feel free to add ENV variables, or invert the flag, or add bash aliases, etc...",
+      "parentUuid": "e5c2a023_e9fb1773",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
