@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed4fec5b_6098b8f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T10:43:59Z",
+      "side": 1,
+      "message": "Every opened shared lib means a few dirty pages (I\u0027ve been told), plus the global variables in it (haven\u0027t checked how much of that there is).\n\nYou\u0027re right about the handle - it\u0027s better to keep using the plugin system to keep track of that. Is it possible to just add empty ArtPlugin_Initialize and ArtPlugin_Deinitialize to heapprofd_client_api instead?",
+      "parentUuid": "74d133ba_40bd3bb3",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
