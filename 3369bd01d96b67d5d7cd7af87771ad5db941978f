@@ -214,6 +214,24 @@
       "parentUuid": "dad1913e_e7ea348d",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2511b8a8_a9241cf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-30T16:56:39Z",
+      "side": 1,
+      "message": "I\u0027ve sent inquiries to see if file-by-file diffing for APEXes made it to play (failed to find a tracking bug). If so, these would compress well in the update. A sparse format would be better either way.",
+      "parentUuid": "965c8d07_f0b92143",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
