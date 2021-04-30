@@ -253,6 +253,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edab8266_9408b99e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017430
+      },
+      "writtenOn": "2021-04-30T15:45:17Z",
+      "side": 1,
+      "message": "if there\u0027s no configuration (including host tests) where libart could be built without JHP, then removing the dlopen entirely seems correct.",
+      "parentUuid": "1912736c_4b2f7c5b",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
