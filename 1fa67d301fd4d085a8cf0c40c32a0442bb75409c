@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9806cf98_068d2434",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T10:17:38Z",
+      "side": 1,
+      "message": "Scratch that - this should be on-demand loaded only as what probably intended. Instead of cleaning it up, please change the shared_libs dependency in Android.bp to runtime_libs.",
+      "parentUuid": "cac07728_90b4bae4",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
