@@ -41,4 +41,9 @@ art_cc_binary {
         "liblzma",
         "liblog",
     ],
+    strip: {
+        // Do not strip since that creates dependency loop.
+        // This is a tool used as part of stripping.
+        none: true,
+    },
 }
