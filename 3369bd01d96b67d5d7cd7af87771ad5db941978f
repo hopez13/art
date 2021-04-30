@@ -106,6 +106,24 @@
       "parentUuid": "0e7a8fe8_3eadd6a0",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2401a6_624703c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-04-30T08:49:17Z",
+      "side": 1,
+      "message": "We would like to know the benefits before doing so - ART is now a mainline module and any size increase has consequences. We also don\u0027t want to produce different binaries whether running on Go or regular Android.",
+      "parentUuid": "ce8abf57_6ffda432",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
