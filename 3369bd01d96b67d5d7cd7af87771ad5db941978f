@@ -142,6 +142,24 @@
       "parentUuid": "2c2401a6_624703c3",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7bacb1a_d4797957",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1558410
+      },
+      "writtenOn": "2021-04-30T15:45:04Z",
+      "side": 1,
+      "message": "THPs will only be used for full 2MB chunks of the section, so the tail will stay on 4KB pages.\n\nBoth VMA and file offset both need to be 2MB aligned to use THPs, this can lead to hugepages covering different functions or not being used at all when there is no explicit alignment.",
+      "parentUuid": "7750c6e2_a3c1d7f3",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
