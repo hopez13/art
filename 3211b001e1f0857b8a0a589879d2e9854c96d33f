@@ -399,6 +399,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "550b2526_d2a9e837",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-30T16:56:14Z",
+      "side": 1,
+      "message": "Right, I suppose that is were we academically differ.  I never flash/create device with my own image, without building the image right before (usually as part of the same bash command).  \"Can not flash, because you didn\u0027t build fresh image\" is a feature for me, not an annoyance.\n\nThe existence of installclean is kind of admitting deficiency of the build system, so either way it is a hack.\n\nThe script is \"buildbot-build\".  As per name it is supposed to be used on buildbot.  So using it locally is the wrong scope whichever way we set it up.  \n\nI would be curious whether with this CL you keep having issue, or whether is just theoretical worry.\n\nAnyway, let\u0027s move the debate to monday morning.",
+      "parentUuid": "b3fea4aa_0653a99b",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
