@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0154e09b_61dc3588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T10:47:58Z",
+      "side": 1,
+      "message": "Yeah, that\u0027d need to go into heapprofd_client_api.map.txt and require NDK API review etc. I\u0027d be inclined to add an option to the Plugin class to simply skip calling them instead.",
+      "parentUuid": "ed4fec5b_6098b8f2",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
