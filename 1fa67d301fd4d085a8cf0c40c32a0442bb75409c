@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74d133ba_40bd3bb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-04-30T10:19:54Z",
+      "side": 1,
+      "message": "Won\u0027t that complicate the implementation, because we need to keep the dlopen handle around everywhere (or have some weak symbols)? What is the benefit of that?",
+      "parentUuid": "9806cf98_068d2434",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
