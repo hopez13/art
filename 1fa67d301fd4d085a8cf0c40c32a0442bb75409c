@@ -302,6 +302,24 @@
       "message": "Add dlerror in the error message?",
       "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d0c1ce_326cb13e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-04-30T16:38:52Z",
+      "side": 1,
+      "message": "Is that actually safely possible? Bionic\u0027s dlerror() returns a pointer to a fixed thread-local buffer. We could copy it into a newly allocated string here. Would that be deallocated by the caller? If the current code works, presumably not :-(",
+      "parentUuid": "752d59a5_4ad24bd8",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
