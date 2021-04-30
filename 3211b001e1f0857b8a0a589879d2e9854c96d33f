@@ -423,6 +423,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9ef6d7_d52d3ca8",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T17:27:24Z",
+      "side": 1,
+      "message": "I also do \"m installclean\" regularly when I make changes that require a fresh image, but it\u0027s also quite often I know I don\u0027t need to do that and can keep the images.\n\n\u003e As per name it is supposed to be used on buildbot.\n\nIt\u0027s part of the local instructions too: https://cs.android.com/android/platform/superproject/+/master:art/test/README.chroot.md;l\u003d67-70;drc\u003d09c23c60aee38b1ff1b47d334e3dcf85cf8adf9c I\u0027m fine with rearranging the scripts in some way so there\u0027s a different one for local use that only builds the chroot and nothing else, but currently this is it.\n\nAs for buildbot, I\u0027m not convinced this is necessary there; do you have an example where it failed because of this? It sounds rather like this is something you want locally to support your workflow.\n\n\u003e whether is just theoretical worry\n\nI thought I\u0027ve made that clear already. It\u0027s not - I quite definitely want a way to disable this without having to remember a command line argument every time.",
+      "parentUuid": "550b2526_d2a9e837",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
