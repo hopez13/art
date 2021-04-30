@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5817403_c95635f5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:07:10Z",
+      "side": 1,
+      "message": "To indicate JHP initialization has happened.",
+      "parentUuid": "c26b7583_896a9ffe",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1111,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b3cf9e_4f107f92",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Because we link against this in our so, so this won\u0027t do anything.",
       "parentUuid": "2d993749_07eb218d",
+      "range": {
+        "startLine": 1851,
+        "startChar": 0,
+        "endLine": 1858,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030d8562_ca220241",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:07:10Z",
+      "side": 1,
+      "message": "So you\u0027re saying it should already be loaded?",
+      "parentUuid": "a0568795_4e2e11b5",
       "range": {
         "startLine": 1851,
         "startChar": 0,
