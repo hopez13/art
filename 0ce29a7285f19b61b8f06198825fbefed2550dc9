@@ -1,0 +1,505 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8edaf763_83ed66c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Some more comments and questions (I haven\u0027t finished reading the patch yet).",
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4d0db6_34d4d083",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"and and\" -- should it be \"and\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "4694971c_58a56e1b",
+      "range": {
+        "startLine": 664,
+        "startChar": 37,
+        "endLine": 664,
+        "endChar": 44
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d1a781_8d1aca67",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Is it not in 1:1 correspondence? The comment gives the idea that these are different things.",
+      "range": {
+        "startLine": 183,
+        "startChar": 28,
+        "endLine": 183,
+        "endChar": 72
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e53454d7_5ed2a1da",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Hmm... I thought \"extra descriptors\" are for types that don\u0027t have TypeId, so I don\u0027t understand how they are related to classes from a different dex file. What is  a different dex file in this context?",
+      "range": {
+        "startLine": 195,
+        "startChar": 39,
+        "endLine": 195,
+        "endChar": 72
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f036fac_dbe885fb",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Please add a comment to explain why this is chosen as a maximum.",
+      "range": {
+        "startLine": 309,
+        "startChar": 5,
+        "endLine": 309,
+        "endChar": 41
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d947d9b6_828ffbe7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "This is a bit difficult to parse. Do you mean \"Also used for DCHECK()-ing that we do not write beyond the end\"?",
+      "range": {
+        "startLine": 387,
+        "startChar": 3,
+        "endLine": 387,
+        "endChar": 79
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0392e2e2_4ea50ce3",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Source and destination can never overlap, right?",
+      "range": {
+        "startLine": 430,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 10
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "376ce4f9_d145ac3f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Why should it be occupied to the last byte? Can\u0027t it be that there are some free bytes but not enough to write the next value?",
+      "range": {
+        "startLine": 442,
+        "startChar": 4,
+        "endLine": 442,
+        "endChar": 39
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abeaed99_c3f30d7b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "const ?",
+      "range": {
+        "startLine": 479,
+        "startChar": 28,
+        "endLine": 479,
+        "endChar": 29
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d19430_051d3c4b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Why the static casts here? AFAIK pointers can be compared with \u003c.",
+      "range": {
+        "startLine": 480,
+        "startChar": 14,
+        "endLine": 480,
+        "endChar": 25
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2f3579_3d670c0f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Can you add a comment what the equality of class_ref.dex_file and \u0026dex_file means, and why class_ref.TypeIndex() can be used here?",
+      "range": {
+        "startLine": 640,
+        "startChar": 4,
+        "endLine": 640,
+        "endChar": 33
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c1a497_66b8d867",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "IIUC bounds checking for extra descriptors happens twice:\n\n- Here we check that index \u003c max_artificial_ids\n- In AddExtraDescriptor we insert in the hash map and check that its size and index  \u003c kMaxExtraDescriptors\n\nThese two limits are related as:\n\n  kMaxExtraDescriptors \u003d max_artificial_ids + dex_file.NumTypeIds()\n\nSo the first check (here) is stricter than the second.\nInstead of checking twice, should AddExtraDescriptor do the stricter check?",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 94
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d60717_b8705cb6",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Why would we what to allow gaps?",
+      "range": {
+        "startLine": 842,
+        "startChar": 25,
+        "endLine": 842,
+        "endChar": 52
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e74e25d_afa13424",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Why zip extra descriptors, do you expect it to be large?",
+      "range": {
+        "startLine": 846,
+        "startChar": 5,
+        "endLine": 846,
+        "endChar": 40
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd77b6b8_685b7099",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Is it NULL-terminated? \"Delimited\" usually means a sequence with delimiter between every pair of adjacent elements (I think).",
+      "range": {
+        "startLine": 853,
+        "startChar": 28,
+        "endLine": 853,
+        "endChar": 42
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26714de8_8ea6945a",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Same question.",
+      "range": {
+        "startLine": 858,
+        "startChar": 33,
+        "endLine": 858,
+        "endChar": 47
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22314e76_d6ab0d24",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "What is this? Can you add a comment?",
+      "range": {
+        "startLine": 862,
+        "startChar": 6,
+        "endLine": 862,
+        "endChar": 23
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb882c2_e43ff749",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "And this as well -- what sort of diff is it?",
+      "range": {
+        "startLine": 863,
+        "startChar": 6,
+        "endLine": 863,
+        "endChar": 21
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ac26a9_6a777844",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "What is this?",
+      "range": {
+        "startLine": 874,
+        "startChar": 6,
+        "endLine": 874,
+        "endChar": 23
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e39af3_7f17ae2a",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "It is a string of arbitrary length -- does this mean the next write may be unaligned?\n\nGenerally I don\u0027t see any alignment checks here.",
+      "range": {
+        "startLine": 969,
+        "startChar": 6,
+        "endLine": 969,
+        "endChar": 95
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4ce970_8b0822f4",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Why is this a const method and not a constexpr static member?",
+      "range": {
+        "startLine": 906,
+        "startChar": 19,
+        "endLine": 906,
+        "endChar": 34
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ce110d_6e86b583",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-04-30T16:02:31Z",
+      "side": 1,
+      "message": "Do I understand correctly that this is a dchecked_vector because we may be indexing it with the unsafe information that comes from the profile, so we want all access to be bounds-checked?",
+      "range": {
+        "startLine": 930,
+        "startChar": 2,
+        "endLine": 930,
+        "endChar": 17
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
