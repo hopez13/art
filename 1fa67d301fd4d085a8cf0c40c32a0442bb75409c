@@ -199,6 +199,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98e59d5f_0976e714",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017430
+      },
+      "writtenOn": "2021-04-30T15:33:08Z",
+      "side": 1,
+      "message": "if we\u0027re going to load this in the zygote (which we are), why would this need to be loaded on-demand? I assumed this was a check to make sure that JHP couldn\u0027t be enabled via flags on some weird ART test configuration that could be built without JHP (I don\u0027t know that such a build configuration exists).",
+      "parentUuid": "336ef579_11371711",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
