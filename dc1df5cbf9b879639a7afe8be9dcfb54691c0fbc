@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "402453b6_17ddf333",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-30T22:23:16Z",
+      "side": 1,
+      "message": "Done in PS3.",
+      "parentUuid": "9ad55363_c83ecdef",
+      "revId": "dc1df5cbf9b879639a7afe8be9dcfb54691c0fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e72672b_c25d1ca6",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-04-30T21:23:10Z",
       "side": 1,
       "message": "just `quick_exit`? (interesting that this still builds --- i guess you\u0027re getting \u003ccstdlib\u003e transitively anyway?!)",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 7
+      },
+      "revId": "dc1df5cbf9b879639a7afe8be9dcfb54691c0fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1790f7d7_632048cb",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-30T22:23:16Z",
+      "side": 1,
+      "message": "Yeah, I guess so (PS2 was building locally for me).",
+      "parentUuid": "3e72672b_c25d1ca6",
       "range": {
         "startLine": 221,
         "startChar": 2,
