@@ -289,6 +289,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa45665e_656e146e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T16:59:49Z",
+      "side": 1,
+      "message": "Ok, so based on all the above points by everyone, it seems the best option reducing overhead as well as not add any extra complexity without losing any ART test config cases is to proceeding with removing EnsurePerfettoJavaHeapProfPlugin. So I will proceed with this unless I hear from anyone otherwise.",
+      "parentUuid": "1cca1379_12e4042c",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -318,6 +336,24 @@
       "side": 1,
       "message": "Is that actually safely possible? Bionic\u0027s dlerror() returns a pointer to a fixed thread-local buffer. We could copy it into a newly allocated string here. Would that be deallocated by the caller? If the current code works, presumably not :-(",
       "parentUuid": "752d59a5_4ad24bd8",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcbc0e8_327436fd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T16:59:49Z",
+      "side": 1,
+      "message": "Per the other comment we are proceeding with the removal of the check so this should resolve this comment as well. I am assuming everyone here is ok with removal of EnsurePerfettoJavaHeapProfPlugin per the other comment and that we are not missing any cases.",
+      "parentUuid": "51d0c1ce_326cb13e",
       "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
