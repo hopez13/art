@@ -471,6 +471,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c2a023_e9fb1773",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T19:34:10Z",
+      "side": 1,
+      "message": "Ok, I thought we were talking about buildbot \u003d\u003d LUCI, which doesn\u0027t build incrementally if I\u0027m not mistaken. I wasn\u0027t aware that there are busytown builds that use these scripts.\n\nI agree \"m installclean\" is highly desirable in continuous builds that are incremental, (I\u0027d even argue the build infra ought to do that implicitly before starting the builds), but it doesn\u0027t have to be the default for those use cases, it\u0027s simple enough to add an extra flag there.",
+      "parentUuid": "eb4f1709_05648356",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
