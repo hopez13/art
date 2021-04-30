@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83f98bde_e4b14e3a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:02:44Z",
+      "side": 1,
+      "message": "Shouldn\u0027t ScopedTrace still exist for tracing?",
+      "parentUuid": "ee87a2b8_47f7cefd",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1111,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b3cf9e_4f107f92",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-30T18:52:55Z",
       "side": 1,
       "message": "Also remove this",
+      "range": {
+        "startLine": 1851,
+        "startChar": 0,
+        "endLine": 1858,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d993749_07eb218d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:02:44Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we still open eagerly? Why should we remove this?",
+      "parentUuid": "89b3cf9e_4f107f92",
       "range": {
         "startLine": 1851,
         "startChar": 0,
