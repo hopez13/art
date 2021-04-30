@@ -447,6 +447,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4f1709_05648356",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-04-30T17:33:59Z",
+      "side": 1,
+      "message": "The example is your recent CL where you had to do extra work to make the libdexfile rename work, since it would break on go/ab otherwise.  We keep bumping once in couple of months into similar \"incremental without installclean breaks in odd way\" issue.  I was aware of the issue and the solution for a while, but since you bumped into it again, I was thinking this might be good time to finally fix it...",
+      "parentUuid": "7d9ef6d7_d52d3ca8",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
