@@ -375,6 +375,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fea4aa_0653a99b",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T15:32:47Z",
+      "side": 1,
+      "message": "I build images for cuttlefish, start it, stop it, and build and run the chroot tests, all repeatedly in any order as things happen. I don\u0027t expect the cuttlefish images to disappear just because I\u0027m rebuilding the chroot tests.\n\nThat is a sign that installclean has the wrong scope here, which falls back to the more abstract argument that this script is too low level. It\u0027s probably just a matter of time before we\u0027ll discover similar problems in other scenarios too.\n\nIn any case, I\u0027d like to move on now. I\u0027d appreciate if you could add an environment variable to disable installclean (or revert it, of course), but if you can\u0027t do that then feel free to submit this so I can follow up with it myself.",
+      "parentUuid": "355de796_f8a7c978",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
