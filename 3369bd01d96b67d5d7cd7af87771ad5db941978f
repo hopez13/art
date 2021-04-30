@@ -160,6 +160,24 @@
       "parentUuid": "7750c6e2_a3c1d7f3",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90938df8_74086bfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-04-30T15:59:02Z",
+      "side": 1,
+      "message": "Sounds good. So the storage growth is because the tail isn\u0027t on 4KB blocks in the file? In which case, the extra space might compress well(?).\n\nThe concern with space is magnified for mainline modules, there will be one copy of these libraries in the system installed apex and one in any updates that are shipped.\n\nThe updates ship from Play so if we\u0027re not able to compress the extra space here, that\u0027s costly. IDNK if Play diff/compress tooling is able to look inside APEXes. It is potentially costly there (bytes served, network costs).",
+      "parentUuid": "e7bacb1a_d4797957",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
