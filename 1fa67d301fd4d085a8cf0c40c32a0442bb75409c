@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48fbb555_6c4905d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-04-30T09:36:29Z",
+      "side": 1,
+      "message": "This is unnecessary, as heapprofd_client_api is DT_NEEDED in the .so, so this code will  not run if the library doesn\u0027t exist.\n\nfmayer ~\n% adb pull /apex/com.android.art/lib64/libart.so\n/apex/com.android.art/lib64/libart.so: 1 file pulled, 0 skipped. 59.3 MB/s (9410160 bytes in 0.151s)\nfmayer ~\n% readelf --all libart.so| grep NEEDED\n 0x0000000000000001 (NEEDED)             Shared library: [libartpalette.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libbacktrace.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libbase.so]\n 0x0000000000000001 (NEEDED)             Shared library: [liblog.so]\n 0x0000000000000001 (NEEDED)             Shared library: [liblz4.so]\n 0x0000000000000001 (NEEDED)             Shared library: [liblzma.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libnativebridge.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libnativeloader.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libsigchain.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libunwindstack.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libartbase.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libdexfile.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libprofile.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libdl_android.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libicu.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libstatssocket.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libz.so]\n 0x0000000000000001 (NEEDED)             Shared library: [heapprofd_client_api.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libc++.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libm.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libdl.so]",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752d59a5_4ad24bd8",
