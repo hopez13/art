@@ -46,6 +46,53 @@
       },
       "revId": "36b7afb1b60d7fe673b98d7bc988359ee22c7fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19258d80_0d369c20",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8003,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-30T16:13:07Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "e8b6f0f3_65844a59",
+      "range": {
+        "startLine": 8003,
+        "startChar": 11,
+        "endLine": 8003,
+        "endChar": 20
+      },
+      "revId": "36b7afb1b60d7fe673b98d7bc988359ee22c7fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec7c36b_93c89bfe",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8124,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2021-04-30T16:13:07Z",
+      "side": 1,
+      "message": "It\u0027s not obvious how this is different then the kDefaultOrder version\n\nCan you add a comment showing the different \u0027middle\u0027 block instructions on each.",
+      "range": {
+        "startLine": 8124,
+        "startChar": 0,
+        "endLine": 8124,
+        "endChar": 60
+      },
+      "revId": "36b7afb1b60d7fe673b98d7bc988359ee22c7fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
