@@ -217,6 +217,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e728e078_3efe28e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-04-30T15:36:06Z",
+      "side": 1,
+      "message": "But in case t he library isn\u0027t on the system, libart will not link, rather than the dlopen fail. So it doesn\u0027t add any benefit.",
+      "parentUuid": "98e59d5f_0976e714",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
