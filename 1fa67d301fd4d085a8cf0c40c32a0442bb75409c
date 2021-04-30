@@ -271,6 +271,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cca1379_12e4042c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-04-30T15:47:04Z",
+      "side": 1,
+      "message": "In host tests, libart is built without JHP (it is built for ART_TARGET_ANDROID only). But I still don\u0027t see why we need to have a failing redundant dlopen in that case.",
+      "parentUuid": "edab8266_9408b99e",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
