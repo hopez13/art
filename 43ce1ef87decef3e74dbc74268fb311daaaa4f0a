@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ed03034_bcde71a0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:20:06Z",
+      "side": 1,
+      "message": "I mean we are tracing ART initialized with JHP enabled similar to other cases above. We\u0027re not really going to add any new tracing in this CL. Just keeping the tracing that already exists.",
+      "parentUuid": "1eac6c7d_9d337eed",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1111,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b3cf9e_4f107f92",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -205,6 +229,30 @@
       "side": 1,
       "message": "So you\u0027re saying it should already be loaded?",
       "parentUuid": "a0568795_4e2e11b5",
+      "range": {
+        "startLine": 1851,
+        "startChar": 0,
+        "endLine": 1858,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ce691d_04d39508",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T19:20:06Z",
+      "side": 1,
+      "message": "I would think you still need this to load it to memory eagerly.",
+      "parentUuid": "030d8562_ca220241",
       "range": {
         "startLine": 1851,
         "startChar": 0,
