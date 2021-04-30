@@ -16,6 +16,24 @@
       "message": "Pirama / Allen, could this have app compat consequences?",
       "revId": "cc2f760d0c71a896673b155d2b6eb3ad8292b82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa7787f6_a6d600b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2021-04-30T18:17:09Z",
+      "side": 1,
+      "message": "I think this would be fine - quick_exit is part of bionic/libc since API level 21.",
+      "parentUuid": "12acb7ae_60b6d6f4",
+      "revId": "cc2f760d0c71a896673b155d2b6eb3ad8292b82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
