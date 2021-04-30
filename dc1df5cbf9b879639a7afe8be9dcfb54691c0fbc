@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad55363_c83ecdef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-30T21:23:10Z",
+      "side": 1,
+      "message": "s/std::quick_exit/quick_exit/g",
+      "revId": "dc1df5cbf9b879639a7afe8be9dcfb54691c0fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e72672b_c25d1ca6",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-30T21:23:10Z",
+      "side": 1,
+      "message": "just `quick_exit`? (interesting that this still builds --- i guess you\u0027re getting \u003ccstdlib\u003e transitively anyway?!)",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 7
+      },
+      "revId": "dc1df5cbf9b879639a7afe8be9dcfb54691c0fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
