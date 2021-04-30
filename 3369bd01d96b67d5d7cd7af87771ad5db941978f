@@ -178,6 +178,24 @@
       "parentUuid": "e7bacb1a_d4797957",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad1913e_e7ea348d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-30T16:06:01Z",
+      "side": 1,
+      "message": "The explicit alignment requirement for VMA seems to be an unnecessary restriction on THPs. I guess I have a feature request to allow THPs even when the section is not explicitly 2MiB aligned.\n\nThe file offset alignment requirement seems like a filesystem waste. Or can we use a sparse .so file to avoid that waste?",
+      "parentUuid": "e7bacb1a_d4797957",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
