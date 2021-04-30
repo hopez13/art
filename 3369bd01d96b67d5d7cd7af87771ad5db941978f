@@ -124,6 +124,24 @@
       "parentUuid": "ce8abf57_6ffda432",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7750c6e2_a3c1d7f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-04-30T09:16:26Z",
+      "side": 1,
+      "message": "We would also like to know more about how transparent huge pages work to determine what are the actual benefits.\n\nWith this CL: The tail part of a section (say .text) can be a lot less that 2MiB. Are we going to use a huge page for the tail and waste valuable RAM? (I assume we cannot reuse the rest of the physical page for other small-page data as that could be potentially used as a side-channel for that data.)\n\nWithout this CL: If a section is bigger than 2MiB and happens to cover an entire aligned 2MiB area, would we not use a huge page anyway? (Which would mean that this CL is useful only for the head and tail parts, with the above concern about the tail.)",
+      "parentUuid": "2c2401a6_624703c3",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
