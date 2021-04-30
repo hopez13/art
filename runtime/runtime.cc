@@ -1108,9 +1108,6 @@ void Runtime::InitNonZygoteOrPostFork(
     std::string err;
     ScopedTrace tr("perfetto_javaheapprof init.");
     ScopedThreadSuspension sts(Thread::Current(), ThreadState::kNative);
-    if (!EnsurePerfettoJavaHeapProfPlugin(&err)) {
-      LOG(WARNING) << "Failed to load perfetto_javaheapprof: " << err;
-    }
   }
   if (Runtime::Current()->IsSystemServer()) {
     std::string err;
@@ -1901,13 +1898,6 @@ bool Runtime::EnsurePerfettoPlugin(std::string* error_msg) {
   constexpr const char* plugin_name = kIsDebugBuild ?
     "libperfetto_hprofd.so" : "libperfetto_hprof.so";
   return EnsurePluginLoaded(plugin_name, error_msg);
-}
-
-bool Runtime::EnsurePerfettoJavaHeapProfPlugin(std::string* error_msg) {
-  // There is no debug build of heapprofd_client_api.so currently.
-  // Add debug build .so when available.
-  constexpr const char* jhp_plugin_name = "heapprofd_client_api.so";
-  return EnsurePluginLoaded(jhp_plugin_name, error_msg);
 }
 
 static bool EnsureJvmtiPlugin(Runtime* runtime,
