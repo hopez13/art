@@ -3124,9 +3124,11 @@ int main(int argc, char** argv) {
   int result = static_cast<int>(art::Dex2oat(argc, argv));
   // Everything was done, do an explicit exit here to avoid running Runtime destructors that take
   // time (bug 10645725) unless we're a debug or instrumented build or running on a memory tool.
+  // Also have functions registered with `std::at_quick_exit` (for instance LLVM's code coverage
+  // profile dumping routine) be called before exiting.
   // Note: The Dex2Oat class should not destruct the runtime in this case.
   if (!art::kIsDebugBuild && !art::kIsPGOInstrumentation && !art::kRunningOnMemoryTool) {
-    _exit(result);
+    std::quick_exit(result);
   }
   return result;
 }
