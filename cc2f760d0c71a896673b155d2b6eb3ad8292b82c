@@ -51,6 +51,24 @@
       "message": "i\u0027d undo these changes... they\u0027re not the local style, you don\u0027t need them, and they\u0027re mildly harmful (because using the C++ wrappers for C headers have a few other random side-effects that only ever cause unhappy surprises).",
       "revId": "cc2f760d0c71a896673b155d2b6eb3ad8292b82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4d78348_5eefacd1",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-04-30T21:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e891ec73_98d654c5",
+      "revId": "cc2f760d0c71a896673b155d2b6eb3ad8292b82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
