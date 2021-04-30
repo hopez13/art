@@ -40,6 +40,8 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+#include <cstdlib>
+
 #include <android-base/logging.h>
 
 #include "../../libcore/ojluni/src/main/native/jvm.h"  // TODO(narayan): fix it
@@ -314,8 +316,10 @@ JNIEXPORT __attribute__((noreturn)) void JVM_Exit(jint status) {
   LOG(INFO) << "System.exit called, status: " << status;
   art::Runtime::Current()->CallExitHook(status);
   // Unsafe to call exit() while threads may still be running. They would race
-  // with static destructors.
-  _exit(status);
+  // with static destructors. However, have functions registered with
+  // `std::at_quick_exit` (for instance LLVM's code coverage profile dumping
+  // routine) be called before exiting.
+  std::quick_exit(status);
 }
 
 JNIEXPORT jstring JVM_NativeLoad(JNIEnv* env,
