@@ -305,6 +305,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef38fe02_088a2c42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T18:51:07Z",
+      "side": 1,
+      "message": "Resolved per the new change.",
+      "parentUuid": "aa45665e_656e146e",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752d59a5_4ad24bd8",
@@ -354,6 +372,24 @@
       "side": 1,
       "message": "Per the other comment we are proceeding with the removal of the check so this should resolve this comment as well. I am assuming everyone here is ok with removal of EnsurePerfettoJavaHeapProfPlugin per the other comment and that we are not missing any cases.",
       "parentUuid": "51d0c1ce_326cb13e",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4903c70f_2369913b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-04-30T18:51:07Z",
+      "side": 1,
+      "message": "Resolved per the new change.",
+      "parentUuid": "5fcbc0e8_327436fd",
       "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
