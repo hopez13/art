@@ -1907,7 +1907,12 @@ bool Runtime::EnsurePerfettoJavaHeapProfPlugin(std::string* error_msg) {
   // There is no debug build of heapprofd_client_api.so currently.
   // Add debug build .so when available.
   constexpr const char* jhp_plugin_name = "heapprofd_client_api.so";
-  return EnsurePluginLoaded(jhp_plugin_name, error_msg);
+  if (dlopen(jhp_plugin_name, RTLD_NOLOAD | RTLD_LOCAL) == nullptr) {
+    // plugin is not loaded
+    *error_msg = "heapprofd_client_api not loaded";
+    return false;
+  }
+  return true;
 }
 
 static bool EnsureJvmtiPlugin(Runtime* runtime,
