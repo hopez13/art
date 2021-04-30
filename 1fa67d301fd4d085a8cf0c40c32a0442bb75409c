@@ -235,6 +235,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1912736c_4b2f7c5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-04-30T15:43:29Z",
+      "side": 1,
+      "message": "No, there\u0027s no reason to do both. Other than that, I don\u0027t have a strong opinion on which way to go. We intend to provide a single prebuilt though, so whatever we do will be the same on stock Android and Go, Wear, etc.",
+      "parentUuid": "e728e078_3efe28e6",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
