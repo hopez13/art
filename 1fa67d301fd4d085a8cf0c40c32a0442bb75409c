@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "336ef579_11371711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2021-04-30T11:25:34Z",
+      "side": 1,
+      "message": "No, that property is loaded by Bionic regardless and will still be there, even if we remove the dependency on heapprofd_client_api.so.\n\nAlso note that most apps are profileable, so only in very few cases we will end up not actually loading this.",
+      "parentUuid": "904a5236_24123201",
+      "revId": "1fa67d301fd4d085a8cf0c40c32a0442bb75409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752d59a5_4ad24bd8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
