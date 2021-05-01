@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "824aa81d_d714ee7c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-01T10:41:20Z",
+      "side": 1,
+      "message": "This is a const reference to temporary which is somewhat odd, even if functionally correct. Use values (`std::string_view`) or keep the `const std::string\u0026` and explicitly construct a `std::string_view` below before `.substr()`.",
+      "range": {
+        "startLine": 1243,
+        "startChar": 7,
+        "endLine": 1243,
+        "endChar": 34
+      },
+      "revId": "257090b02d0e1a28c1c8ae643bc1363b35f20f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
