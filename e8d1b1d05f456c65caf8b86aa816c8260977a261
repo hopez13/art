@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d040506_f0cf8716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-04T13:55:08Z",
+      "side": 1,
+      "message": "lgtm, modulo Nicolas comment since quick_exit() is a bsd-ism and so not immediately recognizable to all.",
+      "revId": "e8d1b1d05f456c65caf8b86aa816c8260977a261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d104212_4fb08605",
