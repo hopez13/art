@@ -232,6 +232,24 @@
       "parentUuid": "965c8d07_f0b92143",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381b0617_a6048123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T08:12:29Z",
+      "side": 1,
+      "message": "Given that the tail is already ignored, I see no reason for the head to be treated differenly. The VMA alignment requirement is certainly not required for THPs to work on the middle regions.",
+      "parentUuid": "2511b8a8_a9241cf9",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
