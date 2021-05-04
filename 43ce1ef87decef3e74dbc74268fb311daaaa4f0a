@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9a1f713_f6c20b35",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-04T08:07:50Z",
+      "side": 1,
+      "message": "Keeping the tracing SGTM, but you should remove the ScopedThreadSuspension, it\u0027s not needed anymore.",
+      "parentUuid": "2ed03034_bcde71a0",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1111,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b3cf9e_4f107f92",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
