@@ -250,6 +250,24 @@
       "parentUuid": "2511b8a8_a9241cf9",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a424ae09_5cce903c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1558410
+      },
+      "writtenOn": "2021-05-04T16:16:59Z",
+      "side": 1,
+      "message": "These libraries tend to have text sections ~2-6MiB. It\u0027s very likely that there will be no, or a reduced number of, 2-MiB aligned middle regions if there\u0027s no explicit alignment.",
+      "parentUuid": "381b0617_a6048123",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
