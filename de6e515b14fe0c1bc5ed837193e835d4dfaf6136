@@ -16,6 +16,23 @@
       "message": "Thank you. I\u0027m still happy to update the busytown invocations - as mentioned I entirely agree installclean should be done there.\n\n[For the record, this is a follow-up on the discussion in https://r.android.com/1688226.]",
       "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa284a2_4141a6bf",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-04T18:44:02Z",
+      "side": 1,
+      "message": "Can we remove these? I don\u0027t want to see those warnings every time I build :)",
+      "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
