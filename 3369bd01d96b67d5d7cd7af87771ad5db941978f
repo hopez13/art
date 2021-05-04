@@ -268,6 +268,24 @@
       "parentUuid": "381b0617_a6048123",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6b35b0_7f71f0b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1558410
+      },
+      "writtenOn": "2021-05-04T17:37:30Z",
+      "side": 1,
+      "message": "https://github.com/torvalds/linux/blob/5bfc75d92efd494db37f5c4c173d3639d4772966/mm/khugepaged.c#L463\n\nThis is the relevant condition in hugepage_vma_check. The vma start address and offset into the file need to be 2-MiB aligned for this to be reliably true. This is unlikely enough without explicit alignment that marking every library\u0027s text segment as hugepage eligible results in no eligible regions.",
+      "parentUuid": "a424ae09_5cce903c",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
