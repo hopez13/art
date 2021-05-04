@@ -519,6 +519,30 @@
       },
       "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "927ef0e2_96874043",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-04T15:58:47Z",
+      "side": 1,
+      "message": "Often I don\u0027t think it\u0027s that hard to know if the modification I did last affects the boot image or not, but if I\u0027m unsure I also rebuild both images and tests. However it\u0027s clearly not _always_ I want to rebuild both.\n\n\u003e Feel free to add ENV variables, or invert the flag, or add bash aliases, etc..\n\nWill do. I\u0027d prefer an inverted flag, if that\u0027s ok. In that case I\u0027m also happy to add it to the invocations in busytown.",
+      "parentUuid": "1d2741c8_362f244b",
+      "range": {
+        "startLine": 131,
+        "startChar": 65,
+        "endLine": 131,
+        "endChar": 76
+      },
+      "revId": "3211b001e1f0857b8a0a589879d2e9854c96d33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
